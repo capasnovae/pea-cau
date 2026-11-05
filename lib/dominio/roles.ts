@@ -34,6 +34,7 @@ const MENU_ADMIN: ItemMenu[] = [
   { href: "/admin/sedes", etiqueta: "Sedes" },
   { href: "/admin/equipos", etiqueta: "Equipos" },
   { href: "/admin/derivaciones", etiqueta: "Derivaciones" },
+  { href: "/admin/rutas", etiqueta: "Rutas" },
 ];
 
 export const ROLES_EDITORES: readonly RolApp[] = ["coordinador", "director", "admin"];

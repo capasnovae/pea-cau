@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { promover, type ResultadoGuardado } from "@/app/(app)/contenido/acciones";
 import { MensajeResultado } from "./campos";
 
-export function BotonPromover({ tabla, id }: { tabla: "articulos" | "recursos" | "campanas"; id: string }) {
+export function BotonPromover({ tabla, id }: { tabla: "articulos" | "recursos" | "campanas" | "cursos"; id: string }) {
   const [pendiente, iniciar] = useTransition();
   const [r, setR] = useState<ResultadoGuardado>(null);
   return (

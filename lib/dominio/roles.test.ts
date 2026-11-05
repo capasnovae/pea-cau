@@ -21,6 +21,7 @@ describe("menuPorRol", () => {
       "/admin/sedes",
       "/admin/equipos",
       "/admin/derivaciones",
+      "/admin/rutas",
     ]);
     expect(menuPorRol("admin").find((i) => i.href === "/admin/usuarios")?.etiqueta).toBe("Usuarios");
   });

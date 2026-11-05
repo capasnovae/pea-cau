@@ -8,6 +8,7 @@ import { crearClienteServidor } from "@/lib/supabase/servidor";
 import { cn } from "@/lib/utils/cn";
 
 const TABS = [
+  { id: "cursos", etiqueta: "Cursos" },
   { id: "articulos", etiqueta: "Artículos" },
   { id: "recursos", etiqueta: "Recursos" },
   { id: "campanas", etiqueta: "Campañas" },
@@ -16,7 +17,7 @@ const TABS = [
 export default async function PaginaContenido({ searchParams }: PageProps<"/contenido">) {
   const perfil = await requerirRol([...ROLES_EDITORES]);
   const sp = await searchParams;
-  const tab = TABS.find((t) => t.id === sp.tab)?.id ?? "articulos";
+  const tab = TABS.find((t) => t.id === sp.tab && t.id !== "cursos")?.id ?? "articulos";
   const supabase = await crearClienteServidor();
 
   // Filtramos en el servidor lo que el rol puede editar (lo global solo para el admin),
@@ -61,7 +62,7 @@ export default async function PaginaContenido({ searchParams }: PageProps<"/cont
           <h1 className="text-2xl font-semibold">Contenido</h1>
           <p className="text-sm text-muted">Artículos, recursos y campañas que podés editar.</p>
         </div>
-        {tab !== "campanas" && (
+        {tab !== "campanas" && tab !== "cursos" && (
           <Link
             href={`/contenido/${tab}/nuevo`}
             className="inline-flex h-11 items-center rounded-lg bg-primary px-4 text-sm font-medium text-primary-foreground"
@@ -74,7 +75,7 @@ export default async function PaginaContenido({ searchParams }: PageProps<"/cont
         {TABS.map((t) => (
           <Link
             key={t.id}
-            href={t.id === "campanas" ? "/contenido/campanas" : `/contenido?tab=${t.id}`}
+            href={t.id === "campanas" ? "/contenido/campanas" : t.id === "cursos" ? "/contenido/cursos" : `/contenido?tab=${t.id}`}
             aria-current={tab === t.id ? "page" : undefined}
             className={cn("flex-1 rounded-md px-3 py-2 text-center text-sm", tab === t.id ? "bg-background font-semibold text-primary" : "text-muted")}
           >

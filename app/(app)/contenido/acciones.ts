@@ -135,7 +135,7 @@ export async function guardarCampana(_prev: ResultadoGuardado, formData: FormDat
   return { ok: true, mensaje: "Campaña guardada." };
 }
 
-const esquemaTabla = z.enum(["articulos", "recursos", "campanas"]);
+const esquemaTabla = z.enum(["articulos", "recursos", "campanas", "cursos"]);
 
 export async function promover(tabla: string, id: string): Promise<ResultadoGuardado> {
   await requerirRol(["admin"]);
