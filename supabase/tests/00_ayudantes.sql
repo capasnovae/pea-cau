@@ -39,6 +39,36 @@ begin
   perform set_config('request.jwt.claims', '', true);
 end $$;
 
+create or replace function tests.uid(p_email text) returns uuid language sql security definer set search_path = '' as $$
+  select id from public.perfiles where email = p_email
+$$;
+
+-- Escenario común para tests de visibilidad (spec §3).
+create or replace function tests.escenario() returns void language plpgsql security definer set search_path = '' as $$
+declare v_e1 uuid; v_nqn uuid; v_roca uuid;
+begin
+  insert into public.sedes (nombre, ciudad) values ('T-Neuquén', 'Neuquén'), ('T-Roca', 'General Roca');
+  perform tests.crear_usuario('coordS@t', 'coordinador', 'T-Neuquén', 'servicio');
+  perform tests.crear_usuario('coordV@t', 'coordinador', 'T-Neuquén', 'ventas');
+  perform tests.crear_usuario('lider1@t', 'lider', 'T-Neuquén', 'servicio');
+  perform tests.crear_usuario('ase1@t', 'asesor', 'T-Neuquén', 'servicio');
+  perform tests.crear_usuario('ase2@t', 'asesor', 'T-Neuquén', 'servicio');
+  perform tests.crear_usuario('aseV@t', 'asesor', 'T-Neuquén', 'ventas');
+  perform tests.crear_usuario('aseR@t', 'asesor', 'T-Roca', 'servicio');
+  perform tests.crear_usuario('dir@t', 'director');
+  perform tests.crear_usuario('adm@t', 'admin');
+  perform tests.crear_usuario('coordX@t', 'coordinador', 'T-Neuquén', null);
+  perform tests.crear_usuario('aseInactivo@t', 'asesor', 'T-Neuquén', 'servicio');
+  update public.perfiles set activo = false where email = 'aseInactivo@t';
+  select id into v_nqn from public.sedes where nombre = 'T-Neuquén';
+  select id into v_roca from public.sedes where nombre = 'T-Roca';
+  insert into public.equipos (sede_id, area, nombre, lider_id)
+    values (v_nqn, 'servicio', 'E1', tests.uid('lider1@t')) returning id into v_e1;
+  insert into public.equipos (sede_id, area, nombre, lider_id) values (v_roca, 'servicio', 'E2', null);
+  update public.perfiles set equipo_id = v_e1 where email in ('ase1@t', 'lider1@t');
+  update public.perfiles set equipo_id = (select id from public.equipos where nombre = 'E2') where email = 'aseR@t';
+end $$;
+
 grant usage on schema tests to authenticated, anon;
 grant execute on all functions in schema tests to authenticated, anon;
 
