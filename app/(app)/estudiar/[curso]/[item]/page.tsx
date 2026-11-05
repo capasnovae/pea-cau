@@ -1,0 +1,111 @@
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { BarraSiguiente, MarcarVisto } from "@/components/leccion/acciones-leccion";
+import { ContenidoLeccion } from "@/components/leccion/contenido";
+import { Markdown } from "@/components/markdown";
+import { BotonDescargar } from "@/app/(app)/recursos/boton-descargar";
+import { colorNivel, idsRecursoEnMarkdown, reemplazarRecursos, urlEmbedVideo } from "@/lib/dominio/leccion";
+import { requerirPerfil } from "@/lib/supabase/permisos";
+import { crearClienteServidor } from "@/lib/supabase/servidor";
+
+const UUID = /^[0-9a-f-]{36}$/i;
+
+export default async function PaginaLeccion({ params }: PageProps<"/estudiar/[curso]/[item]">) {
+  await requerirPerfil();
+  const { curso: cursoId, item: itemId } = await params;
+  if (!UUID.test(cursoId) || !UUID.test(itemId)) notFound();
+  const supabase = await crearClienteServidor();
+  const [{ data: curso }, { data: item }, { data: estado }] = await Promise.all([
+    supabase.from("cursos").select("id, titulo, tipo, nivel_orden").eq("id", cursoId).maybeSingle(),
+    supabase.from("items").select("id, titulo, tipo, requisito, contenido_md, url, articulo_id, recurso_id, modulo_id").eq("id", itemId).maybeSingle(),
+    supabase.rpc("estado_curso", { p_curso: cursoId }),
+  ]);
+  if (!curso || !item) notFound();
+  const filas = estado ?? [];
+  const idx = filas.findIndex((f) => f.item_id === itemId);
+  if (idx < 0) notFound();
+  const fila = filas[idx]!;
+  const delModulo = filas.filter((f) => f.modulo_id === fila.modulo_id);
+  const posModulo = delModulo.findIndex((f) => f.item_id === itemId);
+  const siguiente = filas[idx + 1];
+  const siguienteHref = siguiente ? `/estudiar/${cursoId}/${siguiente.item_id}` : `/estudiar/${cursoId}`;
+  const color = colorNivel(curso.nivel_orden).fondo;
+
+  if (!fila.disponible && !fila.cumplido) {
+    const pendiente = filas.find((f) => f.disponible && !f.cumplido);
+    return (
+      <div className="flex flex-col gap-4">
+        <Link href={`/estudiar/${cursoId}`} className="text-sm font-semibold text-primary-strong">← {curso.titulo}</Link>
+        <div className="rounded-3xl bg-card p-6 text-center shadow-[var(--shadow-suave)]">
+          <h1 className="text-xl font-extrabold">{item.titulo}</h1>
+          <p className="mt-2 text-muted">Esta lección todavía está bloqueada. Completá lo anterior para seguir.</p>
+          {pendiente && (
+            <Link href={`/estudiar/${cursoId}/${pendiente.item_id}`} className="mt-4 inline-flex min-h-11 items-center rounded-2xl bg-primary px-5 font-bold text-white">
+              Ir a: {pendiente.titulo}
+            </Link>
+          )}
+        </div>
+      </div>
+    );
+  }
+
+  let cuerpo: React.ReactNode = null;
+  if (item.tipo === "pagina" && item.contenido_md) {
+    const ids = idsRecursoEnMarkdown(item.contenido_md);
+    const urls: Record<string, string> = {};
+    if (ids.length) {
+      const { data: recursos } = await supabase.from("recursos").select("id, archivo_path").in("id", ids);
+      for (const r of recursos ?? []) {
+        if (!r.archivo_path) continue;
+        const { data } = await supabase.storage.from("recursos").createSignedUrl(r.archivo_path, 3600);
+        if (data) urls[r.id] = data.signedUrl;
+      }
+    }
+    cuerpo = <ContenidoLeccion texto={reemplazarRecursos(item.contenido_md, urls)} />;
+  } else if (item.tipo === "articulo" && item.articulo_id) {
+    const { data: art } = await supabase.from("articulos").select("titulo, cuerpo_md, slug, categorias(slug)").eq("id", item.articulo_id).maybeSingle();
+    cuerpo = art ? (
+      <>
+        <Markdown texto={art.cuerpo_md} />
+        <Link href={`/repositorio/${art.categorias?.slug}/${art.slug}`} className="mt-4 inline-block text-sm font-semibold text-primary-strong">Ver en el repositorio →</Link>
+      </>
+    ) : <p className="text-muted">El artículo de esta lección ya no está disponible.</p>;
+  } else if (item.tipo === "video") {
+    const embed = item.url ? urlEmbedVideo(item.url) : null;
+    if (embed) {
+      cuerpo = (
+        <div className="aspect-video overflow-hidden rounded-2xl bg-black">
+          <iframe src={embed} title={item.titulo} className="size-full" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
+        </div>
+      );
+    } else if (item.url) {
+      cuerpo = <a href={item.url} target="_blank" rel="noopener noreferrer" className="font-semibold text-primary-strong underline">Abrir el video</a>;
+    } else if (item.recurso_id) {
+      cuerpo = <BotonDescargar recursoId={item.recurso_id} />;
+    }
+  } else if (item.tipo === "recurso" && item.recurso_id) {
+    cuerpo = <BotonDescargar recursoId={item.recurso_id} />;
+  } else if (item.tipo === "enlace" && item.url) {
+    cuerpo = <a href={item.url} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center rounded-2xl bg-primary-soft px-5 font-bold text-primary-strong">Abrir enlace</a>;
+  } else if (item.tipo === "examen") {
+    cuerpo = <p className="rounded-2xl bg-primary-soft p-4 font-semibold text-primary-strong">El examen llega en la próxima etapa.</p>;
+  }
+
+  return (
+    <article className="flex flex-col gap-4 pb-24 md:pb-0">
+      {fila.disponible && !fila.cumplido && item.requisito === "ver" && <MarcarVisto itemId={itemId} />}
+      <div className="flex items-center gap-3">
+        <Link href={`/estudiar/${cursoId}`} aria-label="Volver al curso" className="flex size-11 items-center justify-center rounded-full bg-card text-xl shadow-[var(--shadow-suave)]">×</Link>
+        <div className="grid flex-1 gap-1.5" style={{ gridTemplateColumns: `repeat(${delModulo.length}, minmax(0, 1fr))` }} aria-label={`Paso ${posModulo + 1} de ${delModulo.length}`} role="img">
+          {delModulo.map((f, i) => (
+            <div key={f.item_id} className="h-2 rounded" style={{ background: f.cumplido || i < posModulo ? color : "#e6e6ef" }} />
+          ))}
+        </div>
+      </div>
+      <p className="text-sm font-semibold text-muted">{fila.modulo_titulo} · paso {posModulo + 1} de {delModulo.length}</p>
+      <h1 className="text-2xl font-extrabold leading-tight">{item.titulo}</h1>
+      <div className="rounded-3xl bg-card p-5 shadow-[var(--shadow-suave)]">{cuerpo}</div>
+      <BarraSiguiente itemId={itemId} requisito={item.requisito} cumplido={fila.cumplido} siguienteHref={siguienteHref} color={color} />
+    </article>
+  );
+}
