@@ -1295,6 +1295,22 @@ export type Database = {
       curso_desbloqueado: { Args: { p_curso: string; p_usuario: string }; Returns: boolean };
       destinatarios_consigna: { Args: { p_consigna: string }; Returns: string[] };
       es_creador_de_asignacion: { Args: { p_consigna: string }; Returns: boolean };
+      estado_curso: {
+        Args: { p_curso: string };
+        Returns: {
+          cumplido: boolean;
+          disponible: boolean;
+          item_id: string;
+          item_orden: number;
+          modulo_cumplido: boolean;
+          modulo_id: string;
+          modulo_orden: number;
+          modulo_titulo: string;
+          requisito: Database["public"]["Enums"]["requisito_item"];
+          tipo: Database["public"]["Enums"]["tipo_item"];
+          titulo: string;
+        }[];
+      };
       f_etiquetas_texto: { Args: { etiquetas: string[] }; Returns: string };
       f_unaccent: { Args: { texto: string }; Returns: string };
       fin_periodo: {
@@ -1304,6 +1320,7 @@ export type Database = {
       generar_asignaciones: { Args: { p_consigna: string; p_periodo: string }; Returns: number };
       item_cumplido: { Args: { p_item: string; p_usuario: string }; Returns: boolean };
       item_disponible: { Args: { p_item: string; p_usuario: string }; Returns: boolean };
+      item_disponible_para_mi: { Args: { p_item: string }; Returns: boolean };
       marcar_item: { Args: { p_accion: string; p_item: string }; Returns: Json };
       mi_area: { Args: Record<PropertyKey, never>; Returns: Database["public"]["Enums"]["area"] };
       mi_perfil_activo: { Args: Record<PropertyKey, never>; Returns: boolean };

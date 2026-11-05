@@ -17,8 +17,10 @@ select throws_ok($$select public.marcar_item('e3000000-0000-4000-8000-0000000000
   'P0001', 'integridad: este ítem no se marca a mano', 'un ítem de ver no se marca como hecho');
 select lives_ok($$select public.marcar_item('e3000000-0000-4000-8000-000000000002', 'hecho')$$, 'marca i2 hecho');
 select lives_ok($$select public.marcar_item('e3000000-0000-4000-8000-000000000003', 'visto')$$, 'i3 se habilita con M1 cumplido');
-select ok(public.curso_cumplido('e1000000-0000-4000-8000-000000000001', auth.uid()), 'el nivel A quedó cumplido');
-select ok(public.curso_desbloqueado('e1000000-0000-4000-8000-000000000002', auth.uid()), 'el nivel B se desbloqueó');
+select tests.como_postgres();
+select ok(public.curso_cumplido('e1000000-0000-4000-8000-000000000001', tests.uid('ase1@t')), 'el nivel A quedó cumplido');
+select ok(public.curso_desbloqueado('e1000000-0000-4000-8000-000000000002', tests.uid('ase1@t')), 'el nivel B se desbloqueó');
+select tests.como(tests.uid('ase1@t'));
 select is_empty($$select 1 from public.modulos where curso_id = 'e1000000-0000-4000-8000-000000000003'$$, 'no ve módulos de un curso de Roca');
 select is_empty($$select 1 from public.items where id = 'e3000000-0000-4000-8000-000000000006'$$, 'no ve ítems de un curso en borrador');
 select throws_ok($$select public.marcar_item('e3000000-0000-4000-8000-000000000005', 'visto')$$,
