@@ -1,0 +1,92 @@
+import { expect, test, type Browser, type Page } from "@playwright/test";
+import { esperarInicio, hayApiRest, ingresar } from "./ayudantes";
+
+test.beforeEach(async () => test.skip(!(await hayApiRest()), "PostgREST no disponible en este entorno"));
+
+async function sesion(browser: Browser, email: string): Promise<Page> {
+  const page = await (await browser.newContext()).newPage();
+  await ingresar(page, email);
+  await esperarInicio(page);
+  return page;
+}
+
+test("el asesor recorre el Nivel 1 en orden y desbloquea el Nivel 2", async ({ browser }) => {
+  const a = await sesion(browser, "asesor.nqn@pea.local");
+  const ruta = a.getByRole("region", { name: "Tu ruta" });
+  await expect(ruta).toContainText("Base: reglamento y plataformas");
+  await expect(ruta).toContainText("0%");
+
+  await a.goto("/estudiar");
+  const niveles = a.getByRole("list", { name: "Niveles" });
+  await expect(niveles).toContainText("Completá el Nivel 1 para desbloquearlo");
+  await niveles.getByRole("link", { name: /Base: reglamento y plataformas/ }).click();
+  const plataformas = a.getByRole("listitem").filter({ hasText: "Portal de estudiantes" }).last();
+  await expect(plataformas).toContainText("completá lo anterior");
+
+  // Paso 1: artículo (ver) → se marca al abrirlo
+  await a.goto("/inicio");
+  await a.getByRole("link", { name: "Continuar" }).click();
+  await expect(a.getByRole("heading", { name: "Inscripción a materias", level: 1 })).toBeVisible();
+  await a.getByRole("link", { name: "Siguiente" }).click();
+
+  // Paso 2: página (marcar como hecho)
+  await expect(a.getByRole("heading", { name: "Cómo buscar una materia en el portal (ejemplo)" })).toBeVisible();
+  await expect(a.getByText("Error común:")).toBeVisible();
+  await a.getByRole("button", { name: "Listo, siguiente" }).click();
+
+  // Paso 3: video embebido
+  await expect(a.getByRole("heading", { name: "Video: recorrido por el portal (ejemplo)" })).toBeVisible();
+  await expect(a.locator('iframe[src^="https://www.youtube-nocookie.com/embed/"]')).toBeVisible();
+  await a.getByRole("link", { name: "Siguiente" }).click();
+
+  // Paso 4: Plataformas ya habilitado
+  await expect(a.getByRole("heading", { name: "Portal de estudiantes", level: 1 })).toBeVisible();
+  await a.getByRole("button", { name: "Listo, siguiente" }).click();
+  await expect(a).toHaveURL(/\/estudiar\/c4000000-0000-4000-8000-000000000001$/);
+  await expect(a.getByText("100% completado")).toBeVisible();
+
+  await a.goto("/estudiar");
+  await expect(a.getByRole("list", { name: "Niveles" }).getByRole("link", { name: /Operativo: modalidades y trámites/ })).toBeVisible();
+});
+
+test("las capacitaciones dependen del puesto", async ({ browser }) => {
+  const ceo = await sesion(browser, "asesor2.nqn@pea.local");
+  await ceo.goto("/estudiar");
+  await expect(ceo.getByRole("region", { name: "Capacitaciones de tu puesto" })).toContainText("Herramientas del CEO (ejemplo)");
+  await expect(ceo.getByText("Obligatoria")).toBeVisible();
+
+  const front = await sesion(browser, "asesor.roca@pea.local");
+  await front.goto("/estudiar");
+  await expect(front.getByText("Herramientas del CEO (ejemplo)")).toHaveCount(0);
+});
+
+test("el coordinador arma un curso de sede y solo lo ve su sede", async ({ browser }) => {
+  const titulo = `Atención en mostrador ${Date.now()}`;
+  const coord = await sesion(browser, "coord.servicio.nqn@pea.local");
+  await coord.goto("/contenido/cursos");
+  const nuevo = coord.locator("form").filter({ has: coord.getByRole("button", { name: "Crear curso" }) });
+  await nuevo.getByLabel("Título del curso").fill(titulo);
+  await nuevo.getByLabel("Estado").selectOption("publicado");
+  await nuevo.getByRole("button", { name: "Crear curso" }).click();
+  await expect(coord).toHaveURL(/creado=1/);
+  const cursoUrl = coord.url().split("?")[0]!;
+  const cursoId = cursoUrl.split("/").pop()!;
+
+  const formModulo = coord.locator("form").filter({ has: coord.getByRole("button", { name: "Agregar módulo" }) });
+  await formModulo.getByLabel("Título del módulo").fill("Saludo");
+  await formModulo.getByRole("button", { name: "Agregar módulo" }).click();
+  await expect(coord.getByRole("region", { name: "Módulo Saludo" })).toBeVisible();
+  const formPaso = coord.getByRole("region", { name: "Módulo Saludo" }).locator("form").filter({ has: coord.getByRole("button", { name: "Agregar paso" }) });
+  await formPaso.getByLabel("Título del paso").fill("Cómo recibir al alumno");
+  await formPaso.getByLabel("Contenido", { exact: true }).fill("Saludá por el nombre y ofrecé ayuda.");
+  await formPaso.getByRole("button", { name: "Agregar paso" }).click();
+  await expect(coord.getByText("Ítem guardado.")).toBeVisible();
+
+  const asesor = await sesion(browser, "asesor.nqn@pea.local");
+  await asesor.goto(`/estudiar/${cursoId}`);
+  await expect(asesor.getByRole("heading", { name: titulo })).toBeVisible();
+  await expect(asesor.getByText("Cómo recibir al alumno")).toBeVisible();
+
+  const roca = await sesion(browser, "asesor.roca@pea.local");
+  expect((await roca.goto(`/estudiar/${cursoId}`))?.status()).toBe(404);
+});

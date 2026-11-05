@@ -109,3 +109,29 @@ insert into public.recursos (categoria_id, campana_id, titulo, descripcion, tipo
    'Pieza para redes (ejemplo)', 'Imagen de ejemplo para compartir con alumnos.', 'enlace', 'https://example.com/pieza', '{reinscripcion,redes}', 'global', 'publicado'),
   ((select id from public.categorias where slug = 'aranceles-y-pagos'), null,
    'Folleto de becas (ejemplo)', 'Resumen de becas y descuentos.', 'enlace', 'https://example.com/becas', '{becas,descuentos}', 'global', 'publicado');
+
+-- Cursos de EJEMPLO (Etapa 4)
+insert into public.cursos (id, tipo, nivel_orden, titulo, descripcion_md, alcance, estado, vigencia_meses) values
+  ('c4000000-0000-4000-8000-000000000001', 'nivel', 1, 'Base: reglamento y plataformas', 'Lo primero que necesita saber todo asesor. Contenido de ejemplo.', 'global', 'publicado', 12),
+  ('c4000000-0000-4000-8000-000000000002', 'nivel', 2, 'Operativo: modalidades y trámites', 'Contenido de ejemplo.', 'global', 'publicado', 12);
+insert into public.cursos (id, tipo, titulo, descripcion_md, alcance, estado) values
+  ('c4000000-0000-4000-8000-000000000003', 'capacitacion', 'Herramientas del CEO (ejemplo)', 'Klarway, mesas y reprogramaciones.', 'global', 'publicado');
+
+insert into public.modulos (id, curso_id, orden, titulo, avance_secuencial) values
+  ('c5000000-0000-4000-8000-000000000001', 'c4000000-0000-4000-8000-000000000001', 1, 'Reglamento', true),
+  ('c5000000-0000-4000-8000-000000000002', 'c4000000-0000-4000-8000-000000000001', 2, 'Plataformas', false),
+  ('c5000000-0000-4000-8000-000000000003', 'c4000000-0000-4000-8000-000000000002', 1, 'Modalidades', false),
+  ('c5000000-0000-4000-8000-000000000004', 'c4000000-0000-4000-8000-000000000003', 1, 'Klarway', false);
+insert into public.modulo_prerrequisitos values ('c5000000-0000-4000-8000-000000000002', 'c5000000-0000-4000-8000-000000000001');
+
+insert into public.items (modulo_id, orden, titulo, tipo, articulo_id, contenido_md, url, requisito) values
+  ('c5000000-0000-4000-8000-000000000001', 1, 'Inscripción a materias', 'articulo', 'a0000000-0000-4000-8000-000000000001', null, null, 'ver'),
+  ('c5000000-0000-4000-8000-000000000001', 2, 'Cómo buscar una materia en el portal (ejemplo)', 'pagina', null,
+   E'Seguí estos pasos con el alumno:\n\n1. Entrá al **portal de estudiantes** con su usuario.\n2. Abrí **Inscripciones** y buscá la materia por nombre.\n3. Revisá que esté habilitada antes de confirmar.\n\n> **Error común:** inscribir sin revisar correlatividades. El portal lo rechaza más tarde y el alumno pierde el turno.\n\n> **Tip:** si no aparece la materia, revisá el plan de estudios del alumno en el campus virtual.', null, 'marcar_hecho'),
+  ('c5000000-0000-4000-8000-000000000001', 3, 'Video: recorrido por el portal (ejemplo)', 'video', null, null, 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', 'ver'),
+  ('c5000000-0000-4000-8000-000000000002', 1, 'Portal de estudiantes', 'articulo', 'a0000000-0000-4000-8000-000000000004', null, null, 'marcar_hecho'),
+  ('c5000000-0000-4000-8000-000000000003', 1, 'Las tres modalidades (ejemplo)', 'pagina', null, E'Educación Distribuida Home, Educación Distribuida y Presencial Distribuida. Contenido de ejemplo.', null, 'ver'),
+  ('c5000000-0000-4000-8000-000000000004', 1, 'Qué es Klarway (ejemplo)', 'pagina', null, E'Klarway supervisa los exámenes online. Contenido de ejemplo.', null, 'ver');
+
+insert into public.ruta_cursos (curso_id, subrol_id, obligatorio)
+select 'c4000000-0000-4000-8000-000000000003', id, true from public.subroles where nombre = 'CEO';
