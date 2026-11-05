@@ -69,6 +69,20 @@ begin
   update public.perfiles set equipo_id = (select id from public.equipos where nombre = 'E2') where email = 'aseR@t';
 end $$;
 
+-- Crea un artículo en la categoría reglamento (como postgres, sin RLS).
+create or replace function tests.contenido(p_titulo text, p_alcance text, p_sede text, p_estado text)
+returns uuid language plpgsql security definer set search_path = '' as $$
+declare v_id uuid;
+begin
+  insert into public.articulos (categoria_id, slug, titulo, alcance, sede_id, estado)
+  values ((select id from public.categorias where slug = 'reglamento'),
+          lower(regexp_replace(p_titulo, '[^a-zA-Z0-9]+', '-', 'g')) || '-' || substr(gen_random_uuid()::text, 1, 6),
+          p_titulo, p_alcance::public.alcance, (select id from public.sedes where nombre = p_sede),
+          p_estado::public.estado_contenido)
+  returning id into v_id;
+  return v_id;
+end $$;
+
 grant usage on schema tests to authenticated, anon;
 grant execute on all functions in schema tests to authenticated, anon;
 
