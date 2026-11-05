@@ -22,11 +22,12 @@ test("el admin invita a un usuario nuevo", async ({ page }) => {
   await ingresar(page, "admin@pea.local");
   await esperarInicio(page);
   await page.goto("/admin/usuarios");
-  await page.getByLabel("Nombre", { exact: true }).fill("Nico");
-  await page.getByLabel("Apellido").fill("Nuevo");
-  await page.getByLabel("Email").fill(email);
-  await page.getByLabel("Sede").selectOption({ label: "Zapala" });
-  await page.getByRole("button", { name: "Mandar invitación" }).click();
+  const form = page.locator("form").filter({ has: page.getByRole("button", { name: "Mandar invitación" }) });
+  await form.getByLabel("Nombre", { exact: true }).fill("Nico");
+  await form.getByLabel("Apellido").fill("Nuevo");
+  await form.getByLabel("Email").fill(email);
+  await form.getByLabel("Sede").selectOption({ label: "Zapala" });
+  await form.getByRole("button", { name: "Mandar invitación" }).click();
   await expect(page.getByText(`Invitación enviada a ${email}.`)).toBeVisible();
   await expect(page.getByRole("listitem").filter({ hasText: email })).toBeVisible();
 });
