@@ -29,3 +29,19 @@ export function mensajeErrorInvitacion(mensajeOriginal: string): string {
   if (/already (been )?registered|already exists/i.test(mensajeOriginal)) return "Ya existe un usuario con ese email.";
   return "No pudimos mandar la invitación. Probá de nuevo.";
 }
+
+export const esquemaAsignacion = z
+  .object({
+    id: z.uuid(),
+    sede_id: opcionalUuid,
+    area: opcionalArea,
+    equipo_id: opcionalUuid,
+    puesto_id: opcionalUuid,
+    subrol_ids: z.array(z.uuid()).default([]),
+  })
+  .refine((d) => !d.equipo_id || (d.sede_id && d.area), {
+    path: ["equipo_id"],
+    message: "Para asignar un equipo, elegí sede y área.",
+  });
+
+export type DatosAsignacion = z.infer<typeof esquemaAsignacion>;

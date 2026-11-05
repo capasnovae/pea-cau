@@ -12,8 +12,13 @@ export async function ingresar(_prev: EstadoForm, formData: FormData): Promise<E
   const email = String(formData.get("email") ?? "").trim();
   const password = String(formData.get("password") ?? "");
   const supabase = await crearClienteServidor();
-  const { error } = await supabase.auth.signInWithPassword({ email, password });
-  if (error) return { error: "El email o la contraseña no son correctos." };
+  const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+  if (error || !data.user) return { error: "El email o la contraseña no son correctos." };
+  const { data: perfil } = await supabase.from("perfiles").select("activo").eq("id", data.user.id).maybeSingle();
+  if (!perfil?.activo) {
+    await supabase.auth.signOut();
+    return { error: "Tu usuario está desactivado. Hablá con tu coordinador." };
+  }
   redirect("/inicio");
 }
 

@@ -46,9 +46,9 @@ begin
                             confirmation_token, recovery_token, email_change_token_new, email_change)
     values (v_id, '00000000-0000-0000-0000-000000000000', 'authenticated', 'authenticated', u.email,
             extensions.crypt('pea-dev-1234', extensions.gen_salt('bf')), now(),
-            '{"provider":"email","providers":["email"]}'::jsonb,
-            jsonb_build_object('nombre', u.nombre, 'apellido', u.apellido, 'rol', u.rol, 'area', u.area,
-                               'sede_id', (select id from public.sedes where nombre = u.sede)),
+            jsonb_build_object('provider', 'email', 'providers', jsonb_build_array('email'), 'pea_alta', true,
+                               'rol', u.rol, 'area', u.area, 'sede_id', (select id from public.sedes where nombre = u.sede)),
+            jsonb_build_object('nombre', u.nombre, 'apellido', u.apellido),
             now(), now(), '', '', '', '');
     insert into auth.identities (id, user_id, provider_id, identity_data, provider, last_sign_in_at, created_at, updated_at)
     values (gen_random_uuid(), v_id, v_id::text,

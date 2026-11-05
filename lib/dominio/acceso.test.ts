@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { decidirRedireccion, esRutaPublica } from "./acceso";
+import { decidirRedireccion, destinoInactivo, esRutaPublica } from "./acceso";
 
 describe("decidirRedireccion", () => {
   it("manda al anónimo a ingresar", () => {
@@ -22,6 +22,19 @@ describe("decidirRedireccion", () => {
   it("saca al usuario inactivo", () => {
     expect(decidirRedireccion("/inicio", "inactivo")).toBe("/ingresar?motivo=inactivo");
     expect(decidirRedireccion("/ingresar", "inactivo")).toBeNull();
+  });
+});
+
+describe("salida forzada", () => {
+  it("deja que cualquier estado pase por /salir para cerrar la sesión", () => {
+    expect(decidirRedireccion("/salir", "activo")).toBeNull();
+    expect(decidirRedireccion("/salir", "anonimo")).toBeNull();
+  });
+  it("no rebota a /inicio al que llega a /ingresar avisado de inactividad", () => {
+    expect(decidirRedireccion("/ingresar?motivo=inactivo", "activo")).toBeNull();
+  });
+  it("el destino de un inactivo pasa por /salir", () => {
+    expect(destinoInactivo()).toBe("/salir?motivo=inactivo");
   });
 });
 

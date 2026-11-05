@@ -25,7 +25,7 @@ export async function actualizarSesion(request: NextRequest) {
 
   const { data } = await supabase.auth.getClaims();
   const estado = data?.claims?.sub ? "activo" : "anonimo";
-  const destino = decidirRedireccion(request.nextUrl.pathname, estado);
+  const destino = decidirRedireccion(request.nextUrl.pathname + request.nextUrl.search, estado);
   if (destino && destino !== request.nextUrl.pathname + request.nextUrl.search) {
     const url = new URL(destino, request.url);
     const redireccion = NextResponse.redirect(url);

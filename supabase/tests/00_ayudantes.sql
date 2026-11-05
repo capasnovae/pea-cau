@@ -16,7 +16,7 @@ begin
   insert into public.perfiles (id, nombre, apellido, email, rol, sede_id, area)
   values (v_id, split_part(p_email, '@', 1), 'Test', p_email, p_rol::public.rol_app,
           (select id from public.sedes where nombre = p_sede), p_area::public.area)
-  on conflict (id) do update set rol = excluded.rol, sede_id = excluded.sede_id, area = excluded.area;
+  on conflict (id) do update set rol = excluded.rol, sede_id = excluded.sede_id, area = excluded.area, activo = true;
   return v_id;
 end $$;
 

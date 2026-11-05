@@ -38,9 +38,8 @@ jobs:
         with: { version: latest }
       - run: npm ci
       - run: npx playwright install --with-deps chromium
-      - name: Levantar Supabase (con API REST habilitada)
+      - name: Levantar Supabase
         run: |
-          sed -i '0,/^enabled = false/s//enabled = true/' supabase/config.toml
           supabase start
           supabase status -o env | sed -n 's/^PUBLISHABLE_KEY=/NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=/p; s/^SECRET_KEY=/SUPABASE_SECRET_KEY=/p' | tr -d '"' >> $GITHUB_ENV
           echo "NEXT_PUBLIC_SUPABASE_URL=http://127.0.0.1:54321" >> $GITHUB_ENV

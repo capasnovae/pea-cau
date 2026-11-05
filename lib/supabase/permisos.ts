@@ -1,5 +1,6 @@
 import "server-only";
 import { notFound, redirect } from "next/navigation";
+import { destinoInactivo } from "@/lib/dominio/acceso";
 import type { RolApp } from "@/lib/dominio/roles";
 import { obtenerSesion, type Perfil } from "./servidor";
 
@@ -7,7 +8,7 @@ import { obtenerSesion, type Perfil } from "./servidor";
 export async function requerirPerfil(): Promise<Perfil> {
   const sesion = await obtenerSesion();
   if (!sesion) redirect("/ingresar");
-  if (!sesion.perfil || !sesion.perfil.activo) redirect("/ingresar?motivo=inactivo");
+  if (!sesion.perfil || !sesion.perfil.activo) redirect(destinoInactivo());
   return sesion.perfil;
 }
 
