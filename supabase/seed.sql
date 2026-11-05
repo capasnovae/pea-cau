@@ -99,3 +99,12 @@ insert into public.articulos (categoria_id, slug, titulo, resumen, cuerpo_md, al
   ((select id from public.categorias where slug = 'institucional'), 'horarios-cau-roca-ejemplo',
    'Horarios del CAU Roca (ejemplo)', 'Horarios de atención de la sede.', E'Contenido de ejemplo de la sede Roca.',
    'sede', (select id from public.sedes where nombre = 'Roca'), 'publicado');
+
+-- Campaña y recursos de EJEMPLO
+insert into public.campanas (id, nombre, descripcion_md, vigente_desde, vigente_hasta, alcance, estado)
+values ('c0000000-0000-4000-8000-000000000001', 'Reinscripción (ejemplo)', 'Campaña de ejemplo.', current_date - 7, current_date + 60, 'global', 'publicado');
+insert into public.recursos (categoria_id, campana_id, titulo, descripcion, tipo, url_externa, etiquetas, alcance, estado) values
+  ((select id from public.categorias where slug = 'campanas-y-piezas'), 'c0000000-0000-4000-8000-000000000001',
+   'Pieza para redes (ejemplo)', 'Imagen de ejemplo para compartir con alumnos.', 'enlace', 'https://example.com/pieza', '{reinscripcion,redes}', 'global', 'publicado'),
+  ((select id from public.categorias where slug = 'aranceles-y-pagos'), null,
+   'Folleto de becas (ejemplo)', 'Resumen de becas y descuentos.', 'enlace', 'https://example.com/becas', '{becas,descuentos}', 'global', 'publicado');

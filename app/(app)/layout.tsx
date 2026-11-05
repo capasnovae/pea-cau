@@ -10,7 +10,17 @@ export default async function LayoutApp({ children }: LayoutProps<"/">) {
   return (
     <div className="flex min-h-full flex-1 flex-col">
       <header className="flex h-14 items-center justify-between border-b border-border bg-card px-4">
-        <span className="font-semibold text-primary">PEA</span>
+        <div className="flex items-center gap-4">
+          <span className="font-semibold text-primary">PEA</span>
+          <form action="/buscar" role="search" className="hidden sm:block">
+            <input
+              name="q"
+              aria-label="Buscar en PEA"
+              placeholder="Buscar…"
+              className="h-9 w-56 rounded-lg border border-border bg-background px-3 text-sm"
+            />
+          </form>
+        </div>
         <form action={salir} className="flex items-center gap-3">
           <span className="hidden text-sm text-muted sm:inline">{perfil.nombre}</span>
           <Button type="submit" variante="fantasma" className="h-9">
