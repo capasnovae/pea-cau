@@ -1,20 +1,31 @@
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
-import { ETIQUETA_ROL } from "@/lib/dominio/roles";
+import { leerFiltrosUsuarios } from "@/lib/dominio/filtros-usuarios";
+import { ETIQUETA_ROL, ROLES } from "@/lib/dominio/roles";
+import { Button } from "@/components/ui/button";
+import { Input, Select } from "@/components/ui/input";
 import { requerirRol } from "@/lib/supabase/permisos";
 import { crearClienteServidor } from "@/lib/supabase/servidor";
 import { AccionesFila } from "./acciones-fila";
 import { FormularioAsignar } from "./formulario-asignar";
 import { FormularioInvitar } from "./formulario-invitar";
 
-export default async function PaginaUsuarios() {
+export default async function PaginaUsuarios({ searchParams }: PageProps<"/admin/usuarios">) {
   await requerirRol(["admin"]);
+  const filtros = leerFiltrosUsuarios(await searchParams);
   const supabase = await crearClienteServidor();
   const [{ data: usuarios }, { data: sedes }, { data: puestos }, { data: equipos }, { data: subroles }] = await Promise.all([
-    supabase
-      .from("perfiles")
-      .select("id, nombre, apellido, email, rol, area, activo, sede_id, equipo_id, puesto_id, sedes(nombre), perfil_subroles(subrol_id)")
-      .order("apellido"),
+    (() => {
+      let q = supabase
+        .from("perfiles")
+        .select("id, nombre, apellido, email, rol, area, activo, sede_id, equipo_id, puesto_id, sedes(nombre), perfil_subroles(subrol_id)")
+        .order("apellido");
+      if (filtros.q) q = q.or(`nombre.ilike.%${filtros.q}%,apellido.ilike.%${filtros.q}%,email.ilike.%${filtros.q}%`);
+      if (filtros.sede) q = q.eq("sede_id", filtros.sede);
+      if (filtros.rol) q = q.eq("rol", filtros.rol);
+      if (filtros.estado !== "todos") q = q.eq("activo", filtros.estado === "activos");
+      return q;
+    })(),
     supabase.from("sedes").select("id, nombre").order("nombre"),
     supabase.from("puestos").select("id, nombre").order("orden"),
     supabase.from("equipos").select("id, nombre, sede_id, area").order("nombre"),
@@ -28,7 +39,25 @@ export default async function PaginaUsuarios() {
         <h2 className="mb-4 text-lg font-semibold">Invitar a alguien</h2>
         <FormularioInvitar sedes={sedes ?? []} puestos={puestos ?? []} />
       </Card>
-      <ul className="flex flex-col gap-3">
+      <form role="search" aria-label="Filtrar usuarios" className="grid gap-2 sm:grid-cols-[1.5fr_1fr_1fr_1fr_auto]">
+        <Input name="q" aria-label="Buscar por nombre o email" placeholder="Buscar por nombre o email" defaultValue={filtros.q} />
+        <Select name="sede" aria-label="Sede" defaultValue={filtros.sede ?? ""}>
+          <option value="">Todas las sedes</option>
+          {(sedes ?? []).map((s) => <option key={s.id} value={s.id}>{s.nombre}</option>)}
+        </Select>
+        <Select name="rol" aria-label="Rol" defaultValue={filtros.rol ?? ""}>
+          <option value="">Todos los roles</option>
+          {ROLES.map((r) => <option key={r} value={r}>{ETIQUETA_ROL[r]}</option>)}
+        </Select>
+        <Select name="estado" aria-label="Estado" defaultValue={filtros.estado}>
+          <option value="activos">Activos</option>
+          <option value="inactivos">Inactivos</option>
+          <option value="todos">Todos</option>
+        </Select>
+        <Button type="submit" variante="secundario">Filtrar</Button>
+      </form>
+      {(usuarios ?? []).length === 0 && <p className="text-sm text-muted">No hay usuarios con esos filtros.</p>}
+      <ul className="flex flex-col gap-3" aria-label="Usuarios">
         {(usuarios ?? []).map((u) => (
           <li key={u.id}>
             <Card className="flex flex-col gap-3 p-4 md:flex-row md:flex-wrap md:items-center md:justify-between">

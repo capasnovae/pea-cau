@@ -28,7 +28,7 @@ test.describe("con API REST", () => {
     const admin = await browser.newPage();
     await ingresar(admin, "admin@pea.local");
     await esperarInicio(admin);
-    await admin.goto("/admin/usuarios");
+    await admin.goto("/admin/usuarios?estado=todos");
     const fila = admin.getByRole("listitem").filter({ hasText: "asesor.roca@pea.local" });
     await fila.getByRole("button", { name: "Desactivar" }).click();
     await expect(fila.getByText("Inactivo")).toBeVisible();
