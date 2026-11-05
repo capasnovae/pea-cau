@@ -37,7 +37,8 @@ begin
       ('coord.ventas.nqn@pea.local', 'Ciro', 'Ventas', 'coordinador', 'Neuquén', 'ventas'),
       ('lider.nqn@pea.local', 'Lucía', 'Líder', 'lider', 'Neuquén', 'servicio'),
       ('asesor.nqn@pea.local', 'Andrés', 'Asesor', 'asesor', 'Neuquén', 'servicio'),
-      ('asesor.roca@pea.local', 'Rocío', 'Asesora', 'asesor', 'Roca', 'servicio')
+      ('asesor.roca@pea.local', 'Rocío', 'Asesora', 'asesor', 'Roca', 'servicio'),
+      ('asesor2.nqn@pea.local', 'Bruno', 'Ceo', 'asesor', 'Neuquén', 'servicio')
     ) as t(email, nombre, apellido, rol, sede, area)
   loop
     v_id := gen_random_uuid();
@@ -71,7 +72,7 @@ where email in ('asesor.nqn@pea.local', 'asesor.roca@pea.local');
 
 insert into public.perfil_subroles (perfil_id, subrol_id)
 select p.id, s.id from public.perfiles p, public.subroles s
-where p.email = 'asesor.nqn@pea.local' and s.nombre = 'Front';
+where (p.email = 'asesor.nqn@pea.local' and s.nombre = 'Front') or (p.email = 'asesor2.nqn@pea.local' and s.nombre = 'CEO');
 
 -- Repositorio: contenido de EJEMPLO (no es información real de Siglo; se reemplaza con el relevamiento)
 insert into public.articulos (id, categoria_id, slug, titulo, resumen, cuerpo_md, alcance, estado, orden) values
