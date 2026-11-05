@@ -72,3 +72,30 @@ where email in ('asesor.nqn@pea.local', 'asesor.roca@pea.local');
 insert into public.perfil_subroles (perfil_id, subrol_id)
 select p.id, s.id from public.perfiles p, public.subroles s
 where p.email = 'asesor.nqn@pea.local' and s.nombre = 'Front';
+
+-- Repositorio: contenido de EJEMPLO (no es información real de Siglo; se reemplaza con el relevamiento)
+insert into public.articulos (id, categoria_id, slug, titulo, resumen, cuerpo_md, alcance, estado, orden) values
+  ('a0000000-0000-4000-8000-000000000001', (select id from public.categorias where slug = 'reglamento'),
+   'inscripcion-a-materias-ejemplo', 'Inscripción a materias (ejemplo)', 'Cómo y cuándo se inscribe un alumno a sus materias.',
+   E'> Contenido de ejemplo para probar la plataforma.\n\n## Cuándo\n\nLas inscripciones abren según el calendario académico.\n\n## Pasos\n\n1. El alumno entra al portal de estudiantes.\n2. Elige las materias habilitadas.\n3. Confirma la inscripción.\n\n| Situación | Qué hacer |\n|---|---|\n| No ve la materia | Revisar correlativas |\n| Error en el portal | Crear ticket en HubSpot |',
+   'global', 'publicado', 1),
+  ('a0000000-0000-4000-8000-000000000002', (select id from public.categorias where slug = 'reglamento'),
+   'correlatividades-ejemplo', 'Correlatividades (ejemplo)', 'Qué materias habilitan a otras.',
+   E'Contenido de ejemplo sobre correlatividades.', 'global', 'publicado', 1),
+  ('a0000000-0000-4000-8000-000000000003', (select id from public.categorias where slug = 'reglamento'),
+   'bajas-de-materias-ejemplo', 'Bajas de materias (ejemplo)', 'Plazos y efectos de dar de baja una materia.',
+   E'Contenido de ejemplo sobre bajas.', 'global', 'publicado', 2),
+  ('a0000000-0000-4000-8000-000000000004', (select id from public.categorias where slug = 'plataformas'),
+   'portal-de-estudiantes-ejemplo', 'Portal de estudiantes (ejemplo)', 'Para qué lo usa el alumno y qué puede resolver solo.',
+   E'Contenido de ejemplo sobre el portal de estudiantes.', 'global', 'publicado', 1);
+
+update public.articulos set padre_id = 'a0000000-0000-4000-8000-000000000001'
+where id in ('a0000000-0000-4000-8000-000000000002', 'a0000000-0000-4000-8000-000000000003');
+
+insert into public.articulos (categoria_id, slug, titulo, resumen, cuerpo_md, alcance, sede_id, estado) values
+  ((select id from public.categorias where slug = 'institucional'), 'horarios-cau-neuquen-ejemplo',
+   'Horarios del CAU Neuquén (ejemplo)', 'Horarios de atención de la sede.', E'Contenido de ejemplo de la sede Neuquén.',
+   'sede', (select id from public.sedes where nombre = 'Neuquén'), 'publicado'),
+  ((select id from public.categorias where slug = 'institucional'), 'horarios-cau-roca-ejemplo',
+   'Horarios del CAU Roca (ejemplo)', 'Horarios de atención de la sede.', E'Contenido de ejemplo de la sede Roca.',
+   'sede', (select id from public.sedes where nombre = 'Roca'), 'publicado');

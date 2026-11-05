@@ -22,7 +22,7 @@ export default async function LayoutApp({ children }: LayoutProps<"/">) {
         <MenuPrincipal items={items} variante="lateral" />
         <main className="mx-auto w-full max-w-4xl flex-1 px-4 pb-24 pt-6 md:pb-10">{children}</main>
       </div>
-      <MenuPrincipal items={items} variante="inferior" />
+      <MenuPrincipal items={items} variante="inferior" maxInferior={4} />
     </div>
   );
 }

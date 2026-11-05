@@ -60,6 +60,177 @@ export type Database = {
         };
         Relationships: [];
       };
+      articulo_versiones: {
+        Row: {
+          articulo_id: string;
+          autor_id: string | null;
+          created_at: string;
+          cuerpo_md: string;
+          id: string;
+          resumen_cambio: string | null;
+          titulo: string;
+          version: number;
+        };
+        ComputedFields: never;
+        Insert: {
+          articulo_id: string;
+          autor_id?: string | null;
+          created_at?: string;
+          cuerpo_md: string;
+          id?: string;
+          resumen_cambio?: string | null;
+          titulo: string;
+          version: number;
+        };
+        Update: {
+          articulo_id?: string;
+          autor_id?: string | null;
+          created_at?: string;
+          cuerpo_md?: string;
+          id?: string;
+          resumen_cambio?: string | null;
+          titulo?: string;
+          version?: number;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "articulo_versiones_articulo_id_fkey";
+            columns: ["articulo_id"];
+            isOneToOne: false;
+            referencedRelation: "articulos";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "articulo_versiones_autor_id_fkey";
+            columns: ["autor_id"];
+            isOneToOne: false;
+            referencedRelation: "perfiles";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
+      articulos: {
+        Row: {
+          alcance: Database["public"]["Enums"]["alcance"];
+          autor_id: string | null;
+          busqueda: unknown;
+          categoria_id: string;
+          created_at: string;
+          cuerpo_md: string;
+          estado: Database["public"]["Enums"]["estado_contenido"];
+          fuente_url: string | null;
+          id: string;
+          orden: number;
+          padre_id: string | null;
+          promovido_at: string | null;
+          promovido_por: string | null;
+          resumen: string;
+          sede_id: string | null;
+          sede_origen_id: string | null;
+          slug: string;
+          titulo: string;
+          ultimo_cambio: string | null;
+          updated_at: string;
+          version: number;
+          vigente_desde: string | null;
+          vigente_hasta: string | null;
+        };
+        ComputedFields: never;
+        Insert: {
+          alcance?: Database["public"]["Enums"]["alcance"];
+          autor_id?: string | null;
+          busqueda?: never;
+          categoria_id: string;
+          created_at?: string;
+          cuerpo_md?: string;
+          estado?: Database["public"]["Enums"]["estado_contenido"];
+          fuente_url?: string | null;
+          id?: string;
+          orden?: number;
+          padre_id?: string | null;
+          promovido_at?: string | null;
+          promovido_por?: string | null;
+          resumen?: string;
+          sede_id?: string | null;
+          sede_origen_id?: string | null;
+          slug: string;
+          titulo: string;
+          ultimo_cambio?: string | null;
+          updated_at?: string;
+          version?: number;
+          vigente_desde?: string | null;
+          vigente_hasta?: string | null;
+        };
+        Update: {
+          alcance?: Database["public"]["Enums"]["alcance"];
+          autor_id?: string | null;
+          busqueda?: never;
+          categoria_id?: string;
+          created_at?: string;
+          cuerpo_md?: string;
+          estado?: Database["public"]["Enums"]["estado_contenido"];
+          fuente_url?: string | null;
+          id?: string;
+          orden?: number;
+          padre_id?: string | null;
+          promovido_at?: string | null;
+          promovido_por?: string | null;
+          resumen?: string;
+          sede_id?: string | null;
+          sede_origen_id?: string | null;
+          slug?: string;
+          titulo?: string;
+          ultimo_cambio?: string | null;
+          updated_at?: string;
+          version?: number;
+          vigente_desde?: string | null;
+          vigente_hasta?: string | null;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "articulos_autor_id_fkey";
+            columns: ["autor_id"];
+            isOneToOne: false;
+            referencedRelation: "perfiles";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "articulos_categoria_id_fkey";
+            columns: ["categoria_id"];
+            isOneToOne: false;
+            referencedRelation: "categorias";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "articulos_padre_id_fkey";
+            columns: ["padre_id"];
+            isOneToOne: false;
+            referencedRelation: "articulos";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "articulos_promovido_por_fkey";
+            columns: ["promovido_por"];
+            isOneToOne: false;
+            referencedRelation: "perfiles";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "articulos_sede_id_fkey";
+            columns: ["sede_id"];
+            isOneToOne: false;
+            referencedRelation: "sedes";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "articulos_sede_origen_id_fkey";
+            columns: ["sede_origen_id"];
+            isOneToOne: false;
+            referencedRelation: "sedes";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
       auditoria: {
         Row: {
           accion: string;
@@ -90,6 +261,132 @@ export type Database = {
           id?: string;
         };
         Relationships: [];
+      };
+      campanas: {
+        Row: {
+          alcance: Database["public"]["Enums"]["alcance"];
+          autor_id: string | null;
+          created_at: string;
+          descripcion_md: string;
+          estado: Database["public"]["Enums"]["estado_contenido"];
+          id: string;
+          nombre: string;
+          promovido_at: string | null;
+          promovido_por: string | null;
+          sede_id: string | null;
+          sede_origen_id: string | null;
+          updated_at: string;
+          vigente_desde: string | null;
+          vigente_hasta: string | null;
+        };
+        ComputedFields: never;
+        Insert: {
+          alcance?: Database["public"]["Enums"]["alcance"];
+          autor_id?: string | null;
+          created_at?: string;
+          descripcion_md?: string;
+          estado?: Database["public"]["Enums"]["estado_contenido"];
+          id?: string;
+          nombre: string;
+          promovido_at?: string | null;
+          promovido_por?: string | null;
+          sede_id?: string | null;
+          sede_origen_id?: string | null;
+          updated_at?: string;
+          vigente_desde?: string | null;
+          vigente_hasta?: string | null;
+        };
+        Update: {
+          alcance?: Database["public"]["Enums"]["alcance"];
+          autor_id?: string | null;
+          created_at?: string;
+          descripcion_md?: string;
+          estado?: Database["public"]["Enums"]["estado_contenido"];
+          id?: string;
+          nombre?: string;
+          promovido_at?: string | null;
+          promovido_por?: string | null;
+          sede_id?: string | null;
+          sede_origen_id?: string | null;
+          updated_at?: string;
+          vigente_desde?: string | null;
+          vigente_hasta?: string | null;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "campanas_autor_id_fkey";
+            columns: ["autor_id"];
+            isOneToOne: false;
+            referencedRelation: "perfiles";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "campanas_promovido_por_fkey";
+            columns: ["promovido_por"];
+            isOneToOne: false;
+            referencedRelation: "perfiles";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "campanas_sede_id_fkey";
+            columns: ["sede_id"];
+            isOneToOne: false;
+            referencedRelation: "sedes";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "campanas_sede_origen_id_fkey";
+            columns: ["sede_origen_id"];
+            isOneToOne: false;
+            referencedRelation: "sedes";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
+      categorias: {
+        Row: {
+          created_at: string;
+          descripcion: string;
+          icono: string | null;
+          id: string;
+          nombre: string;
+          orden: number;
+          padre_id: string | null;
+          slug: string;
+          updated_at: string;
+        };
+        ComputedFields: never;
+        Insert: {
+          created_at?: string;
+          descripcion?: string;
+          icono?: string | null;
+          id?: string;
+          nombre: string;
+          orden?: number;
+          padre_id?: string | null;
+          slug: string;
+          updated_at?: string;
+        };
+        Update: {
+          created_at?: string;
+          descripcion?: string;
+          icono?: string | null;
+          id?: string;
+          nombre?: string;
+          orden?: number;
+          padre_id?: string | null;
+          slug?: string;
+          updated_at?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "categorias_padre_id_fkey";
+            columns: ["padre_id"];
+            isOneToOne: false;
+            referencedRelation: "categorias";
+            referencedColumns: ["id"];
+          },
+        ];
       };
       equipos: {
         Row: {
@@ -295,6 +592,122 @@ export type Database = {
         };
         Relationships: [];
       };
+      recursos: {
+        Row: {
+          alcance: Database["public"]["Enums"]["alcance"];
+          archivo_path: string | null;
+          autor_id: string | null;
+          busqueda: unknown;
+          campana_id: string | null;
+          categoria_id: string;
+          created_at: string;
+          descripcion: string;
+          estado: Database["public"]["Enums"]["estado_contenido"];
+          etiquetas: string[];
+          id: string;
+          miniatura_path: string | null;
+          promovido_at: string | null;
+          promovido_por: string | null;
+          sede_id: string | null;
+          sede_origen_id: string | null;
+          tipo: Database["public"]["Enums"]["tipo_recurso"];
+          titulo: string;
+          updated_at: string;
+          url_externa: string | null;
+          vigente_hasta: string | null;
+        };
+        ComputedFields: never;
+        Insert: {
+          alcance?: Database["public"]["Enums"]["alcance"];
+          archivo_path?: string | null;
+          autor_id?: string | null;
+          busqueda?: never;
+          campana_id?: string | null;
+          categoria_id: string;
+          created_at?: string;
+          descripcion?: string;
+          estado?: Database["public"]["Enums"]["estado_contenido"];
+          etiquetas?: string[];
+          id?: string;
+          miniatura_path?: string | null;
+          promovido_at?: string | null;
+          promovido_por?: string | null;
+          sede_id?: string | null;
+          sede_origen_id?: string | null;
+          tipo: Database["public"]["Enums"]["tipo_recurso"];
+          titulo: string;
+          updated_at?: string;
+          url_externa?: string | null;
+          vigente_hasta?: string | null;
+        };
+        Update: {
+          alcance?: Database["public"]["Enums"]["alcance"];
+          archivo_path?: string | null;
+          autor_id?: string | null;
+          busqueda?: never;
+          campana_id?: string | null;
+          categoria_id?: string;
+          created_at?: string;
+          descripcion?: string;
+          estado?: Database["public"]["Enums"]["estado_contenido"];
+          etiquetas?: string[];
+          id?: string;
+          miniatura_path?: string | null;
+          promovido_at?: string | null;
+          promovido_por?: string | null;
+          sede_id?: string | null;
+          sede_origen_id?: string | null;
+          tipo?: Database["public"]["Enums"]["tipo_recurso"];
+          titulo?: string;
+          updated_at?: string;
+          url_externa?: string | null;
+          vigente_hasta?: string | null;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "recursos_autor_id_fkey";
+            columns: ["autor_id"];
+            isOneToOne: false;
+            referencedRelation: "perfiles";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "recursos_campana_id_fkey";
+            columns: ["campana_id"];
+            isOneToOne: false;
+            referencedRelation: "campanas";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "recursos_categoria_id_fkey";
+            columns: ["categoria_id"];
+            isOneToOne: false;
+            referencedRelation: "categorias";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "recursos_promovido_por_fkey";
+            columns: ["promovido_por"];
+            isOneToOne: false;
+            referencedRelation: "perfiles";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "recursos_sede_id_fkey";
+            columns: ["sede_id"];
+            isOneToOne: false;
+            referencedRelation: "sedes";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "recursos_sede_origen_id_fkey";
+            columns: ["sede_origen_id"];
+            isOneToOne: false;
+            referencedRelation: "sedes";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
       sedes: {
         Row: {
           activa: boolean;
@@ -362,15 +775,48 @@ export type Database = {
       [_ in never]: never;
     };
     Functions: {
+      buscar_contenido: {
+        Args: { p_limite?: number; q: string };
+        Returns: {
+          categoria_slug: string;
+          id: string;
+          rango: number;
+          resumen: string;
+          slug: string;
+          tipo: string;
+          titulo: string;
+        }[];
+      };
+      carpeta_alcance: { Args: { p_nombre: string }; Returns: Record<string, unknown> };
+      f_etiquetas_texto: { Args: { etiquetas: string[] }; Returns: string };
+      f_unaccent: { Args: { texto: string }; Returns: string };
       mi_area: { Args: Record<PropertyKey, never>; Returns: Database["public"]["Enums"]["area"] };
       mi_perfil_activo: { Args: Record<PropertyKey, never>; Returns: boolean };
       mi_rol: { Args: Record<PropertyKey, never>; Returns: Database["public"]["Enums"]["rol_app"] };
       mi_sede: { Args: Record<PropertyKey, never>; Returns: string };
+      promover_contenido: { Args: { p_id: string; p_tabla: string }; Returns: undefined };
+      puede_editar_contenido: {
+        Args: { p_alcance: Database["public"]["Enums"]["alcance"]; p_sede: string };
+        Returns: boolean;
+      };
+      puede_escribir_archivo: { Args: { p_nombre: string }; Returns: boolean };
+      puede_leer_archivo: { Args: { p_nombre: string }; Returns: boolean };
+      puede_leer_contenido: {
+        Args: {
+          p_alcance: Database["public"]["Enums"]["alcance"];
+          p_estado: Database["public"]["Enums"]["estado_contenido"];
+          p_sede: string;
+        };
+        Returns: boolean;
+      };
       puede_ver_usuario: { Args: { objetivo: string }; Returns: boolean };
     };
     Enums: {
+      alcance: "global" | "sede";
       area: "servicio" | "ventas";
+      estado_contenido: "borrador" | "publicado" | "archivado";
       rol_app: "asesor" | "lider" | "coordinador" | "director" | "admin";
+      tipo_recurso: "imagen" | "video" | "pdf" | "presentacion" | "enlace" | "otro";
     };
     CompositeTypes: {
       [_ in never]: never;
@@ -484,8 +930,11 @@ export const Constants = {
   },
   public: {
     Enums: {
+      alcance: ["global", "sede"],
       area: ["servicio", "ventas"],
+      estado_contenido: ["borrador", "publicado", "archivado"],
       rol_app: ["asesor", "lider", "coordinador", "director", "admin"],
+      tipo_recurso: ["imagen", "video", "pdf", "presentacion", "enlace", "otro"],
     },
   },
 } as const;

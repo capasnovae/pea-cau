@@ -16,8 +16,13 @@ export type ItemMenu = { href: string; etiqueta: string };
 
 const MENU_BASE: ItemMenu[] = [
   { href: "/inicio", etiqueta: "Inicio" },
+  { href: "/repositorio", etiqueta: "Repositorio" },
+  { href: "/recursos", etiqueta: "Recursos" },
+  { href: "/buscar", etiqueta: "Buscar" },
   { href: "/perfil", etiqueta: "Mi perfil" },
 ];
+
+const MENU_CONTENIDO: ItemMenu[] = [{ href: "/contenido", etiqueta: "Contenido" }];
 
 const MENU_ADMIN: ItemMenu[] = [
   { href: "/admin/usuarios", etiqueta: "Usuarios" },
@@ -25,8 +30,12 @@ const MENU_ADMIN: ItemMenu[] = [
   { href: "/admin/equipos", etiqueta: "Equipos" },
 ];
 
+export const ROLES_EDITORES: readonly RolApp[] = ["coordinador", "director", "admin"];
+
 export function menuPorRol(rol: RolApp): ItemMenu[] {
-  return rol === "admin" ? [...MENU_BASE, ...MENU_ADMIN] : [...MENU_BASE];
+  if (rol === "admin") return [...MENU_BASE, ...MENU_CONTENIDO, ...MENU_ADMIN];
+  if (rol === "coordinador" || rol === "director") return [...MENU_BASE, ...MENU_CONTENIDO];
+  return [...MENU_BASE];
 }
 
 export function rutaInicio(_rol: RolApp): string {
