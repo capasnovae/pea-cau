@@ -21,5 +21,5 @@ export async function ingresar(page: Page, email: string, clave = CLAVE_DEV) {
 }
 
 export async function esperarInicio(page: Page) {
-  await expect(page.getByRole("heading", { name: /^Hola,/ })).toBeVisible();
+  await expect(page.getByText(/^¡Hola, /)).toBeVisible();
 }

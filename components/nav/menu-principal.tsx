@@ -21,14 +21,14 @@ export function MenuPrincipal({
     const resto = items.length > maxInferior + 1 ? items.slice(maxInferior) : [];
     const restoActivo = resto.some((i) => activo(i.href));
     return (
-      <nav aria-label="Principal" className="fixed inset-x-0 bottom-0 z-10 border-t border-border bg-card md:hidden">
+      <nav aria-label="Principal" className="fixed inset-x-3 bottom-3 z-10 rounded-[20px] bg-ink shadow-lg md:hidden">
         <ul className="flex">
           {visibles.map((i) => (
             <li key={i.href} className="flex-1">
               <Link
                 href={i.href}
                 aria-current={activo(i.href) ? "page" : undefined}
-                className={cn("block px-1 py-3 text-center text-xs", activo(i.href) ? "font-semibold text-primary" : "text-muted")}
+                className={cn("block px-1 py-3.5 text-center text-xs", activo(i.href) ? "font-bold text-white" : "text-[#b4b4c8]")}
               >
                 {i.etiqueta}
               </Link>
@@ -39,8 +39,8 @@ export function MenuPrincipal({
               <details className="group">
                 <summary
                   className={cn(
-                    "block cursor-pointer list-none px-1 py-3 text-center text-xs [&::-webkit-details-marker]:hidden",
-                    restoActivo ? "font-semibold text-primary" : "text-muted",
+                    "block cursor-pointer list-none px-1 py-3.5 text-center text-xs [&::-webkit-details-marker]:hidden",
+                    restoActivo ? "font-bold text-white" : "text-[#b4b4c8]",
                   )}
                 >
                   Más
@@ -66,14 +66,14 @@ export function MenuPrincipal({
     );
   }
   return (
-    <nav aria-label="Principal" className="hidden w-56 shrink-0 border-r border-border bg-card p-3 md:block">
+    <nav aria-label="Principal" className="hidden w-60 shrink-0 p-4 md:block">
       <ul className="flex flex-col gap-1">
         {items.map((i) => (
           <li key={i.href}>
             <Link
               href={i.href}
               aria-current={activo(i.href) ? "page" : undefined}
-              className={cn("block rounded-lg px-3 py-2 text-sm", activo(i.href) ? "bg-background font-semibold text-primary" : "hover:bg-background")}
+              className={cn("block rounded-xl px-3.5 py-2.5 text-sm font-semibold", activo(i.href) ? "bg-primary text-white" : "hover:bg-primary-soft")}
             >
               {i.etiqueta}
             </Link>

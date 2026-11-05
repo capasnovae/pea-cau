@@ -9,15 +9,15 @@ export default async function LayoutApp({ children }: LayoutProps<"/">) {
   const items = menuPorRol(perfil.rol);
   return (
     <div className="flex min-h-full flex-1 flex-col">
-      <header className="flex h-14 items-center justify-between border-b border-border bg-card px-4">
+      <header className="flex h-16 items-center justify-between px-4 md:px-6">
         <div className="flex items-center gap-4">
-          <span className="font-semibold text-primary">PEA</span>
+          <span className="text-xl font-extrabold text-primary">PEA</span>
           <form action="/buscar" role="search" className="hidden sm:block">
             <input
               name="q"
               aria-label="Buscar en PEA"
               placeholder="Buscar…"
-              className="h-9 w-56 rounded-lg border border-border bg-background px-3 text-sm"
+              className="h-10 w-64 rounded-xl border border-border bg-card px-3 text-sm"
             />
           </form>
         </div>
@@ -30,7 +30,7 @@ export default async function LayoutApp({ children }: LayoutProps<"/">) {
       </header>
       <div className="flex flex-1">
         <MenuPrincipal items={items} variante="lateral" />
-        <main className="mx-auto w-full max-w-4xl flex-1 px-4 pb-24 pt-6 md:pb-10">{children}</main>
+        <main className="mx-auto w-full max-w-5xl flex-1 px-4 pb-28 pt-2 md:pb-10 md:pt-4">{children}</main>
       </div>
       <MenuPrincipal items={items} variante="inferior" maxInferior={4} />
     </div>
