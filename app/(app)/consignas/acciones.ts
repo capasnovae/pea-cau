@@ -62,7 +62,11 @@ export async function actualizarAsignacion(_prev: ResultadoAsignacion, formData:
   if (error) {
     return {
       ok: false,
-      error: error.message.includes("confirmá la lectura") ? "Primero confirmá que leíste el artículo." : "No pudimos guardar. Probá de nuevo.",
+      error: error.message.includes("confirmá la lectura")
+        ? "Primero confirmá que leíste el artículo."
+        : error.message.includes("subí la evidencia")
+          ? "Esta consigna pide evidencia: subí una imagen o un PDF antes de cerrarla."
+          : "No pudimos guardar. Probá de nuevo.",
     };
   }
   revalidatePath("/consignas");

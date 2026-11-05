@@ -75,6 +75,12 @@ export default async function PaginaConsignas({ searchParams }: PageProps<"/cons
                     {a.completada_at && ` · hecha el ${formatearFecha(a.completada_at)}`}
                   </p>
                   {c.detalle_md && <Markdown texto={c.detalle_md} />}
+                  {c.tipo === "lectura" && !c.articulos && a.estado !== "hecha" && (
+                    <div className="flex flex-wrap items-center gap-3">
+                      <p className="text-sm text-muted">El artículo de esta lectura ya no está disponible. Avisale a quien te la asignó.</p>
+                      <BotonLeido asignacionId={a.id} leida={!!a.leida_at} />
+                    </div>
+                  )}
                   {c.tipo === "lectura" && c.articulos && (
                     <div className="flex flex-wrap items-center gap-3">
                       <Link href={`/repositorio/${c.articulos.categorias?.slug}/${c.articulos.slug}`} className="text-sm text-primary underline">

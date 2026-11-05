@@ -26,7 +26,7 @@ export function FormularioConsigna({
   personas: PersonaDestino[];
   equipos: EquipoDestino[];
   subroles: Opcion[];
-  articulos: Opcion[];
+  articulos: (Opcion & { sede_id: string | null })[];
 }) {
   const [r, accion, pendiente] = useActionState<ResultadoConsigna, FormData>(crearConsigna, null);
   const [tipo, setTipo] = useState<"tarea" | "lectura">("tarea");
@@ -53,9 +53,9 @@ export function FormularioConsigna({
         </Campo>
         {tipo === "lectura" && (
           <Campo id="articulo_id" etiqueta="Artículo a leer">
-            <Select id="articulo_id" name="articulo_id" required defaultValue="">
+            <Select id="articulo_id" name="articulo_id" required defaultValue="" key={`art-${sede}`}>
               <option value="" disabled>Elegí un artículo</option>
-              {articulos.map((a) => <option key={a.id} value={a.id}>{a.nombre}</option>)}
+              {articulos.filter((a) => a.sede_id === null || a.sede_id === sede).map((a) => <option key={a.id} value={a.id}>{a.nombre}</option>)}
             </Select>
           </Campo>
         )}

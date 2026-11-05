@@ -14,7 +14,7 @@ export default async function PaginaNuevaConsigna() {
     supabase.from("sedes").select("id, nombre").eq("activa", true).order("nombre"),
     supabase.from("equipos").select("id, nombre, sede_id, area, lider_id").order("nombre"),
     supabase.from("subroles").select("id, nombre").order("orden"),
-    supabase.from("articulos").select("id, titulo").eq("estado", "publicado").order("titulo").limit(300),
+    supabase.from("articulos").select("id, titulo, alcance, sede_id").eq("estado", "publicado").order("titulo").limit(300),
   ]);
 
   // Alcance del rol (la base vuelve a verificarlo al crear)
@@ -50,7 +50,7 @@ export default async function PaginaNuevaConsigna() {
           personas={personas}
           equipos={equiposPermitidos}
           subroles={subroles ?? []}
-          articulos={(articulos ?? []).map((a) => ({ id: a.id, nombre: a.titulo }))}
+          articulos={(articulos ?? []).map((a) => ({ id: a.id, nombre: a.titulo, sede_id: a.alcance === "sede" ? a.sede_id : null }))}
         />
       </Card>
     </div>
