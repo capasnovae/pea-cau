@@ -23,11 +23,14 @@ export type SedeOrg = { id: string; nombre: string; coordinadores: PorArea; equi
 const porApellido = (a: Persona, b: Persona) =>
   a.apellido.localeCompare(b.apellido, "es") || a.nombre.localeCompare(b.nombre, "es");
 
-export function armarOrganigrama(filas: FilaOrganigrama[]) {
+export function armarOrganigrama(filas: FilaOrganigrama[], todasLasSedes: { id: string; nombre: string }[] = []) {
   const directores = filas.filter((f) => f.rol === "director").sort(porApellido);
   const admins = filas.filter((f) => f.rol === "admin" && !f.sede_id).sort(porApellido);
   const sedes = new Map<string, SedeOrg>();
   const equipos = new Map<string, EquipoOrg>();
+  for (const s of todasLasSedes) {
+    sedes.set(s.id, { id: s.id, nombre: s.nombre, coordinadores: { servicio: [], ventas: [] }, equipos: [], sinEquipo: { servicio: [], ventas: [] } });
+  }
 
   for (const f of filas) {
     if (!f.sede_id || f.rol === "director") continue;

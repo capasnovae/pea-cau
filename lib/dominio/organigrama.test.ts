@@ -41,3 +41,11 @@ describe("armarOrganigrama", () => {
     expect(o.sedes[0]!.sinEquipo.ventas.map((p) => p.id)).toEqual(["b"]);
   });
 });
+
+describe("armarOrganigrama con todas las sedes", () => {
+  it("incluye las sedes sin gente", () => {
+    const o = armarOrganigrama([], [{ id: "z", nombre: "Zapala" }, { id: "b", nombre: "Bariloche" }]);
+    expect(o.sedes.map((s) => s.nombre)).toEqual(["Bariloche", "Zapala"]);
+    expect(o.sedes[0]!.equipos).toEqual([]);
+  });
+});
