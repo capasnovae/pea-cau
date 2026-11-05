@@ -388,6 +388,186 @@ export type Database = {
           },
         ];
       };
+      consigna_asignaciones: {
+        Row: {
+          comentario: string | null;
+          completada_at: string | null;
+          consigna_id: string;
+          created_at: string;
+          estado: Database["public"]["Enums"]["estado_asignacion"];
+          evidencia_path: string | null;
+          id: string;
+          iniciada_at: string | null;
+          leida_at: string | null;
+          periodo: string;
+          updated_at: string;
+          usuario_id: string;
+          vence_el: string | null;
+        };
+        ComputedFields: never;
+        Insert: {
+          comentario?: string | null;
+          completada_at?: string | null;
+          consigna_id: string;
+          created_at?: string;
+          estado?: Database["public"]["Enums"]["estado_asignacion"];
+          evidencia_path?: string | null;
+          id?: string;
+          iniciada_at?: string | null;
+          leida_at?: string | null;
+          periodo: string;
+          updated_at?: string;
+          usuario_id: string;
+          vence_el?: string | null;
+        };
+        Update: {
+          comentario?: string | null;
+          completada_at?: string | null;
+          consigna_id?: string;
+          created_at?: string;
+          estado?: Database["public"]["Enums"]["estado_asignacion"];
+          evidencia_path?: string | null;
+          id?: string;
+          iniciada_at?: string | null;
+          leida_at?: string | null;
+          periodo?: string;
+          updated_at?: string;
+          usuario_id?: string;
+          vence_el?: string | null;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "consigna_asignaciones_consigna_id_fkey";
+            columns: ["consigna_id"];
+            isOneToOne: false;
+            referencedRelation: "consignas";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "consigna_asignaciones_usuario_id_fkey";
+            columns: ["usuario_id"];
+            isOneToOne: false;
+            referencedRelation: "perfiles";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
+      consignas: {
+        Row: {
+          activa: boolean;
+          area: Database["public"]["Enums"]["area"] | null;
+          articulo_id: string | null;
+          creada_por: string;
+          created_at: string;
+          curso_id: string | null;
+          destino: Database["public"]["Enums"]["destino_consigna"];
+          destino_equipo_id: string | null;
+          destino_subrol_id: string | null;
+          destino_usuario_id: string | null;
+          detalle_md: string;
+          examen_id: string | null;
+          fecha_limite: string | null;
+          id: string;
+          prioridad: Database["public"]["Enums"]["prioridad"];
+          recurrencia: Database["public"]["Enums"]["recurrencia"];
+          requiere_evidencia: boolean;
+          sede_id: string;
+          tipo: Database["public"]["Enums"]["tipo_consigna"];
+          titulo: string;
+          updated_at: string;
+        };
+        ComputedFields: never;
+        Insert: {
+          activa?: boolean;
+          area?: Database["public"]["Enums"]["area"] | null;
+          articulo_id?: string | null;
+          creada_por: string;
+          created_at?: string;
+          curso_id?: string | null;
+          destino: Database["public"]["Enums"]["destino_consigna"];
+          destino_equipo_id?: string | null;
+          destino_subrol_id?: string | null;
+          destino_usuario_id?: string | null;
+          detalle_md?: string;
+          examen_id?: string | null;
+          fecha_limite?: string | null;
+          id?: string;
+          prioridad?: Database["public"]["Enums"]["prioridad"];
+          recurrencia?: Database["public"]["Enums"]["recurrencia"];
+          requiere_evidencia?: boolean;
+          sede_id: string;
+          tipo?: Database["public"]["Enums"]["tipo_consigna"];
+          titulo: string;
+          updated_at?: string;
+        };
+        Update: {
+          activa?: boolean;
+          area?: Database["public"]["Enums"]["area"] | null;
+          articulo_id?: string | null;
+          creada_por?: string;
+          created_at?: string;
+          curso_id?: string | null;
+          destino?: Database["public"]["Enums"]["destino_consigna"];
+          destino_equipo_id?: string | null;
+          destino_subrol_id?: string | null;
+          destino_usuario_id?: string | null;
+          detalle_md?: string;
+          examen_id?: string | null;
+          fecha_limite?: string | null;
+          id?: string;
+          prioridad?: Database["public"]["Enums"]["prioridad"];
+          recurrencia?: Database["public"]["Enums"]["recurrencia"];
+          requiere_evidencia?: boolean;
+          sede_id?: string;
+          tipo?: Database["public"]["Enums"]["tipo_consigna"];
+          titulo?: string;
+          updated_at?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "consignas_articulo_id_fkey";
+            columns: ["articulo_id"];
+            isOneToOne: false;
+            referencedRelation: "articulos";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "consignas_creada_por_fkey";
+            columns: ["creada_por"];
+            isOneToOne: false;
+            referencedRelation: "perfiles";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "consignas_destino_equipo_id_fkey";
+            columns: ["destino_equipo_id"];
+            isOneToOne: false;
+            referencedRelation: "equipos";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "consignas_destino_subrol_id_fkey";
+            columns: ["destino_subrol_id"];
+            isOneToOne: false;
+            referencedRelation: "subroles";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "consignas_destino_usuario_id_fkey";
+            columns: ["destino_usuario_id"];
+            isOneToOne: false;
+            referencedRelation: "perfiles";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "consignas_sede_id_fkey";
+            columns: ["sede_id"];
+            isOneToOne: false;
+            referencedRelation: "sedes";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
       equipos: {
         Row: {
           area: Database["public"]["Enums"]["area"];
@@ -775,6 +955,7 @@ export type Database = {
       [_ in never]: never;
     };
     Functions: {
+      asignacion_de_ruta: { Args: { p_nombre: string }; Returns: string };
       buscar_contenido: {
         Args: { p_limite?: number; q: string };
         Returns: {
@@ -788,13 +969,52 @@ export type Database = {
         }[];
       };
       carpeta_alcance: { Args: { p_nombre: string }; Returns: Record<string, unknown> };
+      destinatarios_consigna: { Args: { p_consigna: string }; Returns: string[] };
+      es_creador_de_asignacion: { Args: { p_consigna: string }; Returns: boolean };
       f_etiquetas_texto: { Args: { etiquetas: string[] }; Returns: string };
       f_unaccent: { Args: { texto: string }; Returns: string };
+      fin_periodo: {
+        Args: { p_periodo: string; p_recurrencia: Database["public"]["Enums"]["recurrencia"] };
+        Returns: string;
+      };
+      generar_asignaciones: { Args: { p_consigna: string; p_periodo: string }; Returns: number };
       mi_area: { Args: Record<PropertyKey, never>; Returns: Database["public"]["Enums"]["area"] };
       mi_perfil_activo: { Args: Record<PropertyKey, never>; Returns: boolean };
       mi_rol: { Args: Record<PropertyKey, never>; Returns: Database["public"]["Enums"]["rol_app"] };
       mi_sede: { Args: Record<PropertyKey, never>; Returns: string };
+      organigrama: {
+        Args: Record<PropertyKey, never>;
+        Returns: {
+          apellido: string;
+          area: Database["public"]["Enums"]["area"];
+          equipo: string;
+          equipo_id: string;
+          es_lider: boolean;
+          id: string;
+          nombre: string;
+          puesto: string;
+          rol: Database["public"]["Enums"]["rol_app"];
+          sede: string;
+          sede_id: string;
+          subroles: string[];
+        }[];
+      };
+      periodo_actual: {
+        Args: { p_hoy: string; p_recurrencia: Database["public"]["Enums"]["recurrencia"] };
+        Returns: string;
+      };
+      procesar_consignas: { Args: { p_hoy?: string }; Returns: Json };
       promover_contenido: { Args: { p_id: string; p_tabla: string }; Returns: undefined };
+      puede_crear_consigna: {
+        Args: {
+          p_area: Database["public"]["Enums"]["area"];
+          p_destino: Database["public"]["Enums"]["destino_consigna"];
+          p_equipo: string;
+          p_sede: string;
+          p_usuario: string;
+        };
+        Returns: boolean;
+      };
       puede_editar_contenido: {
         Args: { p_alcance: Database["public"]["Enums"]["alcance"]; p_sede: string };
         Returns: boolean;
@@ -809,13 +1029,21 @@ export type Database = {
         };
         Returns: boolean;
       };
+      puede_leer_evidencia: { Args: { p_nombre: string }; Returns: boolean };
+      puede_subir_evidencia: { Args: { p_nombre: string }; Returns: boolean };
       puede_ver_usuario: { Args: { objetivo: string }; Returns: boolean };
+      puede_ver_usuario_como: { Args: { p_actor: string; p_objetivo: string }; Returns: boolean };
     };
     Enums: {
       alcance: "global" | "sede";
       area: "servicio" | "ventas";
+      destino_consigna: "usuario" | "equipo" | "subrol" | "sede";
+      estado_asignacion: "pendiente" | "en_curso" | "hecha" | "vencida";
       estado_contenido: "borrador" | "publicado" | "archivado";
+      prioridad: "baja" | "normal" | "alta";
+      recurrencia: "ninguna" | "diaria" | "semanal" | "mensual";
       rol_app: "asesor" | "lider" | "coordinador" | "director" | "admin";
+      tipo_consigna: "tarea" | "lectura" | "capacitacion";
       tipo_recurso: "imagen" | "video" | "pdf" | "presentacion" | "enlace" | "otro";
     };
     CompositeTypes: {
@@ -932,8 +1160,13 @@ export const Constants = {
     Enums: {
       alcance: ["global", "sede"],
       area: ["servicio", "ventas"],
+      destino_consigna: ["usuario", "equipo", "subrol", "sede"],
+      estado_asignacion: ["pendiente", "en_curso", "hecha", "vencida"],
       estado_contenido: ["borrador", "publicado", "archivado"],
+      prioridad: ["baja", "normal", "alta"],
+      recurrencia: ["ninguna", "diaria", "semanal", "mensual"],
       rol_app: ["asesor", "lider", "coordinador", "director", "admin"],
+      tipo_consigna: ["tarea", "lectura", "capacitacion"],
       tipo_recurso: ["imagen", "video", "pdf", "presentacion", "enlace", "otro"],
     },
   },
