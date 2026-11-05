@@ -83,6 +83,33 @@ begin
   return v_id;
 end $$;
 
+-- Escenario de cursos: Nivel 1 (M1 secuencial: i1 ver, i2 marcar_hecho; M2 con prerrequisito M1: i3 ver),
+-- Nivel 2 (j1 ver), curso de sede T-Roca y curso en borrador. Usa niveles 8 y 9 para no chocar con el seed.
+create or replace function tests.escenario_cursos() returns void language plpgsql security definer set search_path = '' as $$
+begin
+  insert into public.cursos (id, tipo, nivel_orden, titulo, alcance, estado) values
+    ('e1000000-0000-4000-8000-000000000001', 'nivel', 8, 'T-Nivel A', 'global', 'publicado'),
+    ('e1000000-0000-4000-8000-000000000002', 'nivel', 9, 'T-Nivel B', 'global', 'publicado');
+  insert into public.cursos (id, tipo, titulo, alcance, sede_id, estado) values
+    ('e1000000-0000-4000-8000-000000000003', 'capacitacion', 'T-Roca', 'sede', (select id from public.sedes where nombre = 'T-Roca'), 'publicado');
+  insert into public.cursos (id, tipo, titulo, alcance, estado) values
+    ('e1000000-0000-4000-8000-000000000004', 'capacitacion', 'T-Borrador', 'global', 'borrador');
+  insert into public.modulos (id, curso_id, orden, titulo, avance_secuencial) values
+    ('e2000000-0000-4000-8000-000000000001', 'e1000000-0000-4000-8000-000000000001', 1, 'M1', true),
+    ('e2000000-0000-4000-8000-000000000002', 'e1000000-0000-4000-8000-000000000001', 2, 'M2', false),
+    ('e2000000-0000-4000-8000-000000000003', 'e1000000-0000-4000-8000-000000000002', 1, 'MB', false),
+    ('e2000000-0000-4000-8000-000000000004', 'e1000000-0000-4000-8000-000000000003', 1, 'MR', false),
+    ('e2000000-0000-4000-8000-000000000005', 'e1000000-0000-4000-8000-000000000004', 1, 'MD', false);
+  insert into public.modulo_prerrequisitos values ('e2000000-0000-4000-8000-000000000002', 'e2000000-0000-4000-8000-000000000001');
+  insert into public.items (id, modulo_id, orden, titulo, tipo, contenido_md, requisito) values
+    ('e3000000-0000-4000-8000-000000000001', 'e2000000-0000-4000-8000-000000000001', 1, 'i1', 'pagina', 'x', 'ver'),
+    ('e3000000-0000-4000-8000-000000000002', 'e2000000-0000-4000-8000-000000000001', 2, 'i2', 'pagina', 'x', 'marcar_hecho'),
+    ('e3000000-0000-4000-8000-000000000003', 'e2000000-0000-4000-8000-000000000002', 1, 'i3', 'pagina', 'x', 'ver'),
+    ('e3000000-0000-4000-8000-000000000004', 'e2000000-0000-4000-8000-000000000003', 1, 'j1', 'pagina', 'x', 'ver'),
+    ('e3000000-0000-4000-8000-000000000005', 'e2000000-0000-4000-8000-000000000004', 1, 'r1', 'pagina', 'x', 'ver'),
+    ('e3000000-0000-4000-8000-000000000006', 'e2000000-0000-4000-8000-000000000005', 1, 'd1', 'pagina', 'x', 'ver');
+end $$;
+
 grant usage on schema tests to authenticated, anon;
 grant execute on all functions in schema tests to authenticated, anon;
 
