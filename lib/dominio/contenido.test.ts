@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { esNuevaVersion, estaVencido, rutaArchivo, slugificar } from "./contenido";
+import { esNuevaVersion, estaVencido, normalizarBusqueda, rutaArchivo, slugificar } from "./contenido";
 
 describe("slugificar", () => {
   it("normaliza acentos, espacios y signos", () => {
@@ -43,5 +43,11 @@ describe("rutaArchivo", () => {
   });
   it("tolera archivos sin extensión", () => {
     expect(rutaArchivo("global", "LEEME", "abc")).toBe("global/abc-leeme");
+  });
+});
+
+describe("normalizarBusqueda", () => {
+  it("saca tildes y eñes como la columna de búsqueda", () => {
+    expect(normalizarBusqueda("  Campaña año Inscripción ")).toBe("Campana ano Inscripcion");
   });
 });

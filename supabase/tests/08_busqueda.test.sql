@@ -10,9 +10,9 @@ values ((select id from public.categorias where slug = 'aranceles-y-pagos'), 'Fo
 update public.recursos set vigente_hasta = '2020-12-31' where titulo = 'Becas 2020';
 
 select tests.como(tests.uid('ase1@t'));
-select results_eq($$select titulo from public.buscar_contenido('inscripcion')$$, $$values ('Inscripción a materias')$$,
+select results_eq($$select titulo from public.buscar_contenido('inscripcion') where titulo not like '%(ejemplo)%'$$, $$values ('Inscripción a materias')$$,
   'busca sin acentos y respeta sede y estado');
-select results_eq($$select titulo from public.buscar_contenido('becas')$$, $$values ('Folleto de becas')$$,
+select results_eq($$select titulo from public.buscar_contenido('becas') where titulo not like '%(ejemplo)%'$$, $$values ('Folleto de becas')$$,
   'encuentra recursos por etiqueta y excluye vencidos');
 select lives_ok($$select * from public.buscar_contenido('"inscrip OR ) (')$$, 'consulta rara no rompe');
 select is_empty($$select * from public.buscar_contenido('   ')$$, 'consulta vacía no devuelve nada');

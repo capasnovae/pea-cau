@@ -17,6 +17,10 @@ select throws_ok($$insert into storage.objects (bucket_id, name) values ('recurs
   '42501', null, 'coordS no sube a otra sede');
 select tests.como_postgres();
 
+insert into public.recursos (categoria_id, titulo, tipo, archivo_path, alcance, sede_id, estado)
+values ((select id from public.categorias where slug = 'reglamento'), 'A', 'pdf', (select nqn from carpetas) || '/a.pdf', 'sede',
+        (select id from public.sedes where nombre = 'T-Neuquén'), 'publicado');
+
 select tests.como(tests.uid('aseR@t'));
 select is_empty($$select 1 from storage.objects where bucket_id = 'recursos' and name like (select nqn from carpetas) || '/%'$$,
   'aseR no ve archivos de Neuquén');

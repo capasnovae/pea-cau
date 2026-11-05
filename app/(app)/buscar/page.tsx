@@ -50,7 +50,7 @@ export default async function PaginaBuscar({ searchParams }: PageProps<"/buscar"
             {recursos.map((r) => (
               <li key={r.id}>
                 <Card className="p-4">
-                  <Link href={`/recursos?q=${encodeURIComponent(r.titulo)}`} className="font-medium text-primary">
+                  <Link href={`/recursos?id=${r.id}`} className="font-medium text-primary">
                     {r.titulo}
                   </Link>
                   {r.resumen && <p className="text-sm text-muted">{r.resumen}</p>}

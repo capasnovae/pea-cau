@@ -1,10 +1,11 @@
 "use client";
 
-import { useActionState, useState } from "react";
+import { startTransition, useActionState, useState } from "react";
 import { Campo, CampoFecha, CamposAlcance, MensajeResultado } from "@/components/contenido/campos";
 import { Button } from "@/components/ui/button";
 import { Input, Select } from "@/components/ui/input";
-import { guardarRecurso, type ResultadoGuardado } from "../../acciones";
+import { crearClienteNavegador } from "@/lib/supabase/navegador";
+import { guardarRecurso, prepararSubida, type ResultadoGuardado } from "../../acciones";
 
 type Opcion = { id: string; nombre: string };
 const MAX_MB = 50;
@@ -41,8 +42,44 @@ export function FormularioRecurso({
 }) {
   const [r, accion, pendiente] = useActionState<ResultadoGuardado, FormData>(guardarRecurso, null);
   const [errorArchivo, setErrorArchivo] = useState<string | null>(null);
+  const [subiendo, setSubiendo] = useState(false);
+
+  // El archivo va directo del navegador a Storage (URL firmada de subida); al servidor solo llega la ruta.
+  async function enviar(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const archivo = formData.get("archivo");
+    formData.delete("archivo");
+    if (archivo instanceof File && archivo.size > 0) {
+      setSubiendo(true);
+      setErrorArchivo(null);
+      const prep = await prepararSubida({
+        alcance: String(formData.get("alcance")) as "global" | "sede",
+        sede_id: String(formData.get("sede_id") ?? ""),
+        nombre: archivo.name,
+        tamano: archivo.size,
+        tipoMime: archivo.type,
+      });
+      if (!prep.ok) {
+        setSubiendo(false);
+        setErrorArchivo(prep.error);
+        return;
+      }
+      const { error } = await crearClienteNavegador()
+        .storage.from("recursos")
+        .uploadToSignedUrl(prep.path, prep.token, archivo, { contentType: archivo.type });
+      setSubiendo(false);
+      if (error) {
+        setErrorArchivo("No pudimos subir el archivo. Probá de nuevo.");
+        return;
+      }
+      formData.set("archivo_path_nuevo", prep.path);
+    }
+    startTransition(() => accion(formData));
+  }
+
   return (
-    <form action={accion} className="flex flex-col gap-4">
+    <form onSubmit={enviar} className="flex flex-col gap-4">
       <input type="hidden" name="id" value={recurso?.id ?? ""} />
       <Campo id="titulo" etiqueta="Título">
         <Input id="titulo" name="titulo" required defaultValue={recurso?.titulo} />
@@ -107,8 +144,8 @@ export function FormularioRecurso({
         <CampoFecha id="vigente_hasta" etiqueta="Vigente hasta" valor={recurso?.vigente_hasta} />
       </div>
       <MensajeResultado r={r} />
-      <Button type="submit" disabled={pendiente || !!errorArchivo} className="self-start">
-        {pendiente ? "Guardando…" : recurso ? "Guardar cambios" : "Crear recurso"}
+      <Button type="submit" disabled={pendiente || subiendo} className="self-start">
+        {subiendo ? "Subiendo archivo…" : pendiente ? "Guardando…" : recurso ? "Guardar cambios" : "Crear recurso"}
       </Button>
     </form>
   );

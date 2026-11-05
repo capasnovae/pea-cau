@@ -17,3 +17,10 @@ export function mensajeErrorGuardado(error: { code?: string; message?: string })
   if (error.message?.includes("artículo padre")) return "El artículo padre tiene que ser de la misma categoría.";
   return "No pudimos guardar. Probá de nuevo.";
 }
+
+/** Filtro de servidor para listar solo lo que el rol puede editar (null = sin filtro). */
+export function filtroEditable(rol: RolApp, miSede: string | null): { alcance: "sede"; sede_id?: string } | null {
+  if (rol === "admin") return null;
+  if (rol === "director") return { alcance: "sede" };
+  return { alcance: "sede", sede_id: miSede ?? "00000000-0000-0000-0000-000000000000" };
+}

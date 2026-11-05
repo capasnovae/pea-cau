@@ -2,7 +2,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input, Select } from "@/components/ui/input";
-import { estaVencido, formatearFecha } from "@/lib/dominio/contenido";
+import { estaVencido, formatearFecha, normalizarBusqueda } from "@/lib/dominio/contenido";
 import { requerirPerfil } from "@/lib/supabase/permisos";
 import { crearClienteServidor } from "@/lib/supabase/servidor";
 import type { Database } from "@/lib/supabase/tipos";
@@ -23,7 +23,7 @@ export default async function PaginaRecursos({ searchParams }: PageProps<"/recur
   await requerirPerfil();
   const sp = await searchParams;
   const valor = (k: string) => (typeof sp[k] === "string" ? (sp[k] as string) : "");
-  const [categoria, tipo, campana, q] = [valor("categoria"), valor("tipo"), valor("campana"), valor("q").trim()];
+  const [categoria, tipo, campana, q, idRecurso] = [valor("categoria"), valor("tipo"), valor("campana"), valor("q").trim(), valor("id")];
 
   const supabase = await crearClienteServidor();
   let consulta = supabase
@@ -35,7 +35,8 @@ export default async function PaginaRecursos({ searchParams }: PageProps<"/recur
   if (categoria) consulta = consulta.eq("categoria_id", categoria);
   if (tipo && tipo in TIPOS) consulta = consulta.eq("tipo", tipo as TipoRecurso);
   if (campana) consulta = consulta.eq("campana_id", campana);
-  if (q) consulta = consulta.textSearch("busqueda", q, { type: "websearch", config: "spanish" });
+  if (q) consulta = consulta.textSearch("busqueda", normalizarBusqueda(q), { type: "websearch", config: "spanish" });
+  if (/^[0-9a-f-]{36}$/i.test(idRecurso)) consulta = consulta.eq("id", idRecurso);
 
   const [{ data: recursos }, { data: categorias }, { data: campanas }] = await Promise.all([
     consulta,

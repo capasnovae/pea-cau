@@ -57,7 +57,7 @@ select lives_ok($$select public.promover_contenido('articulos', (select id from 
 select tests.como_postgres();
 select is((select alcance from public.articulos where titulo = 'N'), 'global'::public.alcance, 'quedó global');
 select is((select s.nombre from public.articulos a join public.sedes s on s.id = a.sede_origen_id where a.titulo = 'N'), 'T-Neuquén', 'conserva la sede de origen');
-select is((select count(*)::int from public.auditoria where accion = 'promover'), 1, 'la promoción queda auditada');
+select is((select count(*)::int from public.auditoria where accion = 'promover' and entidad_id = (select id from ids where titulo = 'N')), 1, 'la promoción queda auditada');
 select tests.como(tests.uid('aseR@t'));
 select ok(exists(select 1 from public.articulos where titulo = 'N'), 'aseR ve lo promovido');
 select tests.como_postgres();

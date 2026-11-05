@@ -2,6 +2,7 @@ import Link from "next/link";
 import { BadgesContenido } from "@/components/repositorio/badges";
 import { Card } from "@/components/ui/card";
 import { cargarOpcionesEdicion } from "@/lib/contenido/opciones";
+import { filtroEditable } from "@/lib/dominio/edicion";
 import { ROLES_EDITORES } from "@/lib/dominio/roles";
 import { requerirRol } from "@/lib/supabase/permisos";
 import { crearClienteServidor } from "@/lib/supabase/servidor";
@@ -14,10 +15,9 @@ export default async function PaginaCampanas() {
   const { data } = await supabase
     .from("campanas")
     .select("id, nombre, descripcion_md, vigente_desde, vigente_hasta, alcance, sede_id, estado")
+    .match(filtroEditable(perfil.rol, perfil.sede_id) ?? {})
     .order("created_at", { ascending: false });
-  const editables = (data ?? []).filter(
-    (c) => perfil.rol === "admin" || (c.alcance === "sede" && (perfil.rol === "director" || c.sede_id === perfil.sede_id)),
-  );
+  const editables = data ?? [];
   return (
     <div className="flex flex-col gap-5">
       <div>

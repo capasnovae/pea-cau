@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { BotonPromover } from "@/components/contenido/boton-promover";
 import { Card } from "@/components/ui/card";
 import { cargarOpcionesEdicion } from "@/lib/contenido/opciones";
+import { formatearFecha } from "@/lib/dominio/contenido";
 import { ROLES_EDITORES } from "@/lib/dominio/roles";
 import { requerirRol } from "@/lib/supabase/permisos";
 import { crearClienteServidor } from "@/lib/supabase/servidor";
@@ -19,7 +20,7 @@ export default async function PaginaEditarRecurso({ params, searchParams }: Page
     ? { data: null }
     : await supabase
         .from("recursos")
-        .select("id, titulo, descripcion, tipo, categoria_id, campana_id, etiquetas, url_externa, archivo_path, alcance, sede_id, estado, vigente_hasta")
+        .select("id, titulo, descripcion, tipo, categoria_id, campana_id, etiquetas, url_externa, archivo_path, alcance, sede_id, estado, vigente_hasta, promovido_at")
         .eq("id", id)
         .maybeSingle();
   if (!nuevo && !recurso) notFound();
@@ -44,6 +45,11 @@ export default async function PaginaEditarRecurso({ params, searchParams }: Page
         <Card>
           <BotonPromover tabla="recursos" id={recurso.id} />
         </Card>
+      )}
+      {recurso?.promovido_at && (
+        <p role="status" className="text-sm text-primary">
+          Ya lo ven todos los CAU (promovido el {formatearFecha(recurso.promovido_at)}).
+        </p>
       )}
     </div>
   );

@@ -50,12 +50,38 @@ export async function guardarArticulo(_prev: ResultadoGuardado, formData: FormDa
   redirect(`/contenido/articulos/${data.id}?creado=1`);
 }
 
+const esquemaSubida = z.object({
+  alcance: z.enum(["global", "sede"]),
+  sede_id: z.preprocess((v) => (v === "" || v == null ? null : v), z.uuid().nullable()),
+  nombre: z.string().min(1).max(200),
+  tamano: z.number().int().positive(),
+  tipoMime: z.string(),
+});
+
+/** Prepara una subida directa del navegador a Storage (sin pasar el archivo por el servidor de Next). */
+export async function prepararSubida(
+  entrada: z.input<typeof esquemaSubida>,
+): Promise<{ ok: true; path: string; token: string } | { ok: false; error: string }> {
+  await requerirRol([...ROLES_EDITORES]);
+  const d = esquemaSubida.safeParse(entrada);
+  if (!d.success) return { ok: false, error: "Revisá los datos." };
+  if (d.data.tamano > MAX_BYTES) return { ok: false, error: "El archivo pesa más de 50 MB. Para videos largos usá un link." };
+  if (!MIME_PERMITIDOS.has(d.data.tipoMime)) return { ok: false, error: "Ese tipo de archivo no está permitido." };
+  if (d.data.alcance === "sede" && !d.data.sede_id) return { ok: false, error: "Elegí la sede." };
+  const carpeta = d.data.alcance === "global" ? "global" : (d.data.sede_id as string);
+  const path = rutaArchivo(carpeta, d.data.nombre, crypto.randomUUID());
+  const supabase = await crearClienteServidor();
+  const { data, error } = await supabase.storage.from("recursos").createSignedUploadUrl(path);
+  if (error || !data) return { ok: false, error: SIN_PERMISO };
+  return { ok: true, path: data.path, token: data.token };
+}
+
 export async function guardarRecurso(_prev: ResultadoGuardado, formData: FormData): Promise<ResultadoGuardado> {
   await requerirRol([...ROLES_EDITORES]);
   const id = idOpcional.safeParse(formData.get("id"));
   if (!id.success) return { ok: false, error: "Revisá los datos." };
-  const archivo = formData.get("archivo");
-  const hayArchivoNuevo = archivo instanceof File && archivo.size > 0;
+  const pathSubido = String(formData.get("archivo_path_nuevo") ?? "").trim();
+  const hayArchivoNuevo = pathSubido.length > 0;
   const supabase = await crearClienteServidor();
 
   let anterior: { archivo_path: string | null; alcance: string; sede_id: string | null } | null = null;
@@ -71,23 +97,20 @@ export async function guardarRecurso(_prev: ResultadoGuardado, formData: FormDat
   if (anterior?.archivo_path && !hayArchivoNuevo && (anterior.alcance !== valores.alcance || anterior.sede_id !== valores.sede_id)) {
     return { ok: false, error: "Si cambiás el alcance o la sede, volvé a subir el archivo." };
   }
-
-  let archivoPath = anterior?.archivo_path ?? null;
   if (hayArchivoNuevo) {
-    if (archivo.size > MAX_BYTES) return { ok: false, error: "El archivo pesa más de 50 MB. Para videos largos usá un link." };
-    if (!MIME_PERMITIDOS.has(archivo.type)) return { ok: false, error: "Ese tipo de archivo no está permitido." };
     const carpeta = valores.alcance === "global" ? "global" : (valores.sede_id as string);
-    archivoPath = rutaArchivo(carpeta, archivo.name, crypto.randomUUID());
-    const { error } = await supabase.storage.from("recursos").upload(archivoPath, archivo, { contentType: archivo.type });
-    if (error) return { ok: false, error: SIN_PERMISO };
+    if (!pathSubido.startsWith(`${carpeta}/`) || pathSubido.includes("..")) {
+      return { ok: false, error: "El archivo no corresponde a ese alcance. Volvé a subirlo." };
+    }
   }
+  const archivoPath = hayArchivoNuevo ? pathSubido : (anterior?.archivo_path ?? null);
 
   const fila = { ...valores, archivo_path: archivoPath };
   const resultado = id.data
     ? await supabase.from("recursos").update(fila).eq("id", id.data).select("id")
     : await supabase.from("recursos").insert(fila).select("id");
   if (resultado.error || !resultado.data?.length) {
-    if (hayArchivoNuevo && archivoPath) await supabase.storage.from("recursos").remove([archivoPath]);
+    if (hayArchivoNuevo) await supabase.storage.from("recursos").remove([pathSubido]);
     return { ok: false, error: resultado.error ? mensajeErrorGuardado(resultado.error) : SIN_PERMISO };
   }
   if (hayArchivoNuevo && anterior?.archivo_path) await supabase.storage.from("recursos").remove([anterior.archivo_path]);

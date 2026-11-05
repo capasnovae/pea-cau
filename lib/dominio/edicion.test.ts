@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { mensajeErrorGuardado, opcionesDeAlcance } from "./edicion";
+import { filtroEditable, mensajeErrorGuardado, opcionesDeAlcance } from "./edicion";
 
 const SEDES = [
   { id: "s1", nombre: "Neuquén" },
@@ -41,5 +41,17 @@ describe("mensajeErrorGuardado", () => {
   });
   it("cualquier otro error", () => {
     expect(mensajeErrorGuardado({ code: "XX000" })).toBe("No pudimos guardar. Probá de nuevo.");
+  });
+});
+
+describe("filtroEditable", () => {
+  it("el admin no filtra", () => {
+    expect(filtroEditable("admin", "s1")).toBeNull();
+  });
+  it("el director ve todo lo de sede", () => {
+    expect(filtroEditable("director", null)).toEqual({ alcance: "sede" });
+  });
+  it("el coordinador solo lo de su sede", () => {
+    expect(filtroEditable("coordinador", "s2")).toEqual({ alcance: "sede", sede_id: "s2" });
   });
 });

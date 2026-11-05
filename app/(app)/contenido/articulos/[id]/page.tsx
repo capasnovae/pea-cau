@@ -21,7 +21,7 @@ export default async function PaginaEditarArticulo({ params, searchParams }: Pag
     ? { data: null }
     : await supabase
         .from("articulos")
-        .select("id, titulo, slug, categoria_id, padre_id, resumen, cuerpo_md, alcance, sede_id, estado, vigente_desde, vigente_hasta, fuente_url, version")
+        .select("id, titulo, slug, categoria_id, padre_id, resumen, cuerpo_md, alcance, sede_id, estado, vigente_desde, vigente_hasta, fuente_url, version, promovido_at")
         .eq("id", id)
         .maybeSingle();
   if (!nuevo && !articulo) notFound();
@@ -57,6 +57,11 @@ export default async function PaginaEditarArticulo({ params, searchParams }: Pag
         <Card>
           <BotonPromover tabla="articulos" id={articulo.id} />
         </Card>
+      )}
+      {articulo?.promovido_at && (
+        <p role="status" className="text-sm text-primary">
+          Ya lo ven todos los CAU (promovido el {formatearFecha(articulo.promovido_at)}).
+        </p>
       )}
       {articulo && (
         <Card>

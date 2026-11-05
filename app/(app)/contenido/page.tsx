@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { BadgesContenido } from "@/components/repositorio/badges";
 import { Card } from "@/components/ui/card";
+import { filtroEditable } from "@/lib/dominio/edicion";
 import { ROLES_EDITORES } from "@/lib/dominio/roles";
 import { requerirRol } from "@/lib/supabase/permisos";
 import { crearClienteServidor } from "@/lib/supabase/servidor";
@@ -18,19 +19,19 @@ export default async function PaginaContenido({ searchParams }: PageProps<"/cont
   const tab = TABS.find((t) => t.id === sp.tab)?.id ?? "articulos";
   const supabase = await crearClienteServidor();
 
-  // La RLS devuelve también borradores y archivados de lo que el usuario puede editar;
-  // filtramos lo editable con la misma regla (lo global solo para el admin).
-  const editable = <T extends { alcance: "global" | "sede"; sede_id: string | null }>(f: T) =>
-    perfil.rol === "admin" || (f.alcance === "sede" && (perfil.rol === "director" || f.sede_id === perfil.sede_id));
+  // Filtramos en el servidor lo que el rol puede editar (lo global solo para el admin),
+  // así el límite de filas no deja afuera contenido propio.
+  const filtro = filtroEditable(perfil.rol, perfil.sede_id);
 
   let filas: { id: string; titulo: string; detalle: string; href: string; badges: Parameters<typeof BadgesContenido>[0]["c"] }[] = [];
   if (tab === "articulos") {
     const { data } = await supabase
       .from("articulos")
       .select("id, titulo, alcance, sede_id, estado, version, updated_at, vigente_hasta, categorias(nombre), sedes!articulos_sede_id_fkey(nombre)")
+      .match(filtro ?? {})
       .order("updated_at", { ascending: false })
       .limit(200);
-    filas = (data ?? []).filter(editable).map((a) => ({
+    filas = (data ?? []).map((a) => ({
       id: a.id,
       titulo: a.titulo,
       detalle: `${a.categorias?.nombre ?? ""} · ${a.sedes?.nombre ?? "Todos los CAU"}`,
@@ -41,9 +42,10 @@ export default async function PaginaContenido({ searchParams }: PageProps<"/cont
     const { data } = await supabase
       .from("recursos")
       .select("id, titulo, tipo, alcance, sede_id, estado, vigente_hasta, sedes!recursos_sede_id_fkey(nombre)")
+      .match(filtro ?? {})
       .order("updated_at", { ascending: false })
       .limit(200);
-    filas = (data ?? []).filter(editable).map((r) => ({
+    filas = (data ?? []).map((r) => ({
       id: r.id,
       titulo: r.titulo,
       detalle: `${r.tipo} · ${r.sedes?.nombre ?? "Todos los CAU"}`,

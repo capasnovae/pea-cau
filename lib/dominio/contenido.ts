@@ -41,3 +41,8 @@ export function formatearFecha(iso: string): string {
   const [a, m, d] = iso.slice(0, 10).split("-");
   return `${d}/${m}/${a}`;
 }
+
+/** Saca tildes y eñes, igual que f_unaccent en la columna de búsqueda, para que la consulta matchee. */
+export function normalizarBusqueda(q: string): string {
+  return q.normalize("NFD").replace(/\p{M}/gu, "").trim();
+}
