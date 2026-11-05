@@ -16,6 +16,7 @@ export type ItemMenu = { href: string; etiqueta: string };
 
 const MENU_BASE: ItemMenu[] = [
   { href: "/inicio", etiqueta: "Inicio" },
+  { href: "/estudiar", etiqueta: "Estudiar" },
   { href: "/consignas", etiqueta: "Consignas" },
   { href: "/repositorio", etiqueta: "Repositorio" },
   { href: "/recursos", etiqueta: "Recursos" },

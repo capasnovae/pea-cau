@@ -568,6 +568,93 @@ export type Database = {
           },
         ];
       };
+      cursos: {
+        Row: {
+          alcance: Database["public"]["Enums"]["alcance"];
+          autor_id: string | null;
+          created_at: string;
+          descripcion_md: string;
+          estado: Database["public"]["Enums"]["estado_contenido"];
+          id: string;
+          nivel_orden: number | null;
+          portada_path: string | null;
+          promovido_at: string | null;
+          promovido_por: string | null;
+          sede_id: string | null;
+          sede_origen_id: string | null;
+          tipo: Database["public"]["Enums"]["tipo_curso"];
+          titulo: string;
+          updated_at: string;
+          vigencia_meses: number | null;
+        };
+        ComputedFields: never;
+        Insert: {
+          alcance?: Database["public"]["Enums"]["alcance"];
+          autor_id?: string | null;
+          created_at?: string;
+          descripcion_md?: string;
+          estado?: Database["public"]["Enums"]["estado_contenido"];
+          id?: string;
+          nivel_orden?: number | null;
+          portada_path?: string | null;
+          promovido_at?: string | null;
+          promovido_por?: string | null;
+          sede_id?: string | null;
+          sede_origen_id?: string | null;
+          tipo: Database["public"]["Enums"]["tipo_curso"];
+          titulo: string;
+          updated_at?: string;
+          vigencia_meses?: number | null;
+        };
+        Update: {
+          alcance?: Database["public"]["Enums"]["alcance"];
+          autor_id?: string | null;
+          created_at?: string;
+          descripcion_md?: string;
+          estado?: Database["public"]["Enums"]["estado_contenido"];
+          id?: string;
+          nivel_orden?: number | null;
+          portada_path?: string | null;
+          promovido_at?: string | null;
+          promovido_por?: string | null;
+          sede_id?: string | null;
+          sede_origen_id?: string | null;
+          tipo?: Database["public"]["Enums"]["tipo_curso"];
+          titulo?: string;
+          updated_at?: string;
+          vigencia_meses?: number | null;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "cursos_autor_id_fkey";
+            columns: ["autor_id"];
+            isOneToOne: false;
+            referencedRelation: "perfiles";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "cursos_promovido_por_fkey";
+            columns: ["promovido_por"];
+            isOneToOne: false;
+            referencedRelation: "perfiles";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "cursos_sede_id_fkey";
+            columns: ["sede_id"];
+            isOneToOne: false;
+            referencedRelation: "sedes";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "cursos_sede_origen_id_fkey";
+            columns: ["sede_origen_id"];
+            isOneToOne: false;
+            referencedRelation: "sedes";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
       equipos: {
         Row: {
           area: Database["public"]["Enums"]["area"];
@@ -610,6 +697,190 @@ export type Database = {
             columns: ["sede_id"];
             isOneToOne: false;
             referencedRelation: "sedes";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
+      item_progreso: {
+        Row: {
+          created_at: string;
+          hecho_at: string | null;
+          item_id: string;
+          usuario_id: string;
+          visto_at: string | null;
+        };
+        ComputedFields: never;
+        Insert: {
+          created_at?: string;
+          hecho_at?: string | null;
+          item_id: string;
+          usuario_id: string;
+          visto_at?: string | null;
+        };
+        Update: {
+          created_at?: string;
+          hecho_at?: string | null;
+          item_id?: string;
+          usuario_id?: string;
+          visto_at?: string | null;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "item_progreso_item_id_fkey";
+            columns: ["item_id"];
+            isOneToOne: false;
+            referencedRelation: "items";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "item_progreso_usuario_id_fkey";
+            columns: ["usuario_id"];
+            isOneToOne: false;
+            referencedRelation: "perfiles";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
+      items: {
+        Row: {
+          articulo_id: string | null;
+          contenido_md: string | null;
+          created_at: string;
+          examen_id: string | null;
+          id: string;
+          modulo_id: string;
+          orden: number;
+          recurso_id: string | null;
+          requisito: Database["public"]["Enums"]["requisito_item"];
+          tipo: Database["public"]["Enums"]["tipo_item"];
+          titulo: string;
+          updated_at: string;
+          url: string | null;
+        };
+        ComputedFields: never;
+        Insert: {
+          articulo_id?: string | null;
+          contenido_md?: string | null;
+          created_at?: string;
+          examen_id?: string | null;
+          id?: string;
+          modulo_id: string;
+          orden?: number;
+          recurso_id?: string | null;
+          requisito?: Database["public"]["Enums"]["requisito_item"];
+          tipo: Database["public"]["Enums"]["tipo_item"];
+          titulo: string;
+          updated_at?: string;
+          url?: string | null;
+        };
+        Update: {
+          articulo_id?: string | null;
+          contenido_md?: string | null;
+          created_at?: string;
+          examen_id?: string | null;
+          id?: string;
+          modulo_id?: string;
+          orden?: number;
+          recurso_id?: string | null;
+          requisito?: Database["public"]["Enums"]["requisito_item"];
+          tipo?: Database["public"]["Enums"]["tipo_item"];
+          titulo?: string;
+          updated_at?: string;
+          url?: string | null;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "items_articulo_id_fkey";
+            columns: ["articulo_id"];
+            isOneToOne: false;
+            referencedRelation: "articulos";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "items_modulo_id_fkey";
+            columns: ["modulo_id"];
+            isOneToOne: false;
+            referencedRelation: "modulos";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "items_recurso_id_fkey";
+            columns: ["recurso_id"];
+            isOneToOne: false;
+            referencedRelation: "recursos";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
+      modulo_prerrequisitos: {
+        Row: {
+          modulo_id: string;
+          requiere_modulo_id: string;
+        };
+        ComputedFields: never;
+        Insert: {
+          modulo_id: string;
+          requiere_modulo_id: string;
+        };
+        Update: {
+          modulo_id?: string;
+          requiere_modulo_id?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "modulo_prerrequisitos_modulo_id_fkey";
+            columns: ["modulo_id"];
+            isOneToOne: false;
+            referencedRelation: "modulos";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "modulo_prerrequisitos_requiere_modulo_id_fkey";
+            columns: ["requiere_modulo_id"];
+            isOneToOne: false;
+            referencedRelation: "modulos";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
+      modulos: {
+        Row: {
+          avance_secuencial: boolean;
+          created_at: string;
+          curso_id: string;
+          descripcion_md: string;
+          id: string;
+          orden: number;
+          titulo: string;
+          updated_at: string;
+        };
+        ComputedFields: never;
+        Insert: {
+          avance_secuencial?: boolean;
+          created_at?: string;
+          curso_id: string;
+          descripcion_md?: string;
+          id?: string;
+          orden?: number;
+          titulo: string;
+          updated_at?: string;
+        };
+        Update: {
+          avance_secuencial?: boolean;
+          created_at?: string;
+          curso_id?: string;
+          descripcion_md?: string;
+          id?: string;
+          orden?: number;
+          titulo?: string;
+          updated_at?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "modulos_curso_id_fkey";
+            columns: ["curso_id"];
+            isOneToOne: false;
+            referencedRelation: "cursos";
             referencedColumns: ["id"];
           },
         ];
@@ -888,6 +1159,56 @@ export type Database = {
           },
         ];
       };
+      ruta_cursos: {
+        Row: {
+          created_at: string;
+          curso_id: string;
+          id: string;
+          obligatorio: boolean;
+          puesto_id: string | null;
+          subrol_id: string | null;
+        };
+        ComputedFields: never;
+        Insert: {
+          created_at?: string;
+          curso_id: string;
+          id?: string;
+          obligatorio?: boolean;
+          puesto_id?: string | null;
+          subrol_id?: string | null;
+        };
+        Update: {
+          created_at?: string;
+          curso_id?: string;
+          id?: string;
+          obligatorio?: boolean;
+          puesto_id?: string | null;
+          subrol_id?: string | null;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "ruta_cursos_curso_id_fkey";
+            columns: ["curso_id"];
+            isOneToOne: false;
+            referencedRelation: "cursos";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "ruta_cursos_puesto_id_fkey";
+            columns: ["puesto_id"];
+            isOneToOne: false;
+            referencedRelation: "puestos";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "ruta_cursos_subrol_id_fkey";
+            columns: ["subrol_id"];
+            isOneToOne: false;
+            referencedRelation: "subroles";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
       sedes: {
         Row: {
           activa: boolean;
@@ -969,6 +1290,9 @@ export type Database = {
         }[];
       };
       carpeta_alcance: { Args: { p_nombre: string }; Returns: Record<string, unknown> };
+      curso_cumplido: { Args: { p_curso: string; p_usuario: string }; Returns: boolean };
+      curso_de_modulo: { Args: { p_modulo: string }; Returns: string };
+      curso_desbloqueado: { Args: { p_curso: string; p_usuario: string }; Returns: boolean };
       destinatarios_consigna: { Args: { p_consigna: string }; Returns: string[] };
       es_creador_de_asignacion: { Args: { p_consigna: string }; Returns: boolean };
       f_etiquetas_texto: { Args: { etiquetas: string[] }; Returns: string };
@@ -978,10 +1302,30 @@ export type Database = {
         Returns: string;
       };
       generar_asignaciones: { Args: { p_consigna: string; p_periodo: string }; Returns: number };
+      item_cumplido: { Args: { p_item: string; p_usuario: string }; Returns: boolean };
+      item_disponible: { Args: { p_item: string; p_usuario: string }; Returns: boolean };
+      marcar_item: { Args: { p_accion: string; p_item: string }; Returns: Json };
       mi_area: { Args: Record<PropertyKey, never>; Returns: Database["public"]["Enums"]["area"] };
       mi_perfil_activo: { Args: Record<PropertyKey, never>; Returns: boolean };
       mi_rol: { Args: Record<PropertyKey, never>; Returns: Database["public"]["Enums"]["rol_app"] };
+      mi_ruta: {
+        Args: Record<PropertyKey, never>;
+        Returns: {
+          cumplido: boolean;
+          curso_id: string;
+          desbloqueado: boolean;
+          descripcion_md: string;
+          items_cumplidos: number;
+          items_total: number;
+          nivel_orden: number;
+          obligatorio: boolean;
+          siguiente_item: string;
+          tipo: Database["public"]["Enums"]["tipo_curso"];
+          titulo: string;
+        }[];
+      };
       mi_sede: { Args: Record<PropertyKey, never>; Returns: string };
+      modulo_cumplido: { Args: { p_modulo: string; p_usuario: string }; Returns: boolean };
       organigrama: {
         Args: Record<PropertyKey, never>;
         Returns: {
@@ -1019,6 +1363,7 @@ export type Database = {
         Args: { p_alcance: Database["public"]["Enums"]["alcance"]; p_sede: string };
         Returns: boolean;
       };
+      puede_editar_curso: { Args: { p_curso: string }; Returns: boolean };
       puede_escribir_archivo: { Args: { p_nombre: string }; Returns: boolean };
       puede_leer_archivo: { Args: { p_nombre: string }; Returns: boolean };
       puede_leer_contenido: {
@@ -1029,6 +1374,7 @@ export type Database = {
         };
         Returns: boolean;
       };
+      puede_leer_curso: { Args: { p_curso: string }; Returns: boolean };
       puede_leer_evidencia: { Args: { p_nombre: string }; Returns: boolean };
       puede_subir_evidencia: { Args: { p_nombre: string }; Returns: boolean };
       puede_ver_usuario: { Args: { objetivo: string }; Returns: boolean };
@@ -1042,8 +1388,11 @@ export type Database = {
       estado_contenido: "borrador" | "publicado" | "archivado";
       prioridad: "baja" | "normal" | "alta";
       recurrencia: "ninguna" | "diaria" | "semanal" | "mensual";
+      requisito_item: "ninguno" | "ver" | "marcar_hecho" | "aprobar";
       rol_app: "asesor" | "lider" | "coordinador" | "director" | "admin";
       tipo_consigna: "tarea" | "lectura" | "capacitacion";
+      tipo_curso: "nivel" | "capacitacion";
+      tipo_item: "articulo" | "recurso" | "pagina" | "video" | "enlace" | "examen";
       tipo_recurso: "imagen" | "video" | "pdf" | "presentacion" | "enlace" | "otro";
     };
     CompositeTypes: {
@@ -1165,8 +1514,11 @@ export const Constants = {
       estado_contenido: ["borrador", "publicado", "archivado"],
       prioridad: ["baja", "normal", "alta"],
       recurrencia: ["ninguna", "diaria", "semanal", "mensual"],
+      requisito_item: ["ninguno", "ver", "marcar_hecho", "aprobar"],
       rol_app: ["asesor", "lider", "coordinador", "director", "admin"],
       tipo_consigna: ["tarea", "lectura", "capacitacion"],
+      tipo_curso: ["nivel", "capacitacion"],
+      tipo_item: ["articulo", "recurso", "pagina", "video", "enlace", "examen"],
       tipo_recurso: ["imagen", "video", "pdf", "presentacion", "enlace", "otro"],
     },
   },

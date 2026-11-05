@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { menuPorRol, rutaInicio } from "./roles";
 
-const BASE = ["/inicio", "/consignas", "/repositorio", "/recursos", "/buscar", "/organigrama", "/perfil"];
+const BASE = ["/inicio", "/estudiar", "/consignas", "/repositorio", "/recursos", "/buscar", "/organigrama", "/perfil"];
 
 describe("menuPorRol", () => {
   it("al asesor le muestra lo de consulta; al líder, además, su equipo", () => {
