@@ -1,29 +1,49 @@
 import { describe, expect, it } from "vitest";
 import { menuPorRol, rutaInicio } from "./roles";
 
-const BASE = ["/inicio", "/estudiar", "/consignas", "/repositorio", "/recursos", "/buscar", "/organigrama", "/perfil"];
+const BASE = ["/inicio", "/estudiar", "/calendario", "/bandeja", "/examenes", "/repositorio", "/organigrama"];
 
 describe("menuPorRol", () => {
-  it("al asesor le muestra lo de consulta; al líder, además, su equipo", () => {
-    expect(menuPorRol("asesor").map((i) => i.href)).toEqual(BASE);
-    expect(menuPorRol("lider").map((i) => i.href)).toEqual([...BASE, "/equipo/consignas"]);
+  it("al asesor le muestra la barra tipo Canvas, con Ayuda al final", () => {
+    expect(menuPorRol("asesor").map((i) => i.href)).toEqual([...BASE, "/ayuda"]);
+  });
+  it("al líder le suma su equipo antes de Ayuda", () => {
+    expect(menuPorRol("lider").map((i) => i.href)).toEqual([...BASE, "/equipo/consignas", "/ayuda"]);
   });
   it("al coordinador y al director les suma la gestión de contenido", () => {
-    expect(menuPorRol("coordinador").map((i) => i.href)).toEqual([...BASE, "/equipo/consignas", "/contenido"]);
-    expect(menuPorRol("director").map((i) => i.href)).toEqual([...BASE, "/equipo/consignas", "/contenido"]);
+    expect(menuPorRol("coordinador").map((i) => i.href)).toEqual([
+      ...BASE,
+      "/equipo/consignas",
+      "/contenido",
+      "/ayuda",
+    ]);
+    expect(menuPorRol("director").map((i) => i.href)).toEqual([
+      ...BASE,
+      "/equipo/consignas",
+      "/contenido",
+      "/ayuda",
+    ]);
   });
-  it("al admin le suma contenido y administración", () => {
+  it("al admin le suma una sola entrada de administración", () => {
     expect(menuPorRol("admin").map((i) => i.href)).toEqual([
       ...BASE,
       "/equipo/consignas",
       "/contenido",
       "/admin/usuarios",
-      "/admin/sedes",
-      "/admin/equipos",
-      "/admin/derivaciones",
-      "/admin/rutas",
+      "/ayuda",
     ]);
-    expect(menuPorRol("admin").find((i) => i.href === "/admin/usuarios")?.etiqueta).toBe("Usuarios");
+    expect(menuPorRol("admin").find((i) => i.href === "/admin/usuarios")?.etiqueta).toBe("Admin");
+  });
+  it("cada ítem tiene etiqueta e ícono", () => {
+    for (const i of menuPorRol("admin")) {
+      expect(i.etiqueta).toBeTruthy();
+      expect(i.icono).toBeTruthy();
+    }
+    expect(
+      menuPorRol("asesor")
+        .map((i) => i.etiqueta)
+        .slice(0, 4),
+    ).toEqual(["Tablero", "Cursos", "Calendario", "Bandeja"]);
   });
 });
 

@@ -25,6 +25,21 @@ describe("decidirRedireccion", () => {
   });
 });
 
+describe("bienvenida", () => {
+  it("manda al anónimo que entra a la raíz a la bienvenida", () => {
+    expect(decidirRedireccion("/", "anonimo")).toBe("/bienvenida");
+  });
+  it("la bienvenida es pública", () => {
+    expect(decidirRedireccion("/bienvenida", "anonimo")).toBeNull();
+  });
+  it("saca al usuario activo de la bienvenida", () => {
+    expect(decidirRedireccion("/bienvenida", "activo")).toBe("/inicio");
+  });
+  it("cualquier otra ruta privada sigue yendo a ingresar", () => {
+    expect(decidirRedireccion("/calendario", "anonimo")).toBe("/ingresar");
+  });
+});
+
 describe("salida forzada", () => {
   it("deja que cualquier estado pase por /salir para cerrar la sesión", () => {
     expect(decidirRedireccion("/salir", "activo")).toBeNull();

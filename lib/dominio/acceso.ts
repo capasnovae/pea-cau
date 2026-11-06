@@ -1,6 +1,14 @@
 export type EstadoSesion = "anonimo" | "inactivo" | "activo";
 
-const RUTAS_PUBLICAS = ["/ingresar", "/recuperar", "/definir-clave", "/auth/confirm", "/verificar", "/salir"];
+const RUTAS_PUBLICAS = [
+  "/bienvenida",
+  "/ingresar",
+  "/recuperar",
+  "/definir-clave",
+  "/auth/confirm",
+  "/verificar",
+  "/salir",
+];
 
 export function esRutaPublica(ruta: string): boolean {
   return RUTAS_PUBLICAS.some((r) => ruta === r || ruta.startsWith(`${r}/`));
@@ -18,9 +26,10 @@ export function destinoInactivo(): string {
 export function decidirRedireccion(ruta: string, estado: EstadoSesion): string | null {
   const [camino = "", query = ""] = ruta.split("?");
   const publica = esRutaPublica(camino);
-  if (estado === "anonimo") return publica ? null : "/ingresar";
+  if (estado === "anonimo") return publica ? null : camino === "/" ? "/bienvenida" : "/ingresar";
   if (estado === "inactivo") return publica ? null : "/ingresar?motivo=inactivo";
   const avisado = new URLSearchParams(query).has("motivo");
-  if ((camino === "/ingresar" && !avisado) || camino === "/recuperar") return "/inicio";
+  if ((camino === "/ingresar" && !avisado) || camino === "/recuperar" || camino === "/bienvenida")
+    return "/inicio";
   return null;
 }

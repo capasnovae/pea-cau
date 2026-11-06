@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { pedirRecuperacion, type EstadoForm } from "../acciones";
+import { pedirRecuperacion, type EstadoForm } from "../../acciones";
 
 export default function PaginaRecuperar() {
   const [estado, accion, pendiente] = useActionState<EstadoForm, FormData>(pedirRecuperacion, {});

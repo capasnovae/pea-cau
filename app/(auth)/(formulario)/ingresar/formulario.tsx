@@ -5,7 +5,7 @@ import { useActionState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { ingresar, type EstadoForm } from "../acciones";
+import { ingresar, type EstadoForm } from "../../acciones";
 
 export function FormularioIngreso({ inactivo }: { inactivo: boolean }) {
   const [estado, accion, pendiente] = useActionState<EstadoForm, FormData>(ingresar, {});

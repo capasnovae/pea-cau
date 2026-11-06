@@ -1,5 +1,7 @@
 import { redirect } from "next/navigation";
+import { obtenerSesion } from "@/lib/supabase/servidor";
 
-export default function Raiz() {
-  redirect("/inicio");
+export default async function Raiz() {
+  const sesion = await obtenerSesion();
+  redirect(sesion ? "/inicio" : "/bienvenida");
 }
