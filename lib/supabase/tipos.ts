@@ -1290,6 +1290,10 @@ export type Database = {
         }[];
       };
       carpeta_alcance: { Args: { p_nombre: string }; Returns: Record<string, unknown> };
+      contenido_compatible: {
+        Args: { p_alcance: Database["public"]["Enums"]["alcance"]; p_curso: string; p_sede: string };
+        Returns: boolean;
+      };
       curso_cumplido: { Args: { p_curso: string; p_usuario: string }; Returns: boolean };
       curso_de_modulo: { Args: { p_modulo: string }; Returns: string };
       curso_desbloqueado: { Args: { p_curso: string; p_usuario: string }; Returns: boolean };
@@ -1318,6 +1322,7 @@ export type Database = {
         Returns: string;
       };
       generar_asignaciones: { Args: { p_consigna: string; p_periodo: string }; Returns: number };
+      guardar_prerrequisitos: { Args: { p_modulo: string; p_requiere: string[] }; Returns: undefined };
       item_cumplido: { Args: { p_item: string; p_usuario: string }; Returns: boolean };
       item_disponible: { Args: { p_item: string; p_usuario: string }; Returns: boolean };
       item_disponible_para_mi: { Args: { p_item: string }; Returns: boolean };

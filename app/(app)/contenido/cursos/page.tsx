@@ -32,7 +32,7 @@ export default async function PaginaCursosEditor() {
               <Link href={`/contenido/cursos/${c.id}`} className="font-bold hover:text-primary">
                 {c.tipo === "nivel" ? `Nivel ${c.nivel_orden} · ` : ""}{c.titulo}
               </Link>
-              <BadgesContenido c={{ alcance: "global", estado: c.estado, vigente_hasta: null }} />
+              <BadgesContenido c={{ alcance: c.alcance, estado: c.estado, vigente_hasta: null }} />
             </Card>
           </li>
         ))}

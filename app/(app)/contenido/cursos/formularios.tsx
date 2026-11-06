@@ -150,7 +150,6 @@ export function FormularioItem({
             <option value="ver">Verlo</option>
             <option value="marcar_hecho">Marcar como hecho</option>
             <option value="ninguno">Opcional</option>
-            {tipo === "examen" && <option value="aprobar">Aprobar</option>}
           </Select>
         </Campo>
         <Campo id={`${p}-orden`} etiqueta="Orden">
@@ -194,7 +193,7 @@ export function FormularioItem({
           </p>
         </div>
       )}
-      {tipo === "examen" && <p className="text-sm text-muted">Los exámenes se configuran en la próxima etapa.</p>}
+      {tipo === "examen" && <p className="text-sm text-muted">Los exámenes se configuran en la etapa de exámenes; por ahora el paso queda como opcional o para ver.</p>}
       <MensajeResultado r={r} />
       <Button type="submit" variante={item ? "secundario" : "primario"} disabled={pendiente} className="self-start">
         {item ? "Guardar paso" : "Agregar paso"}

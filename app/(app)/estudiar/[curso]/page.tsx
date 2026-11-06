@@ -76,7 +76,7 @@ export default async function PaginaCurso({ params }: PageProps<"/estudiar/[curs
                 );
                 return (
                   <li key={it.item_id} className="border-t border-border first:border-t-0">
-                    {it.disponible || it.cumplido ? (
+                    {it.disponible ? (
                       <Link href={`/estudiar/${cursoId}/${it.item_id}`} className="flex items-center gap-3 py-3">{contenido}</Link>
                     ) : (
                       <div className="flex items-center gap-3 py-3" aria-disabled="true">{contenido}</div>

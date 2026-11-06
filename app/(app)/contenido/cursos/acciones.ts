@@ -14,8 +14,16 @@ export type ResultadoCurso = { ok: true; mensaje: string } | { ok: false; error:
 const SIN_PERMISO = "No tenés permiso para hacer esto.";
 const idOpcional = z.preprocess((v) => (v === "" || v == null ? undefined : v), z.uuid().optional());
 
+/** El curso de un módulo no se cambia al editarlo (la base también lo impide). */
+function sinCurso<T extends { curso_id: string }>(v: T): Omit<T, "curso_id"> {
+  const { curso_id: _, ...resto } = v;
+  return resto;
+}
+
 function errorCurso(e: { code?: string; message?: string }): string {
   if (e.code === "23505") return "Ya hay un curso con ese número de nivel.";
+  if (e.message?.includes("ciclo")) return "Esos prerrequisitos forman un círculo: un módulo terminaría esperando a otro que lo espera a él.";
+  if (e.message?.includes("no es visible para todo el público")) return "Ese contenido es de una sede y este curso lo ven otras sedes. Elegí contenido global o de la misma sede.";
   if (e.message?.includes("prerrequisito")) return "El prerrequisito tiene que ser del mismo curso.";
   return mensajeErrorGuardado(e);
 }
@@ -46,16 +54,12 @@ export async function guardarModulo(_prev: ResultadoCurso, formData: FormData): 
   const { prerrequisitos, ...valores } = d.data;
   const supabase = await crearClienteServidor();
   const r = id.data
-    ? await supabase.from("modulos").update(valores).eq("id", id.data).select("id").single()
+    ? await supabase.from("modulos").update(sinCurso(valores)).eq("id", id.data).select("id").single()
     : await supabase.from("modulos").insert(valores).select("id").single();
   if (r.error || !r.data) return { ok: false, error: r.error ? errorCurso(r.error) : SIN_PERMISO };
   const moduloId = r.data.id;
-  await supabase.from("modulo_prerrequisitos").delete().eq("modulo_id", moduloId);
-  const otros = prerrequisitos.filter((p) => p !== moduloId);
-  if (otros.length) {
-    const { error } = await supabase.from("modulo_prerrequisitos").insert(otros.map((p) => ({ modulo_id: moduloId, requiere_modulo_id: p })));
-    if (error) return { ok: false, error: errorCurso(error) };
-  }
+  const { error } = await supabase.rpc("guardar_prerrequisitos", { p_modulo: moduloId, p_requiere: prerrequisitos });
+  if (error) return { ok: false, error: errorCurso(error) };
   revalidatePath(`/contenido/cursos/${valores.curso_id}`);
   return { ok: true, mensaje: "Módulo guardado." };
 }

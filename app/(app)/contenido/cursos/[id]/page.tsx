@@ -8,6 +8,11 @@ import { requerirRol } from "@/lib/supabase/permisos";
 import { crearClienteServidor } from "@/lib/supabase/servidor";
 import { BotonBorrar, FormularioCurso, FormularioItem, FormularioModulo } from "../formularios";
 
+/** Solo contenido que ve todo el público del curso: global, o de su misma sede si el curso es de sede. */
+function filtroCompatible(curso: { alcance: string; sede_id: string | null }): string {
+  return curso.alcance === "sede" && curso.sede_id ? `alcance.eq.global,sede_id.eq.${curso.sede_id}` : "alcance.eq.global";
+}
+
 export default async function PaginaEditarCurso({ params, searchParams }: PageProps<"/contenido/cursos/[id]">) {
   const perfil = await requerirRol([...ROLES_EDITORES]);
   const { id } = await params;
@@ -24,8 +29,8 @@ export default async function PaginaEditarCurso({ params, searchParams }: PagePr
   const [{ data: modulos }, { data: articulos }, { data: recursos }] = await Promise.all([
     supabase.from("modulos").select("id, titulo, orden, avance_secuencial, modulo_prerrequisitos!modulo_prerrequisitos_modulo_id_fkey(requiere_modulo_id), items(id, titulo, tipo, requisito, orden, articulo_id, recurso_id, contenido_md, url)")
       .eq("curso_id", id).order("orden"),
-    supabase.from("articulos").select("id, titulo").eq("estado", "publicado").order("titulo").limit(500),
-    supabase.from("recursos").select("id, titulo").eq("estado", "publicado").order("titulo").limit(500),
+    supabase.from("articulos").select("id, titulo").eq("estado", "publicado").or(filtroCompatible(curso)).order("titulo").limit(500),
+    supabase.from("recursos").select("id, titulo").eq("estado", "publicado").or(filtroCompatible(curso)).order("titulo").limit(500),
   ]);
   const listaArt = (articulos ?? []).map((a) => ({ id: a.id, nombre: a.titulo }));
   const listaRec = (recursos ?? []).map((a) => ({ id: a.id, nombre: a.titulo }));

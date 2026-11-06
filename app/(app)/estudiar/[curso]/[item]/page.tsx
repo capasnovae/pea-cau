@@ -31,7 +31,7 @@ export default async function PaginaLeccion({ params }: PageProps<"/estudiar/[cu
   const siguienteHref = siguiente ? `/estudiar/${cursoId}/${siguiente.item_id}` : `/estudiar/${cursoId}`;
   const color = colorNivel(curso.nivel_orden).fondo;
 
-  if (!fila.disponible && !fila.cumplido) {
+  if (!fila.disponible) {
     const pendiente = filas.find((f) => f.disponible && !f.cumplido);
     return (
       <div className="flex flex-col gap-4">
