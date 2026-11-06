@@ -1197,6 +1197,39 @@ export type Database = {
           },
         ];
       };
+      insignias: {
+        Row: {
+          curso_id: string;
+          descripcion: string;
+          icono_path: string | null;
+          id: string;
+          nombre: string;
+        };
+        ComputedFields: never;
+        Insert: {
+          curso_id: string;
+          descripcion?: string;
+          icono_path?: string | null;
+          id?: string;
+          nombre: string;
+        };
+        Update: {
+          curso_id?: string;
+          descripcion?: string;
+          icono_path?: string | null;
+          id?: string;
+          nombre?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "insignias_curso_id_fkey";
+            columns: ["curso_id"];
+            isOneToOne: true;
+            referencedRelation: "cursos";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
       intento_preguntas: {
         Row: {
           intento_id: string;
@@ -2268,6 +2301,49 @@ export type Database = {
         };
         Relationships: [];
       };
+      usuario_insignias: {
+        Row: {
+          id: string;
+          insignia_id: string;
+          motivo_perdida: string | null;
+          otorgada_at: string;
+          perdida_at: string | null;
+          usuario_id: string;
+        };
+        ComputedFields: never;
+        Insert: {
+          id?: string;
+          insignia_id: string;
+          motivo_perdida?: string | null;
+          otorgada_at?: string;
+          perdida_at?: string | null;
+          usuario_id: string;
+        };
+        Update: {
+          id?: string;
+          insignia_id?: string;
+          motivo_perdida?: string | null;
+          otorgada_at?: string;
+          perdida_at?: string | null;
+          usuario_id?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "usuario_insignias_insignia_id_fkey";
+            columns: ["insignia_id"];
+            isOneToOne: false;
+            referencedRelation: "insignias";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "usuario_insignias_usuario_id_fkey";
+            columns: ["usuario_id"];
+            isOneToOne: false;
+            referencedRelation: "perfiles";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
     };
     Views: {
       [_ in never]: never;
@@ -2372,6 +2448,10 @@ export type Database = {
           titulo: string;
         }[];
       };
+      estado_efectivo: {
+        Args: { p_estado: Database["public"]["Enums"]["estado_certificacion"]; p_vence: string };
+        Returns: string;
+      };
       estado_ubicacion: {
         Args: Record<PropertyKey, never>;
         Returns: {
@@ -2460,6 +2540,15 @@ export type Database = {
         }[];
       };
       mi_perfil_activo: { Args: Record<PropertyKey, never>; Returns: boolean };
+      mi_perfil_evolutivo: {
+        Args: Record<PropertyKey, never>;
+        Returns: {
+          cursos_cumplidos: number;
+          cursos_total: number;
+          nivel_actual: number;
+          nivel_titulo: string;
+        }[];
+      };
       mi_rol: { Args: Record<PropertyKey, never>; Returns: Database["public"]["Enums"]["rol_app"] };
       mi_ruta: {
         Args: Record<PropertyKey, never>;
@@ -2663,10 +2752,22 @@ export type Database = {
           tipo: Database["public"]["Enums"]["tipo_pregunta"];
         }[];
       };
+      revocar_certificacion: { Args: { p_id: string; p_motivo: string }; Returns: undefined };
       soltar_correccion: { Args: { p_intento: string }; Returns: undefined };
       sortear_intento: { Args: { p_curso_bloque?: string; p_intento: string }; Returns: undefined };
       tomado_vigente: { Args: { p_corrector: string; p_tomado: string }; Returns: boolean };
       tomar_correccion: { Args: { p_intento: string }; Returns: undefined };
+      verificar_certificado: {
+        Args: { p_codigo: string };
+        Returns: {
+          curso: string;
+          emitida_at: string;
+          estado: string;
+          nivel: number;
+          nombre: string;
+          vence_at: string;
+        }[];
+      };
     };
     Enums: {
       alcance: "global" | "sede";
