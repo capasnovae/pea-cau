@@ -298,3 +298,9 @@ values ('d1000000-0000-4000-8000-000000000006', 'Práctica: derivar consultas (e
 update public.items set orden = 3 where titulo = 'Final del Nivel 2 (ejemplo)';
 insert into public.items (modulo_id, orden, titulo, tipo, examen_id, requisito)
 values ('c5000000-0000-4000-8000-000000000003', 2, 'Práctica: derivar consultas (ejemplo)', 'practica', 'd1000000-0000-4000-8000-000000000006', 'marcar_hecho');
+
+-- Etapa 7 · Nombres de ejemplo de las insignias de nivel
+update public.insignias set nombre = 'Base (ejemplo)', descripcion = 'Reglamento y plataformas'
+where curso_id = 'c4000000-0000-4000-8000-000000000001';
+update public.insignias set nombre = 'Operativo (ejemplo)', descripcion = 'Modalidades y trámites'
+where curso_id = 'c4000000-0000-4000-8000-000000000002';
