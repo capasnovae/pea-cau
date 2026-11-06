@@ -2270,6 +2270,7 @@ export type Database = {
       [_ in never]: never;
     };
     Functions: {
+      aplicar_efectos: { Args: { p_intento: string }; Returns: undefined };
       archivar: { Args: { p_archivada: boolean; p_conversacion: string }; Returns: undefined };
       asignacion_de_ruta: { Args: { p_nombre: string }; Returns: string };
       buscar_contenido: {
@@ -2285,6 +2286,7 @@ export type Database = {
         }[];
       };
       carpeta_alcance: { Args: { p_nombre: string }; Returns: Record<string, unknown> };
+      cerrar_intento: { Args: { p_intento: string }; Returns: undefined };
       contactos_bandeja: {
         Args: Record<PropertyKey, never>;
         Returns: {
@@ -2304,6 +2306,16 @@ export type Database = {
       curso_de_modulo: { Args: { p_modulo: string }; Returns: string };
       curso_desbloqueado: { Args: { p_curso: string; p_usuario: string }; Returns: boolean };
       destinatarios_consigna: { Args: { p_consigna: string }; Returns: string[] };
+      entregar_intento: {
+        Args: { p_intento: string };
+        Returns: {
+          aprobado: boolean;
+          estado: Database["public"]["Enums"]["estado_intento"];
+          nota: number;
+        }[];
+      };
+      entregar_interno: { Args: { p_intento: string }; Returns: undefined };
+      entregar_vencidos: { Args: Record<PropertyKey, never>; Returns: undefined };
       es_creador_de_asignacion: { Args: { p_consigna: string }; Returns: boolean };
       es_participante: { Args: { p_conversacion: string }; Returns: boolean };
       estado_curso: {
@@ -2324,6 +2336,7 @@ export type Database = {
       };
       exigir_participante: { Args: { p_conversacion: string }; Returns: undefined };
       f_etiquetas_texto: { Args: { etiquetas: string[] }; Returns: string };
+      f_normalizar: { Args: { texto: string }; Returns: string };
       f_unaccent: { Args: { texto: string }; Returns: string };
       fin_periodo: {
         Args: { p_periodo: string; p_recurrencia: Database["public"]["Enums"]["recurrencia"] };
@@ -2331,11 +2344,23 @@ export type Database = {
       };
       generar_asignaciones: { Args: { p_consigna: string; p_periodo: string }; Returns: number };
       guardar_prerrequisitos: { Args: { p_modulo: string; p_requiere: string[] }; Returns: undefined };
+      guardar_respuesta: {
+        Args: {
+          p_intento: string;
+          p_opcion_ids: string[];
+          p_orden: string[];
+          p_pregunta: string;
+          p_texto: string;
+          p_valores?: Json;
+        };
+        Returns: undefined;
+      };
       hoy_ar: { Args: Record<PropertyKey, never>; Returns: string };
       iniciar_conversacion: {
         Args: { p_asunto: string; p_cuerpo: string; p_destinatarios: string[] };
         Returns: string;
       };
+      iniciar_intento: { Args: { p_examen: string }; Returns: string };
       item_cumplido: { Args: { p_item: string; p_usuario: string }; Returns: boolean };
       item_disponible: { Args: { p_item: string; p_usuario: string }; Returns: boolean };
       item_disponible_para_mi: { Args: { p_item: string }; Returns: boolean };
@@ -2406,6 +2431,24 @@ export type Database = {
           vencidas: number;
         }[];
       };
+      mis_examenes: {
+        Args: Record<PropertyKey, never>;
+        Returns: {
+          aprobado: boolean;
+          cantidad_preguntas: number;
+          curso_titulo: string;
+          espera_hasta: string;
+          examen_id: string;
+          intento_en_curso: string;
+          intento_pendiente: string;
+          intentos_restantes: number;
+          mejor_nota: number;
+          nota_minima: number;
+          tiempo_limite_min: number;
+          tipo: Database["public"]["Enums"]["tipo_examen"];
+          titulo: string;
+        }[];
+      };
       modulo_cumplido: { Args: { p_modulo: string; p_usuario: string }; Returns: boolean };
       organigrama: {
         Args: Record<PropertyKey, never>;
@@ -2434,6 +2477,36 @@ export type Database = {
       periodo_actual: {
         Args: { p_hoy: string; p_recurrencia: Database["public"]["Enums"]["recurrencia"] };
         Returns: string;
+      };
+      pozo_fuente: {
+        Args: { p_categoria: string; p_curso: string; p_modulo: string };
+        Returns: {
+          pregunta_id: string;
+          unidad: string;
+        }[];
+      };
+      preguntas_de_unidad: {
+        Args: { p_unidad: string };
+        Returns: {
+          orden_en_caso: number;
+          pregunta_id: string;
+        }[];
+      };
+      preguntas_intento: {
+        Args: { p_intento: string };
+        Returns: {
+          caso_contexto_md: string;
+          caso_titulo: string;
+          config: Json;
+          contexto_md: string;
+          enunciado_md: string;
+          opciones: Json;
+          orden: number;
+          pregunta_id: string;
+          puntaje_max: number;
+          respuesta: Json;
+          tipo: Database["public"]["Enums"]["tipo_pregunta"];
+        }[];
       };
       procesar_consignas: { Args: { p_hoy?: string }; Returns: Json };
       promover_contenido: { Args: { p_id: string; p_tabla: string }; Returns: undefined };
@@ -2469,11 +2542,39 @@ export type Database = {
       };
       puede_leer_curso: { Args: { p_curso: string }; Returns: boolean };
       puede_leer_evidencia: { Args: { p_nombre: string }; Returns: boolean };
+      puede_rendir: { Args: { p_examen: string }; Returns: boolean };
       puede_subir_evidencia: { Args: { p_nombre: string }; Returns: boolean };
       puede_ver_intento: { Args: { p_intento: string }; Returns: boolean };
       puede_ver_usuario: { Args: { objetivo: string }; Returns: boolean };
       puede_ver_usuario_como: { Args: { p_actor: string; p_objetivo: string }; Returns: boolean };
       responder: { Args: { p_conversacion: string; p_cuerpo: string }; Returns: string };
+      respuesta_correcta: {
+        Args: { p_opcion_ids: string[]; p_orden: string[]; p_pregunta: string; p_valores: Json };
+        Returns: boolean;
+      };
+      revision_intento: {
+        Args: { p_intento: string };
+        Returns: {
+          articulo_fuente_id: string;
+          caso_contexto_md: string;
+          caso_titulo: string;
+          config: Json;
+          contexto_md: string;
+          devolucion_md: string;
+          enunciado_md: string;
+          es_correcta: boolean;
+          explicacion_md: string;
+          opciones: Json;
+          orden: number;
+          pregunta_id: string;
+          puntaje: number;
+          puntaje_max: number;
+          respuesta: Json;
+          solucion: Json;
+          tipo: Database["public"]["Enums"]["tipo_pregunta"];
+        }[];
+      };
+      sortear_intento: { Args: { p_curso_bloque?: string; p_intento: string }; Returns: undefined };
     };
     Enums: {
       alcance: "global" | "sede";
