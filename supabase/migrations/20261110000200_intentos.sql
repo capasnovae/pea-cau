@@ -67,8 +67,8 @@ begin
   -- 1) Fuentes con cupo
   for f in select * from pea_fuentes where cantidad is not null loop
     v_tomadas := 0;
-    for u in select distinct pf.unidad, random() as r from public.pozo_fuente(f.modulo_id, f.categoria_id, f.curso_id) pf
-             where pf.unidad <> all (v_elegidas) order by r loop
+    for u in select x.unidad from (select distinct pf.unidad from public.pozo_fuente(f.modulo_id, f.categoria_id, f.curso_id) pf
+                                   where pf.unidad <> all (v_elegidas)) x order by random() loop
       exit when v_tomadas >= f.cantidad;
       select count(*) into v_n from public.preguntas_de_unidad(u.unidad);
       v_elegidas := v_elegidas || u.unidad;
@@ -78,9 +78,9 @@ begin
   end loop;
 
   -- 2) El resto, de las fuentes sin cupo, hasta la cantidad pedida
-  for u in select distinct pf.unidad, random() as r
-           from pea_fuentes fs, public.pozo_fuente(fs.modulo_id, fs.categoria_id, fs.curso_id) pf
-           where fs.cantidad is null and pf.unidad <> all (v_elegidas) order by r loop
+  for u in select x.unidad from (select distinct pf.unidad
+                                 from pea_fuentes fs, public.pozo_fuente(fs.modulo_id, fs.categoria_id, fs.curso_id) pf
+                                 where fs.cantidad is null and pf.unidad <> all (v_elegidas)) x order by random() loop
     exit when v_total >= v_e.cantidad_preguntas;
     select count(*) into v_n from public.preguntas_de_unidad(u.unidad);
     v_elegidas := v_elegidas || u.unidad;

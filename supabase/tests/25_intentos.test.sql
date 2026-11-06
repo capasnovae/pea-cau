@@ -1,6 +1,6 @@
 -- Intentos del lado del servidor: iniciar, responder, entregar, revisar
 begin;
-select plan(30);
+select plan(31);
 select tests.escenario();
 select tests.escenario_cursos();
 select tests.escenario_examenes();
@@ -116,6 +116,11 @@ insert into ids select 'i6', public.iniciar_intento('f1000000-0000-4000-8000-000
 select is((select count(*)::int from public.preguntas_intento((select v from ids where k = 'i6'))), 3,
   'con menos preguntas que las pedidas, sortea todas (y nunca las de práctica)');
 select throws_ok($$select public.iniciar_intento('f1000000-0000-4000-8000-000000000009')$$, 'P0001', 'sin preguntas', 'pozo vacío');
+select tests.como_postgres();
+update public.examenes set cantidad_preguntas = 10 where id = 'f1000000-0000-4000-8000-000000000003';
+select tests.como(tests.uid('ase2@t'));
+insert into ids select 'i7', public.iniciar_intento('f1000000-0000-4000-8000-000000000003');
+select is((select count(*)::int from public.preguntas_intento((select v from ids where k = 'i7'))), 2, 'un caso entra una sola vez aunque falten preguntas');
 insert into ids select 'i5', public.iniciar_intento('f1000000-0000-4000-8000-000000000007');
 select tests.como_postgres();
 select is((select count(*)::int from public.intento_preguntas ip join public.preguntas p on p.id = ip.pregunta_id

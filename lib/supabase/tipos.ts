@@ -2273,6 +2273,7 @@ export type Database = {
       aplicar_efectos: { Args: { p_intento: string }; Returns: undefined };
       archivar: { Args: { p_archivada: boolean; p_conversacion: string }; Returns: undefined };
       asignacion_de_ruta: { Args: { p_nombre: string }; Returns: string };
+      bloques_ubicacion: { Args: Record<PropertyKey, never>; Returns: string[] };
       buscar_contenido: {
         Args: { p_limite?: number; q: string };
         Returns: {
@@ -2359,6 +2360,18 @@ export type Database = {
           titulo: string;
         }[];
       };
+      estado_ubicacion: {
+        Args: Record<PropertyKey, never>;
+        Returns: {
+          bloque_actual: number;
+          habilitada: boolean;
+          intento_en_curso: string;
+          niveles_acreditados: number[];
+          rendida: boolean;
+          total_bloques: number;
+        }[];
+      };
+      examen_ubicacion: { Args: Record<PropertyKey, never>; Returns: string };
       exigir_corrector: { Args: { p_intento: string; p_tomado: boolean }; Returns: undefined };
       exigir_participante: { Args: { p_conversacion: string }; Returns: undefined };
       f_etiquetas_texto: { Args: { etiquetas: string[] }; Returns: string };
@@ -2381,12 +2394,14 @@ export type Database = {
         };
         Returns: undefined;
       };
+      habilitar_ubicacion: { Args: { p_usuario: string }; Returns: undefined };
       hoy_ar: { Args: Record<PropertyKey, never>; Returns: string };
       iniciar_conversacion: {
         Args: { p_asunto: string; p_cuerpo: string; p_destinatarios: string[] };
         Returns: string;
       };
       iniciar_intento: { Args: { p_examen: string }; Returns: string };
+      iniciar_ubicacion: { Args: Record<PropertyKey, never>; Returns: string };
       item_cumplido: { Args: { p_item: string; p_usuario: string }; Returns: boolean };
       item_disponible: { Args: { p_item: string; p_usuario: string }; Returns: boolean };
       item_disponible_para_mi: { Args: { p_item: string }; Returns: boolean };
