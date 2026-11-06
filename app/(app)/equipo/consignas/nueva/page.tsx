@@ -9,13 +9,19 @@ import { FormularioConsigna } from "./formulario-consigna";
 export default async function PaginaNuevaConsigna() {
   const perfil = await requerirRol([...ROLES_GESTION]);
   const supabase = await crearClienteServidor();
-  const [{ data: dir }, { data: sedes }, { data: equipos }, { data: subroles }, { data: articulos }] = await Promise.all([
-    supabase.rpc("organigrama"),
-    supabase.from("sedes").select("id, nombre").eq("activa", true).order("nombre"),
-    supabase.from("equipos").select("id, nombre, sede_id, area, lider_id").order("nombre"),
-    supabase.from("subroles").select("id, nombre").order("orden"),
-    supabase.from("articulos").select("id, titulo, alcance, sede_id").eq("estado", "publicado").order("titulo").limit(300),
-  ]);
+  const [{ data: dir }, { data: sedes }, { data: equipos }, { data: subroles }, { data: articulos }] =
+    await Promise.all([
+      supabase.rpc("organigrama"),
+      supabase.from("sedes").select("id, nombre").eq("activa", true).order("nombre"),
+      supabase.from("equipos").select("id, nombre, sede_id, area, lider_id").order("nombre"),
+      supabase.from("subroles").select("id, nombre").order("orden"),
+      supabase
+        .from("articulos")
+        .select("id, titulo, alcance, sede_id")
+        .eq("estado", "publicado")
+        .order("titulo")
+        .limit(300),
+    ]);
 
   // Alcance del rol (la base vuelve a verificarlo al crear)
   const misEquipos = (equipos ?? []).filter((e) => e.lider_id === perfil.id).map((e) => e.id);
@@ -39,7 +45,9 @@ export default async function PaginaNuevaConsigna() {
   return (
     <div className="flex flex-col gap-5">
       <div>
-        <Link href="/equipo/consignas" className="text-sm text-primary">← Consignas del equipo</Link>
+        <Link href="/equipo/consignas" className="text-sm text-primary">
+          ← Consignas del equipo
+        </Link>
         <h1 className="mt-1 text-2xl font-semibold">Nueva consigna</h1>
       </div>
       <Card>
@@ -50,7 +58,11 @@ export default async function PaginaNuevaConsigna() {
           personas={personas}
           equipos={equiposPermitidos}
           subroles={subroles ?? []}
-          articulos={(articulos ?? []).map((a) => ({ id: a.id, nombre: a.titulo, sede_id: a.alcance === "sede" ? a.sede_id : null }))}
+          articulos={(articulos ?? []).map((a) => ({
+            id: a.id,
+            nombre: a.titulo,
+            sede_id: a.alcance === "sede" ? a.sede_id : null,
+          }))}
         />
       </Card>
     </div>

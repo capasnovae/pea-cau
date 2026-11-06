@@ -12,7 +12,9 @@ export default async function PaginaEquipoConsignas() {
   const supabase = await crearClienteServidor();
   const { data } = await supabase
     .from("consignas")
-    .select("id, titulo, tipo, destino, recurrencia, activa, fecha_limite, created_at, consigna_asignaciones(estado, periodo)")
+    .select(
+      "id, titulo, tipo, destino, recurrencia, activa, fecha_limite, created_at, consigna_asignaciones(estado, periodo)",
+    )
     .eq("creada_por", perfil.id)
     .order("created_at", { ascending: false })
     .limit(100);
@@ -24,7 +26,10 @@ export default async function PaginaEquipoConsignas() {
           <h1 className="text-2xl font-semibold">Consignas del equipo</h1>
           <p className="text-sm text-muted">Las que asignaste y cómo vienen.</p>
         </div>
-        <Link href="/equipo/consignas/nueva" className="inline-flex h-11 items-center rounded-lg bg-primary px-4 text-sm font-medium text-primary-foreground">
+        <Link
+          href="/equipo/consignas/nueva"
+          className="inline-flex h-11 items-center rounded-lg bg-primary px-4 text-sm font-medium text-primary-foreground"
+        >
           Nueva consigna
         </Link>
       </div>
@@ -42,13 +47,23 @@ export default async function PaginaEquipoConsignas() {
               <li key={c.id}>
                 <Card className="flex flex-col gap-1 p-4">
                   <div className="flex flex-wrap items-center justify-between gap-2">
-                    <Link href={`/equipo/consignas/${c.id}`} className="font-medium hover:text-primary">{c.titulo}</Link>
-                    <span className="text-sm font-medium">{hechas} de {actuales.length} hechas</span>
+                    <Link href={`/equipo/consignas/${c.id}`} className="font-medium hover:text-primary">
+                      {c.titulo}
+                    </Link>
+                    <span className="text-sm font-medium">
+                      {hechas} de {actuales.length} hechas
+                    </span>
                   </div>
                   <div className="flex flex-wrap items-center gap-1.5 text-xs text-muted">
                     <Badge>{ETIQUETA_DESTINO[c.destino]}</Badge>
-                    {c.tipo === "lectura" && <Badge className="border-primary/40 text-primary">Lectura</Badge>}
-                    {c.recurrencia !== "ninguna" && <Badge className="border-transparent bg-background">{ETIQUETA_RECURRENCIA[c.recurrencia]}</Badge>}
+                    {c.tipo === "lectura" && (
+                      <Badge className="border-primary/40 text-primary">Lectura</Badge>
+                    )}
+                    {c.recurrencia !== "ninguna" && (
+                      <Badge className="border-transparent bg-background">
+                        {ETIQUETA_RECURRENCIA[c.recurrencia]}
+                      </Badge>
+                    )}
                     {!c.activa && <Badge>Sin repetir</Badge>}
                     {c.fecha_limite && <span>Vence el {formatearFecha(c.fecha_limite)}</span>}
                   </div>
