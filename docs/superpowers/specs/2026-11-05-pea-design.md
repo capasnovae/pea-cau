@@ -202,10 +202,19 @@ Cada usuario ve lo que le permite su alcance (equipo, sede y área, sede entera 
 - estado de la cola de corrección;
 - exportación a CSV de cada tabla.
 
-### 4.8 IA (Etapa 9)
+### 4.8 IA (Etapa 10)
 
 - Generar preguntas a partir de documentos subidos o de artículos del repositorio. Entran como borrador y requieren revisión y aprobación humana para publicarse.
 - Precorregir respuestas libres con la rúbrica: Claude sugiere puntaje y justificación, y la persona que corrige confirma o modifica.
+
+### 4.9 Modelo Canvas: navegación, calendario y bandeja
+
+- **Navegación en PC:** barra lateral angosta con íconos (Cuenta, Tablero, Cursos, Calendario, Bandeja, Exámenes, Repositorio, Organigrama; Equipo, Contenido y Admin según el rol; Ayuda). En celular, píldora inferior con Tablero, Cursos, Calendario, Bandeja y "Más". Se toma de Canvas solo la estructura, sin su marca.
+- **Bienvenida:** pantalla pública con la elección de rol (Asesor, Coordinador o líder, Director); todas llevan al mismo ingreso.
+- **Tablero:** pestañas Tablero / Cursos; mi trabajo, mi progreso, novedades y mi equipo.
+- **Bandeja:** mensajes entre personas de la misma sede, y con el director o el admin. Anuncios del coordinador (su sede), del director o del admin (una sede o todas), sin respuestas.
+- **Calendario:** vencimientos de mis consignas y eventos de mi sede o globales; el coordinador carga los de su sede. La semana empieza el lunes.
+- **Textos mínimos:** la interfaz no lleva párrafos explicativos; títulos y estados vacíos cortos.
 
 ## 5. Esquema de base de datos
 
@@ -419,11 +428,12 @@ Cada etapa termina con una demo y espera tu OK para seguir.
 2. **Repositorio:** categorías, artículos con versiones, biblioteca de recursos y campañas, buscador, alcance de sede y promoción.
 3. **Organigrama y consignas:** vista del organigrama, áreas de derivación y consignas con recurrencia.
 4. **Cursos estilo Canvas:** módulos, ítems, requisitos, prerrequisitos, avance secuencial y rutas por puesto.
-5. **Exámenes:** banco de preguntas, los seis tipos, intentos, revisión, cola de corrección y examen de ubicación.
-6. **Perfil, insignias y certificados**, con la página de verificación.
-7. **Panel y reportes:** progreso, atrasados, tasa por pregunta y CSV.
-8. **Recertificación:** vigencias, actualizaciones obligatorias, alertas y email.
-9. **IA:** generación de preguntas con revisión humana y precorrección de respuestas libres.
+5. **Modelo Canvas:** barra lateral, tablero con pestañas, mis cursos, calendario, bandeja de entrada y bienvenida.
+6. **Exámenes:** banco de preguntas, los seis tipos, intentos, revisión, cola de corrección y examen de ubicación.
+7. **Perfil, insignias y certificados**, con la página de verificación.
+8. **Panel y reportes:** progreso, atrasados, tasa por pregunta y CSV.
+9. **Recertificación:** vigencias, actualizaciones obligatorias, alertas y email.
+10. **IA:** generación de preguntas con revisión humana y precorrección de respuestas libres.
 
 En paralelo desde la Etapa 2: relevamiento de contenido.
 

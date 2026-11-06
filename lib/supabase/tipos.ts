@@ -568,6 +568,89 @@ export type Database = {
           },
         ];
       };
+      conversacion_participantes: {
+        Row: {
+          archivada: boolean;
+          conversacion_id: string;
+          leido_at: string | null;
+          usuario_id: string;
+        };
+        ComputedFields: never;
+        Insert: {
+          archivada?: boolean;
+          conversacion_id: string;
+          leido_at?: string | null;
+          usuario_id: string;
+        };
+        Update: {
+          archivada?: boolean;
+          conversacion_id?: string;
+          leido_at?: string | null;
+          usuario_id?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "conversacion_participantes_conversacion_id_fkey";
+            columns: ["conversacion_id"];
+            isOneToOne: false;
+            referencedRelation: "conversaciones";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "conversacion_participantes_usuario_id_fkey";
+            columns: ["usuario_id"];
+            isOneToOne: false;
+            referencedRelation: "perfiles";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
+      conversaciones: {
+        Row: {
+          asunto: string;
+          creada_por: string;
+          created_at: string;
+          es_anuncio: boolean;
+          id: string;
+          sede_id: string | null;
+          ultimo_mensaje_at: string;
+        };
+        ComputedFields: never;
+        Insert: {
+          asunto: string;
+          creada_por: string;
+          created_at?: string;
+          es_anuncio?: boolean;
+          id?: string;
+          sede_id?: string | null;
+          ultimo_mensaje_at?: string;
+        };
+        Update: {
+          asunto?: string;
+          creada_por?: string;
+          created_at?: string;
+          es_anuncio?: boolean;
+          id?: string;
+          sede_id?: string | null;
+          ultimo_mensaje_at?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "conversaciones_creada_por_fkey";
+            columns: ["creada_por"];
+            isOneToOne: false;
+            referencedRelation: "perfiles";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "conversaciones_sede_id_fkey";
+            columns: ["sede_id"];
+            isOneToOne: false;
+            referencedRelation: "sedes";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
       cursos: {
         Row: {
           alcance: Database["public"]["Enums"]["alcance"];
@@ -808,6 +891,46 @@ export type Database = {
             columns: ["recurso_id"];
             isOneToOne: false;
             referencedRelation: "recursos";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
+      mensajes: {
+        Row: {
+          autor_id: string;
+          conversacion_id: string;
+          created_at: string;
+          cuerpo: string;
+          id: string;
+        };
+        ComputedFields: never;
+        Insert: {
+          autor_id: string;
+          conversacion_id: string;
+          created_at?: string;
+          cuerpo: string;
+          id?: string;
+        };
+        Update: {
+          autor_id?: string;
+          conversacion_id?: string;
+          created_at?: string;
+          cuerpo?: string;
+          id?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "mensajes_autor_id_fkey";
+            columns: ["autor_id"];
+            isOneToOne: false;
+            referencedRelation: "perfiles";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "mensajes_conversacion_id_fkey";
+            columns: ["conversacion_id"];
+            isOneToOne: false;
+            referencedRelation: "conversaciones";
             referencedColumns: ["id"];
           },
         ];
@@ -1276,6 +1399,7 @@ export type Database = {
       [_ in never]: never;
     };
     Functions: {
+      archivar: { Args: { p_archivada: boolean; p_conversacion: string }; Returns: undefined };
       asignacion_de_ruta: { Args: { p_nombre: string }; Returns: string };
       buscar_contenido: {
         Args: { p_limite?: number; q: string };
@@ -1290,6 +1414,17 @@ export type Database = {
         }[];
       };
       carpeta_alcance: { Args: { p_nombre: string }; Returns: Record<string, unknown> };
+      contactos_bandeja: {
+        Args: Record<PropertyKey, never>;
+        Returns: {
+          apellido: string;
+          id: string;
+          mismo_equipo: boolean;
+          nombre: string;
+          rol: Database["public"]["Enums"]["rol_app"];
+          sede: string;
+        }[];
+      };
       contenido_compatible: {
         Args: { p_alcance: Database["public"]["Enums"]["alcance"]; p_curso: string; p_sede: string };
         Returns: boolean;
@@ -1299,6 +1434,7 @@ export type Database = {
       curso_desbloqueado: { Args: { p_curso: string; p_usuario: string }; Returns: boolean };
       destinatarios_consigna: { Args: { p_consigna: string }; Returns: string[] };
       es_creador_de_asignacion: { Args: { p_consigna: string }; Returns: boolean };
+      es_participante: { Args: { p_conversacion: string }; Returns: boolean };
       estado_curso: {
         Args: { p_curso: string };
         Returns: {
@@ -1315,6 +1451,7 @@ export type Database = {
           titulo: string;
         }[];
       };
+      exigir_participante: { Args: { p_conversacion: string }; Returns: undefined };
       f_etiquetas_texto: { Args: { etiquetas: string[] }; Returns: string };
       f_unaccent: { Args: { texto: string }; Returns: string };
       fin_periodo: {
@@ -1323,11 +1460,42 @@ export type Database = {
       };
       generar_asignaciones: { Args: { p_consigna: string; p_periodo: string }; Returns: number };
       guardar_prerrequisitos: { Args: { p_modulo: string; p_requiere: string[] }; Returns: undefined };
+      iniciar_conversacion: {
+        Args: { p_asunto: string; p_cuerpo: string; p_destinatarios: string[] };
+        Returns: string;
+      };
       item_cumplido: { Args: { p_item: string; p_usuario: string }; Returns: boolean };
       item_disponible: { Args: { p_item: string; p_usuario: string }; Returns: boolean };
       item_disponible_para_mi: { Args: { p_item: string }; Returns: boolean };
       marcar_item: { Args: { p_accion: string; p_item: string }; Returns: Json };
+      marcar_leida: { Args: { p_conversacion: string }; Returns: undefined };
+      mensajes_de: {
+        Args: { p_conversacion: string };
+        Returns: {
+          autor: string;
+          autor_id: string;
+          created_at: string;
+          cuerpo: string;
+          id: string;
+          propio: boolean;
+        }[];
+      };
+      mensajes_sin_leer: { Args: Record<PropertyKey, never>; Returns: number };
       mi_area: { Args: Record<PropertyKey, never>; Returns: Database["public"]["Enums"]["area"] };
+      mi_bandeja: {
+        Args: { p_filtro?: string };
+        Returns: {
+          archivada: boolean;
+          asunto: string;
+          conversacion_id: string;
+          es_anuncio: boolean;
+          participantes: string;
+          sin_leer: boolean;
+          ultimo_autor: string;
+          ultimo_cuerpo: string;
+          ultimo_mensaje_at: string;
+        }[];
+      };
       mi_perfil_activo: { Args: Record<PropertyKey, never>; Returns: boolean };
       mi_rol: { Args: Record<PropertyKey, never>; Returns: Database["public"]["Enums"]["rol_app"] };
       mi_ruta: {
@@ -1365,12 +1533,20 @@ export type Database = {
           subroles: string[];
         }[];
       };
+      participantes_de: {
+        Args: { p_conversacion: string };
+        Returns: {
+          id: string;
+          nombre: string;
+        }[];
+      };
       periodo_actual: {
         Args: { p_hoy: string; p_recurrencia: Database["public"]["Enums"]["recurrencia"] };
         Returns: string;
       };
       procesar_consignas: { Args: { p_hoy?: string }; Returns: Json };
       promover_contenido: { Args: { p_id: string; p_tabla: string }; Returns: undefined };
+      publicar_anuncio: { Args: { p_asunto: string; p_cuerpo: string; p_sede: string }; Returns: string };
       puede_crear_consigna: {
         Args: {
           p_area: Database["public"]["Enums"]["area"];
@@ -1386,6 +1562,7 @@ export type Database = {
         Returns: boolean;
       };
       puede_editar_curso: { Args: { p_curso: string }; Returns: boolean };
+      puede_escribir_a: { Args: { p_destino: string }; Returns: boolean };
       puede_escribir_archivo: { Args: { p_nombre: string }; Returns: boolean };
       puede_leer_archivo: { Args: { p_nombre: string }; Returns: boolean };
       puede_leer_contenido: {
@@ -1401,6 +1578,7 @@ export type Database = {
       puede_subir_evidencia: { Args: { p_nombre: string }; Returns: boolean };
       puede_ver_usuario: { Args: { objetivo: string }; Returns: boolean };
       puede_ver_usuario_como: { Args: { p_actor: string; p_objetivo: string }; Returns: boolean };
+      responder: { Args: { p_conversacion: string; p_cuerpo: string }; Returns: string };
     };
     Enums: {
       alcance: "global" | "sede";
