@@ -91,16 +91,19 @@ begin
     raise exception 'sin preguntas' using errcode = 'P0001';
   end if;
 
-  -- Orden: unidades mezcladas (o en el orden de alta), preguntas de un caso siempre en orden.
+  -- Orden: unidades mezcladas o en orden de alta; las preguntas de un caso, siempre en orden.
   -- Las opciones se mezclan si el examen lo pide; las de "ordenar" se mezclan siempre.
   insert into public.intento_preguntas (intento_id, pregunta_id, orden, orden_opciones)
   select p_intento, q.pregunta_id,
-         row_number() over (order by q.orden_unidad, q.orden_en_caso nulls first, q.pregunta_id),
+         row_number() over (order by q.orden_unidad, q.unidad, q.orden_en_caso nulls first, q.pregunta_id),
          coalesce((select array_agg(o.id order by case when v_e.mezclar or pr.tipo = 'ordenar' then random() else o.orden end)
                    from public.opciones o where o.pregunta_id = q.pregunta_id), '{}')
   from (
-    select pu.pregunta_id, pu.orden_en_caso,
-           case when v_e.mezclar then un.r else un.pos::float8 end as orden_unidad
+    select pu.pregunta_id, pu.orden_en_caso, un.unidad,
+           -- Mezclado: al azar. Sin mezclar: siempre el mismo orden (fecha de alta y después id).
+           case when v_e.mezclar then un.r
+                else (select extract(epoch from min(p.created_at)) from public.preguntas p
+                      where p.id = un.unidad or p.caso_id = un.unidad)::float8 end as orden_unidad
     from (select x.unidad, x.pos, random() as r from unnest(v_elegidas) with ordinality as x(unidad, pos)) un
     cross join lateral public.preguntas_de_unidad(un.unidad) pu
   ) q

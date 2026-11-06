@@ -76,13 +76,18 @@ test("tarea con evidencia obligatoria para un subrol", async ({ browser }) => {
   const tarjeta = ceo.getByRole("listitem").filter({ hasText: titulo });
   await tarjeta.getByRole("button", { name: "Marcar como hecha" }).click();
   await expect(tarjeta.getByText("Esta consigna pide evidencia")).toBeVisible();
-  await tarjeta.getByLabel(/Evidencia/).setInputFiles({ name: "mesa.png", mimeType: "image/png", buffer: PNG });
+  await tarjeta
+    .getByLabel(/Evidencia/)
+    .setInputFiles({ name: "mesa.png", mimeType: "image/png", buffer: PNG });
   await tarjeta.getByRole("button", { name: "Marcar como hecha" }).click();
   await expect(ceo.getByRole("listitem").filter({ hasText: titulo })).toHaveCount(0);
 
   await coord.goto(detalle);
   await expect(coord.getByText("Avance: 1 de 1 hechas")).toBeVisible();
-  const [popup] = await Promise.all([coord.waitForEvent("popup"), coord.getByRole("button", { name: "Ver evidencia" }).click()]);
+  const [popup] = await Promise.all([
+    coord.waitForEvent("popup"),
+    coord.getByRole("button", { name: "Ver evidencia" }).click(),
+  ]);
   expect((await coord.request.get(popup.url())).status()).toBe(200);
 });
 

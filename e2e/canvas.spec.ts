@@ -141,11 +141,11 @@ test.describe("con API REST", () => {
     await expect(d.getByRole("list", { name: "Agenda" })).toContainText("Jornada de bienvenida (ejemplo)");
   });
 
-  test("exámenes muestra los exámenes de los cursos como próximamente", async ({ browser }) => {
+  test("exámenes lista los exámenes disponibles", async ({ browser }) => {
     const a = await sesion(browser, "asesor.nqn@pea.local");
     await a.goto("/examenes");
     await expect(a.getByRole("heading", { name: "Exámenes", level: 1 })).toBeVisible();
-    await expect(a.getByRole("list", { name: "Exámenes" })).toContainText("Próximamente");
+    await expect(a.getByRole("list", { name: "Exámenes" })).toContainText("Plataformas (ejemplo)");
   });
 
   test("el repositorio tiene el buscador y la pestaña de recursos", async ({ browser }) => {

@@ -65,7 +65,9 @@ test("contenido de sede: borrador, publicación, versión, archivo y promoción"
   await expect(coord.getByText("Artículo guardado.")).toBeVisible();
   await coord.reload();
   await expect(coord.getByRole("list", { name: "Historial de versiones" })).toContainText("Versión 2");
-  await expect(coord.getByRole("list", { name: "Historial de versiones" })).toContainText("Agrego el paso tres");
+  await expect(coord.getByRole("list", { name: "Historial de versiones" })).toContainText(
+    "Agrego el paso tres",
+  );
   await asesor.goto(ruta);
   await expect(asesor.getByText("Nueva versión")).toBeVisible();
 
@@ -73,14 +75,19 @@ test("contenido de sede: borrador, publicación, versión, archivo y promoción"
   const tituloPdf = `PDF E2E ${Date.now()}`;
   await coord.goto("/contenido/recursos/nuevo");
   await coord.getByLabel("Título").fill(tituloPdf);
-  await coord.getByLabel("Archivo").setInputFiles({ name: "guia.pdf", mimeType: "application/pdf", buffer: PDF_MINIMO });
+  await coord
+    .getByLabel("Archivo")
+    .setInputFiles({ name: "guia.pdf", mimeType: "application/pdf", buffer: PDF_MINIMO });
   await coord.getByLabel("Estado").selectOption("publicado");
   await coord.getByRole("button", { name: "Crear recurso" }).click();
   await expect(coord).toHaveURL(/creado=1/);
 
   await asesor.goto(`/recursos?q=${encodeURIComponent("PDF E2E")}`);
   const tarjeta = asesor.getByRole("listitem").filter({ hasText: tituloPdf });
-  const [popup] = await Promise.all([asesor.waitForEvent("popup"), tarjeta.getByRole("button", { name: "Descargar" }).click()]);
+  const [popup] = await Promise.all([
+    asesor.waitForEvent("popup"),
+    tarjeta.getByRole("button", { name: "Descargar" }).click(),
+  ]);
   const url = popup.url();
   expect(url).toContain("/storage/v1/object/sign/recursos/");
   expect((await asesor.request.get(url)).status()).toBe(200);
@@ -90,7 +97,9 @@ test("contenido de sede: borrador, publicación, versión, archivo y promoción"
   await admin.goto(editar);
   admin.once("dialog", (d) => d.accept());
   await admin.getByRole("button", { name: "Promover a todos los CAU" }).click();
-  await expect(admin.getByText(/Ya lo ven todos los CAU|Listo: ahora lo ven todos los CAU/).first()).toBeVisible();
+  await expect(
+    admin.getByText(/Ya lo ven todos los CAU|Listo: ahora lo ven todos los CAU/).first(),
+  ).toBeVisible();
   await asesorRoca.goto(ruta);
   await expect(asesorRoca.getByRole("heading", { name: titulo })).toBeVisible();
 
@@ -99,7 +108,9 @@ test("contenido de sede: borrador, publicación, versión, archivo y promoción"
   await admin.getByRole("link", { name: tituloPdf }).click();
   admin.once("dialog", (d) => d.accept());
   await admin.getByRole("button", { name: "Promover a todos los CAU" }).click();
-  await expect(admin.getByText(/Ya lo ven todos los CAU|Listo: ahora lo ven todos los CAU/).first()).toBeVisible();
+  await expect(
+    admin.getByText(/Ya lo ven todos los CAU|Listo: ahora lo ven todos los CAU/).first(),
+  ).toBeVisible();
   await asesorRoca.goto(`/recursos?q=${encodeURIComponent("PDF E2E")}`);
   const tarjetaRoca = asesorRoca.getByRole("listitem").filter({ hasText: tituloPdf });
   const [popupRoca] = await Promise.all([
@@ -115,7 +126,9 @@ test("el coordinador sube un archivo de más de 10 MB", async ({ browser }) => {
   await coord.goto("/contenido/recursos/nuevo");
   await coord.getByLabel("Título").fill(titulo);
   const grande = Buffer.concat([PDF_MINIMO, Buffer.alloc(12 * 1024 * 1024, 32)]);
-  await coord.getByLabel("Archivo").setInputFiles({ name: "grande.pdf", mimeType: "application/pdf", buffer: grande });
+  await coord
+    .getByLabel("Archivo")
+    .setInputFiles({ name: "grande.pdf", mimeType: "application/pdf", buffer: grande });
   await coord.getByLabel("Estado").selectOption("publicado");
   await coord.getByRole("button", { name: "Crear recurso" }).click();
   await expect(coord).toHaveURL(/creado=1/, { timeout: 30_000 });

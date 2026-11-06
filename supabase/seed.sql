@@ -261,7 +261,7 @@ insert into public.examenes (id, titulo, tipo, modulo_id, categoria_id, curso_id
                              espera_horas, tiempo_limite_min, mezclar, alcance, estado) values
   ('d1000000-0000-4000-8000-000000000001', 'Final del Nivel 1 (ejemplo)', 'nivel', null, null, 'c4000000-0000-4000-8000-000000000001', 6, 80, 3, 24, null, false, 'global', 'publicado'),
   ('d1000000-0000-4000-8000-000000000002', 'Final del Nivel 2 (ejemplo)', 'nivel', null, null, 'c4000000-0000-4000-8000-000000000002', 3, 80, 3, 24, null, false, 'global', 'publicado'),
-  ('d1000000-0000-4000-8000-000000000003', 'Plataformas (ejemplo)', 'categoria', null, (select id from public.categorias where slug = 'plataformas'), null, 3, 80, 3, 24, 10, false, 'global', 'publicado'),
+  ('d1000000-0000-4000-8000-000000000003', 'Plataformas (ejemplo)', 'categoria', null, (select id from public.categorias where slug = 'plataformas'), null, 4, 80, 3, 24, 10, false, 'global', 'publicado'),
   ('d1000000-0000-4000-8000-000000000004', 'Examen de ubicación (ejemplo)', 'ubicacion', null, null, null, 3, 80, 1, 0, null, true, 'global', 'publicado'),
   ('d1000000-0000-4000-8000-000000000005', 'Integrador Nivel 1 y 2 (ejemplo)', 'integrador', null, null, null, 5, 80, 3, 24, null, true, 'global', 'publicado');
 insert into public.examen_fuentes (examen_id, modulo_id, cantidad) values

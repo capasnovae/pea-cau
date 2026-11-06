@@ -1,6 +1,6 @@
 -- Intentos del lado del servidor: iniciar, responder, entregar, revisar
 begin;
-select plan(31);
+select plan(32);
 select tests.escenario();
 select tests.escenario_cursos();
 select tests.escenario_examenes();
@@ -15,6 +15,9 @@ insert into ids select 'i1', public.iniciar_intento('f1000000-0000-4000-8000-000
 select is(public.iniciar_intento('f1000000-0000-4000-8000-000000000001'), (select v from ids where k = 'i1'), 'iniciar de nuevo retoma el mismo intento');
 select is((select count(*)::int from public.intentos where examen_id = 'f1000000-0000-4000-8000-000000000001'), 1, 'hay un solo intento');
 select is((select count(*)::int from public.preguntas_intento((select v from ids where k = 'i1'))), 3, 'el intento trae 3 preguntas');
+select results_eq($$select pregunta_id from public.preguntas_intento((select v from ids where k = 'i1')) order by orden$$,
+  $$values ('f2000000-0000-4000-8000-000000000001'::uuid), ('f2000000-0000-4000-8000-000000000002'::uuid), ('f2000000-0000-4000-8000-000000000003'::uuid)$$,
+  'sin mezclar, las preguntas salen siempre en el mismo orden (el de alta)');
 select ok(not exists (select 1 from public.preguntas_intento((select v from ids where k = 'i1'))
                       where opciones::text ~ '(es_correcta|posicion_correcta|grupo)' or coalesce(config::text, '') ~ 'solucion'),
   'las preguntas no traen respuestas correctas');

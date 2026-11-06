@@ -6,7 +6,9 @@ export const CLAVE_DEV = "pea-dev-1234";
 export async function hayApiRest(): Promise<boolean> {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL ?? "http://127.0.0.1:54321";
   try {
-    const r = await fetch(`${url}/rest/v1/`, { headers: { apikey: process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY ?? "" } });
+    const r = await fetch(`${url}/rest/v1/`, {
+      headers: { apikey: process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY ?? "" },
+    });
     return r.status < 500 && r.status !== 404;
   } catch {
     return false;
