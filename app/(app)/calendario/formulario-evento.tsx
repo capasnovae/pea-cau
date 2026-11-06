@@ -21,7 +21,7 @@ export function FormularioEvento({
       <Campo id="ev-titulo" etiqueta="Título">
         <Input id="ev-titulo" name="titulo" required maxLength={120} />
       </Campo>
-      <div className="grid grid-cols-2 gap-2">
+      <div className="grid grid-cols-1 gap-3">
         <Campo id="ev-fecha" etiqueta="Fecha">
           <Input id="ev-fecha" name="fecha" type="date" required defaultValue={fecha} className="min-w-0" />
         </Campo>
