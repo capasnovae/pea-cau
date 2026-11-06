@@ -2,7 +2,7 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:executing-plans. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Banco de preguntas con los seis tipos, exámenes configurables (por módulo, categoría, nivel y ubicación), intentos resueltos del lado del servidor, revisión después de entregar, cola de corrección por sede para las respuestas libres y examen de ubicación por bloques. Aprobar el examen final de un nivel lo certifica y desbloquea el siguiente.
+**Goal:** Banco de preguntas con ocho tipos (los seis de la spec, más cuadro para clasificar y formulario simulado), exámenes configurables (por módulo, categoría, nivel y ubicación), intentos resueltos del lado del servidor, revisión después de entregar, cola de corrección por sede para las respuestas libres examen de ubicación por bloques, exámenes integradores que mezclan módulos y prácticas simuladas para aprender sin nota. Aprobar el examen final de un nivel lo certifica y desbloquea el siguiente.
 
 **Architecture:** Igual que antes: reglas en Postgres y pantallas en Next.js.
 - **Base:**
@@ -25,12 +25,17 @@
   - `ordenar`: las opciones tienen `posicion_correcta` y se acierta con el orden exacto.
   - `simulacion`: preguntas de opciones encadenadas en un `caso` (`caso_id`, `orden_en_caso`); se sortean como bloque y en orden.
   - `libre`: con `rubrica_md` y `puntaje_max`; la corrige una persona.
+  - `clasificar` (cuadro, pedido del usuario): `config = {columnas: [..]}` y cada opción es un elemento con su columna correcta en `opciones.grupo` (secreto). Se responde ubicando cada elemento en una columna (`respuestas.valores = {opcion_id: columna}`). Ejemplo: trámite → área de derivación.
+  - `formulario` (formulario simulado, pedido del usuario): `config = {campos: [{id, etiqueta, tipo: 'select'|'texto', opciones?}]}`, con lo aceptado en `preguntas.solucion = {campo_id: [valores aceptados]}` (secreto). Se responde completando los campos (`respuestas.valores`). Ejemplo: crear un caso o ticket (tipo, área, prioridad, motivo). El texto se compara normalizado: minúsculas, sin acentos y sin espacios de más.
+  - Los tipos se pueden ampliar después del relevamiento, cuando veamos las pantallas reales de los sistemas.
+- **Uso de la pregunta** (`preguntas.uso`: `examen` | `practica`): los exámenes solo sortean preguntas de uso `examen`, y las prácticas solo usan preguntas de uso `practica`. Así, practicar nunca revela respuestas de un examen.
 - **Puntaje:**
   - Cada pregunta vale `puntaje_max` (por defecto 1). Las automáticas valen todo o nada.
   - Nota = `round(100 × suma de puntajes / suma de puntajes máximos)`.
   - Se aprueba con `nota >= nota_minima` (por defecto 80).
 - **Configuración del examen:**
-  - Tipos de examen: `modulo`, `categoria`, `nivel` y `ubicacion` (`actualizacion` se suma en la Etapa 9).
+  - Tipos de examen: `modulo`, `categoria`, `nivel`, `integrador`, `ubicacion` y `practica` (`actualizacion` se suma en la Etapa 9).
+  - **Integrador** (pedido del usuario): mezcla preguntas y casos de varios módulos, categorías o niveles. Sus fuentes están en `examen_fuentes(examen_id, modulo_id | categoria_id | curso_id, cantidad null)`. Si una fuente tiene `cantidad`, se sortean exactamente esas de ahí (o todas, si hay menos); el resto hasta `cantidad_preguntas` sale de las fuentes sin cupo. Los casos de simulación entran enteros desde cualquier fuente.
   - Valores: `cantidad_preguntas`, `nota_minima` 80, `max_intentos` 3 por ciclo, `espera_horas` 24 entre ciclos, `tiempo_limite_min` opcional, y `mezclar` (preguntas y opciones).
   - El pozo de preguntas sale de las preguntas publicadas: por módulo, las de `modulo_id`; por categoría, las de `categoria_id`; por nivel, las de los módulos de `curso_id`.
 - **Intentos:**
@@ -39,7 +44,13 @@
     - Mientras queden intentos en el ciclo actual, se puede iniciar.
     - Con el ciclo agotado, se inicia uno nuevo después de `espera_horas` desde la última entrega.
     - Si ya aprobó, no se rinde de nuevo; la recertificación es la Etapa 9.
-  - Tiempo límite: `vence_at = iniciado_at + tiempo`. Hay 2 minutos de gracia para guardar respuestas.
+  - **Revisar antes de entregar** (pedido del usuario): hasta entregar, el asesor puede volver a cualquier pregunta y cambiar su respuesta. "Entregar" abre primero la pantalla "Revisar", con todas las preguntas como respondidas o sin responder, cada una con un enlace para ir a ella, y desde ahí se confirma la entrega. Lo que no se muestra antes de entregar es si acertó.
+  - **Cómo se controla el tiempo:**
+    - Al empezar, el servidor guarda la hora de vencimiento: `vence_at = iniciado_at + tiempo_limite_min`.
+    - El reloj de la pantalla es solo una guía que cuenta hacia ese `vence_at`, que viene del servidor, así que cambiar la hora de la compu no sirve. Al llegar a 0 la pantalla entrega sola.
+    - Quien decide es la base: `guardar_respuesta` rechaza cualquier respuesta que llegue después de `vence_at + 2 minutos`.
+    - Los 2 minutos de margen cubren la última respuesta que estaba viajando por una conexión lenta en el momento del cierre.
+    - Si el asesor cierra la pestaña, el intento vencido se entrega solo con lo guardado la próxima vez que entra.
     - Entregar siempre funciona y corrige lo guardado.
     - Un intento vencido que no se entregó se entrega solo la próxima vez que el usuario abre el examen o inicia otro intento.
 - **Corrección:**
@@ -56,8 +67,13 @@
   - Examen `nivel`: certificación con origen `examen` y `vence_at = emitida_at + cursos.vigencia_meses` (null si no vence).
   - Un ítem de curso `examen` con `requisito = 'aprobar'` y `examen_id` se cumple si existe un intento aprobado de ese examen; se calcula, no se escribe.
   - Se quita el check `items_sin_aprobar_hasta_examenes` de la Etapa 4.
+- **Prácticas simuladas** (pedido del usuario):
+  - Un paso de curso de tipo `practica` apunta a un examen `practica`: preguntas de uso `practica`, sin nota, sin intentos ni ciclos.
+  - Cada pregunta se responde y se comprueba al momento, con ✓ o ✗, la explicación y la solución. Se puede reintentar sin límite.
+  - El paso se cumple cuando acertó todas las preguntas de la práctica al menos una vez (`practica_progreso`).
+  - Usa los mismos ocho tipos, en especial los cuadros y los formularios simulados, para practicar mientras aprende.
 - **Seguridad:**
-  - El asesor nunca recibe `es_correcta`, `posicion_correcta`, `explicacion_md` ni `rubrica_md` antes de que el intento esté `cerrado`.
+  - El asesor nunca recibe `es_correcta`, `posicion_correcta`, `opciones.grupo`, `preguntas.solucion`, `explicacion_md` ni `rubrica_md` antes de que el intento esté `cerrado`. La práctica revela solo la pregunta que se acaba de comprobar, y solo para preguntas de uso `practica`.
   - La revisión la ven el dueño y quien pueda ver al usuario (`puede_ver_usuario`).
 - **Autoría:** preguntas, casos y exámenes siguen el mismo alcance que los cursos (`puede_editar_contenido(alcance, sede_id)`). El admin promueve con `promover_contenido`, que suma `preguntas`, `casos` y `examenes`.
 
@@ -68,6 +84,7 @@
 3. Responder después del tiempo límite más la gracia no se guarda, y entregar tarde corrige solo lo guardado a tiempo. Tarea 3.
 4. Un corrector no corrige su propio intento ni uno de otra sede, y dos correctores no toman el mismo intento. Tarea 5.
 5. Un pozo con menos preguntas que `cantidad_preguntas` no rompe: se sortean todas las disponibles, y si no hay ninguna se avisa "Este examen todavía no tiene preguntas". Tarea 3.
+6. `comprobar_practica` sobre una pregunta de uso `examen` no revela nada (`'no es de práctica'`). Tarea 10.
 
 ---
 
@@ -83,23 +100,29 @@
 - Produces:
   - Enums:
     - `tipo_pregunta`
-    - `tipo_examen ('modulo','categoria','nivel','ubicacion')`
+    - `tipo_pregunta` incluye `clasificar` y `formulario`
+    - `tipo_examen ('modulo','categoria','nivel','integrador','ubicacion','practica')`
+    - `uso_pregunta ('examen','practica')`
+    - `tipo_item` suma `practica`
     - `origen_pregunta ('manual','ia')`
     - `estado_intento ('en_curso','pendiente_correccion','cerrado')`
     - `origen_certificacion ('examen','ubicacion')`
     - `estado_certificacion ('vigente','vencida','revocada')`
   - Tablas (columnas de la spec §5, salvo estas aclaraciones):
     - `casos`
-    - `preguntas`: `estado` usa `estado_contenido`; `puntaje_max int default 1 check > 0`; `dificultad int 1..3 default 1`.
+    - `preguntas`: `estado` usa `estado_contenido`; `puntaje_max int default 1 check > 0`; `dificultad int 1..3 default 1`; `uso uso_pregunta default 'examen'`; `config jsonb` (parte visible: columnas o campos); `solucion jsonb` (secreta).
+    - `opciones`: suma `grupo text null` (columna correcta en `clasificar`).
+    - `examen_fuentes (id, examen_id, modulo_id null, categoria_id null, curso_id null, cantidad int null)`, con check de exactamente una referencia.
+    - `practica_progreso (usuario_id default auth.uid(), pregunta_id, acertada_at, PK)`, con RLS de select propio. Lo escribe solo `comprobar_practica`.
     - `opciones`
-    - `examenes`: `estado estado_contenido`; check de que el tipo tenga su referencia (`modulo` → `modulo_id`, `categoria` → `categoria_id`, `nivel` → `curso_id`, `ubicacion` sin referencia).
+    - `examenes`: `estado estado_contenido`; check de que el tipo tenga su referencia (`modulo` → `modulo_id`, `categoria` → `categoria_id`, `nivel` → `curso_id`; `integrador`, `ubicacion` y `practica` sin referencia directa; `integrador` usa `examen_fuentes` y `practica` sortea por `modulo_id` o `categoria_id` opcional).
     - `intentos`
     - `intento_preguntas`, con PK `(intento_id, pregunta_id)`
-    - `respuestas`, con unique `(intento_id, pregunta_id)`
+    - `respuestas`, con unique `(intento_id, pregunta_id)`, y además `valores jsonb null` para `clasificar` y `formulario`
     - `certificaciones (id, usuario_id, curso_id, origen, intento_id null, emitida_at, vence_at null, estado default 'vigente', codigo_verificacion text unique default upper(substr(md5(gen_random_uuid()::text),1,10)), pdf_path null)`
   - `alter table items add constraint items_examen_fk foreign key (examen_id) references examenes(id) on delete set null` y `drop constraint items_sin_aprobar_hasta_examenes`.
   - Checks:
-    - `preguntas`: `simulacion` exige `caso_id` y `orden_en_caso`; `libre` exige `rubrica_md`.
+    - `preguntas`: `simulacion` exige `caso_id` y `orden_en_caso`; `libre` exige `rubrica_md`; `clasificar` exige `config ? 'columnas'`; `formulario` exige `config ? 'campos'` y `solucion`.
     - `opciones`: `posicion_correcta` solo en preguntas `ordenar`, mediante un trigger `validar_opcion`.
   - RLS:
     - `casos`, `preguntas`, `opciones` y `examenes` (escritura): `puede_editar_contenido(alcance, sede_id)`. Las opciones lo heredan de su pregunta con `puede_editar_pregunta(p_pregunta)`.
@@ -118,6 +141,8 @@
   - Un examen `modulo` sin `modulo_id` → 23514.
   - Insert directo en `intentos` como ase1 → 42501.
   - Un ítem `examen` con `requisito = 'aprobar'` ahora se puede crear.
+  - Una pregunta `formulario` sin `solucion` → 23514.
+  - Un `examen_fuentes` con dos referencias → 23514.
 - [ ] **Step 2:** `npx supabase test db` → FAIL en 24.
 - [ ] **Step 3:** Escribir la migración y el ayudante.
 - [ ] **Step 4:** `npx supabase db reset && npx supabase test db` → PASS. Regenerar `tipos.ts` y correr `npm run typecheck` sin errores. Ojo: `21_correcciones_cursos` espera que `aprobar` esté prohibido; ese caso pasa a probar que se permite (ruling).
@@ -144,7 +169,10 @@
         - `verdadero_falso`: exactamente 2 opciones y una correcta;
         - `ordenar`: de 2 a 8 opciones, con el orden de carga como orden correcto;
         - `libre`: sin opciones;
-        - `simulacion`: como `opcion_multiple` y además `caso_id`.
+        - `simulacion`: como `opcion_multiple` y además `caso_id`;
+        - `clasificar`: de 2 a 6 columnas y de 2 a 12 elementos, cada uno con una columna existente;
+        - `formulario`: de 1 a 10 campos; cada campo `select` con 2 o más opciones y cada campo con al menos un valor aceptado.
+    - `normalizarTexto(s: string): string`: minúsculas, sin acentos y con los espacios colapsados (la base hace lo mismo con `f_unaccent`).
     - `esquemaExamen`: `titulo` 1..150, `tipo` y la referencia que corresponde, `cantidad_preguntas` 1..100, `nota_minima` 1..100, `max_intentos` 1..10, `espera_horas` 0..720, `tiempo_limite_min` vacío → null o 1..300, `mezclar` (checkbox `"on"` → true), `alcance`, `sede_id` y `estado`.
     - `esquemaRespuesta`: `pregunta_id` uuid y `opcion_ids`, `orden` o `texto` (≤5000).
     - `esquemaCorreccion`: `respuesta_id` uuid, `puntaje` numérico ≥0 y `devolucion` ≤2000.
@@ -157,8 +185,10 @@
   - `esquemaPregunta`:
     - rechaza V/F con 3 opciones, opción múltiple sin correcta, libre sin rúbrica y simulación sin caso;
     - acepta una opción múltiple con 2 correctas.
+  - `esquemaPregunta` rechaza un `clasificar` con un elemento en una columna inexistente y un `formulario` con un campo sin valor aceptado.
+  - `normalizarTexto("  Mesa de  Ayuda ") === "mesa de ayuda"` y `normalizarTexto("Área") === "area"`.
   - `esquemaExamen`:
-    - rechaza un examen de módulo sin `modulo_id`;
+    - rechaza un examen de módulo sin `modulo_id` y un integrador sin fuentes;
     - convierte `tiempo_limite_min: ""` en null y `mezclar: "on"` en true.
 - [ ] **Step 2:** `npx vitest run lib/dominio/examenes.test.ts` → FAIL.
 - [ ] **Step 3:** Implementar.
@@ -178,19 +208,21 @@
     1. entrega solo los intentos propios vencidos;
     2. si hay uno en curso, devuelve ese;
     3. valida `puede_rendir` (error `'no disponible'`), que no esté aprobado (`'ya aprobado'`) y el ciclo (`'en espera'`);
-    4. sortea: preguntas sueltas y casos completos (cada caso es una unidad, en orden) hasta alcanzar `cantidad_preguntas`, sin pasarse salvo por el último caso; error `'sin preguntas'` si el pozo está vacío;
+    4. sortea solo preguntas de uso `examen`: preguntas sueltas y casos completos (en un integrador, respetando los cupos de cada fuente) (cada caso es una unidad, en orden) hasta alcanzar `cantidad_preguntas`, sin pasarse salvo por el último caso; error `'sin preguntas'` si el pozo está vacío;
     5. guarda `intento_preguntas` con `orden` y `orden_opciones` (mezclados si `mezclar`);
     6. copia `sede_id`, `area` y `equipo_id` del perfil y calcula `vence_at`.
   - `preguntas_intento(p_intento uuid) returns table(pregunta_id uuid, orden int, tipo tipo_pregunta, enunciado_md text, contexto_md text, caso_titulo text, caso_contexto_md text, puntaje_max int, opciones jsonb, respuesta jsonb)`.
     - `opciones` = `[{id, texto}]` en el orden guardado. Nunca incluye `es_correcta` ni `posicion_correcta`.
-    - `respuesta` = `{opcion_ids, orden, texto}` guardada, o null.
+    - `config` = la parte visible (columnas o campos), sin `solucion` ni `grupo`.
+    - `respuesta` = `{opcion_ids, orden, texto, valores}` guardada, o null.
     - Solo el dueño (`'sin permiso'`).
-  - `guardar_respuesta(p_intento uuid, p_pregunta uuid, p_opcion_ids uuid[], p_orden uuid[], p_texto text) returns void`. Hace upsert. Errores:
+  - `guardar_respuesta(p_intento uuid, p_pregunta uuid, p_opcion_ids uuid[], p_orden uuid[], p_texto text, p_valores jsonb default null) returns void`. Hace upsert. Errores:
     - `'sin permiso'` si no es el dueño;
     - `'intento cerrado'` si no está `en_curso`;
     - `'tiempo agotado'` si `now() > vence_at + 2 min`;
     - `'pregunta ajena'` si la pregunta no está en el intento;
     - `'opción inválida'` si alguna opción no es de esa pregunta.
+  - Corrección de los tipos nuevos: `clasificar` acierta si cada elemento está en su `grupo`; `formulario` acierta si cada campo coincide (normalizado) con alguno de sus aceptados.
   - `entregar_intento(p_intento uuid) returns table(estado estado_intento, nota int, aprobado boolean)`. Corrige las cerradas (`es_correcta` y `puntaje`). Si no hay libres, cierra y llama a `aplicar_efectos`; si hay, queda `pendiente_correccion` con `correccion_vence_at = entregado_at + 72 h`. Es idempotente sobre un intento ya entregado.
   - `aplicar_efectos(p_intento uuid) returns void` (interna, revocada a authenticated). Emite la certificación de nivel y gestiona los bloques de ubicación (Tarea 6).
   - `revision_intento(p_intento uuid) returns table(pregunta_id, orden, tipo, enunciado_md, contexto_md, opciones jsonb, respuesta jsonb, es_correcta boolean, puntaje numeric, puntaje_max int, explicacion_md text, devolucion_md text, articulo_fuente_id uuid)`.
@@ -217,6 +249,10 @@
   - Un pozo vacío da `'sin preguntas'`. Un pozo de 3 con `cantidad_preguntas = 10` sortea 3.
   - Simulación: un examen que incluye el caso trae sus 2 preguntas seguidas y en `orden_en_caso`.
   - Un ítem `aprobar` con ese examen queda cumplido después de aprobar (`estado_curso`).
+  - `preguntas_intento` de un `formulario` no contiene la clave `solucion`, y de un `clasificar` no contiene `grupo`.
+  - Un `clasificar` todo bien y un `formulario` con "  mesa de AYUDA " (aceptado: "Mesa de ayuda") se corrigen como acertados.
+  - Integrador con dos fuentes (M1 con cupo 1 y la categoría del escenario sin cupo) y `cantidad_preguntas = 3`: exactamente 1 de M1.
+  - Una pregunta de uso `practica` nunca aparece en un intento.
 - [ ] **Step 2:** `npx supabase test db` → FAIL en 25.
 - [ ] **Step 3:** Escribir la migración.
 - [ ] **Step 4:** `npx supabase db reset && npx supabase test db` → PASS. Regenerar los tipos.
@@ -334,7 +370,10 @@
     - V/F y escenario: radios. Los escenarios y las simulaciones muestran el contexto o el caso arriba.
     - ordenar: una lista con los botones "Subir" y "Bajar" por ítem (accesible, sin arrastrar).
     - libre: un textarea.
-  - "Entregar" pide confirmación (`confirm` nativo, con la cantidad sin responder) y redirige a resultado.
+  - Controles de los tipos nuevos:
+    - `clasificar`: un cuadro con las columnas como encabezado. En PC se puede arrastrar y soltar, y siempre hay un select "Columna" por elemento, que es accesible y es lo que se usa en celular.
+    - `formulario`: se ve como la pantalla de un sistema (campos con etiqueta, selects y textos) y guarda al salir de cada campo.
+  - "Entregar" lleva a la pantalla **Revisar**: una grilla con todas las preguntas (número, "Respondida" o "Sin responder") y un enlace a cada una para volver y cambiar la respuesta. "Confirmar entrega" entrega y redirige a resultado.
 - Resultado:
   - Con el intento cerrado: la nota grande, "Aprobado" o "No aprobado" y la revisión pregunta por pregunta. Las correctas se marcan con ✓ en verde y lo que respondió mal en rojo. Muestra la explicación y "Estudiá esto" → `/repositorio/articulo/{articulo_fuente_id}` (usar la ruta de artículo existente).
   - Pendiente de corrección: "Pendiente de corrección".
@@ -358,7 +397,9 @@
   - `supabase/tests/29_gestion_examenes.test.sql`
 - Modify:
   - `app/(app)/contenido/page.tsx`: suma los accesos a Preguntas, Casos y Exámenes.
-  - `app/(app)/contenido/cursos/formularios.tsx`: el paso `examen` elige el examen (select de exámenes publicados que el curso puede usar) y vuelve a ofrecer "Aprobar".
+  - El formulario de pregunta suma el selector de uso (Examen o Práctica) y los editores de `clasificar` (columnas y elementos, cada uno con su columna) y de `formulario` (campos, tipo, opciones y valores aceptados).
+  - El formulario de examen suma, para `integrador`, la lista de fuentes (módulo, categoría o nivel, con cupo opcional).
+  - `app/(app)/contenido/cursos/formularios.tsx`: el paso `practica` elige un examen `practica`, y el paso `examen` elige el examen (select de exámenes publicados que el curso puede usar) y vuelve a ofrecer "Aprobar".
 
 **Interfaces:**
 - `guardar_pregunta(p_datos jsonb) returns uuid`:
@@ -393,7 +434,36 @@
 - [ ] **Step 2:** `npm run typecheck && npm run lint`, más capturas.
 - [ ] **Step 3:** Commit `feat(examenes): corrección y habilitación de ubicación`.
 
-### Task 10: Seed y E2E
+### Task 10: Prácticas simuladas
+
+**Files:**
+- Create: `supabase/migrations/20261110000700_practicas.sql`, `supabase/tests/30_practicas.test.sql`
+- Create: `components/examen/controles.tsx`, con los controles por tipo extraídos de la Tarea 7 para reusarlos en la práctica.
+- Create: `app/(app)/estudiar/[curso]/[item]/practica.tsx` (cliente)
+- Modify: `app/(app)/estudiar/[curso]/[item]/page.tsx`: un ítem `practica` muestra la práctica embebida.
+
+**Interfaces:**
+- `practica_preguntas(p_examen uuid) returns table(...)`:
+  - mismas columnas que `preguntas_intento`, más `acertada boolean`;
+  - solo para exámenes `practica` legibles; error `'no disponible'` si el ítem que la usa no está disponible;
+  - sin soluciones.
+- `comprobar_practica(p_examen uuid, p_pregunta uuid, p_respuesta jsonb) returns table(es_correcta boolean, explicacion_md text, solucion jsonb)`:
+  - Error `'no es de práctica'` si la pregunta no es de uso `practica` o no pertenece al pozo de ese examen.
+  - Si acierta, hace upsert en `practica_progreso`.
+  - `solucion` = la forma correcta de esa pregunta: las opciones correctas, el orden, las columnas o los valores aceptados.
+- `item_cumplido` para un ítem `practica`: todas las preguntas del pozo están en `practica_progreso` del usuario. El requisito de ese ítem es `marcar_hecho`, pero se cumple solo por esa condición (ruling).
+
+- [ ] **Step 1: Test `30_practicas.test.sql`**
+  - `practica_preguntas` no contiene `solucion`, `grupo` ni `es_correcta`.
+  - `comprobar_practica` con una respuesta mal devuelve `false` y la solución; con la respuesta bien, `true`, y registra el progreso.
+  - Con una pregunta de uso `examen` da `'no es de práctica'`.
+  - Acertadas todas, el paso `practica` queda cumplido en `estado_curso`.
+- [ ] **Step 2:** FAIL.
+- [ ] **Step 3:** Implementar la migración, los controles reutilizables y la práctica en la lección. Cada pregunta tiene el botón "Comprobar", que muestra ✓ o ✗ con la explicación y la solución, y después "Otra vez" o "Siguiente".
+- [ ] **Step 4:** PASS, más `npm run typecheck && npm run lint` y capturas.
+- [ ] **Step 5:** Commit `feat(examenes): prácticas simuladas con devolución inmediata`.
+
+### Task 11: Seed y E2E
 
 **Files:**
 - Modify: `supabase/seed.sql`
@@ -401,6 +471,8 @@
   - Reemplazar el ítem examen del Nivel 2 por uno con `requisito 'aprobar'` y un examen `nivel` del Nivel 2 con 3 preguntas, una de ellas libre.
   - Un examen de categoría "Plataformas (ejemplo)" con tiempo límite de 10 minutos.
   - El examen `ubicacion` global con 3 preguntas por bloque.
+  - Un examen integrador "Integrador Nivel 1 y 2 (ejemplo)" con fuentes en los módulos Reglamento, Plataformas y Modalidades.
+  - En el Nivel 1, un paso `practica` "Práctica: derivar consultas (ejemplo)", con un cuadro "trámite → área" y un formulario simulado "Crear un caso en HubSpot (ejemplo)".
   - `asesor2.nqn@` con `experiencia_previa = true` y la ubicación habilitada por el coordinador de servicio.
 - Create: `e2e/examenes.spec.ts`
 - Modify: `e2e/estudiar.spec.ts` si el Nivel 1 suma un paso de examen (actualizar el recorrido o dejar el examen como último paso, con requisito `aprobar` y aprobarlo en el E2E).
@@ -410,6 +482,8 @@
   - Responde mal una del examen del Nivel 1 → "No aprobado". La revisión muestra la explicación y "Estudiá esto". Al volver a la portada quedan 2 intentos.
   - El asesor rinde el Nivel 2 (con la pregunta libre) → "Pendiente de corrección". lider.nqn ve el intento en `/equipo/correcciones`, lo toma, pone puntaje y cierra. El asesor ve la nota.
   - asesor2 ve la tarjeta de ubicación, aprueba el bloque 1, ve "Seguir con el Nivel 2" y en `/estudiar` el Nivel 2 aparece desbloqueado.
+  - La práctica: el asesor ubica mal un elemento del cuadro, comprueba y ve ✗ con la solución; lo corrige, comprueba y ve ✓. Completa el formulario y el paso queda cumplido.
+  - En la pantalla Revisar de un examen se ve "Sin responder" en una pregunta. Desde ahí se vuelve a ella, se responde y se entrega.
   - asesor.roca no ve el intento de Neuquén en la cola (no tiene acceso a `/equipo/correcciones`: 404).
 - [ ] **Step 2:** `npx supabase db reset` y la suite completa (pgTAP, unitarios, typecheck, lint y Playwright) → todo verde.
 - [ ] **Step 3:** Commit `feat(examenes): seed de ejemplo y E2E de exámenes`.
