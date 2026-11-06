@@ -37,13 +37,13 @@ export function BarraLateral({
   return (
     <nav
       aria-label="Principal"
-      className="sticky top-0 hidden h-dvh w-[92px] shrink-0 flex-col gap-0.5 overflow-y-auto bg-[#1e1b4b] py-3.5 md:flex"
+      className="sticky top-0 z-20 hidden h-dvh w-[92px] shrink-0 flex-col gap-0.5 bg-[#1e1b4b] py-3.5 md:flex"
     >
       <Link href="/inicio" className="pb-2.5 text-center text-[22px] font-extrabold text-white">
         PEA
       </Link>
       {cuenta}
-      <ul className="flex flex-col gap-0.5">
+      <ul className="flex min-h-0 flex-1 flex-col gap-0.5 overflow-y-auto">
         {items.map((i) => {
           const activo = esActivo(ruta, i.href);
           return (

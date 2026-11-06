@@ -50,6 +50,24 @@ test.describe("con API REST", () => {
     await expect(nav.getByRole("link", { name: /Contenido/ })).toHaveCount(0);
   });
 
+  for (const ruta of ["/inicio", "/bandeja"]) {
+    test(`en PC el panel de Cuenta se abre desde ${ruta} y permite salir`, async ({ browser }) => {
+      const a = await sesion(browser, "asesor.nqn@pea.local");
+      await a.setViewportSize({ width: 1440, height: 900 });
+      await a.goto(ruta);
+      await a.getByRole("navigation", { name: "Principal" }).getByText("Cuenta").click();
+      await expect(a.getByRole("link", { name: "Mi perfil" })).toBeVisible();
+      const enPantalla = await a.getByRole("link", { name: "Mi perfil" }).evaluate((el) => {
+        const r = el.getBoundingClientRect();
+        const arriba = document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2);
+        return Boolean(arriba && el.contains(arriba));
+      });
+      expect(enPantalla, "el panel de Cuenta queda tapado o recortado").toBe(true);
+      await a.getByRole("button", { name: "Salir" }).click();
+      await expect(a).toHaveURL(/\/(ingresar|bienvenida)/);
+    });
+  }
+
   test("el anuncio de coordinación llega y no admite respuesta", async ({ browser }) => {
     const a = await sesion(browser, "asesor.nqn@pea.local");
     await a.goto("/bandeja?filtro=anuncios");

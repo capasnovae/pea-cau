@@ -1,6 +1,6 @@
 -- Bandeja: conversaciones dentro de la sede y anuncios de coordinación
 begin;
-select plan(33);
+select plan(35);
 select tests.escenario();
 select tests.crear_usuario('baja@t', 'asesor', 'T-Neuquén', 'servicio');
 update public.perfiles set activo = false where email = 'baja@t';
@@ -51,6 +51,8 @@ select ok(not exists (select 1 from public.mi_bandeja('enviados') where conversa
   'para el destinatario no figura en enviados');
 select is((select participantes from public.mi_bandeja() where conversacion_id = (select v from ids where k = 'c1')), 'ase1', 'muestra al otro participante');
 select is((select count(*)::int from public.mensajes_de((select v from ids where k = 'c1'))), 1, 'el participante lee los mensajes');
+select is((select count(*)::int from public.conversacion_participantes where conversacion_id = (select v from ids where k = 'c1')), 1,
+  'cada participante ve solo su propia fila (no las lecturas de los demás)');
 select public.marcar_leida((select v from ids where k = 'c1'));
 select is(public.mensajes_sin_leer(), 0, 'después de leer, 0');
 select public.archivar((select v from ids where k = 'c1'), true);
@@ -80,6 +82,7 @@ insert into ids select 'a1', public.publicar_anuncio('Campaña', 'Arranca mañan
 select tests.como_postgres();
 select tests.como(tests.uid('ase1@t'));
 select ok((select es_anuncio from public.mi_bandeja('anuncios') where conversacion_id = (select v from ids where k = 'a1')), 'el asesor de la sede recibe el anuncio');
+select is((select count(*)::int from public.participantes_de((select v from ids where k = 'a1'))), 0, 'un anuncio no expone la lista de destinatarios');
 select throws_ok($$select public.responder((select v from ids where k = 'a1'), 'ok')$$, 'P0001', 'los anuncios no admiten respuestas', 'no se responde un anuncio');
 select tests.como_postgres();
 select tests.como(tests.uid('aseR@t'));
