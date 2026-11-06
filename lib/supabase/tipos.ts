@@ -2286,7 +2286,28 @@ export type Database = {
         }[];
       };
       carpeta_alcance: { Args: { p_nombre: string }; Returns: Record<string, unknown> };
+      cerrar_correccion: {
+        Args: { p_intento: string };
+        Returns: {
+          aprobado: boolean;
+          nota: number;
+        }[];
+      };
       cerrar_intento: { Args: { p_intento: string }; Returns: undefined };
+      cola_correccion: {
+        Args: Record<PropertyKey, never>;
+        Returns: {
+          asesor: string;
+          correccion_vence_at: string;
+          entregado_at: string;
+          examen_titulo: string;
+          intento_id: string;
+          libres_pendientes: number;
+          tomado_por: string;
+          tomado_por_mi: boolean;
+          vencida: boolean;
+        }[];
+      };
       contactos_bandeja: {
         Args: Record<PropertyKey, never>;
         Returns: {
@@ -2301,6 +2322,10 @@ export type Database = {
       contenido_compatible: {
         Args: { p_alcance: Database["public"]["Enums"]["alcance"]; p_curso: string; p_sede: string };
         Returns: boolean;
+      };
+      corregir_respuesta: {
+        Args: { p_devolucion: string; p_puntaje: number; p_respuesta: string };
+        Returns: undefined;
       };
       curso_cumplido: { Args: { p_curso: string; p_usuario: string }; Returns: boolean };
       curso_de_modulo: { Args: { p_modulo: string }; Returns: string };
@@ -2334,6 +2359,7 @@ export type Database = {
           titulo: string;
         }[];
       };
+      exigir_corrector: { Args: { p_intento: string; p_tomado: boolean }; Returns: undefined };
       exigir_participante: { Args: { p_conversacion: string }; Returns: undefined };
       f_etiquetas_texto: { Args: { etiquetas: string[] }; Returns: string };
       f_normalizar: { Args: { texto: string }; Returns: string };
@@ -2511,6 +2537,7 @@ export type Database = {
       procesar_consignas: { Args: { p_hoy?: string }; Returns: Json };
       promover_contenido: { Args: { p_id: string; p_tabla: string }; Returns: undefined };
       publicar_anuncio: { Args: { p_asunto: string; p_cuerpo: string; p_sede: string }; Returns: string };
+      puede_corregir: { Args: { p_intento: string }; Returns: boolean };
       puede_crear_consigna: {
         Args: {
           p_area: Database["public"]["Enums"]["area"];
@@ -2552,6 +2579,19 @@ export type Database = {
         Args: { p_opcion_ids: string[]; p_orden: string[]; p_pregunta: string; p_valores: Json };
         Returns: boolean;
       };
+      respuestas_a_corregir: {
+        Args: { p_intento: string };
+        Returns: {
+          devolucion_md: string;
+          enunciado_md: string;
+          pregunta_id: string;
+          puntaje: number;
+          puntaje_max: number;
+          respuesta_id: string;
+          rubrica_md: string;
+          texto_libre: string;
+        }[];
+      };
       revision_intento: {
         Args: { p_intento: string };
         Returns: {
@@ -2574,7 +2614,10 @@ export type Database = {
           tipo: Database["public"]["Enums"]["tipo_pregunta"];
         }[];
       };
+      soltar_correccion: { Args: { p_intento: string }; Returns: undefined };
       sortear_intento: { Args: { p_curso_bloque?: string; p_intento: string }; Returns: undefined };
+      tomado_vigente: { Args: { p_corrector: string; p_tomado: string }; Returns: boolean };
+      tomar_correccion: { Args: { p_intento: string }; Returns: undefined };
     };
     Enums: {
       alcance: "global" | "sede";
