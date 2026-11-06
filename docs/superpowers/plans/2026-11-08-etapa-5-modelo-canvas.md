@@ -48,7 +48,7 @@
 
 **Files:**
 - Create: `supabase/migrations/20261109000100_bandeja.sql`
-- Create: `supabase/tests/21_bandeja.test.sql`
+- Create: `supabase/tests/22_bandeja.test.sql`
 - Modify: `docs/superpowers/specs/2026-11-05-pea-design.md`. Agregar §4.9 "Modelo Canvas: navegación, calendario y bandeja" con las reglas de Global Constraints. Renumerar §10 Etapas: 5 Modelo Canvas, 6 Exámenes, 7 Perfil, 8 Panel, 9 Recertificación, 10 IA.
 - Modify: `lib/supabase/tipos.ts` (regenerar con `npx supabase gen types typescript --local > lib/supabase/tipos.ts`)
 
@@ -80,7 +80,7 @@
     - `participantes_de(p_conversacion uuid) returns table(id uuid, nombre text)`. Error si no participo.
   - Checks: `char_length(asunto) between 1 and 150` y `char_length(btrim(cuerpo)) between 1 and 5000`.
 
-- [ ] **Step 1: Escribir `21_bandeja.test.sql`** usando `tests.escenario()`. Cada caso es un `ok`, `is`, `throws_ok` o `lives_ok`:
+- [ ] **Step 1: Escribir `22_bandeja.test.sql`** usando `tests.escenario()`. Cada caso es un `ok`, `is`, `throws_ok` o `lives_ok`:
   - `contactos_bandeja()` como ase1: incluye ase2, aseV, coordS y dir; excluye a aseR, a ase1 y a un perfil de T-Neuquén con `activo=false`.
   - ase1 → ase2: `iniciar_conversacion` funciona. ase1 → aseR da `'destinatario no permitido'`. dir → aseR funciona, y aseR → dir también.
   - `iniciar_conversacion('{}', …)` da `'sin destinatarios'`; un arreglo con solo el propio id, también. Con 51 ids, `'demasiados destinatarios'`. Un cuerpo de `'   '` viola el check (`throws_ok` con 23514).
@@ -96,7 +96,7 @@
     - ase1 `responder` sobre el anuncio da `'los anuncios no admiten respuestas'`; coordS responde sin error.
     - dir con null: aseR lo ve.
   - Como anon: `iniciar_conversacion` da 42501 (sin permiso de ejecución).
-- [ ] **Step 2:** `npx supabase test db` → FAIL en 21 (las funciones no existen).
+- [ ] **Step 2:** `npx supabase test db` → FAIL en 22 (las funciones no existen).
 - [ ] **Step 3:** Escribir la migración con las tablas, la RLS y las funciones de Interfaces. Agregar §4.9 a la spec y renumerar las etapas.
 - [ ] **Step 4:** `npx supabase db reset && npx supabase test db` → `Result: PASS`. Regenerar `tipos.ts` y correr `npm run typecheck` → sin errores.
 - [ ] **Step 5:** Commit `feat(bandeja): conversaciones, mensajes y anuncios con RLS`.
@@ -105,7 +105,7 @@
 
 **Files:**
 - Create: `supabase/migrations/20261109000200_calendario.sql`
-- Create: `supabase/tests/22_calendario.test.sql`
+- Create: `supabase/tests/23_calendario.test.sql`
 - Modify: `lib/supabase/tipos.ts` (regenerar)
 
 **Interfaces:**
@@ -128,7 +128,7 @@
     - `vencidas`: estado vencida, o pendiente o en_curso con `vence_el < hoy_ar`;
     - `hechas`: estado hecha con `completada_at` en los últimos 30 días.
 
-- [ ] **Step 1: Escribir `22_calendario.test.sql`**, con `tests.escenario()` más sedes y usuarios del escenario:
+- [ ] **Step 1: Escribir `23_calendario.test.sql`**, con `tests.escenario()` más sedes y usuarios del escenario:
   - coordS inserta un evento con `sede_id` T-Neuquén → ok. Con T-Roca → 42501; con null → 42501.
   - dir inserta un evento con null → ok.
   - aseR ve el global y no el de T-Neuquén; ase1 ve los dos.
@@ -142,7 +142,7 @@
     - ase1 inserta con `usuario_id` de ase2 → 42501;
     - ase2 no ve el favorito de ase1.
   - `mi_trabajo()` con tres asignaciones de ase1 (una vence en 3 días, una venció ayer, una hecha hoy) → (1, 1, 1).
-- [ ] **Step 2:** `npx supabase test db` → FAIL en 22.
+- [ ] **Step 2:** `npx supabase test db` → FAIL en 23.
 - [ ] **Step 3:** Escribir la migración.
 - [ ] **Step 4:** `npx supabase db reset && npx supabase test db` → PASS. Regenerar `tipos.ts`.
 - [ ] **Step 5:** Commit `feat(calendario): eventos de sede, favoritos y resumen de trabajo`.
