@@ -343,6 +343,91 @@ export type Database = {
           },
         ];
       };
+      casos: {
+        Row: {
+          alcance: Database["public"]["Enums"]["alcance"];
+          autor_id: string | null;
+          categoria_id: string | null;
+          contexto_md: string;
+          created_at: string;
+          estado: Database["public"]["Enums"]["estado_contenido"];
+          id: string;
+          promovido_at: string | null;
+          promovido_por: string | null;
+          sede_id: string | null;
+          sede_origen_id: string | null;
+          titulo: string;
+          updated_at: string;
+        };
+        ComputedFields: never;
+        Insert: {
+          alcance?: Database["public"]["Enums"]["alcance"];
+          autor_id?: string | null;
+          categoria_id?: string | null;
+          contexto_md?: string;
+          created_at?: string;
+          estado?: Database["public"]["Enums"]["estado_contenido"];
+          id?: string;
+          promovido_at?: string | null;
+          promovido_por?: string | null;
+          sede_id?: string | null;
+          sede_origen_id?: string | null;
+          titulo: string;
+          updated_at?: string;
+        };
+        Update: {
+          alcance?: Database["public"]["Enums"]["alcance"];
+          autor_id?: string | null;
+          categoria_id?: string | null;
+          contexto_md?: string;
+          created_at?: string;
+          estado?: Database["public"]["Enums"]["estado_contenido"];
+          id?: string;
+          promovido_at?: string | null;
+          promovido_por?: string | null;
+          sede_id?: string | null;
+          sede_origen_id?: string | null;
+          titulo?: string;
+          updated_at?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "casos_autor_id_fkey";
+            columns: ["autor_id"];
+            isOneToOne: false;
+            referencedRelation: "perfiles";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "casos_categoria_id_fkey";
+            columns: ["categoria_id"];
+            isOneToOne: false;
+            referencedRelation: "categorias";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "casos_promovido_por_fkey";
+            columns: ["promovido_por"];
+            isOneToOne: false;
+            referencedRelation: "perfiles";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "casos_sede_id_fkey";
+            columns: ["sede_id"];
+            isOneToOne: false;
+            referencedRelation: "sedes";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "casos_sede_origen_id_fkey";
+            columns: ["sede_origen_id"];
+            isOneToOne: false;
+            referencedRelation: "sedes";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
       categorias: {
         Row: {
           created_at: string;
@@ -384,6 +469,68 @@ export type Database = {
             columns: ["padre_id"];
             isOneToOne: false;
             referencedRelation: "categorias";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
+      certificaciones: {
+        Row: {
+          codigo_verificacion: string;
+          curso_id: string;
+          emitida_at: string;
+          estado: Database["public"]["Enums"]["estado_certificacion"];
+          id: string;
+          intento_id: string | null;
+          origen: Database["public"]["Enums"]["origen_certificacion"];
+          pdf_path: string | null;
+          usuario_id: string;
+          vence_at: string | null;
+        };
+        ComputedFields: never;
+        Insert: {
+          codigo_verificacion?: string;
+          curso_id: string;
+          emitida_at?: string;
+          estado?: Database["public"]["Enums"]["estado_certificacion"];
+          id?: string;
+          intento_id?: string | null;
+          origen: Database["public"]["Enums"]["origen_certificacion"];
+          pdf_path?: string | null;
+          usuario_id: string;
+          vence_at?: string | null;
+        };
+        Update: {
+          codigo_verificacion?: string;
+          curso_id?: string;
+          emitida_at?: string;
+          estado?: Database["public"]["Enums"]["estado_certificacion"];
+          id?: string;
+          intento_id?: string | null;
+          origen?: Database["public"]["Enums"]["origen_certificacion"];
+          pdf_path?: string | null;
+          usuario_id?: string;
+          vence_at?: string | null;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "certificaciones_curso_id_fkey";
+            columns: ["curso_id"];
+            isOneToOne: false;
+            referencedRelation: "cursos";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "certificaciones_intento_id_fkey";
+            columns: ["intento_id"];
+            isOneToOne: false;
+            referencedRelation: "intentos";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "certificaciones_usuario_id_fkey";
+            columns: ["usuario_id"];
+            isOneToOne: false;
+            referencedRelation: "perfiles";
             referencedColumns: ["id"];
           },
         ];
@@ -870,6 +1017,329 @@ export type Database = {
           },
         ];
       };
+      examen_fuentes: {
+        Row: {
+          cantidad: number | null;
+          categoria_id: string | null;
+          curso_id: string | null;
+          examen_id: string;
+          id: string;
+          modulo_id: string | null;
+        };
+        ComputedFields: never;
+        Insert: {
+          cantidad?: number | null;
+          categoria_id?: string | null;
+          curso_id?: string | null;
+          examen_id: string;
+          id?: string;
+          modulo_id?: string | null;
+        };
+        Update: {
+          cantidad?: number | null;
+          categoria_id?: string | null;
+          curso_id?: string | null;
+          examen_id?: string;
+          id?: string;
+          modulo_id?: string | null;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "examen_fuentes_categoria_id_fkey";
+            columns: ["categoria_id"];
+            isOneToOne: false;
+            referencedRelation: "categorias";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "examen_fuentes_curso_id_fkey";
+            columns: ["curso_id"];
+            isOneToOne: false;
+            referencedRelation: "cursos";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "examen_fuentes_examen_id_fkey";
+            columns: ["examen_id"];
+            isOneToOne: false;
+            referencedRelation: "examenes";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "examen_fuentes_modulo_id_fkey";
+            columns: ["modulo_id"];
+            isOneToOne: false;
+            referencedRelation: "modulos";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
+      examenes: {
+        Row: {
+          alcance: Database["public"]["Enums"]["alcance"];
+          autor_id: string | null;
+          cantidad_preguntas: number;
+          categoria_id: string | null;
+          created_at: string;
+          curso_id: string | null;
+          espera_horas: number;
+          estado: Database["public"]["Enums"]["estado_contenido"];
+          id: string;
+          max_intentos: number;
+          mezclar: boolean;
+          modulo_id: string | null;
+          nota_minima: number;
+          promovido_at: string | null;
+          promovido_por: string | null;
+          sede_id: string | null;
+          sede_origen_id: string | null;
+          tiempo_limite_min: number | null;
+          tipo: Database["public"]["Enums"]["tipo_examen"];
+          titulo: string;
+          updated_at: string;
+        };
+        ComputedFields: never;
+        Insert: {
+          alcance?: Database["public"]["Enums"]["alcance"];
+          autor_id?: string | null;
+          cantidad_preguntas?: number;
+          categoria_id?: string | null;
+          created_at?: string;
+          curso_id?: string | null;
+          espera_horas?: number;
+          estado?: Database["public"]["Enums"]["estado_contenido"];
+          id?: string;
+          max_intentos?: number;
+          mezclar?: boolean;
+          modulo_id?: string | null;
+          nota_minima?: number;
+          promovido_at?: string | null;
+          promovido_por?: string | null;
+          sede_id?: string | null;
+          sede_origen_id?: string | null;
+          tiempo_limite_min?: number | null;
+          tipo: Database["public"]["Enums"]["tipo_examen"];
+          titulo: string;
+          updated_at?: string;
+        };
+        Update: {
+          alcance?: Database["public"]["Enums"]["alcance"];
+          autor_id?: string | null;
+          cantidad_preguntas?: number;
+          categoria_id?: string | null;
+          created_at?: string;
+          curso_id?: string | null;
+          espera_horas?: number;
+          estado?: Database["public"]["Enums"]["estado_contenido"];
+          id?: string;
+          max_intentos?: number;
+          mezclar?: boolean;
+          modulo_id?: string | null;
+          nota_minima?: number;
+          promovido_at?: string | null;
+          promovido_por?: string | null;
+          sede_id?: string | null;
+          sede_origen_id?: string | null;
+          tiempo_limite_min?: number | null;
+          tipo?: Database["public"]["Enums"]["tipo_examen"];
+          titulo?: string;
+          updated_at?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "examenes_autor_id_fkey";
+            columns: ["autor_id"];
+            isOneToOne: false;
+            referencedRelation: "perfiles";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "examenes_categoria_id_fkey";
+            columns: ["categoria_id"];
+            isOneToOne: false;
+            referencedRelation: "categorias";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "examenes_curso_id_fkey";
+            columns: ["curso_id"];
+            isOneToOne: false;
+            referencedRelation: "cursos";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "examenes_modulo_id_fkey";
+            columns: ["modulo_id"];
+            isOneToOne: false;
+            referencedRelation: "modulos";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "examenes_promovido_por_fkey";
+            columns: ["promovido_por"];
+            isOneToOne: false;
+            referencedRelation: "perfiles";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "examenes_sede_id_fkey";
+            columns: ["sede_id"];
+            isOneToOne: false;
+            referencedRelation: "sedes";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "examenes_sede_origen_id_fkey";
+            columns: ["sede_origen_id"];
+            isOneToOne: false;
+            referencedRelation: "sedes";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
+      intento_preguntas: {
+        Row: {
+          intento_id: string;
+          orden: number;
+          orden_opciones: string[];
+          pregunta_id: string;
+        };
+        ComputedFields: never;
+        Insert: {
+          intento_id: string;
+          orden: number;
+          orden_opciones?: string[];
+          pregunta_id: string;
+        };
+        Update: {
+          intento_id?: string;
+          orden?: number;
+          orden_opciones?: string[];
+          pregunta_id?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "intento_preguntas_intento_id_fkey";
+            columns: ["intento_id"];
+            isOneToOne: false;
+            referencedRelation: "intentos";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "intento_preguntas_pregunta_id_fkey";
+            columns: ["pregunta_id"];
+            isOneToOne: false;
+            referencedRelation: "preguntas";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
+      intentos: {
+        Row: {
+          aprobado: boolean | null;
+          area: Database["public"]["Enums"]["area"] | null;
+          bloque_nivel: number | null;
+          cerrado_at: string | null;
+          ciclo: number;
+          correccion_vence_at: string | null;
+          corrector_id: string | null;
+          entregado_at: string | null;
+          equipo_id: string | null;
+          estado: Database["public"]["Enums"]["estado_intento"];
+          examen_id: string;
+          id: string;
+          iniciado_at: string;
+          nota: number | null;
+          puntaje_auto: number | null;
+          puntaje_manual: number | null;
+          sede_id: string | null;
+          tomado_at: string | null;
+          usuario_id: string;
+          vence_at: string | null;
+        };
+        ComputedFields: never;
+        Insert: {
+          aprobado?: boolean | null;
+          area?: Database["public"]["Enums"]["area"] | null;
+          bloque_nivel?: number | null;
+          cerrado_at?: string | null;
+          ciclo?: number;
+          correccion_vence_at?: string | null;
+          corrector_id?: string | null;
+          entregado_at?: string | null;
+          equipo_id?: string | null;
+          estado?: Database["public"]["Enums"]["estado_intento"];
+          examen_id: string;
+          id?: string;
+          iniciado_at?: string;
+          nota?: number | null;
+          puntaje_auto?: number | null;
+          puntaje_manual?: number | null;
+          sede_id?: string | null;
+          tomado_at?: string | null;
+          usuario_id: string;
+          vence_at?: string | null;
+        };
+        Update: {
+          aprobado?: boolean | null;
+          area?: Database["public"]["Enums"]["area"] | null;
+          bloque_nivel?: number | null;
+          cerrado_at?: string | null;
+          ciclo?: number;
+          correccion_vence_at?: string | null;
+          corrector_id?: string | null;
+          entregado_at?: string | null;
+          equipo_id?: string | null;
+          estado?: Database["public"]["Enums"]["estado_intento"];
+          examen_id?: string;
+          id?: string;
+          iniciado_at?: string;
+          nota?: number | null;
+          puntaje_auto?: number | null;
+          puntaje_manual?: number | null;
+          sede_id?: string | null;
+          tomado_at?: string | null;
+          usuario_id?: string;
+          vence_at?: string | null;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "intentos_corrector_id_fkey";
+            columns: ["corrector_id"];
+            isOneToOne: false;
+            referencedRelation: "perfiles";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "intentos_equipo_id_fkey";
+            columns: ["equipo_id"];
+            isOneToOne: false;
+            referencedRelation: "equipos";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "intentos_examen_id_fkey";
+            columns: ["examen_id"];
+            isOneToOne: false;
+            referencedRelation: "examenes";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "intentos_sede_id_fkey";
+            columns: ["sede_id"];
+            isOneToOne: false;
+            referencedRelation: "sedes";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "intentos_usuario_id_fkey";
+            columns: ["usuario_id"];
+            isOneToOne: false;
+            referencedRelation: "perfiles";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
       item_progreso: {
         Row: {
           created_at: string;
@@ -963,6 +1433,13 @@ export type Database = {
             columns: ["articulo_id"];
             isOneToOne: false;
             referencedRelation: "articulos";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "items_examen_fk";
+            columns: ["examen_id"];
+            isOneToOne: false;
+            referencedRelation: "examenes";
             referencedColumns: ["id"];
           },
           {
@@ -1094,6 +1571,45 @@ export type Database = {
           },
         ];
       };
+      opciones: {
+        Row: {
+          es_correcta: boolean;
+          grupo: string | null;
+          id: string;
+          orden: number;
+          posicion_correcta: number | null;
+          pregunta_id: string;
+          texto: string;
+        };
+        ComputedFields: never;
+        Insert: {
+          es_correcta?: boolean;
+          grupo?: string | null;
+          id?: string;
+          orden?: number;
+          posicion_correcta?: number | null;
+          pregunta_id: string;
+          texto: string;
+        };
+        Update: {
+          es_correcta?: boolean;
+          grupo?: string | null;
+          id?: string;
+          orden?: number;
+          posicion_correcta?: number | null;
+          pregunta_id?: string;
+          texto?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "opciones_pregunta_id_fkey";
+            columns: ["pregunta_id"];
+            isOneToOne: false;
+            referencedRelation: "preguntas";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
       perfil_subroles: {
         Row: {
           created_at: string;
@@ -1217,6 +1733,198 @@ export type Database = {
             columns: ["ubicacion_habilitada_por"];
             isOneToOne: false;
             referencedRelation: "perfiles";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
+      practica_progreso: {
+        Row: {
+          acertada_at: string;
+          pregunta_id: string;
+          usuario_id: string;
+        };
+        ComputedFields: never;
+        Insert: {
+          acertada_at?: string;
+          pregunta_id: string;
+          usuario_id?: string;
+        };
+        Update: {
+          acertada_at?: string;
+          pregunta_id?: string;
+          usuario_id?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "practica_progreso_pregunta_id_fkey";
+            columns: ["pregunta_id"];
+            isOneToOne: false;
+            referencedRelation: "preguntas";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "practica_progreso_usuario_id_fkey";
+            columns: ["usuario_id"];
+            isOneToOne: false;
+            referencedRelation: "perfiles";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
+      preguntas: {
+        Row: {
+          alcance: Database["public"]["Enums"]["alcance"];
+          aprobada_at: string | null;
+          aprobada_por: string | null;
+          articulo_fuente_id: string | null;
+          autor_id: string | null;
+          caso_id: string | null;
+          categoria_id: string | null;
+          config: Json | null;
+          contexto_md: string | null;
+          created_at: string;
+          dificultad: number;
+          enunciado_md: string;
+          estado: Database["public"]["Enums"]["estado_contenido"];
+          explicacion_md: string;
+          id: string;
+          modulo_id: string | null;
+          orden_en_caso: number | null;
+          origen: Database["public"]["Enums"]["origen_pregunta"];
+          promovido_at: string | null;
+          promovido_por: string | null;
+          puntaje_max: number;
+          rubrica_md: string | null;
+          sede_id: string | null;
+          sede_origen_id: string | null;
+          solucion: Json | null;
+          tipo: Database["public"]["Enums"]["tipo_pregunta"];
+          updated_at: string;
+          uso: Database["public"]["Enums"]["uso_pregunta"];
+        };
+        ComputedFields: never;
+        Insert: {
+          alcance?: Database["public"]["Enums"]["alcance"];
+          aprobada_at?: string | null;
+          aprobada_por?: string | null;
+          articulo_fuente_id?: string | null;
+          autor_id?: string | null;
+          caso_id?: string | null;
+          categoria_id?: string | null;
+          config?: Json | null;
+          contexto_md?: string | null;
+          created_at?: string;
+          dificultad?: number;
+          enunciado_md: string;
+          estado?: Database["public"]["Enums"]["estado_contenido"];
+          explicacion_md?: string;
+          id?: string;
+          modulo_id?: string | null;
+          orden_en_caso?: number | null;
+          origen?: Database["public"]["Enums"]["origen_pregunta"];
+          promovido_at?: string | null;
+          promovido_por?: string | null;
+          puntaje_max?: number;
+          rubrica_md?: string | null;
+          sede_id?: string | null;
+          sede_origen_id?: string | null;
+          solucion?: Json | null;
+          tipo: Database["public"]["Enums"]["tipo_pregunta"];
+          updated_at?: string;
+          uso?: Database["public"]["Enums"]["uso_pregunta"];
+        };
+        Update: {
+          alcance?: Database["public"]["Enums"]["alcance"];
+          aprobada_at?: string | null;
+          aprobada_por?: string | null;
+          articulo_fuente_id?: string | null;
+          autor_id?: string | null;
+          caso_id?: string | null;
+          categoria_id?: string | null;
+          config?: Json | null;
+          contexto_md?: string | null;
+          created_at?: string;
+          dificultad?: number;
+          enunciado_md?: string;
+          estado?: Database["public"]["Enums"]["estado_contenido"];
+          explicacion_md?: string;
+          id?: string;
+          modulo_id?: string | null;
+          orden_en_caso?: number | null;
+          origen?: Database["public"]["Enums"]["origen_pregunta"];
+          promovido_at?: string | null;
+          promovido_por?: string | null;
+          puntaje_max?: number;
+          rubrica_md?: string | null;
+          sede_id?: string | null;
+          sede_origen_id?: string | null;
+          solucion?: Json | null;
+          tipo?: Database["public"]["Enums"]["tipo_pregunta"];
+          updated_at?: string;
+          uso?: Database["public"]["Enums"]["uso_pregunta"];
+        };
+        Relationships: [
+          {
+            foreignKeyName: "preguntas_aprobada_por_fkey";
+            columns: ["aprobada_por"];
+            isOneToOne: false;
+            referencedRelation: "perfiles";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "preguntas_articulo_fuente_id_fkey";
+            columns: ["articulo_fuente_id"];
+            isOneToOne: false;
+            referencedRelation: "articulos";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "preguntas_autor_id_fkey";
+            columns: ["autor_id"];
+            isOneToOne: false;
+            referencedRelation: "perfiles";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "preguntas_caso_id_fkey";
+            columns: ["caso_id"];
+            isOneToOne: false;
+            referencedRelation: "casos";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "preguntas_categoria_id_fkey";
+            columns: ["categoria_id"];
+            isOneToOne: false;
+            referencedRelation: "categorias";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "preguntas_modulo_id_fkey";
+            columns: ["modulo_id"];
+            isOneToOne: false;
+            referencedRelation: "modulos";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "preguntas_promovido_por_fkey";
+            columns: ["promovido_por"];
+            isOneToOne: false;
+            referencedRelation: "perfiles";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "preguntas_sede_id_fkey";
+            columns: ["sede_id"];
+            isOneToOne: false;
+            referencedRelation: "sedes";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "preguntas_sede_origen_id_fkey";
+            columns: ["sede_origen_id"];
+            isOneToOne: false;
+            referencedRelation: "sedes";
             referencedColumns: ["id"];
           },
         ];
@@ -1364,6 +2072,83 @@ export type Database = {
             columns: ["sede_origen_id"];
             isOneToOne: false;
             referencedRelation: "sedes";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
+      respuestas: {
+        Row: {
+          corregida_at: string | null;
+          corregida_por: string | null;
+          devolucion_md: string | null;
+          es_correcta: boolean | null;
+          ia_justificacion: string | null;
+          ia_puntaje_sugerido: number | null;
+          id: string;
+          intento_id: string;
+          opcion_ids: string[] | null;
+          orden_respuesta: string[] | null;
+          pregunta_id: string;
+          puntaje: number | null;
+          texto_libre: string | null;
+          updated_at: string;
+          valores: Json | null;
+        };
+        ComputedFields: never;
+        Insert: {
+          corregida_at?: string | null;
+          corregida_por?: string | null;
+          devolucion_md?: string | null;
+          es_correcta?: boolean | null;
+          ia_justificacion?: string | null;
+          ia_puntaje_sugerido?: number | null;
+          id?: string;
+          intento_id: string;
+          opcion_ids?: string[] | null;
+          orden_respuesta?: string[] | null;
+          pregunta_id: string;
+          puntaje?: number | null;
+          texto_libre?: string | null;
+          updated_at?: string;
+          valores?: Json | null;
+        };
+        Update: {
+          corregida_at?: string | null;
+          corregida_por?: string | null;
+          devolucion_md?: string | null;
+          es_correcta?: boolean | null;
+          ia_justificacion?: string | null;
+          ia_puntaje_sugerido?: number | null;
+          id?: string;
+          intento_id?: string;
+          opcion_ids?: string[] | null;
+          orden_respuesta?: string[] | null;
+          pregunta_id?: string;
+          puntaje?: number | null;
+          texto_libre?: string | null;
+          updated_at?: string;
+          valores?: Json | null;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "respuestas_corregida_por_fkey";
+            columns: ["corregida_por"];
+            isOneToOne: false;
+            referencedRelation: "perfiles";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "respuestas_intento_id_fkey";
+            columns: ["intento_id"];
+            isOneToOne: false;
+            referencedRelation: "intentos";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "respuestas_pregunta_id_fkey";
+            columns: ["pregunta_id"];
+            isOneToOne: false;
+            referencedRelation: "preguntas";
             referencedColumns: ["id"];
           },
         ];
@@ -1668,6 +2453,8 @@ export type Database = {
         Returns: boolean;
       };
       puede_editar_curso: { Args: { p_curso: string }; Returns: boolean };
+      puede_editar_examen: { Args: { p_examen: string }; Returns: boolean };
+      puede_editar_pregunta: { Args: { p_pregunta: string }; Returns: boolean };
       puede_escribir_a: { Args: { p_destino: string }; Returns: boolean };
       puede_escribir_archivo: { Args: { p_nombre: string }; Returns: boolean };
       puede_gestionar_evento: { Args: { p_sede: string }; Returns: boolean };
@@ -1683,6 +2470,7 @@ export type Database = {
       puede_leer_curso: { Args: { p_curso: string }; Returns: boolean };
       puede_leer_evidencia: { Args: { p_nombre: string }; Returns: boolean };
       puede_subir_evidencia: { Args: { p_nombre: string }; Returns: boolean };
+      puede_ver_intento: { Args: { p_intento: string }; Returns: boolean };
       puede_ver_usuario: { Args: { objetivo: string }; Returns: boolean };
       puede_ver_usuario_como: { Args: { p_actor: string; p_objetivo: string }; Returns: boolean };
       responder: { Args: { p_conversacion: string; p_cuerpo: string }; Returns: string };
@@ -1692,7 +2480,11 @@ export type Database = {
       area: "servicio" | "ventas";
       destino_consigna: "usuario" | "equipo" | "subrol" | "sede";
       estado_asignacion: "pendiente" | "en_curso" | "hecha" | "vencida";
+      estado_certificacion: "vigente" | "vencida" | "revocada";
       estado_contenido: "borrador" | "publicado" | "archivado";
+      estado_intento: "en_curso" | "pendiente_correccion" | "cerrado";
+      origen_certificacion: "examen" | "ubicacion";
+      origen_pregunta: "manual" | "ia";
       prioridad: "baja" | "normal" | "alta";
       recurrencia: "ninguna" | "diaria" | "semanal" | "mensual";
       requisito_item: "ninguno" | "ver" | "marcar_hecho" | "aprobar";
@@ -1700,8 +2492,19 @@ export type Database = {
       tipo_consigna: "tarea" | "lectura" | "capacitacion";
       tipo_curso: "nivel" | "capacitacion";
       tipo_evento: "capacitacion" | "evento";
-      tipo_item: "articulo" | "recurso" | "pagina" | "video" | "enlace" | "examen";
+      tipo_examen: "modulo" | "categoria" | "nivel" | "integrador" | "ubicacion" | "practica";
+      tipo_item: "articulo" | "recurso" | "pagina" | "video" | "enlace" | "examen" | "practica";
+      tipo_pregunta:
+        | "opcion_multiple"
+        | "verdadero_falso"
+        | "escenario"
+        | "ordenar"
+        | "simulacion"
+        | "libre"
+        | "clasificar"
+        | "formulario";
       tipo_recurso: "imagen" | "video" | "pdf" | "presentacion" | "enlace" | "otro";
+      uso_pregunta: "examen" | "practica";
     };
     CompositeTypes: {
       [_ in never]: never;
@@ -1819,7 +2622,11 @@ export const Constants = {
       area: ["servicio", "ventas"],
       destino_consigna: ["usuario", "equipo", "subrol", "sede"],
       estado_asignacion: ["pendiente", "en_curso", "hecha", "vencida"],
+      estado_certificacion: ["vigente", "vencida", "revocada"],
       estado_contenido: ["borrador", "publicado", "archivado"],
+      estado_intento: ["en_curso", "pendiente_correccion", "cerrado"],
+      origen_certificacion: ["examen", "ubicacion"],
+      origen_pregunta: ["manual", "ia"],
       prioridad: ["baja", "normal", "alta"],
       recurrencia: ["ninguna", "diaria", "semanal", "mensual"],
       requisito_item: ["ninguno", "ver", "marcar_hecho", "aprobar"],
@@ -1827,8 +2634,20 @@ export const Constants = {
       tipo_consigna: ["tarea", "lectura", "capacitacion"],
       tipo_curso: ["nivel", "capacitacion"],
       tipo_evento: ["capacitacion", "evento"],
-      tipo_item: ["articulo", "recurso", "pagina", "video", "enlace", "examen"],
+      tipo_examen: ["modulo", "categoria", "nivel", "integrador", "ubicacion", "practica"],
+      tipo_item: ["articulo", "recurso", "pagina", "video", "enlace", "examen", "practica"],
+      tipo_pregunta: [
+        "opcion_multiple",
+        "verdadero_falso",
+        "escenario",
+        "ordenar",
+        "simulacion",
+        "libre",
+        "clasificar",
+        "formulario",
+      ],
       tipo_recurso: ["imagen", "video", "pdf", "presentacion", "enlace", "otro"],
+      uso_pregunta: ["examen", "practica"],
     },
   },
 } as const;

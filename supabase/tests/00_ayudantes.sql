@@ -110,6 +110,55 @@ begin
     ('e3000000-0000-4000-8000-000000000006', 'e2000000-0000-4000-8000-000000000005', 1, 'd1', 'pagina', 'x', 'ver');
 end $$;
 
+-- Escenario de exámenes (requiere escenario y escenario_cursos). Ids fijos para responder en los tests.
+-- f1 = examenes, f2 = preguntas, f3 = opciones, f4 = casos.
+create or replace function tests.escenario_examenes() returns void language plpgsql security definer set search_path = '' as $$
+declare v_reg uuid := (select id from public.categorias where slug = 'reglamento');
+        v_pla uuid := (select id from public.categorias where slug = 'plataformas');
+begin
+  insert into public.casos (id, titulo, contexto_md, categoria_id, alcance, estado) values
+    ('f4000000-0000-4000-8000-000000000001', 'T-Caso', 'Un alumno llama por una mesa.', v_reg, 'global', 'publicado');
+  insert into public.preguntas (id, tipo, enunciado_md, contexto_md, caso_id, orden_en_caso, explicacion_md, rubrica_md, puntaje_max,
+                                modulo_id, categoria_id, estado, alcance, uso, config, solucion) values
+    ('f2000000-0000-4000-8000-000000000001', 'opcion_multiple', 'om', null, null, null, 'exp-om', null, 1, 'e2000000-0000-4000-8000-000000000001', v_reg, 'publicado', 'global', 'examen', null, null),
+    ('f2000000-0000-4000-8000-000000000002', 'verdadero_falso', 'vf', null, null, null, 'exp-vf', null, 1, 'e2000000-0000-4000-8000-000000000001', v_reg, 'publicado', 'global', 'examen', null, null),
+    ('f2000000-0000-4000-8000-000000000003', 'ordenar', 'ord', null, null, null, 'exp-ord', null, 1, 'e2000000-0000-4000-8000-000000000001', v_reg, 'publicado', 'global', 'examen', null, null),
+    ('f2000000-0000-4000-8000-000000000004', 'libre', 'lib', null, null, null, 'exp-lib', 'rúbrica', 2, 'e2000000-0000-4000-8000-000000000004', v_reg, 'publicado', 'global', 'examen', null, null),
+    ('f2000000-0000-4000-8000-000000000005', 'simulacion', 'sim1', null, 'f4000000-0000-4000-8000-000000000001', 1, 'exp-s1', null, 1, 'e2000000-0000-4000-8000-000000000003', v_reg, 'publicado', 'global', 'examen', null, null),
+    ('f2000000-0000-4000-8000-000000000006', 'simulacion', 'sim2', null, 'f4000000-0000-4000-8000-000000000001', 2, 'exp-s2', null, 1, 'e2000000-0000-4000-8000-000000000003', v_reg, 'publicado', 'global', 'examen', null, null),
+    ('f2000000-0000-4000-8000-000000000007', 'clasificar', 'cla', null, null, null, 'exp-cla', null, 1, null, v_pla, 'publicado', 'global', 'examen',
+       '{"columnas": ["CAU", "Tesorería"]}', null),
+    ('f2000000-0000-4000-8000-000000000008', 'formulario', 'form', null, null, null, 'exp-form', null, 1, null, v_pla, 'publicado', 'global', 'examen',
+       '{"campos": [{"id": "area", "etiqueta": "Área", "tipo": "texto"}, {"id": "prioridad", "etiqueta": "Prioridad", "tipo": "select", "opciones": ["Alta", "Baja"]}]}',
+       '{"area": ["Mesa de ayuda"], "prioridad": ["Alta"]}');
+  insert into public.opciones (id, pregunta_id, texto, es_correcta, posicion_correcta, grupo, orden) values
+    ('f3000000-0000-4000-8000-000000000001', 'f2000000-0000-4000-8000-000000000001', 'a', true, null, null, 1),
+    ('f3000000-0000-4000-8000-000000000002', 'f2000000-0000-4000-8000-000000000001', 'b', true, null, null, 2),
+    ('f3000000-0000-4000-8000-000000000003', 'f2000000-0000-4000-8000-000000000001', 'c', false, null, null, 3),
+    ('f3000000-0000-4000-8000-000000000004', 'f2000000-0000-4000-8000-000000000002', 'Verdadero', true, null, null, 1),
+    ('f3000000-0000-4000-8000-000000000005', 'f2000000-0000-4000-8000-000000000002', 'Falso', false, null, null, 2),
+    ('f3000000-0000-4000-8000-000000000006', 'f2000000-0000-4000-8000-000000000003', 'uno', false, 1, null, 1),
+    ('f3000000-0000-4000-8000-000000000007', 'f2000000-0000-4000-8000-000000000003', 'dos', false, 2, null, 2),
+    ('f3000000-0000-4000-8000-000000000008', 'f2000000-0000-4000-8000-000000000003', 'tres', false, 3, null, 3),
+    ('f3000000-0000-4000-8000-000000000009', 'f2000000-0000-4000-8000-000000000005', 's1-ok', true, null, null, 1),
+    ('f3000000-0000-4000-8000-000000000010', 'f2000000-0000-4000-8000-000000000005', 's1-no', false, null, null, 2),
+    ('f3000000-0000-4000-8000-000000000011', 'f2000000-0000-4000-8000-000000000006', 's2-ok', true, null, null, 1),
+    ('f3000000-0000-4000-8000-000000000012', 'f2000000-0000-4000-8000-000000000006', 's2-no', false, null, null, 2),
+    ('f3000000-0000-4000-8000-000000000013', 'f2000000-0000-4000-8000-000000000007', 'Reinscripción', false, null, 'CAU', 1),
+    ('f3000000-0000-4000-8000-000000000014', 'f2000000-0000-4000-8000-000000000007', 'Cuota vencida', false, null, 'Tesorería', 2);
+  insert into public.examenes (id, titulo, tipo, modulo_id, categoria_id, curso_id, cantidad_preguntas, mezclar, alcance, estado) values
+    ('f1000000-0000-4000-8000-000000000001', 'T-Ex M1', 'modulo', 'e2000000-0000-4000-8000-000000000001', null, null, 3, false, 'global', 'publicado'),
+    ('f1000000-0000-4000-8000-000000000002', 'T-Ex libre', 'modulo', 'e2000000-0000-4000-8000-000000000004', null, null, 1, false, 'global', 'publicado'),
+    ('f1000000-0000-4000-8000-000000000003', 'T-Ex simulación', 'modulo', 'e2000000-0000-4000-8000-000000000003', null, null, 2, false, 'global', 'publicado'),
+    ('f1000000-0000-4000-8000-000000000004', 'T-Ex plataformas', 'categoria', null, v_pla, null, 2, false, 'global', 'publicado'),
+    ('f1000000-0000-4000-8000-000000000005', 'T-Ex nivel A', 'nivel', null, null, 'e1000000-0000-4000-8000-000000000001', 3, false, 'global', 'publicado'),
+    ('f1000000-0000-4000-8000-000000000006', 'T-Ubicación', 'ubicacion', null, null, null, 3, false, 'global', 'publicado'),
+    ('f1000000-0000-4000-8000-000000000007', 'T-Integrador', 'integrador', null, null, null, 3, false, 'global', 'publicado');
+  insert into public.examen_fuentes (examen_id, modulo_id, categoria_id, cantidad) values
+    ('f1000000-0000-4000-8000-000000000007', 'e2000000-0000-4000-8000-000000000001', null, 1),
+    ('f1000000-0000-4000-8000-000000000007', null, v_pla, null);
+end $$;
+
 grant usage on schema tests to authenticated, anon;
 grant execute on all functions in schema tests to authenticated, anon;
 

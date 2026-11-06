@@ -15,8 +15,10 @@ update public.items set requisito = 'ver' where id in ('e3000000-0000-4000-8000-
 update public.items set requisito = 'marcar_hecho' where id = 'e3000000-0000-4000-8000-000000000002';
 
 -- I2: hasta la etapa de exámenes no se puede exigir "aprobar"
-select throws_ok($$insert into public.items (modulo_id, titulo, tipo, requisito) values ('e2000000-0000-4000-8000-000000000001', 'ex', 'examen', 'aprobar')$$,
-  '23514', null, 'todavía no se puede crear un examen con requisito aprobar');
+-- Etapa 6: los exámenes ya existen, así que "aprobar" vuelve a estar permitido
+select lives_ok($$insert into public.items (modulo_id, titulo, tipo, requisito) values ('e2000000-0000-4000-8000-000000000001', 'ex', 'examen', 'aprobar')$$,
+  'desde la etapa de exámenes se puede exigir aprobar');
+delete from public.items where titulo = 'ex' and tipo = 'examen';
 
 -- I3: ciclos de prerrequisitos
 select throws_ok($$insert into public.modulo_prerrequisitos values ('e2000000-0000-4000-8000-000000000001', 'e2000000-0000-4000-8000-000000000002')$$,
