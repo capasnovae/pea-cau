@@ -265,3 +265,37 @@ export const esquemaCorreccion = z.object({
   puntaje: z.coerce.number().min(0, "El puntaje no puede ser negativo."),
   devolucion: z.string().trim().max(2000).default(""),
 });
+
+const ERRORES: { clave: string; codigo: string; mensaje: string }[] = [
+  { clave: "ya aprobado", codigo: "ya-aprobado", mensaje: "Ya lo aprobaste." },
+  {
+    clave: "en espera",
+    codigo: "en-espera",
+    mensaje: "Agotaste los intentos de este ciclo. Probá más tarde.",
+  },
+  { clave: "sin preguntas", codigo: "sin-preguntas", mensaje: "Este examen todavía no tiene preguntas." },
+  { clave: "no disponible", codigo: "no-disponible", mensaje: "Completá lo anterior para rendirlo." },
+  {
+    clave: "pendiente de corrección",
+    codigo: "pendiente",
+    mensaje: "Tenés un intento pendiente de corrección.",
+  },
+  { clave: "no habilitada", codigo: "no-habilitada", mensaje: "No tenés el examen de ubicación habilitado." },
+  { clave: "tiempo agotado", codigo: "tiempo", mensaje: "Se terminó el tiempo." },
+  { clave: "intento cerrado", codigo: "cerrado", mensaje: "Este intento ya se entregó." },
+];
+
+/** Traduce un error de la base a un código (para la URL) y una frase corta. */
+export function errorExamen(mensajeBase: string | undefined): { codigo: string; mensaje: string } {
+  const e = ERRORES.find((x) => mensajeBase?.includes(x.clave));
+  return e
+    ? { codigo: e.codigo, mensaje: e.mensaje }
+    : { codigo: "error", mensaje: "No pudimos completar la acción." };
+}
+
+export function mensajeDeCodigo(codigo: string | undefined): string | null {
+  return (
+    ERRORES.find((x) => x.codigo === codigo)?.mensaje ??
+    (codigo === "error" ? "No pudimos completar la acción." : null)
+  );
+}

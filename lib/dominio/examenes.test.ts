@@ -1,10 +1,12 @@
 import { describe, expect, it } from "vitest";
 import {
   aprobo,
+  errorExamen,
   esquemaExamen,
   esquemaPregunta,
   estadoExamen,
   formatoDuracion,
+  mensajeDeCodigo,
   normalizarTexto,
   notaFinal,
 } from "./examenes";
@@ -150,5 +152,19 @@ describe("esquemaExamen", () => {
     });
     expect(r.data?.tiempo_limite_min).toBeNull();
     expect(r.data?.mezclar).toBe(true);
+  });
+});
+
+describe("errorExamen", () => {
+  it("traduce los errores de la base a un código y una frase corta", () => {
+    expect(errorExamen("ya aprobado")).toEqual({ codigo: "ya-aprobado", mensaje: "Ya lo aprobaste." });
+    expect(errorExamen("sin preguntas").mensaje).toBe("Este examen todavía no tiene preguntas.");
+    expect(errorExamen("no disponible").mensaje).toBe("Completá lo anterior para rendirlo.");
+    expect(errorExamen("tiempo agotado").mensaje).toBe("Se terminó el tiempo.");
+    expect(errorExamen("cualquier cosa").codigo).toBe("error");
+  });
+  it("el código vuelve a la frase", () => {
+    expect(mensajeDeCodigo("pendiente")).toBe("Tenés un intento pendiente de corrección.");
+    expect(mensajeDeCodigo("x")).toBeNull();
   });
 });
