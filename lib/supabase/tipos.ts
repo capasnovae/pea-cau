@@ -2531,7 +2531,7 @@ export type Database = {
         Returns: string;
       };
       pozo_fuente: {
-        Args: { p_categoria: string; p_curso: string; p_modulo: string };
+        Args: { p_categoria: string; p_curso: string; p_modulo: string; p_sede: string };
         Returns: {
           pregunta_id: string;
           unidad: string;
@@ -2554,8 +2554,9 @@ export type Database = {
           tipo: Database["public"]["Enums"]["tipo_pregunta"];
         }[];
       };
+      pregunta_en_uso: { Args: { p_pregunta: string }; Returns: boolean };
       preguntas_de_unidad: {
-        Args: { p_unidad: string };
+        Args: { p_sede: string; p_unidad: string };
         Returns: {
           orden_en_caso: number;
           pregunta_id: string;
