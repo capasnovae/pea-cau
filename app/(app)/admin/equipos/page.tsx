@@ -9,7 +9,12 @@ export default async function PaginaEquipos() {
   const [{ data: equipos }, { data: sedes }, { data: lideres }] = await Promise.all([
     supabase.from("equipos").select("id, nombre, sede_id, area, lider_id").order("nombre"),
     supabase.from("sedes").select("id, nombre").order("nombre"),
-    supabase.from("perfiles").select("id, nombre, apellido").eq("rol", "lider").eq("activo", true).order("apellido"),
+    supabase
+      .from("perfiles")
+      .select("id, nombre, apellido")
+      .eq("rol", "lider")
+      .eq("activo", true)
+      .order("apellido"),
   ]);
   const opcionesLider = (lideres ?? []).map((l) => ({ id: l.id, nombre: `${l.nombre} ${l.apellido}` }));
   return (

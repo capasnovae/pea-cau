@@ -1,3 +1,4 @@
+import { z } from "zod";
 import { formatearFecha } from "./contenido";
 
 export type EstadoCertificado = "vigente" | "vencida" | "revocada";
@@ -36,3 +37,12 @@ export function urlVerificacion(origen: string, codigo: string): string {
 export function normalizarCodigo(c: string): string {
   return c.replace(/[\s-]/g, "").toUpperCase();
 }
+
+export const esquemaInsignia = z.object({
+  nombre: z.string().trim().min(1, "Poné un nombre.").max(60),
+  descripcion: z.string().trim().max(300).default(""),
+});
+
+export const esquemaRevocacion = z.object({
+  motivo: z.string().trim().min(1, "Escribí el motivo.").max(300),
+});

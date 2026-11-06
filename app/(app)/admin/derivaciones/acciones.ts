@@ -28,7 +28,11 @@ export async function guardarArea(_prev: ResultadoArea, formData: FormData): Pro
   const r = id
     ? await supabase.from("areas_derivacion").update(valores).eq("id", id).select("id")
     : await supabase.from("areas_derivacion").insert(valores).select("id");
-  if (r.error) return { ok: false, error: r.error.code === "23505" ? "Ya hay un área con ese nombre." : mensajeErrorGuardado(r.error) };
+  if (r.error)
+    return {
+      ok: false,
+      error: r.error.code === "23505" ? "Ya hay un área con ese nombre." : mensajeErrorGuardado(r.error),
+    };
   if (!r.data?.length) return { ok: false, error: "No tenés permiso para hacer esto." };
   revalidatePath("/admin/derivaciones");
   revalidatePath("/organigrama/derivaciones");

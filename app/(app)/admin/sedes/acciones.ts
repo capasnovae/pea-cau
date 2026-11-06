@@ -22,7 +22,11 @@ export async function guardarSede(_prev: ResultadoAccion, formData: FormData): P
   const { error } = id
     ? await supabase.from("sedes").update(valores).eq("id", id)
     : await supabase.from("sedes").insert(valores);
-  if (error) return { ok: false, error: error.code === "23505" ? "Ya hay una sede con ese nombre." : "No tenés permiso para hacer esto." };
+  if (error)
+    return {
+      ok: false,
+      error: error.code === "23505" ? "Ya hay una sede con ese nombre." : "No tenés permiso para hacer esto.",
+    };
   revalidatePath("/admin/sedes");
   return { ok: true, mensaje: "Sede guardada." };
 }

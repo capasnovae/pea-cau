@@ -29,7 +29,11 @@ export async function invitarUsuario(_prev: ResultadoAccion, formData: FormData)
     .from("perfiles")
     .update({ nombre, apellido, rol, sede_id, area, puesto_id, activo: true })
     .eq("id", data.user.id);
-  if (errorPerfil) return { ok: false, error: "La invitación salió, pero no pudimos guardar sus datos. Revisalos en la lista." };
+  if (errorPerfil)
+    return {
+      ok: false,
+      error: "La invitación salió, pero no pudimos guardar sus datos. Revisalos en la lista.",
+    };
   await cliente.auth.admin.updateUserById(data.user.id, { app_metadata: { pea_alta: true } });
   await cliente.from("auditoria").insert({
     actor_id: admin.id,
@@ -52,8 +56,16 @@ export async function cambiarEstadoUsuario(id: string, activo: boolean): Promise
   const { error: errorBloqueo } = await cliente.auth.admin.updateUserById(id, {
     ban_duration: activo ? "none" : "876000h",
   });
-  if (errorBloqueo) return { ok: false, error: "Se actualizó el estado, pero no pudimos cerrar su acceso. Probá de nuevo." };
-  await cliente.from("auditoria").insert({ actor_id: admin.id, accion: activo ? "activar" : "desactivar", entidad: "perfiles", entidad_id: id });
+  if (errorBloqueo)
+    return { ok: false, error: "Se actualizó el estado, pero no pudimos cerrar su acceso. Probá de nuevo." };
+  await cliente
+    .from("auditoria")
+    .insert({
+      actor_id: admin.id,
+      accion: activo ? "activar" : "desactivar",
+      entidad: "perfiles",
+      entidad_id: id,
+    });
   revalidatePath("/admin/usuarios");
   return { ok: true };
 }
@@ -63,14 +75,28 @@ export async function cambiarRol(id: string, rol: string): Promise<ResultadoAcci
   if (!ROLES.includes(rol as RolApp)) return { ok: false, error: "Rol inválido." };
   if (id === admin.id && rol !== "admin") return { ok: false, error: "No podés sacarte el rol de admin." };
   const cliente = crearClienteAdmin();
-  const { error } = await cliente.from("perfiles").update({ rol: rol as RolApp }).eq("id", id);
+  const { error } = await cliente
+    .from("perfiles")
+    .update({ rol: rol as RolApp })
+    .eq("id", id);
   if (error) return { ok: false, error: SIN_PERMISO };
-  await cliente.from("auditoria").insert({ actor_id: admin.id, accion: "cambiar_rol", entidad: "perfiles", entidad_id: id, datos: { rol } });
+  await cliente
+    .from("auditoria")
+    .insert({
+      actor_id: admin.id,
+      accion: "cambiar_rol",
+      entidad: "perfiles",
+      entidad_id: id,
+      datos: { rol },
+    });
   revalidatePath("/admin/usuarios");
   return { ok: true };
 }
 
-export async function asignarDatosUsuario(_prev: ResultadoAccion, formData: FormData): Promise<ResultadoAccion> {
+export async function asignarDatosUsuario(
+  _prev: ResultadoAccion,
+  formData: FormData,
+): Promise<ResultadoAccion> {
   const admin = await requerirRol(["admin"]);
   const d = esquemaAsignacion.safeParse({
     id: formData.get("id"),
@@ -87,14 +113,26 @@ export async function asignarDatosUsuario(_prev: ResultadoAccion, formData: Form
   if (error) {
     return {
       ok: false,
-      error: error.message.includes("integridad") ? "El equipo tiene que ser de la misma sede y área." : "No pudimos guardar. Probá de nuevo.",
+      error: error.message.includes("integridad")
+        ? "El equipo tiene que ser de la misma sede y área."
+        : "No pudimos guardar. Probá de nuevo.",
     };
   }
   await cliente.from("perfil_subroles").delete().eq("perfil_id", id);
   if (subrol_ids.length) {
-    await cliente.from("perfil_subroles").insert(subrol_ids.map((subrol_id) => ({ perfil_id: id, subrol_id })));
+    await cliente
+      .from("perfil_subroles")
+      .insert(subrol_ids.map((subrol_id) => ({ perfil_id: id, subrol_id })));
   }
-  await cliente.from("auditoria").insert({ actor_id: admin.id, accion: "asignar_datos", entidad: "perfiles", entidad_id: id, datos: { ...valores, subrol_ids } });
+  await cliente
+    .from("auditoria")
+    .insert({
+      actor_id: admin.id,
+      accion: "asignar_datos",
+      entidad: "perfiles",
+      entidad_id: id,
+      datos: { ...valores, subrol_ids },
+    });
   revalidatePath("/admin/usuarios");
   return { ok: true, mensaje: "Datos guardados." };
 }

@@ -1,5 +1,12 @@
 import { describe, expect, it } from "vitest";
-import { estadoEfectivo, normalizarCodigo, textoVencimiento, urlVerificacion } from "./certificados";
+import {
+  esquemaInsignia,
+  esquemaRevocacion,
+  estadoEfectivo,
+  normalizarCodigo,
+  textoVencimiento,
+  urlVerificacion,
+} from "./certificados";
 
 const AHORA = new Date("2026-11-11T12:00:00Z");
 
@@ -25,5 +32,17 @@ describe("textos", () => {
   });
   it("normaliza el código", () => {
     expect(normalizarCodigo(" ab-12 cd ")).toBe("AB12CD");
+  });
+});
+
+describe("esquemas de gestión", () => {
+  it("la insignia necesita nombre", () => {
+    expect(esquemaInsignia.safeParse({ nombre: " ", descripcion: "" }).success).toBe(false);
+    expect(esquemaInsignia.safeParse({ nombre: "Base", descripcion: "x".repeat(301) }).success).toBe(false);
+    expect(esquemaInsignia.safeParse({ nombre: " Base ", descripcion: "" }).data?.nombre).toBe("Base");
+  });
+  it("revocar necesita motivo", () => {
+    expect(esquemaRevocacion.safeParse({ motivo: "  " }).success).toBe(false);
+    expect(esquemaRevocacion.safeParse({ motivo: "Error de carga" }).success).toBe(true);
   });
 });

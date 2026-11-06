@@ -10,6 +10,7 @@ const SECCIONES = [
   { href: "/admin/equipos", etiqueta: "Equipos" },
   { href: "/admin/derivaciones", etiqueta: "Derivaciones" },
   { href: "/admin/rutas", etiqueta: "Rutas" },
+  { href: "/admin/certificaciones", etiqueta: "Certificados" },
 ];
 
 export function PestanasAdmin() {

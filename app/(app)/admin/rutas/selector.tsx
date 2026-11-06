@@ -3,7 +3,17 @@
 import { useState, useTransition } from "react";
 import { guardarRuta } from "@/app/(app)/contenido/cursos/acciones";
 
-export function SelectorRuta({ cursoId, clave, valor, etiqueta }: { cursoId: string; clave: string; valor: string; etiqueta: string }) {
+export function SelectorRuta({
+  cursoId,
+  clave,
+  valor,
+  etiqueta,
+}: {
+  cursoId: string;
+  clave: string;
+  valor: string;
+  etiqueta: string;
+}) {
   const [actual, setActual] = useState(valor);
   const [pendiente, iniciar] = useTransition();
   const [error, setError] = useState(false);

@@ -3,6 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { z } from "zod";
+import { esquemaInsignia } from "@/lib/dominio/certificados";
 import { mensajeErrorGuardado } from "@/lib/dominio/edicion";
 import { esquemaCurso, esquemaItem, esquemaModulo } from "@/lib/dominio/esquemas-cursos";
 import { ROLES_EDITORES } from "@/lib/dominio/roles";
@@ -132,4 +133,26 @@ export async function guardarRuta(entrada: {
   }
   revalidatePath("/admin/rutas");
   return { ok: true, mensaje: "Ruta actualizada." };
+}
+
+export async function guardarInsignia(
+  cursoId: string,
+  _prev: ResultadoCurso,
+  formData: FormData,
+): Promise<ResultadoCurso> {
+  await requerirRol(["admin"]);
+  const id = z.uuid().safeParse(cursoId);
+  const d = esquemaInsignia.safeParse(Object.fromEntries(formData));
+  if (!id.success) return { ok: false, error: "Revisá los datos." };
+  if (!d.success) return { ok: false, error: d.error.issues[0]?.message ?? "Revisá los datos." };
+  const supabase = await crearClienteServidor();
+  const { data, error } = await supabase
+    .from("insignias")
+    .update(d.data)
+    .eq("curso_id", id.data)
+    .select("id");
+  if (error || !data?.length) return { ok: false, error: SIN_PERMISO };
+  revalidatePath(`/contenido/cursos/${id.data}`);
+  revalidatePath("/perfil");
+  return { ok: true, mensaje: "Insignia guardada." };
 }

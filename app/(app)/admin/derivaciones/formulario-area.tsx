@@ -32,23 +32,43 @@ export function FormularioArea({ area }: { area?: AreaEditable }) {
         </Campo>
       </div>
       <Campo id={area_("resuelve")} etiqueta="Qué resuelve">
-        <textarea id={area_("resuelve")} name="que_resuelve_md" rows={3} defaultValue={area?.que_resuelve_md}
-          className="w-full rounded-lg border border-border bg-card p-3 text-sm" />
+        <textarea
+          id={area_("resuelve")}
+          name="que_resuelve_md"
+          rows={3}
+          defaultValue={area?.que_resuelve_md}
+          className="w-full rounded-lg border border-border bg-card p-3 text-sm"
+        />
       </Campo>
       <Campo id={area_("noresuelve")} etiqueta="Qué no resuelve">
-        <textarea id={area_("noresuelve")} name="que_no_resuelve_md" rows={2} defaultValue={area?.que_no_resuelve_md}
-          className="w-full rounded-lg border border-border bg-card p-3 text-sm" />
+        <textarea
+          id={area_("noresuelve")}
+          name="que_no_resuelve_md"
+          rows={2}
+          defaultValue={area?.que_no_resuelve_md}
+          className="w-full rounded-lg border border-border bg-card p-3 text-sm"
+        />
       </Campo>
       <div className="grid gap-3 sm:grid-cols-2">
         <Campo id={area_("canal")} etiqueta="Canal de contacto">
           <Input id={area_("canal")} name="canal_contacto" defaultValue={area?.canal_contacto} />
         </Campo>
         <Campo id={area_("plazo")} etiqueta="Plazo esperado">
-          <Input id={area_("plazo")} name="plazo_esperado" placeholder="Ej.: 48 h hábiles" defaultValue={area?.plazo_esperado} />
+          <Input
+            id={area_("plazo")}
+            name="plazo_esperado"
+            placeholder="Ej.: 48 h hábiles"
+            defaultValue={area?.plazo_esperado}
+          />
         </Campo>
       </div>
       <MensajeResultado r={r} />
-      <Button type="submit" variante={area ? "secundario" : "primario"} disabled={pendiente} className="self-start">
+      <Button
+        type="submit"
+        variante={area ? "secundario" : "primario"}
+        disabled={pendiente}
+        className="self-start"
+      >
         {area ? "Guardar" : "Agregar área"}
       </Button>
     </form>

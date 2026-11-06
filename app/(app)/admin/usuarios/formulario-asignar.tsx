@@ -41,7 +41,9 @@ export function FormularioAsignar({
         <Select id={idc("sede")} name="sede_id" defaultValue={usuario.sede_id ?? ""}>
           <option value="">Sin sede</option>
           {sedes.map((s) => (
-            <option key={s.id} value={s.id}>{s.nombre}</option>
+            <option key={s.id} value={s.id}>
+              {s.nombre}
+            </option>
           ))}
         </Select>
       </div>
@@ -58,7 +60,9 @@ export function FormularioAsignar({
         <Select id={idc("equipo")} name="equipo_id" defaultValue={usuario.equipo_id ?? ""}>
           <option value="">Sin equipo</option>
           {equipos.map((e) => (
-            <option key={e.id} value={e.id}>{e.nombre}</option>
+            <option key={e.id} value={e.id}>
+              {e.nombre}
+            </option>
           ))}
         </Select>
       </div>
@@ -67,7 +71,9 @@ export function FormularioAsignar({
         <Select id={idc("puesto")} name="puesto_id" defaultValue={usuario.puesto_id ?? ""}>
           <option value="">Sin puesto</option>
           {puestos.map((p) => (
-            <option key={p.id} value={p.id}>{p.nombre}</option>
+            <option key={p.id} value={p.id}>
+              {p.nombre}
+            </option>
           ))}
         </Select>
       </div>
@@ -76,18 +82,32 @@ export function FormularioAsignar({
         <div className="flex flex-wrap gap-3">
           {subroles.map((s) => (
             <label key={s.id} className="flex items-center gap-2 text-sm">
-              <input type="checkbox" name="subrol_ids" value={s.id} defaultChecked={usuario.subrol_ids.includes(s.id)} className="size-4" />
+              <input
+                type="checkbox"
+                name="subrol_ids"
+                value={s.id}
+                defaultChecked={usuario.subrol_ids.includes(s.id)}
+                className="size-4"
+              />
               {s.nombre}
             </label>
           ))}
         </div>
       </fieldset>
       {estado && (
-        <p role={estado.ok ? "status" : "alert"} className={`text-sm sm:col-span-2 ${estado.ok ? "" : "text-destructive"}`}>
+        <p
+          role={estado.ok ? "status" : "alert"}
+          className={`text-sm sm:col-span-2 ${estado.ok ? "" : "text-destructive"}`}
+        >
           {estado.ok ? estado.mensaje : estado.error}
         </p>
       )}
-      <Button type="submit" variante="secundario" disabled={pendiente} className="sm:col-span-2 sm:justify-self-start">
+      <Button
+        type="submit"
+        variante="secundario"
+        disabled={pendiente}
+        className="sm:col-span-2 sm:justify-self-start"
+      >
         Guardar datos
       </Button>
     </form>

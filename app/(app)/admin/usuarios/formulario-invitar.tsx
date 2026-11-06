@@ -66,7 +66,10 @@ export function FormularioInvitar({ sedes, puestos }: { sedes: Opcion[]; puestos
         </Select>
       </div>
       {estado && (
-        <p role={estado.ok ? "status" : "alert"} className={`sm:col-span-2 text-sm ${estado.ok ? "" : "text-destructive"}`}>
+        <p
+          role={estado.ok ? "status" : "alert"}
+          className={`sm:col-span-2 text-sm ${estado.ok ? "" : "text-destructive"}`}
+        >
           {estado.ok ? estado.mensaje : estado.error}
         </p>
       )}

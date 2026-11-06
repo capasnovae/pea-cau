@@ -29,7 +29,12 @@ export function AccionesFila({ id, rol, activo }: { id: string; rol: RolApp; act
           </option>
         ))}
       </Select>
-      <Button variante="secundario" className="h-9" disabled={pendiente} onClick={() => correr(() => cambiarEstadoUsuario(id, !activo))}>
+      <Button
+        variante="secundario"
+        className="h-9"
+        disabled={pendiente}
+        onClick={() => correr(() => cambiarEstadoUsuario(id, !activo))}
+      >
         {activo ? "Desactivar" : "Activar"}
       </Button>
       {error && <span className="text-xs text-destructive">{error}</span>}

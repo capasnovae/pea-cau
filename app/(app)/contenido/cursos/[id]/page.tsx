@@ -7,6 +7,7 @@ import { ROLES_EDITORES } from "@/lib/dominio/roles";
 import { requerirRol } from "@/lib/supabase/permisos";
 import { crearClienteServidor } from "@/lib/supabase/servidor";
 import { BotonBorrar, FormularioCurso, FormularioItem, FormularioModulo } from "../formularios";
+import { FormularioInsignia } from "../insignia";
 
 /** Solo contenido que ve todo el público del curso: global, o de su misma sede si el curso es de sede. */
 function filtroCompatible(curso: { alcance: string; sede_id: string | null }): string {
@@ -31,6 +32,10 @@ export default async function PaginaEditarCurso({
     .eq("id", id)
     .maybeSingle();
   if (!curso) notFound();
+  const { data: insignia } =
+    curso.tipo === "nivel"
+      ? await supabase.from("insignias").select("nombre, descripcion").eq("curso_id", curso.id).maybeSingle()
+      : { data: null };
   const [{ data: modulos }, { data: articulos }, { data: recursos }] = await Promise.all([
     supabase
       .from("modulos")
@@ -89,6 +94,17 @@ export default async function PaginaEditarCurso({
       <Card>
         <FormularioCurso curso={curso} alcances={opciones.alcances} sedes={opciones.sedes} />
       </Card>
+      {perfil.rol === "admin" && curso.tipo === "nivel" && curso.nivel_orden !== null && insignia && (
+        <Card>
+          <h2 className="mb-3 font-extrabold">Insignia</h2>
+          <FormularioInsignia
+            cursoId={curso.id}
+            nivel={curso.nivel_orden}
+            nombre={insignia.nombre}
+            descripcion={insignia.descripcion}
+          />
+        </Card>
+      )}
       {perfil.rol === "admin" && curso.alcance === "sede" && (
         <Card>
           <BotonPromover tabla="cursos" id={curso.id} />

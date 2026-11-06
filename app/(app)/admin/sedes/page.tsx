@@ -6,7 +6,10 @@ import { FormularioSede } from "./formulario-sede";
 export default async function PaginaSedes() {
   await requerirRol(["admin"]);
   const supabase = await crearClienteServidor();
-  const { data: sedes } = await supabase.from("sedes").select("id, nombre, ciudad, direccion").order("nombre");
+  const { data: sedes } = await supabase
+    .from("sedes")
+    .select("id, nombre, ciudad, direccion")
+    .order("nombre");
   return (
     <div className="flex flex-col gap-6">
       <h1 className="text-2xl font-semibold">Sedes</h1>

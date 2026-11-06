@@ -6,7 +6,11 @@ export default async function PaginaRutas() {
   await requerirRol(["admin"]);
   const supabase = await crearClienteServidor();
   const [{ data: cursos }, { data: puestos }, { data: subroles }, { data: rutas }] = await Promise.all([
-    supabase.from("cursos").select("id, titulo, tipo, nivel_orden").eq("tipo", "capacitacion").order("titulo"),
+    supabase
+      .from("cursos")
+      .select("id, titulo, tipo, nivel_orden")
+      .eq("tipo", "capacitacion")
+      .order("titulo"),
     supabase.from("puestos").select("id, nombre").order("orden"),
     supabase.from("subroles").select("id, nombre").order("orden"),
     supabase.from("ruta_cursos").select("curso_id, puesto_id, subrol_id, obligatorio"),
@@ -17,14 +21,18 @@ export default async function PaginaRutas() {
   ];
   const valor = (cursoId: string, clave: string) => {
     const [tipo, id] = clave.split(":");
-    const r = (rutas ?? []).find((x) => x.curso_id === cursoId && (tipo === "puesto" ? x.puesto_id === id : x.subrol_id === id));
+    const r = (rutas ?? []).find(
+      (x) => x.curso_id === cursoId && (tipo === "puesto" ? x.puesto_id === id : x.subrol_id === id),
+    );
     return r ? (r.obligatorio ? "obligatorio" : "opcional") : "";
   };
   return (
     <div className="flex flex-col gap-4">
       <div>
         <h1 className="text-2xl font-extrabold">Rutas por puesto</h1>
-        <p className="text-sm text-muted">Qué capacitaciones hace cada puesto o subrol. Los niveles los hacen todos.</p>
+        <p className="text-sm text-muted">
+          Qué capacitaciones hace cada puesto o subrol. Los niveles los hacen todos.
+        </p>
       </div>
       {(cursos ?? []).length === 0 ? (
         <p className="text-sm text-muted">Todavía no hay capacitaciones.</p>
@@ -34,7 +42,11 @@ export default async function PaginaRutas() {
             <thead>
               <tr className="text-left text-xs text-muted">
                 <th className="p-3">Capacitación</th>
-                {columnas.map((c) => <th key={c.clave} className="p-3 font-semibold">{c.nombre}</th>)}
+                {columnas.map((c) => (
+                  <th key={c.clave} className="p-3 font-semibold">
+                    {c.nombre}
+                  </th>
+                ))}
               </tr>
             </thead>
             <tbody>
@@ -43,7 +55,12 @@ export default async function PaginaRutas() {
                   <td className="p-3 font-semibold">{cur.titulo}</td>
                   {columnas.map((c) => (
                     <td key={c.clave} className="p-2">
-                      <SelectorRuta cursoId={cur.id} clave={c.clave} valor={valor(cur.id, c.clave)} etiqueta={`${cur.titulo} · ${c.nombre}`} />
+                      <SelectorRuta
+                        cursoId={cur.id}
+                        clave={c.clave}
+                        valor={valor(cur.id, c.clave)}
+                        etiqueta={`${cur.titulo} · ${c.nombre}`}
+                      />
                     </td>
                   ))}
                 </tr>
