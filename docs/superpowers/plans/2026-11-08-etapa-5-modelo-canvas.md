@@ -17,6 +17,7 @@
 ## Global Constraints
 
 - Todo lo de las etapas anteriores sigue valiendo: estilo B, español rioplatense, mobile-first, sin datos de alumnos y contenido "(ejemplo)" hasta el relevamiento.
+- **Textos mínimos (pedido del usuario):** nada de párrafos explicativos, subtítulos que repiten el título ni descripciones bajo cada opción. Etiquetas y títulos cortos, y estados vacíos de una sola frase breve ("Sin consignas pendientes."). Si la interfaz se entiende sola, no lleva texto. Esto vale también para las pantallas existentes que se tocan en esta etapa.
 - Se toma de Canvas **solo la estructura**: nada de logos, nombres ni colores de Canvas o de Siglo. Mientras no haya logo, la marca es el texto "PEA"; el logo queda para otra etapa.
 - **Barra lateral en PC (≥ md):** 92 px, fondo `#1e1b4b`, ítems con ícono de 24 px y etiqueta de 12 px. El ítem activo va con fondo blanco y texto `#4338ca`; los inactivos, en `#c7d2fe`.
   - Orden: Cuenta, Tablero, Cursos, Calendario, Bandeja (con contador de sin leer), Exámenes, Repositorio, Organigrama. Después se suman Equipo (líder o más), Contenido (coordinador, director o admin) y Admin (admin). Ayuda va al final.
@@ -31,8 +32,8 @@
   - Tipos de evento: `capacitacion` y `evento`. Exámenes y recertificación se suman en sus etapas.
   - La semana empieza el **lunes** y "hoy" se calcula en `America/Argentina/Buenos_Aires`.
 - **Colores de categoría en el calendario:** consigna `#c2410c`, capacitación `#0f766e`, evento `#4f46e5`.
-- **Bienvenida:** `/bienvenida` es pública. El anónimo que entra a `/` va ahí; a cualquier otra ruta privada, a `/ingresar` como hasta ahora. El rol elegido solo cambia el texto del botón ("Ingresar como asesor | coordinador o líder | director") y viaja como `?rol=` a `/ingresar`. No cambia permisos.
-- **Exámenes:** en esta etapa la página lista los ítems de tipo `examen` de mis cursos con estado "Disponible en la Etapa 6". Sin lógica nueva.
+- **Bienvenida:** `/bienvenida` es pública. El anónimo que entra a `/` va ahí; a cualquier otra ruta privada, a `/ingresar` como hasta ahora. A la izquierda va "PEA", "Perfil Evolutivo de Asesor", "Cada día sabés un poco más." y el camino N1–N4. A la derecha, "¿Cómo ingresás?", tres opciones (Asesor, Coordinador o líder, Director) con ícono y nombre, sin descripción, y el botón "Ingresar" a `/ingresar`. El rol elegido no cambia nada en el ingreso.
+- **Exámenes:** en esta etapa la página lista los ítems de tipo `examen` de mis cursos con el chip "Próximamente". Sin lógica nueva.
 
 ## Review Focus
 
@@ -160,8 +161,7 @@
 - Modify: `app/page.tsx`
 - Create: `app/(auth)/bienvenida/page.tsx`, `app/(auth)/bienvenida/elegir-rol.tsx` (client)
 - Modify: `app/(auth)/layout.tsx` (la bienvenida ocupa toda la pantalla: el layout envuelve con `max-w-sm` solo a las demás páginas; mover esas páginas a un grupo `(auth)/(formulario)` con su propio layout)
-- Modify: `app/(auth)/ingresar/page.tsx` (con `?rol=` muestra "Ingresás como <etiqueta>")
-- Create: `app/(app)/ayuda/page.tsx` (página estática: cómo usar PEA, a quién pedir ayuda; contenido "(ejemplo)")
+- Create: `app/(app)/ayuda/page.tsx` (lista corta de contactos de ayuda "(ejemplo)", sin explicaciones)
 
 **Interfaces:**
 - Produces:
@@ -173,18 +173,17 @@
     - más `/contenido` Contenido para coordinador, director o admin;
     - más `/admin/usuarios` Admin para admin;
     - siempre al final, `/ayuda` Ayuda.
-  - `ROL_BIENVENIDA = { asesor: "asesor", coordinador: "coordinador o líder", director: "director" } as const` y `etiquetaBienvenida(rol: string | undefined): string | null` en `roles.ts` (null si el valor no es válido).
   - `decidirRedireccion`:
     - `/bienvenida` es pública;
     - anónimo en `/` → `/bienvenida`;
     - activo en `/bienvenida` → `/inicio`;
     - todo lo demás, sin cambios.
   - `<BarraLateral items={ItemMenu[]} sinLeer={number} perfil={{ nombre: string }} />`
-  - `<PanelCuenta perfil={{ nombre: string; apellido: string; rol: RolApp }} />`: un `<details>` con nombre y rol, y los enlaces "Mi perfil" (`/perfil`), "Mis insignias" (`/perfil#insignias`, texto "Próximamente") y "Salir" (form con la acción `salir`).
+  - `<PanelCuenta perfil={{ nombre: string; apellido: string; rol: RolApp }} />`: un `<details>` con nombre y rol, y los enlaces "Mi perfil" (`/perfil`), "Mis insignias" (`/perfil#insignias`, con el chip "Próximamente") y "Salir" (form con la acción `salir`).
 - Consumes: `mensajes_sin_leer()` (Tarea 1).
 
 - [ ] **Step 1: Actualizar los tests unitarios**
-  - `roles.test.ts`: `menuPorRol("asesor").map(i=>i.href)` es igual a `["/inicio","/estudiar","/calendario","/bandeja","/examenes","/repositorio","/organigrama","/ayuda"]`. Los de líder, coordinador y admin insertan sus ítems antes de `/ayuda`. Cada ítem tiene `icono` definido. `etiquetaBienvenida("director")` es `"director"` y `etiquetaBienvenida("x")` es `null`.
+  - `roles.test.ts`: `menuPorRol("asesor").map(i=>i.href)` es igual a `["/inicio","/estudiar","/calendario","/bandeja","/examenes","/repositorio","/organigrama","/ayuda"]`. Los de líder, coordinador y admin insertan sus ítems antes de `/ayuda`. Cada ítem tiene `icono` definido. 
   - `acceso.test.ts`: `decidirRedireccion("/", "anonimo")` es `"/bienvenida"`. Con `("/bienvenida","anonimo")` es null; con `("/bienvenida","activo")`, `"/inicio"`; con `("/calendario","anonimo")`, `"/ingresar"`.
 - [ ] **Step 2:** `npm test` → FAIL en roles y acceso.
 - [ ] **Step 3:** Implementar `roles.ts`, `acceso.ts`, los componentes y el layout.
@@ -192,7 +191,7 @@
   - En PC: barra lateral fija a la izquierda, sin el encabezado actual, con el buscador dentro de Repositorio. `main` usa `max-w-6xl` y padding `px-10 py-7`.
   - En celular: encabezado con "PEA" y `PanelCuenta`, más la píldora inferior.
   - `app/page.tsx`: si hay sesión, redirige a `/inicio`; si no, a `/bienvenida` (el proxy ya lo resuelve, pero queda por las dudas).
-  - La bienvenida replica D-Bienvenida: panel `#1e1b4b` con el camino N1–N4, y a la derecha un `radiogroup` de 3 opciones y un enlace `Ingresar como …` a `/ingresar?rol=<clave>`.
+  - La bienvenida replica D-Bienvenida tal como está en Global Constraints: el `radiogroup` de 3 opciones es solo visual, sin texto extra.
 - [ ] **Step 4:** `npm test && npm run typecheck && npm run lint` → todo verde.
 - [ ] **Step 5:** Commit `feat(shell): barra lateral tipo Canvas, panel de cuenta y bienvenida`.
 
@@ -215,7 +214,7 @@
     - "Novedades": anuncios recientes que enlazan a `/bandeja/{id}`;
     - "Mi equipo": compañeros con el botón "Escribir" → `/bandeja/nueva?para={id}`.
   - Vista Cursos: una grilla de `TarjetaCurso` con todos los cursos de `mi_ruta`, primero los favoritos.
-  - Estados vacíos: "No tenés consignas pendientes.", "Todavía no hay novedades." y "Todavía no tenés equipo asignado."
+  - Estados vacíos: "Sin consignas pendientes.", "Sin novedades." y "Sin equipo asignado."
 - [ ] **Step 2:** `npm run typecheck && npm run lint`. Correr `npx playwright test e2e/auth.spec.ts e2e/estudiar.spec.ts --trace off` → PASS. Si un test buscaba el texto viejo de Inicio, actualizarlo al nuevo y anotarlo.
 - [ ] **Step 3:** Commit `feat(tablero): tablero con pestañas, mi trabajo, novedades y mi equipo`.
 
@@ -308,8 +307,8 @@
   - Barra superior: título, select de filtro (`?filtro=`, con un form GET), "Nuevo mensaje" y, para los roles de gestión, "Nuevo anuncio" (`/bandeja/nueva?anuncio=1`).
   - Lista de 420 px: punto índigo si hay sin leer, avatar con iniciales, nombre, chip "ANUNCIO", fecha corta y primera línea.
   - Panel derecho:
-    - en `/bandeja`, el estado vacío "No hay conversaciones seleccionadas";
-    - en `/bandeja/[id]`, los mensajes como burbujas (los propios a la derecha, en índigo suave), los participantes arriba, el formulario de respuesta (oculto si es un anuncio ajeno, con el texto "Este anuncio no admite respuestas.") y el botón Archivar o Desarchivar. Al renderizar se llama `marcar_leida`.
+    - en `/bandeja`, el estado vacío "Ninguna conversación abierta";
+    - en `/bandeja/[id]`, los mensajes como burbujas (los propios a la derecha, en índigo suave), los participantes arriba, el formulario de respuesta (oculto si es un anuncio ajeno, sin texto en su lugar) y el botón Archivar o Desarchivar. Al renderizar se llama `marcar_leida`.
   - En celular, `/bandeja` muestra solo la lista y `/bandeja/[id]` solo la conversación, con un enlace "‹ Bandeja".
   - `/bandeja/nueva`: checkboxes de contactos (`contactos_bandeja`) agrupados por sede con un filtro de texto del lado del cliente. `?para=` premarca uno. Después vienen asunto y cuerpo. Con `?anuncio=1`, en lugar de los contactos va el select de sede.
 - [ ] **Step 4:** `npm test && npm run typecheck && npm run lint` → verde.
@@ -329,10 +328,10 @@
 - Modify: los E2E existentes que dependan del menú viejo (etiqueta "Inicio" → "Tablero", "Estudiar" → "Cursos")
 
 **Interfaces:**
-- Consumes: todo lo anterior. `/examenes` usa `mi_ruta()`, y por cada curso desbloqueado pide `estado_curso(curso_id)`, filtra los ítems `tipo='examen'` y lista curso, módulo, título y el chip "Disponible en la Etapa 6". Si no hay ninguno: "Todavía no tenés exámenes en tus cursos.".
+- Consumes: todo lo anterior. `/examenes` usa `mi_ruta()`, y por cada curso desbloqueado pide `estado_curso(curso_id)`, filtra los ítems `tipo='examen'` y lista curso, módulo, título y el chip "Próximamente". Si no hay ninguno: "Sin exámenes por ahora.".
 
 - [ ] **Step 1: Escribir `e2e/canvas.spec.ts`**, con `test.skip(!await hayApiRest())` como los demás:
-  - **Anónimo en `/`:** termina en `/bienvenida`. Ve "¿Con qué rol entrás hoy?". Al elegir "Director", el enlace dice "Ingresar como director" y lleva a `/ingresar?rol=director`, donde se lee "Ingresás como director".
+  - **Anónimo en `/`:** termina en `/bienvenida`. Ve "¿Cómo ingresás?" y las tres opciones; "Ingresar" lleva a `/ingresar`.
   - **Barra lateral del asesor** (`asesor.nqn@`), a 1440×900: `getByRole("navigation", { name: "Principal" })` contiene en orden Tablero, Cursos, Calendario, Bandeja, Exámenes, Repositorio, Organigrama y Ayuda, y no contiene "Contenido". Tablero tiene `aria-current="page"`.
   - **Bandeja:**
     - `asesor.nqn@` ve el anuncio del seed con el chip "ANUNCIO", lo abre y no ve el campo de respuesta;
