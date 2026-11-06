@@ -277,3 +277,24 @@ where titulo = 'Examen del Nivel 2 (ejemplo)';
 update public.perfiles set experiencia_previa = true,
   ubicacion_habilitada_por = (select id from public.perfiles where email = 'coord.servicio.nqn@pea.local')
 where email = 'asesor2.nqn@pea.local';
+
+-- Etapa 6 · Práctica de ejemplo en el Nivel 2 (antes de su final): un cuadro y un formulario simulado
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, modulo_id, categoria_id, estado, alcance, uso, config, solucion) values
+  ('d2000000-0000-4000-8000-000000000031', 'clasificar', 'Ubicá cada consulta en el área que la resuelve (ejemplo)',
+   'Cuotas y pagos van a Tesorería; las mesas, a Gestión de exámenes; la reinscripción la resuelve el CAU (ejemplo).',
+   'c5000000-0000-4000-8000-000000000003', (select id from public.categorias where slug = 'atencion-y-derivaciones'), 'publicado', 'global', 'practica',
+   '{"columnas": ["CAU", "Tesorería", "Gestión de exámenes"]}', null),
+  ('d2000000-0000-4000-8000-000000000032', 'formulario', 'Creá el caso en HubSpot para un alumno al que no le aparece la mesa (ejemplo)',
+   'Tipo Consulta, área Gestión de exámenes, prioridad Alta (ejemplo).',
+   'c5000000-0000-4000-8000-000000000003', (select id from public.categorias where slug = 'atencion-y-derivaciones'), 'publicado', 'global', 'practica',
+   '{"campos": [{"id": "tipo", "etiqueta": "Tipo de caso", "tipo": "select", "opciones": ["Consulta", "Reclamo", "Trámite"]}, {"id": "area", "etiqueta": "Área", "tipo": "select", "opciones": ["CAU", "Tesorería", "Gestión de exámenes"]}, {"id": "prioridad", "etiqueta": "Prioridad", "tipo": "select", "opciones": ["Baja", "Media", "Alta"]}]}',
+   '{"tipo": ["Consulta"], "area": ["Gestión de exámenes"], "prioridad": ["Alta"]}');
+insert into public.opciones (id, pregunta_id, texto, grupo, orden) values
+  ('d3000000-0000-4000-8000-000000000031', 'd2000000-0000-4000-8000-000000000031', 'Reinscripción', 'CAU', 1),
+  ('d3000000-0000-4000-8000-000000000032', 'd2000000-0000-4000-8000-000000000031', 'Cuota vencida', 'Tesorería', 2),
+  ('d3000000-0000-4000-8000-000000000033', 'd2000000-0000-4000-8000-000000000031', 'No aparece la mesa', 'Gestión de exámenes', 3);
+insert into public.examenes (id, titulo, tipo, modulo_id, cantidad_preguntas, alcance, estado)
+values ('d1000000-0000-4000-8000-000000000006', 'Práctica: derivar consultas (ejemplo)', 'practica', 'c5000000-0000-4000-8000-000000000003', 10, 'global', 'publicado');
+update public.items set orden = 3 where titulo = 'Final del Nivel 2 (ejemplo)';
+insert into public.items (modulo_id, orden, titulo, tipo, examen_id, requisito)
+values ('c5000000-0000-4000-8000-000000000003', 2, 'Práctica: derivar consultas (ejemplo)', 'practica', 'd1000000-0000-4000-8000-000000000006', 'marcar_hecho');

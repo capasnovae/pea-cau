@@ -143,6 +143,15 @@ describe("esquemaExamen", () => {
     expect(esquemaExamen.safeParse({ ...ex, tipo: "modulo", modulo_id: "" }).success).toBe(false);
     expect(esquemaExamen.safeParse({ ...ex, tipo: "integrador" }).success).toBe(false);
   });
+  it("un checkbox destildado (sin la clave) es false", () => {
+    expect(esquemaExamen.safeParse({ ...ex, tipo: "categoria", categoria_id: UUID }).data?.mezclar).toBe(
+      false,
+    );
+  });
+  it("una práctica necesita módulo o categoría", () => {
+    expect(esquemaExamen.safeParse({ ...ex, tipo: "practica" }).success).toBe(false);
+    expect(esquemaExamen.safeParse({ ...ex, tipo: "practica", categoria_id: UUID }).success).toBe(true);
+  });
   it("normaliza el tiempo vacío y el checkbox de mezclar", () => {
     const r = esquemaExamen.safeParse({
       ...ex,

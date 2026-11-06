@@ -7,6 +7,7 @@ import { BotonDescargar } from "@/app/(app)/recursos/boton-descargar";
 import { colorNivel, idsRecursoEnMarkdown, reemplazarRecursos, urlEmbedVideo } from "@/lib/dominio/leccion";
 import { requerirPerfil } from "@/lib/supabase/permisos";
 import { crearClienteServidor } from "@/lib/supabase/servidor";
+import { Practica } from "./practica";
 
 const UUID = /^[0-9a-f-]{36}$/i;
 
@@ -133,6 +134,16 @@ export default async function PaginaLeccion({ params }: PageProps<"/estudiar/[cu
         Abrir enlace
       </a>
     );
+  } else if (item.tipo === "practica" && item.examen_id) {
+    const { data: preguntas, error } = await supabase.rpc("practica_preguntas", { p_examen: item.examen_id });
+    cuerpo = error ? (
+      <p className="text-sm text-muted">Completá lo anterior para practicar.</p>
+    ) : (
+      <Practica
+        examenId={item.examen_id}
+        preguntas={(preguntas ?? []) as unknown as Parameters<typeof Practica>[0]["preguntas"]}
+      />
+    );
   } else if (item.tipo === "examen") {
     const { data: examen } = item.examen_id
       ? await supabase
@@ -200,7 +211,7 @@ export default async function PaginaLeccion({ params }: PageProps<"/estudiar/[cu
       <div className="rounded-3xl bg-card p-5 shadow-[var(--shadow-suave)]">{cuerpo}</div>
       <BarraSiguiente
         itemId={itemId}
-        requisito={item.requisito}
+        requisito={item.tipo === "practica" ? "ninguno" : item.requisito}
         cumplido={fila.cumplido}
         siguienteHref={siguienteHref}
         color={color}

@@ -91,8 +91,10 @@ const uuidOVacio = z
   .nullable()
   .transform((v) => (v ? v : null));
 const numero = (min: number, max: number) => z.coerce.number().int().min(min).max(max);
+// Un checkbox destildado no viaja en el formulario: la clave puede faltar.
 const checkbox = z
-  .union([z.boolean(), z.literal("on"), z.literal(""), z.undefined()])
+  .union([z.boolean(), z.literal("on"), z.literal("")])
+  .optional()
   .transform((v) => v === true || v === "on");
 
 const opcion = z.object({
@@ -246,6 +248,8 @@ export const esquemaExamen = z
     if (e.tipo === "categoria" && !e.categoria_id) error("Elegí la categoría.");
     if (e.tipo === "nivel" && !e.curso_id) error("Elegí el nivel.");
     if (e.tipo === "integrador" && e.fuentes.length === 0) error("Sumá al menos una fuente.");
+    if (e.tipo === "practica" && !e.modulo_id && !e.categoria_id)
+      error("Elegí el módulo o la categoría de la práctica.");
     if (e.fuentes.some((f) => [f.modulo_id, f.categoria_id, f.curso_id].filter(Boolean).length !== 1))
       error("Cada fuente es un módulo, una categoría o un nivel.");
     if (e.alcance === "sede" && !e.sede_id) error("Elegí la sede.");

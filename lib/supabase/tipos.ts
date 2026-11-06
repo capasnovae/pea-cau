@@ -2309,6 +2309,14 @@ export type Database = {
           vencida: boolean;
         }[];
       };
+      comprobar_practica: {
+        Args: { p_examen: string; p_pregunta: string; p_respuesta: Json };
+        Returns: {
+          es_correcta: boolean;
+          explicacion_md: string;
+          solucion: Json;
+        }[];
+      };
       contactos_bandeja: {
         Args: Record<PropertyKey, never>;
         Returns: {
@@ -2529,6 +2537,23 @@ export type Database = {
           unidad: string;
         }[];
       };
+      pozo_practica: { Args: { p_examen: string }; Returns: string[] };
+      practica_preguntas: {
+        Args: { p_examen: string };
+        Returns: {
+          acertada: boolean;
+          caso_contexto_md: string;
+          caso_titulo: string;
+          config: Json;
+          contexto_md: string;
+          enunciado_md: string;
+          opciones: Json;
+          orden: number;
+          pregunta_id: string;
+          puntaje_max: number;
+          tipo: Database["public"]["Enums"]["tipo_pregunta"];
+        }[];
+      };
       preguntas_de_unidad: {
         Args: { p_unidad: string };
         Returns: {
@@ -2587,6 +2612,7 @@ export type Database = {
       };
       puede_leer_curso: { Args: { p_curso: string }; Returns: boolean };
       puede_leer_evidencia: { Args: { p_nombre: string }; Returns: boolean };
+      puede_practicar: { Args: { p_examen: string }; Returns: boolean };
       puede_rendir: { Args: { p_examen: string }; Returns: boolean };
       puede_subir_evidencia: { Args: { p_nombre: string }; Returns: boolean };
       puede_ver_intento: { Args: { p_intento: string }; Returns: boolean };

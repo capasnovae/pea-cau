@@ -47,3 +47,37 @@ export async function alternarFavorito(cursoId: string): Promise<ResultadoFavori
   revalidatePath("/inicio");
   return { ok: true, favorito: !existe };
 }
+
+export type ResultadoPractica =
+  | { ok: true; es_correcta: boolean; explicacion_md: string; solucion: Record<string, unknown> }
+  | { ok: false; error: string };
+
+export async function comprobarPractica(
+  examenId: string,
+  preguntaId: string,
+  respuesta: unknown,
+): Promise<ResultadoPractica> {
+  await requerirPerfil();
+  const ids = z.object({ e: z.uuid(), p: z.uuid() }).safeParse({ e: examenId, p: preguntaId });
+  const r = z
+    .object({
+      opcion_ids: z.array(z.uuid()).max(20).nullish(),
+      orden: z.array(z.uuid()).max(20).nullish(),
+      texto: z.string().max(5000).nullish(),
+      valores: z.record(z.string(), z.string().max(500)).nullish(),
+    })
+    .safeParse(respuesta);
+  if (!ids.success || !r.success) return { ok: false, error: "Revisá la respuesta." };
+  const supabase = await crearClienteServidor();
+  const { data, error } = await supabase
+    .rpc("comprobar_practica", { p_examen: ids.data.e, p_pregunta: ids.data.p, p_respuesta: r.data })
+    .maybeSingle();
+  if (error || !data) return { ok: false, error: "No pudimos comprobar. Probá de nuevo." };
+  revalidatePath("/estudiar", "layout");
+  return {
+    ok: true,
+    es_correcta: data.es_correcta,
+    explicacion_md: data.explicacion_md,
+    solucion: data.solucion as Record<string, unknown>,
+  };
+}
