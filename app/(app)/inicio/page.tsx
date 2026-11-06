@@ -180,7 +180,7 @@ async function VistaTablero({ cursos, usuarioId }: { cursos: FilaMiRuta[]; usuar
             </Link>
           }
         >
-          <Card className="p-0">
+          <Card className="p-0!">
             {(novedades ?? []).length === 0 ? (
               <p className="p-5 text-sm text-muted">Sin novedades.</p>
             ) : (
@@ -201,7 +201,7 @@ async function VistaTablero({ cursos, usuarioId }: { cursos: FilaMiRuta[]; usuar
         </Seccion>
 
         <Seccion titulo="Mi equipo">
-          <Card className="p-0">
+          <Card className="p-0!">
             {equipo.length === 0 ? (
               <p className="p-5 text-sm text-muted">Sin equipo asignado.</p>
             ) : (

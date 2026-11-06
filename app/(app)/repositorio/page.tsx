@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { EncabezadoRepositorio } from "@/components/repositorio/encabezado";
 import { Card } from "@/components/ui/card";
 import { requerirPerfil } from "@/lib/supabase/permisos";
 import { crearClienteServidor } from "@/lib/supabase/servidor";
@@ -15,10 +16,7 @@ export default async function PaginaRepositorio() {
 
   return (
     <div className="flex flex-col gap-5">
-      <div>
-        <h1 className="text-2xl font-semibold">Repositorio</h1>
-        <p className="text-sm text-muted">Todo lo que necesitás para asesorar, ordenado por tema.</p>
-      </div>
+      <EncabezadoRepositorio actual="articulos" />
       <ul className="grid gap-3 sm:grid-cols-2">
         {(categorias ?? []).map((c) => (
           <li key={c.id}>

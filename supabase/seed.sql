@@ -135,3 +135,43 @@ insert into public.items (modulo_id, orden, titulo, tipo, articulo_id, contenido
 
 insert into public.ruta_cursos (curso_id, subrol_id, obligatorio)
 select 'c4000000-0000-4000-8000-000000000003', id, true from public.subroles where nombre = 'CEO';
+
+-- Etapa 5 · Examen de ejemplo (se configura en la etapa de exámenes)
+insert into public.items (modulo_id, orden, titulo, tipo, requisito) values
+  ('c5000000-0000-4000-8000-000000000003', 2, 'Examen del Nivel 2 (ejemplo)', 'examen', 'ninguno');
+
+-- Etapa 5 · Calendario: eventos de ejemplo del mes actual
+insert into public.eventos (titulo, fecha, hora, tipo, sede_id, creado_por)
+select 'Jornada de bienvenida (ejemplo)', (date_trunc('month', public.hoy_ar()) + interval '9 days')::date, '09:00'::time, 'evento'::public.tipo_evento, null::uuid,
+       (select id from public.perfiles where email = 'director@pea.local')
+union all
+select 'Capacitación CEO (ejemplo)', public.hoy_ar() + 6, '10:00'::time, 'capacitacion', s.id,
+       (select id from public.perfiles where email = 'coord.servicio.nqn@pea.local')
+from public.sedes s where s.nombre = 'Neuquén'
+union all
+select 'Reunión de equipo (ejemplo)', public.hoy_ar() + 13, null::time, 'evento', s.id,
+       (select id from public.perfiles where email = 'coord.servicio.nqn@pea.local')
+from public.sedes s where s.nombre = 'Neuquén';
+
+-- Etapa 5 · Bandeja: un anuncio de coordinación y una conversación de ejemplo
+insert into public.conversaciones (id, asunto, es_anuncio, sede_id, creada_por, ultimo_mensaje_at)
+select 'c7000000-0000-4000-8000-000000000001', 'Campaña de reinscripción (ejemplo)', true, s.id, p.id, now() - interval '2 hours'
+from public.sedes s, public.perfiles p where s.nombre = 'Neuquén' and p.email = 'coord.servicio.nqn@pea.local';
+insert into public.conversacion_participantes (conversacion_id, usuario_id, leido_at)
+select 'c7000000-0000-4000-8000-000000000001', p.id, case when p.email = 'coord.servicio.nqn@pea.local' then now() end
+from public.perfiles p join public.sedes s on s.id = p.sede_id where s.nombre = 'Neuquén' and p.activo;
+insert into public.mensajes (conversacion_id, autor_id, cuerpo, created_at)
+select 'c7000000-0000-4000-8000-000000000001', id, 'Mañana arranca la campaña de reinscripción. Revisen la matriz en Recursos.', now() - interval '2 hours'
+from public.perfiles where email = 'coord.servicio.nqn@pea.local';
+
+insert into public.conversaciones (id, asunto, creada_por, ultimo_mensaje_at)
+select 'c7000000-0000-4000-8000-000000000002', 'Módulo de Reglamento (ejemplo)', id, now() - interval '1 day'
+from public.perfiles where email = 'lider.nqn@pea.local';
+insert into public.conversacion_participantes (conversacion_id, usuario_id, leido_at)
+select 'c7000000-0000-4000-8000-000000000002', id, case when email = 'lider.nqn@pea.local' then now() end
+from public.perfiles where email in ('lider.nqn@pea.local', 'asesor.nqn@pea.local');
+insert into public.mensajes (conversacion_id, autor_id, cuerpo, created_at)
+select 'c7000000-0000-4000-8000-000000000002', id, m.cuerpo, now() - m.hace
+from public.perfiles, (values ('¿Pudiste ver el módulo de Reglamento?', interval '1 day 1 hour'),
+                               ('Cuando lo termines avisame y vemos dudas.', interval '1 day')) as m(cuerpo, hace)
+where email = 'lider.nqn@pea.local';

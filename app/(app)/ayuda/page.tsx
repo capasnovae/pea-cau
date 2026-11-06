@@ -12,7 +12,7 @@ export default async function PaginaAyuda() {
   return (
     <div className="flex flex-col gap-5">
       <h1 className="text-2xl font-extrabold md:text-[32px]">Ayuda</h1>
-      <Card className="p-0">
+      <Card className="p-0!">
         <ul>
           {CONTACTOS.map((c) => (
             <li

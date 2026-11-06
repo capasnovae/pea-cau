@@ -1,5 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { EncabezadoRepositorio } from "@/components/repositorio/encabezado";
 import { Card } from "@/components/ui/card";
 import { Input, Select } from "@/components/ui/input";
 import { estaVencido, formatearFecha, normalizarBusqueda } from "@/lib/dominio/contenido";
@@ -47,10 +48,7 @@ export default async function PaginaRecursos({ searchParams }: PageProps<"/recur
 
   return (
     <div className="flex flex-col gap-5">
-      <div>
-        <h1 className="text-2xl font-semibold">Recursos</h1>
-        <p className="text-sm text-muted">Piezas, campañas, presentaciones y links para usar con los alumnos.</p>
-      </div>
+      <EncabezadoRepositorio actual="recursos" />
       <Card className="p-4">
         <form className="grid gap-2 sm:grid-cols-[1.5fr_1fr_1fr_1fr_auto]" role="search">
           <Input name="q" aria-label="Buscar en recursos" placeholder="Buscar en recursos" defaultValue={q} />

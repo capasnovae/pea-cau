@@ -3,6 +3,7 @@ begin;
 select plan(16);
 select tests.escenario();
 select tests.escenario_cursos();
+delete from public.eventos;  -- el test arma sus propios eventos (se revierte al final)
 
 create temp table ids (k text primary key, v uuid);
 grant all on ids to authenticated, anon;
