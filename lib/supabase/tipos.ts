@@ -738,6 +738,40 @@ export type Database = {
           },
         ];
       };
+      cursos_favoritos: {
+        Row: {
+          created_at: string;
+          curso_id: string;
+          usuario_id: string;
+        };
+        ComputedFields: never;
+        Insert: {
+          created_at?: string;
+          curso_id: string;
+          usuario_id?: string;
+        };
+        Update: {
+          created_at?: string;
+          curso_id?: string;
+          usuario_id?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "cursos_favoritos_curso_id_fkey";
+            columns: ["curso_id"];
+            isOneToOne: false;
+            referencedRelation: "cursos";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "cursos_favoritos_usuario_id_fkey";
+            columns: ["usuario_id"];
+            isOneToOne: false;
+            referencedRelation: "perfiles";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
       equipos: {
         Row: {
           area: Database["public"]["Enums"]["area"];
@@ -777,6 +811,58 @@ export type Database = {
           },
           {
             foreignKeyName: "equipos_sede_id_fkey";
+            columns: ["sede_id"];
+            isOneToOne: false;
+            referencedRelation: "sedes";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
+      eventos: {
+        Row: {
+          creado_por: string | null;
+          created_at: string;
+          descripcion: string;
+          fecha: string;
+          hora: string | null;
+          id: string;
+          sede_id: string | null;
+          tipo: Database["public"]["Enums"]["tipo_evento"];
+          titulo: string;
+        };
+        ComputedFields: never;
+        Insert: {
+          creado_por?: string | null;
+          created_at?: string;
+          descripcion?: string;
+          fecha: string;
+          hora?: string | null;
+          id?: string;
+          sede_id?: string | null;
+          tipo?: Database["public"]["Enums"]["tipo_evento"];
+          titulo: string;
+        };
+        Update: {
+          creado_por?: string | null;
+          created_at?: string;
+          descripcion?: string;
+          fecha?: string;
+          hora?: string | null;
+          id?: string;
+          sede_id?: string | null;
+          tipo?: Database["public"]["Enums"]["tipo_evento"];
+          titulo?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "eventos_creado_por_fkey";
+            columns: ["creado_por"];
+            isOneToOne: false;
+            referencedRelation: "perfiles";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "eventos_sede_id_fkey";
             columns: ["sede_id"];
             isOneToOne: false;
             referencedRelation: "sedes";
@@ -1460,6 +1546,7 @@ export type Database = {
       };
       generar_asignaciones: { Args: { p_consigna: string; p_periodo: string }; Returns: number };
       guardar_prerrequisitos: { Args: { p_modulo: string; p_requiere: string[] }; Returns: undefined };
+      hoy_ar: { Args: Record<PropertyKey, never>; Returns: string };
       iniciar_conversacion: {
         Args: { p_asunto: string; p_cuerpo: string; p_destinatarios: string[] };
         Returns: string;
@@ -1496,6 +1583,17 @@ export type Database = {
           ultimo_mensaje_at: string;
         }[];
       };
+      mi_calendario: {
+        Args: { p_desde: string; p_hasta: string };
+        Returns: {
+          categoria: string;
+          estado: string;
+          fecha: string;
+          hora: string;
+          ref_id: string;
+          titulo: string;
+        }[];
+      };
       mi_perfil_activo: { Args: Record<PropertyKey, never>; Returns: boolean };
       mi_rol: { Args: Record<PropertyKey, never>; Returns: Database["public"]["Enums"]["rol_app"] };
       mi_ruta: {
@@ -1515,6 +1613,14 @@ export type Database = {
         }[];
       };
       mi_sede: { Args: Record<PropertyKey, never>; Returns: string };
+      mi_trabajo: {
+        Args: Record<PropertyKey, never>;
+        Returns: {
+          hechas: number;
+          por_vencer: number;
+          vencidas: number;
+        }[];
+      };
       modulo_cumplido: { Args: { p_modulo: string; p_usuario: string }; Returns: boolean };
       organigrama: {
         Args: Record<PropertyKey, never>;
@@ -1564,6 +1670,7 @@ export type Database = {
       puede_editar_curso: { Args: { p_curso: string }; Returns: boolean };
       puede_escribir_a: { Args: { p_destino: string }; Returns: boolean };
       puede_escribir_archivo: { Args: { p_nombre: string }; Returns: boolean };
+      puede_gestionar_evento: { Args: { p_sede: string }; Returns: boolean };
       puede_leer_archivo: { Args: { p_nombre: string }; Returns: boolean };
       puede_leer_contenido: {
         Args: {
@@ -1592,6 +1699,7 @@ export type Database = {
       rol_app: "asesor" | "lider" | "coordinador" | "director" | "admin";
       tipo_consigna: "tarea" | "lectura" | "capacitacion";
       tipo_curso: "nivel" | "capacitacion";
+      tipo_evento: "capacitacion" | "evento";
       tipo_item: "articulo" | "recurso" | "pagina" | "video" | "enlace" | "examen";
       tipo_recurso: "imagen" | "video" | "pdf" | "presentacion" | "enlace" | "otro";
     };
@@ -1718,6 +1826,7 @@ export const Constants = {
       rol_app: ["asesor", "lider", "coordinador", "director", "admin"],
       tipo_consigna: ["tarea", "lectura", "capacitacion"],
       tipo_curso: ["nivel", "capacitacion"],
+      tipo_evento: ["capacitacion", "evento"],
       tipo_item: ["articulo", "recurso", "pagina", "video", "enlace", "examen"],
       tipo_recurso: ["imagen", "video", "pdf", "presentacion", "enlace", "otro"],
     },
