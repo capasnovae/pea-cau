@@ -17,9 +17,11 @@ test("el asesor recorre el Nivel 1 en orden y desbloquea el Nivel 2", async ({ b
   await expect(ruta).toContainText("0%");
 
   await a.goto("/estudiar");
-  const niveles = a.getByRole("list", { name: "Niveles" });
-  await expect(niveles).toContainText("Completá el Nivel 1 para desbloquearlo");
-  await niveles.getByRole("link", { name: /Base: reglamento y plataformas/ }).click();
+  const todos = a.getByRole("region", { name: "Todos los cursos" });
+  await expect(todos.getByRole("row").filter({ hasText: "Operativo: modalidades y trámites" })).toContainText(
+    "Bloqueado",
+  );
+  await todos.getByRole("link", { name: /Base: reglamento y plataformas/ }).click();
   const plataformas = a.getByRole("listitem").filter({ hasText: "Portal de estudiantes" }).last();
   await expect(plataformas).toContainText("completá lo anterior");
 
@@ -30,7 +32,9 @@ test("el asesor recorre el Nivel 1 en orden y desbloquea el Nivel 2", async ({ b
   await a.getByRole("link", { name: "Siguiente" }).click();
 
   // Paso 2: página (marcar como hecho)
-  await expect(a.getByRole("heading", { name: "Cómo buscar una materia en el portal (ejemplo)" })).toBeVisible();
+  await expect(
+    a.getByRole("heading", { name: "Cómo buscar una materia en el portal (ejemplo)" }),
+  ).toBeVisible();
   await expect(a.getByText("Error común:")).toBeVisible();
   await a.getByRole("button", { name: "Listo, siguiente" }).click();
 
@@ -46,18 +50,45 @@ test("el asesor recorre el Nivel 1 en orden y desbloquea el Nivel 2", async ({ b
   await expect(a.getByText("100% completado")).toBeVisible();
 
   await a.goto("/estudiar");
-  await expect(a.getByRole("list", { name: "Niveles" }).getByRole("link", { name: /Operativo: modalidades y trámites/ })).toBeVisible();
+  await expect(
+    a
+      .getByRole("region", { name: "Todos los cursos" })
+      .getByRole("link", { name: /Operativo: modalidades y trámites/ }),
+  ).toBeVisible();
+  await expect(a.getByRole("region", { name: "Terminados" })).toContainText("Base: reglamento y plataformas");
 });
 
 test("las capacitaciones dependen del puesto", async ({ browser }) => {
   const ceo = await sesion(browser, "asesor2.nqn@pea.local");
   await ceo.goto("/estudiar");
-  await expect(ceo.getByRole("region", { name: "Capacitaciones de tu puesto" })).toContainText("Herramientas del CEO (ejemplo)");
-  await expect(ceo.getByText("Obligatoria")).toBeVisible();
+  const fila = ceo
+    .getByRole("region", { name: "Todos los cursos" })
+    .getByRole("row")
+    .filter({ hasText: "Herramientas del CEO (ejemplo)" });
+  await expect(fila).toContainText("Capacitación");
+  await expect(fila).toContainText("Obligatorio");
 
   const front = await sesion(browser, "asesor.roca@pea.local");
   await front.goto("/estudiar");
   await expect(front.getByText("Herramientas del CEO (ejemplo)")).toHaveCount(0);
+});
+
+test("el asesor marca un curso como favorito y aparece primero", async ({ browser }) => {
+  const a = await sesion(browser, "asesor2.nqn@pea.local");
+  await a.goto("/estudiar");
+  const estrella = a
+    .getByRole("region", { name: "Todos los cursos" })
+    .getByRole("row")
+    .filter({ hasText: "Herramientas del CEO (ejemplo)" })
+    .getByRole("button", { name: "Marcar como favorito" });
+  await estrella.click();
+  await expect(
+    a.getByRole("region", { name: "Todos los cursos" }).getByRole("button", { name: "Quitar de favoritos" }),
+  ).toHaveAttribute("aria-pressed", "true");
+  await a.goto("/inicio?vista=cursos");
+  await expect(a.getByRole("list", { name: "Mis cursos" }).getByRole("listitem").first()).toContainText(
+    "Herramientas del CEO (ejemplo)",
+  );
 });
 
 test("el coordinador arma un curso de sede y solo lo ve su sede", async ({ browser }) => {
@@ -72,11 +103,16 @@ test("el coordinador arma un curso de sede y solo lo ve su sede", async ({ brows
   const cursoUrl = coord.url().split("?")[0]!;
   const cursoId = cursoUrl.split("/").pop()!;
 
-  const formModulo = coord.locator("form").filter({ has: coord.getByRole("button", { name: "Agregar módulo" }) });
+  const formModulo = coord
+    .locator("form")
+    .filter({ has: coord.getByRole("button", { name: "Agregar módulo" }) });
   await formModulo.getByLabel("Título del módulo").fill("Saludo");
   await formModulo.getByRole("button", { name: "Agregar módulo" }).click();
   await expect(coord.getByRole("region", { name: "Módulo Saludo" })).toBeVisible();
-  const formPaso = coord.getByRole("region", { name: "Módulo Saludo" }).locator("form").filter({ has: coord.getByRole("button", { name: "Agregar paso" }) });
+  const formPaso = coord
+    .getByRole("region", { name: "Módulo Saludo" })
+    .locator("form")
+    .filter({ has: coord.getByRole("button", { name: "Agregar paso" }) });
   await formPaso.getByLabel("Título del paso").fill("Cómo recibir al alumno");
   await formPaso.getByLabel("Contenido", { exact: true }).fill("Saludá por el nombre y ofrecé ayuda.");
   await formPaso.getByRole("button", { name: "Agregar paso" }).click();
