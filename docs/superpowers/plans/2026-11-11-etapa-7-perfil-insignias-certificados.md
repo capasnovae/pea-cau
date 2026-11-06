@@ -2,7 +2,7 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:executing-plans. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Que el asesor vea su perfil evolutivo con lo siguiente:
+**Goal:** Primero, el **modo examen** (pedido del usuario): mientras rinde, no hay menú ni barra; intentar salir avisa "Estás por salir del examen. Si continuás, se va a entregar."; irse a otra pestaña queda registrado y avisado. Después, que el asesor vea su perfil evolutivo con lo siguiente:
 - su nivel actual;
 - el avance de su ruta;
 - sus insignias (activas y perdidas);
@@ -36,20 +36,52 @@
   - Sin email ni otro dato personal.
 - **Revocación:** solo el admin, con `revocar_certificacion(id, motivo)`. El motivo es obligatorio (1 a 300 caracteres) y queda en `auditoria`.
 
+- **Modo examen:**
+  - La pantalla de rendir (`/examenes/intento/[id]`) pasa a un grupo de rutas propio `app/(examen)/` con un layout sin barra lateral, sin píldora y sin encabezado; la URL no cambia. El resultado sigue con el menú normal.
+  - El único botón para irse es "Salir", que abre un diálogo: "Estás por salir del examen. Si continuás, se va a entregar con lo que respondiste." con los botones "Volver al examen" y "Entregar y salir".
+  - Cerrar la pestaña o recargar muestra la advertencia nativa del navegador (`beforeunload`). Al recargar, el examen sigue: el intento y las respuestas están en el servidor.
+  - Irse a otra pestaña o ventana (`visibilitychange` a `hidden`) llama a `registrar_salida(intento)`, que suma `intentos.salidas`. Al volver, aparece un aviso: "Saliste del examen. Quedó registrado." (con la cantidad de veces).
+  - El resultado y la revisión que ve el corrector o el coordinador muestran "Salió del examen N veces" si N > 0.
+  - **No** se entrega solo por cambiar de pestaña (ruling): un navegador no puede impedir abrir otra pestaña y una notificación del sistema también la dispara. Si se quiere, después se agrega "entregar a la N.ª salida" como configuración del examen.
+
 ## Review Focus
 
-1. La página de verificación no expone datos de más (email, sede, intentos) y no permite listar certificados: solo se busca por un código exacto. Tarea 1.
-2. Un asesor no descarga el PDF de otro, ni adivinando el id. Tarea 3 (el route handler pasa por la RLS).
-3. Perder y recuperar la insignia no duplica filas (unique), y una certificación de ubicación también otorga la insignia. Tarea 1.
+0. En modo examen no hay ningún enlace del menú, y `registrar_salida` solo suma en intentos propios y en curso. Tarea 1.
+1. La página de verificación no expone datos de más (email, sede, intentos) y no permite listar certificados: solo se busca por un código exacto. Tarea 2.
+2. Un asesor no descarga el PDF de otro, ni adivinando el id. Tarea 4 (el route handler pasa por la RLS).
+3. Perder y recuperar la insignia no duplica filas (unique), y una certificación de ubicación también otorga la insignia. Tarea 2.
 4. Un certificado vencido por fecha se ve "Vencido" en la verificación y en el perfil, aunque el job de la Etapa 9 todavía no haya cambiado el estado. Tareas 1 y 2.
-5. Un nivel sin insignia (creado antes de esta etapa) no rompe el perfil: la migración crea las insignias que falten. Tarea 1.
+5. Un nivel sin insignia (creado antes de esta etapa) no rompe el perfil: la migración crea las insignias que falten. Tarea 2.
 
 ---
 
-### Task 1: Insignias y verificación en la base
+### Task 1: Modo examen (sin menú, aviso al salir y registro de salidas)
 
 **Files:**
-- Create: `supabase/migrations/20261111000100_insignias.sql`, `supabase/tests/31_insignias.test.sql`
+- Create: `supabase/migrations/20261111000050_modo_examen.sql`, `supabase/tests/31_modo_examen.test.sql`
+- Move: `app/(app)/examenes/intento/[id]/page.tsx` y `rendir.tsx` → `app/(examen)/examenes/intento/[id]/` (el resultado queda en `(app)`)
+- Create: `app/(examen)/layout.tsx` (`requerirPerfil`, fondo de estilo B, `main` centrado, sin navegación)
+- Modify: `app/(examen)/examenes/intento/[id]/rendir.tsx` (botón Salir, diálogo, `beforeunload` y `visibilitychange`)
+- Modify: `app/(app)/examenes/acciones.ts` (`registrarSalida(intentoId)`)
+- Modify: `app/(app)/examenes/intento/[id]/resultado/page.tsx` ("Salió del examen N veces")
+
+**Interfaces:**
+- `alter table intentos add column salidas int not null default 0`
+- `registrar_salida(p_intento uuid) returns int` (`security definer`): suma 1 solo si el intento es propio y está `en_curso`, y devuelve el total; si no, `'sin permiso'`.
+
+- [ ] **Step 1: Test `31_modo_examen.test.sql`**: ase1 inicia un intento y `registrar_salida` dos veces devuelve 2. Como ase2 da `'sin permiso'`. Después de entregar da `'sin permiso'`. Un update directo de `salidas` como ase1 da 42501.
+- [ ] **Step 2:** FAIL.
+- [ ] **Step 3:** Implementar la migración, el grupo de rutas y la UI.
+- [ ] **Step 4:** PASS. `npm run typecheck && npm run lint`. E2E en `e2e/examenes.spec.ts`:
+  - en la pantalla de rendir no existe `navigation` "Principal";
+  - "Salir" abre el diálogo; "Volver al examen" lo cierra; "Entregar y salir" lleva al resultado;
+  - simular la salida con `page.evaluate` (disparar `visibilitychange` con `document.visibilityState` redefinido a `hidden` y después a `visible`) muestra el aviso.
+- [ ] **Step 5:** Commit `feat(examenes): modo examen sin menú, aviso al salir y registro de salidas`.
+
+### Task 2: Insignias y verificación en la base
+
+**Files:**
+- Create: `supabase/migrations/20261111000100_insignias.sql`, `supabase/tests/32_insignias.test.sql`
 - Modify: `lib/supabase/tipos.ts` (regenerar)
 
 **Interfaces:**
@@ -71,7 +103,7 @@
     - el nivel actual es el mayor con certificación vigente, o el primero desbloqueado y no cumplido de `mi_ruta`;
     - `cursos_*` cuentan los obligatorios de la ruta.
 
-- [ ] **Step 1: Escribir `31_insignias.test.sql`**:
+- [ ] **Step 1: Escribir `32_insignias.test.sql`**:
   - Crear un curso nivel crea su insignia, y los niveles 8 y 9 del escenario tienen la suya.
   - Una certificación vigente para ase1 (insertada como postgres) le otorga 1 `usuario_insignias` sin `perdida_at`.
   - Pasarla a `vencida` marca `perdida_at` y `motivo_perdida = 'vencida'`. Una nueva certificación vigente la recupera sin duplicar: sigue habiendo 1 fila y `perdida_at` es null.
@@ -88,7 +120,7 @@
 - [ ] **Step 4:** PASS y regenerar los tipos.
 - [ ] **Step 5:** Commit `feat(perfil): insignias por nivel, verificación pública y revocación`.
 
-### Task 2: Dominio de certificados (puro)
+### Task 3: Dominio de certificados (puro)
 
 **Files:**
 - Create: `lib/dominio/certificados.ts`, `lib/dominio/certificados.test.ts`
@@ -110,7 +142,7 @@
 - [ ] **Step 4:** PASS.
 - [ ] **Step 5:** Commit `feat(perfil): dominio de certificados`.
 
-### Task 3: Certificado PDF con QR
+### Task 4: Certificado PDF con QR
 
 **Files:**
 - Modify: `package.json` (`npm install pdf-lib qrcode` y `npm install -D @types/qrcode`)
@@ -128,7 +160,7 @@
 - [ ] **Step 4:** PASS, más `npm run typecheck && npm run lint`.
 - [ ] **Step 5:** Commit `feat(perfil): certificado PDF con QR de verificación`.
 
-### Task 4: Página pública de verificación
+### Task 5: Página pública de verificación
 
 **Files:**
 - Create: `app/verificar/[codigo]/page.tsx` (fuera de `(app)` y de `(auth)`, con layout propio mínimo: "PEA" y una tarjeta centrada)
@@ -142,7 +174,7 @@
 - [ ] **Step 2:** `npm run typecheck && npm run lint`, más capturas en 390 y 1440.
 - [ ] **Step 3:** Commit `feat(perfil): verificación pública de certificados`.
 
-### Task 5: Perfil evolutivo
+### Task 6: Perfil evolutivo
 
 **Files:**
 - Modify: `app/(app)/perfil/page.tsx` (rehacer)
@@ -165,7 +197,7 @@
 - [ ] **Step 2:** `npm run typecheck && npm run lint`, más capturas.
 - [ ] **Step 3:** Commit `feat(perfil): perfil evolutivo con insignias, certificados y exámenes`.
 
-### Task 6: Gestión: insignias y revocación
+### Task 7: Gestión: insignias y revocación
 
 **Files:**
 - Modify: `app/(app)/contenido/cursos/[id]/page.tsx`. En un curso de nivel, la tarjeta "Insignia" (solo para el admin) muestra la vista previa con `<Insignia>` y un form de nombre y descripción.
@@ -180,7 +212,7 @@
 - [ ] **Step 2:** `npm run typecheck && npm run lint`.
 - [ ] **Step 3:** Commit `feat(perfil): edición de insignias y revocación de certificados`.
 
-### Task 7: Seed y E2E
+### Task 8: Seed y E2E
 
 **Files:**
 - Modify: `supabase/seed.sql`. Insignias con nombres de ejemplo: Nivel 1 "Base (ejemplo)" y Nivel 2 "Operativo (ejemplo)".
