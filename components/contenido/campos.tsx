@@ -6,7 +6,17 @@ import { Label } from "@/components/ui/label";
 
 type Sede = { id: string; nombre: string };
 
-export function Campo({ id, etiqueta, children, ayuda }: { id: string; etiqueta: string; children: React.ReactNode; ayuda?: string }) {
+export function Campo({
+  id,
+  etiqueta,
+  children,
+  ayuda,
+}: {
+  id: string;
+  etiqueta: string;
+  children: React.ReactNode;
+  ayuda?: string;
+}) {
   return (
     <div className="flex flex-col gap-1.5">
       <Label htmlFor={id}>{etiqueta}</Label>
@@ -35,16 +45,28 @@ export function CamposAlcance({
   return (
     <>
       <Campo id={`${prefijo}alcance`} etiqueta="¿Quién lo ve?">
-        <Select id={`${prefijo}alcance`} name="alcance" value={actual} onChange={(e) => setActual(e.target.value as "global" | "sede")}>
+        <Select
+          id={`${prefijo}alcance`}
+          name="alcance"
+          value={actual}
+          onChange={(e) => setActual(e.target.value as "global" | "sede")}
+        >
           {alcances.includes("global") && <option value="global">Todos los CAU</option>}
           {alcances.includes("sede") && <option value="sede">Una sede</option>}
         </Select>
       </Campo>
       {actual === "sede" ? (
         <Campo id={`${prefijo}sede_id`} etiqueta="Sede">
-          <Select id={`${prefijo}sede_id`} name="sede_id" defaultValue={sedeId ?? sedes[0]?.id ?? ""} required>
+          <Select
+            id={`${prefijo}sede_id`}
+            name="sede_id"
+            defaultValue={sedeId ?? sedes[0]?.id ?? ""}
+            required
+          >
             {sedes.map((s) => (
-              <option key={s.id} value={s.id}>{s.nombre}</option>
+              <option key={s.id} value={s.id}>
+                {s.nombre}
+              </option>
             ))}
           </Select>
         </Campo>
@@ -62,7 +84,17 @@ export function CamposAlcance({
   );
 }
 
-export function CampoFecha({ id, etiqueta, valor, prefijo = "" }: { id: string; etiqueta: string; valor?: string | null; prefijo?: string }) {
+export function CampoFecha({
+  id,
+  etiqueta,
+  valor,
+  prefijo = "",
+}: {
+  id: string;
+  etiqueta: string;
+  valor?: string | null;
+  prefijo?: string;
+}) {
   return (
     <Campo id={`${prefijo}${id}`} etiqueta={etiqueta}>
       <Input id={`${prefijo}${id}`} name={id} type="date" defaultValue={valor ?? ""} />
@@ -70,7 +102,11 @@ export function CampoFecha({ id, etiqueta, valor, prefijo = "" }: { id: string; 
   );
 }
 
-export function MensajeResultado({ r }: { r: { ok: true; mensaje: string } | { ok: false; error: string } | null }) {
+export function MensajeResultado({
+  r,
+}: {
+  r: { ok: true; mensaje: string } | { ok: false; error: string } | null;
+}) {
   if (!r) return null;
   return (
     <p role={r.ok ? "status" : "alert"} className={`text-sm ${r.ok ? "text-primary" : "text-destructive"}`}>

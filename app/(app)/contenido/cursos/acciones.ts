@@ -22,8 +22,10 @@ function sinCurso<T extends { curso_id: string }>(v: T): Omit<T, "curso_id"> {
 
 function errorCurso(e: { code?: string; message?: string }): string {
   if (e.code === "23505") return "Ya hay un curso con ese número de nivel.";
-  if (e.message?.includes("ciclo")) return "Esos prerrequisitos forman un círculo: un módulo terminaría esperando a otro que lo espera a él.";
-  if (e.message?.includes("no es visible para todo el público")) return "Ese contenido es de una sede y este curso lo ven otras sedes. Elegí contenido global o de la misma sede.";
+  if (e.message?.includes("ciclo"))
+    return "Esos prerrequisitos forman un círculo: un módulo terminaría esperando a otro que lo espera a él.";
+  if (e.message?.includes("no es visible para todo el público"))
+    return "Ese contenido es de una sede y este curso lo ven otras sedes. Elegí contenido global o de la misma sede.";
   if (e.message?.includes("prerrequisito")) return "El prerrequisito tiene que ser del mismo curso.";
   return mensajeErrorGuardado(e);
 }
@@ -32,7 +34,8 @@ export async function guardarCurso(_prev: ResultadoCurso, formData: FormData): P
   await requerirRol([...ROLES_EDITORES]);
   const id = idOpcional.safeParse(formData.get("id"));
   const d = esquemaCurso.safeParse(Object.fromEntries(formData));
-  if (!id.success || !d.success) return { ok: false, error: d.error?.issues[0]?.message ?? "Revisá los datos." };
+  if (!id.success || !d.success)
+    return { ok: false, error: d.error?.issues[0]?.message ?? "Revisá los datos." };
   const supabase = await crearClienteServidor();
   if (id.data) {
     const { data, error } = await supabase.from("cursos").update(d.data).eq("id", id.data).select("id");
@@ -49,8 +52,12 @@ export async function guardarCurso(_prev: ResultadoCurso, formData: FormData): P
 export async function guardarModulo(_prev: ResultadoCurso, formData: FormData): Promise<ResultadoCurso> {
   await requerirRol([...ROLES_EDITORES]);
   const id = idOpcional.safeParse(formData.get("id"));
-  const d = esquemaModulo.safeParse({ ...Object.fromEntries(formData), prerrequisitos: formData.getAll("prerrequisitos") });
-  if (!id.success || !d.success) return { ok: false, error: d.error?.issues[0]?.message ?? "Revisá los datos." };
+  const d = esquemaModulo.safeParse({
+    ...Object.fromEntries(formData),
+    prerrequisitos: formData.getAll("prerrequisitos"),
+  });
+  if (!id.success || !d.success)
+    return { ok: false, error: d.error?.issues[0]?.message ?? "Revisá los datos." };
   const { prerrequisitos, ...valores } = d.data;
   const supabase = await crearClienteServidor();
   const r = id.data
@@ -58,7 +65,10 @@ export async function guardarModulo(_prev: ResultadoCurso, formData: FormData): 
     : await supabase.from("modulos").insert(valores).select("id").single();
   if (r.error || !r.data) return { ok: false, error: r.error ? errorCurso(r.error) : SIN_PERMISO };
   const moduloId = r.data.id;
-  const { error } = await supabase.rpc("guardar_prerrequisitos", { p_modulo: moduloId, p_requiere: prerrequisitos });
+  const { error } = await supabase.rpc("guardar_prerrequisitos", {
+    p_modulo: moduloId,
+    p_requiere: prerrequisitos,
+  });
   if (error) return { ok: false, error: errorCurso(error) };
   revalidatePath(`/contenido/cursos/${valores.curso_id}`);
   return { ok: true, mensaje: "Módulo guardado." };
@@ -68,7 +78,8 @@ export async function guardarItem(_prev: ResultadoCurso, formData: FormData): Pr
   await requerirRol([...ROLES_EDITORES]);
   const id = idOpcional.safeParse(formData.get("id"));
   const d = esquemaItem.safeParse(Object.fromEntries(formData));
-  if (!id.success || !d.success) return { ok: false, error: d.error?.issues[0]?.message ?? "Revisá los datos." };
+  if (!id.success || !d.success)
+    return { ok: false, error: d.error?.issues[0]?.message ?? "Revisá los datos." };
   const supabase = await crearClienteServidor();
   const r = id.data
     ? await supabase.from("items").update(d.data).eq("id", id.data).select("id")
@@ -82,7 +93,8 @@ export async function guardarItem(_prev: ResultadoCurso, formData: FormData): Pr
 export async function borrarFila(tabla: "modulos" | "items", id: string): Promise<ResultadoCurso> {
   await requerirRol([...ROLES_EDITORES]);
   const i = z.uuid().safeParse(id);
-  if (!i.success || (tabla !== "modulos" && tabla !== "items")) return { ok: false, error: "Revisá los datos." };
+  if (!i.success || (tabla !== "modulos" && tabla !== "items"))
+    return { ok: false, error: "Revisá los datos." };
   const supabase = await crearClienteServidor();
   const { data, error } = await supabase.from(tabla).delete().eq("id", i.data).select("id");
   if (error || !data?.length) return { ok: false, error: SIN_PERMISO };
@@ -90,9 +102,17 @@ export async function borrarFila(tabla: "modulos" | "items", id: string): Promis
   return { ok: true, mensaje: "Eliminado." };
 }
 
-const esquemaRuta = z.object({ curso_id: z.uuid(), clave: z.string().regex(/^(puesto|subrol):[0-9a-f-]{36}$/), valor: z.enum(["", "obligatorio", "opcional"]) });
+const esquemaRuta = z.object({
+  curso_id: z.uuid(),
+  clave: z.string().regex(/^(puesto|subrol):[0-9a-f-]{36}$/),
+  valor: z.enum(["", "obligatorio", "opcional"]),
+});
 
-export async function guardarRuta(entrada: { curso_id: string; clave: string; valor: string }): Promise<ResultadoCurso> {
+export async function guardarRuta(entrada: {
+  curso_id: string;
+  clave: string;
+  valor: string;
+}): Promise<ResultadoCurso> {
   await requerirRol(["admin"]);
   const d = esquemaRuta.safeParse(entrada);
   if (!d.success) return { ok: false, error: "Revisá los datos." };

@@ -21,7 +21,9 @@ export default async function PaginaCampanas() {
   return (
     <div className="flex flex-col gap-5">
       <div>
-        <Link href="/contenido" className="text-sm text-primary">← Contenido</Link>
+        <Link href="/contenido" className="text-sm text-primary">
+          ← Contenido
+        </Link>
         <h1 className="mt-1 text-2xl font-semibold">Campañas</h1>
       </div>
       <Card>

@@ -5,7 +5,13 @@ import { Button } from "@/components/ui/button";
 import { promover, type ResultadoGuardado } from "@/app/(app)/contenido/acciones";
 import { MensajeResultado } from "./campos";
 
-export function BotonPromover({ tabla, id }: { tabla: "articulos" | "recursos" | "campanas" | "cursos"; id: string }) {
+export function BotonPromover({
+  tabla,
+  id,
+}: {
+  tabla: "articulos" | "recursos" | "campanas" | "cursos" | "preguntas" | "casos" | "examenes";
+  id: string;
+}) {
   const [pendiente, iniciar] = useTransition();
   const [r, setR] = useState<ResultadoGuardado>(null);
   return (
@@ -15,7 +21,8 @@ export function BotonPromover({ tabla, id }: { tabla: "articulos" | "recursos" |
         variante="secundario"
         disabled={pendiente}
         onClick={() => {
-          if (!window.confirm("¿Promover a todos los CAU? Lo van a ver los asesores de todas las sedes.")) return;
+          if (!window.confirm("¿Promover a todos los CAU? Lo van a ver los asesores de todas las sedes."))
+            return;
           iniciar(async () => setR(await promover(tabla, id)));
         }}
       >

@@ -9,7 +9,10 @@ import { requerirRol } from "@/lib/supabase/permisos";
 import { crearClienteServidor } from "@/lib/supabase/servidor";
 import { FormularioArticulo } from "./formulario-articulo";
 
-export default async function PaginaEditarArticulo({ params, searchParams }: PageProps<"/contenido/articulos/[id]">) {
+export default async function PaginaEditarArticulo({
+  params,
+  searchParams,
+}: PageProps<"/contenido/articulos/[id]">) {
   const perfil = await requerirRol([...ROLES_EDITORES]);
   const { id } = await params;
   const { creado } = await searchParams;
@@ -21,7 +24,9 @@ export default async function PaginaEditarArticulo({ params, searchParams }: Pag
     ? { data: null }
     : await supabase
         .from("articulos")
-        .select("id, titulo, slug, categoria_id, padre_id, resumen, cuerpo_md, alcance, sede_id, estado, vigente_desde, vigente_hasta, fuente_url, version, promovido_at")
+        .select(
+          "id, titulo, slug, categoria_id, padre_id, resumen, cuerpo_md, alcance, sede_id, estado, vigente_desde, vigente_hasta, fuente_url, version, promovido_at",
+        )
         .eq("id", id)
         .maybeSingle();
   if (!nuevo && !articulo) notFound();
@@ -40,9 +45,15 @@ export default async function PaginaEditarArticulo({ params, searchParams }: Pag
   return (
     <div className="flex flex-col gap-5">
       <div>
-        <Link href="/contenido?tab=articulos" className="text-sm text-primary">← Contenido</Link>
+        <Link href="/contenido?tab=articulos" className="text-sm text-primary">
+          ← Contenido
+        </Link>
         <h1 className="mt-1 text-2xl font-semibold">{nuevo ? "Nuevo artículo" : "Editar artículo"}</h1>
-        {creado && <p role="status" className="text-sm text-primary">Artículo creado.</p>}
+        {creado && (
+          <p role="status" className="text-sm text-primary">
+            Artículo creado.
+          </p>
+        )}
       </div>
       <Card>
         <FormularioArticulo

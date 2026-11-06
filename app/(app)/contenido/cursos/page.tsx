@@ -22,7 +22,9 @@ export default async function PaginaCursosEditor() {
   return (
     <div className="flex flex-col gap-5">
       <div>
-        <Link href="/contenido" className="text-sm font-semibold text-primary-strong">← Contenido</Link>
+        <Link href="/contenido" className="text-sm font-semibold text-primary-strong">
+          ← Contenido
+        </Link>
         <h1 className="mt-1 text-2xl font-extrabold">Cursos</h1>
       </div>
       <ul className="flex flex-col gap-2" aria-label="Cursos editables">
@@ -30,7 +32,8 @@ export default async function PaginaCursosEditor() {
           <li key={c.id}>
             <Card className="flex flex-wrap items-center justify-between gap-2 p-4">
               <Link href={`/contenido/cursos/${c.id}`} className="font-bold hover:text-primary">
-                {c.tipo === "nivel" ? `Nivel ${c.nivel_orden} · ` : ""}{c.titulo}
+                {c.tipo === "nivel" ? `Nivel ${c.nivel_orden} · ` : ""}
+                {c.titulo}
               </Link>
               <BadgesContenido c={{ alcance: c.alcance, estado: c.estado, vigente_hasta: null }} />
             </Card>

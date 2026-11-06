@@ -12,23 +12,33 @@ const TABS = [
   { id: "articulos", etiqueta: "Artículos" },
   { id: "recursos", etiqueta: "Recursos" },
   { id: "campanas", etiqueta: "Campañas" },
+  { id: "examenes", etiqueta: "Exámenes" },
 ] as const;
 
 export default async function PaginaContenido({ searchParams }: PageProps<"/contenido">) {
   const perfil = await requerirRol([...ROLES_EDITORES]);
   const sp = await searchParams;
-  const tab = TABS.find((t) => t.id === sp.tab && t.id !== "cursos")?.id ?? "articulos";
+  const tab =
+    TABS.find((t) => t.id === sp.tab && t.id !== "cursos" && t.id !== "examenes")?.id ?? "articulos";
   const supabase = await crearClienteServidor();
 
   // Filtramos en el servidor lo que el rol puede editar (lo global solo para el admin),
   // así el límite de filas no deja afuera contenido propio.
   const filtro = filtroEditable(perfil.rol, perfil.sede_id);
 
-  let filas: { id: string; titulo: string; detalle: string; href: string; badges: Parameters<typeof BadgesContenido>[0]["c"] }[] = [];
+  let filas: {
+    id: string;
+    titulo: string;
+    detalle: string;
+    href: string;
+    badges: Parameters<typeof BadgesContenido>[0]["c"];
+  }[] = [];
   if (tab === "articulos") {
     const { data } = await supabase
       .from("articulos")
-      .select("id, titulo, alcance, sede_id, estado, version, updated_at, vigente_hasta, categorias(nombre), sedes!articulos_sede_id_fkey(nombre)")
+      .select(
+        "id, titulo, alcance, sede_id, estado, version, updated_at, vigente_hasta, categorias(nombre), sedes!articulos_sede_id_fkey(nombre)",
+      )
       .match(filtro ?? {})
       .order("updated_at", { ascending: false })
       .limit(200);
@@ -42,7 +52,9 @@ export default async function PaginaContenido({ searchParams }: PageProps<"/cont
   } else if (tab === "recursos") {
     const { data } = await supabase
       .from("recursos")
-      .select("id, titulo, tipo, alcance, sede_id, estado, vigente_hasta, sedes!recursos_sede_id_fkey(nombre)")
+      .select(
+        "id, titulo, tipo, alcance, sede_id, estado, vigente_hasta, sedes!recursos_sede_id_fkey(nombre)",
+      )
       .match(filtro ?? {})
       .order("updated_at", { ascending: false })
       .limit(200);
@@ -75,9 +87,20 @@ export default async function PaginaContenido({ searchParams }: PageProps<"/cont
         {TABS.map((t) => (
           <Link
             key={t.id}
-            href={t.id === "campanas" ? "/contenido/campanas" : t.id === "cursos" ? "/contenido/cursos" : `/contenido?tab=${t.id}`}
+            href={
+              t.id === "campanas"
+                ? "/contenido/campanas"
+                : t.id === "cursos"
+                  ? "/contenido/cursos"
+                  : t.id === "examenes"
+                    ? "/contenido/examenes"
+                    : `/contenido?tab=${t.id}`
+            }
             aria-current={tab === t.id ? "page" : undefined}
-            className={cn("flex-1 rounded-md px-3 py-2 text-center text-sm", tab === t.id ? "bg-background font-semibold text-primary" : "text-muted")}
+            className={cn(
+              "flex-1 rounded-md px-3 py-2 text-center text-sm",
+              tab === t.id ? "bg-background font-semibold text-primary" : "text-muted",
+            )}
           >
             {t.etiqueta}
           </Link>

@@ -4,6 +4,7 @@ import {
   errorExamen,
   esquemaExamen,
   esquemaPregunta,
+  esquemaCaso,
   estadoExamen,
   formatoDuracion,
   mensajeDeCodigo,
@@ -166,5 +167,21 @@ describe("errorExamen", () => {
   it("el código vuelve a la frase", () => {
     expect(mensajeDeCodigo("pendiente")).toBe("Tenés un intento pendiente de corrección.");
     expect(mensajeDeCodigo("x")).toBeNull();
+  });
+});
+
+describe("esquemaCaso", () => {
+  it("exige título y sede si es de sede", () => {
+    const base = {
+      titulo: "Caso",
+      contexto_md: "x",
+      categoria_id: "",
+      alcance: "global",
+      sede_id: "",
+      estado: "publicado",
+    };
+    expect(esquemaCaso.safeParse({ ...base, titulo: " " }).success).toBe(false);
+    expect(esquemaCaso.safeParse({ ...base, alcance: "sede" }).success).toBe(false);
+    expect(esquemaCaso.safeParse(base).data?.categoria_id).toBeNull();
   });
 });

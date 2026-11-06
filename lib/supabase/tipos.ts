@@ -2320,6 +2320,7 @@ export type Database = {
           sede: string;
         }[];
       };
+      contar_pozo: { Args: { p_examen: string }; Returns: number };
       contenido_compatible: {
         Args: { p_alcance: Database["public"]["Enums"]["alcance"]; p_curso: string; p_sede: string };
         Returns: boolean;
@@ -2382,6 +2383,8 @@ export type Database = {
         Returns: string;
       };
       generar_asignaciones: { Args: { p_consigna: string; p_periodo: string }; Returns: number };
+      guardar_examen: { Args: { p_datos: Json }; Returns: string };
+      guardar_pregunta: { Args: { p_datos: Json }; Returns: string };
       guardar_prerrequisitos: { Args: { p_modulo: string; p_requiere: string[] }; Returns: undefined };
       guardar_respuesta: {
         Args: {

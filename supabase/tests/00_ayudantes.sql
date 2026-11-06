@@ -116,6 +116,9 @@ create or replace function tests.escenario_examenes() returns void language plpg
 declare v_reg uuid := (select id from public.categorias where slug = 'reglamento');
         v_pla uuid := (select id from public.categorias where slug = 'plataformas');
 begin
+  -- Los tests no dependen de los exámenes ni de las preguntas del seed.
+  update public.preguntas set estado = 'archivado' where estado = 'publicado';
+  update public.examenes set estado = 'archivado' where estado = 'publicado';
   insert into public.casos (id, titulo, contexto_md, categoria_id, alcance, estado) values
     ('f4000000-0000-4000-8000-000000000001', 'T-Caso', 'Un alumno llama por una mesa.', v_reg, 'global', 'publicado');
   insert into public.preguntas (id, tipo, enunciado_md, contexto_md, caso_id, orden_en_caso, explicacion_md, rubrica_md, puntaje_max,

@@ -14,7 +14,11 @@ export type ResultadoGuardado = { ok: true; mensaje: string } | { ok: false; err
 
 const MAX_BYTES = 50 * 1024 * 1024;
 const MIME_PERMITIDOS = new Set([
-  "image/png", "image/jpeg", "image/webp", "image/gif", "application/pdf",
+  "image/png",
+  "image/jpeg",
+  "image/webp",
+  "image/gif",
+  "application/pdf",
   "application/vnd.openxmlformats-officedocument.presentationml.presentation",
   "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
   "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
@@ -29,11 +33,15 @@ function datos(formData: FormData): Record<string, FormDataEntryValue> {
   return d;
 }
 
-export async function guardarArticulo(_prev: ResultadoGuardado, formData: FormData): Promise<ResultadoGuardado> {
+export async function guardarArticulo(
+  _prev: ResultadoGuardado,
+  formData: FormData,
+): Promise<ResultadoGuardado> {
   await requerirRol([...ROLES_EDITORES]);
   const id = idOpcional.safeParse(formData.get("id"));
   const d = esquemaArticulo.safeParse(datos(formData));
-  if (!id.success || !d.success) return { ok: false, error: d.error?.issues[0]?.message ?? "Revisá los datos." };
+  if (!id.success || !d.success)
+    return { ok: false, error: d.error?.issues[0]?.message ?? "Revisá los datos." };
   const supabase = await crearClienteServidor();
   const valores = { ...d.data, ultimo_cambio: d.data.ultimo_cambio || null };
   if (id.data) {
@@ -65,8 +73,10 @@ export async function prepararSubida(
   await requerirRol([...ROLES_EDITORES]);
   const d = esquemaSubida.safeParse(entrada);
   if (!d.success) return { ok: false, error: "Revisá los datos." };
-  if (d.data.tamano > MAX_BYTES) return { ok: false, error: "El archivo pesa más de 50 MB. Para videos largos usá un link." };
-  if (!MIME_PERMITIDOS.has(d.data.tipoMime)) return { ok: false, error: "Ese tipo de archivo no está permitido." };
+  if (d.data.tamano > MAX_BYTES)
+    return { ok: false, error: "El archivo pesa más de 50 MB. Para videos largos usá un link." };
+  if (!MIME_PERMITIDOS.has(d.data.tipoMime))
+    return { ok: false, error: "Ese tipo de archivo no está permitido." };
   if (d.data.alcance === "sede" && !d.data.sede_id) return { ok: false, error: "Elegí la sede." };
   const carpeta = d.data.alcance === "global" ? "global" : (d.data.sede_id as string);
   const path = rutaArchivo(carpeta, d.data.nombre, crypto.randomUUID());
@@ -76,7 +86,10 @@ export async function prepararSubida(
   return { ok: true, path: data.path, token: data.token };
 }
 
-export async function guardarRecurso(_prev: ResultadoGuardado, formData: FormData): Promise<ResultadoGuardado> {
+export async function guardarRecurso(
+  _prev: ResultadoGuardado,
+  formData: FormData,
+): Promise<ResultadoGuardado> {
   await requerirRol([...ROLES_EDITORES]);
   const id = idOpcional.safeParse(formData.get("id"));
   if (!id.success) return { ok: false, error: "Revisá los datos." };
@@ -86,15 +99,26 @@ export async function guardarRecurso(_prev: ResultadoGuardado, formData: FormDat
 
   let anterior: { archivo_path: string | null; alcance: string; sede_id: string | null } | null = null;
   if (id.data) {
-    const { data } = await supabase.from("recursos").select("archivo_path, alcance, sede_id").eq("id", id.data).maybeSingle();
+    const { data } = await supabase
+      .from("recursos")
+      .select("archivo_path, alcance, sede_id")
+      .eq("id", id.data)
+      .maybeSingle();
     if (!data) return { ok: false, error: SIN_PERMISO };
     anterior = data;
   }
-  const d = esquemaRecurso.safeParse({ ...datos(formData), tiene_archivo: hayArchivoNuevo || !!anterior?.archivo_path });
+  const d = esquemaRecurso.safeParse({
+    ...datos(formData),
+    tiene_archivo: hayArchivoNuevo || !!anterior?.archivo_path,
+  });
   if (!d.success) return { ok: false, error: d.error.issues[0]?.message ?? "Revisá los datos." };
   const { tiene_archivo: _t, ...valores } = d.data;
 
-  if (anterior?.archivo_path && !hayArchivoNuevo && (anterior.alcance !== valores.alcance || anterior.sede_id !== valores.sede_id)) {
+  if (
+    anterior?.archivo_path &&
+    !hayArchivoNuevo &&
+    (anterior.alcance !== valores.alcance || anterior.sede_id !== valores.sede_id)
+  ) {
     return { ok: false, error: "Si cambiás el alcance o la sede, volvé a subir el archivo." };
   }
   if (hayArchivoNuevo) {
@@ -113,18 +137,23 @@ export async function guardarRecurso(_prev: ResultadoGuardado, formData: FormDat
     if (hayArchivoNuevo) await supabase.storage.from("recursos").remove([pathSubido]);
     return { ok: false, error: resultado.error ? mensajeErrorGuardado(resultado.error) : SIN_PERMISO };
   }
-  if (hayArchivoNuevo && anterior?.archivo_path) await supabase.storage.from("recursos").remove([anterior.archivo_path]);
+  if (hayArchivoNuevo && anterior?.archivo_path)
+    await supabase.storage.from("recursos").remove([anterior.archivo_path]);
   revalidatePath("/contenido");
   revalidatePath("/recursos");
   if (!id.data) redirect(`/contenido/recursos/${resultado.data[0]!.id}?creado=1`);
   return { ok: true, mensaje: "Recurso guardado." };
 }
 
-export async function guardarCampana(_prev: ResultadoGuardado, formData: FormData): Promise<ResultadoGuardado> {
+export async function guardarCampana(
+  _prev: ResultadoGuardado,
+  formData: FormData,
+): Promise<ResultadoGuardado> {
   await requerirRol([...ROLES_EDITORES]);
   const id = idOpcional.safeParse(formData.get("id"));
   const d = esquemaCampana.safeParse(datos(formData));
-  if (!id.success || !d.success) return { ok: false, error: d.error?.issues[0]?.message ?? "Revisá los datos." };
+  if (!id.success || !d.success)
+    return { ok: false, error: d.error?.issues[0]?.message ?? "Revisá los datos." };
   const supabase = await crearClienteServidor();
   const r = id.data
     ? await supabase.from("campanas").update(d.data).eq("id", id.data).select("id")
@@ -135,7 +164,15 @@ export async function guardarCampana(_prev: ResultadoGuardado, formData: FormDat
   return { ok: true, mensaje: "Campaña guardada." };
 }
 
-const esquemaTabla = z.enum(["articulos", "recursos", "campanas", "cursos"]);
+const esquemaTabla = z.enum([
+  "articulos",
+  "recursos",
+  "campanas",
+  "cursos",
+  "preguntas",
+  "casos",
+  "examenes",
+]);
 
 export async function promover(tabla: string, id: string): Promise<ResultadoGuardado> {
   await requerirRol(["admin"]);
@@ -144,7 +181,11 @@ export async function promover(tabla: string, id: string): Promise<ResultadoGuar
   if (!t.success || !i.success) return { ok: false, error: "Revisá los datos." };
   const supabase = await crearClienteServidor();
   const { error } = await supabase.rpc("promover_contenido", { p_tabla: t.data, p_id: i.data });
-  if (error) return { ok: false, error: error.message.includes("no_autorizado") ? SIN_PERMISO : "No pudimos promoverlo. Probá de nuevo." };
+  if (error)
+    return {
+      ok: false,
+      error: error.message.includes("no_autorizado") ? SIN_PERMISO : "No pudimos promoverlo. Probá de nuevo.",
+    };
   revalidatePath("/contenido");
   revalidatePath("/repositorio", "layout");
   revalidatePath("/recursos");

@@ -64,13 +64,28 @@ export function FormularioArticulo({
         />
       </Campo>
       <Campo id="slug" etiqueta="Dirección (slug)" ayuda={`Queda en /repositorio/…/${slug || "…"}`}>
-        <Input id="slug" name="slug" value={slug} onChange={(e) => { setSlug(e.target.value); setSlugTocado(true); }} />
+        <Input
+          id="slug"
+          name="slug"
+          value={slug}
+          onChange={(e) => {
+            setSlug(e.target.value);
+            setSlugTocado(true);
+          }}
+        />
       </Campo>
       <div className="grid gap-4 sm:grid-cols-2">
         <Campo id="categoria_id" etiqueta="Categoría">
-          <Select id="categoria_id" name="categoria_id" value={categoria} onChange={(e) => setCategoria(e.target.value)}>
+          <Select
+            id="categoria_id"
+            name="categoria_id"
+            value={categoria}
+            onChange={(e) => setCategoria(e.target.value)}
+          >
             {categorias.map((c) => (
-              <option key={c.id} value={c.id}>{c.nombre}</option>
+              <option key={c.id} value={c.id}>
+                {c.nombre}
+              </option>
             ))}
           </Select>
         </Campo>
@@ -80,12 +95,18 @@ export function FormularioArticulo({
             {padres
               .filter((p) => p.categoria_id === categoria && p.id !== articulo?.id)
               .map((p) => (
-                <option key={p.id} value={p.id}>{p.titulo}</option>
+                <option key={p.id} value={p.id}>
+                  {p.titulo}
+                </option>
               ))}
           </Select>
         </Campo>
       </div>
-      <Campo id="resumen" etiqueta="Resumen" ayuda="Una o dos líneas. Se muestra en los listados y en la búsqueda.">
+      <Campo
+        id="resumen"
+        etiqueta="Resumen"
+        ayuda="Una o dos líneas. Se muestra en los listados y en la búsqueda."
+      >
         <Input id="resumen" name="resumen" maxLength={300} defaultValue={articulo?.resumen ?? ""} />
       </Campo>
       <div className="flex flex-col gap-1.5">
@@ -99,7 +120,10 @@ export function FormularioArticulo({
                 role="tab"
                 aria-selected={vista === v}
                 onClick={() => setVista(v)}
-                className={cn("rounded-md px-3 py-1 text-sm", vista === v ? "bg-background font-semibold" : "text-muted")}
+                className={cn(
+                  "rounded-md px-3 py-1 text-sm",
+                  vista === v ? "bg-background font-semibold" : "text-muted",
+                )}
               >
                 {v === "editar" ? "Escribir" : "Vista previa"}
               </button>
@@ -113,17 +137,32 @@ export function FormularioArticulo({
           value={cuerpo}
           onChange={(e) => setCuerpo(e.target.value)}
           rows={16}
-          className={cn("w-full rounded-lg border border-border bg-card p-3 font-mono text-sm", vista === "previa" && "hidden")}
+          className={cn(
+            "w-full rounded-lg border border-border bg-card p-3 font-mono text-sm",
+            vista === "previa" && "hidden",
+          )}
         />
         {vista === "previa" && (
           <div className="min-h-40 rounded-lg border border-border bg-card p-4">
-            {cuerpo.trim() ? <Markdown texto={cuerpo} /> : <p className="text-sm text-muted">Todavía no escribiste nada.</p>}
+            {cuerpo.trim() ? (
+              <Markdown texto={cuerpo} />
+            ) : (
+              <p className="text-sm text-muted">Todavía no escribiste nada.</p>
+            )}
           </div>
         )}
-        <p className="text-xs text-muted">Usá ## para títulos, - para listas y **negrita**. Las tablas también funcionan.</p>
+        <p className="text-xs text-muted">
+          Usá ## para títulos, - para listas y **negrita**. Las tablas también funcionan.
+        </p>
       </div>
       <div className="grid gap-4 sm:grid-cols-3">
-        <CamposAlcance alcances={alcances} sedes={sedes} alcance={articulo?.alcance} sedeId={articulo?.sede_id} estado={articulo?.estado} />
+        <CamposAlcance
+          alcances={alcances}
+          sedes={sedes}
+          alcance={articulo?.alcance}
+          sedeId={articulo?.sede_id}
+          estado={articulo?.estado}
+        />
       </div>
       <div className="grid gap-4 sm:grid-cols-3">
         <CampoFecha id="vigente_desde" etiqueta="Vigente desde" valor={articulo?.vigente_desde} />

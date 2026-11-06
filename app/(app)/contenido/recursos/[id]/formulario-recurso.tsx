@@ -99,9 +99,15 @@ export function FormularioRecurso({
           </Select>
         </Campo>
         <Campo id="categoria_id" etiqueta="Categoría">
-          <Select id="categoria_id" name="categoria_id" defaultValue={recurso?.categoria_id ?? categorias[0]?.id}>
+          <Select
+            id="categoria_id"
+            name="categoria_id"
+            defaultValue={recurso?.categoria_id ?? categorias[0]?.id}
+          >
             {categorias.map((c) => (
-              <option key={c.id} value={c.id}>{c.nombre}</option>
+              <option key={c.id} value={c.id}>
+                {c.nombre}
+              </option>
             ))}
           </Select>
         </Campo>
@@ -109,7 +115,9 @@ export function FormularioRecurso({
           <Select id="campana_id" name="campana_id" defaultValue={recurso?.campana_id ?? ""}>
             <option value="">Sin campaña</option>
             {campanas.map((c) => (
-              <option key={c.id} value={c.id}>{c.nombre}</option>
+              <option key={c.id} value={c.id}>
+                {c.nombre}
+              </option>
             ))}
           </Select>
         </Campo>
@@ -127,12 +135,20 @@ export function FormularioRecurso({
           className="h-auto py-2"
           onChange={(e) => {
             const f = e.target.files?.[0];
-            setErrorArchivo(f && f.size > MAX_MB * 1024 * 1024 ? `El archivo pesa más de ${MAX_MB} MB.` : null);
+            setErrorArchivo(
+              f && f.size > MAX_MB * 1024 * 1024 ? `El archivo pesa más de ${MAX_MB} MB.` : null,
+            );
           }}
         />
       </Campo>
-      {recurso?.archivo_path && <p className="text-xs text-muted">Archivo actual: {recurso.archivo_path.split("/").pop()}</p>}
-      {errorArchivo && <p role="alert" className="text-sm text-destructive">{errorArchivo}</p>}
+      {recurso?.archivo_path && (
+        <p className="text-xs text-muted">Archivo actual: {recurso.archivo_path.split("/").pop()}</p>
+      )}
+      {errorArchivo && (
+        <p role="alert" className="text-sm text-destructive">
+          {errorArchivo}
+        </p>
+      )}
       <Campo id="url_externa" etiqueta="Link (para enlaces o videos de YouTube/Vimeo)">
         <Input id="url_externa" name="url_externa" type="url" defaultValue={recurso?.url_externa ?? ""} />
       </Campo>
@@ -140,12 +156,24 @@ export function FormularioRecurso({
         <Input id="etiquetas" name="etiquetas" defaultValue={recurso?.etiquetas.join(", ") ?? ""} />
       </Campo>
       <div className="grid gap-4 sm:grid-cols-4">
-        <CamposAlcance alcances={alcances} sedes={sedes} alcance={recurso?.alcance} sedeId={recurso?.sede_id} estado={recurso?.estado} />
+        <CamposAlcance
+          alcances={alcances}
+          sedes={sedes}
+          alcance={recurso?.alcance}
+          sedeId={recurso?.sede_id}
+          estado={recurso?.estado}
+        />
         <CampoFecha id="vigente_hasta" etiqueta="Vigente hasta" valor={recurso?.vigente_hasta} />
       </div>
       <MensajeResultado r={r} />
       <Button type="submit" disabled={pendiente || subiendo} className="self-start">
-        {subiendo ? "Subiendo archivo…" : pendiente ? "Guardando…" : recurso ? "Guardar cambios" : "Crear recurso"}
+        {subiendo
+          ? "Subiendo archivo…"
+          : pendiente
+            ? "Guardando…"
+            : recurso
+              ? "Guardar cambios"
+              : "Crear recurso"}
       </Button>
     </form>
   );

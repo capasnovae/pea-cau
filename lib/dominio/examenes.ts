@@ -299,3 +299,15 @@ export function mensajeDeCodigo(codigo: string | undefined): string | null {
     (codigo === "error" ? "No pudimos completar la acción." : null)
   );
 }
+
+export const esquemaCaso = z
+  .object({
+    titulo: z.string().trim().min(1, "Poné un título.").max(150),
+    contexto_md: z.string().trim().max(4000).default(""),
+    categoria_id: uuidOVacio,
+    alcance: z.enum(["global", "sede"]),
+    sede_id: uuidOVacio,
+    estado: z.enum(["borrador", "publicado", "archivado"]),
+  })
+  .refine((c) => c.alcance === "global" || c.sede_id, { message: "Elegí la sede." })
+  .transform((c) => ({ ...c, sede_id: c.alcance === "sede" ? c.sede_id : null }));
