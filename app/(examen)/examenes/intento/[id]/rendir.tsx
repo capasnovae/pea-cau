@@ -10,9 +10,40 @@ import {
 } from "@/components/examen/controles";
 import { formatoDuracion } from "@/lib/dominio/examenes";
 import { cn } from "@/lib/utils/cn";
-import { entregar, guardar } from "../../acciones";
+import { entregar, guardar, registrarSalida } from "@/app/(app)/examenes/acciones";
 
 type EstadoGuardado = "guardado" | "guardando" | "error";
+
+function Dialogo({
+  titulo,
+  onCerrar,
+  children,
+}: {
+  titulo: string;
+  onCerrar: () => void;
+  children: React.ReactNode;
+}) {
+  useEffect(() => {
+    const esc = (e: KeyboardEvent) => e.key === "Escape" && onCerrar();
+    window.addEventListener("keydown", esc);
+    return () => window.removeEventListener("keydown", esc);
+  }, [onCerrar]);
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-ink/50 p-4">
+      <div
+        role="alertdialog"
+        aria-modal="true"
+        aria-labelledby="dialogo-titulo"
+        className="flex w-full max-w-md flex-col gap-4 rounded-3xl bg-card p-6 shadow-xl"
+      >
+        <h2 id="dialogo-titulo" className="text-xl font-extrabold">
+          {titulo}
+        </h2>
+        {children}
+      </div>
+    </div>
+  );
+}
 
 function Reloj({ venceAt, onFin }: { venceAt: string; onFin: () => void }) {
   const [resta, setResta] = useState(() => (Date.parse(venceAt) - Date.now()) / 1000);
@@ -108,6 +139,33 @@ export function Rendir({
     });
   }, [intentoId, enviar]);
 
+  // Modo examen: advertencia nativa al cerrar o recargar, y registro de salidas a otra pestaña o ventana.
+  const [salir, setSalir] = useState(false);
+  const [aviso, setAviso] = useState<number | null>(null);
+  const salidaPendiente = useRef<Promise<number | null> | null>(null);
+  useEffect(() => {
+    if (entregando) return;
+    const antesDeIrse = (e: BeforeUnloadEvent) => {
+      e.preventDefault();
+      e.returnValue = "";
+    };
+    const cambioDeVista = () => {
+      if (document.visibilityState === "hidden") {
+        salidaPendiente.current = registrarSalida(intentoId);
+      } else if (salidaPendiente.current) {
+        const p = salidaPendiente.current;
+        salidaPendiente.current = null;
+        void p.then((n) => setAviso(n ?? 1));
+      }
+    };
+    window.addEventListener("beforeunload", antesDeIrse);
+    document.addEventListener("visibilitychange", cambioDeVista);
+    return () => {
+      window.removeEventListener("beforeunload", antesDeIrse);
+      document.removeEventListener("visibilitychange", cambioDeVista);
+    };
+  }, [entregando, intentoId]);
+
   const p = preguntas[actual]!;
   const sinResponder = preguntas.filter((q) => !respondida(q, valores[q.pregunta_id])).length;
 
@@ -123,8 +181,52 @@ export function Rendir({
             {guardado === "guardando" ? "Guardando…" : guardado === "error" ? "Sin guardar" : "Guardado"}
           </span>
           {venceAt && <Reloj venceAt={venceAt} onFin={confirmarEntrega} />}
+          <button
+            type="button"
+            onClick={() => setSalir(true)}
+            className="rounded-xl border border-border bg-card px-3 py-1.5 text-sm font-bold"
+          >
+            Salir
+          </button>
         </div>
       </div>
+
+      {salir && (
+        <Dialogo titulo="¿Salir del examen?" onCerrar={() => setSalir(false)}>
+          <p>Estás por salir del examen. Si continuás, se va a entregar con lo que respondiste.</p>
+          <div className="flex flex-col gap-2 sm:flex-row">
+            <button
+              type="button"
+              onClick={() => setSalir(false)}
+              className="min-h-12 flex-1 rounded-2xl bg-primary font-bold text-white"
+            >
+              Volver al examen
+            </button>
+            <button
+              type="button"
+              disabled={entregando}
+              onClick={confirmarEntrega}
+              className="min-h-12 flex-1 rounded-2xl border-2 border-[#b91c1c] font-bold text-[#b91c1c] disabled:opacity-60"
+            >
+              {entregando ? "Entregando…" : "Entregar y salir"}
+            </button>
+          </div>
+        </Dialogo>
+      )}
+      {aviso !== null && (
+        <Dialogo titulo="Saliste del examen" onCerrar={() => setAviso(null)}>
+          <p>
+            Quedó registrado ({aviso} {aviso === 1 ? "vez" : "veces"}).
+          </p>
+          <button
+            type="button"
+            onClick={() => setAviso(null)}
+            className="min-h-12 rounded-2xl bg-primary font-bold text-white"
+          >
+            Volver al examen
+          </button>
+        </Dialogo>
+      )}
 
       <nav aria-label="Preguntas" className="flex flex-wrap gap-1.5">
         {preguntas.map((q, i) => (

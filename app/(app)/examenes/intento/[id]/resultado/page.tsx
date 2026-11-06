@@ -13,7 +13,7 @@ export default async function PaginaResultado({ params }: PageProps<"/examenes/i
   const supabase = await crearClienteServidor();
   const { data: intento } = await supabase
     .from("intentos")
-    .select("id, estado, nota, aprobado, usuario_id, examen_id, examenes(titulo, nota_minima, tipo)")
+    .select("id, estado, nota, aprobado, usuario_id, examen_id, salidas, examenes(titulo, nota_minima, tipo)")
     .eq("id", id)
     .maybeSingle();
   if (!intento || intento.estado === "en_curso") notFound();
@@ -69,6 +69,11 @@ export default async function PaginaResultado({ params }: PageProps<"/examenes/i
           <h1 className="text-2xl font-extrabold">{intento.aprobado ? "Aprobado" : "No aprobado"}</h1>
           <p className="text-sm text-white/85">Para aprobar: {examen?.nota_minima}%</p>
         </section>
+      )}
+      {intento.salidas > 0 && (
+        <p className="rounded-2xl bg-warning-soft p-3 text-center text-sm font-semibold text-warning">
+          Salió del examen {intento.salidas} {intento.salidas === 1 ? "vez" : "veces"}
+        </p>
       )}
       {ubicacion && !ubicacion.rendida && (
         <form action={empezarUbicacion}>

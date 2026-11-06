@@ -187,6 +187,37 @@ test.describe.serial("ubicación, práctica y corrección", () => {
   });
 });
 
+test("modo examen: sin menú, aviso al salir de la pestaña y salir entrega", async ({ browser }) => {
+  const a = await sesion(browser, "asesor.roca@pea.local");
+  await a.goto("/examenes/d1000000-0000-4000-8000-000000000003");
+  await a.getByRole("button", { name: "Empezar" }).click();
+  await expect(a).toHaveURL(/\/examenes\/intento\/[0-9a-f-]{36}$/);
+  await expect(a.getByRole("navigation", { name: "Principal" })).toHaveCount(0);
+
+  // Irse a otra pestaña y volver
+  const cambiarVista = (estado: "hidden" | "visible") =>
+    a.evaluate((e) => {
+      Object.defineProperty(document, "visibilityState", { configurable: true, get: () => e });
+      document.dispatchEvent(new Event("visibilitychange"));
+    }, estado);
+  await cambiarVista("hidden");
+  await cambiarVista("visible");
+  const aviso = a.getByRole("alertdialog", { name: "Saliste del examen" });
+  await expect(aviso).toContainText("1 vez");
+  await aviso.getByRole("button", { name: "Volver al examen" }).click();
+
+  await a.getByRole("button", { name: "Salir" }).click();
+  const salir = a.getByRole("alertdialog", { name: "¿Salir del examen?" });
+  await expect(salir).toContainText("se va a entregar");
+  await salir.getByRole("button", { name: "Volver al examen" }).click();
+  await expect(salir).toHaveCount(0);
+  await a.getByRole("button", { name: "Salir" }).click();
+  await a.getByRole("alertdialog").getByRole("button", { name: "Entregar y salir" }).click();
+  await expect(a).toHaveURL(/\/resultado$/);
+  await expect(a.getByText("Salió del examen 1 vez")).toBeVisible();
+  await expect(a.getByRole("navigation", { name: "Principal" }).first()).toBeAttached();
+});
+
 test("un asesor no entra a la cola de corrección", async ({ browser }) => {
   const r = await sesion(browser, "asesor.roca@pea.local");
   expect((await r.goto("/equipo/correcciones"))?.status()).toBe(404);

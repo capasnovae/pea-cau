@@ -55,3 +55,13 @@ export async function entregar(intentoId: string): Promise<void> {
   revalidatePath("/estudiar", "layout");
   redirect(`/examenes/intento/${id.data}/resultado`);
 }
+
+/** Suma una salida del examen (otra pestaña o ventana). Devuelve el total, o null si no se pudo. */
+export async function registrarSalida(intentoId: string): Promise<number | null> {
+  await requerirPerfil();
+  const id = z.uuid().safeParse(intentoId);
+  if (!id.success) return null;
+  const supabase = await crearClienteServidor();
+  const { data, error } = await supabase.rpc("registrar_salida", { p_intento: id.data });
+  return error ? null : data;
+}

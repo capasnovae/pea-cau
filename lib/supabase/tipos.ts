@@ -1252,6 +1252,7 @@ export type Database = {
           nota: number | null;
           puntaje_auto: number | null;
           puntaje_manual: number | null;
+          salidas: number;
           sede_id: string | null;
           tomado_at: string | null;
           usuario_id: string;
@@ -1275,6 +1276,7 @@ export type Database = {
           nota?: number | null;
           puntaje_auto?: number | null;
           puntaje_manual?: number | null;
+          salidas?: number;
           sede_id?: string | null;
           tomado_at?: string | null;
           usuario_id: string;
@@ -1297,6 +1299,7 @@ export type Database = {
           nota?: number | null;
           puntaje_auto?: number | null;
           puntaje_manual?: number | null;
+          salidas?: number;
           sede_id?: string | null;
           tomado_at?: string | null;
           usuario_id?: string;
@@ -2619,6 +2622,7 @@ export type Database = {
       puede_ver_intento: { Args: { p_intento: string }; Returns: boolean };
       puede_ver_usuario: { Args: { objetivo: string }; Returns: boolean };
       puede_ver_usuario_como: { Args: { p_actor: string; p_objetivo: string }; Returns: boolean };
+      registrar_salida: { Args: { p_intento: string }; Returns: number };
       responder: { Args: { p_conversacion: string; p_cuerpo: string }; Returns: string };
       respuesta_correcta: {
         Args: { p_opcion_ids: string[]; p_orden: string[]; p_pregunta: string; p_valores: Json };
