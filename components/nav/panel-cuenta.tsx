@@ -63,9 +63,6 @@ export function PanelCuenta({
               className="flex items-center justify-between rounded-lg px-2 py-2 font-semibold hover:bg-primary-soft"
             >
               Mis insignias
-              <span className="rounded-full bg-primary-soft px-2 py-0.5 text-[11px] text-primary-strong">
-                Próximamente
-              </span>
             </Link>
           </li>
           <li>
