@@ -12,11 +12,11 @@ export async function GET(req: Request, { params }: { params: Promise<{ id: stri
   const { data: c } = await supabase
     .from("certificaciones")
     .select(
-      "id, origen, codigo_verificacion, emitida_at, vence_at, cursos(nivel_orden, titulo), perfiles!certificaciones_usuario_id_fkey(nombre, apellido)",
+      "id, origen, estado, codigo_verificacion, emitida_at, vence_at, cursos(nivel_orden, titulo), perfiles!certificaciones_usuario_id_fkey(nombre, apellido)",
     )
     .eq("id", id)
     .maybeSingle();
-  if (!c || c.origen !== "examen" || !c.cursos?.nivel_orden || !c.perfiles)
+  if (!c || c.origen !== "examen" || c.estado === "revocada" || !c.cursos?.nivel_orden || !c.perfiles)
     return new Response("No encontrado", { status: 404 });
   const bytes = await generarCertificadoPdf({
     nombre: `${c.perfiles.nombre} ${c.perfiles.apellido}`.trim(),

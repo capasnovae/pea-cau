@@ -17,17 +17,31 @@ const PRIMARIO = rgb(0x4f / 255, 0x46 / 255, 0xe5 / 255);
 const TINTA = rgb(0x1a / 255, 0x1a / 255, 0x2e / 255);
 const GRIS = rgb(0x5b / 255, 0x5b / 255, 0x70 / 255);
 
-/** Helvetica (WinAnsi) cubre el español; cualquier carácter que no entre se reemplaza por su versión sin tilde. */
-function seguro(texto: string, fuente: PDFFont): string {
-  try {
-    fuente.encodeText(texto);
-    return texto;
-  } catch {
-    return texto
-      .normalize("NFD")
-      .replace(/\p{Diacritic}/gu, "")
-      .replace(/[^\x20-\x7e]/g, "?");
-  }
+/** Helvetica (WinAnsi) cubre el español; cada carácter que no entre pasa a su versión sin tilde o a "?". */
+export function seguro(texto: string, fuente: PDFFont): string {
+  const entra = (c: string) => {
+    try {
+      fuente.encodeText(c);
+      return true;
+    } catch {
+      return false;
+    }
+  };
+  if (entra(texto)) return texto;
+  return [...texto]
+    .map((c) => {
+      if (entra(c)) return c;
+      const base = c.normalize("NFD").replace(/\p{Diacritic}/gu, "");
+      return base && entra(base) ? base : "?";
+    })
+    .join("");
+}
+
+/** El tamaño más grande (hasta tamMax, mínimo 10) con el que el texto entra en el ancho. */
+export function tamanoQueEntra(texto: string, fuente: PDFFont, tamMax: number, anchoMax: number): number {
+  const ancho = fuente.widthOfTextAtSize(texto, tamMax);
+  if (ancho <= anchoMax) return tamMax;
+  return Math.max(10, Math.floor(((tamMax * anchoMax) / ancho) * 10) / 10);
 }
 
 function centrado(
@@ -41,10 +55,11 @@ function centrado(
   x0 = 0,
 ) {
   const t = seguro(texto, fuente);
+  const tamano = tamanoQueEntra(t, fuente, tam, ancho - 96);
   page.drawText(t, {
-    x: x0 + (ancho - fuente.widthOfTextAtSize(t, tam)) / 2,
+    x: x0 + (ancho - fuente.widthOfTextAtSize(t, tamano)) / 2,
     y,
-    size: tam,
+    size: tamano,
     font: fuente,
     color,
   });

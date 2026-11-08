@@ -147,6 +147,23 @@ test("modo examen: sin menú, aviso al salir de la pestaña y salir entrega", as
   await expect(a.getByRole("navigation", { name: "Principal" }).first()).toBeAttached();
 });
 
+test("modo examen: el botón Atrás pide confirmar y no saca del examen", async ({ browser }) => {
+  const a = await sesion(browser, "asesor.roca@pea.local");
+  await a.goto("/examenes/d1000000-0000-4000-8000-000000000003");
+  await a.getByRole("button", { name: "Empezar" }).click();
+  await expect(a).toHaveURL(/\/examenes\/intento\/[0-9a-f-]{36}$/);
+  await expect(a.getByRole("timer")).toBeVisible();
+  await a.goBack();
+  const salir = a.getByRole("alertdialog", { name: "¿Salir del examen?" });
+  await expect(salir).toBeVisible();
+  await expect(salir.getByRole("button", { name: "Volver al examen" })).toBeFocused();
+  await expect(a).toHaveURL(/\/examenes\/intento\/[0-9a-f-]{36}$/);
+  await salir.getByRole("button", { name: "Volver al examen" }).click();
+  await a.goBack();
+  await a.getByRole("alertdialog").getByRole("button", { name: "Entregar y salir" }).click();
+  await expect(a).toHaveURL(/\/resultado$/);
+});
+
 test("un asesor no entra a la cola de corrección", async ({ browser }) => {
   const r = await sesion(browser, "asesor.roca@pea.local");
   expect((await r.goto("/equipo/correcciones"))?.status()).toBe(404);

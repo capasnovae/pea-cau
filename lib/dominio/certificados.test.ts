@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import {
+  busquedaCertificados,
   esquemaInsignia,
   esquemaRevocacion,
   estadoEfectivo,
@@ -32,6 +33,19 @@ describe("textos", () => {
   });
   it("normaliza el código", () => {
     expect(normalizarCodigo(" ab-12 cd ")).toBe("AB12CD");
+  });
+});
+
+describe("busquedaCertificados", () => {
+  it("solo un código de 10 hex (con o sin guiones) se busca como código", () => {
+    expect(busquedaCertificados(" ab12-cd34 ef ")).toEqual({ tipo: "codigo", codigo: "AB12CD34EF" });
+    expect(busquedaCertificados("Asesor")).toEqual({ tipo: "nombre", terminos: ["Asesor"] });
+    expect(busquedaCertificados("Fernández")).toEqual({ tipo: "nombre", terminos: ["Fernández"] });
+  });
+  it("separa el nombre completo en términos y saca los caracteres del filtro", () => {
+    expect(busquedaCertificados("Andrés  Asesor")).toEqual({ tipo: "nombre", terminos: ["Andrés", "Asesor"] });
+    expect(busquedaCertificados("a%b,(c)")).toEqual({ tipo: "nombre", terminos: ["a", "b", "c"] });
+    expect(busquedaCertificados("   ")).toBeNull();
   });
 });
 

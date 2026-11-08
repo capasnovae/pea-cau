@@ -201,7 +201,7 @@ export default async function PaginaPerfil() {
                         >
                           {ETIQUETA_ESTADO_CERT[estado]}
                         </span>
-                        {c.origen === "examen" && (
+                        {c.origen === "examen" && estado !== "revocada" && (
                           <a
                             href={`/certificados/${c.id}/pdf`}
                             className="rounded-xl bg-primary px-3 py-2 text-sm font-bold text-white"

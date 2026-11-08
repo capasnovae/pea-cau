@@ -38,6 +38,19 @@ export function normalizarCodigo(c: string): string {
   return c.replace(/[\s-]/g, "").toUpperCase();
 }
 
+export type BusquedaCertificados = { tipo: "codigo"; codigo: string } | { tipo: "nombre"; terminos: string[] };
+
+/** Un código de verificación (10 hex, con o sin guiones o espacios) o términos de nombre y apellido. */
+export function busquedaCertificados(q: string): BusquedaCertificados | null {
+  const codigo = normalizarCodigo(q.trim());
+  if (/^[0-9A-F]{10}$/.test(codigo)) return { tipo: "codigo", codigo };
+  const terminos = q
+    .replace(/[%,()*\\]/g, " ")
+    .split(/\s+/)
+    .filter(Boolean);
+  return terminos.length ? { tipo: "nombre", terminos } : null;
+}
+
 export const esquemaInsignia = z.object({
   nombre: z.string().trim().min(1, "Poné un nombre.").max(60),
   descripcion: z.string().trim().max(300).default(""),

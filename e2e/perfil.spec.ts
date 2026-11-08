@@ -52,12 +52,15 @@ test.describe.serial("perfil, insignias y certificados", () => {
   }) => {
     const codigo = verificar.split("/").pop()!;
     const adm = await sesion(browser, "admin@pea.local");
-    await adm.goto(`/admin/certificaciones?q=${codigo}`);
-    const fila = adm.getByRole("list", { name: "Certificados" }).getByRole("listitem").first();
+    const fila = adm.getByRole("list", { name: "Certificados" }).getByRole("listitem").filter({ hasText: codigo });
+    await adm.goto("/admin/certificaciones?q=Asesor");
+    await expect(fila).toBeVisible();
+    await adm.goto(`/admin/certificaciones?q=${encodeURIComponent("Andrés Asesor")}`);
+    await expect(fila).toBeVisible();
     await fila.getByText("Revocar").click();
     await fila.getByLabel("Motivo").fill("Prueba E2E");
     await fila.getByRole("button", { name: "Confirmar" }).click();
-    await expect(adm.getByRole("list", { name: "Certificados" }).getByRole("listitem").first()).toContainText("Revocado");
+    await expect(fila).toContainText("Revocado");
 
     const anon = await (await browser.newContext()).newPage();
     await anon.goto(verificar);
@@ -66,6 +69,10 @@ test.describe.serial("perfil, insignias y certificados", () => {
     const a = await sesion(browser, "asesor.nqn@pea.local");
     await a.goto("/perfil");
     await expect(a.getByRole("list", { name: "Insignias" })).toContainText("Perdida");
+    await expect(
+      a.getByRole("list", { name: "Certificados" }).getByRole("listitem").filter({ hasText: "Revocado" }).getByRole("link", { name: "PDF" }),
+    ).toHaveCount(0);
+    expect((await a.request.get(pdf)).status()).toBe(404);
   });
 });
 

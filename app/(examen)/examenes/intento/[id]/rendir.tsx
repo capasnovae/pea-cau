@@ -23,14 +23,35 @@ function Dialogo({
   onCerrar: () => void;
   children: React.ReactNode;
 }) {
+  const caja = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const esc = (e: KeyboardEvent) => e.key === "Escape" && onCerrar();
     window.addEventListener("keydown", esc);
     return () => window.removeEventListener("keydown", esc);
   }, [onCerrar]);
+  // El foco entra al diálogo (primer botón) y vuelve adonde estaba al cerrarlo
+  useEffect(() => {
+    const previo = document.activeElement as HTMLElement | null;
+    caja.current?.querySelector<HTMLButtonElement>("button")?.focus();
+    return () => previo?.focus?.();
+  }, []);
+  const atrapar = (e: React.KeyboardEvent) => {
+    if (e.key !== "Tab" || !caja.current) return;
+    const botones = [...caja.current.querySelectorAll<HTMLButtonElement>("button:not([disabled])")];
+    const [primero, ultimo] = [botones[0], botones[botones.length - 1]];
+    if (e.shiftKey && document.activeElement === primero) {
+      e.preventDefault();
+      ultimo?.focus();
+    } else if (!e.shiftKey && document.activeElement === ultimo) {
+      e.preventDefault();
+      primero?.focus();
+    }
+  };
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-ink/50 p-4">
       <div
+        ref={caja}
+        onKeyDown={atrapar}
         role="alertdialog"
         aria-modal="true"
         aria-labelledby="dialogo-titulo"
@@ -155,7 +176,7 @@ export function Rendir({
       } else if (salidaPendiente.current) {
         const p = salidaPendiente.current;
         salidaPendiente.current = null;
-        void p.then((n) => setAviso(n ?? 1));
+        p.then((n) => setAviso(n ?? 0)).catch(() => setAviso(0));
       }
     };
     window.addEventListener("beforeunload", antesDeIrse);
@@ -165,6 +186,18 @@ export function Rendir({
       document.removeEventListener("visibilitychange", cambioDeVista);
     };
   }, [entregando, intentoId]);
+
+  // Botón o gesto de Atrás: una entrada extra en el historial lo frena y abre el diálogo de salir
+  useEffect(() => {
+    if (entregando) return;
+    window.history.pushState(window.history.state, "", window.location.href);
+    const atras = () => {
+      window.history.pushState(window.history.state, "", window.location.href);
+      setSalir(true);
+    };
+    window.addEventListener("popstate", atras);
+    return () => window.removeEventListener("popstate", atras);
+  }, [entregando]);
 
   const p = preguntas[actual]!;
   const sinResponder = preguntas.filter((q) => !respondida(q, valores[q.pregunta_id])).length;
@@ -216,7 +249,9 @@ export function Rendir({
       {aviso !== null && (
         <Dialogo titulo="Saliste del examen" onCerrar={() => setAviso(null)}>
           <p>
-            Quedó registrado ({aviso} {aviso === 1 ? "vez" : "veces"}).
+            {aviso > 0
+              ? `Quedó registrado (${aviso} ${aviso === 1 ? "vez" : "veces"}).`
+              : "Volvé al examen para seguir."}
           </p>
           <button
             type="button"

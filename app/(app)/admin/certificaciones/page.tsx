@@ -3,7 +3,7 @@ import {
   COLOR_ESTADO_CERT,
   ETIQUETA_ESTADO_CERT,
   estadoEfectivo,
-  normalizarCodigo,
+  busquedaCertificados,
 } from "@/lib/dominio/certificados";
 import { formatearFecha } from "@/lib/dominio/contenido";
 import { requerirRol } from "@/lib/supabase/permisos";
@@ -23,14 +23,12 @@ export default async function PaginaCertificaciones({ searchParams }: PageProps<
     )
     .order("emitida_at", { ascending: false })
     .limit(100);
-  if (busqueda) {
-    const codigo = normalizarCodigo(busqueda).replace(/[^A-Z0-9]/g, "");
-    const texto = busqueda.replace(/[%,()]/g, " ");
-    consulta =
-      codigo.length >= 6
-        ? consulta.eq("codigo_verificacion", codigo)
-        : consulta.or(`nombre.ilike.%${texto}%,apellido.ilike.%${texto}%`, { referencedTable: "perfiles" });
-  }
+  const filtro = busquedaCertificados(busqueda);
+  if (filtro?.tipo === "codigo") consulta = consulta.eq("codigo_verificacion", filtro.codigo);
+  // Cada término tiene que aparecer en el nombre o en el apellido
+  if (filtro?.tipo === "nombre")
+    for (const t of filtro.terminos)
+      consulta = consulta.or(`nombre.ilike.%${t}%,apellido.ilike.%${t}%`, { referencedTable: "perfiles" });
   const { data } = await consulta;
   const ahora = new Date();
   return (

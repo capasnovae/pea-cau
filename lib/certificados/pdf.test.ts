@@ -1,6 +1,6 @@
-import { PDFDocument } from "pdf-lib";
+import { PDFDocument, StandardFonts } from "pdf-lib";
 import { describe, expect, it } from "vitest";
-import { generarCertificadoPdf } from "./pdf";
+import { generarCertificadoPdf, seguro, tamanoQueEntra } from "./pdf";
 
 describe("generarCertificadoPdf", () => {
   it("arma un PDF apaisado de una página con el título del certificado", async () => {
@@ -19,5 +19,21 @@ describe("generarCertificadoPdf", () => {
     const { width, height } = doc.getPage(0).getSize();
     expect(width).toBeGreaterThan(height);
     expect(doc.getTitle()).toBe("Certificado Nivel 1 · Andrés Núñez");
+  });
+});
+
+describe("textos del PDF", async () => {
+  const doc = await PDFDocument.create();
+  const fuente = await doc.embedFont(StandardFonts.HelveticaBold);
+  it("reemplaza solo los caracteres que no entran y conserva las tildes", () => {
+    expect(seguro("Łukasz Ñandú", fuente)).toBe("?ukasz Ñandú");
+    expect(seguro("Andrés", fuente)).toBe("Andrés");
+  });
+  it("achica la letra hasta que el texto entra en el ancho", () => {
+    const largo = "María de los Ángeles Fernández Rodríguez de la Santísima Trinidad";
+    const t = tamanoQueEntra(largo, fuente, 36, 746);
+    expect(t).toBeLessThan(36);
+    expect(fuente.widthOfTextAtSize(largo, t)).toBeLessThanOrEqual(746);
+    expect(tamanoQueEntra("Ana Paz", fuente, 36, 746)).toBe(36);
   });
 });
