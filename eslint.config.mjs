@@ -19,6 +19,8 @@ const eslintConfig = defineConfig([
     "next-env.d.ts",
     "lib/supabase/tipos.ts",
     ".superpowers/**",
+    // Scripts de relevamiento en CommonJS (Playwright desde la línea de comandos)
+    "scripts/relevamiento/**",
   ]),
 ]);
 
