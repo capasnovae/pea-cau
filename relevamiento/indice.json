@@ -1,0 +1,810 @@
+[
+ {
+  "sitio": "reglamento",
+  "slug": "1-1-sobre-la-universidad",
+  "titulo": "Sobre la Universidad",
+  "url": "https://contenidos.21.edu.ar/microsites/reglamento/index.php?put=1-1-sobre-la-universidad",
+  "categoria": "reglamento",
+  "chars": 1116
+ },
+ {
+  "sitio": "reglamento",
+  "slug": "1-2-mision-y-valores",
+  "titulo": "Misión y valores",
+  "url": "https://contenidos.21.edu.ar/microsites/reglamento/index.php?put=1-2-mision-y-valores",
+  "categoria": "reglamento",
+  "chars": 3063
+ },
+ {
+  "sitio": "reglamento",
+  "slug": "1-3-autoridades-y-funciones",
+  "titulo": "Autoridades y funciones",
+  "url": "https://contenidos.21.edu.ar/microsites/reglamento/index.php?put=1-3-autoridades-y-funciones",
+  "categoria": "reglamento",
+  "chars": 1543
+ },
+ {
+  "sitio": "reglamento",
+  "slug": "1-4-domicilio-legal",
+  "titulo": "Domicilio legal",
+  "url": "https://contenidos.21.edu.ar/microsites/reglamento/index.php?put=1-4-domicilio-legal",
+  "categoria": "reglamento",
+  "chars": 241
+ },
+ {
+  "sitio": "reglamento",
+  "slug": "1-5-modificaciones-al-reglamento",
+  "titulo": "Modificaciones al reglamento",
+  "url": "https://contenidos.21.edu.ar/microsites/reglamento/index.php?put=1-5-modificaciones-al-reglamento",
+  "categoria": "reglamento",
+  "chars": 1028
+ },
+ {
+  "sitio": "reglamento",
+  "slug": "1-6-firma-digital",
+  "titulo": "Firma digital",
+  "url": "https://contenidos.21.edu.ar/microsites/reglamento/index.php?put=1-6-firma-digital",
+  "categoria": "reglamento",
+  "chars": 1270
+ },
+ {
+  "sitio": "reglamento",
+  "slug": "2-1-carreras-de-pregrado-y-grado",
+  "titulo": "Carreras de pregrado y grado",
+  "url": "https://contenidos.21.edu.ar/microsites/reglamento/index.php?put=2-1-carreras-de-pregrado-y-grado",
+  "categoria": "reglamento",
+  "chars": 3866
+ },
+ {
+  "sitio": "reglamento",
+  "slug": "2-2-documentacion-obligatoria-y-complementaria",
+  "titulo": "Documentación obligatoria y complementaria",
+  "url": "https://contenidos.21.edu.ar/microsites/reglamento/index.php?put=2-2-documentacion-obligatoria-y-complementaria",
+  "categoria": "reglamento",
+  "chars": 8787
+ },
+ {
+  "sitio": "reglamento",
+  "slug": "2-3-carreas-de-posgrado",
+  "titulo": "Carreras de posgrado",
+  "url": "https://contenidos.21.edu.ar/microsites/reglamento/index.php?put=2-3-carreas-de-posgrado",
+  "categoria": "reglamento",
+  "chars": 2406
+ },
+ {
+  "sitio": "reglamento",
+  "slug": "2-4-documentacion-obligatoria-y-complementaria-extranjeros",
+  "titulo": "Documentación obligatoria y complementaria para extranjeros",
+  "url": "https://contenidos.21.edu.ar/microsites/reglamento/index.php?put=2-4-documentacion-obligatoria-y-complementaria-extranjeros",
+  "categoria": "reglamento",
+  "chars": 4657
+ },
+ {
+  "sitio": "reglamento",
+  "slug": "2-5-requisitos-para-cursado",
+  "titulo": "Requisitos para cursado",
+  "url": "https://contenidos.21.edu.ar/microsites/reglamento/index.php?put=2-5-requisitos-para-cursado",
+  "categoria": "reglamento",
+  "chars": 2622
+ },
+ {
+  "sitio": "reglamento",
+  "slug": "3-1-modalidades-de-cursado",
+  "titulo": "Modalidades de cursado",
+  "url": "https://contenidos.21.edu.ar/microsites/reglamento/index.php?put=3-1-modalidades-de-cursado",
+  "categoria": "reglamento",
+  "chars": 16125
+ },
+ {
+  "sitio": "reglamento",
+  "slug": "3-2-cambios-de-modalidad",
+  "titulo": "Cambios de modalidad",
+  "url": "https://contenidos.21.edu.ar/microsites/reglamento/index.php?put=3-2-cambios-de-modalidad",
+  "categoria": "reglamento",
+  "chars": 10479
+ },
+ {
+  "sitio": "reglamento",
+  "slug": "4-1-estructura-academica",
+  "titulo": "Estructura académica",
+  "url": "https://contenidos.21.edu.ar/microsites/reglamento/index.php?put=4-1-estructura-academica",
+  "categoria": "reglamento",
+  "chars": 4039
+ },
+ {
+  "sitio": "reglamento",
+  "slug": "4-2-diseno-curricular",
+  "titulo": "Diseño curricular",
+  "url": "https://contenidos.21.edu.ar/microsites/reglamento/index.php?put=4-2-diseno-curricular",
+  "categoria": "reglamento",
+  "chars": 47496
+ },
+ {
+  "sitio": "reglamento",
+  "slug": "4-3-metodos-y-didacticas",
+  "titulo": "Métodos y didácticas",
+  "url": "https://contenidos.21.edu.ar/microsites/reglamento/index.php?put=4-3-metodos-y-didacticas",
+  "categoria": "reglamento",
+  "chars": 4233
+ },
+ {
+  "sitio": "reglamento",
+  "slug": "4-4-vinculacion-y-extension",
+  "titulo": "Vinculación y extensión",
+  "url": "https://contenidos.21.edu.ar/microsites/reglamento/index.php?put=4-4-vinculacion-y-extension",
+  "categoria": "reglamento",
+  "chars": 15966
+ },
+ {
+  "sitio": "reglamento",
+  "slug": "4-5-sitema-de-evaluacion-de-los-aprendizajes-eva-21",
+  "titulo": "Sistema de evaluación de los aprendizajes EVA 21",
+  "url": "https://contenidos.21.edu.ar/microsites/reglamento/index.php?put=4-5-sitema-de-evaluacion-de-los-aprendizajes-eva-21",
+  "categoria": "reglamento",
+  "chars": 62079
+ },
+ {
+  "sitio": "reglamento",
+  "slug": "5-1-calendario-academico",
+  "titulo": "Calendario académico",
+  "url": "https://contenidos.21.edu.ar/microsites/reglamento/index.php?put=5-1-calendario-academico",
+  "categoria": "reglamento",
+  "chars": 11989
+ },
+ {
+  "sitio": "reglamento",
+  "slug": "5-2-inscripcion-a-materias",
+  "titulo": "Inscripción a materias",
+  "url": "https://contenidos.21.edu.ar/microsites/reglamento/index.php?put=5-2-inscripcion-a-materias",
+  "categoria": "reglamento",
+  "chars": 5797
+ },
+ {
+  "sitio": "reglamento",
+  "slug": "5-3-inscripcion-a-materias-de-verano",
+  "titulo": "Inscripción a materias de verano",
+  "url": "https://contenidos.21.edu.ar/microsites/reglamento/index.php?put=5-3-inscripcion-a-materias-de-verano",
+  "categoria": "reglamento",
+  "chars": 365
+ },
+ {
+  "sitio": "reglamento",
+  "slug": "5-4-cambio-de-catedra",
+  "titulo": "Cambios de cátedra",
+  "url": "https://contenidos.21.edu.ar/microsites/reglamento/index.php?put=5-4-cambio-de-catedra",
+  "categoria": "reglamento",
+  "chars": 860
+ },
+ {
+  "sitio": "reglamento",
+  "slug": "6-1-sistema-de-equivalencias-para-todas-las-modalidades",
+  "titulo": "Sistema de equivalencias para todas las modalidades",
+  "url": "https://contenidos.21.edu.ar/microsites/reglamento/index.php?put=6-1-sistema-de-equivalencias-para-todas-las-modalidades",
+  "categoria": "reglamento",
+  "chars": 34704
+ },
+ {
+  "sitio": "reglamento",
+  "slug": "7-1-regimen-de-pasantias",
+  "titulo": "Régimen de pasantías",
+  "url": "https://contenidos.21.edu.ar/microsites/reglamento/index.php?put=7-1-regimen-de-pasantias",
+  "categoria": "reglamento",
+  "chars": 3209
+ },
+ {
+  "sitio": "reglamento",
+  "slug": "8-1-centros-de-excelencia",
+  "titulo": "Centros de excelencia",
+  "url": "https://contenidos.21.edu.ar/microsites/reglamento/index.php?put=8-1-centros-de-excelencia",
+  "categoria": "reglamento",
+  "chars": 2371
+ },
+ {
+  "sitio": "reglamento",
+  "slug": "8-2-certificados-por-competencias",
+  "titulo": "Certificados por competencias",
+  "url": "https://contenidos.21.edu.ar/microsites/reglamento/index.php?put=8-2-certificados-por-competencias",
+  "categoria": "reglamento",
+  "chars": 3723
+ },
+ {
+  "sitio": "reglamento",
+  "slug": "8-3-comunidadnet",
+  "titulo": "ComunidadNET",
+  "url": "https://contenidos.21.edu.ar/microsites/reglamento/index.php?put=8-3-comunidadnet",
+  "categoria": "reglamento",
+  "chars": 2405
+ },
+ {
+  "sitio": "reglamento",
+  "slug": "8-4-arbol-de-la-convivencia",
+  "titulo": "Árbol de la convivencia",
+  "url": "https://contenidos.21.edu.ar/microsites/reglamento/index.php?put=8-4-arbol-de-la-convivencia",
+  "categoria": "reglamento",
+  "chars": 1917
+ },
+ {
+  "sitio": "reglamento",
+  "slug": "8-5-destacados-21",
+  "titulo": "Destacados 21",
+  "url": "https://contenidos.21.edu.ar/microsites/reglamento/index.php?put=8-5-destacados-21",
+  "categoria": "reglamento",
+  "chars": 1209
+ },
+ {
+  "sitio": "reglamento",
+  "slug": "9-1-sistema-de-ayundatia-de-alumnos-y-adscripcion",
+  "titulo": "Sistema de ayudantía de alumnos y adscripción",
+  "url": "https://contenidos.21.edu.ar/microsites/reglamento/index.php?put=9-1-sistema-de-ayundatia-de-alumnos-y-adscripcion",
+  "categoria": "reglamento",
+  "chars": 9429
+ },
+ {
+  "sitio": "reglamento",
+  "slug": "10-1-consideraciones-generales",
+  "titulo": "Consideraciones generales",
+  "url": "https://contenidos.21.edu.ar/microsites/reglamento/index.php?put=10-1-consideraciones-generales",
+  "categoria": "reglamento",
+  "chars": 2167
+ },
+ {
+  "sitio": "reglamento",
+  "slug": "10-2-proyectos-de-investigacion",
+  "titulo": "Proyectos de investigación",
+  "url": "https://contenidos.21.edu.ar/microsites/reglamento/index.php?put=10-2-proyectos-de-investigacion",
+  "categoria": "reglamento",
+  "chars": 3905
+ },
+ {
+  "sitio": "reglamento",
+  "slug": "11-1-consideraciones-generales",
+  "titulo": "Consideraciones generales",
+  "url": "https://contenidos.21.edu.ar/microsites/reglamento/index.php?put=11-1-consideraciones-generales",
+  "categoria": "reglamento",
+  "chars": 390
+ },
+ {
+  "sitio": "reglamento",
+  "slug": "11-2-requisitos-de-admision",
+  "titulo": "Requisitos de admisión",
+  "url": "https://contenidos.21.edu.ar/microsites/reglamento/index.php?put=11-2-requisitos-de-admision",
+  "categoria": "reglamento",
+  "chars": 444
+ },
+ {
+  "sitio": "reglamento",
+  "slug": "11-3-condiciones-de-cursado",
+  "titulo": "Condiciones de cursado",
+  "url": "https://contenidos.21.edu.ar/microsites/reglamento/index.php?put=11-3-condiciones-de-cursado",
+  "categoria": "reglamento",
+  "chars": 200
+ },
+ {
+  "sitio": "reglamento",
+  "slug": "11-4-condiciones-de-aprobacion-de-materias",
+  "titulo": "Condiciones de aprobación de materias",
+  "url": "https://contenidos.21.edu.ar/microsites/reglamento/index.php?put=11-4-condiciones-de-aprobacion-de-materias",
+  "categoria": "reglamento",
+  "chars": 2406
+ },
+ {
+  "sitio": "reglamento",
+  "slug": "11-5-escala-de-notas",
+  "titulo": "Escala de notas",
+  "url": "https://contenidos.21.edu.ar/microsites/reglamento/index.php?put=11-5-escala-de-notas",
+  "categoria": "reglamento",
+  "chars": 531
+ },
+ {
+  "sitio": "reglamento",
+  "slug": "11-6-readmision-de-estudiantes",
+  "titulo": "Readmisión de estudiantes",
+  "url": "https://contenidos.21.edu.ar/microsites/reglamento/index.php?put=11-6-readmision-de-estudiantes",
+  "categoria": "reglamento",
+  "chars": 1365
+ },
+ {
+  "sitio": "reglamento",
+  "slug": "12-1-condiciones-para-la-graduacion",
+  "titulo": "Condiciones para la graduación",
+  "url": "https://contenidos.21.edu.ar/microsites/reglamento/index.php?put=12-1-condiciones-para-la-graduacion",
+  "categoria": "reglamento",
+  "chars": 1761
+ },
+ {
+  "sitio": "reglamento",
+  "slug": "12-2-trabajo-final-de-graduacion",
+  "titulo": "Trabajo final de graduación",
+  "url": "https://contenidos.21.edu.ar/microsites/reglamento/index.php?put=12-2-trabajo-final-de-graduacion",
+  "categoria": "reglamento",
+  "chars": 10408
+ },
+ {
+  "sitio": "reglamento",
+  "slug": "12-3-trabajo-final-de-posgrado-maestrias",
+  "titulo": "Trabajo final de posgrado maestrías",
+  "url": "https://contenidos.21.edu.ar/microsites/reglamento/index.php?put=12-3-trabajo-final-de-posgrado-maestrias",
+  "categoria": "reglamento",
+  "chars": 7328
+ },
+ {
+  "sitio": "reglamento",
+  "slug": "12-4-trabajo-final-de-posgrado-especializaciones",
+  "titulo": "Trabajo final de posgrado especializaciones",
+  "url": "https://contenidos.21.edu.ar/microsites/reglamento/index.php?put=12-4-trabajo-final-de-posgrado-especializaciones",
+  "categoria": "reglamento",
+  "chars": 5162
+ },
+ {
+  "sitio": "reglamento",
+  "slug": "12-5-proceso-de-titulacion",
+  "titulo": "Proceso de titulación",
+  "url": "https://contenidos.21.edu.ar/microsites/reglamento/index.php?put=12-5-proceso-de-titulacion",
+  "categoria": "reglamento",
+  "chars": 1384
+ },
+ {
+  "sitio": "reglamento",
+  "slug": "12-6-colacion",
+  "titulo": "Colación",
+  "url": "https://contenidos.21.edu.ar/microsites/reglamento/index.php?put=12-6-colacion",
+  "categoria": "reglamento",
+  "chars": 1650
+ },
+ {
+  "sitio": "reglamento",
+  "slug": "13-1-regimen-general-de-sanciones",
+  "titulo": "Régimen general de sanciones",
+  "url": "https://contenidos.21.edu.ar/microsites/reglamento/index.php?put=13-1-regimen-general-de-sanciones",
+  "categoria": "reglamento",
+  "chars": 17097
+ },
+ {
+  "sitio": "reglamento",
+  "slug": "13-2-normas-de-comportamiento-de-biblioteca",
+  "titulo": "Normas de comportamiento de biblioteca",
+  "url": "https://contenidos.21.edu.ar/microsites/reglamento/index.php?put=13-2-normas-de-comportamiento-de-biblioteca",
+  "categoria": "reglamento",
+  "chars": 6101
+ },
+ {
+  "sitio": "reglamento",
+  "slug": "14-1-planes-de-estudio",
+  "titulo": "Planes de estudio",
+  "url": "https://contenidos.21.edu.ar/microsites/reglamento/index.php?put=14-1-planes-de-estudio",
+  "categoria": "reglamento",
+  "chars": 3627
+ },
+ {
+  "sitio": "reglamento",
+  "slug": "14-2-cambios-de-modalidad",
+  "titulo": "Cambios de modalidad",
+  "url": "https://contenidos.21.edu.ar/microsites/reglamento/index.php?put=14-2-cambios-de-modalidad",
+  "categoria": "reglamento",
+  "chars": 10273
+ },
+ {
+  "sitio": "reglamento",
+  "slug": "14-3-becas-y-beneficios",
+  "titulo": "Becas y beneficios",
+  "url": "https://contenidos.21.edu.ar/microsites/reglamento/index.php?put=14-3-becas-y-beneficios",
+  "categoria": "reglamento",
+  "chars": 41155
+ },
+ {
+  "sitio": "reglamento",
+  "slug": "14-4-normas-arancelarias",
+  "titulo": "Normas arancelarias",
+  "url": "https://contenidos.21.edu.ar/microsites/reglamento/index.php?put=14-4-normas-arancelarias",
+  "categoria": "reglamento",
+  "chars": 8671
+ },
+ {
+  "sitio": "reglamento",
+  "slug": "14-5-solicitud-de-baja",
+  "titulo": "Solicitud de baja",
+  "url": "https://contenidos.21.edu.ar/microsites/reglamento/index.php?put=14-5-solicitud-de-baja",
+  "categoria": "reglamento",
+  "chars": 994
+ },
+ {
+  "sitio": "reglamento",
+  "slug": "14-6-tratamiendo-de-datos-personales",
+  "titulo": "Tratamiendo de datos personales",
+  "url": "https://contenidos.21.edu.ar/microsites/reglamento/index.php?put=14-6-tratamiendo-de-datos-personales",
+  "categoria": "reglamento",
+  "chars": 4224
+ },
+ {
+  "sitio": "lanube",
+  "slug": "tuprimersemestre",
+  "titulo": "SOY INGRESANTE | La Nube 21",
+  "url": "https://www.lanube.21.edu.ar/tuprimersemestre",
+  "categoria": "institucional",
+  "chars": 8929
+ },
+ {
+  "sitio": "lanube",
+  "slug": "teacompanamos",
+  "titulo": "SOY INGRESANTE | La Nube 21",
+  "url": "https://www.lanube.21.edu.ar/teacompa%C3%B1amos",
+  "categoria": "atencion-y-derivaciones",
+  "chars": 2593
+ },
+ {
+  "sitio": "lanube",
+  "slug": "portal-de-estudiantes",
+  "titulo": "Portal de Estudiantes | La Nube 21",
+  "url": "https://www.lanube.21.edu.ar/portal-de-estudiantes",
+  "categoria": "plataformas",
+  "chars": 9529
+ },
+ {
+  "sitio": "lanube",
+  "slug": "inscripcion-a-materias",
+  "titulo": "Inscripción a materias",
+  "url": "https://www.lanube.21.edu.ar/inscripci%C3%B3n-a-materias",
+  "categoria": "aranceles-y-pagos",
+  "chars": 4117
+ },
+ {
+  "sitio": "lanube",
+  "slug": "aula-virtual",
+  "titulo": "Aula Virtual Canvas | La Nube 21",
+  "url": "https://www.lanube.21.edu.ar/aula-virtual",
+  "categoria": "plataformas",
+  "chars": 11645
+ },
+ {
+  "sitio": "lanube",
+  "slug": "calendario-academico",
+  "titulo": "Calendario académico",
+  "url": "https://www.lanube.21.edu.ar/calendario-academico",
+  "categoria": "tramites",
+  "chars": 791
+ },
+ {
+  "sitio": "lanube",
+  "slug": "ebook-21",
+  "titulo": "Ebook 21 | La Nube 21",
+  "url": "https://www.lanube.21.edu.ar/ebook-21",
+  "categoria": "plataformas",
+  "chars": 0
+ },
+ {
+  "sitio": "lanube",
+  "slug": "app-siglo-21",
+  "titulo": "APP SIGLO 21 | La Nube 21",
+  "url": "https://www.lanube.21.edu.ar/app-siglo-21",
+  "categoria": "plataformas",
+  "chars": 1780
+ },
+ {
+  "sitio": "lanube",
+  "slug": "klarway",
+  "titulo": "Klarway",
+  "url": "https://www.lanube.21.edu.ar/klarway",
+  "categoria": "plataformas",
+  "chars": 5646
+ },
+ {
+  "sitio": "lanube",
+  "slug": "gabinete-de-bienestar-1",
+  "titulo": "Gabinete de Bienestar| La Nube 21",
+  "url": "https://www.lanube.21.edu.ar/gabinete-de-bienestar-1",
+  "categoria": "atencion-y-derivaciones",
+  "chars": 3436
+ },
+ {
+  "sitio": "lanube",
+  "slug": "encuentros-con-directores",
+  "titulo": "Directores de Carrera",
+  "url": "https://www.lanube.21.edu.ar/encuentros-con-directores",
+  "categoria": "atencion-y-derivaciones",
+  "chars": 11513
+ },
+ {
+  "sitio": "lanube",
+  "slug": "tutoresvirtuales",
+  "titulo": "Tutores Virtuales",
+  "url": "https://www.lanube.21.edu.ar/tutoresvirtuales",
+  "categoria": "atencion-y-derivaciones",
+  "chars": 3312
+ },
+ {
+  "sitio": "lanube",
+  "slug": "universitarios21",
+  "titulo": "Universitarios 21 | La Nube 21",
+  "url": "https://www.lanube.21.edu.ar/universitarios21",
+  "categoria": "oferta-academica",
+  "chars": 3320
+ },
+ {
+  "sitio": "lanube",
+  "slug": "simulador-de-condicion",
+  "titulo": "SIMULADOR DE CONDICIÓN | La Nube 21",
+  "url": "https://www.lanube.21.edu.ar/simulador-de-condicion",
+  "categoria": "tramites",
+  "chars": 273
+ },
+ {
+  "sitio": "lanube",
+  "slug": "modalidad-presencial",
+  "titulo": "Presencial",
+  "url": "https://www.lanube.21.edu.ar/modalidad-presencial",
+  "categoria": "modalidades",
+  "chars": 2148
+ },
+ {
+  "sitio": "lanube",
+  "slug": "modalidad-presencial-home",
+  "titulo": "MODALIDAD PRESENCIAL HOME | La Nube 21",
+  "url": "https://www.lanube.21.edu.ar/modalidad-presencial-home",
+  "categoria": "modalidades",
+  "chars": 2174
+ },
+ {
+  "sitio": "lanube",
+  "slug": "modalidad-edh",
+  "titulo": "Educación Distribuida Home",
+  "url": "https://www.lanube.21.edu.ar/modalidad-edh",
+  "categoria": "modalidades",
+  "chars": 1839
+ },
+ {
+  "sitio": "lanube",
+  "slug": "modalidad-ed",
+  "titulo": "Educación Distribuida",
+  "url": "https://www.lanube.21.edu.ar/modalidad-ed",
+  "categoria": "modalidades",
+  "chars": 7402
+ },
+ {
+  "sitio": "lanube",
+  "slug": "presencialidad-distribuida",
+  "titulo": "Presencial Distribuida",
+  "url": "https://www.lanube.21.edu.ar/presencialidad-distribuida",
+  "categoria": "modalidades",
+  "chars": 2528
+ },
+ {
+  "sitio": "lanube",
+  "slug": "equivalencias",
+  "titulo": "EQUIVALENCIAS | La Nube 21",
+  "url": "https://www.lanube.21.edu.ar/equivalencias",
+  "categoria": "tramites",
+  "chars": 13551
+ },
+ {
+  "sitio": "lanube",
+  "slug": "trabajos-practicos",
+  "titulo": "TRABAJOS PRÁCTICOS | La Nube 21",
+  "url": "https://www.lanube.21.edu.ar/trabajos-practicos",
+  "categoria": "tramites",
+  "chars": 9091
+ },
+ {
+  "sitio": "lanube",
+  "slug": "efip",
+  "titulo": "EFIP | La Nube 21",
+  "url": "https://www.lanube.21.edu.ar/efip",
+  "categoria": "tramites",
+  "chars": 10629
+ },
+ {
+  "sitio": "lanube",
+  "slug": "tipos-de-materias",
+  "titulo": "Tipos de Materias",
+  "url": "https://www.lanube.21.edu.ar/tipos-de-materias",
+  "categoria": "oferta-academica",
+  "chars": 6518
+ },
+ {
+  "sitio": "lanube",
+  "slug": "correlativas",
+  "titulo": "Correlativas | La Nube 21",
+  "url": "https://www.lanube.21.edu.ar/correlativas",
+  "categoria": "tramites",
+  "chars": 991
+ },
+ {
+  "sitio": "lanube",
+  "slug": "materias-electivas",
+  "titulo": "Materias Electivas| La Nube 21",
+  "url": "https://www.lanube.21.edu.ar/materias-electivas",
+  "categoria": "oferta-academica",
+  "chars": 1722
+ },
+ {
+  "sitio": "lanube",
+  "slug": "practica-solidaria",
+  "titulo": "PRÁCTICA SOLIDARIA | La Nube 21",
+  "url": "https://www.lanube.21.edu.ar/practica-solidaria",
+  "categoria": "oferta-academica",
+  "chars": 16829
+ },
+ {
+  "sitio": "lanube",
+  "slug": "practica-profesional",
+  "titulo": "PRÁCTICA PROFESIONAL | La Nube 21",
+  "url": "https://www.lanube.21.edu.ar/practica-profesional",
+  "categoria": "oferta-academica",
+  "chars": 25516
+ },
+ {
+  "sitio": "lanube",
+  "slug": "seminariofinal",
+  "titulo": "CURSADO Seminario Final",
+  "url": "https://www.lanube.21.edu.ar/seminariofinal",
+  "categoria": "tramites",
+  "chars": 7128
+ },
+ {
+  "sitio": "lanube",
+  "slug": "cae",
+  "titulo": "CAE",
+  "url": "https://www.lanube.21.edu.ar/cae",
+  "categoria": "tramites",
+  "chars": 3053
+ },
+ {
+  "sitio": "lanube",
+  "slug": "becas-y-beneficios",
+  "titulo": "Becas Y Beneficios | La Nube 21",
+  "url": "https://www.lanube.21.edu.ar/becas-y-beneficios",
+  "categoria": "aranceles-y-pagos",
+  "chars": 3100
+ },
+ {
+  "sitio": "lanube",
+  "slug": "idiomas",
+  "titulo": "IDIOMAS | La Nube 21",
+  "url": "https://www.lanube.21.edu.ar/idiomas",
+  "categoria": "oferta-academica",
+  "chars": 13505
+ },
+ {
+  "sitio": "lanube",
+  "slug": "posgrado-virtual",
+  "titulo": "POSGRADO VIRTUAL | La Nube 21",
+  "url": "https://www.lanube.21.edu.ar/posgrado-virtual",
+  "categoria": "oferta-academica",
+  "chars": 21886
+ },
+ {
+  "sitio": "lanube",
+  "slug": "posgrado-presencial",
+  "titulo": "POSGRADO PRESENCIAL | La Nube 21",
+  "url": "https://www.lanube.21.edu.ar/posgrado-presencial",
+  "categoria": "oferta-academica",
+  "chars": 21290
+ },
+ {
+  "sitio": "lanube",
+  "slug": "aprendizaje-para-la-vida",
+  "titulo": "Aprendizaje para la Vida (APLV)",
+  "url": "https://www.lanube.21.edu.ar/aprendizaje-para-la-vida",
+  "categoria": "oferta-academica",
+  "chars": 3183
+ },
+ {
+  "sitio": "lanube",
+  "slug": "ce-emprendimiento-innovacion",
+  "titulo": "EMPRENDIMIENTO E INNOVACIÓN | La Nube 21",
+  "url": "https://www.lanube.21.edu.ar/ce-emprendimiento-innovacion",
+  "categoria": "institucional",
+  "chars": 11479
+ },
+ {
+  "sitio": "lanube",
+  "slug": "internacionalizacion",
+  "titulo": "INTERNACIONALIZACIÓN | La Nube 21",
+  "url": "https://www.lanube.21.edu.ar/internacionalizacion",
+  "categoria": "institucional",
+  "chars": 11185
+ },
+ {
+  "sitio": "lanube",
+  "slug": "empleabilidad",
+  "titulo": "EMPLEABILIDAD | La Nube 21",
+  "url": "https://www.lanube.21.edu.ar/empleabilidad",
+  "categoria": "institucional",
+  "chars": 14245
+ },
+ {
+  "sitio": "lanube",
+  "slug": "desarrollo-y-proposito",
+  "titulo": "Desarrollo",
+  "url": "https://www.lanube.21.edu.ar/desarrollo-y-prop%C3%B3sito",
+  "categoria": "institucional",
+  "chars": 1221
+ },
+ {
+  "sitio": "lanube",
+  "slug": "actividades-disciplinares",
+  "titulo": "Actividades disciplinares",
+  "url": "https://www.lanube.21.edu.ar/actividades-disciplinares",
+  "categoria": "institucional",
+  "chars": 1237
+ },
+ {
+  "sitio": "lanube",
+  "slug": "sustentabilidad-social",
+  "titulo": "SUSTENTABILIDAD SOCIAL | La Nube 21",
+  "url": "https://www.lanube.21.edu.ar/sustentabilidad-social",
+  "categoria": "institucional",
+  "chars": 5556
+ },
+ {
+  "sitio": "lanube",
+  "slug": "investigacion",
+  "titulo": "Investigación",
+  "url": "https://www.lanube.21.edu.ar/investigacion",
+  "categoria": "institucional",
+  "chars": 4257
+ },
+ {
+  "sitio": "lanube",
+  "slug": "arte-y-cultura",
+  "titulo": "Arte y cultura",
+  "url": "https://www.lanube.21.edu.ar/arte-y-cultura",
+  "categoria": "institucional",
+  "chars": 1002
+ },
+ {
+  "sitio": "lanube",
+  "slug": "salud-y-deportes",
+  "titulo": "Salud y Deportes",
+  "url": "https://www.lanube.21.edu.ar/salud-y-deportes",
+  "categoria": "institucional",
+  "chars": 1633
+ },
+ {
+  "sitio": "lanube",
+  "slug": "ayudantias",
+  "titulo": "Ayudantias | La Nube 21",
+  "url": "https://www.lanube.21.edu.ar/ayudantias",
+  "categoria": "institucional",
+  "chars": 2536
+ },
+ {
+  "sitio": "lanube",
+  "slug": "comunidad-net",
+  "titulo": "Comunidad Net| La Nube 21",
+  "url": "https://www.lanube.21.edu.ar/comunidad-net",
+  "categoria": "institucional",
+  "chars": 6946
+ },
+ {
+  "sitio": "lanube",
+  "slug": "egresados",
+  "titulo": "EGRESADOS | La Nube 21",
+  "url": "https://www.lanube.21.edu.ar/egresados",
+  "categoria": "institucional",
+  "chars": 2125
+ },
+ {
+  "sitio": "lanube",
+  "slug": "proceso-de-titulacion",
+  "titulo": "OBTENE TU TITULO | La Nube 21",
+  "url": "https://www.lanube.21.edu.ar/proceso-de-titulacion",
+  "categoria": "tramites",
+  "chars": 10225
+ },
+ {
+  "sitio": "lanube",
+  "slug": "colaciones-2026",
+  "titulo": "Colaciones 2026",
+  "url": "https://www.lanube.21.edu.ar/colaciones-2026",
+  "categoria": "tramites",
+  "chars": 3454
+ },
+ {
+  "sitio": "lanube",
+  "slug": "canales-de-contacto",
+  "titulo": "CANALES DE CONTACTO | La Nube 21",
+  "url": "https://www.lanube.21.edu.ar/canales-de-contacto",
+  "categoria": "atencion-y-derivaciones",
+  "chars": 1994
+ }
+]
