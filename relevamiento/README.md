@@ -148,3 +148,13 @@ En el reglamento, cada capítulo es un artículo y sus secciones quedan como art
 - [Salud y Deportes](lanube/salud-y-deportes.md) · [fuente](https://www.lanube.21.edu.ar/salud-y-deportes)
 - [SUSTENTABILIDAD SOCIAL | La Nube 21](lanube/sustentabilidad-social.md) · [fuente](https://www.lanube.21.edu.ar/sustentabilidad-social)
 - [SOY INGRESANTE | La Nube 21](lanube/tuprimersemestre.md) · [fuente](https://www.lanube.21.edu.ar/tuprimersemestre)
+
+## Lecciones ("Reglamento esencial")
+
+Las lecciones cortas (spec §4.10) se escriben a mano en `contenido/lecciones/*.md` a partir de estas fuentes, sin agregar nada que la fuente no diga. Cada archivo indica su `fuente` (slug del artículo relevado) y trae los bloques "En 30 segundos", "Así llega al CAU", "Ojo con" y "Probalo".
+
+```bash
+node --experimental-strip-types scripts/importar-lecciones.mts
+```
+
+Genera `supabase/seed-lecciones.sql`: el curso "Reglamento esencial" en borrador, con sus lecciones y preguntas de Probalo. Para publicarlo, primero hay que publicar los artículos fuente.
