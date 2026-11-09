@@ -1,5 +1,5 @@
 ---
-titulo: "Modalidades de cursado"
+titulo: "Modalidades del CAU: ED, EDH y PD"
 modulo: "Cursado"
 orden: 2
 fuente: "rg-3-1-modalidades-de-cursado"
@@ -7,21 +7,23 @@ fuente: "rg-3-1-modalidades-de-cursado"
 
 ## En 30 segundos
 
-- Presencial tiene tres sub-modalidades: Presencial (P), Presencial Home (PH) y Presencial Distribuida (PD).
-- En Presencial (P) la presencialidad mínima es del 70%; en Presencial Home (PH), del 50%. Para PD, consultá la fuente.
-- Distancia tiene dos: Educación Distribuida (ED), con Open Class en el CAU, y Educación Distribuida Home (EDH), 100% en la plataforma.
-- En ED, cada subperíodo dura 9 semanas y se asiste al CAU cada 2 semanas por materia.
+- En el CAU se cursan carreras de grado y pregrado en tres modalidades: ED, EDH y PD.
+- ED: plataforma más Open Class en el CAU. Cada subperíodo dura 9 semanas y se asiste cada 2 semanas por materia.
+- En ED se cursan hasta 2 materias con asistencia al CAU por subperíodo; en grado se puede sumar 1 materia 100% virtual.
+- EDH: todo el cursado es en la plataforma, sin asistencia al CAU.
+- PD: es presencial; las materias se cursan cuatrimestralmente con actividades sincrónicas.
 
 ## Así llega al CAU
 
-- "Trabajo todo el día, ¿qué modalidad me conviene?" → Distancia está pensada para quien no puede asistir regularmente: ED con encuentros en el CAU o EDH, íntegramente en la plataforma.
-- "¿En ED tengo que ir al CAU?" → Sí, a las Open Class: cada 2 semanas por materia, en las fechas del calendario. En EDH no hay asistencia al CAU.
-- "¿Cuánto tengo que ir en Presencial Home?" → Como mínimo el 50% de la carga horaria es presencial; en Presencial (P), el 70%.
+- "Trabajo todo el día, ¿qué me conviene?" → Distancia está pensada para quien no puede asistir regularmente: ED, con Open Class en el CAU, o EDH, íntegramente en la plataforma.
+- "¿En ED tengo que venir al CAU?" → Sí, a las Open Class: cada 2 semanas por materia, en las fechas del calendario. En EDH no hay asistencia al CAU.
+- "¿Puedo sumar una materia sin venir al CAU?" → En carreras de grado en ED puede sumar 1 materia íntegramente virtual por subperíodo, que se rige por las reglas de EDH.
 
 ## Ojo con
 
 - Si en el CAU no se llega a 5 ingresantes de la misma carrera, la Universidad puede pasar a los de ED a EDH.
 - Quienes necesitan ajustes razonables rinden obligatoriamente en su sede o CAU, no en su casa.
+- El 75% de asistencia de las condiciones de aprobación no aplica en EDH.
 
 ## Probalo
 
@@ -33,7 +35,7 @@ fuente: "rg-3-1-modalidades-de-cursado"
 
 > En EDH todo el cursado es en la plataforma; en ED hay Open Class en el CAU.
 
-### vf: En Presencial Home la presencialidad mínima es del 50%.
+### vf: En ED, por subperíodo se cursan hasta 2 materias con asistencia al CAU.
 
 - [x] Verdadero
 - [ ] Falso

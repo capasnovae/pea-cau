@@ -9,33 +9,34 @@ fuente: "rg-5-2-inscripcion-a-materias"
 
 - Se inscribe en el período del Calendario Académico. Cerrado el período, no hay inscripción.
 - Necesita aranceles al día, legajo completo, estar matriculado y respetar las correlativas.
-- Para materias de cuarto cuatrimestre, debe tener aprobado Universitario 21.
+- Para materias de cuarto cuatrimestre, debe tener aprobado Universitarios 21.
 - Queda inscripto a la materia solo cuando pagó los aranceles e hizo la inscripción.
-- Los ingresantes quedan inscriptos automáticamente al primer semestre.
+- Topes en ED y EDH: grado 6 + 2 extra; pregrado 4 + 2 extra. Si se inscribe solo en el subperíodo B, 1 extra. En PD, hasta 8 materias.
 
 ## Así llega al CAU
 
 - "Se me pasó la fecha, ¿me pueden anotar?" → No: una vez cerrado el período del Calendario Académico no se puede inscribir.
 - "Me anoté pero no pagué, ¿estoy cursando?" → No todavía: la inscripción a la materia queda firme cuando están pagos los aranceles.
-- "Estudio a distancia, ¿cuántas materias puedo hacer?" → En grado, hasta 6 al inicio del semestre más 2 adicionales si las correlativas lo permiten. Las extras tienen un arancel aparte.
+- "Estudio a distancia, ¿cuántas materias puedo hacer?" → En grado, hasta 6 al inicio del semestre más 2 adicionales si las correlativas lo permiten; en pregrado, 4 más 2. Las extras se pagan aparte.
+- "Empiezo en el segundo subperíodo, ¿a cuántas me anoto?" → Los ingresantes con equivalencias y quienes empiezan en los segundos subperíodos (junio u octubre) cursan solo materias de ese subperíodo, hasta 3.
 
 ## Ojo con
 
 - Los ingresantes no pueden anotarse a materias extra.
-- En Presencial (P) y Presencial Distribuida (PD) el máximo es de 8 materias; cada extra se paga aparte.
 - Práctica Solidaria y Práctica Profesional: inscripción hasta el viernes previo al inicio de clases.
+- Procurador (5 + 2) y los ciclos de complementación (4 + 2) tienen otros topes: consultá la fuente.
 
 ## Probalo
 
 ### unica: Un alumno de distancia quiere cursar una materia de cuarto cuatrimestre. ¿Qué tiene que tener aprobado sí o sí?
 
 - [ ] El Seminario Final.
-- [x] Universitario 21.
+- [x] Universitarios 21.
 - [ ] Todas las materias de tercer cuatrimestre.
 
-> Para materias de cuarto cuatrimestre se pide Universitario 21 aprobado.
+> Para materias de cuarto cuatrimestre se pide Universitarios 21 aprobado.
 
-### vf: Quien se anotó a una materia pero no pagó los aranceles ya está inscripto al cursado.
+### vf: Un alumno de grado en ED puede anotarse a 6 materias al inicio del semestre más 2 extra.
 
-- [ ] Verdadero
-- [x] Falso
+- [x] Verdadero
+- [ ] Falso

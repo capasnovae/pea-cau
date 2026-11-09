@@ -218,6 +218,8 @@ Cada usuario ve lo que le permite su alcance (equipo, sede y área, sede entera 
 
 ### 4.10 Lecciones: cómo se enseña
 
+- **Alcance del CAU:** en los CAU se dictan solo carreras de **grado y pregrado**, en las modalidades **ED, EDH y PD**. Las lecciones cubren solo eso: P, PH y posgrado quedan afuera (si aparecen en una fuente, se omiten o se derivan a la fuente).
+
 El repositorio es la **consulta** (el reglamento y los procedimientos completos, para buscar en el día a día). Los cursos **enseñan** con lecciones cortas armadas a partir de esa fuente: se leen en 3 a 5 minutos y nunca son una copia.
 
 - **Bloques fijos**, en este orden:

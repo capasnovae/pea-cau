@@ -8,8 +8,9 @@ fuente: "rg-14-4-normas-arancelarias"
 ## En 30 segundos
 
 - La matrícula es semestral y debe estar paga y activa para rendir parciales, finales o la defensa del Seminario Final.
-- Los aranceles se pagan por paquete de materias según carrera y modalidad.
-- Las materias extra tienen arancel aparte (en PH, ED y EDH de grado, 1/6 del arancel A+B) y no les aplican becas.
+- En distancia, la matrícula del 1er semestre va del 1/1 al 31/7 y la del 2do, del 1/8 al 31/12.
+- En ED y EDH se paga por paquete: Ticket A, Ticket B o semestre completo (A+B), según materias y subperíodo. En PD, tickets de 1, 3, 4 o 6 materias.
+- Materias extra en ED y EDH: arancel aparte (grado 1/6 y pregrado 1/4 del arancel A+B). No les aplican becas.
 - No se reintegra dinero por no completar el cursado por causas personales.
 
 ## Así llega al CAU
@@ -22,6 +23,7 @@ fuente: "rg-14-4-normas-arancelarias"
 
 - Sin actividad académica por más de 1 año calendario queda en baja administrativa y debe matricularse de nuevo.
 - Suspender el cursado no cambia la regularidad, pero para retomar debe cancelar la deuda de ese período.
+- Pregrado y ciclos de complementación en distancia no tienen arancel único para el subperíodo A: pagan semestre completo.
 
 ## Probalo
 

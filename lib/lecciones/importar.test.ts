@@ -98,7 +98,7 @@ describe("lecciones de contenido/lecciones", () => {
       ),
     ),
   );
-  it("son 12", () => expect(archivos).toHaveLength(12));
+  it("son 34", () => expect(archivos).toHaveLength(34));
   it.each(archivos)("%s es válida, con fuente existente y Probalo de 1 a 3 preguntas", (f) => {
     const l = leerLeccion(join(dir, f), readFileSync(join(dir, f), "utf8"));
     expect(esquemaLeccion.safeParse(l.leccion).success).toBe(true);

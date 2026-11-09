@@ -22,7 +22,14 @@ export type LeccionArchivo = {
   probalo: PreguntaProbalo[];
 };
 
-const MODULOS = ["Cursado", "Trámites", "Egreso", "Administración"];
+const MODULOS = [
+  "Cursado",
+  "Evaluación (EVA 21)",
+  "Trámites",
+  "Egreso",
+  "Administración",
+  "Plataformas y atención",
+];
 
 function bloques(cuerpo: string): Map<string, string> {
   const m = new Map<string, string>();

@@ -158,3 +158,9 @@ node --experimental-strip-types scripts/importar-lecciones.mts
 ```
 
 Genera `supabase/seed-lecciones.sql`: el curso "Reglamento esencial" en borrador, con sus lecciones y preguntas de Probalo. Para publicarlo, primero hay que publicar los artículos fuente.
+
+**Alcance:** en el CAU se dictan solo carreras de grado y pregrado, en ED, EDH y PD. Las lecciones omiten P, PH y posgrado.
+
+Módulos: Cursado, Evaluación (EVA 21), Trámites, Egreso, Administración, y Plataformas y atención (estas últimas salen de La Nube).
+
+Los calendarios académicos 2026 (ED/EDH y P/PD) están en `relevamiento/lanube/calendario-2026-*.md`, extraídos de los PDF oficiales; las fechas cambian cada año.
