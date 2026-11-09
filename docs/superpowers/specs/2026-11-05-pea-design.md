@@ -125,7 +125,7 @@ Todas las políticas de las tablas con datos por persona usan esta función.
 
 - **Estructura:** curso, módulos e ítems.
 - **Tipos de curso:** nivel (los cuatro niveles, ordenados y configurables, cada uno con vigencia e insignia) y capacitación (cursos sueltos, incluidos los de sede).
-- **Tipos de ítem:** artículo (apunta al repositorio, sin copiarlo), recurso, página propia, video, enlace y examen.
+- **Tipos de ítem:** lección (el formato principal para enseñar, ver §4.10), artículo (apunta al repositorio, sin copiarlo), recurso, página propia, video, enlace, práctica y examen.
 - **Requisito de cada ítem:** ninguno, ver, marcar como hecho o aprobar con nota mínima.
 - **Módulos:** pueden tener prerrequisitos (otros módulos) y avance secuencial (el ítem siguiente se habilita al cumplir el anterior).
 - **Desbloqueo de niveles:** el nivel N se habilita si el N‑1 está aprobado (certificación vigente o vencida) o acreditado por el examen de ubicación. Un nivel vencido no bloquea el siguiente, pero queda marcado para recertificar.
@@ -198,7 +198,7 @@ Cada usuario ve lo que le permite su alcance (equipo, sede y área, sede entera 
 
 - progreso por asesor, equipo y sede, y avance de cada ruta por puesto;
 - atrasados: sin actividad en N días, consignas vencidas, certificaciones vencidas o por vencer;
-- tasa de acierto por pregunta y por categoría, para detectar preguntas mal armadas o temas flojos;
+- tasa de acierto por pregunta y por categoría, en exámenes y en prácticas (incluido el "Probalo" de las lecciones), para detectar preguntas mal armadas o temas flojos;
 - estado de la cola de corrección;
 - exportación a CSV de cada tabla.
 
@@ -215,6 +215,21 @@ Cada usuario ve lo que le permite su alcance (equipo, sede y área, sede entera 
 - **Bandeja:** mensajes entre personas de la misma sede, y con el director o el admin. Anuncios del coordinador (su sede), del director o del admin (una sede o todas), sin respuestas.
 - **Calendario:** vencimientos de mis consignas y eventos de mi sede o globales; el coordinador carga los de su sede. La semana empieza el lunes.
 - **Textos mínimos:** la interfaz no lleva párrafos explicativos; títulos y estados vacíos cortos.
+
+### 4.10 Lecciones: cómo se enseña
+
+El repositorio es la **consulta** (el reglamento y los procedimientos completos, para buscar en el día a día). Los cursos **enseñan** con lecciones cortas armadas a partir de esa fuente: se leen en 3 a 5 minutos y nunca son una copia.
+
+- **Bloques fijos**, en este orden:
+  - **En 30 segundos:** de 1 a 5 ideas clave, de hasta 200 caracteres cada una.
+  - **Así llega al CAU:** de 1 a 4 ejemplos, cada uno con la consulta del alumno (hasta 200 caracteres) y qué responder (hasta 400).
+  - **Ojo con:** de 0 a 4 errores comunes o excepciones, de hasta 200 caracteres.
+  - **Probalo:** opcional, una práctica de 1 a 3 preguntas con corrección inmediata (usa el motor de prácticas, §4.4).
+  - **Fuente:** obligatoria, el artículo del repositorio del que sale la lección.
+- **Los límites los aplica la plataforma** (formulario y base), así la lección no puede volver a ser una copia. Se muestra el tiempo estimado de lectura.
+- **Requisito:** "ver", o "marcar como hecho"; si la lección tiene Probalo, "hecho" significa acertar todas sus preguntas.
+- **Las excepciones van a la fuente:** la lección cubre lo que resuelve la mayoría de las consultas; los casos raros se consultan en el artículo o se derivan.
+- **Autoría:** los primeros borradores se arman a partir del relevamiento (§12), marcados "A validar", en un curso de capacitación en borrador ("Reglamento esencial") que coordinación revisa, publica o reparte en los niveles. La generación con IA queda para la Etapa 10.
 
 ## 5. Esquema de base de datos
 
@@ -291,7 +306,9 @@ ruta_cursos           (id, curso_id, puesto_id null, subrol_id null, obligatorio
 modulos               (id, curso_id, orden, titulo, descripcion_md, avance_secuencial, estado)
 modulo_prerrequisitos (modulo_id, requiere_modulo_id)
 items                 (id, modulo_id, orden, titulo, tipo, articulo_id null, recurso_id null,
-                       examen_id null, contenido_md null, url null, requisito)
+                       examen_id null, contenido_md null, url null, requisito,
+                       leccion jsonb null)  -- {resumen[], ejemplos[{consulta, respuesta}], ojo[]}; fuente = articulo_id, Probalo = examen_id
+practica_intentos     (id, usuario_id, pregunta_id, correcta, created_at)  -- cada "Comprobar", para la tasa de acierto
 item_progreso         (usuario_id, item_id, visto_at null, hecho_at null)
 insignias             (id, curso_id unique, nombre, descripcion, icono_path)
 usuario_insignias     (id, usuario_id, insignia_id, otorgada_at, perdida_at null, motivo_perdida null)
@@ -431,7 +448,7 @@ Cada etapa termina con una demo y espera tu OK para seguir.
 5. **Modelo Canvas:** barra lateral, tablero con pestañas, mis cursos, calendario, bandeja de entrada y bienvenida.
 6. **Exámenes:** banco de preguntas, los seis tipos, intentos, revisión, cola de corrección y examen de ubicación.
 7. **Perfil, insignias y certificados**, con la página de verificación.
-8. **Panel y reportes:** progreso, atrasados, tasa por pregunta y CSV.
+8. **Lecciones, panel y reportes:** formato de lección (§4.10) con los primeros borradores, y el panel: progreso, atrasados, tasa por pregunta y CSV.
 9. **Recertificación:** vigencias, actualizaciones obligatorias, alertas y email.
 10. **IA:** generación de preguntas con revisión humana y precorrección de respuestas libres.
 
