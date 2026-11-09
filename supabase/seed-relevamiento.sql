@@ -5115,6 +5115,294 @@ Ayudantías y Adscripciones?
 on conflict (categoria_id, slug) do nothing;
 
 insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
+values ((select id from public.categorias where slug = $pea0$aranceles-y-pagos$pea0$), null, 0, $pea0$ln-becas-siglo-21$pea0$,
+        $pea0$Becas | La Nube 21$pea0$, $pea0$En Universidad Siglo 21 apostamos a que tengas posibilidad de seguir estudiando, y por eso te ofrecemos becas para ayudarte a cumplir tu propósito.$pea0$, $pea0$> **A validar:** contenido relevado de https://www.lanube.21.edu.ar/becas-siglo-21 el 2026-11-09. Revisalo antes de publicar.
+
+#### BECAS POR POSTULACIÓN
+
+#### INSCRIPCIONES ABIERTAS
+
+En Universidad Siglo 21 apostamos a que tengas posibilidad de seguir estudiando, y por eso te ofrecemos becas para ayudarte a cumplir tu propósito.
+
+MENU
+
+Pasos para la Solicitud
+
+Becas Vigentes
+
+Postulate
+
+#### Pasos para Solicitar una Beca
+
+​​
+
+- Solo se le dará curso a las solicitudes de Beca que presenten la documentación de su legajo de forma completa.
+
+- Si la solicitud no se encuentra completa, se deberá cargar nuevamente.
+
+Si todavía no entregaste la documentación de tu legajo, conocé los requisitos y el procedimiento para presentarla en la sección Documentación de Legajo:
+
+Documentación de Legajo
+
+#### SOLICITUD DE
+
+#### 1
+
+#### BECA
+
+Tené en cuenta la siguiente información antes de solicitar tu beca:
+
+Las Becas se deben solicitar antes de abonar los aranceles. Una vez realizado el pago, no es posible aplicar para una beca.
+
+Deberás cargar la documentación necesaria para el tipo de beca que estés solicitando
+
+Sólo se consideraran las postulaciones que se hayan presentado en tiempo y forma.
+
+#### Confirmación del Otorgamiento
+
+#### 2
+
+La universidad analizará tu pedido y te dará una respuesta.
+
+#comp-me8oyz95 svg [data-color="1"] {fill: #F0F0F0;}
+#comp-me8oyz95 svg [data-color="2"] {fill: #002323;}
+
+Primer Semestre: Fecha máxima de confirmación 1 de Febrero del año de cursado
+
+#comp-me8slrxb svg [data-color="1"] {fill: #F0F0F0;}
+#comp-me8slrxb svg [data-color="2"] {fill: #002323;}
+
+Segundo Semestre: Fecha máxima de confirmación 20 de Julio del año de cursado
+
+Aquellos estudiantes que resulten seleccionados en el proceso de otorgamiento, deberán realizar retribuciones de apoyo de acuerdo a las siguientes condiciones:
+
+- Las personas beneficiarias con becas del 70% deberán cumplir 10 horas semanales de apoyo a las actividades de la Universidad.
+- Las personas beneficiarias con becas del con un 50% deberán cumplir 8 horas semanales de apoyo a las actividades de la Universidad.
+- Las personas beneficiarias con becas del 30% deberán cumplir 4 horas semanales de apoyo a las actividades de la Universidad.
+
+Desde la Universidad se pondrán en contacto para informarte qué actividades vas a desarrollar.
+
+#### Seguimiento
+de la BECA
+
+#### 3
+
+Durante el desarrollo de la beca deberás registras las horas y actividades asignadas en un formulario que te vamos a compartir cuando se te confirme el detalle de tareas a realizar.
+
+Es muy importante que completes dicho formulario, ya que a partir de él se va a realizar el seguimiento del cumplimiento de las actividades, lo que determinara si la Beca se renueva para el próximo periodo.
+
+#### Becas académicas.
+
+[Alto Rendimiento](https://www.lanube.21.edu.ar/becas-siglo-21#rendimientoacademico)
+
+[Académico](https://www.lanube.21.edu.ar/becas-siglo-21#rendimientoacademico)
+
+[Mejor promedio de cada escuela Secundaria](https://www.lanube.21.edu.ar/becas-siglo-21#ingreso)
+
+Inicio
+
+Características
+
+Requisitos
+
+Documentación
+
+Postulate
+
+### Beca Rendimiento Académico
+
+​Elegiste esforzarte para lograr un desempeño académico sobresaliente y estás buscando llevarlo a su máximo potencial.
+
+En Siglo contamos con una beca que busca impulsar tu talento para que alcances tus objetivos y metas.
+
+### ​Detalles del beneficio
+
+- Destinada a aspirantes o estudiantes de carreras de Grado o Pregrado, en cualquiera de las modalidades de estudio.​
+
+- El beneficio consiste en una disminución del 30% sobre los aranceles del semestre, aplicable solo a esos conceptos (no incluye otros rubros o tasas).
+
+​​​
+
+- La aprobación de la beca está sujeta a la evaluación del Vicerrectorado de Gestión Institucional.
+
+### ​Requisitos para acceder a la beca
+
+Para aspirantes a ingresar a la Universidad:
+
+- Promedio del último año del Nivel Medio igual o mayor a 8 (ocho), incluyendo aplazos.
+
+- Haber finalizado los estudios secundarios dentro de los últimos 5 (cinco) años previos a la postulación.
+
+Para estudiantes ya cursando una carrera:
+
+- Promedio igual o mayor a 8 (ocho), incluyendo aplazos, en el último semestre de cursado.
+
+- Haber aprobado al menos 2 (dos) materias en el período anterior a la fecha de aplicación
+
+- Solo se le dará curso a las solicitudes de Beca que presenten la documentación de su legajo de forma completa.
+
+- Si la solicitud no se encuentra completa, se deberá cargar nuevamente.
+
+Si todavía no entregaste la documentación de tu legajo, conocé los requisitos y el procedimiento para presentarla en la sección Documentación de Legajo:
+
+Documentación de Legajo
+
+### ¿Qué documentos debo presentar?
+
+- Certificado analítico o boletín del último año de Nivel Medio, con promedio final (para aspirantes).​​
+
+- Documento Nacional de Identidad (DNI).
+
+​​
+
+secundaria
+
+Inicio
+
+Características
+
+Requisitos
+
+Documentación
+
+Postulate
+
+### Becas al mejor Promedio de cada Escuela Secundaria
+
+Sabemos todo lo que has logrado, y queremos acompañarte a seguir construyendo tu futuro.
+
+En Siglo, contamos con una beca que reconoce tu esfuerzo y está diseñada para impulsarte a alcanzar tus metas.
+
+- Destinada a personas que aspiren a ingresar a una carrera de Grado o Pregrado, en cualquiera de las modalidades de estudio.
+
+- El beneficio consiste en una disminución del 50% sobre los aranceles del semestre, aplicable únicamente a esos conceptos (no incluye otros rubros o tasas).
+
+- La renovación de la beca estará sujeta al mantenimiento de las condiciones académicas establecidas para esta tipología.
+
+- Ser estudiante del último año del nivel medio o polimodal, o haber egresado en el año inmediatamente anterior a la postulación.
+
+- Haber obtenido, durante el último año de cursado, un promedio académico igual o mayor a 8 (ocho), incluyendo aplazos.
+
+- Poseer una trayectoria académica sobresaliente, acreditada mediante recomendación de la persona a cargo de la Dirección del colegio o equivalente.
+
+- Haber sido reconocido como mejor promedio de la promoción, acreditado con certificado oficial emitido por la institución educativa.
+
+- Solo se le dará curso a las solicitudes de Beca que presenten la documentación de su legajo de forma completa.
+
+- Si la solicitud no se encuentra completa, se deberá cargar nuevamente.
+
+Si todavía no entregaste la documentación de tu legajo, conocé los requisitos y el procedimiento para presentarla en la sección Documentación de Legajo:
+
+Documentación de Legajo
+
+- Certificado analítico o boletín final del último año del Nivel Medio.
+
+- Certificado oficial de “Mejor Promedio de la Promoción”, emitido por la escuela.
+
+- Carta o nota de recomendación firmada por la persona Directora del establecimiento (o equivalente).
+
+- Documento Nacional de Identidad (DNI).
+
+​​
+
+#### Becas económicas.
+
+Talentos en situaciones de vulnerabilidad
+
+Economica
+
+Inicio
+
+Características
+
+Requisitos
+
+Documentación
+
+Evaluación y selección
+
+Postulate
+
+### Beca Situaciones de Vulnerabilidad
+
+- Destinada a aspirantes y estudiantes de carreras de Grado o Pregrado, en cualquiera de las modalidades de estudio.
+
+- Busca reconocer el talento académico de personas que se encuentran en situaciones de vulnerabilidad social o económica.
+
+- El beneficio consiste en una bonificación parcial sobre matrícula y aranceles:
+
+50% de descuento: para quienes acrediten promedio ≥ 8 y situación de vulnerabilidad verificada.
+
+70% de descuento: para quienes acrediten vulnerabilidad económica y sean seleccionados según el orden de mérito y evaluación institucional.
+
+- La mantención de la beca está sujeta al cumplimiento de los requisitos académicos y normativos institucionales vigentes.
+
+Para aspirantes a ingresar:
+
+- Ser estudiante del último año del Nivel Medio o Polimodal, o haber egresado recientemente.
+
+- Promedio igual o mayor a 8 (ocho) durante el último año de cursado, sin materias en condición de libre ni coloquio.
+
+- Contar con trayectoria académica sobresaliente, acreditada mediante recomendación de la Dirección y al menos dos docentes de la institución.
+
+- Pertenecer a un grupo social o económicamente vulnerable, condición comprobable mediante documentación respaldatoria.
+
+Para estudiantes reinscriptos:
+
+- Promedio igual o mayor a 8 (ocho) en el último semestre de cursado.
+
+- Haber aprobado al menos 2 materias en ese período.
+
+- No poseer sanciones académicas o disciplinarias graves, muy graves o gravísimas.
+
+- Solo se le dará curso a las solicitudes de Beca que presenten la documentación de su legajo de forma completa.
+
+- Si la solicitud no se encuentra completa, se deberá cargar nuevamente.
+
+​​​
+
+Si todavía no entregaste la documentación de tu legajo, conocé los requisitos y el procedimiento para presentarla en la sección Documentación de Legajo:
+
+Documentación de Legajo
+
+Académica:
+
+- Certificado analítico o boletín final (para aspirantes).
+- Certificado de alumno regular y analítico parcial actualizado (para reinscriptos).
+- Cartas de recomendación (Dirección + dos docentes).
+- Carta de recomendación externa (no familiar).
+- Hoja de vida (CV) y carta manuscrita del postulante explicando los motivos por los cuales considera merecer la beca.
+
+Socioeconómica:
+
+- Comprobantes de ingresos y egresos del grupo familiar.
+- Cantidad de integrantes del grupo familiar, especificando menores de edad y personas con discapacidad.
+- Condición laboral del principal perceptor de ingresos (prioridad a desocupados o subocupados).
+- Situación jurídica del inmueble habitado (prioridad si no es propio o se encuentra hipotecado).
+- Nivel educativo de los padres o tutores.
+- Cobertura de salud.
+- Lugar de procedencia de la persona postulante.
+- Documento Nacional de Identidad (DNI).
+- Formulario de solicitud de beca completo y firmado.
+
+La Universidad ponderará los siguientes criterios:
+
+- Hoja de vida: 30%
+
+- Referencias académicas: 30%
+
+- Exposición de motivos y evaluación de la situación personal: 40%
+
+#### Plazos de Postulación
+
+Las próximas convocatorias serán publicadas oportunamente.
+
+FORMULARIO DE POSTULACIÓN
+
+Up$pea0$, 'global', 'borrador', $pea0$https://www.lanube.21.edu.ar/becas-siglo-21$pea0$)
+on conflict (categoria_id, slug) do nothing;
+
+insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
 values ((select id from public.categorias where slug = $pea0$aranceles-y-pagos$pea0$), null, 0, $pea0$ln-becas-y-beneficios$pea0$,
         $pea0$Becas Y Beneficios | La Nube 21$pea0$, $pea0$En Universidad Siglo 21 apostamos a que tengas posibilidad de seguir estudiando, y por eso te ofrecemos beneficios para ayudarte a cumplir tu propósito.$pea0$, $pea0$> **A validar:** contenido relevado de https://www.lanube.21.edu.ar/becas-y-beneficios el 2026-11-08. Revisalo antes de publicar.
 
@@ -5559,6 +5847,122 @@ EXÁMENES  DESDE 23/11/2026 HASTA 19/12/2026
 on conflict (categoria_id, slug) do nothing;
 
 insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
+values ((select id from public.categorias where slug = $pea0$tramites$pea0$), null, 0, $pea0$ln-calendario-academico-distancia$pea0$,
+        $pea0$CALENDARIO ACADÉMICO ED-EDH | La Nube 21$pea0$, $pea0$Descargá tu calendario$pea0$, $pea0$> **A validar:** contenido relevado de https://www.lanube.21.edu.ar/calendario-acad%C3%A9mico-distancia el 2026-11-09. Revisalo antes de publicar.
+
+#### Calendario modalidad Distancia ED - EDH
+Inicio de cursado segundo semestre: 03/08/2026
+
+Descargá tu calendario
+
+¿Cuándo se rinden los parciales?
+
+¿Cuándo se entregan los TPs?
+
+Sincronizá tus vencimientos
+
+Calendario de trámites
+
+#### Mirá el Calendario Completo
+
+Descargá tu calendario acá
+
+#### ¿Cuándo se entregan los Trabajos Prácticos?
+
+Periodo 2B: Materias Bimestrales
+
+Segundo Semestre: Materias Cuatrimestrales
+
+#### Inscripción a parciales
+
+Novedades: Ahora podés inscribirte desde el inicio del cursado al Primer y al Segundo Parcial, eligiendo la fecha y la franja horaria que prefieras dentro de los plazos establecidos.
+
+### ​​
+
+### Plazos para inscribirte:
+
+### ​
+
+- Primer Parcial: hasta el 18 de octubre.
+
+- Segundo Parcial: hasta el 10 de noviembre.
+
+Si no realizás la inscripción dentro del plazo correspondiente, el sistema asignará automáticamente una fecha para rendir.
+
+#### Calendario de Trámites
+
+#### Conocé el
+Calendario de Trámites
+
+#### Descargalo acá
+
+#### Sincronizá tus vencimientos en tu Calendario de Google
+
+Descargá este archivo e importalo en tu calendario de Google, para incluir los vencimientos en tu agenda personal.
+
+Materias MEC
+
+Materias MIP
+
+Materias MIA
+
+### Mirá el tutorial
+
+### Si no sabés cómo hacerlo$pea0$, 'global', 'borrador', $pea0$https://www.lanube.21.edu.ar/calendario-acad%C3%A9mico-distancia$pea0$)
+on conflict (categoria_id, slug) do nothing;
+
+insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
+values ((select id from public.categorias where slug = $pea0$tramites$pea0$), null, 0, $pea0$ln-calendario-academico-presencial$pea0$,
+        $pea0$CALENDARIO ACADÉMICO PRESENCIAL | La Nube 21$pea0$, $pea0$Descargá tu calendario$pea0$, $pea0$> **A validar:** contenido relevado de https://www.lanube.21.edu.ar/calendario-academico-presencial el 2026-11-09. Revisalo antes de publicar.
+
+#### Calendario Modalidad Presencial y Presencial Distribuida
+Inicio de cursado segundo semestre: 03/08/2026
+
+Descargá tu calendario
+
+¿Cuándo se rinden los parciales?
+
+¿Cuándo se entregan los TPs?
+
+Calendario de trámites
+
+#### Mirá el Calendario Completo
+
+Descargá tu calendario acá
+
+#### ¿Cuándo se entregan los Trabajos Prácticos?
+
+Segundo Semestre
+
+#### ¿Cuándo se rinden los parciales?
+
+No tenés que realizar la inscripción a los exámenes parciales, ya que se gestiona de forma automática. Consultá la información en tu Portal Estudiantes.
+
+Segundo Semestre
+
+#### 2do Parcial
+
+#### Desde el 02/11 hasta el 14/11
+
+Podés consultar la fecha de tus parciales en tu Portal Estudiantes, dentro de la sección Exámenes.
+
+#### Fechas exámenes finales
+
+Recordá que deberás realizar tu inscripción, con al menos 4 (cuatro) días CORRIDOS de anticipación según la disponibilidad de turnos de examen que tenga el CAU o Sede.
+
+Mirá como inscribirte a los exámenes finales acá:
+
+Inscripción a finales
+
+#### Calendario de Trámites
+
+#### Conocé el
+Calendario de Trámites
+
+#### Descargalo acá$pea0$, 'global', 'borrador', $pea0$https://www.lanube.21.edu.ar/calendario-academico-presencial$pea0$)
+on conflict (categoria_id, slug) do nothing;
+
+insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
 values ((select id from public.categorias where slug = $pea0$tramites$pea0$), null, 0, $pea0$ln-calendario-academico$pea0$,
         $pea0$Calendario académico$pea0$, $pea0$El Calendario Académico es una herramienta clave que te ayudará a planificar y organizar tu cursado. Podrás:$pea0$, $pea0$> **A validar:** contenido relevado de https://www.lanube.21.edu.ar/calendario-academico el 2026-11-08. Revisalo antes de publicar.
 
@@ -5599,6 +6003,15 @@ MATERIAS DE PROCESO
 
 #### CALENDARIO
 MARTILLERO PRESENCIAL$pea0$, 'global', 'borrador', $pea0$https://www.lanube.21.edu.ar/calendario-academico$pea0$)
+on conflict (categoria_id, slug) do nothing;
+
+insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
+values ((select id from public.categorias where slug = $pea0$tramites$pea0$), null, 0, $pea0$ln-calendario-de-tramites$pea0$,
+        $pea0$CALENDARIO DE TRAMITES$pea0$, $pea0$En la Universidad Siglo 21 entendemos las internships como experiencias de pasantías con un impacto significativo en el ámbito global. Esta dimensión internacional puede manifestarse a través de d$pea0$, $pea0$> **A validar:** contenido relevado de https://www.lanube.21.edu.ar/post/calendario-de-tramites el 2026-11-09. Revisalo antes de publicar.
+
+En la Universidad Siglo 21 entendemos las internships como experiencias de pasantías con un impacto significativo en el ámbito global. Esta dimensión internacional puede manifestarse a través de d
+
+### Comentarios$pea0$, 'global', 'borrador', $pea0$https://www.lanube.21.edu.ar/post/calendario-de-tramites$pea0$)
 on conflict (categoria_id, slug) do nothing;
 
 insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
@@ -6077,6 +6490,34 @@ Jueves 19 - 18:00 hs
 on conflict (categoria_id, slug) do nothing;
 
 insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
+values ((select id from public.categorias where slug = $pea0$plataformas$pea0$), null, 0, $pea0$ln-como-empadronarse-en-klarway$pea0$,
+        $pea0$¿Cómo registrarse en Klarway?$pea0$, $pea0$Si todavía no completaste tu empadronamiento (registro), seguí los siguientes pasos:$pea0$, $pea0$> **A validar:** contenido relevado de https://www.lanube.21.edu.ar/post/como-empadronarse-en-klarway el 2026-11-09. Revisalo antes de publicar.
+
+Si todavía no completaste tu empadronamiento (registro), seguí los siguientes pasos:
+
+**Paso 1:**Abrí la app de Klarway en la computadora y seguí los siguientes pasos para completar el registro.
+
+**Paso 2:**Ingresa con tus datos de alumno (usuario, DNI y contraseña).
+
+**Paso 3:**Se abrirá la siguiente ventana:
+
+**Paso 4:**Hacé click en “CONTINUAR” para tomar una foto de tu rostro. Seguí las instrucciones que aparecen en pantalla. Evita que se visualicen otras personas.
+
+**Ubicá tu rostro dentro del círculo delimitado**
+
+**Paso 5:**Hacé click en “CONTINUAR” para tomar una foto de tu DNI o Pasaporte. Ubica al mismo, dentro del recuadro que aparece en pantalla, lo más cerca posible de la cámara.
+
+**Ubicá tu DNI dentro del rectángulo delimitado**
+
+**Paso 6:**Para terminar, hace click en “GUARDAR”. Inmediatamente el estado incompleto del registro cambiará a **registro aprobado** acompañado de una tilde verde.
+
+**Paso 7:**Hace click en “SALIR” para finalizar este paso que realizará por **única vez.**
+
+| Estado del Registro Tu registro puede tener uno de los siguientes estados: ✅ Aprobado: Puedes rendir el examen. ❌ Rechazado: Debes realizar nuevamente el registro. ⏳ En revisión: Debes esperar la validación para poder rendir. ⚠️ Importante: El proceso de validación puede demorar hasta 24 horas hábiles. |
+| --- |$pea0$, 'global', 'borrador', $pea0$https://www.lanube.21.edu.ar/post/como-empadronarse-en-klarway$pea0$)
+on conflict (categoria_id, slug) do nothing;
+
+insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
 values ((select id from public.categorias where slug = $pea0$institucional$pea0$), null, 0, $pea0$ln-comunidad-net$pea0$,
         $pea0$Comunidad Net| La Nube 21$pea0$, $pea0$El espacio de Siglo 21 para que potencies tu red de vinculación desde cualquier lugar.$pea0$, $pea0$> **A validar:** contenido relevado de https://www.lanube.21.edu.ar/comunidad-net el 2026-11-08. Revisalo antes de publicar.
 
@@ -6261,6 +6702,502 @@ Las publicaciones que infrinjan alguna de estas normas no serán aceptadas y pub
 on conflict (categoria_id, slug) do nothing;
 
 insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
+values ((select id from public.categorias where slug = $pea0$modalidades$pea0$), null, 0, $pea0$ln-condicion-cursado-ed$pea0$,
+        $pea0$CONDICIÓN CURSADO EDUCACIÓN DISTRIBUIDA | La Nube 21$pea0$, $pea0$Te damos la bienvenida a este espacio en dónde vas a conocer los requisitos que necesitas para aprobar tus materias y estar un paso más cerca de tu objetivo.$pea0$, $pea0$> **A validar:** contenido relevado de https://www.lanube.21.edu.ar/condicion-cursado-ed el 2026-11-09. Revisalo antes de publicar.
+
+#### ED
+
+#### Condiciones de Materias
+
+Te damos la bienvenida a este espacio en dónde vas a conocer los requisitos que necesitas para aprobar tus materias y estar un paso más cerca de tu objetivo.
+
+Tipología de
+
+Materias
+
+Condiciones de Materias
+
+Valoración de Tiempo de Entrega
+
+#### Condiciones de Materias
+
+#### Elegí la tipología de materia y revisá las condiciones de cursado
+
+#### Cursado Bimestral
+
+#### Promoción Directa
+
+#### ¿Qué necesitás para lograr esta condición?
+
+#### ¿Cómo aprobar la materia?
+
+Alcanzaste la promoción de la materia, por lo que no necesitas rendir un final. 
+
+La calificación final en la materia será el promedio obtenido entre todos los TPs y los parciales, sean estos aprobados en primera instancia o mediando recuperatorio individual o integrador
+
+#### Promoción Indirecta
+
+Alcanzaste la promoción de la materia, por lo que no necesitas rendir un final. 
+
+La calificación final en la materia será el promedio obtenido entre todos los TPs y los parciales, sean estos aprobados en primera instancia o mediando recuperatorio individual o integrador
+
+#### Regularidad
+
+Para aprobar la materia debes rendir un examen final que tendrá 30 preguntas y deberá aprobarse con nota 4 ó más. 
+
+Contas con un límite de hasta 3 instancias para rendir y un plazo máximo de 18 meses. 
+
+Si te inscribiste a la mesa del examen final y no te presentas, se considerará como ausente y se perderá una de las instancias disponibles
+
+#### ¿Cuál es la condición que queda si no se alcanza la Regularidad de la materia?
+
+#### Libre por Nota
+
+La materia quedará en este estado cuando no se cumplan las condiciones de regularidad.
+
+#### Libre
+
+La materia quedará en este estado cuando se hayan utilizado todas las oportunidades para rendir la materia, sin poder aprobar la misma o cuando haya vencido el plazo para rendir el examen final.
+
+IMPORTANTE:
+
+Si te inscribis para rendir un Examen Recuperatorio o Examen Integrador, y no te presentas a rendir, el examen será calificado con nota cero (0), aplicándose la nota para el cálculo final de la materia.
+
+En los casos en que puedas optar por rendir el recuperatorio de un parcial o el integrador, sólo podrás elegir uno de ellos e inscribirte.
+
+Podrás cancelar tu inscripción al recuperatorio o al integrador hasta 48 horas hábiles antes de la fecha de la mesa correspondiente.
+
+#comp-lq1669sq svg [data-color="1"] {fill: #FFA300;}
+
+#### Conocé cómo hacer tus Trabajos Prácticos y Parciales acá
+
+#### Mirá acá cómo entregar tus TPs
+
+#### ¿Cómo se rinden los Parciales?
+
+#### Valoración de Tiempo de Entrega (sólo para materias MEC)
+
+La Valoración de Tiempo de Entrega define los términos y condiciones aplicables cuando los TPs no son entregados dentro del plazo estipulado en el calendario académico.
+
+Esta valoración, será aplicable solamente en el caso de las materias con tipología MEC y consiste en una reducción en la calificación obtenida en el TP entregado fuera de plazo.
+
+Para esto, vas a tener en la plataforma 3 fechas diferentes:
+
+-Fecha de Inicio de Periodo: Es la fecha desde la cual podes realizar tus TPs.
+
+-La Fecha de Entrega: Esta es la última fecha que tenes disponible para entregar el TP sin que se aplique la Valoración de Tiempo de Entrega.
+
+-Fecha Fin de Periodo: Es la última oportunidad que tenes para entregar el TP, ya que luego de esta, el sistema se bloquea y no admite más presentaciones.
+
+Se van a descontar 5 puntos en Canvas por cada día que transcurra entre la Fecha de Entrega y la Fecha en la que presentaste tu TP.
+
+Si presentaste tu TP entre estas fechas, no se aplica la Valoración de Tiempo de Entrega y tu Calificación será la que obtuviste en Canvas.
+
+Si presentaste tu TP entre estas fechas, se aplica la Valoración de Tiempo de Entrega y a tu Calificación se le descontará 5 puntos por día de atraso.
+
+#### Fecha
+Inicio Periodo
+
+#### Fecha
+de Entrega
+
+#### Fecha
+Fin de Periodo
+
+IMPORTANTE:
+
+No se descontaran mas de 50 puntos por entregar tu TP fuera de plazo. Esto quiere decir, que la nota final no será menor a 5 a causa de la Valoración de Tiempo de Entrega, por lo que tu TP no quedará desaprobado por este motivo.
+
+#comp-lq1669tg5 svg [data-color="1"] {fill: #FFA300;}
+
+Up$pea0$, 'global', 'borrador', $pea0$https://www.lanube.21.edu.ar/condicion-cursado-ed$pea0$)
+on conflict (categoria_id, slug) do nothing;
+
+insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
+values ((select id from public.categorias where slug = $pea0$modalidades$pea0$), null, 0, $pea0$ln-condicion-cursado-presencialidad-distribuida$pea0$,
+        $pea0$CONDICIÓN CURSADO PRESENCIAL | La Nube 21$pea0$, $pea0$Te damos la bienvenida a este espacio en dónde vas a conocer los requisitos que necesitas para aprobar tus materias y estar un paso más cerca de tu objetivo.$pea0$, $pea0$> **A validar:** contenido relevado de https://www.lanube.21.edu.ar/condicion-cursado-presencialidad-distribuida el 2026-11-09. Revisalo antes de publicar.
+
+#### PD
+
+#### Condiciones de Materias
+
+Te damos la bienvenida a este espacio en dónde vas a conocer los requisitos que necesitas para aprobar tus materias y estar un paso más cerca de tu objetivo.
+
+mENU
+
+Tipología de
+
+Materias
+
+Condiciones de Materias
+
+Valoración de Tiempo de Entrega
+
+#### ¿Cómo apruebo la materia?
+
+#### Cursado Cuatrimestral
+
+#### Promoción Directa
+
+#### ¿Qué necesitás para lograr esta condición?
+
+• 3 de 4 TPs con nota 7 ó más.
+
+• 2 parciales con nota 7 ó más, sea en instancia de parcial, recuperatorio o integrador.
+
+• 75% de asistencia.
+
+#### ¿Cuáles son los próximos pasos?
+
+Alcanzaste la promoción de la materia, por lo que no necesitas rendir un final.
+
+La calificación final en la materia será el promedio obtenido entre todos los TPs y los parciales, sean estos aprobados en primera instancia o mediando recuperatorio individual o integrador
+
+#### Promoción Indirecta
+
+• 4 de 4 TPs con nota 7 ó más.
+
+• 2 parciales con nota 5 ó 6, sea en instancia de parcial, recuperatorio o integrador.
+
+• 75% de asistencia.
+
+Alcanzaste la promoción de la materia, por lo que no necesitas rendir un final.
+
+La calificación final en la materia será el promedio obtenido entre todos los TPs y los parciales, sean estos aprobados en primera instancia o mediando recuperatorio individual o integrador
+
+#### Regularidad
+
+• 3 de 4 TPs con nota 5 ó más.
+
+• 2 parciales con nota 5 ó más, sea en instancia de parcial, recuperatorio o integrador.
+
+• 75% de asistencia.
+
+Para aprobar la materia debes rendir un examen final que tendrá 30 preguntas y en caso de aprobarlo pasarás a una instancia Oral. La nota de aprobación es 4.
+
+Contas con un límite de hasta 3 instancias para rendir. Podrás rendir este examen en una de las mesas habilitadas dentro de los turnos de exámenes comprendidos en los siguientes 18 meses.
+
+Si te inscribiste a la mesa del examen final y no te presentas, se considerará como ausente y se perderá una de las instancias disponibles.
+
+#### ¿Cuál es la condición que queda si no se alcanza la Regularidad de la materia?
+
+#### Libre por Nota:
+
+La materia quedará en este estado cuando no se cumplan las condiciones de regularidad.
+
+● Este estado habilita la instancia de Final de 50 preguntas y en caso de aprobarlo pasarás a una instancia Oral. El examen se aprueba con nota 4 ó más.
+
+● Podrás rendir este examen en una de las mesas habilitadas dentro de los turnos de exámenes comprendidos en los siguientes 3 meses.
+
+● En caso de no aprobar dentro de ese plazo la materia pasa al estado Libre y deberás recursar la asignatura.
+
+● Si te inscribiste a la mesa del examen final y no te presentas, se considerará como ausente y se perderá la instancia disponible.
+
+#### Libre:
+
+La materia quedará en este estado cuando se hayan utilizado todas las oportunidades para rendir la materia, sin poder aprobar la misma o cuando haya vencido el plazo para rendir el examen final.
+
+• Esta condición implica que se debe recursar la asignatura.
+
+IMPORTANTE:
+
+Si te inscribis para rendir un Examen Recuperatorio o Examen Integrador, y no te presentas a rendir, el examen será calificado con nota cero (0), aplicándose la nota para el cálculo final de la materia.
+
+- En los casos en que puedas optar por rendir el recuperatorio de un parcial o el integrador, sólo podrás elegir uno de ellos e inscribirte.
+
+- Podrás cancelar tu inscripción al recuperatorio o al integrador hasta 48 horas hábiles antes de la fecha de la mesa correspondiente.
+
+#comp-m2xnyapp1 svg [data-color="1"] {fill: #FFA300;}
+
+valoracion tiempo entrega
+
+#### Conocé cómo hacer tus Trabajos Prácticos y Parciales acá
+
+#### Mirá acá cómo entregar tus TPs
+
+#### ¿Cómo se rinden los Parciales?
+
+#### Valoración de Tiempo de Entrega (sólo para Materias MEC)
+
+La Valoración de Tiempo de Entrega define los términos y condiciones aplicables cuando los TPs no son entregados dentro del plazo estipulado en el calendario académico.
+
+Esta valoración, será aplicable solamente en el caso de las materias con tipología MEC y consiste en una reducción en la calificación obtenida en el TP entregado fuera de plazo.
+
+Para esto, vas a tener en la plataforma 3 fechas diferentes:
+
+-Fecha de Inicio de Periodo: Es la fecha desde la cual podes realizar tus TPs.
+
+-La Fecha de Entrega: Esta es la última fecha que tenes disponible para entregar el TP sin que se aplique la Valoración de Tiempo de Entrega.
+
+-Fecha Fin de Periodo: Es la última oportunidad que tenes para entregar el TP, ya que luego de esta, el sistema se bloquea y no admite más presentaciones.
+
+Se van a descontar 5 puntos en Canvas por cada día que transcurra entre la Fecha de Entrega y la Fecha en la que presentaste tu TP.
+
+Si presentaste tu TP entre estas fechas, se aplica la Valoración de Tiempo de Entrega y a tu Calificación se le descontará 5 puntos por día de atraso.
+
+Si presentaste tu TP entre estas fechas, no se aplica la Valoración de Tiempo de Entrega y tu Calificación será la que obtuviste en Canvas.
+
+#### Fecha
+Inicio Período
+
+#### Fecha
+de Entrega
+
+#### Fecha
+Fin de Período
+
+IMPORTANTE:
+
+No se descontarán más de 50 puntos por entregar tu TP fuera de plazo. Esto quiere decir, que la nota final no será menor a 5 a causa de la Valoración de Tiempo de Entrega, por lo que tu TP no quedará desaprobado por este motivo.
+
+#comp-m2xnyaru svg [data-color="1"] {fill: #FFA300;}
+
+#### ¿Cursas materias MAP?
+
+Ingresá y conocé todo sobre el cursado de tus MAP "Materias de Aplicación Pre-Profesional".
+
+Up$pea0$, 'global', 'borrador', $pea0$https://www.lanube.21.edu.ar/condicion-cursado-presencialidad-distribuida$pea0$)
+on conflict (categoria_id, slug) do nothing;
+
+insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
+values ((select id from public.categorias where slug = $pea0$modalidades$pea0$), null, 0, $pea0$ln-condiciones-de-cursado-presencial$pea0$,
+        $pea0$CONDICIÓN CURSADO PRESENCIAL | La Nube 21$pea0$, $pea0$Te damos la bienvenida a este espacio en dónde vas a conocer los requisitos que necesitas para aprobar tus materias y estar un paso más cerca de tu objetivo.$pea0$, $pea0$> **A validar:** contenido relevado de https://www.lanube.21.edu.ar/condiciones-de-cursado-presencial el 2026-11-09. Revisalo antes de publicar.
+
+#### P
+
+#### Condiciones de Materias
+
+Te damos la bienvenida a este espacio en dónde vas a conocer los requisitos que necesitas para aprobar tus materias y estar un paso más cerca de tu objetivo.
+
+mENU
+
+Tipología de
+
+Materias
+
+Condiciones de Materias
+
+Valoración de Tiempo de Entrega
+
+IMPORTANTE:
+
+Las calificaciones de los Trabajos Prácticos (TP) publicadas en tu Aula Virtual (CANVAS) pueden ser ajustadas por tu docente, de acuerdo con el acuerdo pedagógico y tu desempeño en las actividades evaluativas de proceso.
+
+Asimismo, el cuerpo docente podrá asignar una nota de proceso, la cual se promediará junto con las calificaciones de los Trabajos Prácticos y los exámenes. En caso de no presentar un Trabajo Práctico, se registrará una calificación de 0 (cero) para esa entrega, la cual también formará parte del promedio final.
+
+#comp-lews3obs4 svg [data-color="1"] {fill: #FFA300;}
+
+#### Condiciones de Materias
+
+#### Elegí la tipología de materia y revisá las condiciones de cursado
+
+#### Cursado Cuatrimestral
+
+#### Promoción Directa
+
+#### ¿Qué necesitás para lograr esta condición?
+
+#### ¿Cómo aprobar la materia?
+
+Alcanzaste la promoción de la materia, por lo que no necesitas rendir un final. 
+
+La calificación final en la materia será el promedio obtenido entre todos los TPs y los parciales, sean estos aprobados en primera instancia o mediando recuperatorio individual o integrador
+
+#### Promoción Indirecta
+
+Alcanzaste la promoción de la materia, por lo que no necesitas rendir un final. 
+
+La calificación final en la materia será el promedio obtenido entre todos los TPs y los parciales, sean estos aprobados en primera instancia o mediando recuperatorio individual o integrador
+
+#### Regularidad
+
+Para aprobar la materia debes rendir un examen final que tendrá 30 preguntas y en caso de aprobarlo pasarás a una instancia Oral. La nota de aprobación es 4.
+
+Contas con un límite de hasta 3 instancias para rendir. Podrás rendir este examen en una de las mesas habilitadas dentro de los turnos de exámenes comprendidos en los siguientes 18 meses. 
+
+Si te inscribiste a la mesa del examen final y no te presentas, se considerará como ausente y se perderá una de las instancias disponibles
+
+#### ¿Cuál es la condición que queda si no se alcanza la Regularidad de la materia?
+
+#### Libre por Nota
+
+La materia quedará en este estado cuando no se cumplan las condiciones de regularidad.
+
+#### Libre
+
+La materia quedará en este estado cuando se hayan utilizado todas las oportunidades para rendir la materia, sin poder aprobar la misma o cuando haya vencido el plazo para rendir el examen final.
+
+IMPORTANTE:
+
+Si te inscribis para rendir un Examen Recuperatorio o Examen Integrador, y no te presentas a rendir, el examen será calificado con nota cero (0), aplicándose la nota para el cálculo final de la materia.
+
+- En los casos en que puedas optar por rendir el recuperatorio de un parcial o el integrador, sólo podrás elegir uno de ellos e inscribirte.
+
+- Podrás cancelar tu inscripción al recuperatorio o al integrador hasta 48 horas hábiles antes de la fecha de la mesa correspondiente.
+
+#comp-li0nc5493 svg [data-color="1"] {fill: #FFA300;}
+
+valoracion tiempo entrega
+
+#### Conocé cómo hacer tus Trabajos Prácticos y Parciales acá
+
+#### Mirá acá cómo entregar tus TPs
+
+#### ¿Cómo se rinden los Parciales?
+
+#### Valoración de Tiempo de Entrega (sólo para Materias MEC)
+
+La Valoración de Tiempo de Entrega define los términos y condiciones aplicables cuando los TPs no son entregados dentro del plazo estipulado en el calendario académico.
+
+Esta valoración, será aplicable solamente en el caso de las materias con tipología MEC y consiste en una reducción en la calificación obtenida en el TP entregado fuera de plazo.
+
+Para esto, vas a tener en la plataforma 3 fechas diferentes:
+
+-Fecha de Inicio de Periodo: Es la fecha desde la cual podes realizar tus TPs.
+
+-La Fecha de Entrega: Esta es la última fecha que tenes disponible para entregar el TP sin que se aplique la Valoración de Tiempo de Entrega.
+
+-Fecha Fin de Periodo: Es la última oportunidad que tenes para entregar el TP, ya que luego de esta, el sistema se bloquea y no admite más presentaciones.
+
+Se van a descontar 5 puntos en Canvas por cada día que transcurra entre la Fecha de Entrega y la Fecha en la que presentaste tu TP.
+
+Si presentaste tu TP entre estas fechas, se aplica la Valoración de Tiempo de Entrega y a tu Calificación se le descontará 5 puntos por día de atraso.
+
+Si presentaste tu TP entre estas fechas, no se aplica la Valoración de Tiempo de Entrega y tu Calificación será la que obtuviste en Canvas.
+
+#### Fecha
+Inicio Período
+
+#### Fecha
+de Entrega
+
+#### Fecha
+Fin de Período
+
+IMPORTANTE:
+
+No se descontarán más de 50 puntos por entregar tu TP fuera de plazo. Esto quiere decir, que la nota final no será menor a 5 a causa de la Valoración de Tiempo de Entrega, por lo que tu TP no quedará desaprobado por este motivo.
+
+#comp-le601ux31 svg [data-color="1"] {fill: #FFA300;}
+
+Up$pea0$, 'global', 'borrador', $pea0$https://www.lanube.21.edu.ar/condiciones-de-cursado-presencial$pea0$)
+on conflict (categoria_id, slug) do nothing;
+
+insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
+values ((select id from public.categorias where slug = $pea0$modalidades$pea0$), null, 0, $pea0$ln-condiciones-de-cursado$pea0$,
+        $pea0$CONDICIÓN CURSADO EDUCACIÓN DISTRIBUIDA HOME | La Nube 21$pea0$, $pea0$mENU$pea0$, $pea0$> **A validar:** contenido relevado de https://www.lanube.21.edu.ar/condiciones-de-cursado el 2026-11-09. Revisalo antes de publicar.
+
+mENU
+
+#### EDH
+
+#### Condiciones de Materias
+
+Te damos la bienvenida a este espacio en dónde vas a conocer los requisitos que necesitas para aprobar tus materias y estar un paso más cerca de tu objetivo.
+
+Tipología de
+
+Materias
+
+Condiciones de Materias
+
+Valoración de Tiempo de Entrega
+
+#### Condiciones de Materias
+
+#### Elegí la tipología de materia y revisá las condiciones de cursado
+
+#### Cursado Bimestral
+
+#### Promoción Directa
+
+#### ¿Qué necesitás para lograr esta condición?
+
+#### ¿Cómo aprobar la materia?
+
+Alcanzaste la promoción de la materia, por lo que no necesitas rendir un final. 
+
+La calificación final en la materia será el promedio obtenido entre todos los TPs y los parciales, sean estos aprobados en primera instancia o mediando recuperatorio individual o integrador
+
+#### Promoción Indirecta
+
+Alcanzaste la promoción de la materia, por lo que no necesitas rendir un final. 
+
+La calificación final en la materia será el promedio obtenido entre todos los TPs y los parciales, sean estos aprobados en primera instancia o mediando recuperatorio individual o integrador
+
+#### Regularidad
+
+Para aprobar la materia debes rendir un examen final que tendrá 30 preguntas y deberá aprobarse con nota 4 ó más. 
+
+Contas con un límite de hasta 3 instancias para rendir y un plazo máximo de 18 meses. 
+
+Si te inscribiste a la mesa del examen final y no te presentas, se considerará como ausente y se perderá una de las instancias disponibles
+
+#### ¿Cuál es la condición que queda si no se alcanza la Regularidad de la materia?
+
+#### Libre por Nota
+
+La materia quedará en este estado cuando no se cumplan las condiciones de regularidad.
+
+#### Libre
+
+La materia quedará en este estado cuando se hayan utilizado todas las oportunidades para rendir la materia, sin poder aprobar la misma o cuando haya vencido el plazo para rendir el examen final.
+
+IMPORTANTE:
+
+Si te inscribis para rendir un Examen Recuperatorio o Examen Integrador, y no te presentas a rendir, el examen será calificado con nota cero (0), aplicándose la nota para el cálculo final de la materia.
+
+En los casos en que puedas optar por rendir el recuperatorio de un parcial o el integrador, sólo podrás elegir uno de ellos e inscribirte.
+
+Podrás cancelar tu inscripción al recuperatorio o al integrador hasta 48 horas hábiles antes de la fecha de la mesa correspondiente.
+
+#comp-li0n97pt svg [data-color="1"] {fill: #FFA300;}
+
+#### Conocé cómo hacer tus Trabajos Prácticos y Parciales acá
+
+#### Mirá acá cómo entregar tus TPs
+
+#### ¿Cómo se rinden los Parciales?
+
+#### Valoración de Tiempo de Entrega
+
+La Valoración de Tiempo de Entrega define los términos y condiciones aplicables cuando los TPs no son entregados dentro del plazo estipulado en el calendario académico.
+
+Consiste en una reducción en la calificación obtenida en el TP entregado fuera de plazo.
+
+Para esto, vas a tener en la plataforma 3 fechas diferentes:
+
+-Fecha de Inicio de Periodo: Es la fecha desde la cual podes realizar tus TPs.
+
+-La Fecha de Entrega: Esta es la última fecha que tenes disponible para entregar el TP sin que se aplique la Valoración de Tiempo de Entrega.
+
+-Fecha Fin de Periodo: Es la última oportunidad que tenes para entregar el TP, ya que luego de esta, el sistema se bloquea y no admite más presentaciones.
+
+Se van a descontar 5 puntos en Canvas por cada día que transcurra entre la Fecha de Entrega y la Fecha en la que presentaste tu TP.
+
+Si presentaste tu TP entre estas fechas, se aplica la Valoración de Tiempo de Entrega y a tu Calificación se le descontará 5 puntos por día de atraso.
+
+Si presentaste tu TP entre estas fechas, no se aplica la Valoración de Tiempo de Entrega y tu Calificación será la que obtuviste en Canvas.
+
+#### Fecha
+Inicio Periodo
+
+#### Fecha
+de Entrega
+
+#### Fecha
+Fin de Periodo
+
+IMPORTANTE:
+
+No se descontaran mas de 50 puntos por entregar tu TP fuera de plazo. Esto quiere decir, que la nota final no será menor a 5 a causa de la Valoración de Tiempo de Entrega, por lo que tu TP no quedará desaprobado por este motivo.
+
+#comp-le5z1pjp1 svg [data-color="1"] {fill: #FFA300;}
+
+Up$pea0$, 'global', 'borrador', $pea0$https://www.lanube.21.edu.ar/condiciones-de-cursado$pea0$)
+on conflict (categoria_id, slug) do nothing;
+
+insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
 values ((select id from public.categorias where slug = $pea0$tramites$pea0$), null, 0, $pea0$ln-correlativas$pea0$,
         $pea0$Correlativas | La Nube 21$pea0$, $pea0$Un plan de correlatividades establece el orden en que se deben cursar las materias del plan de estudio.$pea0$, $pea0$> **A validar:** contenido relevado de https://www.lanube.21.edu.ar/correlativas el 2026-11-08. Revisalo antes de publicar.
 
@@ -6279,6 +7216,204 @@ Es posible promocionar una materia correlativa, siempre y cuando su correlativa 
 Para conocer si una materia tiene correlativas, deberás ingresar a tu Portal de Estudiantes, hacer click en tu Carrera y revisar el Plan de Estudio.
 
 Si querés ver las correlativas que tiene cada materias, deberás hacer click en Ver Correlativas. Si necesitas ver el programa de la materia, hacé click en Ver Programa.$pea0$, 'global', 'borrador', $pea0$https://www.lanube.21.edu.ar/correlativas$pea0$)
+on conflict (categoria_id, slug) do nothing;
+
+insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
+values ((select id from public.categorias where slug = $pea0$tramites$pea0$), null, 0, $pea0$ln-defensa-oral$pea0$,
+        $pea0$Defensa Oral | La Nube 21$pea0$, $pea0$Pasos para solicitar Mesa$pea0$, $pea0$> **A validar:** contenido relevado de https://www.lanube.21.edu.ar/defensa-oral el 2026-11-09. Revisalo antes de publicar.
+
+#### Te damos la
+Bienvenida a la tercera etapa de tu proceso
+DEFENSA ORAL
+
+Pasos para solicitar Mesa
+
+Asignación fecha Defensa Oral
+
+Evaluación Defensa Oral
+
+Info adicional viaje a Córdoba
+
+IMPORTANTE:
+
+Todas las defensas orales se realizan de manera presencial en el Campus de la Universidad Siglo 21.
+
+#### ¿CÓMO DEBO SOLICITAR MESA PARA RENDIR MI DO?
+
+​​Cuando recibas la aprobación de la Comisión Académica Evaluadora (CAE), quedarás habilitado/a para comenzar con el proceso para la solicitud de tu defensa oral.
+
+​​​
+
+Importante: Si estudiás en modalidad a distancia (modalidad Educación Distribuida ó Educación Distribuida Home), debés tener EFIP II aprobado antes de solicitar la mesa de defensa oral (excepto en la Licenciatura en Educación, donde no se exige este requisito).
+
+#comp-mihuohnh svg [data-color="1"] {fill: #F0F0F0;}
+
+### tasa de graduación
+
+Aboná el arancel para iniciar el proceso.
+
+VER MÁS >
+
+#comp-mihuohob svg [data-color="1"] {fill: #002323;}
+
+### proceso de visado
+
+Controles automáticos de tu legajo.
+
+VER MÁS >
+
+#comp-mihuohol svg [data-color="1"] {fill: #A0EC88;}
+
+### completÁ EL formulario
+
+Enviá tu solicitud de defensa.
+
+VER MÁS >
+
+### asignación de mesa
+
+Recibí tu fecha para rendir.
+
+VER MÁS >
+
+#comp-mihuohp11 svg [data-color="1"] {fill: #002323;}
+
+### INSTANCIA EVALUATIVA
+FINAL
+
+Presentá tu defensa final en el Cmpus de la Universidad.
+
+VER MÁS >
+
+IMPORTANTE:
+
+Recordá que debés tener la matrícula del semestre en curso abonada tanto al momento de iniciar el proceso de visado analítico como al momento de rendir tu defensa oral.​​
+
+#### TASA DE GRADUACIÓN
+
+Los egresados de carreras de GRADO y CICLOS DE COMPLEMENTACION (Excepto Escribanía) cualquiera sea la modalidad, deberán abonar la Tasa de Graduación para llevar adelante el VISADO previo a rendir la DEFENSA ORAL*.
+
+*(para alumnos DISTANCIA no es necesario abonar la TASA previo a rendir el EFIP II, ya que la validación académica para rendir EFIP II es automática)
+
+Una vez regularizado el Seminario Final y aprobado por la CAE, se genera automáticamente un ticket de graduación que lo veras reflejado en Pago Electrónico.
+
+Es obligatorio abonar la Tasa de Graduación para que pueda iniciar el proceso de visado.
+
+¿Que contempla la TASA de GRADUACION?
+
+- Constancia de egreso o certificado de titulación en trámite (a requerimiento del interesado)
+- Gestión del diploma y certificado analítico oficial digital y en papel de seguridad, con la respectiva legalización ministerial.
+- Opción de envío del título a CAU (para aquellos egresados que son de otras ciudades/provincias).
+- Invitación al acto de colación para el egresado e invitados (la cantidad de invitados te será comunicada por correo institucional)
+- Acceso a evento de colación.
+
+#### PROCESO DE VISADO
+
+El Visado para Defensa Oral es la constancia que indica que no adeudas ninguna materia de tu currícula y que cumplís con los visados de Documentación, Administrativo, Biblioteca y CAE, según tu nivel de estudio.
+
+El proceso comienza de manera automática una vez abonada la Tasa de Graduación, siempre y cuando cumplas con los requisitos académicos:
+
+#comp-mij0a3j3 svg [data-color="1"] {fill: #002323;}
+
+Requisitos:​
+
+Alumno Presencial y PH: todas las materias aprobadas + electivas + Seminario Final en condición de regular.
+
+Alumno ED y EDH: todas las materias aprobadas + electivas + EFIP II aprobado + Seminario Final en condición de regular.
+
+#comp-mij0b6vz svg [data-color="1"] {fill: #002323;}
+
+El visado consta de 4 controles:
+
+Documentación: verificación del legajo y datos personales.
+
+Administrativo: libre deuda.
+
+Biblioteca: control de publicaciones o préstamos.
+
+CAE: validación académica final.
+
+Además. también se va a realizar el ​ Visado CAE (Comisión Académica Evaluadora), donde se validará según corresponda, que el Trabajo Final presentado esté aprobado.
+
+#comp-mij0bkwn svg [data-color="1"] {fill: #002323;}
+
+Tené en cuenta lo siguiente:
+
+- No debés solicitar el visado, el proceso se inicia solo.
+- Vas recibiendo mails en la casilla de mail registrada durante cada etapa del visado.
+- Cuando finaliza el trámite, llega un correo de confirmación.
+- Una vez iniciado el trámite de tu visado, podrás consultar el estado en tu Portal de Estudiantes, en la sección Exámenes.
+
+El trámite puede demorar hasta 10 días hábiles para finalizar y puedas avanzar con la solicitud de mesa de defensa oral.
+
+No es necesario que te contactes con la Universidad para iniciar con el proceso de visado ya que inicia de manera automática. A medida que el proceso avance, vas a recibir notificaciones a tu correo electrónico que informaste en tus datos personales en tu Portal de Estudiantes.
+
+#### FORMULARIO DE SOLICITUD DE MESA
+
+IMPORTANTE:
+
+Si cursas en la modalidad virtual ED o EDH, te recordamos que deberás tener aprobado tu EFIP II para poder acceder a la defensa oral
+
+Si no completás el formulario, no podremos avanzar con la coordinación de tu mesa de examen.
+
+En este formulario debés cargar el link al documento final de tu Trabajo Final de Grado, asegurándote de que corresponda a la última versión actualizada (o corregida, en caso de que así lo haya solicitado la CAE).
+
+COMPLETÁ EL FORMULARIO DE SOLICITUD DE MESA AQUÍ
+
+Una vez solicitada la fecha para la Defensa Oral, la misma ya no puede anularse.
+
+#### ¿Cuándo me asignan la fecha de mi Defensa Oral?
+
+El Área de TFG autorizará la constitución de la mesa examinadora correspondiente, teniendo un plazo de 10 días hábiles para la coordinación, Empiezan a transcurrir desde el momento que solicitaste la mesa cumpliendo con TODOS los requisitos mencionados anteriormente.
+
+En caso de que adeudes algún requisito, la mesa NO se coordinará hasta que regularices tu situación. 
+
+Transcurrido el plazo te enviaremos vía mail la citación formal con la fecha y hora de tu defensa oral, una vez que recibas el mail deberás responder el mismo confirmando tu asistencia.
+
+Recomendaciones para el día de la Defensa Oral
+
+Recordá el día de tu defensa oral traer tu DNI y presentarte en Bedelía del edificio ARCOR
+
+#### ¿Cómo se evalúa mi Defensa Oral?
+
+El Examen Oral Final se estructura en dos instancias:
+
+- PROCEDES A LA PRESENTACIÓN ORAL DEL TRABAJO FINAL DE GRADO (TFG).
+
+- Tu exposición debe durar unos 35 minutos, luego los docentes cuentan con 10 minutos para realizar preguntas y observaciones.
+
+- No lleves notebook ni pendrive. Asegurate de tener tu presentación (en Prezi, PowerPoint o Canva) guardada en tu correo electrónico, para poder abrirla desde la PC del aula.
+
+- La presentación debe ser un apoyo visual, con títulos, esquemas y puntos clave. Evitá sobrecargarla con texto. Usa la presentación para reforzar tu discurso, no para leerla.
+
+- Habla con seguridad, utilizá vocabulario técnico y demostrá confianza en tu dominio del tema.
+
+2. EL COMITÉ DE EVALUACIÓN PUEDE PLANTEARTE PREGUNTAS SOBRE ASPECTOS ABORDADOS EN LA PRESENTACIÓN ORAL.
+
+El comité hará preguntas basadas en tu presentación. Durante esta segunda parte, se evaluarán:
+
+- La calidad y creatividad de los recursos tecnológicos utilizados.
+
+- El dominio del tema tratado en el Trabajo Final de Grado.
+
+- La integración de los conocimientos adquiridos a lo largo de la Carrera y su aplicación en el trabajo final.
+
+- La solidez y fundamentación de tus respuestas ante las preguntas del tribunal.
+
+Al final del examen, los docentes te informarán la calificación obtenida y te entregarán el acta de la Defensa Oral, la cual se cargará en el sistema el mismo día, dando inicio al proceso de titulación.​
+
+#### ¿Es tu primera vez en el campus?
+
+#### Conocé todo lo que necesitas
+saber para venir
+
+¡ES UN MOMENTO ÚNICO Y QUE JAMÁS OLVIDARÁS, ¡Vivilo con plena felicidad!
+
+Es importante que disfrutes este momento y que puedas vivirlo con tranquilidad, confianza y orgullo por todo el camino recorrido hasta ahora. Llegar hasta acá no fue casualidad: es el resultado de tu esfuerzo, tu constancia y tu compromiso.
+
+Recordá que este no es un examen más; es el último paso para convertirte en profesional. Por eso, es fundamental que transmitas una actitud segura, sólida y coherente durante tu exposición, demostrando no solo lo que aprendiste, sino también cómo sos capaz de aplicar ese conocimiento en un contexto real.
+
+Imaginá que quien te está escuchando es un cliente, un jefe o una organización que te convocó porque valora tu mirada y confía en tu propuesta. Pensá tu presentación desde ese lugar: como una oportunidad para mostrar tu capacidad, tu criterio y tu potencial profesional.$pea0$, 'global', 'borrador', $pea0$https://www.lanube.21.edu.ar/defensa-oral$pea0$)
 on conflict (categoria_id, slug) do nothing;
 
 insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
@@ -6318,6 +7453,446 @@ Al completar estos talleres obtenés suplemento al título, un reconocimiento ac
  Recibí contenido exclusivo y mantenete al día con todo lo que pasa en Experiencias 21.
 
 SUSCRIBITE ACÁ$pea0$, 'global', 'borrador', $pea0$https://www.lanube.21.edu.ar/desarrollo-y-prop%C3%B3sito$pea0$)
+on conflict (categoria_id, slug) do nothing;
+
+insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
+values ((select id from public.categorias where slug = $pea0$atencion-y-derivaciones$pea0$), null, 0, $pea0$ln-directores-de-carrera$pea0$,
+        $pea0$Directores de Carrera$pea0$, $pea0$Ciencias de la Administración y Management$pea0$, $pea0$> **A validar:** contenido relevado de https://www.lanube.21.edu.ar/post/directores-de-carrera el 2026-11-09. Revisalo antes de publicar.
+
+**Ciencias de la Administración y Management**
+
+Decana****Dra. Analía Nievas
+
+| Carrera | Director | Mail |  |  |
+| --- | --- | --- | --- | --- |
+|  |  |  |  |  |
+| Actuario | Nicolás Quaglia | nicolas.quaglia@ues21.edu.ar |  |  |
+| Contador Público |  |  |  |  |
+| Lic en Logística Global | Gabriela Vázquez | Gabriela.Vazquez@ues21.edu.ar |  |  |
+| Lic. En Administración | Marcelo Lesta | marcelo.lesta@ues21.edu.ar |  |  |
+| Lic. En Administración Agraria | Esteban Papallini | esteban.papalini@ues21.edu.ar |  |  |
+| Lic. en Administración de Servicios de Salud | Pilar Maure | pilar.maure@ues21.edu.ar |  |  |
+| Lic. En Administración Hotelera | Maximiliano Perez | maximiliano.perez@ues21.edu.ar |  |  |
+| Lic. en Ambiente y Energías Renovables | Gabriel Imwinkelried | gabriel.imwinkelried@ues21.edu.ar |  |  |
+| Lic. En Comercialización - Marketing | Luciana Mudry | luciana.mudry@ues21.edu.ar |  |  |
+| Lic. En Comercio Internacional | Gabriela Vázquez | Gabriela.Vazquez@ues21.edu.ar |  |  |
+| Lic. en Emprendimiento | Marcelo Lesta | marcelo.lesta@ues21.edu.ar |  |  |
+| Lic. En Gestión Ambiental | Gabriel Imwinkelried | gabriel.imwinkelried@ues21.edu.ar |  |  |
+| Lic. En Gestión de Recursos Humanos | Marcelo Lesta | marcelo.lesta@ues21.edu.ar |  |  |
+| Lic. En Gestión Turística | Maximiliano Perez | maximiliano.perez@ues21.edu.ar |  |  |
+| Licenciatura en Finanzas | Nicolás Quaglia | nicolas.quaglia@ues21.edu.ar |  |  |
+| Licenciatura en Inteligencia de Negocios Digitales | Nicolás Quaglia | nicolas.quaglia@ues21.edu.ar |  |  |
+| Tec en Gestión Administrativas de Servicios de Salud | Pilar Maure | pilar.maure@ues21.edu.ar |  |  |
+| Tec. En Administración y Gestión Tributaria |  |  |  |  |
+| Tec. En Dirección de Equipos de venta | Luciana Mudry | luciana.mudry@ues21.edu.ar |  |  |
+| Tec. En Gestión Contable e impositiva |  |  |  |  |
+| Tec. En Gestión de Empresas Familiares | Pilar Maure | pilar.maure@ues21.edu.ar |  |  |
+| Tec. En Marketing y Publicidad Digital | Luciana Mudry | luciana.mudry@ues21.edu.ar |  |  |
+| Tec. En Relaciones Laborales | Marcelo Lesta | marcelo.lesta@ues21.edu.ar |  |  |
+| Tec. Univ. En Gestión del Clima Laboral de la Organización | Marcelo Lesta | marcelo.lesta@ues21.edu.ar |  |  |
+| Tec. Univ. En Gestión y Auditorías Ambientales | Gabriel Imwinkelried | gabriel.imwinkelried@ues21.edu.ar |  |  |
+| Tec. Univ. En Recursos Turísticos | Maximiliano Perez | maximiliano.perez@ues21.edu.ar |  |  |
+
+**Ciencias del Derecho**
+
+Decano****Ab. Paula Alladio
+
+| Carrera | Director | Mail |
+| --- | --- | --- |
+|  |  |  |
+| Abogacía | Ab. Guadalupe Virasoro | guadalupe.virasoro@ues21.edu.ar |
+| Escribanía | Escr. Federico Miguel | federico.miguel@ues21.edu.ar |
+| Lic en Criminología y Seguridad | Javier Chilo | javier.chilo@ues21.edu.ar |
+| Lic. en Desarrollo de Negocios Inmobiliarios | Sebastián Nini | sebastian.nini@ues21.edu.ar |
+| Martillero, Corredor Público y Corredor Inmobiliario | Sebastián Nini | sebastian.nini@ues21.edu.ar |
+| Procurador | Ab. Guadalupe Virasoro | guadalupe.virasoro@ues21.edu.ar |
+| Tec. En investigación de la escena del crimen | Javier Chilo | javier.chilo@ues21.edu.ar |
+| Tecnicatura Universitaria En Administración Y Auditoría de Propiedad horizontal​ | Sebastián Nini | sebastian.nini@ues21.edu.ar |
+
+**Ciencias Aplicadas**
+
+Decano Carlos Ramonda
+
+| Carrera | Director | Mail |
+| --- | --- | --- |
+|  |  |  |
+| Ingeniería en Innovación y Desarrollo | Sergio Fritz | sergio.fritz@ues21.edu.ar |
+| Ingeniería en Software | Luis Bravo | luis.bravo@ues21.edu.ar |
+| Ingeniería en Transportes y Caminos |  |  |
+| Lic en Publicidad | Dis. Gráf. Fernanda Vincenti | Fernanda.Vincenti@ues21.edu.ar |
+| lic. en Administración de Infraestructura Tecnológica | Sergio Fritz | sergio.fritz@ues21.edu.ar |
+| Lic. en Bioinformática | Lic. Martina Ceballos | martina.ceballos@ues21.edu.ar |
+| lic. en Ciencias de Datos | Lic. Marcos Augusto Ugarte | marcos.ugarte@ues21.edu.ar |
+| Lic. En Diseño de Indumentaria y Textil | Candelaria Urrere Pon | candelaria.urrerepon@ues21.edu.ar |
+| Lic. En Diseño Gráfico | Dis. Gráf. Fernanda Vincenti | Fernanda.Vincenti@ues21.edu.ar |
+| Lic. En Diseño Industrial | Santiago Cantera | Santiago.Cantera@ues21.edu.ar |
+| Lic. en Diseño y Animación Digital | Roberto Benedetti | Roberto.Benedetti@ues21.edu.ar |
+| Lic. en Gestión de la Información | Sergio Fritz | sergio.fritz@ues21.edu.ar |
+| Lic. en Hidrocarburos y Geociencias | Marcela Maldonado | Marcela.Maldonado@ues21.edu.ar |
+| Lic. en Higiene, Seguridad y Medio ambiente del Trabajo | Mgter. Matías Andrés Aparicio | Matias.Aparicio@ues21.edu.ar |
+| Lic. En Informatica | Luis Bravo | luis.bravo@ues21.edu.ar |
+| lic. en Inteligencia Artificial y Robótica | Sergio Fritz | sergio.fritz@ues21.edu.ar |
+| lic. en Matemática | Mónica Campos | monica.campos@ues21.edu.ar |
+| lic. en Seguridad Informática | Lic. Emanuel Vilas | emmanuel.vilas@ues21.edu.ar |
+| Tec. En Higiene y Seguridad Laboral | Mgter. Matías Andrés Aparicio | Matias.Aparicio@ues21.edu.ar |
+| Tec. Univ. En Diseño y Animación Digital | Roberto Benedetti | Roberto.Benedetti@ues21.edu.ar |
+| Tec. Univ. En Diseño y Desarrollo de Videojuegos | Fernando Córdoba | cordoba.fernando@ues21.edu.ar |
+| Tec. Univ. En Hidrocarburos y Geo ciencias | Marcela Maldonado | Marcela.Maldonado@ues21.edu.ar |
+| Tec. Univ. En Redes Informáticas y Telecomunicaciones | Ing. Sergio Fritz | sergio.fritz@ues21.edu.ar |
+| Tecnicatura Universitaria en Gestión de Moda | Lic. Candelaria Urrere Pon | candelaria.urrerepon@ues21.edu.ar |
+
+**Ciencias Humanas y Sociales**
+
+Decana Eugenia Scocco
+
+| Carrera | Director | Mail |
+| --- | --- | --- |
+| Licenciatura en Relaciones Internacionales | ​Paola Ninci | paola.ninci@ues21.edu.ar |
+| Licenciatura en Ciencia Política y Gobierno | Paola Ninci | paola.ninci@ues21.edu.ar |
+| Licenciatura en Administración Pública | Paola Ninci | paola.ninci@ues21.edu.ar |
+| Tecnicatura Universitaria en Administración y Gestión de Políticas Públicas | Paola Ninci | paola.ninci@ues21.edu.ar |
+| Licenciatura en Relaciones Públicas e Institucionales | Lic. Guadalupe Altamirano | guadalupe.altamirano@ues21.edu.ar |
+| Tecnicatura Universitaria en Dirección de Protocolo, Organización de Eventos y Relaciones Públicas | Lic. Guadalupe Altamirano | guadalupe.altamirano@ues21.edu.ar |
+| Licenciatura en Periodismo | Lic. Celina Morgan | celina.morgan@ues21.edu.ar |
+| ​Licenciatura en Educación | Mgter. Débora Brocca | debora.brocca@ues21.edu.ar |
+| Licenciatura en Psicopedagogía | Mgter. Débora Brocca | debora.brocca@ues21.edu.ar |
+| Tecnicatura en Responsabilidad y Gestión Social | Mgter. Evangelina Pérez | evangelina.perez@ues21.edu.ar |
+| Licenciatura en Antropología Organizacional | Mgter. Evangelina Pérez | evangelina.perez@ues21.edu.ar |
+| Tecnicatura Universitaria en Promoción Comunitaria en Niñez y Adolescencia | Mgter. Evangelina Pérez | evangelina.perez@ues21.edu.ar |
+
+**Ciencias de la Salud**
+
+Decano Diego Federico Baenas
+
+| Carrera | Director | Mail |
+| --- | --- | --- |
+| Lic en Kinesiología y Fisioterapia | Med esp. Marcela La Villa | marcela.lavilla@ues21.edu.ar |
+| Licenciatura en Nutrición | Laura Sánchez Salamanca / Directora Interina | laura.sanchez@ues21.edu.ar |
+| Lic. en Gerontología | Mgtr Gabriela Gallo | gabriela.gallo@ues21.edu.ar |
+| Lic. En Psicología | Azpilicueta, Ana Estefania | ana.azpilicueta@ues21.edu.ar |
+| Lic. en Terapia Ocupacional y Desarrollo Humano | Lic. Milva Gonzalez | milva.gonzalez@ues21.edu.ar |
+| Licenciatura en producción de Bioimágenes | Lic. Danilo Catalfamo | danilo.catalfamo@ues21.edu.ar |
+| Licenciatura En instrumentación Quirúrgica ​ | Lic Cecilia Ludueña | cecilia.luduena@ues21.edu.ar |
+| Tec Universitaria en Enfermeria | Lic Maria Isabel Morales | morales.maria@ues21.edu.ar |
+| Lic. en Fonoaudiología | Lic. Daina Rojos | daina.rojos@ues21.edu.ar |
+| Tecnicatura Universitaria En Atención Prehospitalaria de emergencias​ | Lic Carlos Lopez Bigott | carlos.lopez@ues21.edu.ar |
+
+### Comentarios$pea0$, 'global', 'borrador', $pea0$https://www.lanube.21.edu.ar/post/directores-de-carrera$pea0$)
+on conflict (categoria_id, slug) do nothing;
+
+insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
+values ((select id from public.categorias where slug = $pea0$tramites$pea0$), null, 0, $pea0$ln-documentacion$pea0$,
+        $pea0$DOCUMENTACIÓN | La Nube 21$pea0$, $pea0$Contar con tu legajo completo es un requisito obligatorio para continuar con tus estudios. En esta sección vas a encontrar qué documentación debés presentar y los plazos establecidos por el reglame…$pea0$, $pea0$> **A validar:** contenido relevado de https://www.lanube.21.edu.ar/documentacion el 2026-11-09. Revisalo antes de publicar.
+
+#### Documentación de Legajo
+
+Contar con tu legajo completo es un requisito obligatorio para continuar con tus estudios. En esta sección vas a encontrar qué documentación debés presentar y los plazos establecidos por el reglamento académico.
+
+Documentación Obligatoria
+
+Estudiante
+
++ 25 años
+
+¿Cómo entregar la Documentación?
+
+Cambio de Género
+
+Plazos de entrega
+
+Estudiante Extranjero
+
+#### Documentación obligatoria para Carreras de Grado y Pregrado
+
+A continuación, vas a encontrar la documentación que debés presentar para completar tu legajo.
+
+Deberás cargarla en Digital Admin. ¿No sabés cómo cargar los archivos? [Mirá el paso a paso en Digital Admin.](https://www.lanube.21.edu.ar/documentacion)
+
+#### Solicitud de Inscripción Completa
+
+Debes [descargar acá](https://www.lanube.21.edu.ar/_files/ugd/cf0a7a_3215ab2df4f64536b0febc420fa4d153.pdf) tu ficha de inscripción. Posteriormente firmala y escanéala.
+
+#### Frente y dorso de tu DNI actualizado
+
+Debes presentar la foto del frente y dorso de tu DNI.
+
+No se aceptarán DNI descargados desde la aplicación Mi Argentina, ya que dichos documentos carecen del dato de localidad/provincia de nacimiento.
+
+#### Certificado de Estudios Secundario Completo – Legalizada
+
+Debes enviar, al menos, una de las siguientes documentaciones:
+
+- Certificado Analítico de estudios secundarios. (No es válido el Libro Matriz, salvo que el mismo sea legible y especifique localidad y provincia, nombre de la Institución educativa, título secundario obtenido y año de egreso).
+
+- Título Secundario (frente y dorso).
+
+IMPORTANTE:
+
+Tanto el Certificado Analítico como el Titulo del secundario deben estar legalizados por la autoridad educativa competente, según la jurisdicción, por Escribano Público o por autoridad competente de la Institución emisora. En ambos casos es requisito obligatorio que contenga el promedio. Además, necesitamos que consigne los siguientes datos: título obtenido, año y lugar de egreso, y nombre de la institución.
+
+#### Ficha medica
+
+Deberás completar y firmar esta ficha médica con un profesional matriculado. No se aceptan certificados de buena salud ni otros formatos que no sean el modelo oficial. [Descargá tu ficha médica acá](https://drive.google.com/file/d/14wStZwRmDFRJKO5wkkYwSSCcGW3HDp9G/view?usp=sharing).
+
+#### Foto a color
+
+Tendrás que enviar una foto actualizada, que te muestre de manera frontal y sobre un fondo liso.
+
+#### Carrera de Fonoaudiología: Apto Fonoaudiológico
+
+Se incorpora como requisito de inscripción el Apto Fonoaudiológico, junto con la Audiometría Tonal, realizados por un/a fonoaudiólogo/a con informe, firma, sello y matrícula. La ficha debe descargarse y presentarse completa al momento de la inscripción. Este requisito forma parte de una política de prevención y acompañamiento, y es condición necesaria para acceder a las prácticas clínicas. [Descargá acá la ficha](https://www.lanube.21.edu.ar/_files/ugd/cf0a7a_c0ab5526aa9a43d694b9b0fb943b3e62.pdf).
+
+#### Ciclos de Complementación Curricular
+
+En algunas Carreras, además debes presentar adicionalmente la siguiente documentación:
+
+- Escribanía
+
+Fotocopia legalizada del título de Abogado o analítico oficial final completo (frente y dorso con sellos y/o etiquetas ministeriales). Siendo esta una carrera de Grado, su duración en años no puede ser inferior a cuatro años y 2600 horas reloj mínimas.
+
+Consultá la resolución acá
+
+- Licenciatura en Educación
+
+Fotocopia legalizada del frente y el dorso del título de profesor + certificación de 1200 horas reloj (Plan de estudios, resolución ministerial o certificado emitido por la institución).
+
+La constancia de 1200hs puede estar en los siguientes documentos:
+
+- Certificado Analítico del profesorado que consigne cantidad de horas reloj,
+- Copia legalizada del Plan de Estudios del profesorado, donde se detalla la cantidad de horas reloj cursadas.
+- Constancia de hora reloj cursadas emitida por la Institución de origen. Si es copia, debe estar legalizada.
+- Copia legalizada de la Resolución Ministerial mediante la cual se aprobó el Profesorado donde se detalle la cantidad de horas de cursada.
+
+Consultá la resolución acá
+
+- Licenciatura en Psicopedagogía
+
+Fotocopia legalizada del frente y dorso del título con reconocimiento oficial y validez nacional, otorgado por institución autorizada, con una duración mínima de 2 años y una carga horaria no inferior a 1400 horas reloj.
+
+Se admitirán los siguientes títulos:
+
+- Psicopedagogo/a
+- Profesor/a en Psicopedagogía
+- Profesor/a en Ciencias de la Educación
+- Profesor en Psicología
+- Profesor Superior en Psicopedagogía
+- Técnico/a Superior en Psicopedagogía
+- Técnico/a Universitario/a en Psicopedagogía
+- Técnico en Psicopedagogía
+- Técnica Universitaria en Psicopedagogía
+- Asistente en Psicopedagogía
+- Asistente Psicopedagógico/a
+- Asistente Psicopedagógico Universitario
+- Auxiliar Psicopedagógico
+
+Consultá la resolución acá
+
+- Licenciatura en Gerontología
+
+Fotocopia legalizada del frente y dorso del título de Enfermero, Trabajador Social, Terapista Ocupacional, Técnico en Gerontología y/o Técnico Universitario en Acompañamiento, cuidado y asistencia al adulto mayor. El mismo deberá estar otorgado por institución autorizada, con duración de al menos 2 años y carga horaria no inferior a 1600hs reloj. Si no indica la cantidad de horas cursadas, se podrán acreditarlas con una constancia emitida por la institución de origen o con copia legalizada de la Resolución Ministerial que aprueba el título y detalle las horas.
+
+Consultá la resolución acá
+
+- Licenciatura en Emprendimiento
+
+Es condición necesaria poseer título de Técnico/a Universitario/a otorgado por institución autorizada, con duración de al menos 2 años y carga horaria no inferior a 1400hs reloj, conforme lo contemplado taxativamente en la Resolución Ministerial que otorga reconocimiento oficial. Si no indica el número de horas cursadas, se puede acreditar el cumplimiento de las horas mediante una constancia expedida por la institución de origen o con una copia legalizada de la Resolución Ministerial que aprobó el título, en la que se detallen dichas horas.
+
+Consultá la resolución acá
+
+- Profesorado para el Nivel Secundario y Superior
+
+Es condición necesaria poseer Título de Nivel Superior en carreras de 4 años o más y con una carga horaria mínima de 2600 horas reloj. Si el Título no acredita la carga horaria podrá acreditarlas mediante una constancia emitida por la Institución de origen o copia legalizada de la Resolución Ministerial mediante la cual se aprobó el Título donde se detalle la cantidad de horas cursadas. Si no indica el número de horas cursadas, se puede acreditar el cumplimiento de las horas mediante una constancia expedida por la institución de origen o con una copia legalizada de la Resolución Ministerial que aprobó el título, en la que se detallen dichas horas.
+
+Consultá la resolución acá
+
+- Licenciatura en Desarrollos de Negocios Inmobiliarios
+
+Es necesario tener título de Técnico en:
+
+- Tecnicatura en Martillero y corredor público y similares (dos años y medio de duración)
+- Técnico en corretaje inmobiliario
+- Técnico en emprendedorismo
+- Técnico en administración de empresas.
+- Técnico en gestión contable e impositiva.
+- Procurador
+
+El mismo deberá estar otorgado por Institución autorizada, con duración de al menos 2 años y carga horaria no inferior a 1400 horas reloj.
+
+Si no indica el número de horas cursadas, se puede acreditar el cumplimiento de las horas mediante una constancia expedida por la institución de origen o con una copia legalizada de la Resolución Ministerial que aprobó el título, en la que se detallen dichas horas.
+
+Consultá la resolución acá
+
+- Licenciatura en Administración de Servicios de la Salud
+
+Es condición necesaria poseer título de Técnico/a Universitario/a otorgado por institución autorizada, con duración de al menos 2 años y carga horaria no inferior a 1400hs reloj, conforme lo contemplado taxativamente en la Resolución Ministerial que otorga reconocimiento oficial. Si no indica el número de horas cursadas, se puede acreditar el cumplimiento de las horas mediante una constancia expedida por la institución de origen o con una copia legalizada de la Resolución Ministerial que aprobó el título, en la que se detallen dichas horas.
+
+Consultá la resolución acá - Modalidad Distancia
+
+Consultá la resolución acá - Modalidad Presencial
+
+#### ¿Cómo actualizar tus datos personales?
+
+Ingresá a tu Portal de Estudiantes y en Más opciones, hacé click en Actualizar tus Datos Personales.
+
+#### ¿Cómo entregar la documentación?
+
+Para cargar tu documentación de legajo de manera digital y autogestiva deberás utilizar la plataforma Digital Admin. Esta plataforma también la vas a utilizar cuando curses las materias Práctica Profesional y Práctica Solidaria.
+
+¡Utilizá las flechas y conocé el paso a paso para cargar tu documentación de legajo!
+
+#### Ingresar a Digital Admin y creá tu cuenta de usuario completando todos los campos de la derecha.
+
+Ingresá a Digital Admin
+
+En caso de que tengas un usuario y no recuerdes la contraseña, podrás clickear en “Olvidé mi contraseña” y recibirás un acceso al correo electrónico asociado para poder reestablecerla.
+
+#### Creá tu cuenta
+
+1
+
+IMPORTANTE:
+
+Te recordamos que toda constancia de analítico o título en trámite no es válida para constatar tus estudios. Por lo tanto, te recomendamos aguardar a contar con el documento final para su carga.
+
+Además, recordá que toda esta documentación deberá contemplar lo siguiente:
+
+- Debe estar legalizada por autoridades competentes como se detalla cada ítem,
+- Debe ser escaneada y presentada en formato PDF, adjuntando un archivo por documento.
+- En caso de que envíes la documentación con firma digital, deberás enviar también el enlace validador de dicha firma.
+
+- Si estás buscando realizar la actualización de tus datos personales, si sos un alumno +25 o si tu trámite de titulación está frenado por adeudar documentación de legajo, los documentos solicitados deberán enviarse por Consulta Alumnos.
+
+- Si estás en tu proceso de visado y adeudas documentación, la misma te será solicitada una vez iniciado el proceso.
+
+#### Plazos de presentación
+
+Plazos para la presentación de la documentación obligatoria:
+
+- En las Carreras de Grado, la documentación debe ser presentada dentro del primer año y medio de cursado.
+- En las Carreras de Pregrado, el plazo es de un año desde el ingreso.
+- En Carreras de Ciclos de Complementación Curricular debe ser presentada dentro del primer semestre de cursado.
+
+Por reglamentación académica el incumplimiento total o parcial en la presentación del legajo impedirá la reinscripción al cuarto período (en Grado) o al tercer período (en Pregrado).
+
+En caso de que hayas podido inscribirte a los períodos indicados y aún adeudes documentación obligatoria:
+
+- Para Carreras de Grado, no podrás avanzar con el proceso de visado de documentación previo a la Defensa Oral.
+- Para Carreras de Pregrado y Grado, no se iniciará el proceso de Titulación hasta que completes tu legajo.
+
+#### Estudiantes Extranjeros
+
+#### Documentación necesaria
+
+Los estudiantes extranjeros que cursen una Carrera de manera completa en la universidad, deben presentar:
+
+- Título Secundario Convalidado en Argentina / Estudios Parciales Universitarios Legalizados. Debe enviarse junto al analitico secundario del país de origen
+
+- Fotocopia de pasaporte
+
+- Visa de Estudiante
+
+- Para mayor información sobre el procedimiento de convalidación, se puede ingresar a los siguientes enlaces:
+
+Países con Convenio
+
+Países sin Convenio
+
+Los estudiantes extranjeros que cursen una Carrera de manera completa en la universidad, deben presentar:
+
+- Título Secundario Convalidado en Argentina / Estudios Parciales Universitarios Legalizados. Debe enviarse junto al analitico secundario del país de origen
+
+- Fotocopia de pasaporte
+
+- Visa de Estudiante
+
+- Para mayor información sobre el procedimiento de convalidación, se puede ingresar a los siguientes enlaces:
+
+Países con Convenio
+
+Países sin Convenio
+
+#### Documentación para Posgrado
+
+#### Documentación requerida
+
+POSGRADOS – Aprendizaje para la Vida (APLV) | Modalidad Presencial
+
+- Ficha de Inscripción completa descárgala acá.
+- Fotocopia de DNI (frente y dorso).
+- Fotocopia legalizada del Título de Grado.
+- CV actualizado.
+- 2 fotos tipo carnet.
+- Carta de aceptación del reglamento descárgala acá.
+
+Información complementaria
+
+- Para corroborar las Condiciones, Admisión y Permanencia de ingreso, [clic acá.](https://contenidos.21.edu.ar/microsites/reglamento/index.php?put=2-1-condiciones-de-ingreso-y-admision)
+
+- Para consultar la documentación requerida para alumnos extranjeros, [clic acá.](https://contenidos.21.edu.ar/microsites/reglamento/index.php?put=2-2-documentacion-obligatoria)
+
+Importante: títulos obtenidos en el extranjero
+
+La norma general establece que, para cursar una carrera de posgrado en la República Argentina, la persona interesada que posea un título de grado obtenido en el extranjero deberá convalidarlo o revalidarlo (según corresponda), conforme a la normativa vigente al momento del trámite.
+
+No obstante, de acuerdo con lo expresado en la Resolución Ministerial N.º 416/00, las universidades podrán reconocer estudios de grado aprobados en el extranjero exclusivamente a los efectos de la prosecución de estudios de posgrado en la República Argentina, siempre que la currícula del programa no requiera el ejercicio profesional.
+
+#### Estudiantes +25 años
+
+Si tenes más de 25 años y posees el secundario incompleto podes ser alumno de la Universidad. El requisito básico es que cuentes con CBU completo, o que hayas cursado y aprobado hasta 3er año de secundario, o 9 años cursados y completos desde el inicio de 1er grado.
+
+#### ¿Qué documentación debo presentar?
+
+- Fotocopia de 1º y 2º hoja de DNI.
+
+- Fotocopia legalizada del analítico.
+
+- Curriculum Vitae actualizado, con teléfono de contacto.
+
+- Fotocopia de certificados de cursos realizados, extras al secundario, si los tuvieras.
+
+- Carta a la Rectora de la Universidad solicitando el ingreso, comentando los motivos por los cuales queres empezar una carrera y por qué eligís esa carrera específica. Te invitamos a descargar un modelo para que puedas realizar tu carta.
+
+Modelo de carta
+
+#### ¿Cómo envío la documentación en este caso?
+
+En el caso particular de alumnos mayores a 25 años sin secundario completo, la documentación se debe adjuntar a través de nuestros canales de contacto virtuales.
+
+Canales de contacto Virtuales
+
+#### Actualización de datos por cambio de género
+
+En Siglo 21 valoramos la diversidad, la inclusión y el respeto. Es por eso que queremos que tu nombre en las plataformas de la Universidad, sea acorde a la identidad de género con la que te autopercibis.
+
+Existen dos posibles situaciones:
+
+- Realizaste el cambio registral:
+
+Es decir, que solicitaste la modificación de tus datos en el Registro Nacional de Personas, por lo que contas con un DNI acorde a tu identidad autopercibida.
+
+¿Qué debo presentar?
+
+En este caso, te solicitamos que nos adjuntes copia de frente y dorso de tu DNI vigente, partida de nacimiento rectificada y el siguiente formulario en formato PDF mediante “Consulta Alumnos”.
+
+Descargá el Formulario
+
+Tu identidad será modificada en todas las plataformas, incluso en la emisión de todo documento académico y administrativo (certificados, analítico, título, facturas, etc.).
+
+- No realizaste el cambio registral:
+
+Es decir, no solicitaste la modificación de tu DNI, pero te autopercibis con una identidad distinta a la que figura en tu documento.
+
+¿Qué debo presentar?
+
+En este caso, te solicitamos que nos adjuntes el siguiente formulario en formato PDF mediante “Consulta Alumnos”.
+
+Descargá el Formulario
+
+Tu identidad será modificada en todas las plataformas, pero toda documentación oficial emitida por la Universidad será confeccionada a partir de los datos indicados en el documento nacional de identidad vigente.
+
+IMPORTANTE:
+
+Si ya iniciaste el trámite en el Registro Nacional de las Personas o tenés pensado comenzarlo en un futuro, recorda enviarnos una imagen de frente y dorso de tu nuevo DNI.$pea0$, 'global', 'borrador', $pea0$https://www.lanube.21.edu.ar/documentacion$pea0$)
 on conflict (categoria_id, slug) do nothing;
 
 insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
@@ -7311,6 +8886,85 @@ Ingresá al Portal de Equivalencias$pea0$, 'global', 'borrador', $pea0$https://w
 on conflict (categoria_id, slug) do nothing;
 
 insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
+values ((select id from public.categorias where slug = $pea0$tramites$pea0$), null, 0, $pea0$ln-eximicion-idiomas$pea0$,
+        $pea0$EXIMICIÓN IDIOMAS$pea0$, $pea0$EXIMICIONES POR CERTIFICADOS INTERNACIONALES INGLÉS$pea0$, $pea0$> **A validar:** contenido relevado de https://www.lanube.21.edu.ar/post/eximici%C3%B3n-idiomas el 2026-11-09. Revisalo antes de publicar.
+
+**EXIMICIONES POR CERTIFICADOS INTERNACIONALES INGLÉS**
+
+Podes solicitar la eximición del cursado de las materias correspondientes a Idioma Extranjero, siempre que cumplas con las siguientes condiciones:
+
+-Tenes estudios previos de Inglés, con certificación internacional comprobable.
+
+-Que el certificado provenga de alguna de las siguientes instituciones:
+
+**University of Cambrige:**
+
+FCE (First Certificate in English).
+
+CAE (Certificate in Advanced English).
+
+CPE (Certificate in Proficiency English).
+
+BEC (Vantage & Highier).
+
+IELTS (5-6-7-8-9).
+
+**Trinity Exams:**
+
+ISE II (Intergrated Skills in English).
+
+GESE 7-8-9 (Graded Examinations in Spoken English).
+
+**ETS (English Testing Services) TOEFL (Test of English as a Foreign Language):**
+
+TOEFL iBT (Internet Based) 60 o más.
+
+TOEFL (Computer) 173 o más.
+
+TOEFL (Paper) 500 o más.
+
+BULATS (60-74) o más.
+
+TOEIC (Test of English for International Communication) 600 o más.
+
+**Anglia Examinations:**
+
+Advanced. AcCEpt Proficiency.
+
+Masters.
+
+**Colegio San Pedro Apóstol:**
+
+Bachillerato Internacional “Ingles B” (Calificación 5 o más).
+
+**Bachillerato Internacional “Inglés B”**
+
+Bachillerato Internacional “Inglés B” (Calificación 5 o más emitido por instituciones que hayan sido certificadas y habilitadas como Centros Evaluadores).
+
+**Oxford University Press certificados por Oxford University**
+
+Se reconocen los programas y exámenes de Oxford University Press, certificados por Oxford University de la siguiente manera:
+
+Serán eximidos de la obligatoriedad de rendir placement test de inglés y cursar los niveles de inglés que presente su plan de estudios, aquellos estudiantes que hayan rendido exámenes de **Oxford University Press** certificados por Oxford University, que demuestren un **nivel equivalente a B2** en el Marco Común Europeo de Referencia (CEFR).
+
+**Cambridge Assessment International Education**
+
+Se reconocen los programas y exámenes de Cambridge Assessment International Education de la siguiente manera:
+
+Serán eximidos de la obligatoriedad de cursar y rendir la materia inglés en el curso de ingreso, aquellos estudiantes que hayan rendido exámenes de **Cambridge** International que demuestren un **nivel equivalente a B2** en el Marco Común Europeo de Referencia (CEFR).
+
+**EQUIVALENCIAS ACEPTADAS PARA IDIOMA PORTUGUES**
+
+Tener títulos Universitarios o Terciarios de validez nacional, Licenciaturas, Profesorados o Traductorados de Inglés o portugués.
+
+El Certificado de Proficiência em Língua Portuguesa para Estrangeiros (Celpe Bras).
+
+Este Certificado es otorgado por el Ministerio de Educación de Brasil a extranjeros-no nativos de Brasil. Se certifican los niveles: intermedio, intermedio superior, avanzando y avanzado superior. En ambos casos, deben cumplir los requisitos y procedimientos establecidos para la solicitud de equivalencias.
+
+CONOCÉ CÓMO SOLICITAR LAS EXIMICIONES PARA IDIOMAS$pea0$, 'global', 'borrador', $pea0$https://www.lanube.21.edu.ar/post/eximici%C3%B3n-idiomas$pea0$)
+on conflict (categoria_id, slug) do nothing;
+
+insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
 values ((select id from public.categorias where slug = $pea0$atencion-y-derivaciones$pea0$), null, 0, $pea0$ln-gabinete-de-bienestar-1$pea0$,
         $pea0$Gabinete de Bienestar| La Nube 21$pea0$, $pea0$Te damos la bienvenida al espacio del Gabinete de Bienestar. Aquí vas a encontrar herramientas que te ayudarán a organizar el estudio de tus materias, te enseñarán cómo aprender a estudiar, y cómo…$pea0$, $pea0$> **A validar:** contenido relevado de https://www.lanube.21.edu.ar/gabinete-de-bienestar-1 el 2026-11-08. Revisalo antes de publicar.
 
@@ -7672,6 +9326,284 @@ El examen final evalúa los contenidos comprendidos en el Canvas más la bibliog
 Durante el examen final no se pueden utilizar elementos que puedan servir de ayuda como diccionarios, glosarios, listados de verbos, o cualquier otro similar.
 
 Up$pea0$, 'global', 'borrador', $pea0$https://www.lanube.21.edu.ar/idiomas$pea0$)
+on conflict (categoria_id, slug) do nothing;
+
+insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
+values ((select id from public.categorias where slug = $pea0$tramites$pea0$), null, 0, $pea0$ln-inscripcion-a-examenes$pea0$,
+        $pea0$Inscripción a exámenes$pea0$, $pea0$Desde el Portal de Estudiantes podés gestionar la inscripción a tus parciales, recuperatorios, integradores y exámenes finales, según tu modalidad.$pea0$, $pea0$> **A validar:** contenido relevado de https://www.lanube.21.edu.ar/inscripci%C3%B3n-a-examenes el 2026-11-09. Revisalo antes de publicar.
+
+#### Inscripción a Exámenes
+
+Desde el Portal de Estudiantes podés gestionar la inscripción a tus parciales, recuperatorios, integradores y exámenes finales, según tu modalidad.
+
+En esta guía encontrarás cómo realizar la inscripción, los horarios disponibles y la información específica para cada tipo de evaluación.
+
+Parciales modalidad Distancia
+
+Parciales
+
+Presencial
+
+PH
+
+Presencia Distribuida
+
+Recuperatorios Integradores
+
+Exámenes
+
+Finales
+
+#### PARCIALES
+Modalidad Distancia ED - EDH
+
+#### ¿Cuándo me inscribo a los parciales?
+
+#### Ahora podés planificar tus evaluaciones desde el inicio del cursado.
+
+#comp-msd8tkrk1 svg [data-color="1"] {fill: #36D1B5;}
+
+#### Materias Bimestrales
+
+La modalidad de cursado no cambia y seguís teniendo la posibilidad de elegir el día y el horario en que querés rendir tus parciales. Recordá que podés hacerlo dentro de los plazos establecidos.
+
+### Plazos para inscribirte:
+
+### ​
+
+- Primer Parcial: hasta el 18 de octubre.
+
+- Segundo Parcial: hasta el 10 de noviembre.
+
+Si no realizás la inscripción dentro del plazo correspondiente, el sistema asignará automáticamente una fecha para rendir.
+
+Organizá tus evaluaciones con mayor anticipación, para distribuir mejor tu tiempo de estudio y evitar tener que resolver todo sobre el final del bimestre.
+
+Desde la primera semana de cursado vas a poder inscribirte tanto al Parcial 1 como al Parcial 2. Esta mejora te permite tener una visión completa del calendario y planificar con tiempo.
+
+Duración del examen parcial: 40 minutos.
+
+Ausencia: Si no asistís al parcial, la evaluación quedará registrada como Ausente.
+
+#comp-msdaiohk svg [data-color="1"] {fill: #36D1B5;}
+
+#### Materias Cuatrimestrales
+
+Duración del examen parcial: 40 minutos.
+
+Desde el inicio del cursado tendrás habilitada la inscripción al Primer Parcial y al Segundo Parcial.
+
+Podrás elegir la fecha y la franja horaria en la que preferís rendir cada evaluación, organizando ambas instancias desde el comienzo del semestre.
+
+- Primer Parcial: hasta el 14 de agosto.
+
+- Segundo Parcial: hasta el 4 de septiembre.
+
+#### ¿Cómo me inscribo a los parciales?
+
+1. Ingresá al Portal del Estudiante. A través del menú lateral ingresá a la sección Exámenes y hacé clic en Nueva inscripción.
+
+#### 2. Elegí la materia que querés rendir. Vas a visualizar todas las materias disponibles. Podés seleccionar:
+
+- Parcial 1
+- Parcial 2
+
+#### ​
+
+#### No necesitás esperar a rendir el primer parcial para inscribirte al segundo.
+
+#### 3. Elegí la fecha y el horario:
+
+Una vez seleccionado el lugar, se mostrará el calendario con las fechas disponibles.
+
+Solo tenés que:
+
+- Elegir el día en el calendario.
+- Seleccionar el horario disponible.
+- Verificar que el resumen de inscripción esté completo.
+- Hacer clic en Inscribirme al examen para confirmar la inscripción.
+
+#comp-msd8tkrr2 svg [data-color="1"] {fill: #36D1B5;}
+
+#### Franjas Horarias
+
+Al momento de inscribirte, deberás seleccionar una de las franjas horarias disponibles para rendir tu parcial. Elegí la que mejor se adapte a tu organización y disponibilidad.
+
+Horarios disponibles:
+
+Lunes a viernes:
+
+- 06:00 a 09:00
+- 09:00 a 13:00
+- 13:00 a 17:00
+- 17:00 a 20:00
+- 20:00 a 22:00
+
+Sábados y domingos:
+
+- 01:00 a 04:00
+- 04:00 a 09:00
+- 09:00 a 13:00
+- 13:00 a 17:00
+- 17:00 a 20:00
+- 20:00 a 22:00
+
+#### PARCIALES
+Modalidad Presencial - Presencial Home - Presencial Distribuida
+
+No será necesario que realices la inscripción al parcial. La fecha, el lugar y la franja horaria de tus parciales serán asignados de acuerdo con el cronograma correspondiente a tu modalidad y podrás consultarlo desde tu Portal Estudiantes.
+
+Modalidad Presencial y Presencial Dsitribuida
+
+- Primer Parcial: semanas 7 y 8.
+- Segundo Parcial: semanas 14 y 15.
+
+Modalidad Presencial Home
+
+Materias bimestrales:
+
+- Primer Parcial: semanas 3 y 4.
+- Segundo Parcial: semanas 7 y 8.
+
+Materias cuatrimestrales:
+
+- Primer Parcial: semanas 7 y 8.
+- Segundo Parcial: semanas 16 y 17.
+
+#### Recuperatorios - Integradores
+
+Deberás realizar la inscripción al Recuperatorio o Integrador desde el Portal de Estudiantes hasta 24 horas antes de la fecha en la que querés rendir.
+
+- Ingresá a Exámenes.
+- Hacé clic en Nueva inscripción.
+- Seleccioná la materia y la instancia Recuperatorio.
+- Elegí el lugar, la fecha y la franja horaria disponible.
+- Confirmá la inscripción.
+
+Una vez finalizada, podrás consultar el detalle de tu inscripción desde la sección Exámenes.
+
+#### ¿Cuándo se rinde?
+
+Modalidad Distancia ED - EDH
+
+Materias bimestrales:​ semana 9
+
+Materias cuatrimestrales:​ semana 18
+
+Modalidad Presencial y Presencial Distribuida
+
+- Semana 16
+
+Modalidad Presencial Home
+
+Materias bimestrales:​ semana 9
+
+Materias cuatrimestrales:​ semana 18
+
+Duración del examen Recuperatorio: 40 minutos.
+
+Duración del examen Integrador: 60 minutos.​
+
+- Franjas Horarias
+
+Al momento de inscribirte, deberás seleccionar una de las franjas horarias disponibles para rendir tu examen. Elegí la que mejor se adapte a tu organización y disponibilidad.
+
+Horarios disponibles:
+
+Lunes a viernes:
+
+- 06:00 a 09:00
+- 09:00 a 13:00
+- 13:00 a 17:00
+- 17:00 a 20:00
+- 20:00 a 22:00
+
+Sábados y domingos:
+
+- 01:00 a 04:00
+- 04:00 a 09:00
+- 09:00 a 13:00
+- 13:00 a 17:00
+- 17:00 a 20:00
+- 20:00 a 22:00
+
+#### EXÁMENES FINALES
+
+La inscripción a exámenes finales debe realizarse desde el Portal de Estudiantes con al menos 4 (cuatro) días corridos de anticipación a la fecha del examen.
+
+Si necesitás anular tu inscripción, podrás hacerlo antes de que sea aceptada, es decir, hasta 8 (ocho) días corridos antes de la fecha del examen solicitada.
+
+Los exámenes finales se rinden en las fechas publicadas para cada mesa de examen. Al momento de la inscripción, podrás seleccionar una de las fechas disponibles según tu modalidad y la oferta de mesas habilitadas.
+
+Educación Distribuida (ED) y Educación Distribuida Home (EDH)
+
+Los exámenes finales se rinden en las fechas y horarios publicados por el Centro de Apoyo Universitario (CAU) o Sede seleccionada. Al momento de la inscripción, desde tu Portal Estudiantes podrás elegir una de las mesas disponibles y la franja horaria correspondiente.
+
+Modalidad Presencial (P) y Modalidad Presencial Distribuida (PD)
+
+Los exámenes finales se rinden en las fechas publicadas en el Portal de Estudiantes. Una vez habilitadas las mesas de examen, podrás realizar la inscripción seleccionando la fecha y la franja horaria disponible.
+
+Modalidad Presencial Home (PH)
+
+Los exámenes finales se rinden en las fechas publicadas en el Portal de Estudiantes. Una vez habilitadas las mesas de examen, podrás realizar la inscripción seleccionando la fecha y la franja horaria disponible.
+
+Duración del examen final para todas las modalidades: 90 minutos.
+
+​​​
+
+#### ¿Cómo me inscribo a los finales?
+
+PASO 1
+
+Ingresá en la sección Exámenes y hacé clic en el botón + Nueva Inscripción.
+
+A continuación, se desplegará la siguiente pantalla en cuya parte superior verás los datos principales de la carrera que estás cursando, y debajo de esta información las materias a las que podés inscribirte para rendir examen separadas en dos pestañas: Finales y Parciales. Hace clic en Finales.
+
+PASO 2
+
+Selecciona la materia de la pestaña Finales a la que queres inscribirte para rendir examen el final.
+
+A la derecha, el formulario “Resumen de inscripción” se irá auto-completando con los datos que vayas ingresando para realizar la inscripción al examen de la materia seleccionada.
+
+PASO 3
+
+Una vez confirmado el lugar, seleccioná la mesa en la que rendirás el examen; es decir, elegí la fecha y el horario publicados en los que realizarás el examen.
+
+PASO 4
+
+Hacé clic en el botón Inscribirme al examen dentro del “Resumen de inscripción” para completar la inscripción.
+
+Luego, hacé clic en el botón Confirmar. A continuación, se desplegará un mensaje que anuncia que la inscripción al examen ha sido exitosa.
+
+#### AUSENCIA
+EXAMEN PARCIAL / RECUPERATORIO / INTEGRADOR / FINAL
+
+#### Si no asistís al examen en la fecha y horario asignados, la evaluación quedará registrada como Ausente.
+
+#### ​
+
+- En parciales, recuperatorios e integradores, la inasistencia no habilita la reprogramación de la evaluación.
+- En exámenes finales, además de registrarse el Ausente, perderás una de las oportunidades disponibles para rendir la materia antes de quedar en condición de Libre.
+
+Existen situaciones de excepción contempladas en la normativa institucional vigente.
+
+#### ¿Cómo ver tus inscripciones?
+
+Para visualizar tus inscripciones a exámenes, simplemente dirígete a una de las siguientes pestañas:
+
+- A Rendir: te mostrará todas las inscripciones activas para rendir un examen a futuro.
+
+- Históricas: acá podrás ver las inscripciones que realizaste en el pasado para rendir exámenes.
+
+#### Modalidad PH
+
+#### Modalidad P
+
+#### Modalidad ED
+
+#### Modalidad EDH
+
+Up$pea0$, 'global', 'borrador', $pea0$https://www.lanube.21.edu.ar/inscripci%C3%B3n-a-examenes$pea0$)
 on conflict (categoria_id, slug) do nothing;
 
 insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
@@ -8310,6 +10242,384 @@ Impulsamos trayectos académicos con perspectiva internacional. Porque el futuro
 on conflict (categoria_id, slug) do nothing;
 
 insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
+values ((select id from public.categorias where slug = $pea0$oferta-academica$pea0$), null, 0, $pea0$ln-materias-map$pea0$,
+        $pea0$Materias MAP$pea0$, $pea0$Las Materias de Aplicación Preprofesional (MAP) son una oportunidad para vivir experiencias reales vinculadas a tu carrera, conectándote con el mundo laboral mientras cursas.$pea0$, $pea0$> **A validar:** contenido relevado de https://www.lanube.21.edu.ar/materias-map el 2026-11-09. Revisalo antes de publicar.
+
+#### Materias MAP
+
+#### Seguimos
+Evolucionando
+
+Las Materias de Aplicación Preprofesional (MAP) son una oportunidad para vivir experiencias reales vinculadas a tu carrera, conectándote con el mundo laboral mientras cursas.
+
+¿Cómo se
+
+cursa?
+
+Acuerdo Pedagógico
+
+Esquema de Entregas
+
+¿Cómo se aprueba?
+
+DreamShaper
+
+Ancla 1
+
+Con las materias MAP vas a poder:
+
+- Observar situaciones reales vinculadas a tu campo profesional.
+- Participar activamente en proyectos, equipos y organizaciones reales.
+- Actuar sobre problemáticas concretas, aplicando lo aprendido en la carrera.
+
+Esto te permitirá:
+
+- Ganar seguridad y confianza en tu rol profesional.
+- Incorporar herramientas clave para tu futuro laboral.
+- Comprender mejor el entorno y las dinámicas del campo donde vas a desarrollarte.
+
+Las MAP están diseñadas para guiarte en el desarrollo de competencias a través de 3 niveles de intervención:
+
+Intervención
+
+Básica
+
+vas a realizar actividades de observación no participante y análisis de casos en contextos cercanos o situaciones simuladas, para empezar a conocer de cerca cómo se trabaja en tu área profesional.
+
+Intervención Intermedia
+
+vas a formar parte de proyectos de extensión como Proyecto Académico Transversal (PAT), Proyecto de Intervención Comunitaria (PIC) y el Servicio de Extensión Comunitaria (SEC), donde vas a involucrarte con comunidades, equipos y propuestas vinculadas a tu carrera
+
+Intervención Avanzada
+
+vas a colaborar con una organización o institución, participando en experiencias auténticas que te acercan a los desafíos del entorno laboral.
+
+#### ¿Cómo se cursa?
+
+Las materias MAP se componen de 2 trabajos prácticos múltiple opción (módulos 1 y 3), 2 trabajos prácticos a desarrollar (módulos 2 y 4) y 2 exámenes parciales.
+
+#### Trabajos Prácticos múltiple opción
+
+Los trabajos prácticos múltiple opción los encontrarás en los módulos de lectura 1 y 3.​
+
+Se realizan en tu Aula Virtual (Canvas). Podrás hacerlo las veces que necesites hasta la fecha de cierre de periodo. El sistema guarda la última nota.
+
+La calificación de los Trabajos Prácticos de corrección automática estará compuesta de dos elementos:
+
+- La actividad académica, es decir la calificación en base a las respuestas que desarrolles.
+- La valoración de tiempo de entrega.
+
+Valoración de tiempo de entrega
+
+¿Qué es la Valoración de Tiempo de Entrega?
+
+Define los términos y condiciones aplicables cuando los TPs no son entregados dentro del plazo estipulado en el calendario académico.
+
+Se van a descontar 5 puntos en Canvas por cada día que transcurra entre la Fecha de Entrega y la Fecha en la que presentaste tu TP.
+
+Si presentaste tu TP entre estas fechas, no se aplica la Valoración de Tiempo de Entrega y tu Calificación será la que obtuviste en Canvas.
+
+Si presentaste tu TP entre estas fechas, se aplica la Valoración de Tiempo de Entrega y a tu Calificación se le descontará 5 puntos por día de atraso.
+
+#### Fecha
+Inicio Periodo
+
+#### Fecha
+de Entrega
+
+#### Fecha
+Fin de Periodo
+
+Recordá que:
+
+- La fecha de Inicio de Periodo: es la fecha desde la cual podés realizar tus TPs.
+
+- La fecha de Entrega: es la última fecha que tenés disponible para entregar el TP sin que se aplique la Valoración de Tiempo de Entrega.
+
+- La fecha Fin de Periodo: es la última oportunidad que tenés para entregar el TP, ya que luego de esta, el sistema se bloquea y no admite más presentaciones.
+
+#### Trabajos Prácticos a desarollar:
+
+Los trabajos prácticos 2 y 4 son de entrega individual, donde producís tu propio desarrollo escrito a partir de consignas, que tu docente luego evaluará de acuerdo a una rúbrica con criterios específicos para cada uno de ellos.
+
+Las consignas de los TP te las compartirá tu docente a través de CANVAS, junto con la rúbrica con la que serán corregidos, y deberás subirlos en los Módulos de lecturas 2 y 4 en CANVAS.
+
+Estos TP acompañan las prácticas que estás desarrollado en contextos reales:
+
+- Trabajo práctico 2: está vinculado a los contenidos teóricos del módulo de lectura 2, y el recorrido realizado hasta el momento en la práctica preprofesional.
+
+- Trabajo práctico 4: está vinculado a los contenidos teóricos del módulo de lectura 4, y al cierre integral de la práctica preprofesional.
+
+La calificación de los Trabajos Prácticos abiertos a desarrollar corresponde en tu totalidad a la corrección realizada por tu docente. El profesor podrá corregir la actividad hasta 1 semana después de la fecha de entrega.
+
+#### Esquema de tus entregas
+
+Ancla 2
+
+- 4 módulos de lectura
+- ​4 lecturas específicas en cada uno de ellos
+
+- 2 trabajos prácticos múltiple opción de calificación automática (módulo 1 y 3)
+- 2 trabajos prácticos con consigna abierta (modulo 2 y 4)
+- ​2 exámenes parciales
+
+MÓDULO 1
+
+- 4 lecturas
+- 1 TP múltiple opción.
+- 1 actividad autoevaluativa.
+
+MÓDULO 2
+
+- 4 lecturas
+- 1 TP abierto: se elabora un TP a partir de las competencias y habilidades técnicas especificas que se deben desarrollar y la práctica preprofesional realizada hasta el momento
+- 1 actividad autoevaluativa.
+
+MÓDULO 3
+
+- 4 lecturas
+- 1 TP múltiple opción.
+- 1 actividad autoevaluativa.
+
+MÓDULO 4
+
+- 4 lecturas
+- 1 TP abierto: se elabora un TP a partir de las competencias y habilidades técnicas especificas que se deben desarrollar y la práctica preprofesional realizada hasta el momento
+- 1 actividad autoevaluativa.
+
+Semana 1
+
+Inicio del periodo de cursado
+
+Semana 5 u 8
+
+Valoración de tiempo de entrega.
+
+Semana 8 o 15
+
+Valoración de tiempo de entrega.
+
+PRIMER PARCIAL
+
+Preguntas múltiple opción.
+
+SEGUNDO PARCIAL
+
+Preguntas múltiple opción.
+
+IMPORTANTE:
+
+Los TP 1 y 3 (múltiple opción) podés realizarlos las veces que necesites hasta obtener la calificación deseada, antes de la fecha de entrega; en cambio, los TP 2 y 4 (a desarrollar) se entregan una única vez antes de la fecha de entrega.
+
+#### ¿Cómo accedo al Acuerdo Pedagógico?
+
+Tu docente subirá un documento con el acuerdo pedagógico, el cual deberás descargar para conocer cómo será el recorrido de la materia durante el cursado y que responsabilidades y compromisos debes asumir como estudiante.
+
+Al acceder a tu materia MAP desde tu Aula Virtual (Canvas), en la página de inicio, deberás dirigirte al ícono Acuerdos.
+
+#### ¿Cómo veo las consignas de mis Trabajos Prácticos 2 y 4?
+
+El docente puede compartirte las consignas de tus trabajos prácticos 2 y/o 4 a través de la sección Acuerdo Pedagógico o enviártelas mediante el sistema de mensajería.
+
+#### ¿Cómo realizo mis trabajos prácticos?
+
+En los módulos 1 y 3, los Trabajos Prácticos son de múltiple opción. Luego de leer el enunciado, hacé clic en el botón “Comenzar” para realizar tu TP.
+
+En los módulos 2 y 4, los Trabajos Prácticos son de producción escrita y requieren que subas un archivo. Para entregarlo, hacé clic en “Empezar tarea”, cargá el archivo y seleccioná “Entregar tarea”.
+
+Trabajo practico
+
+#### ¿Cómo se aprueba una materia MAP?
+
+#### Promoción Directa
+
+#### ¿Qué necesitás para lograr esta condición?
+
+• 3 de 4 TPs con nota 7 ó más.
+
+• 2 parciales con nota 7 ó más, sea en instancia de parcial, recuperatorio o integrador.
+
+• 75% de asistencia para modalidades Presencial Presencial Home y Presencial Distribuida.
+
+​​
+
+#### ¿Cómo aprobar la materia?
+
+Alcanzaste la promoción de la materia, por lo que no necesitas rendir un final.
+
+La calificación final en la materia será el promedio obtenido entre todos los TPs y los parciales, sean estos aprobados en primera instancia o mediando recuperatorio individual o integrador más la nota de proceso para la modalidad Presencial.
+
+#### Promoción Indirecta
+
+• 4 de 4 TPs con nota 7 ó más.
+
+• 2 parciales con nota 5 ó 6, sea en instancia de parcial, recuperatorio o integrador.
+
+• 75% de asistencia para modalidades Presencial Presencial Home y Presencial Distribuida.
+
+Alcanzaste la promoción de la materia, por lo que no necesitas rendir un final.
+
+La calificación final en la materia será el promedio obtenido entre todos los TPs y los parciales, sean estos aprobados en primera instancia o mediando recuperatorio individual o integrador más la nota de proceso para la modalidad Presencial.
+
+​​
+
+#### Regularidad
+
+• 3 de 4 TPs con nota 5 ó más.
+
+• 2 parciales con nota 5 ó más, sea en instancia de parcial, recuperatorio o integrador.
+
+• 75% de asistencia para modalidades Presencial Presencial Home y Presencial Distribuida.
+
+Para aprobar la materia debes rendir un examen final que tendrá 30 preguntas y deberá aprobarse con nota 4 ó más.
+
+Contas con un límite de hasta 3 instancias para rendir y un plazo máximo de 18 meses. Tené en cuenta que si te inscribis para rendir, pero no te presentas, las ausencias cuentan como aplazo.
+
+#### ¿En qué condición quedo si no alcanzo la Regularidad de la materia?
+
+#### Libre por Nota
+
+La materia quedará en este estado cuando no se cumplan las condiciones de regularidad.
+
+- Este estado habilita la instancia Final de 50 preguntas virtual de multiple opción.
+
+​​
+
+- Solo para las modalidades Presencial Presencial Home y Presencial Distribuida también deben rendir una instancia oral.
+
+#### Libre
+
+Quedará en este estado cuando se hayan utilizado todas las oportunidades para rendir la materia, sin poder aprobarla o cuando haya vencido el plazo para rendir el examen final.
+
+- Esta condición implica que se debe recursar la asignatura.
+
+#### ¿Cómo se cuál es el nivel de intervención de mi materia MAP?
+
+Podés ver el nivel de intervención correspondiente a tu materia en:
+
+- El Acuerdo Pedagógico
+- En los encabezados de los Trabajos Prácticos 2 y 4
+
+#### ¿Cómo sé cuál es mi proyecto o mi organización asignada?
+
+- Intervención básica: vas a participar en un proyecto de extensión (PAT, PIC o SEC) vinculado a los contenidos de la materia y a las competencias que se buscan desarrollar. Tu docente te compartirá a través de tu Aula Virtual (CANVAS) toda la información necesaria para acompañar este recorrido.
+
+- Intervención avanzada: vas a estar vinculado a una organización, institución o empresa relacionada con tu Carrera. Recibirás un correo con los datos de contacto del referente de la organización, para que puedas comunicarte y coordinar el desarrollo de tus prácticas. También podrás contactarte con tu docente a través de tu Aula Virtual (CANVAS).
+
+#### Fechas de Entrega
+
+- Modalidad ED / EDH / PH
+
+#### Cursado Bimestral
+
+#### 2A
+
+### TP 1
+
+### TP 2
+
+### TP 3
+
+### TP 4
+
+### Fin del periodo
+
+Fecha de Entrega
+
+31/8
+
+31/8
+
+21/09
+
+21/09
+
+3/10
+
+#### 2B
+
+Fecha de Entrega
+
+2/11
+
+2/11
+
+23/11
+
+23/11
+
+5/12
+
+- Modalidad Presencial
+
+#### Cursado Cuatrimestral - Segundo Semestre
+
+Fecha de Entrega
+
+21/09
+
+21/09
+
+9/11
+
+9/11
+
+21/11
+
+#### Si cursás tus materias MAP en DreamShaper, revisá toda la información acá
+
+#### ¿Qué es DreamShaper?
+
+Es una plataforma online donde vas a desarrollar tus actividades Pre-Profesionales. A través de un recorrido guiado, trabajarás sobre un reto real vinculado a una organización, institución o empresa, pensado especialmente para que puedas poner en juego lo que aprendiste en la materia.
+
+#### ¿Por qué cursás con DreamShaper?
+
+Esta herramienta permite transformar el desafío preprofesional en una experiencia concreta y organizada: paso a paso, vas a construir una propuesta que responde a una necesidad real, desarrollando habilidades clave para tu carrera. Todo el proceso lo harás con el acompañamiento de tu docente, que será tu referente durante la cursada. A través de Dreamshaper podrás tener contacto con tu organización.
+
+#### ¿Cómo se cursa?
+
+En la plataforma, vas a resolver una serie de actividades breves, que te permitirán avanzar de forma progresiva. A medida que completes etapas, DreamShaper te avisará cuándo es momento de descargar tu avance y subirlo como Actividad Preprofesional en CANVAS. Vas a realizar dos entregas, una por cada parte del recorrido.
+
+¡En esta materia vas a trabajar en equipo!
+
+- Los grupos se arman de forma aleatoria.
+- Van a contar con un foro grupal dentro de la plataforma para organizarse y comunicarse. Al comenzar la cursada, lo primero que tenés que hacer es presentarte en ese espacio. A medida que avancen con el trabajo deben usar el foro para registrar cada paso que vayan completando.
+
+Además, deberás realizar los 4 trabajos prácticos múltiple opción, correspondientes a los módulos de lecturas en tu Aula Virtual (CANVAS).
+
+#### ¿Cómo accedo a la plataforma DreamShaper?
+
+- Ingresá a tu Aula Virtual (CANVAS).
+- En la página de inicio, hacé clic sobre el botón “Prácticas”. Desde ese botón, se te redireccionará automáticamente a la plataforma Dreamshaper. No te pedirá loguearte nuevamente.
+
+Tu docente te acompañará en toda tu cursada, y el canal de contacto con él será a través de la mensajería de CANVAS.
+
+#### Mirá el video tutorial
+
+#### Proceso de vinculacion según nivel de intervención.
+
+#### Nivel de intervención Intermedio.
+
+Si la materia que estas cursando corresponde a un nivel de intervención intermedio, la Universidad te vinculará con un programa de extensión acorde a tu formación (PAT, PIC o SEC). . Tu docente te compartirá a través de tu Aula Virtual (CANVAS) cuál es el proyecto al que estás asignado y el contacto de su director, a fin de que puedas coordinar tus prácticas.
+
+#### Nivel de Intervención Avanzado.
+
+Vas a estar vinculado/a a una organización, institución o empresa relacionada con tu Carrera. Recibirás un correo con los datos de contacto del referente de la organización, para que puedas comunicarte y coordinar el desarrollo de tus prácticas. También podrás contactarte con tu docente a través de tu Aula Virtual (CANVAS).
+
+- Carga horaria
+
+Deberás cumplir entre cuatro (4) y ocho (8) horas semanales de prácticas en la organización, según lo establecido para tu carrera y en coordinación con la entidad.
+
+- Seguros
+
+Todos los estudiantes inscriptos en una materia MAP de intervención avanzada cuentan con un seguro que los cubre durante toda la cursada, ante cualquier contingencia que pudiera ocurrir en el contexto organizacional. Si requerís acceder a la póliza, deberás solicitarla solamente a tu director de Carrera.
+
+IMPORTANTE:
+
+La gestión del seguro será realizada por la Universidad una vez que estés inscripto/a en la materia. No es necesario que realices ningún trámite por tu cuenta.$pea0$, 'global', 'borrador', $pea0$https://www.lanube.21.edu.ar/materias-map$pea0$)
+on conflict (categoria_id, slug) do nothing;
+
+insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
 values ((select id from public.categorias where slug = $pea0$modalidades$pea0$), null, 0, $pea0$ln-modalidad-ed$pea0$,
         $pea0$Educación Distribuida$pea0$, $pea0$El cursado se realiza a través de la Plataforma Multimedia, con el acompañamiento de un Profesor Tutor y un Profesor Experto en los dos primeros cuatrimestres, y de un Profesor Virtual a partir del…$pea0$, $pea0$> **A validar:** contenido relevado de https://www.lanube.21.edu.ar/modalidad-ed el 2026-11-08. Revisalo antes de publicar.
 
@@ -8665,6 +10975,134 @@ En el Campus vas a encontrar múltiples espacios de estudio, recreación y servi
 - SEDE NUEVA CÓRDOBA
 
 - SEDE RIO CUARTO$pea0$, 'global', 'borrador', $pea0$https://www.lanube.21.edu.ar/modalidad-presencial$pea0$)
+on conflict (categoria_id, slug) do nothing;
+
+insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
+values ((select id from public.categorias where slug = $pea0$oferta-academica$pea0$), null, 0, $pea0$ln-modulo0$pea0$,
+        $pea0$Módulo 0$pea0$, $pea0$En este programa preparatorio te acercamos contenido y clases niveladoras diseñadas especialmente para que inicies el cursado de la mejor manera. Te ayudara a adquirir conocimientos esenciales para…$pea0$, $pea0$> **A validar:** contenido relevado de https://www.lanube.21.edu.ar/modulo0 el 2026-11-09. Revisalo antes de publicar.
+
+#comp-mlfjyoeh svg [data-color="1"] {fill: #4BD1A0;}
+
+En este programa preparatorio te acercamos contenido y clases niveladoras diseñadas especialmente para que inicies el cursado de la mejor manera. Te ayudara a adquirir conocimientos esenciales para las materias troncales de tu carrera y a adoptar con anticipación nuestro Modelo Académico.
+
+- Inicio de Cursado: 18 de febrero
+
+#### ¿Qué es el Módulo 0?
+
+Es un módulo de lecturas que encontrás dentro de tu materia en tu Aula Virtual (CANVAS), un recorrido breve y guiado, para llegar al comienzo de clases con más claridad y seguridad. Se habilita un mes antes del cursado y está pensado para que puedas aprender, practicar y afianzar los conceptos clave que vas a necesitar durante la cursada.
+
+#### ¿Cuáles son los beneficios que vas a lograr al cursar el módulo 0?
+
+Llegás al inicio de clases con más claridad sobre los temas centrales.
+
+Construís una base de conceptos que después se profundizan en clases.
+
+Obtenes una mejor organización desde el primer día y evitás acumularte al comienzo.
+
+Ganás seguridad al avanzar con guía y práctica antes de la cursada.
+
+Listado de materias que incluyen Módulo 0
+
+| ALGEBRA Y GEOMETRIA |
+| --- |
+| ALGEBRA Y GEOMETRIA |
+| ANALISIS MATEMATICO |
+| ANATOMIA |
+| ANATOMÍA HUMANA |
+| ARQUITECTURA DEL COMPUTADOR |
+| BALISTICA |
+| BASE DE DATOS I |
+| BASES DEL DERECHO PRIVADO |
+| BIOQUIMICA I |
+| BIOQUIMICA II |
+| CALCULO AVANZADO |
+| CALCULO INTEGRAL |
+| CIENCIAS BIOLÓGICAS |
+| DERECHO CONSTITUCIONAL |
+| DERECHO PENAL ECONOMICO |
+| DERECHO PENAL: PARTE GENERAL |
+| ECONOMIA INTERNACIONAL |
+| ELECTROTECNIA Y TERMOTECNIA |
+| ENFERMERIA BASICA I |
+| ESTADISTICA Y PROBABILIDAD |
+| FISIOLOGÍA |
+| FISIOLOGÍA HUMANA |
+| FUNDAMENTOS DE ANATOMÍA HUMANA |
+| HERRAMIENTAS MATEMATICAS I - ALGEBRA |
+| HERRAMIENTAS MATEMATICAS II - ANALISIS |
+| HERRAMIENTAS MATEMATICAS III - ESTADISTICA I |
+| HERRAMIENTAS MATEMATICAS III - ESTADISTICA I |
+| HERRAMIENTAS MATEMÁTICAS I - ÁLGEBRA |
+| HERRAMIENTAS MATEMÁTICAS II - ANÁLISIS |
+| HISTORIA DEL DERECHO |
+| INTRODUCCION AL DERECHO |
+| INTRODUCCIÓN A LA CIENCIA DE DATOS |
+| INTRODUCCIÓN A LA PSICOLOGÍA |
+| LENGUAJES FORMALES Y COMPUTABILIDAD |
+| LOGICA SIMBOLICA |
+| MATEMATICA DISCRETA |
+| NEUROANATOMÍA Y NEUROFISIOLOGÍA |
+| PLAN DE MARKETING DIGITAL |
+| PRINCIPIOS DE ECONOMIA |
+| PRINCIPIOS DE LA CONTABILIDAD |
+| PROGRAMACION LOGICA |
+| PROGRAMACION ORIENTADA A OBJETOS |
+| SISTEMAS DE INFORMACION |
+| TEORIA DE LA ARGUMENTACION JURIDICA |
+
+Vas a encontrar recursos diseñados para prepararte de forma progresiva:
+
+- Cuatro lecturas interactivas.
+
+- Actividades con devolución inmediata, para que puedas practicar, corregir y entender el porqué de cada respuesta.
+
+- Recursos de apoyo (por ejemplo, material complementario o clases grabadas, cuando estén disponibles).
+
+- Acompañamiento personalizado por parte de un tutor virtual a través de la mensajería en CANVAS, quien te va a orientar en el recorrido y te ayudará a resolver tus dudas.
+
+Potenciá tu desempeño: participar del Módulo 0 incrementa un 20% tus posibilidades de aprobar la materia
+
+#### ¿Cómo se cursa el Módulo 0?
+
+Se cursa a través de tu Aula Virtual (CANVAS) en un trayecto simple. Mirá cómo acceder a las lecturas:
+
+#comp-mlfiosvc svg [data-color="1"] {fill: #4BD1A0;}
+
+Ingresa a tu Aula Virtual (CANVAS) en la materia que tiene habilitado el módulo.
+
+#comp-mlfipkkw svg [data-color="1"] {fill: #4BD1A0;}
+
+En la página de inicio, haces clic en módulo 0.
+
+#comp-mlfiprrz svg [data-color="1"] {fill: #4BD1A0;}
+
+Una vez que ingreses vas a encontrar las cuatro lecturas del módulo.
+
+#comp-mlfipypd svg [data-color="1"] {fill: #4BD1A0;}
+
+Para acceder a una lectura, hacés clic en “Ver lectura”.
+
+#comp-mlfiq847 svg [data-color="1"] {fill: #4BD1A0;}
+
+Avanzás y realizás las actividades de repaso, que se encuentran al final de cada lectura. En cada actividad, recibís feedback inmediato, para identificar errores, ver las respuestas correctas y comprender la justificación.
+
+#### Acompañamiento y consultas
+
+Durante este recorrido no vas a estar solo/a vas a contar con acompañamiento para:
+
+Resolver dudas sobre cómo avanzar, dónde encontrar materiales o cómo usar el espacio dentro del Aula Virtual (CANVAS).
+
+Organizar tu cursado (qué hacer primero, cómo seguir, cómo retomar si te pausaste las actividades)
+
+Cuando lo necesites vas a poder canalizar consultas vinculadas al contenido.
+
+¿Cómo te comunicas con tus Tutores Virtuales?
+
+Te recordamos que cuentas con el apoyo de un Tutor Virtual, quien te acompaña durante el cursado de la materia y está disponible para resolver todas tus consultas académicas.
+
+Puedes contactarlo a través de la mensajería de la materia en tu Aula Virtual (CANVAS).
+
+#### Mirá el vídeo y aprendé a enviar mensajes a tu docente desde tu Aula Virtual (CANVAS)$pea0$, 'global', 'borrador', $pea0$https://www.lanube.21.edu.ar/modulo0$pea0$)
 on conflict (categoria_id, slug) do nothing;
 
 insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
@@ -11094,6 +13532,91 @@ Tené en cuenta que estos trámites tienen carácter de documentación provisori
 on conflict (categoria_id, slug) do nothing;
 
 insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
+values ((select id from public.categorias where slug = $pea0$plataformas$pea0$), null, 0, $pea0$ln-requisitos-tecnicos-edusoft$pea0$,
+        $pea0$REQUISITOS TÉCNICOS EDUSOFT$pea0$, $pea0$Para ejecutar English Discoveries, tus dispositivos deben cumplir los siguientes requisitos mínimos de hardware:$pea0$, $pea0$> **A validar:** contenido relevado de https://www.lanube.21.edu.ar/post/requisitos-t%C3%A9cnicos-edusoft el 2026-11-09. Revisalo antes de publicar.
+
+**Para ejecutar English Discoveries, tus dispositivos deben cumplir los siguientes requisitos mínimos de hardware:**
+
+- La PC / Mac debe cumplir con los requisitos mínimos del sistema operativo admitido.
+- Resolución mínima 1024x768.
+- Auriculares / altavoces y micrófono. (Sugerimos utilizar un micrófono externo y no el micrófono incorporado de la computadora).
+- Se admiten tabletas de 10 pulgadas (resolución mínima de 1024x768). (Las actividades de voz no son compatibles con dispositivos de tableta)
+
+**Sistemas operativos compatibles:**
+
+- Windows 7 (versión de 32 o 64 bits), Windows 8 (versión de 32 o 64 bits) y Windows 10 (versión de 32 o 64 bits).
+- Mac OS X 10 (con navegador Chrome o Firefox).
+- iOS 9 o 10 (con navegador Safari) es compatible con la plataforma de estudiantes English Discoveries.
+- Android 6 o 7 (con navegador Chrome)
+
+**Navegadores:**
+
+- Google Chrome 37 o superior
+- Mozilla Firefox 43 o superior
+- Internet Explorer 10 + 11
+
+**Componentes adicionales:**
+
+- Flash Player 18 o mejor
+- Usuarios de Internet Explorer: deberán descargar el módulo de reconocimiento de voz, desde la ventana de verificación del sistema.
+- Chrome o Firefox: el reconocimiento de voz es automático, no hay necesidad de descargar ningún módulo.
+
+### Comentarios$pea0$, 'global', 'borrador', $pea0$https://www.lanube.21.edu.ar/post/requisitos-t%C3%A9cnicos-edusoft$pea0$)
+on conflict (categoria_id, slug) do nothing;
+
+insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
+values ((select id from public.categorias where slug = $pea0$plataformas$pea0$), null, 0, $pea0$ln-requisitos-tecnicos-klarway$pea0$,
+        $pea0$REQUISITOS TÉCNICOS KLARWAY$pea0$, $pea0$SISTEMA OPERATIVO: Windows$pea0$, $pea0$> **A validar:** contenido relevado de https://www.lanube.21.edu.ar/post/requisitos-tecnicos-klarway el 2026-11-09. Revisalo antes de publicar.
+
+**SISTEMA OPERATIVO: Windows**
+
+- VERSION DEL SISTEMA: Windows 10 o superior
+- PROCESADOR: Intel Core i3 o superior
+- 64bits, 4GB de RAM
+- ESPACIO DISPONIBLE: 1GB
+- CÁMARA Y MICRÓFONO
+- CONEXIÓN A INTERNET
+- BATERIA CARGADA 80% (o conectada a red eléctrica)
+
+**Sistema Operativo MAC**
+
+- VERSION DEL SISTEMA: Monterrey 12.6.3 o superior
+- PROCESADOR: Intel Core i3 / M1 o superior
+- 64bits, 4GB de RAM
+- ESPACIO DISPONIBLE: 1GB
+- CÁMARA Y MICRÓFONO
+- CONEXIÓN A INTERNET
+- BATERIA CARGADA 80% (o conectada a red eléctrica)
+
+### Comentarios$pea0$, 'global', 'borrador', $pea0$https://www.lanube.21.edu.ar/post/requisitos-tecnicos-klarway$pea0$)
+on conflict (categoria_id, slug) do nothing;
+
+insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
+values ((select id from public.categorias where slug = $pea0$tramites$pea0$), null, 0, $pea0$ln-revision-de-examen$pea0$,
+        $pea0$¿Cómo solicitar la revisión de examen?$pea0$, $pea0$Si al finalizar el examen, consideras que alguna pregunta no ha sido evaluada de manera correcta, el sistema te va a habilitar la “solicitud de revisión” en el mismo momento del examen.$pea0$, $pea0$> **A validar:** contenido relevado de https://www.lanube.21.edu.ar/post/revision-de-examen el 2026-11-09. Revisalo antes de publicar.
+
+Si al finalizar el examen, consideras que alguna pregunta no ha sido evaluada de manera correcta, el sistema te va a habilitar la “**solicitud de revisión**” en el mismo momento del examen.
+
+En esta instancia, deberás marcar aquellas preguntas con las cuales no estás de acuerdo y argumentar el motivo por el cual no lo estás.
+
+Por ejemplo, si no estás de acuerdo con la respuesta que se marca como correcta, deberás específicar cuál crees es la opción adecuada y el detalle de la bibliografía en la que viste ese contenido.
+
+**El proceso de revisión solo se realiza una vez finalizado el examen. Cumplida esta instancia, no hay otra vía de revisión.**
+
+🔰​ En el caso de Parcial, contarás con 10 minutos para realizar la revisión
+
+🔰​ En el caso de Examen Final, contarás con 15 minutos
+
+El plazo de respuesta del pedido de revisión es de 15 días y de la resolución podrán darse las siguientes situaciones:
+
+- Que se dé lugar al pedido y el examen revisado esté APROBADO. En dicho caso, se analizará si corresponde la aplicación de un cambio en la calificación obtenida, de acuerdo a la escala de notas vigente.
+
+- Que se dé lugar al pedido y el examen revisado esté DESAPROBADO. En dicho caso se analizará, según la problemática identificada, si corresponde la aplicación de un cambio de calificación o si se otorga la posibilidad de rendir nuevamente la instancia de examen.
+
+- Que no se dé lugar al pedido de revisión.$pea0$, 'global', 'borrador', $pea0$https://www.lanube.21.edu.ar/post/revision-de-examen$pea0$)
+on conflict (categoria_id, slug) do nothing;
+
+insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
 values ((select id from public.categorias where slug = $pea0$institucional$pea0$), null, 0, $pea0$ln-salud-y-deportes$pea0$,
         $pea0$Salud y Deportes$pea0$, $pea0$Salud y Deportes$pea0$, $pea0$> **A validar:** contenido relevado de https://www.lanube.21.edu.ar/salud-y-deportes el 2026-11-08. Revisalo antes de publicar.
 
@@ -11554,6 +14077,33 @@ Consultá los horarios de los encuentros con los directores de carrera del segun
 on conflict (categoria_id, slug) do nothing;
 
 insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
+values ((select id from public.categorias where slug = $pea0$oferta-academica$pea0$), null, 0, $pea0$ln-test-de-autorregulacion-del-aprendizaje$pea0$,
+        $pea0$¿Qué es el Test de Autorregulación del Aprendizaje?$pea0$, $pea0$El test de Autorregulación es un test que podrás realizar cuando curses la materia Aprender en el siglo 21 en tu Aula Virtual (Canvas).$pea0$, $pea0$> **A validar:** contenido relevado de https://www.lanube.21.edu.ar/post/test-de-autorregulacion-del-aprendizaje el 2026-11-09. Revisalo antes de publicar.
+
+El test de Autorregulación es un test que podrás realizar cuando curses la materia Aprender en el siglo 21 en tu Aula Virtual (Canvas).
+
+Este test cuenta con 4 secciones correspondiente a las etapas del proceso de aprendizaje **Planificación>Ejecución-La procastinación** >**Ejecución-Técnicas de estudio>Monitoreo**.
+
+Es necesario que respondas las 4 secciones para finalizar el test y obtener tu Perfil de aprendizaje y algunas recomendaciones vinculadas a ese perfil.
+
+Además podrás leer recomendaciones generales sobre cada etapa.
+
+Para conocer cuál es tu Perfil de Aprendizaje deberás ingresar a **Perfil 21** desde tu **Portal de Estudiante**.
+
+Una vez que estés en **Perfil 21,** debes ingresar a la pestaña **Mis intereses**.
+
+En este espacio podrás conocer cuál es tu **Perfil de Aprendizaje**.
+
+Los perfiles que podes encontrar son:
+
+**Mirá este vídeo y descubrí más sobre el**
+
+**Test de Autorregulación**
+
+### Comentarios$pea0$, 'global', 'borrador', $pea0$https://www.lanube.21.edu.ar/post/test-de-autorregulacion-del-aprendizaje$pea0$)
+on conflict (categoria_id, slug) do nothing;
+
+insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
 values ((select id from public.categorias where slug = $pea0$oferta-academica$pea0$), null, 0, $pea0$ln-tipos-de-materias$pea0$,
         $pea0$Tipos de Materias$pea0$, $pea0$¿Cómo ver la tipología de materias?$pea0$, $pea0$> **A validar:** contenido relevado de https://www.lanube.21.edu.ar/tipos-de-materias el 2026-11-08. Revisalo antes de publicar.
 
@@ -11757,6 +14307,34 @@ El cursado se compone de 4 trabajos prácticos de realización automática y 2 a
 #### Materias de Proceso
 
 Las Materias de Proceso tienen la finalidad de integrar los contenidos específicos y las competencias profesionales, vinculando los conocimientos con la realidad práctica, a partir del análisis global de situaciones simuladas y/o de la inmersión en organizaciones donde se pone en juego la transferencia de conocimientos teóricos a la realidad.$pea0$, 'global', 'borrador', $pea0$https://www.lanube.21.edu.ar/tipos-de-materias$pea0$)
+on conflict (categoria_id, slug) do nothing;
+
+insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
+values ((select id from public.categorias where slug = $pea0$tramites$pea0$), null, 0, $pea0$ln-tp-modalidad-presencial$pea0$,
+        $pea0$¿Cómo son los TPs en la modalidad Presencial, Presencial Home y Presencial Distribuida?$pea0$, $pea0$En la modalidad PRESENCIAL, tanto P, PH y PD, encontraremos:$pea0$, $pea0$> **A validar:** contenido relevado de https://www.lanube.21.edu.ar/post/tp-modalidad-presencial el 2026-11-09. Revisalo antes de publicar.
+
+En la modalidad PRESENCIAL, tanto P, PH y PD, encontraremos:
+
+- Actividades Evaluativas en espacio áulico
+- TPs de Corrección Automática (Canvas)
+- Parciales
+
+| Al comienzo del cursado de la materia, tu docente te compartirá el acuerdo pedagógico, las actividades evaluativas de proceso a desarrollar junto a las fechas de presentación de cada una. |
+| --- |
+
+**¿Cómo será la calificación final de los Trabajos Prácticos en las materias?**
+
+**Las calificaciones obtenidas en las Actividades Evaluativas de Proceso en los entornos áulicos y las calificaciones obtenidas en los Trabajos Prácticos de tu Aula Virtual (Canvas) darán como resultado el cálculo final** de cada una de las instancias evaluativas a partir de lo establecido en el contrato pedagógico.
+
+****
+
+****
+
+**¿Dónde se encuentran las consignas de las Actividad Evaluativas de Proceso?**
+
+Las consignas de cada Actividad Evaluativa de Proceso en las materias serán compartidas por el/la docente en el espacio áulico presencial junto con los criterios de evaluación y la fecha límite para su entrega.
+
+### Comentarios$pea0$, 'global', 'borrador', $pea0$https://www.lanube.21.edu.ar/post/tp-modalidad-presencial$pea0$)
 on conflict (categoria_id, slug) do nothing;
 
 insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
@@ -12331,4 +14909,80 @@ Esta materia te propone romper modelos mentales, apropiarte del uso de las tecno
 - Comprensión histórica de las revoluciones
 - Dimensión económica y social
 - Desafíos para el futuro$pea0$, 'global', 'borrador', $pea0$https://www.lanube.21.edu.ar/universitarios21$pea0$)
+on conflict (categoria_id, slug) do nothing;
+
+insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
+values ((select id from public.categorias where slug = $pea0$institucional$pea0$), null, 0, $pea0$ln-uso-de-espacios$pea0$,
+        $pea0$USO DE ESPACIOS| La Nube 21$pea0$, $pea0$Queremos que cuando asistas a cualquiera de las instalaciones que conforman Universidad Siglo 21 disfrutes de la mejor experiencia junto a tus compañeros/as y docentes.$pea0$, $pea0$> **A validar:** contenido relevado de https://www.lanube.21.edu.ar/uso-de-espacios el 2026-11-09. Revisalo antes de publicar.
+
+#### ¿Cómo habitar nuestros espacios?
+
+Queremos que cuando asistas a cualquiera de las instalaciones que conforman Universidad Siglo 21 disfrutes de la mejor experiencia junto a tus compañeros/as y docentes.
+
+Para ello, al transitar por espacios comunes, tené en cuenta respetar las normas de convivencia y mantener los buenos hábitos que definen la cultura de la comunidad Siglo 21.
+
+Si cursás en Sede Campus o vas a visitarla pronto, te sugerimos revisar los buenos hábitos y normas de convivencia para disfrutar al máximo de la Universidad.
+
+[Espacios Comunes](https://www.lanube.21.edu.ar/uso-de-espacios)
+
+[Edificios Campus](https://www.lanube.21.edu.ar/uso-de-espacios)
+
+[Salud y Bienestar y](https://www.lanube.21.edu.ar/uso-de-espacios)
+
+Academia 21
+
+En caso de asistir a otras Sedes o Centros de Apoyo Universitario, de igual manera te recomendamos leer estas normas para aplicarlas según corresponda en las distintas instalaciones que conforman la Universidad Siglo 21 a lo largo del país.
+
+#### En espacios comunes
+
+Seguí los siguientes consejos y disfrutá de los espacios comunes de la Universidad (aulas, salas de reunión, bar, espacios de exterior).
+
+- Mantener la limpieza. Al finalizar el día, recoger los elementos utilizados y procurar dejar el espacio como fue recibido.
+- Descartar los desechos, según corresponda, en los basureros dispuestos para diferenciar húmedos, papel y cartón y plástico.
+- Comer solo en las áreas designadas para ello.
+- Usar auriculares en reuniones virtuales o al escuchar música.
+- Mantener un tono de voz moderado.
+- No sacar ni mover mobiliario, equipos o materiales de aulas, laboratorios u oficinas. En caso de tener autorización, devolver todo al lugar original después de usarlo y seguir el proceso de registro.
+- No pegar carteles en paredes, puertas u otras superficies que puedan dañarse. Si es necesario, hacerlo solo en los espacios designados o sobre superficies de vidrio.
+- Cuidar los muebles de las aulas y oficinas (pupitres, cortinas). Si algo no funciona, comunícalo a la bedelía para solucionarlo.
+- Apagar las luces cuando cierres o te vayas de una oficina/aula, al igual que los aires acondicionados.
+
+#### En edificios de Sede Campus
+
+Cuando curses o visites la sede por cualquier motivo, te recomendamos tener presente estas indicaciones.
+
+- Respetar las pautas de convivencia indicadas para los [espacios comunes de la Universidad](https://www.lanube.21.edu.ar/uso-de-espacios).
+- En el marco de una actividad, no solo académica, el referente del espacio asignado es el responsable de la apertura y cierre con llave del mismo, constituyéndose en la autoridad áulica responsable de su cuidado y seguridad, como así también del equipamiento y de los recursos que lo integran.
+- No está permitido traspasar entre personas la llave de un aula y/o laboratorio. El retiro y devolución de la misma debe hacerse siempre desde la Mesa de Atención o Recepción del Edificio correspondiente, mediante el sistema de registro destinado a tal fin.
+- No está permitido el ingreso y/o permanencia de estudiantes en aulas y laboratorios sin la presencia docente (incluidos recreos y/o al finalizar la clase).
+
+#### En edificio de Salud y Bienestar y Academia 21
+
+Para disfrutar este espacio de innovación y excelencia te pedimos procures respetar las siguientes recomendaciones.
+
+Respetar las pautas de convivencia indicadas para los [espacios comunes de la Universidad](https://www.lanube.21.edu.ar/uso-de-espacios)[.](https://www.lanube.21.edu.ar/uso-de-espacios)​
+
+Espacio MultiLab
+
+• En MultiLab y espacios donde se usen insumos médicos, elementos punzo-cortantes o residuos biológicos, descartar los desechos en recipiente o en cesto de residuos correspondiente.
+
+• No ingresar a aulas de práctica con bolsos ni mochilas. Utilizar los lockers para guardar elementos personales. Al ser estos de uso diario y compartido, retirar lo guardado al finalizar el día.
+
+• Tratar los insumos y equipos con el máximo cuidado y precaución. No manipular equipos ni simuladores sin la supervisión de un/a docente.
+
+• Mantener un tono de voz moderado.
+
+• No consumir allí alimentos o bebidas, excepto en Laboratorio de Nutrición y Química.
+
+• Tratar con cuidado y respeto los maniquíes, que son nuestros pacientes. Usar siempre guantes y no marcarlos con lapiceras.
+
+• Respetar el orden y dejar todo en su lugar, tal como estaba al llegar.
+
+• No sacar equipamiento de las aulas.
+
+Espacio Co-Learning:
+
+Es un espacio destinado a cocrear conocimiento, construir ideas, debatir y desarrollar proyectos a partir del encuentro, la exploración y el intercambio de experiencias y de conocimientos. Por ello no debe utilizarse como espacio de recreación y/o de descanso, como espacio para realizar actividades que impliquen elevar el tono de voz, consumir alimentos y bebidas, o cualquier otra actividad que distorsione el concepto del mismo.
+
+Up$pea0$, 'global', 'borrador', $pea0$https://www.lanube.21.edu.ar/uso-de-espacios$pea0$)
 on conflict (categoria_id, slug) do nothing;
