@@ -307,7 +307,8 @@ modulos               (id, curso_id, orden, titulo, descripcion_md, avance_secue
 modulo_prerrequisitos (modulo_id, requiere_modulo_id)
 items                 (id, modulo_id, orden, titulo, tipo, articulo_id null, recurso_id null,
                        examen_id null, contenido_md null, url null, requisito,
-                       leccion jsonb null)  -- {resumen[], ejemplos[{consulta, respuesta}], ojo[]}; fuente = articulo_id, Probalo = examen_id
+                       leccion jsonb null)  -- {resumen[], ejemplos[{consulta, respuesta}], ojo[]}; fuente = articulo_id; Probalo = preguntas de práctica con item_id
+preguntas.item_id     null  -- pregunta de Probalo de una lección
 practica_intentos     (id, usuario_id, pregunta_id, correcta, created_at)  -- cada "Comprobar", para la tasa de acierto
 item_progreso         (usuario_id, item_id, visto_at null, hecho_at null)
 insignias             (id, curso_id unique, nombre, descripcion, icono_path)
