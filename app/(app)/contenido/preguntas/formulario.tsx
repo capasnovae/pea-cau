@@ -35,6 +35,7 @@ export type PreguntaEditable = {
   sede_id: string | null;
   estado: string;
   uso: "examen" | "practica";
+  item_id: string | null;
   opciones: OpcionEdit[];
   columnas: string[];
   campos: CampoEdit[];
@@ -58,6 +59,7 @@ export function FormularioPregunta({
   modulos,
   articulos,
   casos,
+  lecciones = [],
 }: {
   pregunta?: PreguntaEditable;
   casoInicial?: string;
@@ -67,7 +69,9 @@ export function FormularioPregunta({
   modulos: Opcion[];
   articulos: Opcion[];
   casos: Opcion[];
+  lecciones?: Opcion[];
 }) {
+  const [uso, setUso] = useState(pregunta?.uso ?? "examen");
   const [r, accion, pendiente] = useActionState<ResultadoPregunta, FormData>(guardarPregunta, null);
   const [tipo, setTipo] = useState<TipoPregunta>(
     pregunta?.tipo ?? (casoInicial ? "simulacion" : "opcion_multiple"),
@@ -121,7 +125,12 @@ export function FormularioPregunta({
           </Select>
         </Campo>
         <Campo id="pq-uso" etiqueta="Uso">
-          <Select id="pq-uso" name="uso" defaultValue={pregunta?.uso ?? "examen"}>
+          <Select
+            id="pq-uso"
+            name="uso"
+            value={uso}
+            onChange={(e) => setUso(e.target.value as "examen" | "practica")}
+          >
             <option value="examen">Examen</option>
             <option value="practica">Práctica</option>
           </Select>
@@ -427,6 +436,18 @@ export function FormularioPregunta({
             ))}
           </Select>
         </Campo>
+        {uso === "practica" && (
+          <Campo id="pq-leccion" etiqueta="Lección (Probalo)">
+            <Select id="pq-leccion" name="item_id" defaultValue={pregunta?.item_id ?? ""}>
+              <option value="">Ninguna</option>
+              {lecciones.map((l) => (
+                <option key={l.id} value={l.id}>
+                  {l.nombre}
+                </option>
+              ))}
+            </Select>
+          </Campo>
+        )}
         <Campo id="pq-articulo" etiqueta="Artículo para estudiar">
           <Select
             id="pq-articulo"

@@ -13,6 +13,7 @@ export async function cargarOpcionesExamenes(perfil: Perfil) {
     { data: articulos },
     { data: casos },
     { data: cursos },
+    { data: lecciones },
   ] = await Promise.all([
     supabase.from("sedes").select("id, nombre").order("nombre"),
     supabase.from("categorias").select("id, nombre").order("orden"),
@@ -24,6 +25,11 @@ export async function cargarOpcionesExamenes(perfil: Perfil) {
       .select("id, titulo, tipo, nivel_orden")
       .neq("estado", "archivado")
       .order("nivel_orden"),
+    supabase
+      .from("items")
+      .select("id, titulo, modulos(titulo, cursos(titulo))")
+      .eq("tipo", "leccion")
+      .limit(500),
   ]);
   return {
     ...opcionesDeAlcance(perfil.rol, perfil.sede_id, sedes ?? []),
@@ -33,6 +39,9 @@ export async function cargarOpcionesExamenes(perfil: Perfil) {
       .sort((a, b) => a.nombre.localeCompare(b.nombre)),
     articulos: (articulos ?? []).map((a) => ({ id: a.id, nombre: a.titulo })),
     casos: (casos ?? []).map((c) => ({ id: c.id, nombre: c.titulo })),
+    lecciones: (lecciones ?? [])
+      .map((l) => ({ id: l.id, nombre: `${l.modulos?.cursos?.titulo ?? ""} · ${l.titulo}` }))
+      .sort((a, b) => a.nombre.localeCompare(b.nombre)),
     niveles: (cursos ?? [])
       .filter((c) => c.tipo === "nivel")
       .map((c) => ({ id: c.id, nombre: `Nivel ${c.nivel_orden} · ${c.titulo}` })),

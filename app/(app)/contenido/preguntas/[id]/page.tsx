@@ -26,7 +26,7 @@ export default async function PaginaPregunta({
     const { data } = await supabase
       .from("preguntas")
       .select(
-        "id, tipo, enunciado_md, contexto_md, explicacion_md, rubrica_md, puntaje_max, dificultad, caso_id, orden_en_caso, modulo_id, categoria_id, articulo_fuente_id, alcance, sede_id, estado, uso, config, solucion, opciones(texto, es_correcta, posicion_correcta, grupo, orden)",
+        "id, tipo, enunciado_md, contexto_md, explicacion_md, rubrica_md, puntaje_max, dificultad, caso_id, orden_en_caso, modulo_id, categoria_id, articulo_fuente_id, alcance, sede_id, estado, uso, item_id, config, solucion, opciones(texto, es_correcta, posicion_correcta, grupo, orden)",
       )
       .eq("id", id)
       .maybeSingle();

@@ -40,7 +40,7 @@ export default async function PaginaEditarCurso({
     supabase
       .from("modulos")
       .select(
-        "id, titulo, orden, avance_secuencial, modulo_prerrequisitos!modulo_prerrequisitos_modulo_id_fkey(requiere_modulo_id), items(id, titulo, tipo, requisito, orden, articulo_id, recurso_id, contenido_md, url, examen_id)",
+        "id, titulo, orden, avance_secuencial, modulo_prerrequisitos!modulo_prerrequisitos_modulo_id_fkey(requiere_modulo_id), items(id, titulo, tipo, requisito, orden, articulo_id, recurso_id, contenido_md, url, examen_id, leccion)",
       )
       .eq("curso_id", id)
       .order("orden"),

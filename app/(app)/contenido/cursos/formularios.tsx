@@ -2,7 +2,9 @@
 
 import { useActionState, useState, useTransition } from "react";
 import { Campo, CamposAlcance, MensajeResultado } from "@/components/contenido/campos";
+import { EditorLeccion } from "@/components/contenido/editor-leccion";
 import { ContenidoLeccion } from "@/components/leccion/contenido";
+import type { Leccion } from "@/lib/dominio/lecciones";
 import { Button } from "@/components/ui/button";
 import { Input, Select } from "@/components/ui/input";
 import { borrarFila, guardarCurso, guardarItem, guardarModulo, type ResultadoCurso } from "./acciones";
@@ -199,6 +201,7 @@ export type ItemEditable = {
   contenido_md: string | null;
   url: string | null;
   examen_id: string | null;
+  leccion?: unknown;
 };
 
 export function FormularioItem({
@@ -219,7 +222,7 @@ export function FormularioItem({
   siguienteOrden: number;
 }) {
   const [r, accion, pendiente] = useActionState<ResultadoCurso, FormData>(guardarItem, null);
-  const [tipo, setTipo] = useState(item?.tipo ?? "pagina");
+  const [tipo, setTipo] = useState(item?.tipo ?? "leccion");
   const [md, setMd] = useState(item?.contenido_md ?? "");
   const [previa, setPrevia] = useState(false);
   const p = item?.id ?? `nuevo-${moduloId}`;
@@ -233,6 +236,7 @@ export function FormularioItem({
         </Campo>
         <Campo id={`${p}-tipo`} etiqueta="Tipo">
           <Select id={`${p}-tipo`} name="tipo" value={tipo} onChange={(e) => setTipo(e.target.value)}>
+            <option value="leccion">Lección</option>
             <option value="pagina">Página</option>
             <option value="articulo">Artículo</option>
             <option value="video">Video</option>
@@ -248,7 +252,7 @@ export function FormularioItem({
             name="requisito"
             key={tipo}
             defaultValue={
-              tipo === "practica"
+              tipo === "practica" || (tipo === "leccion" && !item)
                 ? "marcar_hecho"
                 : tipo === "examen"
                   ? (item?.requisito ?? "aprobar")
@@ -258,6 +262,11 @@ export function FormularioItem({
             {tipo === "examen" && <option value="aprobar">Aprobar</option>}
             {tipo === "practica" ? (
               <option value="marcar_hecho">Completarla</option>
+            ) : tipo === "leccion" ? (
+              <>
+                <option value="marcar_hecho">Marcar hecho o Probalo</option>
+                <option value="ver">Verla</option>
+              </>
             ) : (
               <>
                 <option value="ver">Verlo</option>
@@ -277,8 +286,9 @@ export function FormularioItem({
           />
         </Campo>
       </div>
-      {tipo === "articulo" && (
-        <Campo id={`${p}-art`} etiqueta="Artículo del repositorio">
+      {tipo === "leccion" && <EditorLeccion inicial={(item?.leccion as Leccion | null) ?? null} />}
+      {(tipo === "articulo" || tipo === "leccion") && (
+        <Campo id={`${p}-art`} etiqueta={tipo === "leccion" ? "Fuente" : "Artículo del repositorio"}>
           <Select id={`${p}-art`} name="articulo_id" defaultValue={item?.articulo_id ?? ""} required>
             <option value="" disabled>
               Elegí un artículo

@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import {
+  preguntaParaGuardar,
   aprobo,
   errorExamen,
   esquemaExamen,
@@ -192,5 +193,30 @@ describe("esquemaCaso", () => {
     expect(esquemaCaso.safeParse({ ...base, titulo: " " }).success).toBe(false);
     expect(esquemaCaso.safeParse({ ...base, alcance: "sede" }).success).toBe(false);
     expect(esquemaCaso.safeParse(base).data?.categoria_id).toBeNull();
+  });
+});
+
+describe("pregunta de Probalo", () => {
+  const vf = {
+    ...base,
+    tipo: "verdadero_falso",
+    opciones: [
+      { texto: "V", es_correcta: true },
+      { texto: "F", es_correcta: false },
+    ],
+  };
+  it("una práctica conserva la lección", () => {
+    const p = preguntaParaGuardar(esquemaPregunta.parse({ ...vf, uso: "practica", item_id: UUID }));
+    expect(p.item_id).toBe(UUID);
+  });
+  it("vacío queda en null", () => {
+    expect(
+      preguntaParaGuardar(esquemaPregunta.parse({ ...vf, uso: "practica", item_id: "" })).item_id,
+    ).toBeNull();
+  });
+  it("una pregunta de examen no tiene lección", () => {
+    expect(
+      preguntaParaGuardar(esquemaPregunta.parse({ ...vf, uso: "examen", item_id: UUID })).item_id,
+    ).toBeNull();
   });
 });

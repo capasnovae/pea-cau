@@ -1,6 +1,6 @@
 -- Lecciones: bloques con límites, Probalo con corrección inmediata y registro de cada comprobación
 begin;
-select plan(22);
+select plan(24);
 select tests.escenario();
 select tests.escenario_cursos();
 update public.cursos set estado = 'borrador' where tipo = 'nivel' and nivel_orden < 8;
@@ -66,6 +66,20 @@ select ok(not public.item_cumplido('e3000000-0000-4000-8000-000000000031', tests
 update public.preguntas set estado = 'archivado' where item_id = 'e3000000-0000-4000-8000-000000000031';
 select ok(public.item_cumplido('e3000000-0000-4000-8000-000000000031', tests.uid('ase1@t')), 'quien completó el Probalo lo conserva');
 select ok(public.item_cumplido('e3000000-0000-4000-8000-000000000031', tests.uid('ase2@t')), 'sin Probalo publicado vale marcar hecho');
+
+-- El editor guarda la pregunta de Probalo con su lección, y el Probalo no se mezcla con prácticas por categoría
+select tests.como(tests.uid('adm@t'));
+create temp table nueva as select public.guardar_pregunta(jsonb_build_object(
+  'tipo', 'verdadero_falso', 'enunciado_md', 'nueva', 'alcance', 'global', 'estado', 'publicado', 'uso', 'practica',
+  'item_id', 'e3000000-0000-4000-8000-000000000032', 'categoria_id', (select id from public.categorias where slug = 'reglamento'),
+  'opciones', '[{"texto":"V","es_correcta":true,"orden":1},{"texto":"F","es_correcta":false,"orden":2}]'::jsonb)) as id;
+select is((select p.item_id from public.preguntas p join nueva n on n.id = p.id),
+  'e3000000-0000-4000-8000-000000000032'::uuid, 'guardar_pregunta conserva la lección del Probalo');
+select tests.como_postgres();
+insert into public.examenes (id, titulo, tipo, categoria_id, cantidad_preguntas, alcance, estado)
+values ('f1000000-0000-4000-8000-000000000031', 'T-Práctica cat', 'practica', (select id from public.categorias where slug = 'reglamento'), 10, 'global', 'publicado');
+select ok(not exists (select 1 from public.pozo_practica('f1000000-0000-4000-8000-000000000031') q(id)
+  join public.preguntas p on p.id = q.id where p.item_id is not null), 'las preguntas de Probalo no entran en otras prácticas');
 
 select * from finish();
 rollback;
