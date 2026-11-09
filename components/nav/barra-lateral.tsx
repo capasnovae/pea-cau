@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils/cn";
 import { IconoNav } from "./iconos";
 
 export function esActivo(ruta: string, href: string): boolean {
-  const base = href.startsWith("/admin/") ? "/admin" : href;
+  const base = href.startsWith("/admin/") ? "/admin" : href.startsWith("/equipo/") ? "/equipo" : href;
   return ruta === base || ruta.startsWith(`${base}/`);
 }
 

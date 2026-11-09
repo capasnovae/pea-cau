@@ -37,7 +37,7 @@ const MENU_BASE: ItemMenu[] = [
   { href: "/organigrama", etiqueta: "Organigrama", icono: "organigrama" },
 ];
 
-const MENU_EQUIPO: ItemMenu = { href: "/equipo/consignas", etiqueta: "Equipo", icono: "equipo" };
+const MENU_EQUIPO: ItemMenu = { href: "/equipo/panel", etiqueta: "Equipo", icono: "equipo" };
 const MENU_CONTENIDO: ItemMenu = { href: "/contenido", etiqueta: "Contenido", icono: "contenido" };
 const MENU_ADMIN: ItemMenu = { href: "/admin/usuarios", etiqueta: "Admin", icono: "admin" };
 const MENU_AYUDA: ItemMenu = { href: "/ayuda", etiqueta: "Ayuda", icono: "ayuda" };

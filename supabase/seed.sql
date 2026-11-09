@@ -38,7 +38,8 @@ begin
       ('lider.nqn@pea.local', 'Lucía', 'Líder', 'lider', 'Neuquén', 'servicio'),
       ('asesor.nqn@pea.local', 'Andrés', 'Asesor', 'asesor', 'Neuquén', 'servicio'),
       ('asesor.roca@pea.local', 'Rocío', 'Asesora', 'asesor', 'Roca', 'servicio'),
-      ('asesor2.nqn@pea.local', 'Bruno', 'Ceo', 'asesor', 'Neuquén', 'servicio')
+      ('asesor2.nqn@pea.local', 'Bruno', 'Ceo', 'asesor', 'Neuquén', 'servicio'),
+      ('asesor3.nqn@pea.local', 'Sofía', 'Quieta', 'asesor', 'Neuquén', 'servicio')
     ) as t(email, nombre, apellido, rol, sede, area)
   loop
     v_id := gen_random_uuid();
@@ -304,3 +305,25 @@ update public.insignias set nombre = 'Base (ejemplo)', descripcion = 'Reglamento
 where curso_id = 'c4000000-0000-4000-8000-000000000001';
 update public.insignias set nombre = 'Operativo (ejemplo)', descripcion = 'Modalidades y trámites'
 where curso_id = 'c4000000-0000-4000-8000-000000000002';
+
+-- Etapa 8 · Una lección de ejemplo publicada (con Probalo) y actividad vieja para el panel
+insert into public.cursos (id, tipo, titulo, descripcion_md, alcance, estado)
+values ('c4000000-0000-4000-8000-000000000009', 'capacitacion', 'Lecciones (ejemplo)', 'Formato de lección.', 'global', 'publicado');
+insert into public.modulos (id, curso_id, orden, titulo)
+values ('c5000000-0000-4000-8000-000000000009', 'c4000000-0000-4000-8000-000000000009', 1, 'Inscripción');
+insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
+values ('c6000000-0000-4000-8000-000000000009', 'c5000000-0000-4000-8000-000000000009', 1, 'Inscripción a materias (ejemplo)', 'leccion',
+  (select id from public.articulos where slug = 'inscripcion-a-materias-ejemplo'),
+  '{"resumen": ["Se inscribe en el período del calendario académico (ejemplo)."],
+    "ejemplos": [{"consulta": "Se me pasó la fecha, ¿me anotan?", "respuesta": "No: cerrado el período no hay inscripción (ejemplo)."}],
+    "ojo": ["Los ingresantes no se anotan a materias extra (ejemplo)."]}', 'marcar_hecho');
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id)
+values ('d2000000-0000-4000-8000-000000000041', 'verdadero_falso', 'Cerrado el período, se puede inscribir igual (ejemplo).',
+  'Una vez cerrado el período no hay inscripción (ejemplo).', (select id from public.categorias where slug = 'reglamento'),
+  'publicado', 'global', 'practica', 'c6000000-0000-4000-8000-000000000009');
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden) values
+  ('d3000000-0000-4000-8000-000000000041', 'd2000000-0000-4000-8000-000000000041', 'Verdadero', false, 1),
+  ('d3000000-0000-4000-8000-000000000042', 'd2000000-0000-4000-8000-000000000041', 'Falso', true, 2);
+insert into public.practica_intentos (usuario_id, pregunta_id, correcta, created_at)
+select id, 'd2000000-0000-4000-8000-000000000031', false, now() - interval '20 days'
+from public.perfiles where email = 'asesor3.nqn@pea.local';

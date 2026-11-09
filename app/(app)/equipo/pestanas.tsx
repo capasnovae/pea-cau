@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils/cn";
 export function PestanasEquipo({ conUbicacion }: { conUbicacion: boolean }) {
   const ruta = usePathname();
   const secciones = [
+    { href: "/equipo/panel", etiqueta: "Panel" },
     { href: "/equipo/consignas", etiqueta: "Consignas" },
     { href: "/equipo/correcciones", etiqueta: "Correcciones" },
     ...(conUbicacion ? [{ href: "/equipo/ubicacion", etiqueta: "Ubicación" }] : []),

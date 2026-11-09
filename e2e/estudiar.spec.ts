@@ -114,7 +114,11 @@ test("el coordinador arma un curso de sede y solo lo ve su sede", async ({ brows
     .locator("form")
     .filter({ has: coord.getByRole("button", { name: "Agregar paso" }) });
   await formPaso.getByLabel("Título del paso").fill("Cómo recibir al alumno");
-  await formPaso.getByLabel("Contenido", { exact: true }).fill("Saludá por el nombre y ofrecé ayuda.");
+  await expect(formPaso.getByLabel("Tipo")).toHaveValue("leccion");
+  await formPaso.getByLabel("En 30 segundos 1", { exact: true }).fill("Saludá por el nombre y ofrecé ayuda.");
+  await formPaso.getByLabel("Consulta 1", { exact: true }).fill("Hola, vengo a averiguar.");
+  await formPaso.getByLabel("Respuesta 1", { exact: true }).fill("¡Bienvenido! Contame qué necesitás.");
+  await formPaso.getByLabel("Fuente").selectOption({ index: 1 });
   await formPaso.getByRole("button", { name: "Agregar paso" }).click();
   await expect(coord.getByText("Ítem guardado.")).toBeVisible();
 
@@ -125,4 +129,29 @@ test("el coordinador arma un curso de sede y solo lo ve su sede", async ({ brows
 
   const roca = await sesion(browser, "asesor.roca@pea.local");
   expect((await roca.goto(`/estudiar/${cursoId}`))?.status()).toBe(404);
+});
+
+test("una lección: bloques fijos, Probalo con corrección y el paso queda cumplido", async ({ browser }) => {
+  const a = await (await browser.newContext()).newPage();
+  await ingresar(a, "asesor.nqn@pea.local");
+  await esperarInicio(a);
+  await a.goto("/estudiar/c4000000-0000-4000-8000-000000000009/c6000000-0000-4000-8000-000000000009");
+  await expect(a.getByRole("region", { name: "En 30 segundos" })).toContainText("calendario académico");
+  await expect(a.getByRole("region", { name: "Así llega al CAU" })).toContainText("Se me pasó la fecha");
+  await expect(a.getByRole("region", { name: "Ojo con" })).toBeVisible();
+  await expect(a.getByRole("region", { name: "Fuente" }).getByRole("link")).toBeVisible();
+  await expect(a.getByRole("button", { name: "Listo, siguiente" })).toHaveCount(0);
+
+  const probalo = a.getByRole("region", { name: "Probalo" });
+  await probalo.getByRole("radio", { name: "Verdadero" }).check();
+  await probalo.getByRole("button", { name: "Comprobar" }).click();
+  await expect(probalo.getByRole("status")).toContainText("Todavía no");
+  await probalo.getByRole("button", { name: "Otra vez" }).click();
+  await probalo.getByRole("radio", { name: "Falso" }).check();
+  await probalo.getByRole("button", { name: "Comprobar" }).click();
+  await expect(probalo.getByRole("status")).toContainText("¡Bien!");
+  await expect(probalo).toContainText("1/1 acertadas");
+
+  await a.goto("/estudiar/c4000000-0000-4000-8000-000000000009");
+  await expect(a.getByText("100% completado")).toBeVisible();
 });

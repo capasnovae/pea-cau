@@ -8,18 +8,18 @@ describe("menuPorRol", () => {
     expect(menuPorRol("asesor").map((i) => i.href)).toEqual([...BASE, "/ayuda"]);
   });
   it("al líder le suma su equipo antes de Ayuda", () => {
-    expect(menuPorRol("lider").map((i) => i.href)).toEqual([...BASE, "/equipo/consignas", "/ayuda"]);
+    expect(menuPorRol("lider").map((i) => i.href)).toEqual([...BASE, "/equipo/panel", "/ayuda"]);
   });
   it("al coordinador y al director les suma la gestión de contenido", () => {
     expect(menuPorRol("coordinador").map((i) => i.href)).toEqual([
       ...BASE,
-      "/equipo/consignas",
+      "/equipo/panel",
       "/contenido",
       "/ayuda",
     ]);
     expect(menuPorRol("director").map((i) => i.href)).toEqual([
       ...BASE,
-      "/equipo/consignas",
+      "/equipo/panel",
       "/contenido",
       "/ayuda",
     ]);
@@ -27,7 +27,7 @@ describe("menuPorRol", () => {
   it("al admin le suma una sola entrada de administración", () => {
     expect(menuPorRol("admin").map((i) => i.href)).toEqual([
       ...BASE,
-      "/equipo/consignas",
+      "/equipo/panel",
       "/contenido",
       "/admin/usuarios",
       "/ayuda",
