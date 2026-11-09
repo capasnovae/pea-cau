@@ -71,6 +71,36 @@ describe("esquemaModulo", () => {
   });
 });
 
+describe("esquemaItem: lección", () => {
+  const leccion = JSON.stringify({ resumen: ["a"], ejemplos: [{ consulta: "c", respuesta: "r" }], ojo: [] });
+  const base = { modulo_id: U, titulo: "L", tipo: "leccion", requisito: "ver", orden: 1, leccion, articulo_id: U };
+  it("necesita la fuente", () => {
+    const r = esquemaItem.safeParse({ ...base, articulo_id: "" });
+    expect(r.success).toBe(false);
+    expect(r.error?.issues[0]?.message).toBe("Elegí la fuente.");
+  });
+  it("solo ver o marcar como hecho", () => {
+    expect(esquemaItem.safeParse({ ...base, requisito: "aprobar" }).success).toBe(false);
+    expect(esquemaItem.safeParse({ ...base, requisito: "marcar_hecho" }).success).toBe(true);
+  });
+  it("una lección que no es JSON válido se rechaza", () => {
+    const r = esquemaItem.safeParse({ ...base, leccion: "{roto" });
+    expect(r.success).toBe(false);
+    expect(r.error?.issues.map((i) => i.message)).toContain("Revisá la lección.");
+  });
+  it("conserva la fuente y la lección y limpia el resto", () => {
+    const r = esquemaItem.parse({ ...base, url: "https://x.test", contenido_md: "x" });
+    expect(r.articulo_id).toBe(U);
+    expect(r.leccion).toEqual({ resumen: ["a"], ejemplos: [{ consulta: "c", respuesta: "r" }], ojo: [] });
+    expect(r.url).toBeNull();
+    expect(r.contenido_md).toBeNull();
+  });
+  it("los otros tipos dejan la lección en null", () => {
+    const r = esquemaItem.parse({ ...base, tipo: "pagina", contenido_md: "Hola" });
+    expect(r.leccion).toBeNull();
+  });
+});
+
 describe("esquemaItem", () => {
   const base = {
     modulo_id: U,
