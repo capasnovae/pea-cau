@@ -1,6 +1,7 @@
 ---
 titulo: "Pagos y deuda"
-modulo: "Administración"
+curso: "aranceles"
+modulo: "Aranceles y pagos"
 orden: 11
 fuente: "rg-14-4-normas-arancelarias"
 ---

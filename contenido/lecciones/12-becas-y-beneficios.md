@@ -1,6 +1,7 @@
 ---
 titulo: "Becas y beneficios"
-modulo: "Administración"
+curso: "aranceles"
+modulo: "Becas y beneficios"
 orden: 12
 fuente: "rg-14-3-becas-y-beneficios"
 ---

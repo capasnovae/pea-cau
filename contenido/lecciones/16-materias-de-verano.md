@@ -1,5 +1,6 @@
 ---
 titulo: "Materias de verano"
+curso: "cursado"
 modulo: "Cursado"
 orden: 16
 fuente: "rg-5-3-inscripcion-a-materias-de-verano"

@@ -231,7 +231,7 @@ El repositorio es la **consulta** (el reglamento y los procedimientos completos,
 - **Los límites los aplica la plataforma** (formulario y base), así la lección no puede volver a ser una copia. Se muestra el tiempo estimado de lectura.
 - **Requisito:** "ver", o "marcar como hecho"; si la lección tiene Probalo, "hecho" significa acertar todas sus preguntas.
 - **Las excepciones van a la fuente:** la lección cubre lo que resuelve la mayoría de las consultas; los casos raros se consultan en el artículo o se derivan.
-- **Autoría:** los primeros borradores se arman a partir del relevamiento (§12), marcados "A validar", en un curso de capacitación en borrador ("Reglamento esencial") que coordinación revisa, publica o reparte en los niveles. La generación con IA queda para la Etapa 10.
+- **Autoría:** los primeros borradores se arman a partir del relevamiento (§12), marcados "A validar", en cursos de capacitación temáticos en borrador (Plataformas del estudiante; Cursado y modalidades; Evaluación EVA 21; Trámites; Aranceles, becas y pagos; Egreso; Normas y acompañamiento), que las rutas por puesto marcan como obligatorios u opcionales. Coordinación los revisa con la vista previa y los publica. La generación con IA queda para la Etapa 10.
 
 ## 5. Esquema de base de datos
 

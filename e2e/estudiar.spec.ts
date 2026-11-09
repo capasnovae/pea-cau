@@ -155,3 +155,21 @@ test("una lección: bloques fijos, Probalo con corrección y el paso queda cumpl
   await a.goto("/estudiar/c4000000-0000-4000-8000-000000000009");
   await expect(a.getByText("100% completado")).toBeVisible();
 });
+
+test("vista previa: el admin recorre un curso en borrador y un asesor no lo ve", async ({ browser }) => {
+  const TRAMITES = "9fe6df40-deab-efaa-9040-e0ecc8236963";
+  const adm = await (await browser.newContext()).newPage();
+  await ingresar(adm, "admin@pea.local");
+  await esperarInicio(adm);
+  await adm.goto(`/contenido/cursos/${TRAMITES}`);
+  await adm.getByRole("link", { name: /Ver como asesor/ }).click();
+  await expect(adm.getByRole("status").filter({ hasText: "Vista previa" })).toBeVisible();
+  await adm.getByRole("link", { name: /Cambio de modalidad/ }).click();
+  await expect(adm.getByRole("region", { name: "En 30 segundos" })).toBeVisible();
+  await expect(adm.getByRole("status").filter({ hasText: "Vista previa" })).toBeVisible();
+
+  const a = await (await browser.newContext()).newPage();
+  await ingresar(a, "asesor.nqn@pea.local");
+  await esperarInicio(a);
+  expect((await a.goto(`/estudiar/${TRAMITES}`))?.status()).toBe(404);
+});

@@ -1,6 +1,7 @@
 ---
 titulo: "Portal de Estudiantes"
-modulo: "Plataformas y atención"
+curso: "plataformas"
+modulo: "Portal y aula"
 orden: 30
 fuente: "ln-portal-de-estudiantes"
 ---

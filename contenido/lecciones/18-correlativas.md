@@ -1,5 +1,6 @@
 ---
 titulo: "Correlativas"
+curso: "cursado"
 modulo: "Cursado"
 orden: 18
 fuente: "ln-correlativas"

@@ -1,5 +1,6 @@
 ---
 titulo: "Inscripción a materias"
+curso: "cursado"
 modulo: "Cursado"
 orden: 3
 fuente: "rg-5-2-inscripcion-a-materias"

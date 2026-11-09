@@ -1,6 +1,7 @@
 ---
 titulo: "Colación"
-modulo: "Egreso"
+curso: "egreso"
+modulo: "Título y colación"
 orden: 9
 fuente: "rg-12-6-colacion"
 ---

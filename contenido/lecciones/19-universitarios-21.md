@@ -1,6 +1,7 @@
 ---
 titulo: "Universitarios 21"
-modulo: "Cursado"
+curso: "cursado"
+modulo: "Ingreso"
 orden: 19
 fuente: "ln-universitarios21"
 ---

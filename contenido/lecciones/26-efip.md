@@ -1,6 +1,7 @@
 ---
 titulo: "EFIP I y EFIP II"
-modulo: "Evaluación (EVA 21)"
+curso: "evaluacion"
+modulo: "Materias especiales"
 orden: 26
 fuente: "rg-4-5-sitema-de-evaluacion-de-los-aprendizajes-eva-21"
 ---

@@ -1,6 +1,7 @@
 ---
 titulo: "Documentación obligatoria"
-modulo: "Cursado"
+curso: "cursado"
+modulo: "Ingreso"
 orden: 13
 fuente: "rg-2-2-documentacion-obligatoria-y-complementaria"
 ---

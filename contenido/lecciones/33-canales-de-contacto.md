@@ -1,6 +1,7 @@
 ---
 titulo: "Canales de contacto"
-modulo: "Plataformas y atención"
+curso: "normas"
+modulo: "Acompañamiento"
 orden: 33
 fuente: "ln-canales-de-contacto"
 ---

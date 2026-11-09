@@ -1,6 +1,7 @@
 ---
 titulo: "Exámenes online con Klarway"
-modulo: "Plataformas y atención"
+curso: "plataformas"
+modulo: "Exámenes online"
 orden: 32
 fuente: "ln-klarway"
 ---

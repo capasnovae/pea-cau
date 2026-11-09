@@ -1,6 +1,7 @@
 ---
 titulo: "Título"
-modulo: "Egreso"
+curso: "egreso"
+modulo: "Título y colación"
 orden: 8
 fuente: "rg-12-5-proceso-de-titulacion"
 ---

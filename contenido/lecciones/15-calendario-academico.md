@@ -1,5 +1,6 @@
 ---
 titulo: "Calendario académico"
+curso: "cursado"
 modulo: "Cursado"
 orden: 15
 fuente: "rg-5-1-calendario-academico"

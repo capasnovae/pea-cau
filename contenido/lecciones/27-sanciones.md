@@ -1,6 +1,7 @@
 ---
 titulo: "Sanciones"
-modulo: "Cursado"
+curso: "normas"
+modulo: "Normas"
 orden: 27
 fuente: "rg-13-1-regimen-general-de-sanciones"
 ---

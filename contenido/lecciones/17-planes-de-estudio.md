@@ -1,5 +1,6 @@
 ---
 titulo: "Planes de estudio"
+curso: "cursado"
 modulo: "Cursado"
 orden: 17
 fuente: "rg-14-1-planes-de-estudio"

@@ -1,6 +1,7 @@
 ---
 titulo: "Ausencia a un examen y pedido de revisión"
-modulo: "Evaluación (EVA 21)"
+curso: "evaluacion"
+modulo: "Trabajos y exámenes"
 orden: 23
 fuente: "rg-4-5-sitema-de-evaluacion-de-los-aprendizajes-eva-21"
 ---

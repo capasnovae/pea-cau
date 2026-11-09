@@ -15,6 +15,7 @@ export type PreguntaProbalo = {
 export type LeccionArchivo = {
   slug: string;
   titulo: string;
+  curso: string;
   modulo: string;
   orden: number;
   fuente: string;
@@ -22,14 +23,51 @@ export type LeccionArchivo = {
   probalo: PreguntaProbalo[];
 };
 
-const MODULOS = [
-  "Cursado",
-  "Evaluación (EVA 21)",
-  "Trámites",
-  "Egreso",
-  "Administración",
-  "Plataformas y atención",
-];
+/** Cursos temáticos (capacitaciones). Las rutas por puesto deciden cuáles son obligatorios. */
+export const CURSOS = [
+  {
+    slug: "plataformas",
+    titulo: "Plataformas del estudiante",
+    descripcion: "Portal de Estudiantes, Aula Virtual (Canvas), app y exámenes online.",
+    modulos: ["Portal y aula", "Exámenes online"],
+  },
+  {
+    slug: "cursado",
+    titulo: "Cursado y modalidades",
+    descripcion: "Ingreso, modalidades ED, EDH y PD, inscripción y calendario.",
+    modulos: ["Ingreso", "Modalidades", "Cursado"],
+  },
+  {
+    slug: "evaluacion",
+    titulo: "Evaluación (EVA 21)",
+    descripcion: "Trabajos prácticos, exámenes, condiciones de aprobación, prácticas y EFIP.",
+    modulos: ["Trabajos y exámenes", "Aprobación", "Materias especiales"],
+  },
+  {
+    slug: "tramites",
+    titulo: "Trámites",
+    descripcion: "Cambio de modalidad, equivalencias y baja.",
+    modulos: ["Trámites"],
+  },
+  {
+    slug: "aranceles",
+    titulo: "Aranceles, becas y pagos",
+    descripcion: "Matrícula, aranceles, pagos, deuda, becas y beneficios.",
+    modulos: ["Aranceles y pagos", "Becas y beneficios"],
+  },
+  {
+    slug: "egreso",
+    titulo: "Egreso",
+    descripcion: "Graduación, Trabajo Final de Graduación, título y colación.",
+    modulos: ["Trabajo final", "Título y colación"],
+  },
+  {
+    slug: "normas",
+    titulo: "Normas y acompañamiento",
+    descripcion: "Sanciones, canales de contacto, tutores y bienestar.",
+    modulos: ["Normas", "Acompañamiento"],
+  },
+] as const;
 
 function bloques(cuerpo: string): Map<string, string> {
   const m = new Map<string, string>();
@@ -84,11 +122,16 @@ export function leerLeccion(ruta: string, texto: string): LeccionArchivo {
     .split(/^### /m)
     .slice(1)
     .map((q) => leerPregunta(ruta, q));
+  const curso = String(meta.curso ?? "");
   const modulo = String(meta.modulo ?? "");
-  if (!MODULOS.includes(modulo)) throw new Error(`Módulo desconocido en ${ruta}: ${modulo}`);
+  const c = CURSOS.find((x) => x.slug === curso);
+  if (!c) throw new Error(`Curso desconocido en ${ruta}: ${curso}`);
+  if (!(c.modulos as readonly string[]).includes(modulo))
+    throw new Error(`Módulo desconocido en ${ruta}: ${modulo} (curso ${curso})`);
   return {
     slug: ruta.split("/").pop()!.replace(/\.md$/, ""),
     titulo: String(meta.titulo ?? ""),
+    curso,
     modulo,
     orden: Number(meta.orden ?? 0),
     fuente: String(meta.fuente ?? ""),
@@ -104,26 +147,30 @@ function literal(texto: string): string {
 }
 const id = (clave: string) => `md5('${clave.replace(/'/g, "''")}')::uuid`;
 
-/** Curso "Reglamento esencial" en borrador: módulos, lecciones (fuente = artículo relevado) y preguntas de Probalo. */
+/** Un curso de capacitación en borrador por tema, con sus módulos, lecciones (fuente = artículo relevado) y Probalo. */
 export function armarSqlLecciones(lecciones: LeccionArchivo[]): string {
-  const curso = id("pea-curso:reglamento-esencial");
   const s: string[] = [
     "-- Generado por scripts/importar-lecciones.mts a partir de contenido/lecciones. No editar a mano.",
     '-- Borradores "A validar": coordinación los revisa y publica (junto con sus artículos fuente).',
-    `insert into public.cursos (id, tipo, titulo, descripcion_md, alcance, estado)
-values (${curso}, 'capacitacion', 'Reglamento esencial', ${literal("Lecciones cortas a partir del reglamento. A validar.")}, 'global', 'borrador')
-on conflict do nothing;`,
   ];
-  const usados = MODULOS.filter((mo) => lecciones.some((l) => l.modulo === mo));
-  usados.forEach((mo, i) =>
-    s.push(`insert into public.modulos (id, curso_id, orden, titulo)
-values (${id(`pea-modulo:${mo}`)}, ${curso}, ${i + 1}, ${literal(mo)})
+  const moduloId = (l: { curso: string; modulo: string }) => id(`pea-modulo:${l.curso}:${l.modulo}`);
+  for (const c of CURSOS) {
+    if (!lecciones.some((l) => l.curso === c.slug)) continue;
+    s.push(`insert into public.cursos (id, tipo, titulo, descripcion_md, alcance, estado)
+values (${id(`pea-curso:${c.slug}`)}, 'capacitacion', ${literal(c.titulo)}, ${literal(`${c.descripcion} A validar.`)}, 'global', 'borrador')
+on conflict do nothing;`);
+    c.modulos
+      .filter((m) => lecciones.some((l) => l.curso === c.slug && l.modulo === m))
+      .forEach((m, i) =>
+        s.push(`insert into public.modulos (id, curso_id, orden, titulo)
+values (${moduloId({ curso: c.slug, modulo: m })}, ${id(`pea-curso:${c.slug}`)}, ${i + 1}, ${literal(m)})
 on conflict do nothing;`),
-  );
+      );
+  }
   for (const l of [...lecciones].sort((a, b) => a.orden - b.orden || a.slug.localeCompare(b.slug))) {
     const item = id(`pea-item:${l.slug}`);
     s.push(`insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
-select ${item}, ${id(`pea-modulo:${l.modulo}`)}, ${l.orden}, ${literal(l.titulo)}, 'leccion', a.id,
+select ${item}, ${moduloId(l)}, ${l.orden}, ${literal(l.titulo)}, 'leccion', a.id,
        ${literal(JSON.stringify(l.leccion))}::jsonb, 'marcar_hecho'
 from public.articulos a where a.slug = ${literal(l.fuente)} and a.alcance = 'global'
 on conflict do nothing;`);

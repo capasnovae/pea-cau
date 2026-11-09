@@ -1,5 +1,6 @@
 ---
 titulo: "Solicitud de baja"
+curso: "tramites"
 modulo: "Trámites"
 orden: 7
 fuente: "rg-14-5-solicitud-de-baja"

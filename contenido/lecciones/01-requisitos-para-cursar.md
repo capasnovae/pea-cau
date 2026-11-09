@@ -1,6 +1,7 @@
 ---
 titulo: "Requisitos para cursar"
-modulo: "Cursado"
+curso: "cursado"
+modulo: "Ingreso"
 orden: 1
 fuente: "rg-2-5-requisitos-para-cursado"
 ---

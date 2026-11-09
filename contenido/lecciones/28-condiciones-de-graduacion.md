@@ -1,6 +1,7 @@
 ---
 titulo: "Condiciones para la graduación"
-modulo: "Egreso"
+curso: "egreso"
+modulo: "Trabajo final"
 orden: 28
 fuente: "rg-12-1-condiciones-para-la-graduacion"
 ---

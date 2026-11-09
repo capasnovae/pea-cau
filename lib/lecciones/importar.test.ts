@@ -2,10 +2,11 @@ import { readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import { esquemaLeccion } from "../dominio/lecciones";
-import { armarSqlLecciones, leerLeccion } from "./importar";
+import { CURSOS, armarSqlLecciones, leerLeccion } from "./importar";
 
 const md = `---
 titulo: "Cambio de modalidad"
+curso: "tramites"
 modulo: "Trámites"
 orden: 2
 fuente: "rg-3-2-cambios-de-modalidad"
@@ -43,6 +44,7 @@ describe("leerLeccion", () => {
   it("lee la metadata, los bloques y el Probalo", () => {
     const l = leerLeccion("contenido/lecciones/02-cambio-de-modalidad.md", md);
     expect(l).toMatchObject({
+      curso: "tramites",
       slug: "02-cambio-de-modalidad",
       titulo: "Cambio de modalidad",
       modulo: "Trámites",
@@ -83,6 +85,12 @@ describe("leerLeccion", () => {
       },
     ]);
   });
+  it("un curso o un módulo que no existen avisan con la ruta", () => {
+    expect(() => leerLeccion("x/a.md", md.replace('curso: "tramites"', 'curso: "otro"'))).toThrow("x/a.md");
+    expect(() => leerLeccion("x/b.md", md.replace('modulo: "Trámites"', 'modulo: "Egreso"'))).toThrow(
+      "x/b.md",
+    );
+  });
   it("sin el bloque En 30 segundos avisa con la ruta", () => {
     expect(() => leerLeccion("x/roto.md", md.replace("## En 30 segundos", "## Otro"))).toThrow("x/roto.md");
   });
@@ -98,7 +106,15 @@ describe("lecciones de contenido/lecciones", () => {
       ),
     ),
   );
-  it("son 34", () => expect(archivos).toHaveLength(34));
+  it("cada curso del catálogo tiene lecciones en todos sus módulos", () => {
+    const ls = archivos.map((f) => leerLeccion(join(dir, f), readFileSync(join(dir, f), "utf8")));
+    for (const c of CURSOS)
+      for (const m of c.modulos)
+        expect(
+          ls.some((l) => l.curso === c.slug && l.modulo === m),
+          `${c.slug} / ${m}`,
+        ).toBe(true);
+  });
   it.each(archivos)("%s es válida, con fuente existente y Probalo de 1 a 3 preguntas", (f) => {
     const l = leerLeccion(join(dir, f), readFileSync(join(dir, f), "utf8"));
     expect(esquemaLeccion.safeParse(l.leccion).success).toBe(true);
@@ -113,7 +129,10 @@ describe("armarSqlLecciones", () => {
   const sql = armarSqlLecciones([leerLeccion("contenido/lecciones/02-cambio-de-modalidad.md", md)]);
   it("crea el curso en borrador, el módulo, el ítem y el Probalo con ids estables", () => {
     expect(sql).toContain("'capacitacion'");
-    expect(sql).toContain("Reglamento esencial");
+    expect(sql).toContain("md5('pea-curso:tramites')::uuid");
+    expect(sql).toContain("md5('pea-modulo:tramites:Trámites')::uuid");
+    expect(sql).not.toContain("Reglamento esencial");
+    expect(sql).not.toContain("Plataformas del estudiante");
     expect(sql).toMatch(/'borrador'/);
     expect(sql).toContain("'leccion'");
     expect(sql).toContain("'marcar_hecho'");

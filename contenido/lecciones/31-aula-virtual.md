@@ -1,6 +1,7 @@
 ---
 titulo: "Aula Virtual (Canvas)"
-modulo: "Plataformas y atención"
+curso: "plataformas"
+modulo: "Portal y aula"
 orden: 31
 fuente: "ln-aula-virtual"
 ---

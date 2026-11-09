@@ -1,5 +1,6 @@
 ---
 titulo: "Cambio de cátedra (PD)"
+curso: "cursado"
 modulo: "Cursado"
 orden: 4
 fuente: "rg-5-4-cambio-de-catedra"

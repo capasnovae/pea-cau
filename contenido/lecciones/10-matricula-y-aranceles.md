@@ -1,6 +1,7 @@
 ---
 titulo: "Matrícula y aranceles"
-modulo: "Administración"
+curso: "aranceles"
+modulo: "Aranceles y pagos"
 orden: 10
 fuente: "rg-14-4-normas-arancelarias"
 ---

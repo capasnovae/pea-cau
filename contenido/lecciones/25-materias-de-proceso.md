@@ -1,6 +1,7 @@
 ---
 titulo: "Materias de proceso e idiomas en distancia"
-modulo: "Evaluación (EVA 21)"
+curso: "evaluacion"
+modulo: "Materias especiales"
 orden: 25
 fuente: "rg-4-5-sitema-de-evaluacion-de-los-aprendizajes-eva-21"
 ---

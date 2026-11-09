@@ -1,6 +1,7 @@
 ---
 titulo: "Modalidades del CAU: ED, EDH y PD"
-modulo: "Cursado"
+curso: "cursado"
+modulo: "Modalidades"
 orden: 2
 fuente: "rg-3-1-modalidades-de-cursado"
 ---

@@ -1,5 +1,6 @@
 ---
 titulo: "Equivalencias"
+curso: "tramites"
 modulo: "Trámites"
 orden: 6
 fuente: "rg-6-1-sistema-de-equivalencias-para-todas-las-modalidades"

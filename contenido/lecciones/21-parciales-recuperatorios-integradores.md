@@ -1,6 +1,7 @@
 ---
 titulo: "Parciales, recuperatorios e integradores"
-modulo: "Evaluación (EVA 21)"
+curso: "evaluacion"
+modulo: "Trabajos y exámenes"
 orden: 21
 fuente: "rg-4-5-sitema-de-evaluacion-de-los-aprendizajes-eva-21"
 ---
@@ -23,6 +24,7 @@ fuente: "rg-4-5-sitema-de-evaluacion-de-los-aprendizajes-eva-21"
 
 - Si se inscribe a un recuperatorio o integrador y no se presenta, la nota es 0 y cuenta para la materia.
 - En ED y EDH, el 1er parcial se rinde entre las semanas 1 y 4 y el 2do entre las semanas 5 y 8.
+- Cuando puede elegir entre recuperatorio e integrador, se inscribe solo a uno de los dos.
 
 ## Probalo
 

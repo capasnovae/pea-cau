@@ -1,6 +1,7 @@
 ---
 titulo: "Condiciones de aprobación y escala de notas"
-modulo: "Evaluación (EVA 21)"
+curso: "evaluacion"
+modulo: "Aprobación"
 orden: 24
 fuente: "rg-4-5-sitema-de-evaluacion-de-los-aprendizajes-eva-21"
 ---

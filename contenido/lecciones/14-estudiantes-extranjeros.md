@@ -1,6 +1,7 @@
 ---
 titulo: "Estudiantes extranjeros"
-modulo: "Cursado"
+curso: "cursado"
+modulo: "Ingreso"
 orden: 14
 fuente: "rg-2-4-documentacion-obligatoria-y-complementaria-extranjeros"
 ---

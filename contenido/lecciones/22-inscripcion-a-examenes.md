@@ -1,6 +1,7 @@
 ---
 titulo: "Inscripción a exámenes (ED, EDH y PD)"
-modulo: "Evaluación (EVA 21)"
+curso: "evaluacion"
+modulo: "Trabajos y exámenes"
 orden: 22
 fuente: "rg-4-5-sitema-de-evaluacion-de-los-aprendizajes-eva-21"
 ---

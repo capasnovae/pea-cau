@@ -3,35 +3,95 @@
 -- Borradores "A validar": coordinación los revisa y publica (junto con sus artículos fuente).
 
 insert into public.cursos (id, tipo, titulo, descripcion_md, alcance, estado)
-values (md5('pea-curso:reglamento-esencial')::uuid, 'capacitacion', 'Reglamento esencial', $pea0$Lecciones cortas a partir del reglamento. A validar.$pea0$, 'global', 'borrador')
+values (md5('pea-curso:plataformas')::uuid, 'capacitacion', $pea0$Plataformas del estudiante$pea0$, $pea0$Portal de Estudiantes, Aula Virtual (Canvas), app y exámenes online. A validar.$pea0$, 'global', 'borrador')
 on conflict do nothing;
 
 insert into public.modulos (id, curso_id, orden, titulo)
-values (md5('pea-modulo:Cursado')::uuid, md5('pea-curso:reglamento-esencial')::uuid, 1, $pea0$Cursado$pea0$)
+values (md5('pea-modulo:plataformas:Portal y aula')::uuid, md5('pea-curso:plataformas')::uuid, 1, $pea0$Portal y aula$pea0$)
 on conflict do nothing;
 
 insert into public.modulos (id, curso_id, orden, titulo)
-values (md5('pea-modulo:Evaluación (EVA 21)')::uuid, md5('pea-curso:reglamento-esencial')::uuid, 2, $pea0$Evaluación (EVA 21)$pea0$)
+values (md5('pea-modulo:plataformas:Exámenes online')::uuid, md5('pea-curso:plataformas')::uuid, 2, $pea0$Exámenes online$pea0$)
+on conflict do nothing;
+
+insert into public.cursos (id, tipo, titulo, descripcion_md, alcance, estado)
+values (md5('pea-curso:cursado')::uuid, 'capacitacion', $pea0$Cursado y modalidades$pea0$, $pea0$Ingreso, modalidades ED, EDH y PD, inscripción y calendario. A validar.$pea0$, 'global', 'borrador')
 on conflict do nothing;
 
 insert into public.modulos (id, curso_id, orden, titulo)
-values (md5('pea-modulo:Trámites')::uuid, md5('pea-curso:reglamento-esencial')::uuid, 3, $pea0$Trámites$pea0$)
+values (md5('pea-modulo:cursado:Ingreso')::uuid, md5('pea-curso:cursado')::uuid, 1, $pea0$Ingreso$pea0$)
 on conflict do nothing;
 
 insert into public.modulos (id, curso_id, orden, titulo)
-values (md5('pea-modulo:Egreso')::uuid, md5('pea-curso:reglamento-esencial')::uuid, 4, $pea0$Egreso$pea0$)
+values (md5('pea-modulo:cursado:Modalidades')::uuid, md5('pea-curso:cursado')::uuid, 2, $pea0$Modalidades$pea0$)
 on conflict do nothing;
 
 insert into public.modulos (id, curso_id, orden, titulo)
-values (md5('pea-modulo:Administración')::uuid, md5('pea-curso:reglamento-esencial')::uuid, 5, $pea0$Administración$pea0$)
+values (md5('pea-modulo:cursado:Cursado')::uuid, md5('pea-curso:cursado')::uuid, 3, $pea0$Cursado$pea0$)
+on conflict do nothing;
+
+insert into public.cursos (id, tipo, titulo, descripcion_md, alcance, estado)
+values (md5('pea-curso:evaluacion')::uuid, 'capacitacion', $pea0$Evaluación (EVA 21)$pea0$, $pea0$Trabajos prácticos, exámenes, condiciones de aprobación, prácticas y EFIP. A validar.$pea0$, 'global', 'borrador')
 on conflict do nothing;
 
 insert into public.modulos (id, curso_id, orden, titulo)
-values (md5('pea-modulo:Plataformas y atención')::uuid, md5('pea-curso:reglamento-esencial')::uuid, 6, $pea0$Plataformas y atención$pea0$)
+values (md5('pea-modulo:evaluacion:Trabajos y exámenes')::uuid, md5('pea-curso:evaluacion')::uuid, 1, $pea0$Trabajos y exámenes$pea0$)
+on conflict do nothing;
+
+insert into public.modulos (id, curso_id, orden, titulo)
+values (md5('pea-modulo:evaluacion:Aprobación')::uuid, md5('pea-curso:evaluacion')::uuid, 2, $pea0$Aprobación$pea0$)
+on conflict do nothing;
+
+insert into public.modulos (id, curso_id, orden, titulo)
+values (md5('pea-modulo:evaluacion:Materias especiales')::uuid, md5('pea-curso:evaluacion')::uuid, 3, $pea0$Materias especiales$pea0$)
+on conflict do nothing;
+
+insert into public.cursos (id, tipo, titulo, descripcion_md, alcance, estado)
+values (md5('pea-curso:tramites')::uuid, 'capacitacion', $pea0$Trámites$pea0$, $pea0$Cambio de modalidad, equivalencias y baja. A validar.$pea0$, 'global', 'borrador')
+on conflict do nothing;
+
+insert into public.modulos (id, curso_id, orden, titulo)
+values (md5('pea-modulo:tramites:Trámites')::uuid, md5('pea-curso:tramites')::uuid, 1, $pea0$Trámites$pea0$)
+on conflict do nothing;
+
+insert into public.cursos (id, tipo, titulo, descripcion_md, alcance, estado)
+values (md5('pea-curso:aranceles')::uuid, 'capacitacion', $pea0$Aranceles, becas y pagos$pea0$, $pea0$Matrícula, aranceles, pagos, deuda, becas y beneficios. A validar.$pea0$, 'global', 'borrador')
+on conflict do nothing;
+
+insert into public.modulos (id, curso_id, orden, titulo)
+values (md5('pea-modulo:aranceles:Aranceles y pagos')::uuid, md5('pea-curso:aranceles')::uuid, 1, $pea0$Aranceles y pagos$pea0$)
+on conflict do nothing;
+
+insert into public.modulos (id, curso_id, orden, titulo)
+values (md5('pea-modulo:aranceles:Becas y beneficios')::uuid, md5('pea-curso:aranceles')::uuid, 2, $pea0$Becas y beneficios$pea0$)
+on conflict do nothing;
+
+insert into public.cursos (id, tipo, titulo, descripcion_md, alcance, estado)
+values (md5('pea-curso:egreso')::uuid, 'capacitacion', $pea0$Egreso$pea0$, $pea0$Graduación, Trabajo Final de Graduación, título y colación. A validar.$pea0$, 'global', 'borrador')
+on conflict do nothing;
+
+insert into public.modulos (id, curso_id, orden, titulo)
+values (md5('pea-modulo:egreso:Trabajo final')::uuid, md5('pea-curso:egreso')::uuid, 1, $pea0$Trabajo final$pea0$)
+on conflict do nothing;
+
+insert into public.modulos (id, curso_id, orden, titulo)
+values (md5('pea-modulo:egreso:Título y colación')::uuid, md5('pea-curso:egreso')::uuid, 2, $pea0$Título y colación$pea0$)
+on conflict do nothing;
+
+insert into public.cursos (id, tipo, titulo, descripcion_md, alcance, estado)
+values (md5('pea-curso:normas')::uuid, 'capacitacion', $pea0$Normas y acompañamiento$pea0$, $pea0$Sanciones, canales de contacto, tutores y bienestar. A validar.$pea0$, 'global', 'borrador')
+on conflict do nothing;
+
+insert into public.modulos (id, curso_id, orden, titulo)
+values (md5('pea-modulo:normas:Normas')::uuid, md5('pea-curso:normas')::uuid, 1, $pea0$Normas$pea0$)
+on conflict do nothing;
+
+insert into public.modulos (id, curso_id, orden, titulo)
+values (md5('pea-modulo:normas:Acompañamiento')::uuid, md5('pea-curso:normas')::uuid, 2, $pea0$Acompañamiento$pea0$)
 on conflict do nothing;
 
 insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
-select md5('pea-item:01-requisitos-para-cursar')::uuid, md5('pea-modulo:Cursado')::uuid, 1, $pea0$Requisitos para cursar$pea0$, 'leccion', a.id,
+select md5('pea-item:01-requisitos-para-cursar')::uuid, md5('pea-modulo:cursado:Ingreso')::uuid, 1, $pea0$Requisitos para cursar$pea0$, 'leccion', a.id,
        $pea0${"resumen":["Hace falta conexión a Internet. Si no la tiene, debe informarlo a la Universidad para que evalúe su caso.","El correo electrónico que registra es el canal oficial: ahí llegan todas las notificaciones. Mantenerlo actualizado es su responsabilidad.","Para rendir exámenes virtuales o usar software especial necesita notebook con cámara y micrófono (Windows 10 o superior, o Mac Monterrey 12.6.3 o superior).","Seguir cursando depende de no tener sanciones académicas o administrativas."],"ejemplos":[{"consulta":"No me llegan los avisos de la facultad.","respuesta":"Que revise el correo que tiene registrado: es el canal oficial. Si cambió de mail, tiene que actualizarlo en sus datos."},{"consulta":"¿Puedo rendir el virtual desde la tablet?","respuesta":"No: para exámenes virtuales se pide notebook con cámara y micrófono, con Windows 10 o superior o Mac Monterrey 12.6.3 o superior."},{"consulta":"No tengo Internet en casa, ¿puedo cursar igual?","respuesta":"Tiene que informarlo a la Universidad, que evalúa si puede admitirlo o continuar."}],"ojo":["Una expulsión en otra universidad o instituto oficial inhabilita para cursar, salvo resolución del Rectorado.","En carreras que lo piden, el ambo o la chaquetilla es obligatorio y lo compra cada estudiante."]}$pea0$::jsonb, 'marcar_hecho'
 from public.articulos a where a.slug = $pea0$rg-2-5-requisitos-para-cursado$pea0$ and a.alcance = 'global'
 on conflict do nothing;
@@ -66,7 +126,7 @@ where exists (select 1 from public.preguntas where id = md5('pea-pregunta:01-req
 on conflict do nothing;
 
 insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
-select md5('pea-item:02-modalidades')::uuid, md5('pea-modulo:Cursado')::uuid, 2, $pea0$Modalidades del CAU: ED, EDH y PD$pea0$, 'leccion', a.id,
+select md5('pea-item:02-modalidades')::uuid, md5('pea-modulo:cursado:Modalidades')::uuid, 2, $pea0$Modalidades del CAU: ED, EDH y PD$pea0$, 'leccion', a.id,
        $pea0${"resumen":["En el CAU se cursan carreras de grado y pregrado en tres modalidades: ED, EDH y PD.","ED: plataforma más Open Class en el CAU. Cada subperíodo dura 9 semanas y se asiste cada 2 semanas por materia.","En ED se cursan hasta 2 materias con asistencia al CAU por subperíodo; en grado se puede sumar 1 materia 100% virtual.","EDH: todo el cursado es en la plataforma, sin asistencia al CAU.","PD: es presencial; las materias se cursan cuatrimestralmente con actividades sincrónicas."],"ejemplos":[{"consulta":"Trabajo todo el día, ¿qué me conviene?","respuesta":"Distancia está pensada para quien no puede asistir regularmente: ED, con Open Class en el CAU, o EDH, íntegramente en la plataforma."},{"consulta":"¿En ED tengo que venir al CAU?","respuesta":"Sí, a las Open Class: cada 2 semanas por materia, en las fechas del calendario. En EDH no hay asistencia al CAU."},{"consulta":"¿Puedo sumar una materia sin venir al CAU?","respuesta":"En carreras de grado en ED puede sumar 1 materia íntegramente virtual por subperíodo, que se rige por las reglas de EDH."}],"ojo":["Si en el CAU no se llega a 5 ingresantes de la misma carrera, la Universidad puede pasar a los de ED a EDH.","Quienes necesitan ajustes razonables rinden obligatoriamente en su sede o CAU, no en su casa.","El 75% de asistencia de las condiciones de aprobación no aplica en EDH."]}$pea0$::jsonb, 'marcar_hecho'
 from public.articulos a where a.slug = $pea0$rg-3-1-modalidades-de-cursado$pea0$ and a.alcance = 'global'
 on conflict do nothing;
@@ -101,7 +161,7 @@ where exists (select 1 from public.preguntas where id = md5('pea-pregunta:02-mod
 on conflict do nothing;
 
 insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
-select md5('pea-item:03-inscripcion-a-materias')::uuid, md5('pea-modulo:Cursado')::uuid, 3, $pea0$Inscripción a materias$pea0$, 'leccion', a.id,
+select md5('pea-item:03-inscripcion-a-materias')::uuid, md5('pea-modulo:cursado:Cursado')::uuid, 3, $pea0$Inscripción a materias$pea0$, 'leccion', a.id,
        $pea0${"resumen":["Se inscribe en el período del Calendario Académico. Cerrado el período, no hay inscripción.","Necesita aranceles al día, legajo completo, estar matriculado y respetar las correlativas.","Para materias de cuarto cuatrimestre, debe tener aprobado Universitarios 21.","Queda inscripto a la materia solo cuando pagó los aranceles e hizo la inscripción.","Topes en ED y EDH: grado 6 + 2 extra; pregrado 4 + 2 extra. Si se inscribe solo en el subperíodo B, 1 extra. En PD, hasta 8 materias."],"ejemplos":[{"consulta":"Se me pasó la fecha, ¿me pueden anotar?","respuesta":"No: una vez cerrado el período del Calendario Académico no se puede inscribir."},{"consulta":"Me anoté pero no pagué, ¿estoy cursando?","respuesta":"No todavía: la inscripción a la materia queda firme cuando están pagos los aranceles."},{"consulta":"Estudio a distancia, ¿cuántas materias puedo hacer?","respuesta":"En grado, hasta 6 al inicio del semestre más 2 adicionales si las correlativas lo permiten; en pregrado, 4 más 2. Las extras se pagan aparte."},{"consulta":"Empiezo en el segundo subperíodo, ¿a cuántas me anoto?","respuesta":"Los ingresantes con equivalencias y quienes empiezan en los segundos subperíodos (junio u octubre) cursan solo materias de ese subperíodo, hasta 3."}],"ojo":["Los ingresantes no pueden anotarse a materias extra.","Práctica Solidaria y Práctica Profesional: inscripción hasta el viernes previo al inicio de clases.","Procurador (5 + 2) y los ciclos de complementación (4 + 2) tienen otros topes: consultá la fuente."]}$pea0$::jsonb, 'marcar_hecho'
 from public.articulos a where a.slug = $pea0$rg-5-2-inscripcion-a-materias$pea0$ and a.alcance = 'global'
 on conflict do nothing;
@@ -136,7 +196,7 @@ where exists (select 1 from public.preguntas where id = md5('pea-pregunta:03-ins
 on conflict do nothing;
 
 insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
-select md5('pea-item:04-cambio-de-catedra')::uuid, md5('pea-modulo:Cursado')::uuid, 4, $pea0$Cambio de cátedra (PD)$pea0$, 'leccion', a.id,
+select md5('pea-item:04-cambio-de-catedra')::uuid, md5('pea-modulo:cursado:Cursado')::uuid, 4, $pea0$Cambio de cátedra (PD)$pea0$, 'leccion', a.id,
        $pea0${"resumen":["Es solo para modalidades presenciales: en el CAU, aplica a PD.","Se pide en el período del Calendario Académico y solo si hay superposición de horarios entre materias del mismo semestre.","Requisitos: aranceles del semestre pagos y cambiar a una cátedra del mismo turno."],"ejemplos":[{"consulta":"Curso en PD y se me superponen dos materias del mismo cuatrimestre.","respuesta":"Puede pedir cambio de cátedra en el período del calendario, con los aranceles pagos y a una cátedra del mismo turno."},{"consulta":"Quiero pasarme a la cátedra de la tarde porque me queda mejor.","respuesta":"Solo se cambia si hay superposición de horarios y siempre dentro del mismo turno."},{"consulta":"Estudio en ED, ¿puedo cambiar de cátedra?","respuesta":"No: el cambio de cátedra es solo para las modalidades presenciales."}],"ojo":["Si cursa materias de distintos cuatrimestres a la vez, la Universidad no garantiza que no haya superposiciones.","En el calendario 2026 de P y PD, el cambio de cátedra del primer semestre fue del 16/03 al 20/03."]}$pea0$::jsonb, 'marcar_hecho'
 from public.articulos a where a.slug = $pea0$rg-5-4-cambio-de-catedra$pea0$ and a.alcance = 'global'
 on conflict do nothing;
@@ -157,7 +217,7 @@ where exists (select 1 from public.preguntas where id = md5('pea-pregunta:04-cam
 on conflict do nothing;
 
 insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
-select md5('pea-item:05-cambio-de-modalidad')::uuid, md5('pea-modulo:Trámites')::uuid, 5, $pea0$Cambio de modalidad$pea0$, 'leccion', a.id,
+select md5('pea-item:05-cambio-de-modalidad')::uuid, md5('pea-modulo:tramites:Trámites')::uuid, 5, $pea0$Cambio de modalidad$pea0$, 'leccion', a.id,
        $pea0${"resumen":["Se pide en las fechas del calendario de trámites. En 2026, desde distancia, vence el 9/3 (1A), 11/5 (1B), 27/7 (2A) y 28/9 (2B).","Requisitos: libre deuda, legajo completo, no estar inscripto a un final ni tener una nota pendiente de carga.","No tiene que haber hecho más de 2 pases entre presencial y distancia (PH/MP/PD a ED/EDH o al revés).","Aprobadas y regulares se conservan. Las que está cursando y las Libre por Nota quedan Libre por Pase: las recursa.","Las regulares se rinden con las reglas de la modalidad nueva."],"ejemplos":[{"consulta":"Me quiero pasar a distancia pero estoy anotado a un final el jueves.","respuesta":"Todavía no puede: no tiene que estar inscripto a una mesa ni tener una nota pendiente de carga."},{"consulta":"Tengo 3 materias cursando, ¿las pierdo?","respuesta":"Esas quedan Libre por Pase y las recursa. Las regulares y las aprobadas se mantienen."},{"consulta":"Ya me cambié tres veces entre presencial y distancia.","respuesta":"No puede hacer otro pase: el requisito es no haber hecho más de 2 pases entre esas modalidades."}],"ojo":["Libre por Nota no se conserva: pasa a Libre por Pase.","Los idiomas que está cursando o tiene regulares se pierden.","Si pasa a ED o cambia de CAU, debe confirmar su lugar con el CAU de destino.","Seminario de Práctica y EFIP tienen reglas especiales: consultá la fuente."]}$pea0$::jsonb, 'marcar_hecho'
 from public.articulos a where a.slug = $pea0$rg-3-2-cambios-de-modalidad$pea0$ and a.alcance = 'global'
 on conflict do nothing;
@@ -192,7 +252,7 @@ where exists (select 1 from public.preguntas where id = md5('pea-pregunta:05-cam
 on conflict do nothing;
 
 insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
-select md5('pea-item:06-equivalencias')::uuid, md5('pea-modulo:Trámites')::uuid, 6, $pea0$Equivalencias$pea0$, 'leccion', a.id,
+select md5('pea-item:06-equivalencias')::uuid, md5('pea-modulo:tramites:Trámites')::uuid, 6, $pea0$Equivalencias$pea0$, 'leccion', a.id,
        $pea0${"resumen":["Se evalúan contenidos, objetivos, bibliografía y nivel de la materia, no solo el nombre.","Para equivalencias externas se pide: DNI, analítico legalizado, plan y programas legalizados, y el pago de la tasa.","Se puede reconocer como máximo el 70% del plan de la carrera de destino.","No hay reconocimiento parcial ni se otorga la condición de regular por equivalencia."],"ejemplos":[{"consulta":"En mi otra facultad la materia se llama igual, ¿me la dan?","respuesta":"No necesariamente: se comparan contenidos, objetivos y bibliografía, no el nombre."},{"consulta":"¿Qué tengo que presentar?","respuesta":"DNI, certificado analítico legalizado, plan de estudios y programas legalizados, y el comprobante de pago de la tasa."},{"consulta":"Tengo casi toda la carrera hecha en otro lado.","respuesta":"Se puede reconocer hasta el 70% del plan de la carrera en Siglo 21."}],"ojo":["Práctica Solidaria, Práctica Profesional y Seminario Final no se dan por equivalencia externa: se aprueban en Siglo 21.","Si hay un pre-dictamen aprobado para esa institución y carrera, no se piden los programas."]}$pea0$::jsonb, 'marcar_hecho'
 from public.articulos a where a.slug = $pea0$rg-6-1-sistema-de-equivalencias-para-todas-las-modalidades$pea0$ and a.alcance = 'global'
 on conflict do nothing;
@@ -227,7 +287,7 @@ where exists (select 1 from public.preguntas where id = md5('pea-pregunta:06-equ
 on conflict do nothing;
 
 insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
-select md5('pea-item:07-solicitud-de-baja')::uuid, md5('pea-modulo:Trámites')::uuid, 7, $pea0$Solicitud de baja$pea0$, 'leccion', a.id,
+select md5('pea-item:07-solicitud-de-baja')::uuid, md5('pea-modulo:tramites:Trámites')::uuid, 7, $pea0$Solicitud de baja$pea0$, 'leccion', a.id,
        $pea0${"resumen":["Se pide en la Mesa de Atención de Alumnos o por autogestión en el portal.","Requisito: no deber libros en la biblioteca ni tener deuda, baja administrativa o inhabilitación académica.","La baja no devuelve dinero ni cancela la deuda de aranceles del semestre, salvo razones institucionales aprobadas por el Vicerrectorado."],"ejemplos":[{"consulta":"Quiero darme de baja, ¿me devuelven lo que pagué?","respuesta":"No: la baja no implica reintegro ni cancela deuda de aranceles, salvo razones institucionales justificadas y aprobadas."},{"consulta":"¿Dónde pido la baja?","respuesta":"En la Mesa de Atención de Alumnos o desde las herramientas de autogestión del portal."},{"consulta":"Tengo una cuota atrasada y me quiero dar de baja.","respuesta":"Primero tiene que regularizar la deuda: es requisito para otorgar la baja."}],"ojo":["También puede renunciar a la regularidad de una materia aunque siga vigente."]}$pea0$::jsonb, 'marcar_hecho'
 from public.articulos a where a.slug = $pea0$rg-14-5-solicitud-de-baja$pea0$ and a.alcance = 'global'
 on conflict do nothing;
@@ -248,7 +308,7 @@ where exists (select 1 from public.preguntas where id = md5('pea-pregunta:07-sol
 on conflict do nothing;
 
 insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
-select md5('pea-item:08-titulo')::uuid, md5('pea-modulo:Egreso')::uuid, 8, $pea0$Título$pea0$, 'leccion', a.id,
+select md5('pea-item:08-titulo')::uuid, md5('pea-modulo:egreso:Título y colación')::uuid, 8, $pea0$Título$pea0$, 'leccion', a.id,
        $pea0${"resumen":["La titulación empieza cuando cumplió todos los requisitos de la Universidad y de la normativa.","Se abona una tasa por el trámite del título.","El diploma se emite en hasta 120 días corridos desde que el legajo queda como Egresado, con la documentación completa.","En carreras que lo prevén, puede pedir el título intermedio."],"ejemplos":[{"consulta":"Terminé la carrera, ¿cuándo tengo el título?","respuesta":"El plazo es de hasta 120 días corridos desde que el legajo queda como Egresado, con toda la documentación obligatoria completa."},{"consulta":"¿El título tiene costo?","respuesta":"Sí: se abona la tasa del trámite administrativo del título."},{"consulta":"Mi carrera tiene título intermedio, ¿cómo lo pido?","respuesta":"Lo inicia el estudiante, siempre que cumpla lo exigido por la carrera para esa titulación."}],"ojo":["Si egresó por articulación o doble titulación, el trámite empieza al terminar el reconocimiento de estudios."]}$pea0$::jsonb, 'marcar_hecho'
 from public.articulos a where a.slug = $pea0$rg-12-5-proceso-de-titulacion$pea0$ and a.alcance = 'global'
 on conflict do nothing;
@@ -269,7 +329,7 @@ where exists (select 1 from public.preguntas where id = md5('pea-pregunta:08-tit
 on conflict do nothing;
 
 insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
-select md5('pea-item:09-colacion')::uuid, md5('pea-modulo:Egreso')::uuid, 9, $pea0$Colación$pea0$, 'leccion', a.id,
+select md5('pea-item:09-colacion')::uuid, md5('pea-modulo:egreso:Título y colación')::uuid, 9, $pea0$Colación$pea0$, 'leccion', a.id,
        $pea0${"resumen":["Es el acto de reconocimiento a quienes terminaron su plan con todos los requisitos cumplidos.","Cada colación incluye a quienes egresaron entre el 1 de septiembre del año anterior y el 31 de agosto del año en curso.","En la ceremonia se entrega un diploma simbólico, no el título oficial.","Si adeuda documentación para el título, no participa."],"ejemplos":[{"consulta":"¿En la colación me dan el título?","respuesta":"No: se entrega un diploma simbólico. El título oficial sigue su propio trámite."},{"consulta":"Terminé en octubre, ¿entro en la colación de este año?","respuesta":"Entra quien egresó entre el 1 de septiembre del año anterior y el 31 de agosto del año en curso: octubre pasa a la siguiente."},{"consulta":"Me falta presentar un papel, ¿puedo colacionar igual?","respuesta":"No: si adeuda documentación para emitir el título no puede participar."}],"ojo":["En pregrado, por la distancia, el acto alcanza a egresados de CAU Córdoba y Río IV, salvo que la Universidad lo amplíe.","No incluye títulos intermedios ni dobles titulaciones, salvo que haya gestionado equivalencias."]}$pea0$::jsonb, 'marcar_hecho'
 from public.articulos a where a.slug = $pea0$rg-12-6-colacion$pea0$ and a.alcance = 'global'
 on conflict do nothing;
@@ -289,7 +349,7 @@ where exists (select 1 from public.preguntas where id = md5('pea-pregunta:09-col
 on conflict do nothing;
 
 insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
-select md5('pea-item:10-matricula-y-aranceles')::uuid, md5('pea-modulo:Administración')::uuid, 10, $pea0$Matrícula y aranceles$pea0$, 'leccion', a.id,
+select md5('pea-item:10-matricula-y-aranceles')::uuid, md5('pea-modulo:aranceles:Aranceles y pagos')::uuid, 10, $pea0$Matrícula y aranceles$pea0$, 'leccion', a.id,
        $pea0${"resumen":["La matrícula es semestral y debe estar paga y activa para rendir parciales, finales o la defensa del Seminario Final.","En distancia, la matrícula del 1er semestre va del 1/1 al 31/7 y la del 2do, del 1/8 al 31/12.","En ED y EDH se paga por paquete: Ticket A, Ticket B o semestre completo (A+B), según materias y subperíodo. En PD, tickets de 1, 3, 4 o 6 materias.","Materias extra en ED y EDH: arancel aparte (grado 1/6 y pregrado 1/4 del arancel A+B). No les aplican becas.","No se reintegra dinero por no completar el cursado por causas personales."],"ejemplos":[{"consulta":"No pagué la matrícula, ¿puedo rendir el final igual?","respuesta":"No: para rendir parciales, finales o la defensa del Seminario Final la matrícula tiene que estar paga y activa."},{"consulta":"Dejé de cursar a mitad de semestre, ¿me devuelven el ticket?","respuesta":"No: no hay reintegro cuando el servicio fue prestado y deja por causas personales."},{"consulta":"Mi beca, ¿cubre la materia extra?","respuesta":"No: en materias extra y en las de verano no aplican becas ni beneficios."}],"ojo":["Sin actividad académica por más de 1 año calendario queda en baja administrativa y debe matricularse de nuevo.","Suspender el cursado no cambia la regularidad, pero para retomar debe cancelar la deuda de ese período.","Pregrado y ciclos de complementación en distancia no tienen arancel único para el subperíodo A: pagan semestre completo."]}$pea0$::jsonb, 'marcar_hecho'
 from public.articulos a where a.slug = $pea0$rg-14-4-normas-arancelarias$pea0$ and a.alcance = 'global'
 on conflict do nothing;
@@ -324,7 +384,7 @@ where exists (select 1 from public.preguntas where id = md5('pea-pregunta:10-mat
 on conflict do nothing;
 
 insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
-select md5('pea-item:11-pagos-y-deuda')::uuid, md5('pea-modulo:Administración')::uuid, 11, $pea0$Pagos y deuda$pea0$, 'leccion', a.id,
+select md5('pea-item:11-pagos-y-deuda')::uuid, md5('pea-modulo:aranceles:Aranceles y pagos')::uuid, 11, $pea0$Pagos y deuda$pea0$, 'leccion', a.id,
        $pea0${"resumen":["Los tickets se generan en la autogestión y el pago tarda unas 72 horas hábiles en acreditarse.","Es responsabilidad del estudiante pagar con anticipación y guardar el comprobante.","Con deuda anterior no puede pagar la matrícula ni los aranceles del período actual hasta cancelarla.","Todo pago se aplica primero a la deuda y puede tener recargo por mora."],"ejemplos":[{"consulta":"Pagué hoy y mañana cierra la inscripción.","respuesta":"El pago tarda unas 72 horas hábiles en acreditarse: por eso se recomienda pagar con anticipación."},{"consulta":"Quiero pagar este semestre pero debo una cuota del anterior.","respuesta":"Primero tiene que cancelar lo adeudado: cualquier pago se aplica antes a la deuda."},{"consulta":"Me rechazaron el pago con tarjeta.","respuesta":"La Universidad lo intima a regularizar en un plazo; si no lo hace, pasa a baja administrativa."}],"ojo":["Con deuda tampoco puede pagar tasas de trámites.","Si se da de baja del servicio, no hay devolución de dinero."]}$pea0$::jsonb, 'marcar_hecho'
 from public.articulos a where a.slug = $pea0$rg-14-4-normas-arancelarias$pea0$ and a.alcance = 'global'
 on conflict do nothing;
@@ -345,7 +405,7 @@ where exists (select 1 from public.preguntas where id = md5('pea-pregunta:11-pag
 on conflict do nothing;
 
 insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
-select md5('pea-item:12-becas-y-beneficios')::uuid, md5('pea-modulo:Administración')::uuid, 12, $pea0$Becas y beneficios$pea0$, 'leccion', a.id,
+select md5('pea-item:12-becas-y-beneficios')::uuid, md5('pea-modulo:aranceles:Becas y beneficios')::uuid, 12, $pea0$Becas y beneficios$pea0$, 'leccion', a.id,
        $pea0${"resumen":["Una beca es un apoyo económico por buen nivel académico y regularidad (ver requisitos en la fuente); un beneficio, por una situación o cualidad del estudiante.","No son acumulables entre sí: si califica para más de una, se aplica la más provechosa.","Becas del primer semestre: postulación del 1 de octubre del año anterior al 1 de enero.","Becas del segundo semestre: postulación del 1 de abril al 1 de julio."],"ejemplos":[{"consulta":"Tengo beca y me corresponde también el beneficio por familiar, ¿se suman?","respuesta":"No: becas y beneficios no son acumulables; se aplica el que más le convenga."},{"consulta":"¿Cuándo me postulo para el primer semestre?","respuesta":"Del 1 de octubre del año anterior al 1 de enero; el resultado se confirma hasta el 1 de febrero."},{"consulta":"¿Hasta cuándo pido un beneficio para el subperíodo 1B?","respuesta":"Según el calendario de trámites 2026, del 30/3 al 29/5. Las fechas cambian cada año."},{"consulta":"Entregué la solicitud incompleta.","respuesta":"Las solicitudes incompletas o con deficiencias se rechazan: tiene que cumplir todos los requisitos de la categoría."}],"ojo":["Las promociones sí pueden sumarse a una beca o beneficio, según sus condiciones.","Quien tiene beca debe informar cualquier cambio en su situación económica o académica."]}$pea0$::jsonb, 'marcar_hecho'
 from public.articulos a where a.slug = $pea0$rg-14-3-becas-y-beneficios$pea0$ and a.alcance = 'global'
 on conflict do nothing;
@@ -366,7 +426,7 @@ where exists (select 1 from public.preguntas where id = md5('pea-pregunta:12-bec
 on conflict do nothing;
 
 insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
-select md5('pea-item:13-documentacion-obligatoria')::uuid, md5('pea-modulo:Cursado')::uuid, 13, $pea0$Documentación obligatoria$pea0$, 'leccion', a.id,
+select md5('pea-item:13-documentacion-obligatoria')::uuid, md5('pea-modulo:cursado:Ingreso')::uuid, 13, $pea0$Documentación obligatoria$pea0$, 'leccion', a.id,
        $pea0${"resumen":["El legajo completo es requisito. Se presenta en la sede o CAU con original y copia; la copia certificada se envía en formato digital.","Grado y pregrado: solicitud de inscripción firmada, DNI vigente (no el digital), secundario completo, 2 fotos color 3x3 y ficha médica.","Sin el analítico todavía, sirve una constancia de título en trámite que diga que no adeuda materias: vale 1 año y se presenta una sola vez.","Grado: plazo de un año y medio; si no, no puede reinscribirse al cuarto período. Pregrado: dentro del primer año."],"ejemplos":[{"consulta":"¿Puedo presentar el DNI digital?","respuesta":"No: para el legajo se acepta solo el DNI vigente, no el digital. Si es extranjero, pasaporte vigente."},{"consulta":"Todavía no me dieron el analítico del secundario.","respuesta":"Puede presentar una constancia de título en trámite donde conste que no adeuda materias. Vale 1 año desde su emisión y se presenta una sola vez."},{"consulta":"¿Quién me certifica las copias?","respuesta":"Personal autorizado del CAU o la sede, juez de paz, registro civil o escribano público. Después la envía en formato digital."}],"ojo":["La secretaría del juzgado no sirve para certificar copias.","Mayores de 25 sin secundario completo: ingreso por trámite especial con resolución rectoral (45 días hábiles).","Los ciclos de complementación tienen otra documentación y otros plazos: consultá la fuente."]}$pea0$::jsonb, 'marcar_hecho'
 from public.articulos a where a.slug = $pea0$rg-2-2-documentacion-obligatoria-y-complementaria$pea0$ and a.alcance = 'global'
 on conflict do nothing;
@@ -401,7 +461,7 @@ where exists (select 1 from public.preguntas where id = md5('pea-pregunta:13-doc
 on conflict do nothing;
 
 insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
-select md5('pea-item:14-estudiantes-extranjeros')::uuid, md5('pea-modulo:Cursado')::uuid, 14, $pea0$Estudiantes extranjeros$pea0$, 'leccion', a.id,
+select md5('pea-item:14-estudiantes-extranjeros')::uuid, md5('pea-modulo:cursado:Ingreso')::uuid, 14, $pea0$Estudiantes extranjeros$pea0$, 'leccion', a.id,
        $pea0${"resumen":["Quien terminó el secundario en el exterior debe convalidar el título ante las autoridades educativas nacionales: es obligatorio.","Para equivalencias de estudios en el exterior: documentación legalizada (apostilla de La Haya o consulado) y traducción de Traductor Público si no está en español.","Necesita la residencia de la Dirección Nacional de Migraciones para estudiar en el país.","En grado y pregrado debe presentar el DNI argentino durante el primer año."],"ejemplos":[{"consulta":"Terminé el secundario en Paraguay, ¿me puedo inscribir?","respuesta":"Sí, pero tiene que convalidar su título secundario ante las autoridades educativas nacionales: es un requisito obligatorio."},{"consulta":"Mis certificados están en portugués.","respuesta":"Tienen que estar legalizados (apostilla o consulado) y traducidos por Traductor Público Nacional; para Brasil no se exige que esté inscripto en el registro."},{"consulta":"¿Qué hago con la residencia?","respuesta":"La tramita en Migraciones. El Centro de Internacionalización le da la constancia de inscripción para el trámite."}],"ojo":["En carreras que piden título de grado previo, no puede empezar sin la convalidación o reválida de ese título.","Migraciones pide acreditar avance académico a los 6 o 12 meses."]}$pea0$::jsonb, 'marcar_hecho'
 from public.articulos a where a.slug = $pea0$rg-2-4-documentacion-obligatoria-y-complementaria-extranjeros$pea0$ and a.alcance = 'global'
 on conflict do nothing;
@@ -421,7 +481,7 @@ where exists (select 1 from public.preguntas where id = md5('pea-pregunta:14-est
 on conflict do nothing;
 
 insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
-select md5('pea-item:15-calendario-academico')::uuid, md5('pea-modulo:Cursado')::uuid, 15, $pea0$Calendario académico$pea0$, 'leccion', a.id,
+select md5('pea-item:15-calendario-academico')::uuid, md5('pea-modulo:cursado:Cursado')::uuid, 15, $pea0$Calendario académico$pea0$, 'leccion', a.id,
        $pea0${"resumen":["Se publica cada año en el Portal de estudiante; conocer las fechas es responsabilidad del alumno.","ED y EDH: 2 semestres con 2 subperíodos de 9 semanas cada uno. La semana 9 es de recuperatorios e integradores.","En ED y EDH, el 1er parcial se rinde entre las semanas 1 y 4, y el 2do entre las semanas 5 y 8.","PD: semestres de 16 semanas. 1ros parciales en las semanas 7 y 8; 2dos parciales en las semanas 14 y 15.","Si un parcial coincide con un feriado se reprograma; en PD, solo por feriado nacional."],"ejemplos":[{"consulta":"¿Dónde veo las fechas de los TP y los parciales?","respuesta":"En el calendario académico de su modalidad, publicado en el Portal de estudiante (también está en La Nube)."},{"consulta":"En 2026, ¿hasta cuándo me puedo inscribir en el subperíodo 1A?","respuesta":"Según el calendario 2026 de Distancia, las clases empiezan el 16/03 y la inscripción a materias es hasta el 29/03."},{"consulta":"¿Cuándo son los recuperatorios en ED?","respuesta":"En la semana 9 de cada subperíodo. En 2026, para el 1A, del 11/5 al 16/5."}],"ojo":["Las fechas cambian cada año: verificá siempre el calendario vigente.","En el calendario 2026 de Distancia, los TP de MEC y MAP vencen en las semanas 5 y 8; los de MIA, en las semanas 4, 5, 7 y 8."]}$pea0$::jsonb, 'marcar_hecho'
 from public.articulos a where a.slug = $pea0$rg-5-1-calendario-academico$pea0$ and a.alcance = 'global'
 on conflict do nothing;
@@ -456,7 +516,7 @@ where exists (select 1 from public.preguntas where id = md5('pea-pregunta:15-cal
 on conflict do nothing;
 
 insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
-select md5('pea-item:16-materias-de-verano')::uuid, md5('pea-modulo:Cursado')::uuid, 16, $pea0$Materias de verano$pea0$, 'leccion', a.id,
+select md5('pea-item:16-materias-de-verano')::uuid, md5('pea-modulo:cursado:Cursado')::uuid, 16, $pea0$Materias de verano$pea0$, 'leccion', a.id,
        $pea0${"resumen":["Solo para quienes se reinscriben: los ingresantes no pueden cursar en verano.","Se cursan hasta 4 materias, entre febrero y marzo.","Se paga un arancel por cada materia antes de empezar (como máximo, hasta el fin del cursado). No aplican becas ni beneficios.","Regular: 3 de 4 TP con 5 o más y 2 parciales con 5 o más. Promoción directa: 3 de 4 TP y 2 parciales con 7 o más, y correlativas aprobadas."],"ejemplos":[{"consulta":"Soy nuevo, ¿puedo adelantar una materia en verano?","respuesta":"No: el verano es solo para quienes se reinscriben; los ingresantes quedan excluidos."},{"consulta":"¿Mi beca cubre la materia de verano?","respuesta":"No: en verano se paga un arancel por materia y no aplican becas ni beneficios."},{"consulta":"¿Cuántas materias puedo hacer en verano?","respuesta":"Hasta 4."}],"ojo":[]}$pea0$::jsonb, 'marcar_hecho'
 from public.articulos a where a.slug = $pea0$rg-5-3-inscripcion-a-materias-de-verano$pea0$ and a.alcance = 'global'
 on conflict do nothing;
@@ -477,7 +537,7 @@ where exists (select 1 from public.preguntas where id = md5('pea-pregunta:16-mat
 on conflict do nothing;
 
 insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
-select md5('pea-item:17-planes-de-estudio')::uuid, md5('pea-modulo:Cursado')::uuid, 17, $pea0$Planes de estudio$pea0$, 'leccion', a.id,
+select md5('pea-item:17-planes-de-estudio')::uuid, md5('pea-modulo:cursado:Cursado')::uuid, 17, $pea0$Planes de estudio$pea0$, 'leccion', a.id,
        $pea0${"resumen":["Los planes los aprueba el Consejo Superior y después el Ministerio de Educación.","Cuando entra un plan nuevo, el anterior se mantiene por la duración teórica de la carrera más un año.","Si no terminó en ese plazo, la Universidad puede pasarlo al plan nuevo y debe cursar todas sus materias.","Las materias que están en los dos planes se reconocen por equivalencia directa y automática.","Quien estuvo inactivo más de un período y retoma fuera de ese plazo también puede ser migrado al plan vigente."],"ejemplos":[{"consulta":"Vuelvo después de mucho tiempo, ¿sigo con mi plan?","respuesta":"Si su plan ya no se mantiene, al retomar se lo migra al plan vigente."},{"consulta":"Me pasaron de plan y tengo materias nuevas.","respuesta":"Al migrar debe hacer todas las materias del plan nuevo, aunque no estuvieran en el original. Las que coinciden se reconocen automáticamente."},{"consulta":"¿Qué son los créditos de una materia?","respuesta":"Equivalen a la cantidad de horas semanales que tiene la materia."}],"ojo":["Cuando la Universidad migra alumnos de plan, arma un plan de transición con los pasos a seguir."]}$pea0$::jsonb, 'marcar_hecho'
 from public.articulos a where a.slug = $pea0$rg-14-1-planes-de-estudio$pea0$ and a.alcance = 'global'
 on conflict do nothing;
@@ -497,7 +557,7 @@ where exists (select 1 from public.preguntas where id = md5('pea-pregunta:17-pla
 on conflict do nothing;
 
 insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
-select md5('pea-item:18-correlativas')::uuid, md5('pea-modulo:Cursado')::uuid, 18, $pea0$Correlativas$pea0$, 'leccion', a.id,
+select md5('pea-item:18-correlativas')::uuid, md5('pea-modulo:cursado:Cursado')::uuid, 18, $pea0$Correlativas$pea0$, 'leccion', a.id,
        $pea0${"resumen":["El plan de correlatividades fija el orden en que se cursan las materias.","Para inscribirse a una materia, sus correlativas tienen que estar regulares.","Para aprobar o promocionar, sus correlativas tienen que estar aprobadas.","Puede promocionar si aprueba la correlativa anterior dentro de los 60 días de terminada la materia; si no, la materia queda Regular."],"ejemplos":[{"consulta":"¿Cómo sé qué correlativas tiene una materia?","respuesta":"En el Portal de Estudiantes: su carrera, Plan de Estudio y Ver Correlativas. Ahí también está Ver Programa."},{"consulta":"Promocioné pero me falta aprobar la correlativa.","respuesta":"Tiene 60 días desde que terminó la materia para aprobar la correlativa anterior; si no, la materia queda Regular y rinde final."}],"ojo":[]}$pea0$::jsonb, 'marcar_hecho'
 from public.articulos a where a.slug = $pea0$ln-correlativas$pea0$ and a.alcance = 'global'
 on conflict do nothing;
@@ -518,7 +578,7 @@ where exists (select 1 from public.preguntas where id = md5('pea-pregunta:18-cor
 on conflict do nothing;
 
 insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
-select md5('pea-item:19-universitarios-21')::uuid, md5('pea-modulo:Cursado')::uuid, 19, $pea0$Universitarios 21$pea0$, 'leccion', a.id,
+select md5('pea-item:19-universitarios-21')::uuid, md5('pea-modulo:cursado:Ingreso')::uuid, 19, $pea0$Universitarios 21$pea0$, 'leccion', a.id,
        $pea0${"resumen":["Es el programa de ingreso de grado y pregrado: dos materias del primer semestre, Aprender en el Siglo 21 y Tecnología, Humanidades y Modelos Globales.","Se cursan y evalúan con las mismas reglas que el resto de las materias de su modalidad.","Hay que aprobarlas para inscribirse a materias de cuarto cuatrimestre.","Una equivalencia externa no reemplaza a estas materias; hay eximición con 5 o más materias aprobadas en el legajo."],"ejemplos":[{"consulta":"¿Por qué no me deja anotarme a una materia de cuarto cuatrimestre?","respuesta":"Porque necesita tener aprobado Universitarios 21."},{"consulta":"Tengo materias aprobadas en otra universidad, ¿hago Universitarios 21?","respuesta":"Si suma 5 o más materias aprobadas en su legajo de Siglo 21 puede quedar eximido; revisá las condiciones en la fuente."}],"ojo":["Aprender en el Siglo 21 usa como bibliografía el Reglamento Institucional."]}$pea0$::jsonb, 'marcar_hecho'
 from public.articulos a where a.slug = $pea0$ln-universitarios21$pea0$ and a.alcance = 'global'
 on conflict do nothing;
@@ -538,7 +598,7 @@ where exists (select 1 from public.preguntas where id = md5('pea-pregunta:19-uni
 on conflict do nothing;
 
 insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
-select md5('pea-item:20-tipos-de-materias-y-tp')::uuid, md5('pea-modulo:Evaluación (EVA 21)')::uuid, 20, $pea0$Tipos de materias y trabajos prácticos$pea0$, 'leccion', a.id,
+select md5('pea-item:20-tipos-de-materias-y-tp')::uuid, md5('pea-modulo:evaluacion:Trabajos y exámenes')::uuid, 20, $pea0$Tipos de materias y trabajos prácticos$pea0$, 'leccion', a.id,
        $pea0${"resumen":["Cada materia tiene 4 módulos y 4 TP obligatorios: para regularizar hay que aprobar al menos 3, con nota 5 o más.","MEC y MAP: los TP se rehacen sin límite dentro del cronograma y vale la última nota. Entregar tarde resta 5 puntos por día, sin bajar de 5.","MIA y MIP: cada TP se entrega una sola vez, en la fecha del calendario. Si no lo entrega, es 0 y promedia.","MIA y MIP suman foros grupales obligatorios (MIA en TP2 y TP3; MIP en TP1 y TP3), pero el TP es individual.","Las Actividades Prácticas son opcionales: sirven para autoevaluarse."],"ejemplos":[{"consulta":"Me fue mal en el TP de una MEC, ¿lo puedo rehacer?","respuesta":"Sí: en MEC y MAP se rehace las veces que quiera dentro de los plazos del SAM, y vale la última nota."},{"consulta":"Se me pasó la fecha del TP2 de una MIA.","respuesta":"En MIA y MIP el TP se presenta una sola vez en la fecha del calendario; si no lo entregó, tiene 0 y se promedia."},{"consulta":"Entregué tarde un TP de MEC, ¿me lo toman?","respuesta":"Sí, hasta el cierre del SAM, pero resta 5 puntos por día de demora; la demora nunca lo baja de 5."}],"ojo":["En MIP es obligatorio aprobar el TP4 con 5 o más.","La bibliografía obligatoria la consigue cada estudiante.","Conviene que verifique en el SAM que las notas de los TP queden registradas."]}$pea0$::jsonb, 'marcar_hecho'
 from public.articulos a where a.slug = $pea0$rg-4-5-sitema-de-evaluacion-de-los-aprendizajes-eva-21$pea0$ and a.alcance = 'global'
 on conflict do nothing;
@@ -573,8 +633,8 @@ where exists (select 1 from public.preguntas where id = md5('pea-pregunta:20-tip
 on conflict do nothing;
 
 insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
-select md5('pea-item:21-parciales-recuperatorios-integradores')::uuid, md5('pea-modulo:Evaluación (EVA 21)')::uuid, 21, $pea0$Parciales, recuperatorios e integradores$pea0$, 'leccion', a.id,
-       $pea0${"resumen":["Parciales: 20 preguntas de opción múltiple; se aprueban con 5 (9 correctas). El 1º toma los módulos 1 y 2; el 2º, los 3 y 4.","Recuperatorio: si sacó menos de 5 o faltó a un parcial, o para llevar a 7 un parcial si el otro ya es 7 o más. Reemplaza la nota, mayor o menor.","Integrador: 30 preguntas de los dos parciales, para quien desaprobó o faltó a ambos o los aprobó con 5 o 6. Aprueba con 5; promociona con 7.","Un parcial con 7 o más no se recupera.","Duración: parciales y recuperatorios, 40 minutos; integrador, 60; finales, 90."],"ejemplos":[{"consulta":"Saqué 4 en el primer parcial y 8 en el segundo.","respuesta":"Puede rendir el recuperatorio del parcial 1 o el integrador. La nota nueva reemplaza a la anterior."},{"consulta":"Tengo 6 y 6, ¿puedo promocionar?","respuesta":"Puede rendir el integrador: con 7 o más accede a la promoción directa, si cumple los TP y las demás condiciones."},{"consulta":"Saqué 7 en un parcial, ¿lo recupero para subir la nota?","respuesta":"No: un parcial con 7 o más no se recupera."}],"ojo":["Si se inscribe a un recuperatorio o integrador y no se presenta, la nota es 0 y cuenta para la materia.","En ED y EDH, el 1er parcial se rinde entre las semanas 1 y 4 y el 2do entre las semanas 5 y 8."]}$pea0$::jsonb, 'marcar_hecho'
+select md5('pea-item:21-parciales-recuperatorios-integradores')::uuid, md5('pea-modulo:evaluacion:Trabajos y exámenes')::uuid, 21, $pea0$Parciales, recuperatorios e integradores$pea0$, 'leccion', a.id,
+       $pea0${"resumen":["Parciales: 20 preguntas de opción múltiple; se aprueban con 5 (9 correctas). El 1º toma los módulos 1 y 2; el 2º, los 3 y 4.","Recuperatorio: si sacó menos de 5 o faltó a un parcial, o para llevar a 7 un parcial si el otro ya es 7 o más. Reemplaza la nota, mayor o menor.","Integrador: 30 preguntas de los dos parciales, para quien desaprobó o faltó a ambos o los aprobó con 5 o 6. Aprueba con 5; promociona con 7.","Un parcial con 7 o más no se recupera.","Duración: parciales y recuperatorios, 40 minutos; integrador, 60; finales, 90."],"ejemplos":[{"consulta":"Saqué 4 en el primer parcial y 8 en el segundo.","respuesta":"Puede rendir el recuperatorio del parcial 1 o el integrador. La nota nueva reemplaza a la anterior."},{"consulta":"Tengo 6 y 6, ¿puedo promocionar?","respuesta":"Puede rendir el integrador: con 7 o más accede a la promoción directa, si cumple los TP y las demás condiciones."},{"consulta":"Saqué 7 en un parcial, ¿lo recupero para subir la nota?","respuesta":"No: un parcial con 7 o más no se recupera."}],"ojo":["Si se inscribe a un recuperatorio o integrador y no se presenta, la nota es 0 y cuenta para la materia.","En ED y EDH, el 1er parcial se rinde entre las semanas 1 y 4 y el 2do entre las semanas 5 y 8.","Cuando puede elegir entre recuperatorio e integrador, se inscribe solo a uno de los dos."]}$pea0$::jsonb, 'marcar_hecho'
 from public.articulos a where a.slug = $pea0$rg-4-5-sitema-de-evaluacion-de-los-aprendizajes-eva-21$pea0$ and a.alcance = 'global'
 on conflict do nothing;
 
@@ -608,7 +668,7 @@ where exists (select 1 from public.preguntas where id = md5('pea-pregunta:21-par
 on conflict do nothing;
 
 insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
-select md5('pea-item:22-inscripcion-a-examenes')::uuid, md5('pea-modulo:Evaluación (EVA 21)')::uuid, 22, $pea0$Inscripción a exámenes (ED, EDH y PD)$pea0$, 'leccion', a.id,
+select md5('pea-item:22-inscripcion-a-examenes')::uuid, md5('pea-modulo:evaluacion:Trabajos y exámenes')::uuid, 22, $pea0$Inscripción a exámenes (ED, EDH y PD)$pea0$, 'leccion', a.id,
        $pea0${"resumen":["ED y EDH, parcial: inscripción hasta 24 horas antes. Esa inscripción no se anula ni se modifica.","Recuperatorio o integrador: inscripción hasta 24 horas antes; se puede anular hasta 48 horas antes.","Final: con al menos 4 días corridos de anticipación; se anula antes de que sea aceptada, es decir, hasta 8 días corridos antes.","PD: los parciales no requieren inscripción; finales, recuperatorios e integradores, con los mismos plazos.","Para rendir: DNI vigente, matrícula paga, estar inscripto y, si corresponde, notebook con el navegador institucional. Tolerancia: 15 minutos."],"ejemplos":[{"consulta":"Me anoté al parcial y no puedo ir, ¿lo cambio?","respuesta":"En ED y EDH la inscripción al parcial no se puede anular ni modificar."},{"consulta":"Quiero rendir el final el lunes, ¿me anoto hoy jueves?","respuesta":"No llega: hay que inscribirse con al menos 4 días corridos de anticipación."},{"consulta":"Me anoté al recuperatorio y no voy a poder ir.","respuesta":"Puede anular hasta 48 horas antes; si no se presenta, la nota es 0 y cuenta para la materia."},{"consulta":"¿Cuándo me anoto al EFIP?","respuesta":"Hasta 6 días corridos antes de la fecha; puede anular hasta 7 días antes. Las fechas salen en la Cartelera del Portal."}],"ojo":["Los turnos dependen de la disponibilidad de la sede o CAU.","Materias virtuales: la mesa de final se pide cuando está cargada la condición al terminar el bimestre."]}$pea0$::jsonb, 'marcar_hecho'
 from public.articulos a where a.slug = $pea0$rg-4-5-sitema-de-evaluacion-de-los-aprendizajes-eva-21$pea0$ and a.alcance = 'global'
 on conflict do nothing;
@@ -643,7 +703,7 @@ where exists (select 1 from public.preguntas where id = md5('pea-pregunta:22-ins
 on conflict do nothing;
 
 insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
-select md5('pea-item:23-ausencia-y-revision')::uuid, md5('pea-modulo:Evaluación (EVA 21)')::uuid, 23, $pea0$Ausencia a un examen y pedido de revisión$pea0$, 'leccion', a.id,
+select md5('pea-item:23-ausencia-y-revision')::uuid, md5('pea-modulo:evaluacion:Trabajos y exámenes')::uuid, 23, $pea0$Ausencia a un examen y pedido de revisión$pea0$, 'leccion', a.id,
        $pea0${"resumen":["Faltar a un examen, por cualquier motivo (personal, laboral, médico, paro), no permite reprogramarlo: queda Ausente.","En un final, el ausente además consume una de las 3 oportunidades antes de quedar Libre.","La revisión se pide en el sistema al terminar el examen: 10 minutos en parciales y 15 en finales. No hay otra vía.","La respuesta llega en 15 días. Si estaba desaprobado, puede cambiar la nota o habilitarse a rendir otra vez."],"ejemplos":[{"consulta":"Tuve fiebre y no pude rendir el parcial, ¿me lo reprograman?","respuesta":"No: las razones médicas tampoco habilitan a reprogramar; queda Ausente."},{"consulta":"Ayer rendí y una pregunta estaba mal corregida.","respuesta":"Ya no se puede pedir: la revisión solo se solicita en el sistema al terminar el examen (10 minutos en parciales, 15 en finales)."},{"consulta":"Pedí revisión, ¿cuándo me responden?","respuesta":"El plazo de respuesta es de 15 días."}],"ojo":["Hay casos especiales regulados (Res. CS 535/2017) que son excepción a esta regla: derivá.","Si no completa todos los datos del pedido de revisión, el pedido es nulo."]}$pea0$::jsonb, 'marcar_hecho'
 from public.articulos a where a.slug = $pea0$rg-4-5-sitema-de-evaluacion-de-los-aprendizajes-eva-21$pea0$ and a.alcance = 'global'
 on conflict do nothing;
@@ -664,7 +724,7 @@ where exists (select 1 from public.preguntas where id = md5('pea-pregunta:23-aus
 on conflict do nothing;
 
 insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
-select md5('pea-item:24-condiciones-de-aprobacion')::uuid, md5('pea-modulo:Evaluación (EVA 21)')::uuid, 24, $pea0$Condiciones de aprobación y escala de notas$pea0$, 'leccion', a.id,
+select md5('pea-item:24-condiciones-de-aprobacion')::uuid, md5('pea-modulo:evaluacion:Aprobación')::uuid, 24, $pea0$Condiciones de aprobación y escala de notas$pea0$, 'leccion', a.id,
        $pea0${"resumen":["Regular: 3 de 4 TP con 5 o más y 2 parciales con 5 o más (puede mediar recuperatorio o integrador). Rinde final de 30 preguntas.","Promoción directa: 3 de 4 TP con 7 o más, 2 parciales con 7 o más y correlativas aprobadas. Aprueba sin final.","Promoción indirecta: 4 de 4 TP con 7 o más, parciales con 5 o 6 y correlativas aprobadas. También aprueba sin final.","Final regular: aprueba con 4 (14 de 30), vigencia 18 meses, 3 oportunidades. Libre por nota: 50 preguntas, 3 meses, 1 oportunidad.","Asistencia del 75% en ED y PD; no aplica en EDH."],"ejemplos":[{"consulta":"¿Con cuánto apruebo el final regular?","respuesta":"Con 4, que equivale a 14 respuestas correctas de 30."},{"consulta":"Quedé libre por nota, ¿cuánto tiempo tengo?","respuesta":"3 meses y una sola oportunidad para el final de 50 preguntas; aprueba con 24 correctas."},{"consulta":"Promocioné pero me debe una correlativa.","respuesta":"Sin las correlativas aprobadas la materia queda Regular y tiene que rendir final."}],"ojo":["En PD, en MEC, MIA y MAP, el final suma un oral si aprueba el escrito; en MIP no.","Idiomas no tiene promoción indirecta."]}$pea0$::jsonb, 'marcar_hecho'
 from public.articulos a where a.slug = $pea0$rg-4-5-sitema-de-evaluacion-de-los-aprendizajes-eva-21$pea0$ and a.alcance = 'global'
 on conflict do nothing;
@@ -699,7 +759,7 @@ where exists (select 1 from public.preguntas where id = md5('pea-pregunta:24-con
 on conflict do nothing;
 
 insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
-select md5('pea-item:25-materias-de-proceso')::uuid, md5('pea-modulo:Evaluación (EVA 21)')::uuid, 25, $pea0$Materias de proceso e idiomas en distancia$pea0$, 'leccion', a.id,
+select md5('pea-item:25-materias-de-proceso')::uuid, md5('pea-modulo:evaluacion:Materias especiales')::uuid, 25, $pea0$Materias de proceso e idiomas en distancia$pea0$, 'leccion', a.id,
        $pea0${"resumen":["Las materias de proceso no se promocionan ni se rinden libres: si no se cumplen las condiciones, quedan Libres y se recursan.","Práctica Solidaria: carga horaria completa con nota 5 o más de la organización, y 3 de 4 TP con el TP4 aprobado. Nota: promedio de TP, sin final.","Práctica Profesional: 250 horas con nota 7 o más de la organización, 3 de 4 TP con el TP4 aprobado y correlativas aprobadas.","Los TP de estas prácticas vencen en las semanas 6, 8, 12 y 15, el domingo a las 23:59.","Idiomas: placement test único; regular con 6 niveles seguidos al 70% o Avanzado 3; integrador de 50 preguntas, aprueba con 4."],"ejemplos":[{"consulta":"No llegué a las horas de la Práctica Profesional.","respuesta":"Sin las 250 horas no se aprueba; si no cumple al terminar el cursado queda Libre y la recursa."},{"consulta":"Aprobé la Práctica Profesional pero me debe una correlativa.","respuesta":"Queda Regular hasta aprobarla, con un máximo de 18 meses; si no, pierde la regularidad y recursa."},{"consulta":"No terminé los niveles de inglés este año.","respuesta":"Si no alcanza la regularidad en el año de cursado, pierde el avance y reinicia la materia."},{"consulta":"¿Puedo usar diccionario en el examen de inglés?","respuesta":"No: no se permiten diccionarios, glosarios ni listas de verbos."}],"ojo":["Para cursar el último semestre necesita todos los niveles de idioma aprobados.","Seminario de Práctica en distancia queda Regular y su nota es la del EFIP I.","Pregrado: Integración Profesional - Estudio del Caso pide el TP4 y 2 de los TP 1 a 3 con 5 o más."]}$pea0$::jsonb, 'marcar_hecho'
 from public.articulos a where a.slug = $pea0$rg-4-5-sitema-de-evaluacion-de-los-aprendizajes-eva-21$pea0$ and a.alcance = 'global'
 on conflict do nothing;
@@ -734,7 +794,7 @@ where exists (select 1 from public.preguntas where id = md5('pea-pregunta:25-mat
 on conflict do nothing;
 
 insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
-select md5('pea-item:26-efip')::uuid, md5('pea-modulo:Evaluación (EVA 21)')::uuid, 26, $pea0$EFIP I y EFIP II$pea0$, 'leccion', a.id,
+select md5('pea-item:26-efip')::uuid, md5('pea-modulo:evaluacion:Materias especiales')::uuid, 26, $pea0$EFIP I y EFIP II$pea0$, 'leccion', a.id,
        $pea0${"resumen":["Solo para carreras de grado en ED y EDH; no para pregrado ni ciclos de complementación. Son presenciales, ante un tribunal.","EFIP I: integración curricular (escrita y oral) y, si la carrera tiene idiomas, producción en idioma. Hay que aprobar las dos en el mismo turno.","Para rendir EFIP I: Seminario de Práctica (o de Planificación y Control) Regular, o el Módulo EFIP I cursando o Regular, y las correlativas aprobadas.","EFIP I se rinde hasta 3 veces; si no aprueba, vuelve a cursar el Módulo EFIP I o el Seminario de Práctica.","EFIP II: todas las materias aprobadas (con Práctica Solidaria y electivas) y Seminario Final Regular. Es requisito para la defensa del TFG."],"ejemplos":[{"consulta":"Desaprobé el EFIP I tres veces.","respuesta":"Tiene que inscribirse de nuevo al Módulo EFIP I; si su carrera no lo tiene, recursa el Seminario de Práctica (o de Planificación y Control)."},{"consulta":"¿Puedo cursar materias de séptimo sin el EFIP I?","respuesta":"Como regla, en distancia necesita el EFIP I aprobado para cursar y aprobar 7º y 8º; en Abogacía y Contador depende de las correlativas."},{"consulta":"¿Dónde veo las fechas del EFIP?","respuesta":"En la Cartelera del Portal de estudiante, al inicio de cada año. Se inscribe hasta 6 días corridos antes."}],"ojo":["Sin EFIP I aprobado no puede inscribirse a cursar Seminario Final.","Aprobar el Seminario de Práctica no aprueba el EFIP I: igual tiene que rendirlo.","Para EFIP II necesita además el visado del analítico aprobado y no tener deuda.","La Universidad puede autorizar rendir en el CAU con tecnología; el examen queda grabado."]}$pea0$::jsonb, 'marcar_hecho'
 from public.articulos a where a.slug = $pea0$rg-4-5-sitema-de-evaluacion-de-los-aprendizajes-eva-21$pea0$ and a.alcance = 'global'
 on conflict do nothing;
@@ -769,7 +829,7 @@ where exists (select 1 from public.preguntas where id = md5('pea-pregunta:26-efi
 on conflict do nothing;
 
 insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
-select md5('pea-item:27-sanciones')::uuid, md5('pea-modulo:Cursado')::uuid, 27, $pea0$Sanciones$pea0$, 'leccion', a.id,
+select md5('pea-item:27-sanciones')::uuid, md5('pea-modulo:normas:Normas')::uuid, 27, $pea0$Sanciones$pea0$, 'leccion', a.id,
        $pea0${"resumen":["Las faltas son leves, graves, muy graves o gravísimas; el plagio también se gradúa de leve a gravísimo.","Según la gravedad: llamado de atención, apercibimiento, suspensión o expulsión.","Además se pone 0 en la actividad; con la suspensión, la materia queda Libre.","Todas las sanciones, salvo el llamado de atención, quedan registradas en el certificado analítico.","En exámenes son faltas: leer en voz alta, usar el teclado o auriculares, desviar la mirada, tapar la cámara o apagar el micrófono."],"ejemplos":[{"consulta":"En el examen me marcaron por mirar para el costado.","respuesta":"Desviar la mirada de forma sostenida es una falta leve: corresponde un llamado de atención con nota 0 en esa instancia."},{"consulta":"Copié un TP de un compañero, ¿qué me puede pasar?","respuesta":"La copia en TP es una falta leve: llamado de atención y 0 en la actividad. Si es plagio más grave, la sanción sube."},{"consulta":"¿La sanción queda en mi analítico?","respuesta":"Sí, salvo el llamado de atención, que queda solo en su legajo."}],"ojo":["La expulsión es definitiva y se comunica a todo el Sistema Universitario Nacional.","No rendir en el CAU cuando la modalidad lo exige también es falta leve."]}$pea0$::jsonb, 'marcar_hecho'
 from public.articulos a where a.slug = $pea0$rg-13-1-regimen-general-de-sanciones$pea0$ and a.alcance = 'global'
 on conflict do nothing;
@@ -790,7 +850,7 @@ where exists (select 1 from public.preguntas where id = md5('pea-pregunta:27-san
 on conflict do nothing;
 
 insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
-select md5('pea-item:28-condiciones-de-graduacion')::uuid, md5('pea-modulo:Egreso')::uuid, 28, $pea0$Condiciones para la graduación$pea0$, 'leccion', a.id,
+select md5('pea-item:28-condiciones-de-graduacion')::uuid, md5('pea-modulo:egreso:Trabajo final')::uuid, 28, $pea0$Condiciones para la graduación$pea0$, 'leccion', a.id,
        $pea0${"resumen":["Para egresar hay una evaluación integral: en pregrado, la materia Integración Profesional - Estudio del Caso; en grado, el Trabajo Final de Graduación (TFG) con defensa oral.","En todos los casos las citas van con normas APA; omitirlas es una falta por plagio.","En grado, el TFG se aprueba en un máximo de 18 meses desde que regulariza Seminario Final; si no, queda Libre en Seminario Final."],"ejemplos":[{"consulta":"Estudio una tecnicatura, ¿tengo que hacer un trabajo final?","respuesta":"En pregrado la instancia final es la materia Integración Profesional - Estudio del Caso, no un TFG."},{"consulta":"Regularicé Seminario Final hace 2 años y no defendí.","respuesta":"Pasados 18 meses sin aprobar el TFG queda Libre en Seminario Final y tiene que recursarla."}],"ojo":["Después del egreso siguen el trámite del título (tasa y hasta 120 días) y la colación: mirá esas lecciones."]}$pea0$::jsonb, 'marcar_hecho'
 from public.articulos a where a.slug = $pea0$rg-12-1-condiciones-para-la-graduacion$pea0$ and a.alcance = 'global'
 on conflict do nothing;
@@ -810,7 +870,7 @@ where exists (select 1 from public.preguntas where id = md5('pea-pregunta:28-con
 on conflict do nothing;
 
 insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
-select md5('pea-item:29-trabajo-final-de-grado')::uuid, md5('pea-modulo:Egreso')::uuid, 29, $pea0$Trabajo Final de Graduación (TFG)$pea0$, 'leccion', a.id,
+select md5('pea-item:29-trabajo-final-de-grado')::uuid, md5('pea-modulo:egreso:Trabajo final')::uuid, 29, $pea0$Trabajo Final de Graduación (TFG)$pea0$, 'leccion', a.id,
        $pea0${"resumen":["Tiene 3 etapas: Seminario Final, Comisión Académica Evaluadora (CAE) y Defensa Oral.","En distancia, Seminario Final se regulariza cumpliendo las entregas de avance del tutor. No hay prórrogas.","La CAE evalúa el TFG en 60 días: puede habilitar la defensa, pedir ajustes con un plazo o no aprobarlo.","Habilitado, se inscribe a la mesa de Defensa Oral en un máximo de 30 días corridos.","La nota final pondera Seminario Final, CAE y defensa; con menos de 4 se recursa Seminario Final."],"ejemplos":[{"consulta":"Ya regularicé Seminario Final, ¿qué sigue?","respuesta":"Se le asigna una CAE, que evalúa el trabajo en un plazo de 60 días."},{"consulta":"La CAE me pidió cambios.","respuesta":"Recibe un acta rúbrica con las recomendaciones y el plazo para entregar el trabajo ajustado."},{"consulta":"Me habilitaron a defensa, ¿hay plazo para anotarme?","respuesta":"Sí: tiene que inscribirse a la mesa de Defensa Oral dentro de los 30 días corridos."}],"ojo":["Para la Defensa Oral necesita el EFIP II aprobado.","El TFG es individual."]}$pea0$::jsonb, 'marcar_hecho'
 from public.articulos a where a.slug = $pea0$rg-12-2-trabajo-final-de-graduacion$pea0$ and a.alcance = 'global'
 on conflict do nothing;
@@ -831,7 +891,7 @@ where exists (select 1 from public.preguntas where id = md5('pea-pregunta:29-tra
 on conflict do nothing;
 
 insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
-select md5('pea-item:30-portal-de-estudiantes')::uuid, md5('pea-modulo:Plataformas y atención')::uuid, 30, $pea0$Portal de Estudiantes$pea0$, 'leccion', a.id,
+select md5('pea-item:30-portal-de-estudiantes')::uuid, md5('pea-modulo:plataformas:Portal y aula')::uuid, 30, $pea0$Portal de Estudiantes$pea0$, 'leccion', a.id,
        $pea0${"resumen":["En el Portal ve su carrera y su avance, se inscribe a materias y exámenes, paga por ePagos y usa el simulador de pagos.","Se entra con la cuenta institucional: usuario@soysiglo.21.edu.ar y su contraseña.","Si da error al entrar: borrar cookies y caché, y probar otro navegador o una ventana de incógnito.","En \"Más opciones\" hay una guía del portal, cambio de contraseña y datos de contacto."],"ejemplos":[{"consulta":"No puedo entrar al portal, me da error.","respuesta":"Que borre las cookies y la caché del navegador y vuelva a intentar; si sigue, otro navegador o modo incógnito."},{"consulta":"¿Dónde me inscribo a un final?","respuesta":"En el Portal de Estudiantes, en el módulo de inscripción a exámenes."},{"consulta":"¿Con qué usuario entro?","respuesta":"Con su correo institucional (usuario@soysiglo.21.edu.ar) y su contraseña."}],"ojo":[]}$pea0$::jsonb, 'marcar_hecho'
 from public.articulos a where a.slug = $pea0$ln-portal-de-estudiantes$pea0$ and a.alcance = 'global'
 on conflict do nothing;
@@ -852,7 +912,7 @@ where exists (select 1 from public.preguntas where id = md5('pea-pregunta:30-por
 on conflict do nothing;
 
 insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
-select md5('pea-item:31-aula-virtual')::uuid, md5('pea-modulo:Plataformas y atención')::uuid, 31, $pea0$Aula Virtual (Canvas)$pea0$, 'leccion', a.id,
+select md5('pea-item:31-aula-virtual')::uuid, md5('pea-modulo:plataformas:Portal y aula')::uuid, 31, $pea0$Aula Virtual (Canvas)$pea0$, 'leccion', a.id,
        $pea0${"resumen":["El Aula Virtual es Canvas: ahí están las materias, se presentan las actividades y se contacta al docente.","Se entra eligiendo Soy Estudiante y la cuenta institucional.","Si olvidó la contraseña, la restablece desde el enlace de recuperación, con su usuario sin @soysiglo.21.edu.ar.","Las dudas de contenido de cada materia van al docente, por la mensajería del aula."],"ejemplos":[{"consulta":"Olvidé la contraseña del aula.","respuesta":"Desde el enlace de recuperación, con su usuario institucional sin el @soysiglo.21.edu.ar; después confirma su correo de recuperación."},{"consulta":"¿Cómo le escribo al profesor?","respuesta":"Por la mensajería de su Aula Virtual (Canvas)."}],"ojo":[]}$pea0$::jsonb, 'marcar_hecho'
 from public.articulos a where a.slug = $pea0$ln-aula-virtual$pea0$ and a.alcance = 'global'
 on conflict do nothing;
@@ -872,7 +932,7 @@ where exists (select 1 from public.preguntas where id = md5('pea-pregunta:31-aul
 on conflict do nothing;
 
 insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
-select md5('pea-item:32-klarway')::uuid, md5('pea-modulo:Plataformas y atención')::uuid, 32, $pea0$Exámenes online con Klarway$pea0$, 'leccion', a.id,
+select md5('pea-item:32-klarway')::uuid, md5('pea-modulo:plataformas:Exámenes online')::uuid, 32, $pea0$Exámenes online con Klarway$pea0$, 'leccion', a.id,
        $pea0${"resumen":["Los exámenes online se rinden con Klarway (Sistema Online de Exámenes), una app de escritorio para PC y algunas Mac, con validación de identidad.","Antes hay que registrarse una vez: DNI (digital o físico) o pasaporte, lugar iluminado, fondo liso y sin auriculares.","Al rendir: cerrar los programas, entrar con las credenciales del Portal, validar el rostro y aceptar las condiciones.","Recomendaciones: buena luz, batería al 80% o cargador, micrófono encendido y lugar silencioso."],"ejemplos":[{"consulta":"¿Puedo rendir desde el celular?","respuesta":"No: Klarway es una aplicación de escritorio para PC y algunas versiones de Mac."},{"consulta":"Me falló Klarway rindiendo desde casa.","respuesta":"Que saque una captura del error con fecha y hora visibles y la envíe por Consulta Alumnos, Área Tecnológica, Sistema de Examen. También puede contactar a su CAU."},{"consulta":"Me pide registrarme, ¿qué necesito?","respuesta":"Su DNI o pasaporte y la app instalada. La foto, en un lugar iluminado, con fondo liso, sin auriculares y con ropa adecuada."}],"ojo":["Durante el examen no puede usar auriculares, apagar el micrófono ni tapar la cámara: son faltas sancionables."]}$pea0$::jsonb, 'marcar_hecho'
 from public.articulos a where a.slug = $pea0$ln-klarway$pea0$ and a.alcance = 'global'
 on conflict do nothing;
@@ -893,7 +953,7 @@ where exists (select 1 from public.preguntas where id = md5('pea-pregunta:32-kla
 on conflict do nothing;
 
 insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
-select md5('pea-item:33-canales-de-contacto')::uuid, md5('pea-modulo:Plataformas y atención')::uuid, 33, $pea0$Canales de contacto$pea0$, 'leccion', a.id,
+select md5('pea-item:33-canales-de-contacto')::uuid, md5('pea-modulo:normas:Acompañamiento')::uuid, 33, $pea0$Canales de contacto$pea0$, 'leccion', a.id,
        $pea0${"resumen":["Dudas de contenido de una materia: al docente, por la mensajería del Aula Virtual.","Consulta escrita: en Consultar, elegir el legajo, el motivo en Título de tipificación, describir el caso y adjuntar si hace falta.","También puede chatear en el momento con un Asesor Institucional.","Los datos de cada CAU están en el mapa de Sedes y Centros; los directores de carrera tienen su mail publicado."],"ejemplos":[{"consulta":"¿Cómo dejo una consulta por escrito?","respuesta":"En Consultar: elige el legajo, el motivo en Título de tipificación, describe el caso y adjunta un archivo si hace falta."},{"consulta":"Quiero hablar con alguien ahora.","respuesta":"Puede chatear con un Asesor Institucional en el momento."},{"consulta":"Quiero contactarme con otros estudiantes.","respuesta":"Puede sumarse a ComunidadNET."}],"ojo":[]}$pea0$::jsonb, 'marcar_hecho'
 from public.articulos a where a.slug = $pea0$ln-canales-de-contacto$pea0$ and a.alcance = 'global'
 on conflict do nothing;
@@ -914,7 +974,7 @@ where exists (select 1 from public.preguntas where id = md5('pea-pregunta:33-can
 on conflict do nothing;
 
 insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
-select md5('pea-item:34-tutores-virtuales')::uuid, md5('pea-modulo:Plataformas y atención')::uuid, 34, $pea0$Profesores Tutores Virtuales$pea0$, 'leccion', a.id,
+select md5('pea-item:34-tutores-virtuales')::uuid, md5('pea-modulo:normas:Acompañamiento')::uuid, 34, $pea0$Profesores Tutores Virtuales$pea0$, 'leccion', a.id,
        $pea0${"resumen":["El Centro de Profesores Tutores Virtuales (CPV) acompaña el primer año: organización, cursado, plataforma y modelo de aprendizaje.","Las dudas de contenido de cada materia no van al tutor: van al docente, por la mensajería de Canvas.","Al tutor se le escribe desde la Bandeja de Entrada de Canvas; también hay consultas por Teams en horarios fijos.","Talleres Potenciar 21: hábitos de estudio y organización. El cronograma está en los anuncios de cada materia."],"ejemplos":[{"consulta":"Soy nuevo y no sé cómo organizarme.","respuesta":"Su Profesor Tutor Virtual lo acompaña en el primer año; también puede sumarse a los Talleres Potenciar 21."},{"consulta":"Le pregunté al tutor una duda de contenido y no me la resolvió.","respuesta":"Las dudas del contenido de cada materia van al docente a cargo, por la mensajería del aula."}],"ojo":[]}$pea0$::jsonb, 'marcar_hecho'
 from public.articulos a where a.slug = $pea0$ln-tutoresvirtuales$pea0$ and a.alcance = 'global'
 on conflict do nothing;
@@ -931,4 +991,128 @@ select x.id, md5('pea-pregunta:34-tutores-virtuales:1')::uuid, x.texto, x.correc
   (md5('pea-opcion:34-tutores-virtuales:1:2')::uuid, $pea0$Falso$pea0$, true, 2)
 ) as x(id, texto, correcta, orden)
 where exists (select 1 from public.preguntas where id = md5('pea-pregunta:34-tutores-virtuales:1')::uuid)
+on conflict do nothing;
+
+insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
+select md5('pea-item:35-inscripcion-a-examenes-portal')::uuid, md5('pea-modulo:plataformas:Exámenes online')::uuid, 35, $pea0$Inscribirse a exámenes en el Portal$pea0$, 'leccion', a.id,
+       $pea0${"resumen":["En el Portal de Estudiantes: Exámenes, Nueva inscripción, elegir la materia, el lugar, la fecha y la franja horaria, y confirmar con Inscribirme al examen.","En ED y EDH, desde la primera semana de cursado se puede inscribir al Parcial 1 y al Parcial 2: no hace falta esperar a rendir el primero.","Si no se inscribe dentro del plazo, el sistema le asigna una fecha automáticamente.","En PD no se inscribe a los parciales: fecha, lugar y franja se asignan según el cronograma y se ven en el Portal."],"ejemplos":[{"consulta":"¿Cómo me anoto al parcial?","respuesta":"En el Portal: Exámenes, Nueva inscripción. Elige la materia, el lugar, el día y la franja, revisa el resumen y confirma con Inscribirme al examen."},{"consulta":"Todavía no rendí el primer parcial, ¿me puedo anotar al segundo?","respuesta":"Sí: desde la primera semana se puede inscribir a los dos."},{"consulta":"No me anoté al parcial a tiempo.","respuesta":"Si venció el plazo, el sistema le asigna una fecha automáticamente; que la revise en el Portal."},{"consulta":"Curso en PD, ¿dónde me anoto al parcial?","respuesta":"En PD no hace falta: el parcial se asigna según el cronograma y lo ve en su Portal."}],"ojo":["Si falta a un parcial, queda registrado como Ausente.","Recuperatorio o integrador: cuando puede elegir, se inscribe solo a uno de los dos."]}$pea0$::jsonb, 'marcar_hecho'
+from public.articulos a where a.slug = $pea0$ln-inscripcion-a-examenes$pea0$ and a.alcance = 'global'
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id)
+select md5('pea-pregunta:35-inscripcion-a-examenes-portal:1')::uuid, 'opcion_multiple', $pea0$Un alumno de ED no se inscribió al parcial dentro del plazo. ¿Qué pasa?$pea0$, $pea0$Según la guía de inscripción, el sistema asigna una fecha si no se inscribe a tiempo.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', md5('pea-item:35-inscripcion-a-examenes-portal')::uuid
+where exists (select 1 from public.items where id = md5('pea-item:35-inscripcion-a-examenes-portal')::uuid)
+on conflict do nothing;
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden)
+select x.id, md5('pea-pregunta:35-inscripcion-a-examenes-portal:1')::uuid, x.texto, x.correcta, x.orden from (values
+  (md5('pea-opcion:35-inscripcion-a-examenes-portal:1:1')::uuid, $pea0$Pierde el parcial y queda libre.$pea0$, false, 1),
+  (md5('pea-opcion:35-inscripcion-a-examenes-portal:1:2')::uuid, $pea0$El sistema le asigna una fecha automáticamente.$pea0$, true, 2),
+  (md5('pea-opcion:35-inscripcion-a-examenes-portal:1:3')::uuid, $pea0$Tiene que pedir una mesa especial.$pea0$, false, 3)
+) as x(id, texto, correcta, orden)
+where exists (select 1 from public.preguntas where id = md5('pea-pregunta:35-inscripcion-a-examenes-portal:1')::uuid)
+on conflict do nothing;
+
+insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
+select md5('pea-item:36-app-siglo-21')::uuid, md5('pea-modulo:plataformas:Portal y aula')::uuid, 36, $pea0$App Siglo 21$pea0$, 'leccion', a.id,
+       $pea0${"resumen":["La app se descarga de la tienda del celular y se entra con los datos del Portal de Estudiantes.","Desde la app: legajos, historial de materias, calificaciones, agenda, inscripción a materias y exámenes, y pago electrónico.","La asistencia se registra escaneando con la app el QR que muestra el profesor.","Si olvidó la contraseña, la resetea desde ¿Olvidaste tu contraseña?"],"ejemplos":[{"consulta":"¿Cómo registro la asistencia?","respuesta":"Con la app: toca el ícono del QR arriba en la pantalla y escanea el QR del profesor. La primera vez tiene que dar permiso a la cámara."},{"consulta":"Estudio dos carreras, ¿las veo en la app?","respuesta":"Sí: puede consultar cada uno de sus legajos."},{"consulta":"¿Con qué usuario entro a la app?","respuesta":"Con los mismos datos del Portal de Estudiantes."}],"ojo":[]}$pea0$::jsonb, 'marcar_hecho'
+from public.articulos a where a.slug = $pea0$ln-app-siglo-21$pea0$ and a.alcance = 'global'
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id)
+select md5('pea-pregunta:36-app-siglo-21:1')::uuid, 'verdadero_falso', $pea0$La asistencia se registra escaneando con la app el QR que muestra el profesor.$pea0$, $pea0$$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', md5('pea-item:36-app-siglo-21')::uuid
+where exists (select 1 from public.items where id = md5('pea-item:36-app-siglo-21')::uuid)
+on conflict do nothing;
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden)
+select x.id, md5('pea-pregunta:36-app-siglo-21:1')::uuid, x.texto, x.correcta, x.orden from (values
+  (md5('pea-opcion:36-app-siglo-21:1:1')::uuid, $pea0$Verdadero$pea0$, true, 1),
+  (md5('pea-opcion:36-app-siglo-21:1:2')::uuid, $pea0$Falso$pea0$, false, 2)
+) as x(id, texto, correcta, orden)
+where exists (select 1 from public.preguntas where id = md5('pea-pregunta:36-app-siglo-21:1')::uuid)
+on conflict do nothing;
+
+insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
+select md5('pea-item:37-defensa-oral')::uuid, md5('pea-modulo:egreso:Trabajo final')::uuid, 37, $pea0$Defensa Oral$pea0$, 'leccion', a.id,
+       $pea0${"resumen":["Se habilita cuando la CAE aprueba el TFG. Todas las defensas orales son presenciales, en el Campus de la Universidad.","En distancia (ED y EDH) necesita el EFIP II aprobado antes de pedir la mesa.","Pasos: pagar la Tasa de Graduación, controles automáticos del legajo, completar el formulario, enviar la solicitud y recibir la fecha.","La tasa activa el visado: constancia de que no adeuda materias y de que están al día documentación, administración, biblioteca y CAE.","La matrícula del semestre tiene que estar paga al iniciar el visado y al rendir."],"ejemplos":[{"consulta":"La CAE me aprobó, ¿cómo pido la defensa?","respuesta":"Primero paga la Tasa de Graduación (el ticket aparece solo en Pago Electrónico); eso inicia el visado. Después completa el formulario y espera la fecha."},{"consulta":"¿Puedo defender desde mi ciudad?","respuesta":"No: todas las defensas orales se rinden en forma presencial en el Campus de la Universidad."},{"consulta":"¿Qué incluye la Tasa de Graduación?","respuesta":"La gestión del diploma y el analítico con legalización, la opción de envío del título al CAU y la invitación a la colación."}],"ojo":["Si estudia en distancia y no aprobó el EFIP II, no puede pedir la mesa (hay excepciones de carrera: consultá la fuente)."]}$pea0$::jsonb, 'marcar_hecho'
+from public.articulos a where a.slug = $pea0$ln-defensa-oral$pea0$ and a.alcance = 'global'
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id)
+select md5('pea-pregunta:37-defensa-oral:1')::uuid, 'opcion_multiple', $pea0$Un alumno de ED con el TFG aprobado por la CAE pide la defensa. ¿Qué necesita además?$pea0$, $pea0$En distancia se pide el EFIP II aprobado; la tasa inicia el visado.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', md5('pea-item:37-defensa-oral')::uuid
+where exists (select 1 from public.items where id = md5('pea-item:37-defensa-oral')::uuid)
+on conflict do nothing;
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden)
+select x.id, md5('pea-pregunta:37-defensa-oral:1')::uuid, x.texto, x.correcta, x.orden from (values
+  (md5('pea-opcion:37-defensa-oral:1:1')::uuid, $pea0$Tener el EFIP II aprobado y pagar la Tasa de Graduación.$pea0$, true, 1),
+  (md5('pea-opcion:37-defensa-oral:1:2')::uuid, $pea0$Solo inscribirse a una mesa de final.$pea0$, false, 2),
+  (md5('pea-opcion:37-defensa-oral:1:3')::uuid, $pea0$Nada más: la fecha se asigna sola.$pea0$, false, 3)
+) as x(id, texto, correcta, orden)
+where exists (select 1 from public.preguntas where id = md5('pea-pregunta:37-defensa-oral:1')::uuid)
+on conflict do nothing;
+
+insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
+select md5('pea-item:38-eximicion-de-idiomas')::uuid, md5('pea-modulo:evaluacion:Materias especiales')::uuid, 38, $pea0$Eximición de idiomas$pea0$, 'leccion', a.id,
+       $pea0${"resumen":["Puede pedir la eximición de Idioma Extranjero quien tiene una certificación internacional de inglés comprobable.","Se aceptan, entre otros: FCE, CAE o CPE de Cambridge; TOEFL iBT 60 o más; TOEIC 600 o más; Bachillerato Internacional Inglés B con 5 o más.","También se reconocen exámenes de Oxford y de Cambridge International con nivel equivalente a B2, según la fuente.","Para portugués hay otra lista de equivalencias aceptadas."],"ejemplos":[{"consulta":"Tengo el First, ¿tengo que cursar inglés?","respuesta":"Puede pedir la eximición: el FCE de Cambridge es una de las certificaciones aceptadas."},{"consulta":"Hice TOEFL y saqué 55.","respuesta":"No alcanza para el TOEFL iBT: se pide 60 o más."}],"ojo":["Las condiciones exactas de cada certificado están en la fuente: verificá antes de confirmar."]}$pea0$::jsonb, 'marcar_hecho'
+from public.articulos a where a.slug = $pea0$ln-eximicion-idiomas$pea0$ and a.alcance = 'global'
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id)
+select md5('pea-pregunta:38-eximicion-de-idiomas:1')::uuid, 'opcion_multiple', $pea0$¿Qué puntaje mínimo de TOEFL iBT se acepta para la eximición?$pea0$, $pea0$Se acepta TOEFL iBT con 60 o más.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', md5('pea-item:38-eximicion-de-idiomas')::uuid
+where exists (select 1 from public.items where id = md5('pea-item:38-eximicion-de-idiomas')::uuid)
+on conflict do nothing;
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden)
+select x.id, md5('pea-pregunta:38-eximicion-de-idiomas:1')::uuid, x.texto, x.correcta, x.orden from (values
+  (md5('pea-opcion:38-eximicion-de-idiomas:1:1')::uuid, $pea0$40$pea0$, false, 1),
+  (md5('pea-opcion:38-eximicion-de-idiomas:1:2')::uuid, $pea0$60$pea0$, true, 2),
+  (md5('pea-opcion:38-eximicion-de-idiomas:1:3')::uuid, $pea0$100$pea0$, false, 3)
+) as x(id, texto, correcta, orden)
+where exists (select 1 from public.preguntas where id = md5('pea-pregunta:38-eximicion-de-idiomas:1')::uuid)
+on conflict do nothing;
+
+insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
+select md5('pea-item:39-modulo-0')::uuid, md5('pea-modulo:cursado:Ingreso')::uuid, 39, $pea0$Módulo 0$pea0$, 'leccion', a.id,
+       $pea0${"resumen":["Es un programa preparatorio con contenido y clases niveladoras para empezar mejor el cursado.","Es un módulo de lecturas dentro de la materia, en el Aula Virtual (Canvas): un recorrido breve y guiado.","Se habilita un mes antes del inicio de clases.","Lo tienen algunas materias troncales, por ejemplo Herramientas Matemáticas, Introducción al Derecho o Estadística y Probabilidad."],"ejemplos":[{"consulta":"¿Qué es el Módulo 0 que me aparece en Canvas?","respuesta":"Un módulo de lecturas niveladoras dentro de la materia, para llegar al inicio de clases con los temas centrales más claros."},{"consulta":"¿Todas las materias tienen Módulo 0?","respuesta":"No: solo las que figuran en el listado de La Nube, como Herramientas Matemáticas o Introducción al Derecho."}],"ojo":[]}$pea0$::jsonb, 'marcar_hecho'
+from public.articulos a where a.slug = $pea0$ln-modulo0$pea0$ and a.alcance = 'global'
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id)
+select md5('pea-pregunta:39-modulo-0:1')::uuid, 'verdadero_falso', $pea0$El Módulo 0 se habilita un mes antes del inicio de clases.$pea0$, $pea0$$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', md5('pea-item:39-modulo-0')::uuid
+where exists (select 1 from public.items where id = md5('pea-item:39-modulo-0')::uuid)
+on conflict do nothing;
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden)
+select x.id, md5('pea-pregunta:39-modulo-0:1')::uuid, x.texto, x.correcta, x.orden from (values
+  (md5('pea-opcion:39-modulo-0:1:1')::uuid, $pea0$Verdadero$pea0$, true, 1),
+  (md5('pea-opcion:39-modulo-0:1:2')::uuid, $pea0$Falso$pea0$, false, 2)
+) as x(id, texto, correcta, orden)
+where exists (select 1 from public.preguntas where id = md5('pea-pregunta:39-modulo-0:1')::uuid)
+on conflict do nothing;
+
+insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
+select md5('pea-item:40-gabinete-de-bienestar')::uuid, md5('pea-modulo:normas:Acompañamiento')::uuid, 40, $pea0$Gabinete de Bienestar$pea0$, 'leccion', a.id,
+       $pea0${"resumen":["Acompaña la vida académica: organización del estudio, aprender a estudiar y manejo de las emociones.","Lo integran psicólogos y psicólogas egresados de Siglo 21.","Se puede pedir un encuentro individual con un profesional del Gabinete.","Tiene ciclos de preparación para el EFIP y para la Defensa Oral, con herramientas técnicas y emocionales."],"ejemplos":[{"consulta":"Estoy muy ansioso con el EFIP.","respuesta":"Puede sumarse al ciclo de bienestar y preparación para EFIP del Gabinete de Bienestar, o pedir un encuentro individual."},{"consulta":"Necesito hablar con alguien, no doy más con la facultad.","respuesta":"Puede pedir un encuentro individual con un profesional del Gabinete de Bienestar desde La Nube."}],"ojo":[]}$pea0$::jsonb, 'marcar_hecho'
+from public.articulos a where a.slug = $pea0$ln-gabinete-de-bienestar-1$pea0$ and a.alcance = 'global'
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id)
+select md5('pea-pregunta:40-gabinete-de-bienestar:1')::uuid, 'opcion_multiple', $pea0$Un alumno está nervioso por su Defensa Oral. ¿Qué le recomendás?$pea0$, $pea0$El Gabinete tiene un ciclo de dos talleres para preparar la defensa.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', md5('pea-item:40-gabinete-de-bienestar')::uuid
+where exists (select 1 from public.items where id = md5('pea-item:40-gabinete-de-bienestar')::uuid)
+on conflict do nothing;
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden)
+select x.id, md5('pea-pregunta:40-gabinete-de-bienestar:1')::uuid, x.texto, x.correcta, x.orden from (values
+  (md5('pea-opcion:40-gabinete-de-bienestar:1:1')::uuid, $pea0$El ciclo de preparación para la Defensa Oral del Gabinete de Bienestar.$pea0$, true, 1),
+  (md5('pea-opcion:40-gabinete-de-bienestar:1:2')::uuid, $pea0$Pedir una prórroga de la defensa.$pea0$, false, 2),
+  (md5('pea-opcion:40-gabinete-de-bienestar:1:3')::uuid, $pea0$Cambiar de modalidad.$pea0$, false, 3)
+) as x(id, texto, correcta, orden)
+where exists (select 1 from public.preguntas where id = md5('pea-pregunta:40-gabinete-de-bienestar:1')::uuid)
 on conflict do nothing;

@@ -1,6 +1,7 @@
 ---
 titulo: "Trabajo Final de Graduación (TFG)"
-modulo: "Egreso"
+curso: "egreso"
+modulo: "Trabajo final"
 orden: 29
 fuente: "rg-12-2-trabajo-final-de-graduacion"
 ---

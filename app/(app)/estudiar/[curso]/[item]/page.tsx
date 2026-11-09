@@ -19,7 +19,7 @@ export default async function PaginaLeccion({ params }: PageProps<"/estudiar/[cu
   if (!UUID.test(cursoId) || !UUID.test(itemId)) notFound();
   const supabase = await crearClienteServidor();
   const [{ data: curso }, { data: item }, { data: estado }] = await Promise.all([
-    supabase.from("cursos").select("id, titulo, tipo, nivel_orden").eq("id", cursoId).maybeSingle(),
+    supabase.from("cursos").select("id, titulo, tipo, nivel_orden, estado").eq("id", cursoId).maybeSingle(),
     supabase
       .from("items")
       .select(
@@ -217,6 +217,11 @@ export default async function PaginaLeccion({ params }: PageProps<"/estudiar/[cu
 
   return (
     <article className="flex flex-col gap-4 pb-24 md:pb-0">
+      {curso.estado !== "publicado" && (
+        <p role="status" className="rounded-2xl bg-warning-soft px-4 py-2.5 text-sm font-bold text-warning">
+          Vista previa · borrador
+        </p>
+      )}
       {fila.disponible && !fila.cumplido && item.requisito === "ver" && <MarcarVisto itemId={itemId} />}
       <div className="flex items-center gap-3">
         <Link

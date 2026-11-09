@@ -149,7 +149,7 @@ En el reglamento, cada capítulo es un artículo y sus secciones quedan como art
 - [SUSTENTABILIDAD SOCIAL | La Nube 21](lanube/sustentabilidad-social.md) · [fuente](https://www.lanube.21.edu.ar/sustentabilidad-social)
 - [SOY INGRESANTE | La Nube 21](lanube/tuprimersemestre.md) · [fuente](https://www.lanube.21.edu.ar/tuprimersemestre)
 
-## Lecciones ("Reglamento esencial")
+## Lecciones (cursos temáticos)
 
 Las lecciones cortas (spec §4.10) se escriben a mano en `contenido/lecciones/*.md` a partir de estas fuentes, sin agregar nada que la fuente no diga. Cada archivo indica su `fuente` (slug del artículo relevado) y trae los bloques "En 30 segundos", "Así llega al CAU", "Ojo con" y "Probalo".
 
@@ -157,10 +157,10 @@ Las lecciones cortas (spec §4.10) se escriben a mano en `contenido/lecciones/*.
 node --experimental-strip-types scripts/importar-lecciones.mts
 ```
 
-Genera `supabase/seed-lecciones.sql`: el curso "Reglamento esencial" en borrador, con sus lecciones y preguntas de Probalo. Para publicarlo, primero hay que publicar los artículos fuente.
+Genera `supabase/seed-lecciones.sql`: los cursos temáticos en borrador (cada lección indica `curso` y `modulo`; el catálogo está en `lib/lecciones/importar.ts`), con sus lecciones y preguntas de Probalo. El admin los recorre con "Ver como asesor" (vista previa). Para publicarlo, primero hay que publicar los artículos fuente.
 
 **Alcance:** en el CAU se dictan solo carreras de grado y pregrado, en ED, EDH y PD. Las lecciones omiten P, PH y posgrado.
 
-Módulos: Cursado, Evaluación (EVA 21), Trámites, Egreso, Administración, y Plataformas y atención (estas últimas salen de La Nube).
+Cursos: Plataformas del estudiante, Cursado y modalidades, Evaluación (EVA 21), Trámites, Aranceles becas y pagos, Egreso, y Normas y acompañamiento.
 
 Los calendarios académicos 2026 (ED/EDH y P/PD) están en `relevamiento/lanube/calendario-2026-*.md`, extraídos de los PDF oficiales; las fechas cambian cada año.

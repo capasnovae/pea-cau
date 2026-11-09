@@ -1,6 +1,7 @@
 ---
 titulo: "Profesores Tutores Virtuales"
-modulo: "Plataformas y atención"
+curso: "normas"
+modulo: "Acompañamiento"
 orden: 34
 fuente: "ln-tutoresvirtuales"
 ---

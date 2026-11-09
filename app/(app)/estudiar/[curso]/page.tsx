@@ -14,7 +14,7 @@ export default async function PaginaCurso({ params }: PageProps<"/estudiar/[curs
   const [{ data: curso }, { data: estado }, { data: ruta }] = await Promise.all([
     supabase
       .from("cursos")
-      .select("id, titulo, descripcion_md, tipo, nivel_orden")
+      .select("id, titulo, descripcion_md, tipo, nivel_orden, estado")
       .eq("id", cursoId)
       .maybeSingle(),
     supabase.rpc("estado_curso", { p_curso: cursoId }),
@@ -37,6 +37,11 @@ export default async function PaginaCurso({ params }: PageProps<"/estudiar/[curs
 
   return (
     <div className="flex flex-col gap-5">
+      {curso.estado !== "publicado" && (
+        <p role="status" className="rounded-2xl bg-warning-soft px-4 py-2.5 text-sm font-bold text-warning">
+          Vista previa · borrador
+        </p>
+      )}
       <div className="flex flex-col gap-3 rounded-3xl p-5 text-white" style={{ background: c.fondo }}>
         <Link href="/estudiar" className="text-sm font-semibold text-white/85">
           ← Mi ruta

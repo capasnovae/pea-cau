@@ -1,5 +1,6 @@
 ---
 titulo: "Cambio de modalidad"
+curso: "tramites"
 modulo: "Trámites"
 orden: 5
 fuente: "rg-3-2-cambios-de-modalidad"
