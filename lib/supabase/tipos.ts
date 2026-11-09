@@ -1423,6 +1423,7 @@ export type Database = {
           created_at: string;
           examen_id: string | null;
           id: string;
+          leccion: Json | null;
           modulo_id: string;
           orden: number;
           recurso_id: string | null;
@@ -1439,6 +1440,7 @@ export type Database = {
           created_at?: string;
           examen_id?: string | null;
           id?: string;
+          leccion?: Json | null;
           modulo_id: string;
           orden?: number;
           recurso_id?: string | null;
@@ -1454,6 +1456,7 @@ export type Database = {
           created_at?: string;
           examen_id?: string | null;
           id?: string;
+          leccion?: Json | null;
           modulo_id?: string;
           orden?: number;
           recurso_id?: string | null;
@@ -1773,6 +1776,46 @@ export type Database = {
           },
         ];
       };
+      practica_intentos: {
+        Row: {
+          correcta: boolean;
+          created_at: string;
+          id: string;
+          pregunta_id: string;
+          usuario_id: string;
+        };
+        ComputedFields: never;
+        Insert: {
+          correcta: boolean;
+          created_at?: string;
+          id?: string;
+          pregunta_id: string;
+          usuario_id: string;
+        };
+        Update: {
+          correcta?: boolean;
+          created_at?: string;
+          id?: string;
+          pregunta_id?: string;
+          usuario_id?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "practica_intentos_pregunta_id_fkey";
+            columns: ["pregunta_id"];
+            isOneToOne: false;
+            referencedRelation: "preguntas";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "practica_intentos_usuario_id_fkey";
+            columns: ["usuario_id"];
+            isOneToOne: false;
+            referencedRelation: "perfiles";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
       practica_progreso: {
         Row: {
           acertada_at: string;
@@ -1824,6 +1867,7 @@ export type Database = {
           estado: Database["public"]["Enums"]["estado_contenido"];
           explicacion_md: string;
           id: string;
+          item_id: string | null;
           modulo_id: string | null;
           orden_en_caso: number | null;
           origen: Database["public"]["Enums"]["origen_pregunta"];
@@ -1855,6 +1899,7 @@ export type Database = {
           estado?: Database["public"]["Enums"]["estado_contenido"];
           explicacion_md?: string;
           id?: string;
+          item_id?: string | null;
           modulo_id?: string | null;
           orden_en_caso?: number | null;
           origen?: Database["public"]["Enums"]["origen_pregunta"];
@@ -1885,6 +1930,7 @@ export type Database = {
           estado?: Database["public"]["Enums"]["estado_contenido"];
           explicacion_md?: string;
           id?: string;
+          item_id?: string | null;
           modulo_id?: string | null;
           orden_en_caso?: number | null;
           origen?: Database["public"]["Enums"]["origen_pregunta"];
@@ -1933,6 +1979,13 @@ export type Database = {
             columns: ["categoria_id"];
             isOneToOne: false;
             referencedRelation: "categorias";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "preguntas_item_id_fkey";
+            columns: ["item_id"];
+            isOneToOne: false;
+            referencedRelation: "items";
             referencedColumns: ["id"];
           },
           {
@@ -2396,6 +2449,14 @@ export type Database = {
           solucion: Json;
         }[];
       };
+      comprobar_probalo: {
+        Args: { p_item: string; p_pregunta: string; p_respuesta: Json };
+        Returns: {
+          es_correcta: boolean;
+          explicacion_md: string;
+          solucion: Json;
+        }[];
+      };
       contactos_bandeja: {
         Args: Record<PropertyKey, never>;
         Returns: {
@@ -2411,6 +2472,14 @@ export type Database = {
       contenido_compatible: {
         Args: { p_alcance: Database["public"]["Enums"]["alcance"]; p_curso: string; p_sede: string };
         Returns: boolean;
+      };
+      corregir_practica: {
+        Args: { p_pregunta: string; p_respuesta: Json };
+        Returns: {
+          es_correcta: boolean;
+          explicacion_md: string;
+          solucion: Json;
+        }[];
       };
       corregir_respuesta: {
         Args: { p_devolucion: string; p_puntaje: number; p_respuesta: string };
@@ -2499,6 +2568,7 @@ export type Database = {
       item_cumplido: { Args: { p_item: string; p_usuario: string }; Returns: boolean };
       item_disponible: { Args: { p_item: string; p_usuario: string }; Returns: boolean };
       item_disponible_para_mi: { Args: { p_item: string }; Returns: boolean };
+      leccion_valida: { Args: { l: Json }; Returns: boolean };
       marcar_item: { Args: { p_accion: string; p_item: string }; Returns: Json };
       marcar_leida: { Args: { p_conversacion: string }; Returns: undefined };
       mensajes_de: {
@@ -2630,6 +2700,7 @@ export type Database = {
         }[];
       };
       pozo_practica: { Args: { p_examen: string }; Returns: string[] };
+      pozo_probalo: { Args: { p_item: string }; Returns: string[] };
       practica_preguntas: {
         Args: { p_examen: string };
         Returns: {
@@ -2667,6 +2738,22 @@ export type Database = {
           pregunta_id: string;
           puntaje_max: number;
           respuesta: Json;
+          tipo: Database["public"]["Enums"]["tipo_pregunta"];
+        }[];
+      };
+      probalo_preguntas: {
+        Args: { p_item: string };
+        Returns: {
+          acertada: boolean;
+          caso_contexto_md: string;
+          caso_titulo: string;
+          config: Json;
+          contexto_md: string;
+          enunciado_md: string;
+          opciones: Json;
+          orden: number;
+          pregunta_id: string;
+          puntaje_max: number;
           tipo: Database["public"]["Enums"]["tipo_pregunta"];
         }[];
       };
@@ -2712,6 +2799,7 @@ export type Database = {
       puede_ver_usuario: { Args: { objetivo: string }; Returns: boolean };
       puede_ver_usuario_como: { Args: { p_actor: string; p_objetivo: string }; Returns: boolean };
       registrar_salida: { Args: { p_intento: string }; Returns: number };
+      rellenar_insignias: { Args: Record<PropertyKey, never>; Returns: undefined };
       responder: { Args: { p_conversacion: string; p_cuerpo: string }; Returns: string };
       respuesta_correcta: {
         Args: { p_opcion_ids: string[]; p_orden: string[]; p_pregunta: string; p_valores: Json };
@@ -2787,7 +2875,7 @@ export type Database = {
       tipo_curso: "nivel" | "capacitacion";
       tipo_evento: "capacitacion" | "evento";
       tipo_examen: "modulo" | "categoria" | "nivel" | "integrador" | "ubicacion" | "practica";
-      tipo_item: "articulo" | "recurso" | "pagina" | "video" | "enlace" | "examen" | "practica";
+      tipo_item: "articulo" | "recurso" | "pagina" | "video" | "enlace" | "examen" | "practica" | "leccion";
       tipo_pregunta:
         | "opcion_multiple"
         | "verdadero_falso"
@@ -2929,7 +3017,7 @@ export const Constants = {
       tipo_curso: ["nivel", "capacitacion"],
       tipo_evento: ["capacitacion", "evento"],
       tipo_examen: ["modulo", "categoria", "nivel", "integrador", "ubicacion", "practica"],
-      tipo_item: ["articulo", "recurso", "pagina", "video", "enlace", "examen", "practica"],
+      tipo_item: ["articulo", "recurso", "pagina", "video", "enlace", "examen", "practica", "leccion"],
       tipo_pregunta: [
         "opcion_multiple",
         "verdadero_falso",
