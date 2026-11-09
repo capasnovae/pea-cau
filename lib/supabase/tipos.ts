@@ -2681,6 +2681,46 @@ export type Database = {
           subroles: string[];
         }[];
       };
+      panel_asesores: {
+        Args: Record<PropertyKey, never>;
+        Returns: {
+          apellido: string;
+          cert_por_vencer: number;
+          cert_vencidas: number;
+          consignas_vencidas: number;
+          cursos_cumplidos: number;
+          cursos_total: number;
+          equipo: string;
+          nivel_actual: number;
+          nombre: string;
+          puesto: string;
+          sede: string;
+          ultima_actividad: string;
+          usuario_id: string;
+        }[];
+      };
+      panel_correccion: {
+        Args: Record<PropertyKey, never>;
+        Returns: {
+          pendientes: number;
+          sede: string;
+          tomados: number;
+          vencidos: number;
+        }[];
+      };
+      panel_preguntas: {
+        Args: Record<PropertyKey, never>;
+        Returns: {
+          aciertos: number;
+          categoria: string;
+          enunciado_md: string;
+          modulo: string;
+          pregunta_id: string;
+          respuestas: number;
+          tipo: Database["public"]["Enums"]["tipo_pregunta"];
+          uso: Database["public"]["Enums"]["uso_pregunta"];
+        }[];
+      };
       participantes_de: {
         Args: { p_conversacion: string };
         Returns: {
@@ -2796,6 +2836,7 @@ export type Database = {
       puede_rendir: { Args: { p_examen: string }; Returns: boolean };
       puede_subir_evidencia: { Args: { p_nombre: string }; Returns: boolean };
       puede_ver_intento: { Args: { p_intento: string }; Returns: boolean };
+      puede_ver_panel: { Args: Record<PropertyKey, never>; Returns: boolean };
       puede_ver_usuario: { Args: { objetivo: string }; Returns: boolean };
       puede_ver_usuario_como: { Args: { p_actor: string; p_objetivo: string }; Returns: boolean };
       registrar_salida: { Args: { p_intento: string }; Returns: number };
@@ -2841,6 +2882,22 @@ export type Database = {
         }[];
       };
       revocar_certificacion: { Args: { p_id: string; p_motivo: string }; Returns: undefined };
+      ruta_de: {
+        Args: { p_usuario: string };
+        Returns: {
+          cumplido: boolean;
+          curso_id: string;
+          desbloqueado: boolean;
+          descripcion_md: string;
+          items_cumplidos: number;
+          items_total: number;
+          nivel_orden: number;
+          obligatorio: boolean;
+          siguiente_item: string;
+          tipo: Database["public"]["Enums"]["tipo_curso"];
+          titulo: string;
+        }[];
+      };
       soltar_correccion: { Args: { p_intento: string }; Returns: undefined };
       sortear_intento: { Args: { p_curso_bloque?: string; p_intento: string }; Returns: undefined };
       tomado_vigente: { Args: { p_corrector: string; p_tomado: string }; Returns: boolean };
