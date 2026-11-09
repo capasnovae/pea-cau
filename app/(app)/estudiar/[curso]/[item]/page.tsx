@@ -2,6 +2,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { BarraSiguiente, MarcarVisto } from "@/components/leccion/acciones-leccion";
 import { ContenidoLeccion } from "@/components/leccion/contenido";
+import { VistaLeccion } from "@/components/leccion/vista-leccion";
+import { esquemaLeccion, minutosDeLectura } from "@/lib/dominio/lecciones";
 import { Markdown } from "@/components/markdown";
 import { BotonDescargar } from "@/app/(app)/recursos/boton-descargar";
 import { colorNivel, idsRecursoEnMarkdown, reemplazarRecursos, urlEmbedVideo } from "@/lib/dominio/leccion";
@@ -20,7 +22,9 @@ export default async function PaginaLeccion({ params }: PageProps<"/estudiar/[cu
     supabase.from("cursos").select("id, titulo, tipo, nivel_orden").eq("id", cursoId).maybeSingle(),
     supabase
       .from("items")
-      .select("id, titulo, tipo, requisito, contenido_md, url, articulo_id, recurso_id, modulo_id, examen_id")
+      .select(
+        "id, titulo, tipo, requisito, contenido_md, url, articulo_id, recurso_id, modulo_id, examen_id, leccion",
+      )
       .eq("id", itemId)
       .maybeSingle(),
     supabase.rpc("estado_curso", { p_curso: cursoId }),
@@ -62,7 +66,40 @@ export default async function PaginaLeccion({ params }: PageProps<"/estudiar/[cu
   }
 
   let cuerpo: React.ReactNode = null;
-  if (item.tipo === "pagina" && item.contenido_md) {
+  let probalo: React.ReactNode = null;
+  let conProbalo = false;
+  const leccion = item.tipo === "leccion" ? esquemaLeccion.safeParse(item.leccion) : null;
+  if (leccion) {
+    const [{ data: art }, { data: preguntas }] = await Promise.all([
+      item.articulo_id
+        ? supabase
+            .from("articulos")
+            .select("titulo, slug, categorias(slug)")
+            .eq("id", item.articulo_id)
+            .maybeSingle()
+        : Promise.resolve({ data: null }),
+      supabase.rpc("probalo_preguntas", { p_item: itemId }),
+    ]);
+    cuerpo = leccion.success ? (
+      <VistaLeccion
+        leccion={leccion.data}
+        minutos={minutosDeLectura(leccion.data)}
+        fuente={art ? { titulo: art.titulo, href: `/repositorio/${art.categorias?.slug}/${art.slug}` } : null}
+      />
+    ) : (
+      <p className="text-muted">Esta lección no se puede mostrar.</p>
+    );
+    conProbalo = (preguntas ?? []).length > 0;
+    if (conProbalo)
+      probalo = (
+        <div className="rounded-3xl bg-card p-5 shadow-[var(--shadow-suave)]">
+          <Practica
+            origen={{ tipo: "leccion", id: itemId }}
+            preguntas={(preguntas ?? []) as unknown as Parameters<typeof Practica>[0]["preguntas"]}
+          />
+        </div>
+      );
+  } else if (item.tipo === "pagina" && item.contenido_md) {
     const ids = idsRecursoEnMarkdown(item.contenido_md);
     const urls: Record<string, string> = {};
     if (ids.length) {
@@ -140,7 +177,7 @@ export default async function PaginaLeccion({ params }: PageProps<"/estudiar/[cu
       <p className="text-sm text-muted">Completá lo anterior para practicar.</p>
     ) : (
       <Practica
-        examenId={item.examen_id}
+        origen={{ tipo: "examen", id: item.examen_id }}
         preguntas={(preguntas ?? []) as unknown as Parameters<typeof Practica>[0]["preguntas"]}
       />
     );
@@ -209,9 +246,10 @@ export default async function PaginaLeccion({ params }: PageProps<"/estudiar/[cu
       </p>
       <h1 className="text-2xl font-extrabold leading-tight">{item.titulo}</h1>
       <div className="rounded-3xl bg-card p-5 shadow-[var(--shadow-suave)]">{cuerpo}</div>
+      {probalo}
       <BarraSiguiente
         itemId={itemId}
-        requisito={item.tipo === "practica" ? "ninguno" : item.requisito}
+        requisito={item.tipo === "practica" || conProbalo ? "ninguno" : item.requisito}
         cumplido={fila.cumplido}
         siguienteHref={siguienteHref}
         color={color}

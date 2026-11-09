@@ -55,7 +55,14 @@ function Solucion({ p, s }: { p: PreguntaRender; s: Record<string, unknown> }) {
   return <p>{((s.opcion_ids as string[]) ?? []).map((id) => texto.get(id)).join(" · ")}</p>;
 }
 
-export function Practica({ examenId, preguntas }: { examenId: string; preguntas: PreguntaPractica[] }) {
+export function Practica({
+  origen,
+  preguntas,
+}: {
+  origen: { tipo: "examen" | "leccion"; id: string };
+  preguntas: PreguntaPractica[];
+}) {
+  const nombre = origen.tipo === "leccion" ? "Probalo" : "Práctica";
   const router = useRouter();
   const [actual, setActual] = useState(0);
   const [valores, setValores] = useState<Record<string, Valor>>({});
@@ -71,7 +78,7 @@ export function Practica({ examenId, preguntas }: { examenId: string; preguntas:
 
   const comprobar = () =>
     iniciar(async () => {
-      const r = await comprobarPractica(examenId, p.pregunta_id, valores[p.pregunta_id] ?? {});
+      const r = await comprobarPractica(origen, p.pregunta_id, valores[p.pregunta_id] ?? {});
       if (!r.ok) {
         setError(r.error);
         return;
@@ -91,9 +98,12 @@ export function Practica({ examenId, preguntas }: { examenId: string; preguntas:
   };
 
   return (
-    <section aria-label="Práctica" className="flex flex-col gap-4">
+    <section aria-label={nombre} className="flex flex-col gap-4">
       <div className="flex items-center justify-between gap-3">
         <span className="text-sm font-bold text-muted">
+          {origen.tipo === "leccion" && (
+            <span className="mr-2 text-base font-extrabold text-ink">Probalo</span>
+          )}
           {actual + 1} de {preguntas.length}
         </span>
         <span

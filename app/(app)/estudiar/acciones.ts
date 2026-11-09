@@ -52,26 +52,33 @@ export type ResultadoPractica =
   | { ok: true; es_correcta: boolean; explicacion_md: string; solucion: Record<string, unknown> }
   | { ok: false; error: string };
 
+const esquemaRespuesta = z.object({
+  opcion_ids: z.array(z.uuid()).max(20).nullish(),
+  orden: z.array(z.uuid()).max(20).nullish(),
+  texto: z.string().max(5000).nullish(),
+  valores: z.record(z.string(), z.string().max(500)).nullish(),
+});
+
+/** Comprueba una pregunta de práctica: la de un paso "práctica" (examen) o el Probalo de una lección. */
 export async function comprobarPractica(
-  examenId: string,
+  origen: { tipo: "examen" | "leccion"; id: string },
   preguntaId: string,
   respuesta: unknown,
 ): Promise<ResultadoPractica> {
   await requerirPerfil();
-  const ids = z.object({ e: z.uuid(), p: z.uuid() }).safeParse({ e: examenId, p: preguntaId });
-  const r = z
-    .object({
-      opcion_ids: z.array(z.uuid()).max(20).nullish(),
-      orden: z.array(z.uuid()).max(20).nullish(),
-      texto: z.string().max(5000).nullish(),
-      valores: z.record(z.string(), z.string().max(500)).nullish(),
-    })
-    .safeParse(respuesta);
-  if (!ids.success || !r.success) return { ok: false, error: "Revisá la respuesta." };
+  const ids = z.object({ o: z.uuid(), p: z.uuid() }).safeParse({ o: origen.id, p: preguntaId });
+  const r = esquemaRespuesta.safeParse(respuesta);
+  if (!ids.success || !r.success || (origen.tipo !== "examen" && origen.tipo !== "leccion"))
+    return { ok: false, error: "Revisá la respuesta." };
   const supabase = await crearClienteServidor();
-  const { data, error } = await supabase
-    .rpc("comprobar_practica", { p_examen: ids.data.e, p_pregunta: ids.data.p, p_respuesta: r.data })
-    .maybeSingle();
+  const { data, error } =
+    origen.tipo === "examen"
+      ? await supabase
+          .rpc("comprobar_practica", { p_examen: ids.data.o, p_pregunta: ids.data.p, p_respuesta: r.data })
+          .maybeSingle()
+      : await supabase
+          .rpc("comprobar_probalo", { p_item: ids.data.o, p_pregunta: ids.data.p, p_respuesta: r.data })
+          .maybeSingle();
   if (error || !data) return { ok: false, error: "No pudimos comprobar. Probá de nuevo." };
   revalidatePath("/estudiar", "layout");
   return {
