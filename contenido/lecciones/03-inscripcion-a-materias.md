@@ -22,7 +22,7 @@ fuente: "rg-5-2-inscripcion-a-materias"
 ## Ojo con
 
 - Los ingresantes no pueden anotarse a materias extra.
-- En Presencial y Distribuida el máximo es de 8 materias; cada extra se paga aparte.
+- En Presencial (P) y Presencial Distribuida (PD) el máximo es de 8 materias; cada extra se paga aparte.
 - Práctica Solidaria y Práctica Profesional: inscripción hasta el viernes previo al inicio de clases.
 
 ## Probalo

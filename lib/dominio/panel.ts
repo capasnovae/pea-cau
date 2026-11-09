@@ -1,4 +1,5 @@
 /** Panel de coordinación (spec §4.7): atrasos, tasa de acierto y exportación a CSV. */
+import { ROLES_EDITORES, type RolApp } from "./roles";
 
 export type FilaAsesor = {
   usuario_id: string;
@@ -58,7 +59,8 @@ export function rankingPreguntas<T extends FilaPregunta>(filas: T[], minimo = MI
     .sort((a, b) => a.aciertos / a.respuestas - b.aciertos / b.respuestas || b.respuestas - a.respuestas);
 }
 
-export function porCategoria(filas: FilaPregunta[]) {
+/** Tasa por categoría; con menos respuestas que el mínimo, sin tasa (va al final). */
+export function porCategoria(filas: FilaPregunta[], minimo = MINIMO_RESPUESTAS) {
   const m = new Map<string, { respuestas: number; aciertos: number }>();
   for (const f of filas) {
     const k = f.categoria ?? "Sin categoría";
@@ -66,8 +68,17 @@ export function porCategoria(filas: FilaPregunta[]) {
     m.set(k, { respuestas: a.respuestas + f.respuestas, aciertos: a.aciertos + f.aciertos });
   }
   return [...m]
-    .map(([categoria, v]) => ({ categoria, ...v, tasa: tasa(v.aciertos, v.respuestas) ?? 0 }))
-    .sort((a, b) => a.tasa - b.tasa);
+    .map(([categoria, v]) => ({
+      categoria,
+      ...v,
+      tasa: v.respuestas >= minimo ? tasa(v.aciertos, v.respuestas) : null,
+    }))
+    .sort((a, b) => (a.tasa ?? 101) - (b.tasa ?? 101));
+}
+
+/** Solo quien edita contenido puede abrir la pregunta desde el panel. */
+export function enlacePregunta(rol: RolApp, id: string): string | null {
+  return ROLES_EDITORES.includes(rol) ? `/contenido/preguntas/${id}` : null;
 }
 
 /** CSV para Excel en es-AR: BOM, ";" como separador, CRLF y celdas que no se ejecutan como fórmula. */

@@ -7,10 +7,10 @@ fuente: "rg-14-3-becas-y-beneficios"
 
 ## En 30 segundos
 
-- Una beca se otorga por buen nivel académico y regularidad; un beneficio, por una situación o cualidad del estudiante.
+- Una beca es un apoyo económico por buen nivel académico y regularidad (ver requisitos en la fuente); un beneficio, por una situación o cualidad del estudiante.
 - No son acumulables entre sí: si califica para más de una, se aplica la más provechosa.
-- Primer semestre: postulación del 1 de octubre del año anterior al 1 de enero.
-- Segundo semestre: postulación del 1 de abril al 1 de julio.
+- Becas del primer semestre: postulación del 1 de octubre del año anterior al 1 de enero.
+- Becas del segundo semestre: postulación del 1 de abril al 1 de julio.
 
 ## Así llega al CAU
 

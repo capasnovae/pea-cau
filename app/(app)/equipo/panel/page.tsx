@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Card } from "@/components/ui/card";
-import { motivosAtraso } from "@/lib/dominio/panel";
+import { enlacePregunta, motivosAtraso } from "@/lib/dominio/panel";
 import { ROLES_GESTION } from "@/lib/dominio/roles";
 import { cargarPanel } from "@/lib/panel/datos";
 import { requerirRol } from "@/lib/supabase/permisos";
@@ -32,7 +32,7 @@ function Dato({ etiqueta, valor, alerta }: { etiqueta: string; valor: string; al
 const vacio = (texto: string) => <p className="p-5 text-sm text-muted">{texto}</p>;
 
 export default async function PaginaPanel({ searchParams }: PageProps<"/equipo/panel">) {
-  await requerirRol([...ROLES_GESTION]);
+  const perfil = await requerirRol([...ROLES_GESTION]);
   const { atrasados } = await searchParams;
   const soloAtrasados = atrasados === "1";
   const d = await cargarPanel();
@@ -132,13 +132,25 @@ export default async function PaginaPanel({ searchParams }: PageProps<"/equipo/p
                     key={p.pregunta_id}
                     className="flex items-center gap-3 border-t border-border px-5 py-3 first:border-t-0"
                   >
-                    <Link href={`/contenido/preguntas/${p.pregunta_id}`} className="min-w-0 flex-1">
-                      <span className="line-clamp-2 text-sm font-semibold">{p.enunciado_md}</span>
-                      <span className="block text-xs text-muted">
-                        {p.categoria ?? "Sin categoría"} · {p.uso === "practica" ? "Práctica" : "Examen"} ·{" "}
-                        {p.respuestas} resp.
-                      </span>
-                    </Link>
+                    {(() => {
+                      const href = enlacePregunta(perfil.rol, p.pregunta_id);
+                      const contenido = (
+                        <>
+                          <span className="line-clamp-2 text-sm font-semibold">{p.enunciado_md}</span>
+                          <span className="block text-xs text-muted">
+                            {p.categoria ?? "Sin categoría"} · {p.uso === "practica" ? "Práctica" : "Examen"}{" "}
+                            · {p.respuestas} resp.
+                          </span>
+                        </>
+                      );
+                      return href ? (
+                        <Link href={href} className="min-w-0 flex-1">
+                          {contenido}
+                        </Link>
+                      ) : (
+                        <span className="min-w-0 flex-1">{contenido}</span>
+                      );
+                    })()}
                     <span className="shrink-0 text-lg font-extrabold">{p.tasa}%</span>
                   </li>
                 ))}
@@ -161,7 +173,9 @@ export default async function PaginaPanel({ searchParams }: PageProps<"/equipo/p
                     >
                       <span className="min-w-0 flex-1 font-semibold">{c.categoria}</span>
                       <span className="text-xs text-muted">{c.respuestas} resp.</span>
-                      <span className="w-12 text-right font-extrabold">{c.tasa}%</span>
+                      <span className="w-12 text-right font-extrabold">
+                        {c.tasa === null ? "—" : `${c.tasa}%`}
+                      </span>
                     </li>
                   ))}
                 </ul>

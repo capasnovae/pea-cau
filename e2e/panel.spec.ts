@@ -31,6 +31,8 @@ test("el coordinador ve a la asesora inactiva, filtra atrasados y descarga el CS
   expect(csv).toContain("Apellido;Nombre;Sede");
   expect(csv).toContain("Quieta;Sofía");
   expect((await c.request.get("/equipo/panel/csv/otra")).status()).toBe(404);
+  expect((await c.request.get("/equipo/panel/csv/constructor")).status()).toBe(404);
+  expect((await c.request.get("/equipo/panel/csv/toString")).status()).toBe(404);
 
   await c.goto("/equipo/consignas");
   await expect(c.locator('a[href="/equipo/panel"][aria-current="page"]').first()).toBeAttached();

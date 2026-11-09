@@ -9,7 +9,7 @@ fuente: "rg-14-4-normas-arancelarias"
 
 - La matrícula es semestral y debe estar paga y activa para rendir parciales, finales o la defensa del Seminario Final.
 - Los aranceles se pagan por paquete de materias según carrera y modalidad.
-- Las materias extra tienen arancel aparte (en grado, 1/6 del arancel A+B) y no les aplican becas.
+- Las materias extra tienen arancel aparte (en PH, ED y EDH de grado, 1/6 del arancel A+B) y no les aplican becas.
 - No se reintegra dinero por no completar el cursado por causas personales.
 
 ## Así llega al CAU

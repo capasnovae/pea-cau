@@ -1,6 +1,6 @@
 -- Lecciones: bloques con límites, Probalo con corrección inmediata y registro de cada comprobación
 begin;
-select plan(24);
+select plan(25);
 select tests.escenario();
 select tests.escenario_cursos();
 update public.cursos set estado = 'borrador' where tipo = 'nivel' and nivel_orden < 8;
@@ -58,13 +58,16 @@ select is((select es_correcta from public.comprobar_probalo('e3000000-0000-4000-
 select tests.como_postgres();
 select ok(public.item_cumplido('e3000000-0000-4000-8000-000000000031', tests.uid('ase1@t')), 'con todas acertadas se cumple');
 select tests.como(tests.uid('ase2@t'));
-select public.marcar_item('e3000000-0000-4000-8000-000000000031', 'hecho');
+select throws_ok($$select public.marcar_item('e3000000-0000-4000-8000-000000000031', 'hecho')$$, 'P0001', null, 'marcar hecho a mano se rechaza');
 select tests.como_postgres();
 select ok(not public.item_cumplido('e3000000-0000-4000-8000-000000000031', tests.uid('ase2@t')), 'con Probalo, marcar hecho a mano no alcanza');
 
 -- Sin preguntas publicadas: lo cumplido queda y vuelve a ser "marcar como hecho"
 update public.preguntas set estado = 'archivado' where item_id = 'e3000000-0000-4000-8000-000000000031';
 select ok(public.item_cumplido('e3000000-0000-4000-8000-000000000031', tests.uid('ase1@t')), 'quien completó el Probalo lo conserva');
+select tests.como(tests.uid('ase2@t'));
+select public.marcar_item('e3000000-0000-4000-8000-000000000031', 'hecho');
+select tests.como_postgres();
 select ok(public.item_cumplido('e3000000-0000-4000-8000-000000000031', tests.uid('ase2@t')), 'sin Probalo publicado vale marcar hecho');
 
 -- El editor guarda la pregunta de Probalo con su lección, y el Probalo no se mezcla con prácticas por categoría

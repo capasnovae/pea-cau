@@ -7,7 +7,7 @@ import { requerirPerfil } from "@/lib/supabase/permisos";
 export async function GET(_req: Request, { params }: { params: Promise<{ tabla: string }> }) {
   const perfil = await requerirPerfil();
   const { tabla } = await params;
-  if (!ROLES_GESTION.includes(perfil.rol) || !(tabla in COLUMNAS_CSV))
+  if (!ROLES_GESTION.includes(perfil.rol) || !Object.hasOwn(COLUMNAS_CSV, tabla))
     return new Response("No encontrado", { status: 404 });
   const d = await cargarPanel();
   const ahora = new Date();

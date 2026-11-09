@@ -9,7 +9,7 @@ fuente: "rg-3-2-cambios-de-modalidad"
 
 - Se pide en las fechas del calendario de trámites.
 - Requisitos: libre deuda, legajo completo, no estar inscripto a un final ni tener una nota pendiente de carga.
-- No se puede si ya hizo 2 pases entre presencial y distancia.
+- No tiene que haber hecho más de 2 pases entre presencial y distancia (PH/MP/PD a ED/EDH o al revés).
 - Aprobadas y regulares se conservan. Las que está cursando y las Libre por Nota quedan Libre por Pase: las recursa.
 - Las regulares se rinden con las reglas de la modalidad nueva.
 
@@ -17,7 +17,7 @@ fuente: "rg-3-2-cambios-de-modalidad"
 
 - "Me quiero pasar a distancia pero estoy anotado a un final el jueves." → Todavía no puede: no tiene que estar inscripto a una mesa ni tener una nota pendiente de carga.
 - "Tengo 3 materias cursando, ¿las pierdo?" → Esas quedan Libre por Pase y las recursa. Las regulares y las aprobadas se mantienen.
-- "Ya me cambié dos veces entre presencial y distancia." → No puede hacer otro pase entre esas modalidades.
+- "Ya me cambié tres veces entre presencial y distancia." → No puede hacer otro pase: el requisito es no haber hecho más de 2 pases entre esas modalidades.
 
 ## Ojo con
 

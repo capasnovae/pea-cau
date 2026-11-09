@@ -1,5 +1,13 @@
 import { describe, expect, it } from "vitest";
-import { aCsv, motivosAtraso, porCategoria, rankingPreguntas, tasa, type FilaAsesor } from "./panel";
+import {
+  aCsv,
+  enlacePregunta,
+  motivosAtraso,
+  porCategoria,
+  rankingPreguntas,
+  tasa,
+  type FilaAsesor,
+} from "./panel";
 
 const AHORA = new Date("2026-11-12T12:00:00Z");
 const fila = (c: Partial<FilaAsesor> = {}): FilaAsesor => ({
@@ -74,7 +82,7 @@ describe("rankingPreguntas", () => {
 });
 
 describe("porCategoria", () => {
-  it("suma por categoría y ordena de peor a mejor", () => {
+  it("suma por categoría, ordena de peor a mejor y sin tasa por debajo del mínimo", () => {
     expect(
       porCategoria([
         pregunta("a", 10, 9, "HubSpot"),
@@ -83,9 +91,9 @@ describe("porCategoria", () => {
         pregunta("d", 2, 0, null),
       ]),
     ).toEqual([
-      { categoria: "Sin categoría", respuestas: 2, aciertos: 0, tasa: 0 },
       { categoria: "Reglamento", respuestas: 20, aciertos: 8, tasa: 40 },
       { categoria: "HubSpot", respuestas: 10, aciertos: 9, tasa: 90 },
+      { categoria: "Sin categoría", respuestas: 2, aciertos: 0, tasa: null },
     ]);
   });
 });
@@ -107,5 +115,13 @@ describe("aCsv", () => {
   });
   it("los números negativos no se tocan", () => {
     expect(aCsv(columnas, [{ nombre: "x", n: -2 }])).toBe("﻿Nombre;N\r\nx;-2\r\n");
+  });
+});
+
+describe("enlacePregunta", () => {
+  it("solo quien edita contenido abre la pregunta", () => {
+    expect(enlacePregunta("coordinador", "p1")).toBe("/contenido/preguntas/p1");
+    expect(enlacePregunta("admin", "p1")).toBe("/contenido/preguntas/p1");
+    expect(enlacePregunta("lider", "p1")).toBeNull();
   });
 });
