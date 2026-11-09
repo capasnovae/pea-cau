@@ -7,7 +7,7 @@ fuente: "rg-3-2-cambios-de-modalidad"
 
 ## En 30 segundos
 
-- Se pide en las fechas del calendario de trámites.
+- Se pide en las fechas del calendario de trámites. En 2026, desde distancia, vence el 9/3 (1A), 11/5 (1B), 27/7 (2A) y 28/9 (2B).
 - Requisitos: libre deuda, legajo completo, no estar inscripto a un final ni tener una nota pendiente de carga.
 - No tiene que haber hecho más de 2 pases entre presencial y distancia (PH/MP/PD a ED/EDH o al revés).
 - Aprobadas y regulares se conservan. Las que está cursando y las Libre por Nota quedan Libre por Pase: las recursa.

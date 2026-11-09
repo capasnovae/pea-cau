@@ -16,6 +16,7 @@ fuente: "rg-14-3-becas-y-beneficios"
 
 - "Tengo beca y me corresponde también el beneficio por familiar, ¿se suman?" → No: becas y beneficios no son acumulables; se aplica el que más le convenga.
 - "¿Cuándo me postulo para el primer semestre?" → Del 1 de octubre del año anterior al 1 de enero; el resultado se confirma hasta el 1 de febrero.
+- "¿Hasta cuándo pido un beneficio para el subperíodo 1B?" → Según el calendario de trámites 2026, del 30/3 al 29/5. Las fechas cambian cada año.
 - "Entregué la solicitud incompleta." → Las solicitudes incompletas o con deficiencias se rechazan: tiene que cumplir todos los requisitos de la categoría.
 
 ## Ojo con
