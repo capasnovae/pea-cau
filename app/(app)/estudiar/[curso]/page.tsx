@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Markdown } from "@/components/markdown";
-import { colorNivel, ETIQUETA_REQUISITO, porcentaje, type RequisitoItem } from "@/lib/dominio/leccion";
+import { colorNivel, etiquetaRequisito, porcentaje, type RequisitoItem } from "@/lib/dominio/leccion";
 import { IconoItem } from "@/lib/repositorio/iconos";
 import { requerirPerfil } from "@/lib/supabase/permisos";
 import { crearClienteServidor } from "@/lib/supabase/servidor";
@@ -98,7 +98,7 @@ export default async function PaginaCurso({ params }: PageProps<"/estudiar/[curs
                         {it.titulo}
                       </span>
                       <span className="text-xs text-muted">
-                        {ETIQUETA_REQUISITO[it.requisito as RequisitoItem]}
+                        {etiquetaRequisito(it.requisito as RequisitoItem, it.con_probalo)}
                         {!it.disponible && !it.cumplido && " · completá lo anterior"}
                       </span>
                     </span>

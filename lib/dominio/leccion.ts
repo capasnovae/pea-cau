@@ -59,6 +59,11 @@ export const ETIQUETA_REQUISITO: Record<RequisitoItem, string> = {
   aprobar: "Aprobar examen",
 };
 
+/** En una lección con Probalo publicado, "hecho" significa acertar el Probalo. */
+export function etiquetaRequisito(requisito: RequisitoItem, conProbalo: boolean): string {
+  return conProbalo && requisito === "marcar_hecho" ? "Completar el Probalo" : ETIQUETA_REQUISITO[requisito];
+}
+
 export const COLOR_NIVEL: Record<number, { fondo: string; suave: string; texto: string }> = {
   1: { fondo: "#4f46e5", suave: "#eef2ff", texto: "#3730a3" },
   2: { fondo: "#0f766e", suave: "#f0fdfa", texto: "#115e59" },

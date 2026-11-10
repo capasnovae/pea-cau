@@ -1,13 +1,24 @@
 import { describe, expect, it } from "vitest";
-import { idsRecursoEnMarkdown, porcentaje, reemplazarRecursos, tipoCaja, urlEmbedVideo } from "./leccion";
+import {
+  etiquetaRequisito,
+  idsRecursoEnMarkdown,
+  porcentaje,
+  reemplazarRecursos,
+  tipoCaja,
+  urlEmbedVideo,
+} from "./leccion";
 
 const U1 = "0b1c2d3e-4f50-4a61-8b72-9c83d4e5f601";
 const U2 = "8a4f6a3e-0b8d-4f7e-9a51-1d2c3b4a5e6f";
 
 describe("urlEmbedVideo", () => {
   it("YouTube largo y corto", () => {
-    expect(urlEmbedVideo("https://www.youtube.com/watch?v=abc123XYZ_-")).toBe("https://www.youtube-nocookie.com/embed/abc123XYZ_-");
-    expect(urlEmbedVideo("https://youtu.be/abc123XYZ_-?t=10")).toBe("https://www.youtube-nocookie.com/embed/abc123XYZ_-");
+    expect(urlEmbedVideo("https://www.youtube.com/watch?v=abc123XYZ_-")).toBe(
+      "https://www.youtube-nocookie.com/embed/abc123XYZ_-",
+    );
+    expect(urlEmbedVideo("https://youtu.be/abc123XYZ_-?t=10")).toBe(
+      "https://www.youtube-nocookie.com/embed/abc123XYZ_-",
+    );
   });
   it("Vimeo", () => {
     expect(urlEmbedVideo("https://vimeo.com/123456789")).toBe("https://player.vimeo.com/video/123456789");
@@ -45,5 +56,15 @@ describe("porcentaje", () => {
     expect(porcentaje(1, 3)).toBe(33);
     expect(porcentaje(0, 0)).toBe(0);
     expect(porcentaje(3, 3)).toBe(100);
+  });
+});
+
+describe("etiquetaRequisito", () => {
+  it("una lección con Probalo se cumple completándolo", () => {
+    expect(etiquetaRequisito("marcar_hecho", true)).toBe("Completar el Probalo");
+  });
+  it("sin Probalo, la etiqueta de siempre", () => {
+    expect(etiquetaRequisito("marcar_hecho", false)).toBe("Marcar como hecho");
+    expect(etiquetaRequisito("ver", true)).toBe("Ver");
   });
 });

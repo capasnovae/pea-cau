@@ -2504,6 +2504,7 @@ export type Database = {
       estado_curso: {
         Args: { p_curso: string };
         Returns: {
+          con_probalo: boolean;
           cumplido: boolean;
           disponible: boolean;
           item_id: string;
@@ -2741,6 +2742,7 @@ export type Database = {
       };
       pozo_practica: { Args: { p_examen: string }; Returns: string[] };
       pozo_probalo: { Args: { p_item: string }; Returns: string[] };
+      pozo_probalo_de: { Args: { p_item: string; p_usuario: string }; Returns: string[] };
       practica_preguntas: {
         Args: { p_examen: string };
         Returns: {
