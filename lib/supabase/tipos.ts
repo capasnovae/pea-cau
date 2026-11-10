@@ -2756,6 +2756,7 @@ export type Database = {
       item_cumplido: { Args: { p_item: string; p_usuario: string }; Returns: boolean };
       item_disponible: { Args: { p_item: string; p_usuario: string }; Returns: boolean };
       item_disponible_para_mi: { Args: { p_item: string }; Returns: boolean };
+      job_diario: { Args: { p_ahora?: string }; Returns: Json };
       leccion_valida: { Args: { l: Json }; Returns: boolean };
       marcar_actualizacion_leida: { Args: { p_asignacion: string }; Returns: undefined };
       marcar_alertas_leidas: { Args: { p_ids?: string[] }; Returns: number };

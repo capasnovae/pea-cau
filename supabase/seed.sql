@@ -327,3 +327,22 @@ insert into public.opciones (id, pregunta_id, texto, es_correcta, orden) values
 insert into public.practica_intentos (usuario_id, pregunta_id, correcta, created_at)
 select id, 'd2000000-0000-4000-8000-000000000031', false, now() - interval '20 days'
 from public.perfiles where email = 'asesor3.nqn@pea.local';
+
+-- Etapa 9 · Recertificación y actualizaciones de ejemplo para Rocío (asesor.roca)
+insert into public.certificaciones (usuario_id, curso_id, origen, emitida_at, vence_at)
+select id, 'c4000000-0000-4000-8000-000000000001', 'examen', now() - interval '11 months', now() + interval '20 days'
+from public.perfiles where email = 'asesor.roca@pea.local';
+select public.procesar_recertificacion();
+insert into public.examenes (id, titulo, tipo, modulo_id, categoria_id, curso_id, cantidad_preguntas, nota_minima, max_intentos, espera_horas,
+                             tiempo_limite_min, mezclar, alcance, estado)
+values ('d1000000-0000-4000-8000-000000000007', 'Actualización: plataformas (ejemplo)', 'actualizacion', null,
+        (select id from public.categorias where slug = 'plataformas'), null, 4, 80, 3, 0, null, false, 'global', 'publicado');
+insert into public.actualizaciones (id, titulo, descripcion_md, articulo_id, examen_id, plazo_dias)
+values ('d5000000-0000-4000-8000-000000000001', 'Cambió el acceso al portal (ejemplo)', 'Ahora se entra con la cuenta institucional.',
+        (select id from public.articulos where slug = 'portal-de-estudiantes-ejemplo'), 'd1000000-0000-4000-8000-000000000007', 10);
+insert into public.actualizacion_asignaciones (id, actualizacion_id, usuario_id, vence_at)
+select 'd6000000-0000-4000-8000-000000000001', 'd5000000-0000-4000-8000-000000000001', id, now() + interval '10 days'
+from public.perfiles where email = 'asesor.roca@pea.local';
+select public.crear_alerta(id, 'actualizacion', 'Nueva actualización: Cambió el acceso al portal (ejemplo)', 'Tenés 10 días para completarla.',
+  '/actualizaciones/d6000000-0000-4000-8000-000000000001', 'actualizacion:d5000000-0000-4000-8000-000000000001')
+from public.perfiles where email = 'asesor.roca@pea.local';
