@@ -2720,6 +2720,7 @@ export type Database = {
           total_bloques: number;
         }[];
       };
+      examen_aprobado: { Args: { p_examen: string; p_usuario: string }; Returns: boolean };
       examen_ubicacion: { Args: Record<PropertyKey, never>; Returns: string };
       exigir_corrector: { Args: { p_intento: string; p_tomado: boolean }; Returns: undefined };
       exigir_participante: { Args: { p_conversacion: string }; Returns: undefined };
@@ -3028,6 +3029,7 @@ export type Database = {
       puede_leer_curso: { Args: { p_curso: string }; Returns: boolean };
       puede_leer_evidencia: { Args: { p_nombre: string }; Returns: boolean };
       puede_practicar: { Args: { p_examen: string }; Returns: boolean };
+      puede_recertificar: { Args: { p_curso: string; p_usuario: string }; Returns: boolean };
       puede_rendir: { Args: { p_examen: string }; Returns: boolean };
       puede_subir_evidencia: { Args: { p_nombre: string }; Returns: boolean };
       puede_ver_intento: { Args: { p_intento: string }; Returns: boolean };

@@ -7,8 +7,11 @@ select tests.escenario_examenes();
 update public.cursos set estado = 'borrador' where tipo = 'nivel' and nivel_orden < 8;
 
 -- Un paso que usa un artículo; ase1 lo cumplió, ase2 no
-create temp table art as select id from public.articulos where alcance = 'global' and estado = 'publicado' order by id limit 1;
-create temp table art2 as select id from public.articulos where alcance = 'global' and estado = 'publicado' order by id offset 1 limit 1;
+insert into public.articulos (id, categoria_id, slug, titulo, resumen, cuerpo_md, alcance, estado) values
+  ('a3000000-0000-4000-8000-000000000071', (select id from public.categorias where slug = 'reglamento'), 't-art-71', 'T-Art 71', 'r', 'c', 'global', 'publicado'),
+  ('a3000000-0000-4000-8000-000000000072', (select id from public.categorias where slug = 'reglamento'), 't-art-72', 'T-Art 72', 'r', 'c', 'global', 'publicado');
+create temp table art as select 'a3000000-0000-4000-8000-000000000071'::uuid as id;
+create temp table art2 as select 'a3000000-0000-4000-8000-000000000072'::uuid as id;
 grant select on art, art2 to authenticated;
 insert into public.modulos (id, curso_id, orden, titulo) values ('e2000000-0000-4000-8000-000000000071', 'e1000000-0000-4000-8000-000000000001', 3, 'MA');
 insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, requisito)
