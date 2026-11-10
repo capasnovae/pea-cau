@@ -31,7 +31,7 @@ select lives_ok($$update public.consigna_asignaciones set estado = 'hecha'
   'una vencida se puede cerrar igual');
 select tests.como_postgres();
 
-select ok(exists(select 1 from cron.job where jobname = 'procesar-consignas'), 'existe el job diario');
+select ok(exists(select 1 from cron.job where jobname = 'pea-diario'), 'existe el job diario (incluye consignas)');
 
 select * from finish();
 rollback;
