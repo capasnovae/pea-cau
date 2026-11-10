@@ -14,6 +14,7 @@ import { ETIQUETA_ROL } from "@/lib/dominio/roles";
 import { requerirPerfil } from "@/lib/supabase/permisos";
 import { crearClienteServidor } from "@/lib/supabase/servidor";
 import { cn } from "@/lib/utils/cn";
+import { AvisosEmail } from "./avisos-email";
 import { FormularioTelefono } from "./formulario-telefono";
 
 function Seccion({
@@ -53,7 +54,7 @@ export default async function PaginaPerfil() {
     supabase
       .from("perfiles")
       .select(
-        "sedes(nombre), equipos!perfiles_equipo_id_fkey(nombre), puestos(nombre), perfil_subroles(subroles(nombre))",
+        "avisos_email, sedes(nombre), equipos!perfiles_equipo_id_fkey(nombre), puestos(nombre), perfil_subroles(subroles(nombre))",
       )
       .eq("id", perfil.id)
       .maybeSingle(),
@@ -313,6 +314,9 @@ export default async function PaginaPerfil() {
             </Card>
             <Card>
               <FormularioTelefono telefono={perfil.telefono} />
+            </Card>
+            <Card>
+              <AvisosEmail inicial={datos?.avisos_email ?? false} />
             </Card>
           </Seccion>
         </div>

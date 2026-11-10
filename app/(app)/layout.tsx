@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { BarraLateral } from "@/components/nav/barra-lateral";
+import { Campana } from "@/components/nav/campana";
 import { MenuPrincipal } from "@/components/nav/menu-principal";
 import { PanelCuenta } from "@/components/nav/panel-cuenta";
 import { menuPorRol } from "@/lib/dominio/roles";
@@ -9,7 +10,10 @@ import { crearClienteServidor } from "@/lib/supabase/servidor";
 export default async function LayoutApp({ children }: LayoutProps<"/">) {
   const perfil = await requerirPerfil();
   const supabase = await crearClienteServidor();
-  const { data: sinLeer } = await supabase.rpc("mensajes_sin_leer");
+  const [{ data: sinLeer }, { data: avisos }] = await Promise.all([
+    supabase.rpc("mensajes_sin_leer"),
+    supabase.rpc("alertas_sin_leer"),
+  ]);
   const items = menuPorRol(perfil.rol);
   const cuenta = { nombre: perfil.nombre, apellido: perfil.apellido, rol: perfil.rol };
   return (
@@ -24,9 +28,17 @@ export default async function LayoutApp({ children }: LayoutProps<"/">) {
           <Link href="/inicio" className="text-xl font-extrabold text-primary">
             PEA
           </Link>
-          <PanelCuenta perfil={cuenta} variante="encabezado" />
+          <div className="flex items-center gap-1">
+            <Campana sinLeer={avisos ?? 0} />
+            <PanelCuenta perfil={cuenta} variante="encabezado" />
+          </div>
         </header>
-        <main className="mx-auto w-full max-w-6xl flex-1 px-4 pb-28 pt-2 md:px-10 md:py-7">{children}</main>
+        <div className="mx-auto hidden w-full max-w-6xl justify-end px-10 pt-4 md:flex">
+          <Campana sinLeer={avisos ?? 0} />
+        </div>
+        <main className="mx-auto w-full max-w-6xl flex-1 px-4 pb-28 pt-2 md:px-10 md:pb-7 md:pt-2">
+          {children}
+        </main>
       </div>
       <MenuPrincipal items={items} sinLeer={sinLeer ?? 0} />
     </div>

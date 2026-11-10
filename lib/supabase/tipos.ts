@@ -23,6 +23,54 @@ export type Database = {
   };
   public: {
     Tables: {
+      alertas: {
+        Row: {
+          clave: string;
+          created_at: string;
+          email_pendiente: boolean;
+          enlace: string | null;
+          id: string;
+          leida_at: string | null;
+          mensaje: string;
+          tipo: string;
+          titulo: string;
+          usuario_id: string;
+        };
+        ComputedFields: never;
+        Insert: {
+          clave: string;
+          created_at?: string;
+          email_pendiente?: boolean;
+          enlace?: string | null;
+          id?: string;
+          leida_at?: string | null;
+          mensaje: string;
+          tipo: string;
+          titulo: string;
+          usuario_id: string;
+        };
+        Update: {
+          clave?: string;
+          created_at?: string;
+          email_pendiente?: boolean;
+          enlace?: string | null;
+          id?: string;
+          leida_at?: string | null;
+          mensaje?: string;
+          tipo?: string;
+          titulo?: string;
+          usuario_id?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "alertas_usuario_id_fkey";
+            columns: ["usuario_id"];
+            isOneToOne: false;
+            referencedRelation: "perfiles";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
       areas_derivacion: {
         Row: {
           canal_contacto: string;
@@ -1689,6 +1737,7 @@ export type Database = {
           apellido: string;
           area: Database["public"]["Enums"]["area"] | null;
           avatar_path: string | null;
+          avisos_email: boolean;
           created_at: string;
           email: string;
           equipo_id: string | null;
@@ -1710,6 +1759,7 @@ export type Database = {
           apellido?: string;
           area?: Database["public"]["Enums"]["area"] | null;
           avatar_path?: string | null;
+          avisos_email?: boolean;
           created_at?: string;
           email: string;
           equipo_id?: string | null;
@@ -1730,6 +1780,7 @@ export type Database = {
           apellido?: string;
           area?: Database["public"]["Enums"]["area"] | null;
           avatar_path?: string | null;
+          avisos_email?: boolean;
           created_at?: string;
           email?: string;
           equipo_id?: string | null;
@@ -2402,6 +2453,7 @@ export type Database = {
       [_ in never]: never;
     };
     Functions: {
+      alertas_sin_leer: { Args: Record<PropertyKey, never>; Returns: number };
       aplicar_efectos: { Args: { p_intento: string }; Returns: undefined };
       archivar: { Args: { p_archivada: boolean; p_conversacion: string }; Returns: undefined };
       asignacion_de_ruta: { Args: { p_nombre: string }; Returns: string };
@@ -2484,6 +2536,17 @@ export type Database = {
       corregir_respuesta: {
         Args: { p_devolucion: string; p_puntaje: number; p_respuesta: string };
         Returns: undefined;
+      };
+      crear_alerta: {
+        Args: {
+          p_clave: string;
+          p_enlace: string;
+          p_mensaje: string;
+          p_tipo: string;
+          p_titulo: string;
+          p_usuario: string;
+        };
+        Returns: boolean;
       };
       curso_cumplido: { Args: { p_curso: string; p_usuario: string }; Returns: boolean };
       curso_de_modulo: { Args: { p_modulo: string }; Returns: string };
@@ -2570,6 +2633,7 @@ export type Database = {
       item_disponible: { Args: { p_item: string; p_usuario: string }; Returns: boolean };
       item_disponible_para_mi: { Args: { p_item: string }; Returns: boolean };
       leccion_valida: { Args: { l: Json }; Returns: boolean };
+      marcar_alertas_leidas: { Args: { p_ids?: string[] }; Returns: number };
       marcar_item: { Args: { p_accion: string; p_item: string }; Returns: Json };
       marcar_leida: { Args: { p_conversacion: string }; Returns: undefined };
       mensajes_de: {
@@ -2759,6 +2823,7 @@ export type Database = {
           tipo: Database["public"]["Enums"]["tipo_pregunta"];
         }[];
       };
+      preferir_avisos_email: { Args: { p_activar: boolean }; Returns: undefined };
       pregunta_en_uso: { Args: { p_pregunta: string }; Returns: boolean };
       preguntas_de_unidad: {
         Args: { p_sede: string; p_unidad: string };

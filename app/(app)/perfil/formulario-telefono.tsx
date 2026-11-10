@@ -17,8 +17,16 @@ export function FormularioTelefono({ telefono }: { telefono: string | null }) {
       <Button type="submit" variante="secundario" disabled={pendiente}>
         Guardar
       </Button>
-      {estado.error && <p role="alert" className="text-sm text-destructive">{estado.error}</p>}
-      {estado.ok && <p role="status" className="text-sm">Guardado.</p>}
+      {estado.error && (
+        <p role="alert" className="text-sm text-destructive">
+          {estado.error}
+        </p>
+      )}
+      {estado.ok && (
+        <p role="status" className="text-sm">
+          Guardado.
+        </p>
+      )}
     </form>
   );
 }
