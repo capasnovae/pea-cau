@@ -2552,6 +2552,7 @@ export type Database = {
       curso_de_modulo: { Args: { p_modulo: string }; Returns: string };
       curso_desbloqueado: { Args: { p_curso: string; p_usuario: string }; Returns: boolean };
       destinatarios_consigna: { Args: { p_consigna: string }; Returns: string[] };
+      enlace_recertificar: { Args: { p_curso: string }; Returns: string };
       entregar_intento: {
         Args: { p_intento: string };
         Returns: {
@@ -2865,6 +2866,7 @@ export type Database = {
         }[];
       };
       procesar_consignas: { Args: { p_hoy?: string }; Returns: Json };
+      procesar_recertificacion: { Args: { p_ahora?: string }; Returns: Json };
       promover_contenido: { Args: { p_id: string; p_tabla: string }; Returns: undefined };
       publicar_anuncio: { Args: { p_asunto: string; p_cuerpo: string; p_sede: string }; Returns: string };
       puede_corregir: { Args: { p_intento: string }; Returns: boolean };
@@ -2965,6 +2967,7 @@ export type Database = {
           titulo: string;
         }[];
       };
+      sincronizar_insignias_de: { Args: { p_motivo?: string; p_usuario: string }; Returns: undefined };
       soltar_correccion: { Args: { p_intento: string }; Returns: undefined };
       sortear_intento: { Args: { p_curso_bloque?: string; p_intento: string }; Returns: undefined };
       tomado_vigente: { Args: { p_corrector: string; p_tomado: string }; Returns: boolean };
