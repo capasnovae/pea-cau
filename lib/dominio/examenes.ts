@@ -22,7 +22,15 @@ export const ETIQUETA_TIPO_PREGUNTA: Record<TipoPregunta, string> = {
   formulario: "Formulario simulado",
 };
 
-export const TIPOS_EXAMEN = ["modulo", "categoria", "nivel", "integrador", "ubicacion", "practica"] as const;
+export const TIPOS_EXAMEN = [
+  "modulo",
+  "categoria",
+  "nivel",
+  "integrador",
+  "ubicacion",
+  "practica",
+  "actualizacion",
+] as const;
 export type TipoExamen = (typeof TIPOS_EXAMEN)[number];
 export const ETIQUETA_TIPO_EXAMEN: Record<TipoExamen, string> = {
   modulo: "Módulo",
@@ -31,6 +39,7 @@ export const ETIQUETA_TIPO_EXAMEN: Record<TipoExamen, string> = {
   integrador: "Integrador",
   ubicacion: "Ubicación",
   practica: "Práctica",
+  actualizacion: "Actualización",
 };
 
 export function notaFinal(puntajes: { puntaje: number; max: number }[]): number {
@@ -252,6 +261,8 @@ export const esquemaExamen = z
     if (e.tipo === "integrador" && e.fuentes.length === 0) error("Sumá al menos una fuente.");
     if (e.tipo === "practica" && !e.modulo_id && !e.categoria_id)
       error("Elegí el módulo o la categoría de la práctica.");
+    if (e.tipo === "actualizacion" && !e.modulo_id && !e.categoria_id)
+      error("Elegí el módulo o la categoría del mini examen.");
     if (e.fuentes.some((f) => [f.modulo_id, f.categoria_id, f.curso_id].filter(Boolean).length !== 1))
       error("Cada fuente es un módulo, una categoría o un nivel.");
     if (e.alcance === "sede" && !e.sede_id) error("Elegí la sede.");

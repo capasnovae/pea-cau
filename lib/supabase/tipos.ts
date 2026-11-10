@@ -23,6 +23,128 @@ export type Database = {
   };
   public: {
     Tables: {
+      actualizacion_asignaciones: {
+        Row: {
+          actualizacion_id: string;
+          aprobada_at: string | null;
+          estado: Database["public"]["Enums"]["estado_actualizacion"];
+          id: string;
+          leida_at: string | null;
+          usuario_id: string;
+          vence_at: string;
+        };
+        ComputedFields: never;
+        Insert: {
+          actualizacion_id: string;
+          aprobada_at?: string | null;
+          estado?: Database["public"]["Enums"]["estado_actualizacion"];
+          id?: string;
+          leida_at?: string | null;
+          usuario_id: string;
+          vence_at: string;
+        };
+        Update: {
+          actualizacion_id?: string;
+          aprobada_at?: string | null;
+          estado?: Database["public"]["Enums"]["estado_actualizacion"];
+          id?: string;
+          leida_at?: string | null;
+          usuario_id?: string;
+          vence_at?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "actualizacion_asignaciones_actualizacion_id_fkey";
+            columns: ["actualizacion_id"];
+            isOneToOne: false;
+            referencedRelation: "actualizaciones";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "actualizacion_asignaciones_usuario_id_fkey";
+            columns: ["usuario_id"];
+            isOneToOne: false;
+            referencedRelation: "perfiles";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
+      actualizaciones: {
+        Row: {
+          articulo_id: string | null;
+          articulo_version_id: string | null;
+          descripcion_md: string;
+          examen_id: string | null;
+          id: string;
+          modulo_id: string | null;
+          plazo_dias: number;
+          publicada_at: string;
+          publicada_por: string | null;
+          titulo: string;
+        };
+        ComputedFields: never;
+        Insert: {
+          articulo_id?: string | null;
+          articulo_version_id?: string | null;
+          descripcion_md?: string;
+          examen_id?: string | null;
+          id?: string;
+          modulo_id?: string | null;
+          plazo_dias: number;
+          publicada_at?: string;
+          publicada_por?: string | null;
+          titulo: string;
+        };
+        Update: {
+          articulo_id?: string | null;
+          articulo_version_id?: string | null;
+          descripcion_md?: string;
+          examen_id?: string | null;
+          id?: string;
+          modulo_id?: string | null;
+          plazo_dias?: number;
+          publicada_at?: string;
+          publicada_por?: string | null;
+          titulo?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "actualizaciones_articulo_id_fkey";
+            columns: ["articulo_id"];
+            isOneToOne: false;
+            referencedRelation: "articulos";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "actualizaciones_articulo_version_id_fkey";
+            columns: ["articulo_version_id"];
+            isOneToOne: false;
+            referencedRelation: "articulo_versiones";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "actualizaciones_examen_id_fkey";
+            columns: ["examen_id"];
+            isOneToOne: false;
+            referencedRelation: "examenes";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "actualizaciones_modulo_id_fkey";
+            columns: ["modulo_id"];
+            isOneToOne: false;
+            referencedRelation: "modulos";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "actualizaciones_publicada_por_fkey";
+            columns: ["publicada_por"];
+            isOneToOne: false;
+            referencedRelation: "perfiles";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
       alertas: {
         Row: {
           clave: string;
@@ -2551,6 +2673,7 @@ export type Database = {
       curso_cumplido: { Args: { p_curso: string; p_usuario: string }; Returns: boolean };
       curso_de_modulo: { Args: { p_modulo: string }; Returns: string };
       curso_desbloqueado: { Args: { p_curso: string; p_usuario: string }; Returns: boolean };
+      cursos_de_actualizacion: { Args: { p_actualizacion: string }; Returns: string[] };
       destinatarios_consigna: { Args: { p_consigna: string }; Returns: string[] };
       enlace_recertificar: { Args: { p_curso: string }; Returns: string };
       entregar_intento: {
@@ -2634,6 +2757,7 @@ export type Database = {
       item_disponible: { Args: { p_item: string; p_usuario: string }; Returns: boolean };
       item_disponible_para_mi: { Args: { p_item: string }; Returns: boolean };
       leccion_valida: { Args: { l: Json }; Returns: boolean };
+      marcar_actualizacion_leida: { Args: { p_asignacion: string }; Returns: undefined };
       marcar_alertas_leidas: { Args: { p_ids?: string[] }; Returns: number };
       marcar_item: { Args: { p_accion: string; p_item: string }; Returns: Json };
       marcar_leida: { Args: { p_conversacion: string }; Returns: undefined };
@@ -2868,6 +2992,7 @@ export type Database = {
       procesar_consignas: { Args: { p_hoy?: string }; Returns: Json };
       procesar_recertificacion: { Args: { p_ahora?: string }; Returns: Json };
       promover_contenido: { Args: { p_id: string; p_tabla: string }; Returns: undefined };
+      publicar_actualizacion: { Args: { p: Json }; Returns: string };
       publicar_anuncio: { Args: { p_asunto: string; p_cuerpo: string; p_sede: string }; Returns: string };
       puede_corregir: { Args: { p_intento: string }; Returns: boolean };
       puede_crear_consigna: {
@@ -2928,6 +3053,7 @@ export type Database = {
           texto_libre: string;
         }[];
       };
+      revisar_asignacion: { Args: { p_asignacion: string }; Returns: undefined };
       revision_intento: {
         Args: { p_intento: string };
         Returns: {
@@ -2988,6 +3114,7 @@ export type Database = {
       alcance: "global" | "sede";
       area: "servicio" | "ventas";
       destino_consigna: "usuario" | "equipo" | "subrol" | "sede";
+      estado_actualizacion: "pendiente" | "cumplida" | "vencida";
       estado_asignacion: "pendiente" | "en_curso" | "hecha" | "vencida";
       estado_certificacion: "vigente" | "vencida" | "revocada";
       estado_contenido: "borrador" | "publicado" | "archivado";
@@ -3001,7 +3128,8 @@ export type Database = {
       tipo_consigna: "tarea" | "lectura" | "capacitacion";
       tipo_curso: "nivel" | "capacitacion";
       tipo_evento: "capacitacion" | "evento";
-      tipo_examen: "modulo" | "categoria" | "nivel" | "integrador" | "ubicacion" | "practica";
+      tipo_examen:
+        "modulo" | "categoria" | "nivel" | "integrador" | "ubicacion" | "practica" | "actualizacion";
       tipo_item: "articulo" | "recurso" | "pagina" | "video" | "enlace" | "examen" | "practica" | "leccion";
       tipo_pregunta:
         | "opcion_multiple"
@@ -3130,6 +3258,7 @@ export const Constants = {
       alcance: ["global", "sede"],
       area: ["servicio", "ventas"],
       destino_consigna: ["usuario", "equipo", "subrol", "sede"],
+      estado_actualizacion: ["pendiente", "cumplida", "vencida"],
       estado_asignacion: ["pendiente", "en_curso", "hecha", "vencida"],
       estado_certificacion: ["vigente", "vencida", "revocada"],
       estado_contenido: ["borrador", "publicado", "archivado"],
@@ -3143,7 +3272,7 @@ export const Constants = {
       tipo_consigna: ["tarea", "lectura", "capacitacion"],
       tipo_curso: ["nivel", "capacitacion"],
       tipo_evento: ["capacitacion", "evento"],
-      tipo_examen: ["modulo", "categoria", "nivel", "integrador", "ubicacion", "practica"],
+      tipo_examen: ["modulo", "categoria", "nivel", "integrador", "ubicacion", "practica", "actualizacion"],
       tipo_item: ["articulo", "recurso", "pagina", "video", "enlace", "examen", "practica", "leccion"],
       tipo_pregunta: [
         "opcion_multiple",

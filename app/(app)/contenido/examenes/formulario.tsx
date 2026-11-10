@@ -92,10 +92,15 @@ export function FormularioExamen({
         </Campo>
       </div>
 
-      {(tipo === "modulo" || tipo === "practica") && (
-        <Campo id="ex-modulo" etiqueta={tipo === "practica" ? "Módulo (opcional)" : "Módulo"}>
+      {(tipo === "modulo" || tipo === "practica" || tipo === "actualizacion") && (
+        <Campo
+          id="ex-modulo"
+          etiqueta={tipo === "practica" || tipo === "actualizacion" ? "Módulo (opcional)" : "Módulo"}
+        >
           <Select id="ex-modulo" name="modulo_id" defaultValue={examen?.modulo_id ?? ""}>
-            <option value="">{tipo === "practica" ? "Ninguno" : "Elegí el módulo"}</option>
+            <option value="">
+              {tipo === "practica" || tipo === "actualizacion" ? "Ninguno" : "Elegí el módulo"}
+            </option>
             {modulos.map((m) => (
               <option key={m.id} value={m.id}>
                 {m.nombre}
@@ -104,10 +109,15 @@ export function FormularioExamen({
           </Select>
         </Campo>
       )}
-      {(tipo === "categoria" || tipo === "practica") && (
-        <Campo id="ex-categoria" etiqueta={tipo === "practica" ? "Categoría (opcional)" : "Categoría"}>
+      {(tipo === "categoria" || tipo === "practica" || tipo === "actualizacion") && (
+        <Campo
+          id="ex-categoria"
+          etiqueta={tipo === "practica" || tipo === "actualizacion" ? "Categoría (opcional)" : "Categoría"}
+        >
           <Select id="ex-categoria" name="categoria_id" defaultValue={examen?.categoria_id ?? ""}>
-            <option value="">{tipo === "practica" ? "Ninguna" : "Elegí la categoría"}</option>
+            <option value="">
+              {tipo === "practica" || tipo === "actualizacion" ? "Ninguna" : "Elegí la categoría"}
+            </option>
             {categorias.map((c) => (
               <option key={c.id} value={c.id}>
                 {c.nombre}

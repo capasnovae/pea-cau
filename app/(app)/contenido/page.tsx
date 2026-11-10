@@ -13,13 +13,16 @@ const TABS = [
   { id: "recursos", etiqueta: "Recursos" },
   { id: "campanas", etiqueta: "Campañas" },
   { id: "examenes", etiqueta: "Exámenes" },
+  { id: "actualizaciones", etiqueta: "Actualizaciones" },
 ] as const;
 
 export default async function PaginaContenido({ searchParams }: PageProps<"/contenido">) {
   const perfil = await requerirRol([...ROLES_EDITORES]);
   const sp = await searchParams;
   const tab =
-    TABS.find((t) => t.id === sp.tab && t.id !== "cursos" && t.id !== "examenes")?.id ?? "articulos";
+    TABS.find(
+      (t) => t.id === sp.tab && t.id !== "cursos" && t.id !== "examenes" && t.id !== "actualizaciones",
+    )?.id ?? "articulos";
   const supabase = await crearClienteServidor();
 
   // Filtramos en el servidor lo que el rol puede editar (lo global solo para el admin),
@@ -84,7 +87,7 @@ export default async function PaginaContenido({ searchParams }: PageProps<"/cont
         )}
       </div>
       <nav aria-label="Tipo de contenido" className="flex gap-1 rounded-lg border border-border bg-card p-1">
-        {TABS.map((t) => (
+        {TABS.filter((t) => t.id !== "actualizaciones" || perfil.rol === "admin").map((t) => (
           <Link
             key={t.id}
             href={
@@ -94,7 +97,9 @@ export default async function PaginaContenido({ searchParams }: PageProps<"/cont
                   ? "/contenido/cursos"
                   : t.id === "examenes"
                     ? "/contenido/examenes"
-                    : `/contenido?tab=${t.id}`
+                    : t.id === "actualizaciones"
+                      ? "/contenido/actualizaciones"
+                      : `/contenido?tab=${t.id}`
             }
             aria-current={tab === t.id ? "page" : undefined}
             className={cn(
