@@ -16,7 +16,14 @@ export default function PaginaDefinirClave() {
       <form action={accion} className="flex flex-col gap-4">
         <div className="flex flex-col gap-1.5">
           <Label htmlFor="password">Contraseña nueva</Label>
-          <Input id="password" name="password" type="password" autoComplete="new-password" minLength={10} required />
+          <Input
+            id="password"
+            name="password"
+            type="password"
+            autoComplete="new-password"
+            minLength={10}
+            required
+          />
         </div>
         <div className="flex flex-col gap-1.5">
           <Label htmlFor="confirmacion">Repetila</Label>

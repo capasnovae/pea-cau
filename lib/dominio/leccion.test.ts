@@ -71,9 +71,18 @@ describe("etiquetaRequisito", () => {
 });
 
 describe("colorNivel", () => {
-  it("una capacitación tiene color propio (no gris ni el de un nivel)", () => {
+  it("devuelve tokens de CSS, nunca un color escrito a mano", () => {
+    expect(colorNivel(2)).toEqual({
+      fondo: "var(--nivel-2)",
+      suave: "var(--nivel-2-soft)",
+      texto: "var(--nivel-2-fg)",
+    });
+    for (const n of [1, 2, 3, 4, null]) expect(Object.values(colorNivel(n)).join()).not.toMatch(/#/);
+  });
+  it("una capacitación tiene color propio (no el de un nivel)", () => {
     const c = colorNivel(null);
-    expect(c.fondo).toBe("#6d28d9");
+    expect(c.fondo).toBe("var(--nivel-cap)");
+    expect(colorNivel(9)).toEqual(c);
     expect([1, 2, 3, 4].map((n) => colorNivel(n).fondo)).not.toContain(c.fondo);
   });
 });

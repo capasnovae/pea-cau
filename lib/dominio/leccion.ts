@@ -64,16 +64,8 @@ export function etiquetaRequisito(requisito: RequisitoItem, conProbalo: boolean)
   return conProbalo && requisito === "marcar_hecho" ? "Completar el Probalo" : ETIQUETA_REQUISITO[requisito];
 }
 
-export const COLOR_NIVEL: Record<number, { fondo: string; suave: string; texto: string }> = {
-  1: { fondo: "#4f46e5", suave: "#eef2ff", texto: "#3730a3" },
-  2: { fondo: "#0f766e", suave: "#f0fdfa", texto: "#115e59" },
-  3: { fondo: "#c2410c", suave: "#fff7ed", texto: "#9a3412" },
-  4: { fondo: "#be185d", suave: "#fdf2f8", texto: "#9d174d" },
-};
-
-/** Las capacitaciones (sin nivel) tienen su propio color: ni gris ni el de un nivel. */
-const COLOR_CAPACITACION = { fondo: "#6d28d9", suave: "#f5f3ff", texto: "#5b21b6" };
-
+/** Los colores de nivel viven como tokens en app/globals.css; acá solo se nombran. */
 export function colorNivel(n: number | null | undefined) {
-  return COLOR_NIVEL[n ?? 0] ?? COLOR_CAPACITACION;
+  const t = n && n >= 1 && n <= 4 ? `--nivel-${n}` : "--nivel-cap";
+  return { fondo: `var(${t})`, suave: `var(${t}-soft)`, texto: `var(${t}-fg)` };
 }

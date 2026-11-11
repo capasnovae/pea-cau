@@ -26,7 +26,7 @@ export default async function PaginaExamenes({ searchParams }: PageProps<"/exame
 
   return (
     <div className="flex flex-col gap-5">
-      <h1 className="text-2xl font-extrabold md:text-[32px]">Exámenes</h1>
+      <h1 className="text-h1 md:text-[32px]">Exámenes</h1>
       {aviso && (
         <p role="alert" className="rounded-2xl bg-warning-soft p-4 font-semibold text-warning">
           {aviso}
@@ -36,10 +36,10 @@ export default async function PaginaExamenes({ searchParams }: PageProps<"/exame
       {ubicacion?.habilitada && !ubicacion.rendida && (
         <section
           aria-label="Examen de ubicación"
-          className="flex flex-wrap items-center gap-4 rounded-3xl bg-[#1e1b4b] p-5 text-white"
+          className="flex flex-wrap items-center gap-4 rounded-3xl bg-nav p-5 text-white"
         >
           <div className="min-w-0 flex-1">
-            <p className="text-xs font-bold uppercase text-[#a5b4fc]">Examen de ubicación</p>
+            <p className="text-xs font-bold uppercase text-nav-fg-muted">Examen de ubicación</p>
             <p className="text-xl font-extrabold">
               {ubicacion.intento_en_curso
                 ? "Seguí donde quedaste"
@@ -49,13 +49,13 @@ export default async function PaginaExamenes({ searchParams }: PageProps<"/exame
           {ubicacion.intento_en_curso ? (
             <Link
               href={`/examenes/intento/${ubicacion.intento_en_curso}`}
-              className="rounded-2xl bg-white px-5 py-3 font-extrabold text-[#1e1b4b]"
+              className="rounded-2xl bg-white px-5 py-3 font-extrabold text-nav"
             >
               Continuar
             </Link>
           ) : (
             <form action={empezarUbicacion}>
-              <button type="submit" className="rounded-2xl bg-white px-5 py-3 font-extrabold text-[#1e1b4b]">
+              <button type="submit" className="rounded-2xl bg-white px-5 py-3 font-extrabold text-nav">
                 Empezar
               </button>
             </form>

@@ -36,7 +36,7 @@ export function MenuPrincipal({
                 aria-current={activo ? "page" : undefined}
                 className={cn(
                   "flex flex-col items-center gap-0.5 px-1 py-2.5 text-[11px]",
-                  activo ? "font-bold text-white" : "text-[#b4b4c8]",
+                  activo ? "font-bold text-white" : "text-nav-fg-muted",
                 )}
               >
                 <IconoNav icono={i.icono} tamano={20} />
@@ -54,7 +54,7 @@ export function MenuPrincipal({
               <summary
                 className={cn(
                   "flex cursor-pointer list-none flex-col items-center gap-0.5 px-1 py-2.5 text-[11px] [&::-webkit-details-marker]:hidden",
-                  restoActivo ? "font-bold text-white" : "text-[#b4b4c8]",
+                  restoActivo ? "font-bold text-white" : "text-nav-fg-muted",
                 )}
               >
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">

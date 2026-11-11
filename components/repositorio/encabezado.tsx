@@ -10,7 +10,7 @@ export function EncabezadoRepositorio({ actual }: { actual: "articulos" | "recur
   return (
     <div className="flex flex-col gap-4">
       <div className="flex flex-wrap items-center justify-between gap-3">
-        <h1 className="text-2xl font-extrabold md:text-[32px]">Repositorio</h1>
+        <h1 className="text-h1 md:text-[32px]">Repositorio</h1>
         <form action="/buscar" role="search" className="w-full sm:w-72">
           <input
             type="search"

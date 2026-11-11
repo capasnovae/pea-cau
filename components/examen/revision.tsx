@@ -28,13 +28,13 @@ export type FilaRevision = Omit<PreguntaRender, "opciones"> & {
 };
 
 const OK = "border-success bg-success-soft";
-const MAL = "border-[#b91c1c] bg-[#fef2f2]";
+const MAL = "border-destructive bg-destructive-soft";
 
 function Marca({ ok }: { ok: boolean }) {
   return (
     <span
       aria-label={ok ? "Correcta" : "Incorrecta"}
-      className={cn("font-extrabold", ok ? "text-success" : "text-[#b91c1c]")}
+      className={cn("font-extrabold", ok ? "text-success" : "text-destructive")}
     >
       {ok ? "✓" : "✗"}
     </span>
@@ -152,10 +152,7 @@ export function Revision({ filas }: { filas: FilaRevision[] }) {
   return (
     <ol aria-label="Revisión" className="flex flex-col gap-4">
       {filas.map((p, i) => (
-        <li
-          key={p.pregunta_id}
-          className="flex flex-col gap-3 rounded-3xl bg-card p-5 shadow-[var(--shadow-suave)]"
-        >
+        <li key={p.pregunta_id} className="flex flex-col gap-3 rounded-3xl bg-card p-5 shadow-1">
           <div className="flex items-center justify-between gap-2">
             <span className="text-sm font-bold text-muted">Pregunta {i + 1}</span>
             <span className="flex items-center gap-2 text-sm font-bold">

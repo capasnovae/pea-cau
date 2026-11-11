@@ -39,7 +39,7 @@ export default async function PaginaActualizacion({ params }: PageProps<"/actual
         ← Actualizaciones
       </Link>
       <div className="flex flex-wrap items-center justify-between gap-3">
-        <h1 className="text-2xl font-extrabold">{act.titulo}</h1>
+        <h1 className="text-h1">{act.titulo}</h1>
         <EstadoChip estado={estado} />
       </div>
       <p className="text-sm text-muted">Vence el {formatearFecha(a.vence_at)}</p>

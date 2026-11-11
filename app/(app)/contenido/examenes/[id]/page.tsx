@@ -40,7 +40,7 @@ export default async function PaginaEditarExamen({
         ‹ Exámenes
       </Link>
       <div className="flex flex-wrap items-baseline justify-between gap-2">
-        <h1 className="text-2xl font-extrabold">{examen?.titulo ?? "Nuevo examen"}</h1>
+        <h1 className="text-h1">{examen?.titulo ?? "Nuevo examen"}</h1>
         {pozo !== null && (
           <span className="text-sm font-semibold text-muted">{pozo} preguntas disponibles</span>
         )}

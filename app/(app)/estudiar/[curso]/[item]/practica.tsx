@@ -125,7 +125,7 @@ export function Practica({
         onCambio={(v) => setValores((prev) => ({ ...prev, [p.pregunta_id]: v }))}
       />
       {error && (
-        <p role="alert" className="text-sm font-semibold text-[#b91c1c]">
+        <p role="alert" className="text-sm font-semibold text-destructive">
           {error}
         </p>
       )}
@@ -134,13 +134,15 @@ export function Practica({
           role="status"
           className={cn(
             "flex flex-col gap-2 rounded-2xl border-2 p-4",
-            resultado.es_correcta ? "border-success bg-success-soft" : "border-[#b91c1c] bg-[#fef2f2]",
+            resultado.es_correcta
+              ? "border-success bg-success-soft"
+              : "border-destructive bg-destructive-soft",
           )}
         >
           <p
             className={cn(
               "text-lg font-extrabold",
-              resultado.es_correcta ? "text-success" : "text-[#b91c1c]",
+              resultado.es_correcta ? "text-success" : "text-destructive",
             )}
           >
             {resultado.es_correcta ? "✓ ¡Bien!" : "✗ Todavía no"}

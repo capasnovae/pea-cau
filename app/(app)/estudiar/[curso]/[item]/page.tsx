@@ -47,7 +47,7 @@ export default async function PaginaLeccion({ params }: PageProps<"/estudiar/[cu
         <Link href={`/estudiar/${cursoId}`} className="text-sm font-semibold text-primary-strong">
           ← {curso.titulo}
         </Link>
-        <div className="rounded-3xl bg-card p-6 text-center shadow-[var(--shadow-suave)]">
+        <div className="rounded-3xl bg-card p-6 text-center shadow-1">
           <h1 className="text-xl font-extrabold">{item.titulo}</h1>
           <p className="mt-2 text-muted">
             Esta lección todavía está bloqueada. Completá lo anterior para seguir.
@@ -92,7 +92,7 @@ export default async function PaginaLeccion({ params }: PageProps<"/estudiar/[cu
     conProbalo = (preguntas ?? []).length > 0;
     if (conProbalo)
       probalo = (
-        <div className="rounded-3xl bg-card p-5 shadow-[var(--shadow-suave)]">
+        <div className="rounded-3xl bg-card p-5 shadow-1">
           <Practica
             origen={{ tipo: "leccion", id: itemId }}
             preguntas={(preguntas ?? []) as unknown as Parameters<typeof Practica>[0]["preguntas"]}
@@ -227,7 +227,7 @@ export default async function PaginaLeccion({ params }: PageProps<"/estudiar/[cu
         <Link
           href={`/estudiar/${cursoId}`}
           aria-label="Volver al curso"
-          className="flex size-11 items-center justify-center rounded-full bg-card text-xl shadow-[var(--shadow-suave)]"
+          className="flex size-11 items-center justify-center rounded-full bg-card text-xl shadow-1"
         >
           ×
         </Link>
@@ -241,7 +241,7 @@ export default async function PaginaLeccion({ params }: PageProps<"/estudiar/[cu
             <div
               key={f.item_id}
               className="h-2 rounded"
-              style={{ background: f.cumplido || i < posModulo ? color : "#e6e6ef" }}
+              style={{ background: f.cumplido || i < posModulo ? color : "var(--border)" }}
             />
           ))}
         </div>
@@ -249,8 +249,8 @@ export default async function PaginaLeccion({ params }: PageProps<"/estudiar/[cu
       <p className="text-sm font-semibold text-muted">
         {fila.modulo_titulo} · paso {posModulo + 1} de {delModulo.length}
       </p>
-      <h1 className="text-2xl font-extrabold leading-tight">{item.titulo}</h1>
-      <div className="rounded-3xl bg-card p-5 shadow-[var(--shadow-suave)]">{cuerpo}</div>
+      <h1 className="text-h1 leading-tight">{item.titulo}</h1>
+      <div className="rounded-3xl bg-card p-5 shadow-1">{cuerpo}</div>
       {probalo}
       <BarraSiguiente
         itemId={itemId}

@@ -86,7 +86,7 @@ function Reloj({ venceAt, onFin }: { venceAt: string; onFin: () => void }) {
       aria-label="Tiempo restante"
       className={cn(
         "rounded-full px-3 py-1.5 font-mono text-sm font-bold",
-        resta < 60 ? "bg-[#fef2f2] text-[#b91c1c]" : "bg-primary-soft text-primary-strong",
+        resta < 60 ? "bg-destructive-soft text-destructive" : "bg-primary-soft text-primary-strong",
       )}
     >
       {formatoDuracion(resta)}
@@ -209,7 +209,7 @@ export function Rendir({
         <div className="flex shrink-0 items-center gap-2">
           <span
             aria-live="polite"
-            className={cn("text-xs font-semibold", guardado === "error" ? "text-[#b91c1c]" : "text-muted")}
+            className={cn("text-xs font-semibold", guardado === "error" ? "text-destructive" : "text-muted")}
           >
             {guardado === "guardando" ? "Guardando…" : guardado === "error" ? "Sin guardar" : "Guardado"}
           </span>
@@ -239,7 +239,7 @@ export function Rendir({
               type="button"
               disabled={entregando}
               onClick={confirmarEntrega}
-              className="min-h-12 flex-1 rounded-2xl border-2 border-[#b91c1c] font-bold text-[#b91c1c] disabled:opacity-60"
+              className="min-h-12 flex-1 rounded-2xl border-2 border-destructive font-bold text-destructive disabled:opacity-60"
             >
               {entregando ? "Entregando…" : "Entregar y salir"}
             </button>
@@ -280,7 +280,7 @@ export function Rendir({
                 ? "bg-primary text-white"
                 : respondida(q, valores[q.pregunta_id])
                   ? "bg-primary-soft text-primary-strong"
-                  : "bg-card text-muted shadow-[var(--shadow-suave)]",
+                  : "bg-card text-muted shadow-1",
             )}
           >
             {i + 1}
@@ -289,16 +289,16 @@ export function Rendir({
       </nav>
 
       {error && (
-        <p role="alert" className="rounded-2xl bg-[#fef2f2] p-3 text-sm font-semibold text-[#b91c1c]">
+        <p
+          role="alert"
+          className="rounded-2xl bg-destructive-soft p-3 text-sm font-semibold text-destructive"
+        >
           {error}
         </p>
       )}
 
       {revisar ? (
-        <section
-          aria-label="Revisar"
-          className="flex flex-col gap-4 rounded-3xl bg-card p-5 shadow-[var(--shadow-suave)]"
-        >
+        <section aria-label="Revisar" className="flex flex-col gap-4 rounded-3xl bg-card p-5 shadow-1">
           <h2 className="text-xl font-extrabold">Revisar antes de entregar</h2>
           <ul className="grid gap-2 sm:grid-cols-2">
             {preguntas.map((q, i) => {
@@ -338,7 +338,7 @@ export function Rendir({
       ) : (
         <section
           aria-label={`Pregunta ${actual + 1} de ${preguntas.length}`}
-          className="flex flex-col gap-4 rounded-3xl bg-card p-5 shadow-[var(--shadow-suave)]"
+          className="flex flex-col gap-4 rounded-3xl bg-card p-5 shadow-1"
         >
           <p className="text-sm font-bold text-muted">
             Pregunta {actual + 1} de {preguntas.length}

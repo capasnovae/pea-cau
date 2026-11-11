@@ -30,7 +30,7 @@ export function PanelCuenta({
       <summary
         className={cn(
           "flex cursor-pointer list-none flex-col items-center gap-1 [&::-webkit-details-marker]:hidden",
-          variante === "lateral" ? "px-1 py-2.5 text-xs text-[#c7d2fe] hover:text-white" : "",
+          variante === "lateral" ? "px-1 py-2.5 text-xs text-nav-fg hover:text-white" : "",
         )}
       >
         <Avatar nombre={perfil.nombre} />

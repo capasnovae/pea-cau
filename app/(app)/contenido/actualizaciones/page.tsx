@@ -26,7 +26,7 @@ export default async function PaginaActualizacionesAdmin() {
   return (
     <div className="flex flex-col gap-5">
       <div className="flex items-baseline justify-between gap-3">
-        <h1 className="text-2xl font-extrabold">Actualizaciones</h1>
+        <h1 className="text-h1">Actualizaciones</h1>
         <Link href="/contenido" className="text-sm font-semibold text-primary-strong">
           ‹ Contenido
         </Link>

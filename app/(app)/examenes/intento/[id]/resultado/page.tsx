@@ -54,19 +54,19 @@ export default async function PaginaResultado({ params }: PageProps<"/examenes/i
         ‹ {examen?.titulo ?? "Exámenes"}
       </Link>
       {intento.estado === "pendiente_correccion" ? (
-        <section className="flex flex-col items-center gap-2 rounded-3xl bg-card p-8 text-center shadow-[var(--shadow-suave)]">
-          <h1 className="text-2xl font-extrabold">Pendiente de corrección</h1>
+        <section className="flex flex-col items-center gap-2 rounded-3xl bg-card p-8 text-center shadow-1">
+          <h1 className="text-h1">Pendiente de corrección</h1>
         </section>
       ) : (
         <section
           aria-label="Resultado"
           className={cn(
             "flex flex-col items-center gap-1 rounded-3xl p-8 text-center text-white",
-            intento.aprobado ? "bg-success" : "bg-[#b91c1c]",
+            intento.aprobado ? "bg-success" : "bg-destructive",
           )}
         >
           <p className="text-6xl font-extrabold">{intento.nota}%</p>
-          <h1 className="text-2xl font-extrabold">{intento.aprobado ? "Aprobado" : "No aprobado"}</h1>
+          <h1 className="text-h1">{intento.aprobado ? "Aprobado" : "No aprobado"}</h1>
           <p className="text-sm text-white/85">Para aprobar: {examen?.nota_minima}%</p>
         </section>
       )}
@@ -77,10 +77,7 @@ export default async function PaginaResultado({ params }: PageProps<"/examenes/i
       )}
       {ubicacion && !ubicacion.rendida && (
         <form action={empezarUbicacion}>
-          <button
-            type="submit"
-            className="min-h-12 w-full rounded-2xl bg-[#1e1b4b] font-extrabold text-white"
-          >
+          <button type="submit" className="min-h-12 w-full rounded-2xl bg-nav font-extrabold text-white">
             Seguir con el Nivel {ubicacion.bloque_actual}
           </button>
         </form>

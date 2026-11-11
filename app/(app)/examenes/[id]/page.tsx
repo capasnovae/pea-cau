@@ -58,7 +58,7 @@ export default async function PaginaExamen({ params, searchParams }: PageProps<"
             {ETIQUETA_TIPO_EXAMEN[e.tipo]}
             {e.curso_titulo ? ` · ${e.curso_titulo}` : ""}
           </p>
-          <h1 className="text-2xl font-extrabold md:text-[32px]">{e.titulo}</h1>
+          <h1 className="text-h1 md:text-[32px]">{e.titulo}</h1>
         </div>
         <span className={cn("rounded-full px-3 py-1.5 text-sm font-bold", COLOR_ESTADO[estado])}>
           {ETIQUETA_ESTADO_EXAMEN[estado]}
@@ -73,10 +73,10 @@ export default async function PaginaExamen({ params, searchParams }: PageProps<"
         {datos.map((d) => (
           <div
             key={d.etiqueta}
-            className="flex flex-col-reverse rounded-2xl bg-card p-4 text-center shadow-[var(--shadow-suave)]"
+            className="flex flex-col-reverse rounded-2xl bg-card p-4 text-center shadow-1"
           >
             <dt className="text-xs font-semibold text-muted">{d.etiqueta}</dt>
-            <dd className="text-2xl font-extrabold">{d.valor}</dd>
+            <dd className="text-h1">{d.valor}</dd>
           </div>
         ))}
       </dl>
@@ -125,7 +125,7 @@ export default async function PaginaExamen({ params, searchParams }: PageProps<"
                           i.aprobado
                             ? "text-success"
                             : i.estado === "cerrado"
-                              ? "text-[#b91c1c]"
+                              ? "text-destructive"
                               : "text-warning",
                         )}
                       >

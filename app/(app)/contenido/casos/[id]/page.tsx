@@ -29,7 +29,7 @@ export default async function PaginaCaso({ params }: PageProps<"/contenido/casos
       <Link href="/contenido/casos" className="text-sm font-semibold text-primary-strong">
         ‹ Casos
       </Link>
-      <h1 className="text-2xl font-extrabold">{caso.titulo}</h1>
+      <h1 className="text-h1">{caso.titulo}</h1>
       <Card>
         <FormularioCaso
           caso={caso}

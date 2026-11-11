@@ -54,3 +54,20 @@ test("las respuestas llevan cabeceras de seguridad", async ({ request }) => {
   expect(h["content-security-policy"]).toContain("frame-ancestors 'none'");
   expect(h["permissions-policy"]).toContain("camera=()");
 });
+
+test("la letra se sirve desde el propio sitio y el foco se ve", async ({ page }) => {
+  const afuera: string[] = [];
+  page.on("request", (r) => /fonts\.(googleapis|gstatic)\.com/.test(r.url()) && afuera.push(r.url()));
+  await page.goto("/ingresar");
+  await page.waitForLoadState("networkidle");
+  expect(afuera).toEqual([]);
+  expect(await page.evaluate(() => getComputedStyle(document.body).fontFamily)).toContain(
+    "Plus Jakarta Sans",
+  );
+  await page.keyboard.press("Tab");
+  const foco = await page.evaluate(() => {
+    const e = getComputedStyle(document.activeElement!);
+    return e.outlineStyle !== "none" || e.boxShadow !== "none";
+  });
+  expect(foco).toBe(true);
+});

@@ -19,7 +19,7 @@ export default async function PaginaAvisos() {
   return (
     <div className="flex flex-col gap-4">
       <div className="flex items-center justify-between gap-3">
-        <h1 className="text-2xl font-extrabold">Avisos</h1>
+        <h1 className="text-h1">Avisos</h1>
         <Link href="/actualizaciones" className="text-sm font-semibold text-primary-strong">
           Actualizaciones
         </Link>

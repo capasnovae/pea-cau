@@ -27,10 +27,7 @@ export function etiquetaTipo(c: Pick<FilaMiRuta, "tipo" | "nivel_orden">): strin
 
 /** Tarjeta de curso estilo Canvas: cabecera del color del nivel, porcentaje y título. */
 export function TarjetaCurso({ curso, favorito = false }: { curso: FilaMiRuta; favorito?: boolean }) {
-  const color =
-    curso.tipo === "nivel"
-      ? colorNivel(curso.nivel_orden)
-      : { fondo: "#be185d", suave: "#fdf2f8", texto: "#9d174d" };
+  const color = colorNivel(curso.tipo === "nivel" ? curso.nivel_orden : null);
   const pct = porcentaje(curso.items_cumplidos, curso.items_total);
   const cuerpo = (
     <>
@@ -51,7 +48,7 @@ export function TarjetaCurso({ curso, favorito = false }: { curso: FilaMiRuta; f
       </div>
     </>
   );
-  const clase = "block overflow-hidden rounded-[20px] bg-card shadow-[var(--shadow-suave)]";
+  const clase = "block overflow-hidden rounded-[20px] bg-card shadow-1";
   return curso.desbloqueado ? (
     <Link href={`/estudiar/${curso.curso_id}`} className={clase}>
       {cuerpo}

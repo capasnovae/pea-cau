@@ -18,7 +18,7 @@ export default async function PaginaNuevoMensaje({ searchParams }: PageProps<"/b
       <Link href="/bandeja" className="text-sm font-semibold text-primary-strong">
         ‹ Bandeja
       </Link>
-      <h1 className="text-2xl font-extrabold">{esAnuncio ? "Nuevo anuncio" : "Nuevo mensaje"}</h1>
+      <h1 className="text-h1">{esAnuncio ? "Nuevo anuncio" : "Nuevo mensaje"}</h1>
       <Card>
         {esAnuncio ? (
           <FormAnuncio rol={perfil.rol} sedeId={perfil.sede_id} />

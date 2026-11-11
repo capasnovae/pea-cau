@@ -24,7 +24,7 @@ function Dato({ etiqueta, valor, alerta }: { etiqueta: string; valor: string; al
   return (
     <Card className="flex flex-col gap-1">
       <span className="text-xs font-semibold text-muted">{etiqueta}</span>
-      <span className={cn("text-2xl font-extrabold", alerta && "text-warning")}>{valor}</span>
+      <span className={cn("text-h1", alerta && "text-warning")}>{valor}</span>
     </Card>
   );
 }
@@ -44,7 +44,7 @@ export default async function PaginaPanel({ searchParams }: PageProps<"/equipo/p
 
   return (
     <div className="flex flex-col gap-6">
-      <h1 className="text-2xl font-extrabold">Panel</h1>
+      <h1 className="text-h1">Panel</h1>
       <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
         <Dato etiqueta="Asesores" valor={String(d.asesores.length)} />
         <Dato etiqueta="Atrasados" valor={String(atrasadosN)} alerta={atrasadosN > 0} />

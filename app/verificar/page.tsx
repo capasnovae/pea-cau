@@ -9,11 +9,8 @@ async function buscar(formData: FormData) {
 
 export default function PaginaBuscarCertificado() {
   return (
-    <form
-      action={buscar}
-      className="flex flex-col gap-3 rounded-3xl bg-card p-6 shadow-[var(--shadow-suave)]"
-    >
-      <h1 className="text-2xl font-extrabold">Verificar un certificado</h1>
+    <form action={buscar} className="flex flex-col gap-3 rounded-3xl bg-card p-6 shadow-1">
+      <h1 className="text-h1">Verificar un certificado</h1>
       <label className="flex flex-col gap-1.5 text-sm font-semibold">
         Código
         <input

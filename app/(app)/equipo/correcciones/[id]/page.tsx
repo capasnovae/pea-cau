@@ -26,7 +26,7 @@ export default async function PaginaCorregir({ params }: PageProps<"/equipo/corr
         <p className="text-sm font-semibold text-muted">
           {intento?.perfiles ? `${intento.perfiles.nombre} ${intento.perfiles.apellido}` : ""}
         </p>
-        <h1 className="text-2xl font-extrabold">{intento?.examenes?.titulo ?? "Corrección"}</h1>
+        <h1 className="text-h1">{intento?.examenes?.titulo ?? "Corrección"}</h1>
       </div>
       <FormularioCorreccion
         intentoId={id}

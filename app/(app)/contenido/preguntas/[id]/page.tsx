@@ -52,7 +52,7 @@ export default async function PaginaPregunta({
       <Link href="/contenido/preguntas" className="text-sm font-semibold text-primary-strong">
         ‹ Preguntas
       </Link>
-      <h1 className="text-2xl font-extrabold">{nueva ? "Nueva pregunta" : "Editar pregunta"}</h1>
+      <h1 className="text-h1">{nueva ? "Nueva pregunta" : "Editar pregunta"}</h1>
       {creada && (
         <p role="status" className="text-sm font-semibold text-success">
           Pregunta creada.

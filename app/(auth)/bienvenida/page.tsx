@@ -12,10 +12,10 @@ export default function PaginaBienvenida() {
     <main className="flex min-h-dvh flex-1 flex-col md:flex-row">
       <section
         aria-label="PEA"
-        className="flex flex-col bg-[#1e1b4b] px-6 py-8 text-white md:w-[620px] md:px-14 md:py-14"
+        className="flex flex-col bg-nav px-6 py-8 text-white md:w-[620px] md:px-14 md:py-14"
       >
         <span className="text-3xl font-extrabold tracking-wide">PEA</span>
-        <span className="text-[13px] text-[#a5b4fc]">Perfil Evolutivo de Asesor</span>
+        <span className="text-[13px] text-nav-fg-muted">Perfil Evolutivo de Asesor</span>
         <h1 className="mt-8 text-3xl font-extrabold leading-tight md:mt-16 md:text-[44px]">
           Cada día sabés
           <br />

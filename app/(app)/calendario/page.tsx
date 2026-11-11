@@ -72,7 +72,7 @@ export default async function PaginaCalendario({ searchParams }: PageProps<"/cal
     <div className="flex flex-col gap-5 lg:flex-row">
       <section className="flex min-w-0 flex-1 flex-col gap-4">
         <div className="flex flex-wrap items-center gap-2">
-          <h1 className="mr-auto text-2xl font-extrabold md:text-[32px]">Calendario</h1>
+          <h1 className="mr-auto text-h1 md:text-[32px]">Calendario</h1>
           <Link href="/calendario" className={BOTON}>
             Hoy
           </Link>
@@ -96,7 +96,7 @@ export default async function PaginaCalendario({ searchParams }: PageProps<"/cal
         <div
           role="grid"
           aria-label={nombreMes(mes)}
-          className="hidden overflow-hidden rounded-[20px] bg-card shadow-[var(--shadow-suave)] md:block"
+          className="hidden overflow-hidden rounded-[20px] bg-card shadow-1 md:block"
         >
           <div role="row" className="grid grid-cols-7 border-b border-border">
             {DIAS_SEMANA.map((d) => (

@@ -19,7 +19,7 @@ export function Insignia({
       <span
         aria-hidden="true"
         className={cn(
-          "flex items-center justify-center rounded-full border-4 border-white font-extrabold text-white shadow-[var(--shadow-suave)]",
+          "flex items-center justify-center rounded-full border-4 border-white font-extrabold text-white shadow-1",
           tamano === "lg" ? "size-24 text-2xl" : "size-16 text-lg",
           perdida && "opacity-40 grayscale",
         )}

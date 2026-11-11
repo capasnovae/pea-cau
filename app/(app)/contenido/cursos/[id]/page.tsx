@@ -81,7 +81,7 @@ export default async function PaginaEditarCurso({
         <Link href="/contenido/cursos" className="text-sm font-semibold text-primary-strong">
           ← Cursos
         </Link>
-        <h1 className="mt-1 text-2xl font-extrabold">{curso.titulo}</h1>
+        <h1 className="mt-1 text-h1">{curso.titulo}</h1>
         {creado && (
           <p role="status" className="text-sm font-semibold text-success">
             Curso creado. Ahora sumale módulos y pasos.
@@ -135,7 +135,7 @@ export default async function PaginaEditarCurso({
               }}
             />
             {items.map((it) => (
-              <details key={it.id} className="rounded-2xl bg-card p-3 shadow-[var(--shadow-suave)]">
+              <details key={it.id} className="rounded-2xl bg-card p-3 shadow-1">
                 <summary className="cursor-pointer font-semibold">
                   {it.orden}. {it.titulo} <span className="text-xs font-normal text-muted">({it.tipo})</span>
                 </summary>

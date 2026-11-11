@@ -17,7 +17,7 @@ export default async function PaginaRepaso() {
   return (
     <div className="mx-auto flex w-full max-w-2xl flex-col gap-4">
       <div className="flex items-baseline justify-between gap-3">
-        <h1 className="text-2xl font-extrabold">Repaso de hoy</h1>
+        <h1 className="text-h1">Repaso de hoy</h1>
         {racha && (
           <span className="rounded-full bg-warning-soft px-3 py-1 text-sm font-bold text-warning">
             {racha}

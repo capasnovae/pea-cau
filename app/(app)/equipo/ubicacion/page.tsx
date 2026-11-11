@@ -27,7 +27,7 @@ export default async function PaginaUbicacion({ searchParams }: PageProps<"/equi
 
   return (
     <div className="flex flex-col gap-4">
-      <h1 className="text-2xl font-extrabold">Examen de ubicación</h1>
+      <h1 className="text-h1">Examen de ubicación</h1>
       {error && (
         <p role="alert" className="rounded-2xl bg-warning-soft p-3 font-semibold text-warning">
           {error === "rendida" ? "Ya rindió la ubicación." : "No podés habilitarlo."}

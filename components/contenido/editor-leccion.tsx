@@ -7,7 +7,7 @@ const L = LIMITES_LECCION;
 
 function Contador({ n, max }: { n: number; max: number }) {
   return (
-    <span className={n > max ? "text-[#b91c1c]" : "text-muted"}>
+    <span className={n > max ? "text-destructive" : "text-muted"}>
       {n}/{max}
     </span>
   );

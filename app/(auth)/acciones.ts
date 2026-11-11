@@ -14,7 +14,11 @@ export async function ingresar(_prev: EstadoForm, formData: FormData): Promise<E
   const supabase = await crearClienteServidor();
   const { data, error } = await supabase.auth.signInWithPassword({ email, password });
   if (error || !data.user) return { error: "El email o la contraseña no son correctos." };
-  const { data: perfil } = await supabase.from("perfiles").select("activo").eq("id", data.user.id).maybeSingle();
+  const { data: perfil } = await supabase
+    .from("perfiles")
+    .select("activo")
+    .eq("id", data.user.id)
+    .maybeSingle();
   if (!perfil?.activo) {
     await supabase.auth.signOut();
     return { error: "Tu usuario está desactivado. Hablá con tu coordinador." };
@@ -34,7 +38,8 @@ export async function pedirRecuperacion(_prev: EstadoForm, formData: FormData): 
 export async function definirClave(_prev: EstadoForm, formData: FormData): Promise<EstadoForm> {
   const clave = String(formData.get("password") ?? "");
   const confirmacion = String(formData.get("confirmacion") ?? "");
-  if (clave.length < MIN_CLAVE) return { error: `La contraseña tiene que tener al menos ${MIN_CLAVE} caracteres.` };
+  if (clave.length < MIN_CLAVE)
+    return { error: `La contraseña tiene que tener al menos ${MIN_CLAVE} caracteres.` };
   if (clave !== confirmacion) return { error: "Las contraseñas no coinciden." };
   const supabase = await crearClienteServidor();
   const { error } = await supabase.auth.updateUser({ password: clave });

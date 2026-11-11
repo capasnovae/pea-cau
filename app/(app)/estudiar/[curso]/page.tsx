@@ -49,9 +49,9 @@ export default async function PaginaCurso({ params }: PageProps<"/estudiar/[curs
         <span className="self-start rounded-full bg-white/20 px-3 py-1 text-xs font-bold">
           {curso.tipo === "nivel" ? `NIVEL ${curso.nivel_orden}` : "CAPACITACIÓN"}
         </span>
-        <h1 className="text-2xl font-extrabold leading-tight">{curso.titulo}</h1>
+        <h1 className="text-h1 leading-tight">{curso.titulo}</h1>
         <div className="h-2 rounded bg-white/25">
-          <div className="h-2 rounded bg-[#a5f3c4]" style={{ width: `${pct}%` }} />
+          <div className="h-2 rounded bg-white/80" style={{ width: `${pct}%` }} />
         </div>
         <p className="text-sm text-white/85">{pct}% completado</p>
       </div>
@@ -62,14 +62,14 @@ export default async function PaginaCurso({ params }: PageProps<"/estudiar/[curs
         </p>
       )}
       {curso.descripcion_md && (
-        <div className="rounded-2xl bg-card p-4 shadow-[var(--shadow-suave)]">
+        <div className="rounded-2xl bg-card p-4 shadow-1">
           <Markdown texto={curso.descripcion_md} />
         </div>
       )}
 
       <ol className="flex flex-col gap-4" aria-label="Módulos">
         {[...modulos.entries()].map(([id, m], idx) => (
-          <li key={id} className="rounded-3xl bg-card p-4 shadow-[var(--shadow-suave)]">
+          <li key={id} className="rounded-3xl bg-card p-4 shadow-1">
             <div className="mb-2 flex items-center justify-between gap-2">
               <h2 className="font-extrabold">
                 <span className="mr-2 text-muted">{idx + 1}.</span>
@@ -87,7 +87,7 @@ export default async function PaginaCurso({ params }: PageProps<"/estudiar/[curs
                   <>
                     <span
                       aria-hidden="true"
-                      className={`flex size-10 shrink-0 items-center justify-center rounded-xl ${it.cumplido ? "bg-success-soft text-success" : it.disponible ? "bg-primary-soft text-primary-strong" : "bg-[#f1f1f6] text-muted"}`}
+                      className={`flex size-10 shrink-0 items-center justify-center rounded-xl ${it.cumplido ? "bg-success-soft text-success" : it.disponible ? "bg-primary-soft text-primary-strong" : "bg-surface-2 text-muted"}`}
                     >
                       {it.cumplido ? "✓" : <IconoItem tipo={it.tipo} />}
                     </span>

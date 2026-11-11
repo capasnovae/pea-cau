@@ -110,7 +110,7 @@ export default async function PaginaPerfil() {
       <div className="flex flex-wrap items-center gap-4">
         <Avatar nombre={perfil.nombre} className="size-16 text-2xl" />
         <div className="min-w-0 flex-1">
-          <h1 className="text-2xl font-extrabold md:text-[32px]">
+          <h1 className="text-h1 md:text-[32px]">
             {perfil.nombre} {perfil.apellido}
           </h1>
           <p className="text-sm text-muted">
@@ -135,7 +135,7 @@ export default async function PaginaPerfil() {
             <Card className="flex flex-col gap-2">
               <div className="flex items-baseline justify-between">
                 <span className="font-bold">Cursos obligatorios</span>
-                <span className="text-2xl font-extrabold">{pct}%</span>
+                <span className="text-h1">{pct}%</span>
               </div>
               <div
                 className="h-2.5 overflow-hidden rounded-full bg-background"
@@ -259,7 +259,7 @@ export default async function PaginaPerfil() {
                               ? "bg-warning-soft text-warning"
                               : i.aprobado
                                 ? "bg-success-soft text-success"
-                                : "bg-[#fef2f2] text-[#b91c1c]",
+                                : "bg-destructive-soft text-destructive",
                           )}
                         >
                           {i.estado !== "cerrado" ? "Pendiente" : `${i.nota}%`}

@@ -50,7 +50,7 @@ export default async function PaginaInicio({ searchParams }: PageProps<"/inicio"
     <div className="flex flex-col gap-5">
       <div className="flex items-center gap-3">
         <Avatar nombre={perfil.nombre} className="size-11 text-lg" />
-        <p className="text-2xl font-extrabold md:text-[32px]">¡Hola, {perfil.nombre}!</p>
+        <p className="text-h1 md:text-[32px]">¡Hola, {perfil.nombre}!</p>
       </div>
       <Pestanas opciones={PESTANAS} actual={actualVista} />
       {actualVista === "cursos" ? (
@@ -108,7 +108,7 @@ async function VistaTablero({ cursos, usuarioId }: { cursos: FilaMiRuta[]; usuar
   const otros = enCurso.filter((c) => c.curso_id !== actual?.curso_id);
   const contadores = [
     { etiqueta: "Por vencer", valor: trabajo?.por_vencer ?? 0, color: "text-warning" },
-    { etiqueta: "Vencidas", valor: trabajo?.vencidas ?? 0, color: "text-[#b91c1c]" },
+    { etiqueta: "Vencidas", valor: trabajo?.vencidas ?? 0, color: "text-destructive" },
     { etiqueta: "Hechas", valor: trabajo?.hechas ?? 0, color: "text-success" },
   ];
 
@@ -119,7 +119,7 @@ async function VistaTablero({ cursos, usuarioId }: { cursos: FilaMiRuta[]; usuar
           <Link
             href="/repaso"
             aria-label="Repaso de hoy"
-            className="flex items-center justify-between gap-3 rounded-3xl bg-primary p-5 text-white shadow-[var(--shadow-suave)]"
+            className="flex items-center justify-between gap-3 rounded-3xl bg-primary p-5 text-white shadow-1"
           >
             <span>
               <span className="block text-lg font-extrabold">Repaso de hoy</span>
@@ -128,7 +128,7 @@ async function VistaTablero({ cursos, usuarioId }: { cursos: FilaMiRuta[]; usuar
                 {repaso?.racha ? ` · ${textoRacha(repaso.racha)}` : ""}
               </span>
             </span>
-            <span aria-hidden className="text-2xl font-extrabold">
+            <span aria-hidden className="text-h1">
               →
             </span>
           </Link>
@@ -284,9 +284,9 @@ function ProgresoActual({ curso }: { curso: FilaMiRuta }) {
         </span>
         <span className="text-3xl font-extrabold">{pct}%</span>
       </div>
-      <h3 className="text-2xl font-extrabold leading-tight">{curso.titulo}</h3>
+      <h3 className="text-h1 leading-tight">{curso.titulo}</h3>
       <div className="h-2 overflow-hidden rounded bg-white/30" aria-hidden="true">
-        <div className="h-full rounded bg-[#a5f3c4]" style={{ width: `${pct}%` }} />
+        <div className="h-full rounded bg-white/80" style={{ width: `${pct}%` }} />
       </div>
       <Link
         href={

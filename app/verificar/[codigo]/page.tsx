@@ -18,8 +18,8 @@ export default async function PaginaVerificar({ params }: PageProps<"/verificar/
 
   if (!data) {
     return (
-      <section className="flex flex-col items-center gap-3 rounded-3xl bg-card p-8 text-center shadow-[var(--shadow-suave)]">
-        <h1 className="text-2xl font-extrabold">Código no encontrado</h1>
+      <section className="flex flex-col items-center gap-3 rounded-3xl bg-card p-8 text-center shadow-1">
+        <h1 className="text-h1">Código no encontrado</h1>
         <p className="font-mono text-muted">{limpio}</p>
         <Link href="/verificar" className="font-bold text-primary-strong">
           Probar otro código
@@ -31,7 +31,7 @@ export default async function PaginaVerificar({ params }: PageProps<"/verificar/
   return (
     <section
       aria-label="Certificado"
-      className="flex flex-col items-center gap-3 rounded-3xl bg-card p-8 text-center shadow-[var(--shadow-suave)]"
+      className="flex flex-col items-center gap-3 rounded-3xl bg-card p-8 text-center shadow-1"
     >
       <span className={cn("rounded-full px-4 py-1.5 text-lg font-extrabold", COLOR_ESTADO_CERT[estado])}>
         {ETIQUETA_ESTADO_CERT[estado]}

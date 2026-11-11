@@ -78,7 +78,7 @@ export default async function PaginaConversacion({ params, searchParams }: PageP
             <p
               className={cn(
                 "whitespace-pre-wrap rounded-2xl px-4 py-2.5 text-[15px]",
-                m.propio ? "bg-primary-soft" : "bg-card shadow-[var(--shadow-suave)]",
+                m.propio ? "bg-primary-soft" : "bg-card shadow-1",
               )}
             >
               {m.cuerpo}

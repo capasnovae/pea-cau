@@ -18,7 +18,7 @@ export function BotonFavorito({ cursoId, inicial }: { cursoId: string; inicial: 
           if (r.ok) setFavorito(r.favorito);
         })
       }
-      className={`flex size-11 items-center justify-center rounded-xl text-xl hover:bg-primary-soft ${favorito ? "text-[#f59e0b]" : "text-[#c4c4d4]"}`}
+      className={`flex size-11 items-center justify-center rounded-xl text-xl hover:bg-primary-soft ${favorito ? "text-gold" : "text-border-control"}`}
     >
       {favorito ? "★" : "☆"}
     </button>

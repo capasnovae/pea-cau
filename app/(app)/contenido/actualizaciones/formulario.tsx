@@ -73,7 +73,7 @@ export function FormularioActualizacion({
       {r && (
         <p
           role={r.ok ? "status" : "alert"}
-          className={r.ok ? "text-sm font-semibold text-success" : "text-sm font-semibold text-[#b91c1c]"}
+          className={r.ok ? "text-sm font-semibold text-success" : "text-sm font-semibold text-destructive"}
         >
           {r.ok
             ? `Publicada. Asignada a ${r.asignadas} ${r.asignadas === 1 ? "persona" : "personas"}.`

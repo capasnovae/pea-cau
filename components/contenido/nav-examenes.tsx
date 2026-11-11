@@ -12,7 +12,7 @@ export function NavExamenes({ actual }: { actual: (typeof SECCIONES)[number]["id
   return (
     <div className="flex flex-col gap-3">
       <div className="flex items-baseline justify-between gap-3">
-        <h1 className="text-2xl font-extrabold">Exámenes y prácticas</h1>
+        <h1 className="text-h1">Exámenes y prácticas</h1>
         <Link href="/contenido" className="text-sm font-semibold text-primary-strong">
           ‹ Contenido
         </Link>
