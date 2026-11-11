@@ -1,5 +1,6 @@
 "use client";
 
+import { Icono } from "@/components/ui/icono";
 import { useState } from "react";
 import { Markdown } from "@/components/markdown";
 import { cn } from "@/lib/utils/cn";
@@ -258,18 +259,18 @@ function Ordenar({
               disabled={deshabilitado || i === 0}
               onClick={() => mover(i, -1)}
               aria-label={`Subir ${texto.get(id)}`}
-              className="size-11 rounded-xl text-lg hover:bg-primary-soft disabled:opacity-30"
+              className="flex size-11 items-center justify-center rounded-campo transition-colors hover:bg-primary-soft disabled:opacity-30"
             >
-              ↑
+              <Icono nombre="flecha-arriba" />
             </button>
             <button
               type="button"
               disabled={deshabilitado || i === orden.length - 1}
               onClick={() => mover(i, 1)}
               aria-label={`Bajar ${texto.get(id)}`}
-              className="size-11 rounded-xl text-lg hover:bg-primary-soft disabled:opacity-30"
+              className="flex size-11 items-center justify-center rounded-campo transition-colors hover:bg-primary-soft disabled:opacity-30"
             >
-              ↓
+              <Icono nombre="flecha-abajo" />
             </button>
           </li>
         ))}

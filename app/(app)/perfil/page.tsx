@@ -160,21 +160,24 @@ export default async function PaginaPerfil() {
 
           <Seccion titulo="Insignias" id="insignias">
             <Card>
-              {listaInsignias.length === 0 ? (
-                <p className="text-sm text-muted">Sin insignias todavía.</p>
-              ) : (
-                <ul aria-label="Insignias" className="grid grid-cols-3 gap-4 sm:grid-cols-4">
-                  {listaInsignias.map((i) => (
-                    <li key={i.id}>
-                      <Insignia
-                        nivel={i.insignias?.cursos?.nivel_orden ?? 0}
-                        nombre={i.insignias?.nombre ?? ""}
-                        perdida={Boolean(i.perdida_at)}
-                      />
+              <ul aria-label="Insignias" className="grid grid-cols-4 gap-3">
+                {listaInsignias.map((i) => (
+                  <li key={i.id}>
+                    <Insignia
+                      nivel={i.insignias?.cursos?.nivel_orden ?? 0}
+                      nombre={i.insignias?.nombre ?? ""}
+                      perdida={Boolean(i.perdida_at)}
+                    />
+                  </li>
+                ))}
+                {[1, 2, 3, 4]
+                  .filter((n) => !listaInsignias.some((i) => i.insignias?.cursos?.nivel_orden === n))
+                  .map((n) => (
+                    <li key={n}>
+                      <Insignia nivel={n} nombre={`Nivel ${n}`} bloqueada />
                     </li>
                   ))}
-                </ul>
-              )}
+              </ul>
             </Card>
           </Seccion>
 
@@ -189,9 +192,9 @@ export default async function PaginaPerfil() {
                     return (
                       <li
                         key={c.id}
-                        className="flex flex-wrap items-center gap-3 border-t border-border px-5 py-3.5 first:border-t-0"
+                        className="flex flex-wrap items-center gap-x-3 gap-y-2 border-t border-border px-5 py-3.5 first:border-t-0"
                       >
-                        <span className="min-w-0 flex-1">
+                        <span className="min-w-0 basis-full sm:flex-1 sm:basis-0">
                           <span className="block font-bold">
                             Nivel {c.cursos?.nivel_orden} · {c.cursos?.titulo}
                           </span>
@@ -213,15 +216,16 @@ export default async function PaginaPerfil() {
                         {c.origen === "examen" && estado !== "revocada" && (
                           <a
                             href={`/certificados/${c.id}/pdf`}
-                            className="rounded-xl bg-primary px-3 py-2 text-sm font-bold text-white"
+                            className="ml-auto inline-flex min-h-11 items-center gap-1.5 rounded-boton bg-primary px-3 text-sm font-bold text-primary-foreground transition hover:bg-primary-strong active:scale-[0.97]"
                           >
+                            <Icono nombre="descargar" tamano={16} />
                             PDF
                           </a>
                         )}
                         <Link
                           href={`/verificar/${c.codigo_verificacion}`}
                           target="_blank"
-                          className="text-sm font-bold text-primary-strong"
+                          className="inline-flex min-h-11 items-center text-sm font-bold text-primary-strong"
                         >
                           Verificar
                         </Link>

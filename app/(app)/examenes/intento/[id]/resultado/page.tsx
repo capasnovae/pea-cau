@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { Insignia } from "@/components/perfil/insignia";
 import { Confeti } from "@/components/ui/confeti";
 import { Conteo } from "@/components/ui/conteo";
 import { Icono } from "@/components/ui/icono";
@@ -17,7 +18,9 @@ export default async function PaginaResultado({ params }: PageProps<"/examenes/i
   const supabase = await crearClienteServidor();
   const { data: intento } = await supabase
     .from("intentos")
-    .select("id, estado, nota, aprobado, usuario_id, examen_id, salidas, examenes(titulo, nota_minima, tipo)")
+    .select(
+      "id, estado, nota, aprobado, usuario_id, examen_id, salidas, examenes(titulo, nota_minima, tipo, cursos(nivel_orden, titulo))",
+    )
     .eq("id", id)
     .maybeSingle();
   if (!intento || intento.estado === "en_curso") notFound();
@@ -87,6 +90,16 @@ export default async function PaginaResultado({ params }: PageProps<"/examenes/i
             {intento.aprobado ? "Aprobado" : "No aprobado"}
           </h1>
           <p className="text-sm text-muted">Para aprobar: {examen?.nota_minima}%</p>
+          {intento.aprobado && propio && examen?.tipo === "nivel" && examen.cursos?.nivel_orden && (
+            <Link href="/perfil#insignias" aria-label="Ver mis insignias" className="mt-3">
+              <Insignia
+                nivel={examen.cursos.nivel_orden}
+                nombre={examen.cursos.titulo ?? ""}
+                tamano="lg"
+                entrada
+              />
+            </Link>
+          )}
         </section>
       )}
       {intento.salidas > 0 && (

@@ -53,6 +53,21 @@ const TRAZOS = {
       <path d="M16 16l4.5 4.5" />
     </>
   ),
+  campana: <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9M10.3 21a1.94 1.94 0 0 0 3.4 0" />,
+  calendario: (
+    <>
+      <rect x="4" y="5" width="16" height="15" rx="2" />
+      <path d="M4 10h16M9 3v4M15 3v4" />
+    </>
+  ),
+  medalla: (
+    <>
+      <circle cx="12" cy="14" r="6" />
+      <path d="M8.5 9L6 3h4l2 4 2-4h4l-2.5 6" />
+    </>
+  ),
+  "flecha-arriba": <path d="M12 19V5M6 11l6-6 6 6" />,
+  "flecha-abajo": <path d="M12 5v14M6 13l6 6 6-6" />,
   mensaje: <path d="M4 5h16v11H9l-5 4z" />,
   repetir: (
     <>

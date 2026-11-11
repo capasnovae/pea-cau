@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { ItemMenu } from "@/lib/dominio/roles";
 import { cn } from "@/lib/utils/cn";
+import { Logo } from "@/components/marca/logo";
 import { IconoNav } from "./iconos";
 import { useIndicador } from "./indicador";
 
@@ -42,8 +43,8 @@ export function BarraLateral({
       aria-label="Principal"
       className="sobre-oscuro sticky top-0 z-20 hidden h-dvh w-[92px] shrink-0 flex-col gap-0.5 bg-nav py-3.5 md:flex"
     >
-      <Link href="/inicio" className="pb-2.5 text-center text-[22px] font-extrabold text-white">
-        PEA
+      <Link href="/inicio" aria-label="PEA" className="flex justify-center pb-2.5 text-white">
+        <Logo tamano={36} apilado />
       </Link>
       {cuenta}
       <ul ref={ref} className="relative flex min-h-0 flex-1 flex-col gap-0.5 overflow-y-auto">

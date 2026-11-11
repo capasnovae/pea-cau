@@ -1,3 +1,4 @@
+import { Logo } from "@/components/marca/logo";
 import { ElegirRol } from "./elegir-rol";
 
 const NIVELES = [
@@ -14,7 +15,7 @@ export default function PaginaBienvenida() {
         aria-label="PEA"
         className="sobre-oscuro flex flex-col bg-nav px-6 py-8 text-white md:w-[620px] md:px-14 md:py-14"
       >
-        <span className="text-3xl font-extrabold tracking-wide">PEA</span>
+        <Logo tamano={40} />
         <span className="text-[13px] text-nav-fg-muted">Perfil Evolutivo de Asesor</span>
         <h1 className="mt-8 text-3xl font-extrabold leading-tight md:mt-16 md:text-[44px]">
           Cada día sabés
