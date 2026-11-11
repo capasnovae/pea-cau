@@ -2,7 +2,8 @@ import { readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import { esquemaLeccion } from "../dominio/lecciones";
-import { CURSOS, armarSqlLecciones, leerLeccion } from "./importar";
+import { z } from "zod";
+import { CURSOS, armarSqlLecciones, idDe, leerLeccion } from "./importar";
 
 const md = `---
 titulo: "Cambio de modalidad"
@@ -125,19 +126,28 @@ describe("lecciones de contenido/lecciones", () => {
   });
 });
 
+describe("idDe", () => {
+  it("genera UUID válidos y estables (el servidor valida los ids con z.uuid)", () => {
+    const id = idDe("pea-pregunta:05-cambio-de-modalidad:1");
+    expect(z.uuid().safeParse(id).success).toBe(true);
+    expect(idDe("pea-pregunta:05-cambio-de-modalidad:1")).toBe(id);
+    expect(idDe("pea-pregunta:05-cambio-de-modalidad:2")).not.toBe(id);
+  });
+});
+
 describe("armarSqlLecciones", () => {
   const sql = armarSqlLecciones([leerLeccion("contenido/lecciones/02-cambio-de-modalidad.md", md)]);
   it("crea el curso en borrador, el módulo, el ítem y el Probalo con ids estables", () => {
     expect(sql).toContain("'capacitacion'");
-    expect(sql).toContain("md5('pea-curso:tramites')::uuid");
-    expect(sql).toContain("md5('pea-modulo:tramites:Trámites')::uuid");
+    expect(sql).toContain(`'${idDe("pea-curso:tramites")}'`);
+    expect(sql).toContain(`'${idDe("pea-modulo:tramites:Trámites")}'`);
     expect(sql).not.toContain("Reglamento esencial");
     expect(sql).not.toContain("Plataformas del estudiante");
     expect(sql).toMatch(/'borrador'/);
     expect(sql).toContain("'leccion'");
     expect(sql).toContain("'marcar_hecho'");
     expect(sql).toContain("'practica'");
-    expect(sql).toContain("md5('pea-item:02-cambio-de-modalidad')::uuid");
+    expect(sql).toContain(`'${idDe("pea-item:02-cambio-de-modalidad")}'`);
     expect(sql).toContain("rg-3-2-cambios-de-modalidad");
     expect(sql).toContain("on conflict do nothing");
   });

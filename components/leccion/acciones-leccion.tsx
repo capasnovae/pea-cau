@@ -37,8 +37,12 @@ export function BarraSiguiente({
   const [error, setError] = useState<string | null>(null);
   const necesitaMarcar = requisito === "marcar_hecho" && !cumplido;
   return (
-    <div className="fixed inset-x-0 bottom-24 z-10 px-4 md:static md:bottom-auto md:px-0">
-      {error && <p role="alert" className="mb-2 rounded-xl bg-warning-soft p-3 text-sm font-semibold text-warning">{error}</p>}
+    <div>
+      {error && (
+        <p role="alert" className="mb-2 rounded-xl bg-warning-soft p-3 text-sm font-semibold text-warning">
+          {error}
+        </p>
+      )}
       {necesitaMarcar ? (
         <button
           type="button"
@@ -56,7 +60,11 @@ export function BarraSiguiente({
           {pendiente ? "Guardando…" : "Listo, siguiente"}
         </button>
       ) : (
-        <Link href={siguienteHref} className="flex min-h-14 w-full items-center justify-center rounded-2xl text-base font-extrabold text-white shadow-lg" style={{ background: color }}>
+        <Link
+          href={siguienteHref}
+          className="flex min-h-14 w-full items-center justify-center rounded-2xl text-base font-extrabold text-white shadow-lg"
+          style={{ background: color }}
+        >
           Siguiente
         </Link>
       )}

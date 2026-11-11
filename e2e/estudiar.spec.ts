@@ -157,7 +157,7 @@ test("una lección: bloques fijos, Probalo con corrección y el paso queda cumpl
 });
 
 test("vista previa: el admin recorre un curso en borrador y un asesor no lo ve", async ({ browser }) => {
-  const TRAMITES = "9fe6df40-deab-efaa-9040-e0ecc8236963";
+  const TRAMITES = "9fe6df40-deab-4faa-8040-e0ecc8236963";
   const adm = await (await browser.newContext()).newPage();
   await ingresar(adm, "admin@pea.local");
   await esperarInicio(adm);
@@ -166,6 +166,10 @@ test("vista previa: el admin recorre un curso en borrador y un asesor no lo ve",
   await expect(adm.getByRole("status").filter({ hasText: "Vista previa" })).toBeVisible();
   await adm.getByRole("link", { name: /Cambio de modalidad/ }).click();
   await expect(adm.getByRole("region", { name: "En 30 segundos" })).toBeVisible();
+  const probalo = adm.getByRole("region", { name: "Probalo" });
+  await probalo.getByRole("radio").first().check();
+  await probalo.getByRole("button", { name: "Comprobar" }).click();
+  await expect(probalo.getByRole("status")).toBeVisible();
   await expect(adm.getByRole("status").filter({ hasText: "Vista previa" })).toBeVisible();
 
   const a = await (await browser.newContext()).newPage();

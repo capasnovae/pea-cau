@@ -71,6 +71,9 @@ export const COLOR_NIVEL: Record<number, { fondo: string; suave: string; texto: 
   4: { fondo: "#be185d", suave: "#fdf2f8", texto: "#9d174d" },
 };
 
+/** Las capacitaciones (sin nivel) tienen su propio color: ni gris ni el de un nivel. */
+const COLOR_CAPACITACION = { fondo: "#6d28d9", suave: "#f5f3ff", texto: "#5b21b6" };
+
 export function colorNivel(n: number | null | undefined) {
-  return COLOR_NIVEL[n ?? 0] ?? { fondo: "#475569", suave: "#f1f5f9", texto: "#334155" };
+  return COLOR_NIVEL[n ?? 0] ?? COLOR_CAPACITACION;
 }

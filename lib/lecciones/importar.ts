@@ -1,5 +1,6 @@
 // Convierte las lecciones escritas a mano (contenido/lecciones/*.md) en SQL de borradores.
 // Sin imports con alias: lo usa también el script de línea de comandos.
+import { createHash } from "node:crypto";
 
 export type Leccion = {
   resumen: string[];
@@ -145,7 +146,15 @@ function literal(texto: string): string {
   while (texto.includes(`$pea${n}$`)) n++;
   return `$pea${n}$${texto}$pea${n}$`;
 }
-const id = (clave: string) => `md5('${clave.replace(/'/g, "''")}')::uuid`;
+/** UUID determinístico y válido (versión 4, variante RFC) a partir de una clave: el servidor valida los ids con z.uuid. */
+export function idDe(clave: string): string {
+  const h = createHash("md5").update(clave).digest("hex").split("");
+  h[12] = "4";
+  h[16] = "8";
+  const x = h.join("");
+  return `${x.slice(0, 8)}-${x.slice(8, 12)}-${x.slice(12, 16)}-${x.slice(16, 20)}-${x.slice(20)}`;
+}
+const id = (clave: string) => `'${idDe(clave)}'::uuid`;
 
 /** Un curso de capacitación en borrador por tema, con sus módulos, lecciones (fuente = artículo relevado) y Probalo. */
 export function armarSqlLecciones(lecciones: LeccionArchivo[]): string {

@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import {
+  colorNivel,
   etiquetaRequisito,
   idsRecursoEnMarkdown,
   porcentaje,
@@ -66,5 +67,13 @@ describe("etiquetaRequisito", () => {
   it("sin Probalo, la etiqueta de siempre", () => {
     expect(etiquetaRequisito("marcar_hecho", false)).toBe("Marcar como hecho");
     expect(etiquetaRequisito("ver", true)).toBe("Ver");
+  });
+});
+
+describe("colorNivel", () => {
+  it("una capacitación tiene color propio (no gris ni el de un nivel)", () => {
+    const c = colorNivel(null);
+    expect(c.fondo).toBe("#6d28d9");
+    expect([1, 2, 3, 4].map((n) => colorNivel(n).fondo)).not.toContain(c.fondo);
   });
 });
