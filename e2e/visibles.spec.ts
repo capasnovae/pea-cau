@@ -33,3 +33,24 @@ test("Contenido no desborda en el celular y pagina la lista", async ({ browser }
   await expect(lista.getByRole("listitem").first()).toBeVisible();
   await expect(adm.getByRole("link", { name: "Anterior" })).toBeVisible();
 });
+
+test("una página que no existe muestra el aviso propio, en castellano", async ({ browser }) => {
+  const a = await (await browser.newContext()).newPage();
+  await ingresar(a, "asesor.nqn@pea.local");
+  await esperarInicio(a);
+  const r = await a.goto("/estudiar/00000000-0000-4000-8000-000000000000");
+  expect(r?.status()).toBe(404);
+  await expect(a.getByRole("heading", { name: "No encontramos esa página" })).toBeVisible();
+  await expect(a.getByText("This page could not be found")).toHaveCount(0);
+  await a.getByRole("link", { name: "Ir al inicio" }).click();
+  await esperarInicio(a);
+});
+
+test("las respuestas llevan cabeceras de seguridad", async ({ request }) => {
+  const h = (await request.get("/ingresar")).headers();
+  expect(h["x-content-type-options"]).toBe("nosniff");
+  expect(h["x-frame-options"]).toBe("DENY");
+  expect(h["referrer-policy"]).toBe("strict-origin-when-cross-origin");
+  expect(h["content-security-policy"]).toContain("frame-ancestors 'none'");
+  expect(h["permissions-policy"]).toContain("camera=()");
+});
