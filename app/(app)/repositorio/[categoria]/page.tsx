@@ -84,7 +84,7 @@ export default async function PaginaCategoria({ params }: PageProps<"/repositori
         <Link href="/repositorio" className="text-sm text-primary">
           ← Repositorio
         </Link>
-        <h1 className="mt-1 text-2xl font-semibold">{categoria.nombre}</h1>
+        <h1 className="mt-1 text-h1">{categoria.nombre}</h1>
         <p className="text-sm text-muted">{categoria.descripcion}</p>
       </div>
       {arbol.length === 0 ? (

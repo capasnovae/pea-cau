@@ -48,7 +48,7 @@ export default async function PaginaOrganigrama() {
     <div className="flex flex-col gap-5">
       <div className="flex flex-wrap items-end justify-between gap-2">
         <div>
-          <h1 className="text-2xl font-semibold">Organigrama</h1>
+          <h1 className="text-h1">Organigrama</h1>
           <p className="text-sm text-muted">Quién es quién en los CAU.</p>
         </div>
         <Link href="/organigrama/derivaciones" className="text-sm text-primary">
@@ -121,7 +121,7 @@ export default async function PaginaOrganigrama() {
       </div>
 
       <Card>
-        <h2 className="mb-3 text-lg font-semibold">Qué hace cada puesto</h2>
+        <h2 className="mb-3 text-h2">Qué hace cada puesto</h2>
         <dl className="flex flex-col gap-3">
           {[...(puestos ?? []), ...(subroles ?? [])].map((p) => (
             <div key={p.id}>

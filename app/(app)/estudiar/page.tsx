@@ -132,7 +132,7 @@ export default async function PaginaEstudiar() {
 
       {activos.length > 0 && (
         <section aria-label="Todos los cursos" className="overflow-hidden rounded-[20px] bg-card shadow-1">
-          <h2 className="px-5 pb-1 pt-4 text-lg font-extrabold">Todos los cursos</h2>
+          <h2 className="px-5 pb-1 pt-4 text-h2">Todos los cursos</h2>
           <TablaCursos cursos={activos} favs={favs} vigencias={vigencias} />
         </section>
       )}

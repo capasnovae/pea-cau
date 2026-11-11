@@ -17,7 +17,7 @@ export default async function PaginaDerivaciones() {
         <Link href="/organigrama" className="text-sm text-primary">
           ← Organigrama
         </Link>
-        <h1 className="mt-1 text-2xl font-semibold">Áreas de derivación</h1>
+        <h1 className="mt-1 text-h1">Áreas de derivación</h1>
         <p className="text-sm text-muted">Qué resuelve cada área de Siglo y cómo contactarla.</p>
       </div>
       {(areas ?? []).length === 0 ? (
@@ -29,7 +29,7 @@ export default async function PaginaDerivaciones() {
           {(areas ?? []).map((a) => (
             <li key={a.id}>
               <Card className="flex flex-col gap-2">
-                <h2 className="text-lg font-semibold">{a.nombre}</h2>
+                <h2 className="text-h2">{a.nombre}</h2>
                 {a.que_resuelve_md && (
                   <div>
                     <h3 className="text-sm font-medium">Qué resuelve</h3>

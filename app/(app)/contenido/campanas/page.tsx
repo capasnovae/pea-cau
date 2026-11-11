@@ -24,7 +24,7 @@ export default async function PaginaCampanas() {
         <Link href="/contenido" className="text-sm text-primary">
           ← Contenido
         </Link>
-        <h1 className="mt-1 text-2xl font-semibold">Campañas</h1>
+        <h1 className="mt-1 text-h1">Campañas</h1>
       </div>
       <Card>
         <h2 className="mb-3 font-semibold">Nueva campaña</h2>

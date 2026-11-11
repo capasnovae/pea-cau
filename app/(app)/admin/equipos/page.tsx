@@ -19,9 +19,9 @@ export default async function PaginaEquipos() {
   const opcionesLider = (lideres ?? []).map((l) => ({ id: l.id, nombre: `${l.nombre} ${l.apellido}` }));
   return (
     <div className="flex flex-col gap-6">
-      <h1 className="text-2xl font-semibold">Equipos</h1>
+      <h1 className="text-h1">Equipos</h1>
       <Card>
-        <h2 className="mb-3 text-lg font-semibold">Nuevo equipo</h2>
+        <h2 className="mb-3 text-h2">Nuevo equipo</h2>
         <FormularioEquipo sedes={sedes ?? []} lideres={opcionesLider} />
       </Card>
       <ul className="flex flex-col gap-3">

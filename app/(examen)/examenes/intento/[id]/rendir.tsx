@@ -57,7 +57,7 @@ function Dialogo({
         aria-labelledby="dialogo-titulo"
         className="flex w-full max-w-md flex-col gap-4 rounded-3xl bg-card p-6 shadow-xl"
       >
-        <h2 id="dialogo-titulo" className="text-xl font-extrabold">
+        <h2 id="dialogo-titulo" className="text-h2">
           {titulo}
         </h2>
         {children}
@@ -205,7 +205,7 @@ export function Rendir({
   return (
     <div className="mx-auto flex w-full max-w-3xl flex-col gap-4 pb-24 md:pb-0">
       <div className="flex items-center justify-between gap-3">
-        <h1 className="truncate text-lg font-extrabold">{titulo}</h1>
+        <h1 className="truncate text-h2">{titulo}</h1>
         <div className="flex shrink-0 items-center gap-2">
           <span
             aria-live="polite"
@@ -299,7 +299,7 @@ export function Rendir({
 
       {revisar ? (
         <section aria-label="Revisar" className="flex flex-col gap-4 rounded-3xl bg-card p-5 shadow-1">
-          <h2 className="text-xl font-extrabold">Revisar antes de entregar</h2>
+          <h2 className="text-h2">Revisar antes de entregar</h2>
           <ul className="grid gap-2 sm:grid-cols-2">
             {preguntas.map((q, i) => {
               const ok = respondida(q, valores[q.pregunta_id]);

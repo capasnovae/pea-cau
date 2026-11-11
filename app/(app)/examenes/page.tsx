@@ -40,7 +40,7 @@ export default async function PaginaExamenes({ searchParams }: PageProps<"/exame
         >
           <div className="min-w-0 flex-1">
             <p className="text-xs font-bold uppercase text-nav-fg-muted">Examen de ubicación</p>
-            <p className="text-xl font-extrabold">
+            <p className="text-h2">
               {ubicacion.intento_en_curso
                 ? "Seguí donde quedaste"
                 : `Bloque ${ubicacion.bloque_actual} de ${ubicacion.total_bloques}`}

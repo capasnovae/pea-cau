@@ -15,13 +15,16 @@ export function useIndicador<T extends HTMLElement>(clave: string) {
     const lista = ref.current;
     if (!lista) return;
     const medir = () => {
-      const activo = lista.querySelector<HTMLElement>('[aria-current="page"], [data-activo="true"]');
-      const li = activo?.closest("li");
+      const activo = lista.querySelector<HTMLElement>(
+        '[aria-current="page"], [aria-selected="true"], [data-activo="true"]',
+      );
+      const li = activo?.closest("li") ?? activo;
       setCaja(
         li ? { x: li.offsetLeft, y: li.offsetTop, ancho: li.offsetWidth, alto: li.offsetHeight } : null,
       );
     };
     medir();
+    if (typeof ResizeObserver === "undefined") return;
     const obs = new ResizeObserver(medir);
     obs.observe(lista);
     return () => obs.disconnect();

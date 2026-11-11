@@ -44,7 +44,7 @@ export default async function PaginaConsignas({ searchParams }: PageProps<"/cons
   return (
     <div className="flex flex-col gap-5">
       <div>
-        <h1 className="text-2xl font-semibold">Consignas</h1>
+        <h1 className="text-h1">Consignas</h1>
         <p className="text-sm text-muted">Lo que te pidieron tu líder o tu coordinación.</p>
       </div>
       <nav aria-label="Estado" className="flex gap-1 rounded-lg border border-border bg-card p-1">

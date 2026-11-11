@@ -23,7 +23,7 @@ export default async function PaginaEquipoConsignas() {
     <div className="flex flex-col gap-5">
       <div className="flex flex-wrap items-end justify-between gap-3">
         <div>
-          <h1 className="text-2xl font-semibold">Consignas del equipo</h1>
+          <h1 className="text-h1">Consignas del equipo</h1>
           <p className="text-sm text-muted">Las que asignaste y cómo vienen.</p>
         </div>
         <Link

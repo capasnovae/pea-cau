@@ -46,7 +46,7 @@ export default async function PaginaDetalleConsigna({
         <Link href="/equipo/consignas" className="text-sm text-primary">
           ← Consignas del equipo
         </Link>
-        <h1 className="mt-1 text-2xl font-semibold">{c.titulo}</h1>
+        <h1 className="mt-1 text-h1">{c.titulo}</h1>
         {sp.creada && (
           <p role="status" className="text-sm text-primary">
             Consigna asignada a {delPeriodo.length} {delPeriodo.length === 1 ? "persona" : "personas"}.

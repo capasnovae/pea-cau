@@ -40,7 +40,7 @@ export default async function PaginaCaso({ params }: PageProps<"/contenido/casos
       </Card>
       <section aria-label="Preguntas del caso" className="flex flex-col gap-2">
         <div className="flex items-center justify-between">
-          <h2 className="text-lg font-extrabold">Preguntas en orden</h2>
+          <h2 className="text-h2">Preguntas en orden</h2>
           <Link
             href={`/contenido/preguntas/nueva?caso=${caso.id}`}
             className="text-sm font-bold text-primary-strong"

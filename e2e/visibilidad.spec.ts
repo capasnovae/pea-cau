@@ -22,6 +22,7 @@ test("el admin invita a un usuario nuevo", async ({ page }) => {
   await ingresar(page, "admin@pea.local");
   await esperarInicio(page);
   await page.goto("/admin/usuarios");
+  await page.getByRole("button", { name: "Invitar" }).click();
   const form = page.locator("form").filter({ has: page.getByRole("button", { name: "Mandar invitación" }) });
   await form.getByLabel("Nombre", { exact: true }).fill("Nico");
   await form.getByLabel("Apellido").fill("Nuevo");

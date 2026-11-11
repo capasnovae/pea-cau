@@ -90,7 +90,7 @@ export default async function PaginaCalendario({ searchParams }: PageProps<"/cal
           >
             ›
           </Link>
-          <h2 className="w-44 text-lg font-extrabold">{nombreMes(mes)}</h2>
+          <h2 className="w-44 text-h2">{nombreMes(mes)}</h2>
         </div>
 
         <div
@@ -149,10 +149,7 @@ export default async function PaginaCalendario({ searchParams }: PageProps<"/cal
           {[...agruparPorDia(delMes)].map(([dia, eventos]) => (
             <li key={dia} className="flex gap-3">
               <span
-                className={cn(
-                  "w-11 shrink-0 pt-1 text-center text-xl font-extrabold",
-                  dia === hoy && "text-primary-strong",
-                )}
+                className={cn("w-11 shrink-0 pt-1 text-center text-h2", dia === hoy && "text-primary-strong")}
               >
                 {Number(dia.slice(8))}
               </span>

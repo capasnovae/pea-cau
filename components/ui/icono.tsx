@@ -43,6 +43,16 @@ const TRAZOS = {
       <path d="M8.5 12.2l2.3 2.3 4.7-4.8" />
     </>
   ),
+  descargar: <path d="M12 4v11M7 10.5l5 5 5-5M5 20h14" />,
+  mas: <path d="M12 5v14M5 12h14" />,
+  lapiz: <path d="M4 20h4L19 9l-4-4L4 16zM13.5 6.5l4 4" />,
+  papelera: <path d="M5 7h14M10 7V4h4v3M7 7l1 13h8l1-13M10 11v5M14 11v5" />,
+  buscar: (
+    <>
+      <circle cx="11" cy="11" r="6.5" />
+      <path d="M16 16l4.5 4.5" />
+    </>
+  ),
   mensaje: <path d="M4 5h16v11H9l-5 4z" />,
   repetir: (
     <>

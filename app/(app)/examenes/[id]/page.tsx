@@ -107,7 +107,7 @@ export default async function PaginaExamen({ params, searchParams }: PageProps<"
 
       {(intentos ?? []).some((i) => i.estado !== "en_curso") && (
         <section aria-label="Tus intentos" className="flex flex-col gap-2">
-          <h2 className="text-lg font-extrabold">Tus intentos</h2>
+          <h2 className="text-h2">Tus intentos</h2>
           <Card className="p-0!">
             <ul>
               {(intentos ?? [])

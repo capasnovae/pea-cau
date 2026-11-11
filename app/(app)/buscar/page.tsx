@@ -16,7 +16,7 @@ export default async function PaginaBuscar({ searchParams }: PageProps<"/buscar"
 
   return (
     <div className="flex flex-col gap-5">
-      <h1 className="text-2xl font-semibold">Buscar</h1>
+      <h1 className="text-h1">Buscar</h1>
       <form role="search" className="flex gap-2">
         <Input
           name="q"

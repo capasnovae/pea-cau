@@ -29,7 +29,7 @@ function Seccion({
   return (
     <section aria-label={titulo} className="flex flex-col gap-2.5">
       <div className="flex items-baseline justify-between">
-        <h2 className="text-lg font-extrabold">{titulo}</h2>
+        <h2 className="text-h2">{titulo}</h2>
         {accion}
       </div>
       {children}
@@ -125,7 +125,7 @@ async function VistaTablero({ cursos, usuarioId }: { cursos: FilaMiRuta[]; usuar
             className="flex items-center justify-between gap-3 rounded-tarjeta bg-primary p-5 text-white shadow-brand transition hover:-translate-y-0.5 active:scale-[0.99]"
           >
             <span>
-              <span className="block text-lg font-extrabold">Repaso de hoy</span>
+              <span className="block text-h2">Repaso de hoy</span>
               <span className="block text-sm text-white/85">
                 {textoRepaso(Math.min(5, repaso?.pendientes ?? 0))}
                 {repaso?.racha ? ` · ${textoRacha(repaso.racha)}` : ""}

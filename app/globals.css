@@ -277,6 +277,56 @@
     }
   }
 
+  /* Diálogo centrado: entra con escala y fundido */
+  .dialogo {
+    width: min(440px, calc(100% - 32px));
+    margin: auto;
+    max-height: calc(100dvh - 32px);
+    overflow-y: auto;
+    border: 0;
+    padding: 0;
+    border-radius: var(--radius-hoja);
+    background: var(--card);
+    color: var(--ink);
+    box-shadow: var(--shadow-4);
+    opacity: 0;
+    transform: scale(0.96);
+    transition:
+      opacity var(--dur-2) var(--ease-estandar),
+      transform var(--dur-2) var(--ease-estandar),
+      overlay var(--dur-2) allow-discrete,
+      display var(--dur-2) allow-discrete;
+  }
+  .dialogo-ancho {
+    width: min(640px, calc(100% - 32px));
+  }
+  .dialogo[open] {
+    opacity: 1;
+    transform: scale(1);
+    transition-duration: var(--dur-3);
+    transition-timing-function: var(--ease-salida);
+  }
+  .dialogo::backdrop {
+    background: var(--overlay);
+    opacity: 0;
+    transition:
+      opacity var(--dur-2) var(--ease-estandar),
+      overlay var(--dur-2) allow-discrete,
+      display var(--dur-2) allow-discrete;
+  }
+  .dialogo[open]::backdrop {
+    opacity: 1;
+  }
+  @starting-style {
+    .dialogo[open] {
+      opacity: 0;
+      transform: scale(0.96);
+    }
+    .dialogo[open]::backdrop {
+      opacity: 0;
+    }
+  }
+
   /* Hoja inferior (dialog): sube desde abajo con el fondo atenuado */
   .hoja {
     position: fixed;

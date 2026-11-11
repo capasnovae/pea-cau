@@ -36,7 +36,7 @@ export default async function PaginaEditarRecurso({
         <Link href="/contenido?tab=recursos" className="text-sm text-primary">
           ← Contenido
         </Link>
-        <h1 className="mt-1 text-2xl font-semibold">{nuevo ? "Nuevo recurso" : "Editar recurso"}</h1>
+        <h1 className="mt-1 text-h1">{nuevo ? "Nuevo recurso" : "Editar recurso"}</h1>
         {creado && (
           <p role="status" className="text-sm text-primary">
             Recurso creado.

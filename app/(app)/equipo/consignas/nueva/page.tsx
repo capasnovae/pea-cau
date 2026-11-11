@@ -48,7 +48,7 @@ export default async function PaginaNuevaConsigna() {
         <Link href="/equipo/consignas" className="text-sm text-primary">
           ← Consignas del equipo
         </Link>
-        <h1 className="mt-1 text-2xl font-semibold">Nueva consigna</h1>
+        <h1 className="mt-1 text-h1">Nueva consigna</h1>
       </div>
       <Card>
         <FormularioConsigna

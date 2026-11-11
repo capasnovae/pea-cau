@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { cn } from "@/lib/utils/cn";
+import { Icono } from "@/components/ui/icono";
+import { Pestanas } from "@/components/ui/pestanas";
 
 const SECCIONES = [
   { id: "examenes", etiqueta: "Exámenes", href: "/contenido/examenes" },
@@ -13,25 +14,18 @@ export function NavExamenes({ actual }: { actual: (typeof SECCIONES)[number]["id
     <div className="flex flex-col gap-3">
       <div className="flex items-baseline justify-between gap-3">
         <h1 className="text-h1">Exámenes y prácticas</h1>
-        <Link href="/contenido" className="text-sm font-semibold text-primary-strong">
-          ‹ Contenido
+        <Link
+          href="/contenido"
+          className="inline-flex min-h-11 items-center gap-1 text-sm font-semibold text-primary-strong"
+        >
+          <Icono nombre="chevron-izq" tamano={16} />
+          Contenido
         </Link>
       </div>
-      <nav aria-label="Gestión de exámenes" className="flex gap-1 rounded-xl bg-primary-soft p-1">
-        {SECCIONES.map((s) => (
-          <Link
-            key={s.id}
-            href={s.href}
-            aria-current={actual === s.id ? "page" : undefined}
-            className={cn(
-              "flex-1 rounded-lg px-3 py-2 text-center text-sm font-semibold",
-              actual === s.id ? "bg-primary text-white" : "text-primary-strong",
-            )}
-          >
-            {s.etiqueta}
-          </Link>
-        ))}
-      </nav>
+      <Pestanas
+        etiqueta="Gestión de exámenes"
+        pestanas={SECCIONES.map((s) => ({ href: s.href, etiqueta: s.etiqueta, activa: actual === s.id }))}
+      />
     </div>
   );
 }

@@ -95,8 +95,11 @@ test("contenido de sede: borrador, publicación, versión, archivo y promoción"
   // 5. El admin promueve el artículo y el asesor de Roca pasa a verlo
   const admin = await sesion(browser, "admin@pea.local");
   await admin.goto(editar);
-  admin.once("dialog", (d) => d.accept());
   await admin.getByRole("button", { name: "Promover a todos los CAU" }).click();
+  await admin
+    .getByRole("dialog", { name: "¿Promover a todos los CAU?" })
+    .getByRole("button", { name: "Promover" })
+    .click();
   await expect(
     admin.getByText(/Ya lo ven todos los CAU|Listo: ahora lo ven todos los CAU/).first(),
   ).toBeVisible();
@@ -106,8 +109,11 @@ test("contenido de sede: borrador, publicación, versión, archivo y promoción"
   // 6. El admin promueve el PDF y el asesor de Roca lo descarga
   await admin.goto("/contenido?tab=recursos");
   await admin.getByRole("link", { name: tituloPdf }).click();
-  admin.once("dialog", (d) => d.accept());
   await admin.getByRole("button", { name: "Promover a todos los CAU" }).click();
+  await admin
+    .getByRole("dialog", { name: "¿Promover a todos los CAU?" })
+    .getByRole("button", { name: "Promover" })
+    .click();
   await expect(
     admin.getByText(/Ya lo ven todos los CAU|Listo: ahora lo ven todos los CAU/).first(),
   ).toBeVisible();

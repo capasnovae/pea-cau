@@ -35,7 +35,7 @@ function Seccion({
   return (
     <section id={id} aria-label={titulo} className="flex scroll-mt-6 flex-col gap-2.5">
       <div className="flex items-baseline justify-between">
-        <h2 className="text-lg font-extrabold">{titulo}</h2>
+        <h2 className="text-h2">{titulo}</h2>
         {accion}
       </div>
       {children}

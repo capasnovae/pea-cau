@@ -120,7 +120,7 @@ export default async function PaginaEditarCurso({
             aria-label={`Módulo ${m.titulo}`}
           >
             <div className="flex items-center justify-between">
-              <h2 className="text-lg font-extrabold">Módulo: {m.titulo}</h2>
+              <h2 className="text-h2">Módulo: {m.titulo}</h2>
               <BotonBorrar tabla="modulos" id={m.id} etiqueta={`el módulo “${m.titulo}” y sus pasos`} />
             </div>
             <FormularioModulo

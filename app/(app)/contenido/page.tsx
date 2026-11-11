@@ -1,11 +1,11 @@
 import Link from "next/link";
 import { BadgesContenido } from "@/components/repositorio/badges";
+import { Pestanas } from "@/components/ui/pestanas";
 import { Card } from "@/components/ui/card";
 import { filtroEditable } from "@/lib/dominio/edicion";
 import { ROLES_EDITORES } from "@/lib/dominio/roles";
 import { requerirRol } from "@/lib/supabase/permisos";
 import { crearClienteServidor } from "@/lib/supabase/servidor";
-import { cn } from "@/lib/utils/cn";
 
 const TABS = [
   { id: "cursos", etiqueta: "Cursos" },
@@ -84,43 +84,26 @@ export default async function PaginaContenido({ searchParams }: PageProps<"/cont
   return (
     <div className="flex flex-col gap-5">
       <div className="flex flex-wrap items-end justify-between gap-3">
-        <h1 className="text-2xl font-semibold">Contenido</h1>
+        <h1 className="text-h1">Contenido</h1>
         {tab !== "campanas" && tab !== "cursos" && (
           <Link
             href={`/contenido/${tab}/nuevo`}
-            className="inline-flex h-11 items-center rounded-lg bg-primary px-4 text-sm font-medium text-primary-foreground"
+            className="inline-flex h-11 items-center rounded-boton bg-primary px-4 text-ui font-bold text-primary-foreground transition hover:bg-primary-strong active:scale-[0.97]"
           >
             {tab === "articulos" ? "Nuevo artículo" : "Nuevo recurso"}
           </Link>
         )}
       </div>
-      <nav aria-label="Tipo de contenido" className="-mx-4 overflow-x-auto px-4">
-        <div className="flex w-max gap-1 rounded-lg border border-border bg-card p-1">
-          {TABS.filter((t) => t.id !== "actualizaciones" || perfil.rol === "admin").map((t) => (
-            <Link
-              key={t.id}
-              href={
-                t.id === "campanas"
-                  ? "/contenido/campanas"
-                  : t.id === "cursos"
-                    ? "/contenido/cursos"
-                    : t.id === "examenes"
-                      ? "/contenido/examenes"
-                      : t.id === "actualizaciones"
-                        ? "/contenido/actualizaciones"
-                        : `/contenido?tab=${t.id}`
-              }
-              aria-current={tab === t.id ? "page" : undefined}
-              className={cn(
-                "flex-1 rounded-md px-3 py-2 text-center text-sm",
-                tab === t.id ? "bg-background font-semibold text-primary" : "text-muted",
-              )}
-            >
-              {t.etiqueta}
-            </Link>
-          ))}
-        </div>
-      </nav>
+      <Pestanas
+        etiqueta="Tipo de contenido"
+        pestanas={TABS.filter((t) => t.id !== "actualizaciones" || perfil.rol === "admin").map((t) => ({
+          etiqueta: t.etiqueta,
+          activa: tab === t.id,
+          href: ["campanas", "cursos", "examenes", "actualizaciones"].includes(t.id)
+            ? `/contenido/${t.id}`
+            : `/contenido?tab=${t.id}`,
+        }))}
+      />
       {filas.length === 0 ? (
         <Card>
           <p className="text-sm text-muted">Sin contenido.</p>

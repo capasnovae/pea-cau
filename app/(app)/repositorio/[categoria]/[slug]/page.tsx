@@ -48,7 +48,7 @@ export default async function PaginaArticulo({ params }: PageProps<"/repositorio
         >
           ← {padre ? padre.titulo : categoria.nombre}
         </Link>
-        <h1 className="mt-1 text-2xl font-semibold">{articulo.titulo}</h1>
+        <h1 className="mt-1 text-h1">{articulo.titulo}</h1>
         <div className="mt-1">
           <BadgesContenido c={articulo} />
         </div>

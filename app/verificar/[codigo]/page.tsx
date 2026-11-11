@@ -52,7 +52,7 @@ export default async function PaginaVerificar({ params }: PageProps<"/verificar/
         {ETIQUETA_ESTADO_CERT[estado]}
       </span>
       <h1 className="text-h1">{data.nombre}</h1>
-      <p className="text-lg font-semibold">
+      <p className="text-h2">
         Nivel {data.nivel} · {data.curso}
       </p>
       <p className="text-sm text-muted">

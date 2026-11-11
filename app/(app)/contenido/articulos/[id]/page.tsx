@@ -48,7 +48,7 @@ export default async function PaginaEditarArticulo({
         <Link href="/contenido?tab=articulos" className="text-sm text-primary">
           ← Contenido
         </Link>
-        <h1 className="mt-1 text-2xl font-semibold">{nuevo ? "Nuevo artículo" : "Editar artículo"}</h1>
+        <h1 className="mt-1 text-h1">{nuevo ? "Nuevo artículo" : "Editar artículo"}</h1>
         {creado && (
           <p role="status" className="text-sm text-primary">
             Artículo creado.

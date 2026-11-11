@@ -54,7 +54,7 @@ export default async function PaginaConversacion({ params, searchParams }: PageP
           ‹ Bandeja
         </Link>
         <div className="min-w-0 flex-1">
-          <h2 className="truncate text-lg font-extrabold">{conv.asunto}</h2>
+          <h2 className="truncate text-h2">{conv.asunto}</h2>
           {otros.length > 0 && <p className="truncate text-[13px] text-muted">{otros.join(", ")}</p>}
         </div>
         <form action={archivar.bind(null, id, !archivada)}>

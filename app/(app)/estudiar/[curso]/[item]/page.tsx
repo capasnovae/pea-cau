@@ -49,7 +49,7 @@ export default async function PaginaLeccion({ params }: PageProps<"/estudiar/[cu
           ← {curso.titulo}
         </Link>
         <div className="rounded-3xl bg-card p-6 text-center shadow-1">
-          <h1 className="text-xl font-extrabold">{item.titulo}</h1>
+          <h1 className="text-h2">{item.titulo}</h1>
           <p className="mt-2 text-muted">
             Esta lección todavía está bloqueada. Completá lo anterior para seguir.
           </p>

@@ -2,6 +2,7 @@
 
 import { useState, useTransition } from "react";
 import { Button } from "@/components/ui/button";
+import { Confirmar } from "@/components/ui/confirmar";
 import { promover, type ResultadoGuardado } from "@/app/(app)/contenido/acciones";
 import { MensajeResultado } from "./campos";
 
@@ -16,18 +17,18 @@ export function BotonPromover({
   const [r, setR] = useState<ResultadoGuardado>(null);
   return (
     <div className="flex flex-col items-start gap-1">
-      <Button
-        type="button"
-        variante="secundario"
-        disabled={pendiente}
-        onClick={() => {
-          if (!window.confirm("¿Promover a todos los CAU? Lo van a ver los asesores de todas las sedes."))
-            return;
-          iniciar(async () => setR(await promover(tabla, id)));
-        }}
+      <Confirmar
+        titulo="¿Promover a todos los CAU?"
+        detalle="Lo van a ver los asesores de todas las sedes."
+        confirmar="Promover"
+        onConfirmar={() => iniciar(async () => setR(await promover(tabla, id)))}
       >
-        Promover a todos los CAU
-      </Button>
+        {(abrir) => (
+          <Button type="button" variante="secundario" disabled={pendiente} onClick={abrir}>
+            Promover a todos los CAU
+          </Button>
+        )}
+      </Confirmar>
       <MensajeResultado r={r} />
     </div>
   );

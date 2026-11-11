@@ -12,7 +12,7 @@ export default async function PaginaAdminDerivaciones() {
     .order("orden");
   return (
     <div className="flex flex-col gap-5">
-      <h1 className="text-2xl font-semibold">Áreas de derivación</h1>
+      <h1 className="text-h1">Áreas de derivación</h1>
       <Card>
         <h2 className="mb-3 font-semibold">Nueva área</h2>
         <FormularioArea />
