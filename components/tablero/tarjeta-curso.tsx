@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { Icono } from "@/components/ui/icono";
+import { Anillo } from "@/components/ui/progreso";
 import { colorNivel, porcentaje } from "@/lib/dominio/leccion";
 import type { Database } from "@/lib/supabase/tipos";
 
@@ -31,26 +33,47 @@ export function TarjetaCurso({ curso, favorito = false }: { curso: FilaMiRuta; f
   const pct = porcentaje(curso.items_cumplidos, curso.items_total);
   const cuerpo = (
     <>
-      <div className="flex h-24 items-start justify-between p-3.5" style={{ background: color.fondo }}>
-        <span className="flex items-center gap-1 rounded-[10px] bg-white/20 px-2.5 py-1.5 text-sm font-extrabold text-white">
-          {curso.desbloqueado ? curso.cumplido ? "✓" : `${pct}%` : <Candado />}
-        </span>
-        <span className="flex items-center gap-1.5 text-xs font-extrabold uppercase text-white">
-          {favorito && <span aria-label="Favorito">★</span>}
+      <div
+        className="flex items-center justify-between gap-3 p-4 text-white"
+        style={{ background: color.fondo }}
+      >
+        <span className="flex items-center gap-1.5 text-overline uppercase">
+          {favorito && <Icono nombre="estrella" tamano={16} relleno aria-label="Favorito" />}
           {etiquetaTipo(curso)}
         </span>
+        {!curso.desbloqueado ? (
+          <span className="flex size-11 items-center justify-center rounded-full bg-white/20">
+            <Candado />
+          </span>
+        ) : (
+          <Anillo
+            valor={pct}
+            etiqueta={`${pct}% de ${curso.titulo}`}
+            color="#fff"
+            pista="rgb(255 255 255 / 0.3)"
+          >
+            {curso.cumplido ? (
+              <Icono nombre="tilde" tamano={20} />
+            ) : (
+              <span className="cifras text-micro font-bold">{pct}%</span>
+            )}
+          </Anillo>
+        )}
       </div>
       <div className="p-3.5">
-        <p className="font-extrabold leading-snug" style={{ color: color.texto }}>
+        <p className="text-h3" style={{ color: color.texto }}>
           {curso.titulo}
         </p>
         {curso.obligatorio && <p className="mt-1 text-[13px] text-muted">Obligatorio</p>}
       </div>
     </>
   );
-  const clase = "block overflow-hidden rounded-[20px] bg-card shadow-1";
+  const clase = "block overflow-hidden rounded-tarjeta bg-card shadow-1";
   return curso.desbloqueado ? (
-    <Link href={`/estudiar/${curso.curso_id}`} className={clase}>
+    <Link
+      href={`/estudiar/${curso.curso_id}`}
+      className={`${clase} transition hover:-translate-y-0.5 hover:shadow-2 active:scale-[0.99]`}
+    >
       {cuerpo}
     </Link>
   ) : (

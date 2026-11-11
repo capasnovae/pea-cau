@@ -1,5 +1,9 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { Confeti } from "@/components/ui/confeti";
+import { Conteo } from "@/components/ui/conteo";
+import { Icono } from "@/components/ui/icono";
+import { Anillo } from "@/components/ui/progreso";
 import { Revision, type FilaRevision } from "@/components/examen/revision";
 import { requerirPerfil } from "@/lib/supabase/permisos";
 import { crearClienteServidor } from "@/lib/supabase/servidor";
@@ -49,9 +53,10 @@ export default async function PaginaResultado({ params }: PageProps<"/examenes/i
     <div className="mx-auto flex w-full max-w-3xl flex-col gap-5">
       <Link
         href={propio ? `/examenes/${intento.examen_id}` : "/examenes"}
-        className="text-sm font-semibold text-primary-strong"
+        className="inline-flex items-center gap-1 text-sm font-semibold text-primary-strong"
       >
-        ‹ {examen?.titulo ?? "Exámenes"}
+        <Icono nombre="chevron-izq" tamano={16} />
+        {examen?.titulo ?? "Exámenes"}
       </Link>
       {intento.estado === "pendiente_correccion" ? (
         <section className="flex flex-col items-center gap-2 rounded-3xl bg-card p-8 text-center shadow-1">
@@ -61,13 +66,27 @@ export default async function PaginaResultado({ params }: PageProps<"/examenes/i
         <section
           aria-label="Resultado"
           className={cn(
-            "flex flex-col items-center gap-1 rounded-3xl p-8 text-center text-white",
-            intento.aprobado ? "bg-success" : "bg-destructive",
+            "flex flex-col items-center gap-2 rounded-hoja p-8 text-center",
+            intento.aprobado ? "bg-success-soft" : "bg-destructive-soft",
           )}
         >
-          <p className="text-6xl font-extrabold">{intento.nota}%</p>
-          <h1 className="text-h1">{intento.aprobado ? "Aprobado" : "No aprobado"}</h1>
-          <p className="text-sm text-white/85">Para aprobar: {examen?.nota_minima}%</p>
+          {intento.aprobado && propio && <Confeti />}
+          <Anillo
+            valor={Number(intento.nota ?? 0)}
+            etiqueta={`Nota: ${intento.nota}%`}
+            tamano={144}
+            grosor={12}
+            color={intento.aprobado ? "var(--success)" : "var(--subtle)"}
+            pista="var(--card)"
+          >
+            <span className="text-4xl font-extrabold tracking-tight text-ink">
+              <Conteo valor={Number(intento.nota ?? 0)} sufijo="%" />
+            </span>
+          </Anillo>
+          <h1 className={cn("animate-pop text-h1", intento.aprobado ? "text-success" : "text-destructive")}>
+            {intento.aprobado ? "Aprobado" : "No aprobado"}
+          </h1>
+          <p className="text-sm text-muted">Para aprobar: {examen?.nota_minima}%</p>
         </section>
       )}
       {intento.salidas > 0 && (

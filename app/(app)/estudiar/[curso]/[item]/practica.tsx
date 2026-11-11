@@ -10,6 +10,9 @@ import {
   type Valor,
 } from "@/components/examen/controles";
 import { Markdown } from "@/components/markdown";
+import { Button } from "@/components/ui/button";
+import { Icono } from "@/components/ui/icono";
+import { TildeAnimado } from "@/components/ui/tilde-animado";
 import { cn } from "@/lib/utils/cn";
 import { comprobarPractica } from "../../acciones";
 
@@ -113,17 +116,23 @@ export function Practica({
             acertadas.size === preguntas.length ? "text-success" : "text-primary-strong",
           )}
         >
-          {acertadas.size}/{preguntas.length} acertadas
+          <span key={acertadas.size} className="latir inline-block">
+            {acertadas.size}/{preguntas.length}
+          </span>{" "}
+          acertadas
         </span>
       </div>
-      <Enunciado p={p} />
-      <ControlPregunta
-        key={p.pregunta_id}
-        p={p}
-        valor={valores[p.pregunta_id]}
-        deshabilitado={Boolean(resultado)}
-        onCambio={(v) => setValores((prev) => ({ ...prev, [p.pregunta_id]: v }))}
-      />
+      <div key={p.pregunta_id} className="animate-subir flex flex-col gap-4">
+        <Enunciado p={p} />
+        <div className={resultado ? (resultado.es_correcta ? "pulso-ok" : "vaiven") : undefined}>
+          <ControlPregunta
+            p={p}
+            valor={valores[p.pregunta_id]}
+            deshabilitado={Boolean(resultado)}
+            onCambio={(v) => setValores((prev) => ({ ...prev, [p.pregunta_id]: v }))}
+          />
+        </div>
+      </div>
       {error && (
         <p role="alert" className="text-sm font-semibold text-destructive">
           {error}
@@ -133,7 +142,7 @@ export function Practica({
         <div
           role="status"
           className={cn(
-            "flex flex-col gap-2 rounded-2xl border-2 p-4",
+            "animate-subir flex flex-col gap-2 rounded-2xl border-2 p-4",
             resultado.es_correcta
               ? "border-success bg-success-soft"
               : "border-destructive bg-destructive-soft",
@@ -141,11 +150,12 @@ export function Practica({
         >
           <p
             className={cn(
-              "text-lg font-extrabold",
+              "flex items-center gap-2 text-h3",
               resultado.es_correcta ? "text-success" : "text-destructive",
             )}
           >
-            {resultado.es_correcta ? "✓ ¡Bien!" : "✗ Todavía no"}
+            {resultado.es_correcta ? <TildeAnimado tamano={28} /> : <Icono nombre="cruz" tamano={24} />}
+            {resultado.es_correcta ? "¡Bien!" : "Todavía no"}
           </p>
           {!resultado.es_correcta && (
             <div className="text-sm">
@@ -162,39 +172,44 @@ export function Practica({
       )}
       <div className="flex gap-3">
         {resultado && esRepaso ? (
-          <button
+          <Button
             type="button"
+            tamano="lg"
+            className="flex-1"
             onClick={() => (actual + 1 < preguntas.length ? ir(actual + 1) : router.refresh())}
-            className="min-h-12 flex-1 rounded-2xl bg-primary font-bold text-white"
           >
             {actual + 1 < preguntas.length ? "Siguiente" : "Terminar"}
-          </button>
+          </Button>
         ) : resultado ? (
           <>
-            <button
+            <Button
               type="button"
+              variante="secundario"
+              tamano="lg"
+              className="flex-1"
               onClick={() => setResultado(null)}
-              className="min-h-12 flex-1 rounded-2xl border border-border bg-card font-bold"
             >
               Otra vez
-            </button>
-            <button
+            </Button>
+            <Button
               type="button"
+              tamano="lg"
+              className="flex-1"
               onClick={() => ir((actual + 1) % preguntas.length)}
-              className="min-h-12 flex-1 rounded-2xl bg-primary font-bold text-white"
             >
               Otra pregunta
-            </button>
+            </Button>
           </>
         ) : (
-          <button
+          <Button
             type="button"
+            tamano="lg"
+            className="flex-1"
             disabled={pendiente || !respondida(p, valores[p.pregunta_id])}
             onClick={comprobar}
-            className="min-h-12 flex-1 rounded-2xl bg-primary font-bold text-white disabled:opacity-50"
           >
             {pendiente ? "Comprobando…" : "Comprobar"}
-          </button>
+          </Button>
         )}
       </div>
     </section>

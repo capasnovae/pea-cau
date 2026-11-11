@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState, useTransition } from "react";
 import { marcarItem } from "@/app/(app)/estudiar/acciones";
+import { Icono } from "@/components/ui/icono";
 
 /** Marca "visto" al abrir un ítem disponible de requisito ver. */
 export function MarcarVisto({ itemId }: { itemId: string }) {
@@ -47,7 +48,7 @@ export function BarraSiguiente({
         <button
           type="button"
           disabled={pendiente}
-          className="flex min-h-14 w-full items-center justify-center rounded-2xl text-base font-extrabold text-white shadow-lg disabled:opacity-60"
+          className="flex min-h-14 w-full items-center justify-center gap-2 rounded-boton text-base font-bold text-white shadow-2 transition active:scale-[0.98] disabled:opacity-60"
           style={{ background: color }}
           onClick={() =>
             iniciar(async () => {
@@ -62,10 +63,11 @@ export function BarraSiguiente({
       ) : (
         <Link
           href={siguienteHref}
-          className="flex min-h-14 w-full items-center justify-center rounded-2xl text-base font-extrabold text-white shadow-lg"
+          className="flex min-h-14 w-full items-center justify-center gap-2 rounded-boton text-base font-bold text-white shadow-2 transition active:scale-[0.98]"
           style={{ background: color }}
         >
           Siguiente
+          <Icono nombre="flecha-der" />
         </Link>
       )}
     </div>

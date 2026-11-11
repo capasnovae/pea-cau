@@ -170,6 +170,53 @@
   }
 }
 
+@keyframes llenar {
+  from { transform: scaleX(0); }
+}
+@keyframes dibujar-anillo {
+  from { stroke-dashoffset: var(--largo); }
+}
+@keyframes dibujar-tilde {
+  from { stroke-dashoffset: 1; }
+}
+@keyframes pulso-ok {
+  50% { transform: scale(1.03); }
+}
+@keyframes vaiven {
+  20%, 60% { transform: translateX(-6px); }
+  40%, 80% { transform: translateX(6px); }
+}
+@keyframes estallar {
+  from { opacity: 1; transform: rotate(var(--angulo)) translateX(0) scale(1); }
+  to { opacity: 0; transform: rotate(var(--angulo)) translateX(var(--lejos)) scale(0.4); }
+}
+@keyframes latir {
+  50% { transform: scale(1.2); }
+}
+
+.barra-llenar {
+  transform: scaleX(var(--v));
+  transition: transform var(--dur-4) var(--ease-salida);
+  animation: llenar var(--dur-4) var(--ease-salida);
+}
+.anillo-dibujar {
+  stroke-dashoffset: var(--resto);
+  transition: stroke-dashoffset var(--dur-5) var(--ease-salida);
+  animation: dibujar-anillo var(--dur-5) var(--ease-salida);
+}
+.tilde-dibujar {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+  animation: dibujar-tilde var(--dur-3) var(--ease-salida) var(--dur-2) backwards;
+}
+.particula {
+  opacity: 0;
+  animation: estallar var(--dur-5) var(--ease-salida) var(--dur-2);
+}
+.pulso-ok { animation: pulso-ok var(--dur-4) var(--ease-resorte); }
+.vaiven { animation: vaiven 320ms var(--ease-estandar); }
+.latir { animation: latir var(--dur-4) var(--ease-resorte); }
+
 @media (min-width: 48rem) {
   :root {
     --text-h1: 1.75rem;

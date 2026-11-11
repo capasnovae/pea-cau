@@ -5,6 +5,9 @@ import { Pestanas } from "@/components/tablero/pestanas";
 import { TarjetaCurso, etiquetaTipo, type FilaMiRuta } from "@/components/tablero/tarjeta-curso";
 import { Card } from "@/components/ui/card";
 import { formatearFecha } from "@/lib/dominio/contenido";
+import { Conteo } from "@/components/ui/conteo";
+import { Icono } from "@/components/ui/icono";
+import { Barra } from "@/components/ui/progreso";
 import { colorNivel, porcentaje } from "@/lib/dominio/leccion";
 import { requerirPerfil } from "@/lib/supabase/permisos";
 import { crearClienteServidor } from "@/lib/supabase/servidor";
@@ -119,7 +122,7 @@ async function VistaTablero({ cursos, usuarioId }: { cursos: FilaMiRuta[]; usuar
           <Link
             href="/repaso"
             aria-label="Repaso de hoy"
-            className="flex items-center justify-between gap-3 rounded-3xl bg-primary p-5 text-white shadow-1"
+            className="flex items-center justify-between gap-3 rounded-tarjeta bg-primary p-5 text-white shadow-brand transition hover:-translate-y-0.5 active:scale-[0.99]"
           >
             <span>
               <span className="block text-lg font-extrabold">Repaso de hoy</span>
@@ -128,9 +131,7 @@ async function VistaTablero({ cursos, usuarioId }: { cursos: FilaMiRuta[]; usuar
                 {repaso?.racha ? ` · ${textoRacha(repaso.racha)}` : ""}
               </span>
             </span>
-            <span aria-hidden className="text-h1">
-              →
-            </span>
+            <Icono nombre="flecha-der" tamano={24} />
           </Link>
         )}
         <Seccion
@@ -145,7 +146,9 @@ async function VistaTablero({ cursos, usuarioId }: { cursos: FilaMiRuta[]; usuar
             <dl className="grid grid-cols-3 gap-3">
               {contadores.map((c) => (
                 <div key={c.etiqueta} className="rounded-2xl bg-background p-3 text-center">
-                  <dd className={`text-3xl font-extrabold ${c.color}`}>{c.valor}</dd>
+                  <dd className={`text-3xl font-extrabold ${c.valor === 0 ? "text-subtle" : c.color}`}>
+                    <Conteo valor={c.valor} />
+                  </dd>
                   <dt className="text-xs font-semibold text-muted">{c.etiqueta}</dt>
                 </div>
               ))}
@@ -282,22 +285,23 @@ function ProgresoActual({ curso }: { curso: FilaMiRuta }) {
         <span className="rounded-full bg-white/20 px-3 py-1.5 text-xs font-bold uppercase">
           {etiquetaTipo(curso)}
         </span>
-        <span className="text-3xl font-extrabold">{pct}%</span>
+        <span className="text-3xl font-extrabold">
+          <Conteo valor={pct} sufijo="%" />
+        </span>
       </div>
       <h3 className="text-h1 leading-tight">{curso.titulo}</h3>
-      <div className="h-2 overflow-hidden rounded bg-white/30" aria-hidden="true">
-        <div className="h-full rounded bg-white/80" style={{ width: `${pct}%` }} />
-      </div>
+      <Barra valor={pct} etiqueta={`${pct}% del curso`} color="#fff" pista="rgb(255 255 255 / 0.3)" />
       <Link
         href={
           curso.siguiente_item
             ? `/estudiar/${curso.curso_id}/${curso.siguiente_item}`
             : `/estudiar/${curso.curso_id}`
         }
-        className="flex min-h-12 items-center justify-center rounded-2xl bg-white px-4 text-base font-extrabold"
+        className="flex min-h-12 items-center justify-center gap-2 rounded-boton bg-white px-4 text-base font-bold transition active:scale-[0.98]"
         style={{ color: color.texto }}
       >
         Continuar
+        <Icono nombre="flecha-der" />
       </Link>
     </section>
   );

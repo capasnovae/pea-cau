@@ -9,6 +9,10 @@ import {
   textoVencimiento,
 } from "@/lib/dominio/certificados";
 import { formatearFecha } from "@/lib/dominio/contenido";
+import { Conteo } from "@/components/ui/conteo";
+import { Icono } from "@/components/ui/icono";
+import { textoRacha } from "@/lib/dominio/repaso";
+import { Barra } from "@/components/ui/progreso";
 import { colorNivel, porcentaje } from "@/lib/dominio/leccion";
 import { ETIQUETA_ROL } from "@/lib/dominio/roles";
 import { requerirPerfil } from "@/lib/supabase/permisos";
@@ -50,6 +54,7 @@ export default async function PaginaPerfil() {
     { data: certificados },
     { data: intentos },
     { data: consignas },
+    { data: repaso },
   ] = await Promise.all([
     supabase
       .from("perfiles")
@@ -82,6 +87,7 @@ export default async function PaginaPerfil() {
       .in("estado", ["pendiente", "en_curso", "vencida"])
       .order("vence_el", { ascending: true, nullsFirst: false })
       .limit(5),
+    supabase.rpc("mi_repaso").maybeSingle(),
   ]);
   const subroles = (datos?.perfil_subroles ?? [])
     .map((s) => s.subroles?.nombre)
@@ -118,6 +124,12 @@ export default async function PaginaPerfil() {
             {datos?.sedes?.nombre ? ` · ${datos.sedes.nombre}` : ""}
           </p>
         </div>
+        {(repaso?.racha ?? 0) > 0 && (
+          <span className="inline-flex items-center gap-1 rounded-full bg-warning-soft px-3 py-2 text-sm font-bold text-warning">
+            <Icono nombre="llama" tamano={16} relleno />
+            {textoRacha(repaso?.racha ?? 0)}
+          </span>
+        )}
         {nivel !== null && (
           <span
             className="rounded-full px-4 py-2 font-extrabold text-white"
@@ -135,15 +147,11 @@ export default async function PaginaPerfil() {
             <Card className="flex flex-col gap-2">
               <div className="flex items-baseline justify-between">
                 <span className="font-bold">Cursos obligatorios</span>
-                <span className="text-h1">{pct}%</span>
+                <span className="text-h1">
+                  <Conteo valor={pct} sufijo="%" />
+                </span>
               </div>
-              <div
-                className="h-2.5 overflow-hidden rounded-full bg-background"
-                aria-label={`${pct}% de la ruta`}
-                role="img"
-              >
-                <div className="h-full rounded-full" style={{ width: `${pct}%`, background: color.fondo }} />
-              </div>
+              <Barra valor={pct} etiqueta={`${pct}% de la ruta`} color={color.fondo} className="h-2.5" />
               <p className="text-xs text-muted">
                 {resumen?.cursos_cumplidos ?? 0} de {resumen?.cursos_total ?? 0}
               </p>

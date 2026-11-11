@@ -6,6 +6,7 @@ import { VistaLeccion } from "@/components/leccion/vista-leccion";
 import { esquemaLeccion, minutosDeLectura } from "@/lib/dominio/lecciones";
 import { Markdown } from "@/components/markdown";
 import { BotonDescargar } from "@/app/(app)/recursos/boton-descargar";
+import { Icono } from "@/components/ui/icono";
 import { colorNivel, idsRecursoEnMarkdown, reemplazarRecursos, urlEmbedVideo } from "@/lib/dominio/leccion";
 import { requerirPerfil } from "@/lib/supabase/permisos";
 import { crearClienteServidor } from "@/lib/supabase/servidor";
@@ -227,9 +228,9 @@ export default async function PaginaLeccion({ params }: PageProps<"/estudiar/[cu
         <Link
           href={`/estudiar/${cursoId}`}
           aria-label="Volver al curso"
-          className="flex size-11 items-center justify-center rounded-full bg-card text-xl shadow-1"
+          className="flex size-11 items-center justify-center rounded-full bg-card shadow-1 transition active:scale-95"
         >
-          ×
+          <Icono nombre="cruz" />
         </Link>
         <div
           className="grid flex-1 gap-1.5"
@@ -238,11 +239,14 @@ export default async function PaginaLeccion({ params }: PageProps<"/estudiar/[cu
           role="img"
         >
           {delModulo.map((f, i) => (
-            <div
-              key={f.item_id}
-              className="h-2 rounded"
-              style={{ background: f.cumplido || i < posModulo ? color : "var(--border)" }}
-            />
+            <div key={f.item_id} className="h-2 overflow-hidden rounded-full bg-border">
+              {(f.cumplido || i < posModulo) && (
+                <div
+                  className={`h-full w-full origin-left rounded-full ${i === posModulo ? "barra-llenar" : ""}`}
+                  style={{ background: color, "--v": 1 } as React.CSSProperties}
+                />
+              )}
+            </div>
           ))}
         </div>
       </div>

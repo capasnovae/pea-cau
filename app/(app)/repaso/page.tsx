@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { Practica } from "@/app/(app)/estudiar/[curso]/[item]/practica";
 import { Card } from "@/components/ui/card";
+import { Icono } from "@/components/ui/icono";
+import { Vacio } from "@/components/ui/vacio";
 import { textoRacha } from "@/lib/dominio/repaso";
 import { requerirPerfil } from "@/lib/supabase/permisos";
 import { crearClienteServidor } from "@/lib/supabase/servidor";
@@ -19,19 +21,27 @@ export default async function PaginaRepaso() {
       <div className="flex items-baseline justify-between gap-3">
         <h1 className="text-h1">Repaso de hoy</h1>
         {racha && (
-          <span className="rounded-full bg-warning-soft px-3 py-1 text-sm font-bold text-warning">
+          <span className="inline-flex items-center gap-1 rounded-full bg-warning-soft px-3 py-1 text-sm font-bold text-warning">
+            <Icono nombre="llama" tamano={16} relleno className="latir" />
             {racha}
           </span>
         )}
       </div>
       {lista.length === 0 ? (
-        <Card className="flex flex-col items-start gap-3">
-          <p role="status" className="text-lg font-extrabold">
-            {(resumen?.hechas_hoy ?? 0) > 0 ? "Listo por hoy" : "Nada para repasar hoy"}
-          </p>
-          <Link href="/estudiar" className="font-semibold text-primary-strong">
-            Seguir estudiando →
-          </Link>
+        <Card>
+          <Vacio
+            icono={(resumen?.hechas_hoy ?? 0) > 0 ? "tilde" : "repetir"}
+            texto={(resumen?.hechas_hoy ?? 0) > 0 ? "Listo por hoy" : "Nada para repasar hoy"}
+            accion={
+              <Link
+                href="/estudiar"
+                className="inline-flex items-center gap-1 font-semibold text-primary-strong"
+              >
+                Seguir estudiando
+                <Icono nombre="flecha-der" tamano={16} />
+              </Link>
+            }
+          />
         </Card>
       ) : (
         <Card>
