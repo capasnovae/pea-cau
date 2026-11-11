@@ -34,6 +34,10 @@
   --gold: #f59e0b;
   --gold-soft: #fffbeb;
 
+  --avatar: #ffd9a8;
+  --avatar-fg: #9a4a00;
+  --overlay: rgb(26 26 46 / 0.5);
+
   /* Navegación */
   --nav: #1e1b4b;
   --nav-fg: #c7d2fe;
@@ -91,6 +95,8 @@
   --color-destructive-soft: var(--destructive-soft);
   --color-gold: var(--gold);
   --color-gold-soft: var(--gold-soft);
+  --color-avatar: var(--avatar);
+  --color-avatar-fg: var(--avatar-fg);
   --color-nav: var(--nav);
   --color-nav-fg: var(--nav-fg);
   --color-nav-fg-muted: var(--nav-fg-muted);
@@ -171,27 +177,49 @@
 }
 
 @keyframes llenar {
-  from { transform: scaleX(0); }
+  from {
+    transform: scaleX(0);
+  }
 }
 @keyframes dibujar-anillo {
-  from { stroke-dashoffset: var(--largo); }
+  from {
+    stroke-dashoffset: var(--largo);
+  }
 }
 @keyframes dibujar-tilde {
-  from { stroke-dashoffset: 1; }
+  from {
+    stroke-dashoffset: 1;
+  }
 }
 @keyframes pulso-ok {
-  50% { transform: scale(1.03); }
+  50% {
+    transform: scale(1.03);
+  }
 }
 @keyframes vaiven {
-  20%, 60% { transform: translateX(-6px); }
-  40%, 80% { transform: translateX(6px); }
+  20%,
+  60% {
+    transform: translateX(-6px);
+  }
+  40%,
+  80% {
+    transform: translateX(6px);
+  }
 }
 @keyframes estallar {
-  from { opacity: 1; transform: rotate(var(--angulo)) translateX(0) scale(1); }
-  to { opacity: 0; transform: rotate(var(--angulo)) translateX(var(--lejos)) scale(0.4); }
+  from {
+    opacity: 1;
+    transform: rotate(var(--angulo)) translateX(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: rotate(var(--angulo)) translateX(var(--lejos)) scale(0.4);
+  }
 }
 @keyframes latir {
-  50% { transform: scale(1.2); }
+  50% {
+    transform: scale(1.2);
+  }
 }
 
 .barra-llenar {
@@ -213,9 +241,86 @@
   opacity: 0;
   animation: estallar var(--dur-5) var(--ease-salida) var(--dur-2);
 }
-.pulso-ok { animation: pulso-ok var(--dur-4) var(--ease-resorte); }
-.vaiven { animation: vaiven 320ms var(--ease-estandar); }
-.latir { animation: latir var(--dur-4) var(--ease-resorte); }
+.pulso-ok {
+  animation: pulso-ok var(--dur-4) var(--ease-resorte);
+}
+.vaiven {
+  animation: vaiven 320ms var(--ease-estandar);
+}
+.latir {
+  animation: latir var(--dur-4) var(--ease-resorte);
+}
+
+@layer components {
+  /* Menú flotante (atributo popover): se abre desde su origen, cierra al tocar afuera o con Esc */
+  .menu-flotante {
+    position: fixed;
+    inset: auto;
+    margin: 0;
+    border: 0;
+    opacity: 0;
+    transform: scale(0.96);
+    transition:
+      opacity var(--dur-2) var(--ease-salida),
+      transform var(--dur-2) var(--ease-salida),
+      overlay var(--dur-2) allow-discrete,
+      display var(--dur-2) allow-discrete;
+  }
+  .menu-flotante:popover-open {
+    opacity: 1;
+    transform: scale(1);
+  }
+  @starting-style {
+    .menu-flotante:popover-open {
+      opacity: 0;
+      transform: scale(0.96);
+    }
+  }
+
+  /* Hoja inferior (dialog): sube desde abajo con el fondo atenuado */
+  .hoja {
+    position: fixed;
+    inset: auto 0 0 0;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    border: 0;
+    padding: 0 0 env(safe-area-inset-bottom);
+    border-radius: var(--radius-hoja) var(--radius-hoja) 0 0;
+    background: var(--card);
+    color: var(--ink);
+    box-shadow: var(--shadow-4);
+    transform: translateY(100%);
+    transition:
+      transform var(--dur-3) var(--ease-entrada),
+      overlay var(--dur-3) allow-discrete,
+      display var(--dur-3) allow-discrete;
+  }
+  .hoja[open] {
+    transform: translateY(0);
+    transition-duration: var(--dur-4);
+    transition-timing-function: var(--ease-salida);
+  }
+  .hoja::backdrop {
+    background: var(--overlay);
+    opacity: 0;
+    transition:
+      opacity var(--dur-3) var(--ease-estandar),
+      overlay var(--dur-3) allow-discrete,
+      display var(--dur-3) allow-discrete;
+  }
+  .hoja[open]::backdrop {
+    opacity: 1;
+  }
+  @starting-style {
+    .hoja[open] {
+      transform: translateY(100%);
+    }
+    .hoja[open]::backdrop {
+      opacity: 0;
+    }
+  }
+}
 
 @media (min-width: 48rem) {
   :root {

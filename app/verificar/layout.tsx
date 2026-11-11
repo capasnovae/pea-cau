@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function LayoutVerificar({ children }: LayoutProps<"/verificar">) {
   return (
     <div className="flex min-h-dvh flex-1 flex-col bg-background">
-      <header className="flex h-16 items-center bg-nav px-5">
+      <header className="sobre-oscuro flex h-16 items-center bg-nav px-5">
         <Link href="/" className="text-xl font-extrabold text-white">
           PEA
         </Link>

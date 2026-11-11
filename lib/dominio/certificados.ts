@@ -23,7 +23,7 @@ export const ETIQUETA_ESTADO_CERT: Record<EstadoCertificado, string> = {
 export const COLOR_ESTADO_CERT: Record<EstadoCertificado, string> = {
   vigente: "bg-success-soft text-success",
   vencida: "bg-warning-soft text-warning",
-  revocada: "bg-[#fef2f2] text-[#b91c1c]",
+  revocada: "bg-destructive-soft text-destructive",
 };
 
 export function textoVencimiento(venceAt: string | null): string {

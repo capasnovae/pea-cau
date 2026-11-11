@@ -2,14 +2,15 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { Icono } from "@/components/ui/icono";
 import { cn } from "@/lib/utils/cn";
 
 const OPCIONES = [
   {
     clave: "asesor",
     nombre: "Asesor",
-    fondo: "#eef2ff",
-    trazo: "#4f46e5",
+    fondo: "var(--nivel-1-soft)",
+    trazo: "var(--nivel-1)",
     icono: (
       <>
         <path d="M3 9l9-5 9 5-9 5-9-5z" />
@@ -20,8 +21,8 @@ const OPCIONES = [
   {
     clave: "coordinador",
     nombre: "Coordinador o líder",
-    fondo: "#f0fdfa",
-    trazo: "#0f766e",
+    fondo: "var(--nivel-2-soft)",
+    trazo: "var(--nivel-2)",
     icono: (
       <>
         <circle cx="9" cy="8" r="3" />
@@ -33,8 +34,8 @@ const OPCIONES = [
   {
     clave: "director",
     nombre: "Director",
-    fondo: "#fff7ed",
-    trazo: "#c2410c",
+    fondo: "var(--nivel-3-soft)",
+    trazo: "var(--nivel-3)",
     icono: (
       <>
         <path d="M4 20V9l8-5 8 5v11" />
@@ -53,10 +54,10 @@ export function ElegirRol() {
           <label
             key={o.clave}
             className={cn(
-              "flex cursor-pointer items-center gap-4 rounded-[18px] border-2 bg-card px-5 py-4",
+              "relative flex cursor-pointer items-center gap-4 rounded-tarjeta border-2 bg-card px-5 py-4 transition active:scale-[0.99] has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-ring",
               elegido === o.clave
-                ? "border-primary shadow-[0_6px_18px_rgba(79,70,229,0.12)]"
-                : "border-border",
+                ? "border-primary bg-primary-soft shadow-2"
+                : "border-border hover:border-border-control",
             )}
           >
             <input
@@ -65,26 +66,35 @@ export function ElegirRol() {
               value={o.clave}
               checked={elegido === o.clave}
               onChange={() => setElegido(o.clave)}
-              className="size-[18px] accent-primary"
+              className="absolute inset-0 cursor-pointer opacity-0"
             />
             <span
               aria-hidden="true"
               className="flex size-12 shrink-0 items-center justify-center rounded-[14px]"
               style={{ background: o.fondo }}
             >
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke={o.trazo} strokeWidth="1.8">
+              <svg
+                width="26"
+                height="26"
+                viewBox="0 0 24 24"
+                fill="none"
+                strokeWidth="1.8"
+                style={{ stroke: o.trazo }}
+              >
                 {o.icono}
               </svg>
             </span>
-            <span className="text-[17px] font-extrabold">{o.nombre}</span>
+            <span className="flex-1 text-h3">{o.nombre}</span>
+            {elegido === o.clave && <Icono nombre="tilde" className="text-primary" />}
           </label>
         ))}
       </div>
       <Link
         href="/ingresar"
-        className="flex min-h-12 w-fit items-center rounded-[14px] bg-primary px-7 text-base font-extrabold text-white hover:bg-primary-strong"
+        className="flex min-h-13 w-full max-w-xl items-center justify-center gap-2 rounded-boton bg-primary px-7 text-base font-bold text-primary-foreground shadow-brand transition hover:bg-primary-strong active:scale-[0.98] md:w-fit md:min-w-48"
       >
         Ingresar
+        <Icono nombre="flecha-der" />
       </Link>
     </>
   );
