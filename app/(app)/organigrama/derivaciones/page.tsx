@@ -14,7 +14,9 @@ export default async function PaginaDerivaciones() {
   return (
     <div className="flex flex-col gap-5">
       <div>
-        <Link href="/organigrama" className="text-sm text-primary">← Organigrama</Link>
+        <Link href="/organigrama" className="text-sm text-primary">
+          ← Organigrama
+        </Link>
         <h1 className="mt-1 text-2xl font-semibold">Áreas de derivación</h1>
         <p className="text-sm text-muted">Qué resuelve cada área de Siglo y cómo contactarla.</p>
       </div>

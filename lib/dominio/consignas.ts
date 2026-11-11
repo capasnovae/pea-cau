@@ -6,7 +6,8 @@ export type EstadoAsignacion = "pendiente" | "en_curso" | "hecha" | "vencida";
 
 export function destinosPermitidos(rol: RolApp): DestinoConsigna[] {
   if (rol === "lider") return ["usuario", "equipo"];
-  if (rol === "coordinador" || rol === "director" || rol === "admin") return ["usuario", "equipo", "subrol", "sede"];
+  if (rol === "coordinador" || rol === "director" || rol === "admin")
+    return ["usuario", "equipo", "subrol", "sede"];
   return [];
 }
 
@@ -24,7 +25,12 @@ export const ETIQUETA_ESTADO: Record<EstadoAsignacion, string> = {
   vencida: "Vencida",
 };
 
-export const ETIQUETA_RECURRENCIA = { ninguna: "No se repite", diaria: "Todos los días", semanal: "Todas las semanas", mensual: "Todos los meses" } as const;
+export const ETIQUETA_RECURRENCIA = {
+  ninguna: "No se repite",
+  diaria: "Todos los días",
+  semanal: "Todas las semanas",
+  mensual: "Todos los meses",
+} as const;
 export const ETIQUETA_PRIORIDAD = { baja: "Baja", normal: "Normal", alta: "Alta" } as const;
 
 const vacioANull = (v: unknown) => (v === "" || v === undefined ? null : v);
@@ -47,11 +53,21 @@ export const esquemaConsigna = z
     requiere_evidencia: z.preprocess((v) => v === true || v === "on" || v === "true", z.boolean()),
   })
   .superRefine((d, ctx) => {
-    if (d.tipo === "lectura" && !d.articulo_id) ctx.addIssue({ code: "custom", path: ["articulo_id"], message: "Elegí el artículo a leer." });
+    if (d.tipo === "lectura" && !d.articulo_id)
+      ctx.addIssue({ code: "custom", path: ["articulo_id"], message: "Elegí el artículo a leer." });
     if (d.recurrencia !== "ninguna" && d.fecha_limite) {
-      ctx.addIssue({ code: "custom", path: ["fecha_limite"], message: "Una consigna que se repite no lleva fecha límite: vence al final de cada período." });
+      ctx.addIssue({
+        code: "custom",
+        path: ["fecha_limite"],
+        message: "Una consigna que se repite no lleva fecha límite: vence al final de cada período.",
+      });
     }
-    const campo = { usuario: d.destino_usuario_id, equipo: d.destino_equipo_id, subrol: d.destino_subrol_id, sede: "ok" }[d.destino];
+    const campo = {
+      usuario: d.destino_usuario_id,
+      equipo: d.destino_equipo_id,
+      subrol: d.destino_subrol_id,
+      sede: "ok",
+    }[d.destino];
     if (!campo) ctx.addIssue({ code: "custom", path: ["destino"], message: "Elegí a quién va la consigna." });
   })
   .transform((d) => ({

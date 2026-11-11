@@ -11,18 +11,29 @@ export default async function PaginaArticulo({ params }: PageProps<"/repositorio
   const { categoria: slugCategoria, slug } = await params;
   await requerirPerfil();
   const supabase = await crearClienteServidor();
-  const { data: categoria } = await supabase.from("categorias").select("id, nombre").eq("slug", slugCategoria).maybeSingle();
+  const { data: categoria } = await supabase
+    .from("categorias")
+    .select("id, nombre")
+    .eq("slug", slugCategoria)
+    .maybeSingle();
   if (!categoria) notFound();
   const { data: articulo } = await supabase
     .from("articulos")
-    .select("id, titulo, resumen, cuerpo_md, version, updated_at, vigente_hasta, alcance, estado, fuente_url, padre_id")
+    .select(
+      "id, titulo, resumen, cuerpo_md, version, updated_at, vigente_hasta, alcance, estado, fuente_url, padre_id",
+    )
     .eq("categoria_id", categoria.id)
     .eq("slug", slug)
     .maybeSingle();
   if (!articulo) notFound();
 
   const [{ data: hijos }, { data: padre }] = await Promise.all([
-    supabase.from("articulos").select("titulo, slug").eq("padre_id", articulo.id).eq("estado", "publicado").order("orden"),
+    supabase
+      .from("articulos")
+      .select("titulo, slug")
+      .eq("padre_id", articulo.id)
+      .eq("estado", "publicado")
+      .order("orden"),
     articulo.padre_id
       ? supabase.from("articulos").select("titulo, slug").eq("id", articulo.padre_id).maybeSingle()
       : Promise.resolve({ data: null }),
@@ -31,7 +42,10 @@ export default async function PaginaArticulo({ params }: PageProps<"/repositorio
   return (
     <article className="flex flex-col gap-4">
       <div>
-        <Link href={padre ? `/repositorio/${slugCategoria}/${padre.slug}` : `/repositorio/${slugCategoria}`} className="text-sm text-primary">
+        <Link
+          href={padre ? `/repositorio/${slugCategoria}/${padre.slug}` : `/repositorio/${slugCategoria}`}
+          className="text-sm text-primary"
+        >
           ← {padre ? padre.titulo : categoria.nombre}
         </Link>
         <h1 className="mt-1 text-2xl font-semibold">{articulo.titulo}</h1>
@@ -67,7 +81,12 @@ export default async function PaginaArticulo({ params }: PageProps<"/repositorio
         {articulo.fuente_url && (
           <>
             {" · "}
-            <a href={articulo.fuente_url} target="_blank" rel="noopener noreferrer" className="text-primary underline">
+            <a
+              href={articulo.fuente_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary underline"
+            >
               Fuente
             </a>
           </>

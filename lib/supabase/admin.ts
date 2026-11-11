@@ -7,5 +7,7 @@ import { urlSupabase } from "./env";
 export function crearClienteAdmin() {
   const clave = process.env.SUPABASE_SECRET_KEY;
   if (!clave) throw new Error("Falta SUPABASE_SECRET_KEY");
-  return createClient<Database>(urlSupabase(), clave, { auth: { persistSession: false, autoRefreshToken: false } });
+  return createClient<Database>(urlSupabase(), clave, {
+    auth: { persistSession: false, autoRefreshToken: false },
+  });
 }

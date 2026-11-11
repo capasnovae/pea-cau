@@ -17,26 +17,53 @@ export type FilaOrganigrama = {
 
 export type Persona = FilaOrganigrama;
 type PorArea = { servicio: Persona[]; ventas: Persona[] };
-export type EquipoOrg = { id: string; nombre: string; area: Area | null; lider: Persona | null; miembros: Persona[] };
-export type SedeOrg = { id: string; nombre: string; coordinadores: PorArea; equipos: EquipoOrg[]; sinEquipo: PorArea };
+export type EquipoOrg = {
+  id: string;
+  nombre: string;
+  area: Area | null;
+  lider: Persona | null;
+  miembros: Persona[];
+};
+export type SedeOrg = {
+  id: string;
+  nombre: string;
+  coordinadores: PorArea;
+  equipos: EquipoOrg[];
+  sinEquipo: PorArea;
+};
 
 const porApellido = (a: Persona, b: Persona) =>
   a.apellido.localeCompare(b.apellido, "es") || a.nombre.localeCompare(b.nombre, "es");
 
-export function armarOrganigrama(filas: FilaOrganigrama[], todasLasSedes: { id: string; nombre: string }[] = []) {
+export function armarOrganigrama(
+  filas: FilaOrganigrama[],
+  todasLasSedes: { id: string; nombre: string }[] = [],
+) {
   const directores = filas.filter((f) => f.rol === "director").sort(porApellido);
   const admins = filas.filter((f) => f.rol === "admin" && !f.sede_id).sort(porApellido);
   const sedes = new Map<string, SedeOrg>();
   const equipos = new Map<string, EquipoOrg>();
   for (const s of todasLasSedes) {
-    sedes.set(s.id, { id: s.id, nombre: s.nombre, coordinadores: { servicio: [], ventas: [] }, equipos: [], sinEquipo: { servicio: [], ventas: [] } });
+    sedes.set(s.id, {
+      id: s.id,
+      nombre: s.nombre,
+      coordinadores: { servicio: [], ventas: [] },
+      equipos: [],
+      sinEquipo: { servicio: [], ventas: [] },
+    });
   }
 
   for (const f of filas) {
     if (!f.sede_id || f.rol === "director") continue;
     let sede = sedes.get(f.sede_id);
     if (!sede) {
-      sede = { id: f.sede_id, nombre: f.sede ?? "", coordinadores: { servicio: [], ventas: [] }, equipos: [], sinEquipo: { servicio: [], ventas: [] } };
+      sede = {
+        id: f.sede_id,
+        nombre: f.sede ?? "",
+        coordinadores: { servicio: [], ventas: [] },
+        equipos: [],
+        sinEquipo: { servicio: [], ventas: [] },
+      };
       sedes.set(f.sede_id, sede);
     }
     const area: Area = f.area ?? "servicio";

@@ -24,7 +24,11 @@ function Grupo({ titulo, personas }: { titulo: string; personas: Persona[] }) {
   return (
     <div>
       <h4 className="text-xs font-semibold uppercase tracking-wide text-muted">{titulo}</h4>
-      <ul>{personas.map((p) => <Fila key={p.id} p={p} />)}</ul>
+      <ul>
+        {personas.map((p) => (
+          <Fila key={p.id} p={p} />
+        ))}
+      </ul>
     </div>
   );
 }
@@ -54,14 +58,24 @@ export default async function PaginaOrganigrama() {
 
       {org.directores.length > 0 && (
         <Card className="border-primary/40 p-4">
-          <h2 className="text-xs font-semibold uppercase tracking-wide text-muted">Dirección · todos los CAU</h2>
-          <ul>{org.directores.map((p) => <Fila key={p.id} p={{ ...p, puesto: p.puesto ?? ETIQUETA_ROL[p.rol] }} />)}</ul>
+          <h2 className="text-xs font-semibold uppercase tracking-wide text-muted">
+            Dirección · todos los CAU
+          </h2>
+          <ul>
+            {org.directores.map((p) => (
+              <Fila key={p.id} p={{ ...p, puesto: p.puesto ?? ETIQUETA_ROL[p.rol] }} />
+            ))}
+          </ul>
         </Card>
       )}
 
       <div className="flex flex-col gap-3" aria-label="Sedes">
         {org.sedes.map((s) => (
-          <details key={s.id} open={s.id === perfil.sede_id} className="rounded-xl border border-border bg-card shadow-sm">
+          <details
+            key={s.id}
+            open={s.id === perfil.sede_id}
+            className="rounded-xl border border-border bg-card shadow-sm"
+          >
             <summary className="cursor-pointer list-none p-4 font-semibold [&::-webkit-details-marker]:hidden">
               CAU {s.nombre}
               <span className="ml-2 text-sm font-normal text-muted">
@@ -69,9 +83,12 @@ export default async function PaginaOrganigrama() {
               </span>
             </summary>
             <div className="flex flex-col gap-4 border-t border-border p-4">
-              {s.equipos.length + s.coordinadores.servicio.length + s.coordinadores.ventas.length + s.sinEquipo.servicio.length + s.sinEquipo.ventas.length === 0 && (
-                <p className="text-sm text-muted">Todavía no hay personas cargadas en esta sede.</p>
-              )}
+              {s.equipos.length +
+                s.coordinadores.servicio.length +
+                s.coordinadores.ventas.length +
+                s.sinEquipo.servicio.length +
+                s.sinEquipo.ventas.length ===
+                0 && <p className="text-sm text-muted">Todavía no hay personas cargadas en esta sede.</p>}
               <div className="grid gap-3 sm:grid-cols-2">
                 <Grupo titulo="Coordinación de alumnado" personas={s.coordinadores.servicio} />
                 <Grupo titulo="Coordinación de ventas" personas={s.coordinadores.ventas} />
@@ -80,11 +97,17 @@ export default async function PaginaOrganigrama() {
                 <div key={e.id} className="rounded-lg border border-border p-3">
                   <h3 className="font-medium">
                     {e.nombre}
-                    {e.area && <span className="ml-2 text-xs text-muted">{e.area === "servicio" ? "Servicio" : "Ventas"}</span>}
+                    {e.area && (
+                      <span className="ml-2 text-xs text-muted">
+                        {e.area === "servicio" ? "Servicio" : "Ventas"}
+                      </span>
+                    )}
                   </h3>
                   <ul>
                     {e.lider && <Fila p={e.lider} destacado />}
-                    {e.miembros.map((p) => <Fila key={p.id} p={p} />)}
+                    {e.miembros.map((p) => (
+                      <Fila key={p.id} p={p} />
+                    ))}
                   </ul>
                 </div>
               ))}
@@ -103,7 +126,9 @@ export default async function PaginaOrganigrama() {
           {[...(puestos ?? []), ...(subroles ?? [])].map((p) => (
             <div key={p.id}>
               <dt className="font-medium">{p.nombre}</dt>
-              <dd className="text-sm text-muted">{p.descripcion_md ? <Markdown texto={p.descripcion_md} /> : "—"}</dd>
+              <dd className="text-sm text-muted">
+                {p.descripcion_md ? <Markdown texto={p.descripcion_md} /> : "—"}
+              </dd>
             </div>
           ))}
         </dl>

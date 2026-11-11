@@ -1,3 +1,4 @@
+import { textoRacha, textoRepaso } from "@/lib/dominio/repaso";
 import Link from "next/link";
 import { Avatar } from "@/components/nav/panel-cuenta";
 import { Pestanas } from "@/components/tablero/pestanas";
@@ -82,19 +83,25 @@ function VistaCursos({ cursos, favs }: { cursos: FilaMiRuta[]; favs: Set<string>
 
 async function VistaTablero({ cursos, usuarioId }: { cursos: FilaMiRuta[]; usuarioId: string }) {
   const supabase = await crearClienteServidor();
-  const [{ data: trabajo }, { data: pendientes }, { data: novedades }, { data: contactos }] =
-    await Promise.all([
-      supabase.rpc("mi_trabajo").maybeSingle(),
-      supabase
-        .from("consigna_asignaciones")
-        .select("id, vence_el, consignas(titulo)")
-        .eq("usuario_id", usuarioId)
-        .in("estado", ["pendiente", "en_curso", "vencida"])
-        .order("vence_el", { ascending: true, nullsFirst: false })
-        .limit(3),
-      supabase.rpc("mi_bandeja", { p_filtro: "anuncios" }).limit(3),
-      supabase.rpc("contactos_bandeja"),
-    ]);
+  const [
+    { data: trabajo },
+    { data: pendientes },
+    { data: novedades },
+    { data: contactos },
+    { data: repaso },
+  ] = await Promise.all([
+    supabase.rpc("mi_trabajo").maybeSingle(),
+    supabase
+      .from("consigna_asignaciones")
+      .select("id, vence_el, consignas(titulo)")
+      .eq("usuario_id", usuarioId)
+      .in("estado", ["pendiente", "en_curso", "vencida"])
+      .order("vence_el", { ascending: true, nullsFirst: false })
+      .limit(3),
+    supabase.rpc("mi_bandeja", { p_filtro: "anuncios" }).limit(3),
+    supabase.rpc("contactos_bandeja"),
+    supabase.rpc("mi_repaso").maybeSingle(),
+  ]);
   const equipo = (contactos ?? []).filter((c) => c.mismo_equipo).slice(0, 6);
   const enCurso = cursos.filter((c) => c.desbloqueado && !c.cumplido);
   const actual = enCurso.find((c) => c.obligatorio) ?? enCurso[0];
@@ -108,6 +115,24 @@ async function VistaTablero({ cursos, usuarioId }: { cursos: FilaMiRuta[]; usuar
   return (
     <div className="grid gap-6 lg:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)]">
       <div className="flex flex-col gap-6">
+        {(repaso?.pendientes ?? 0) > 0 && (
+          <Link
+            href="/repaso"
+            aria-label="Repaso de hoy"
+            className="flex items-center justify-between gap-3 rounded-3xl bg-primary p-5 text-white shadow-[var(--shadow-suave)]"
+          >
+            <span>
+              <span className="block text-lg font-extrabold">Repaso de hoy</span>
+              <span className="block text-sm text-white/85">
+                {textoRepaso(Math.min(5, repaso?.pendientes ?? 0))}
+                {repaso?.racha ? ` · ${textoRacha(repaso.racha)}` : ""}
+              </span>
+            </span>
+            <span aria-hidden className="text-2xl font-extrabold">
+              →
+            </span>
+          </Link>
+        )}
         <Seccion
           titulo="Mi trabajo"
           accion={

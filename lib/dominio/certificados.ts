@@ -38,7 +38,8 @@ export function normalizarCodigo(c: string): string {
   return c.replace(/[\s-]/g, "").toUpperCase();
 }
 
-export type BusquedaCertificados = { tipo: "codigo"; codigo: string } | { tipo: "nombre"; terminos: string[] };
+export type BusquedaCertificados =
+  { tipo: "codigo"; codigo: string } | { tipo: "nombre"; terminos: string[] };
 
 /** Un código de verificación (10 hex, con o sin guiones o espacios) o términos de nombre y apellido. */
 export function busquedaCertificados(q: string): BusquedaCertificados | null {

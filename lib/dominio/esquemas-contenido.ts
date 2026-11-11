@@ -15,13 +15,22 @@ const alcanceYSede = {
 };
 
 function validarAlcance(d: { alcance: string; sede_id: string | null }, ctx: z.RefinementCtx) {
-  if (d.alcance === "sede" && !d.sede_id) ctx.addIssue({ code: "custom", path: ["sede_id"], message: "Elegí la sede." });
-  if (d.alcance === "global" && d.sede_id) ctx.addIssue({ code: "custom", path: ["sede_id"], message: "El contenido global no lleva sede." });
+  if (d.alcance === "sede" && !d.sede_id)
+    ctx.addIssue({ code: "custom", path: ["sede_id"], message: "Elegí la sede." });
+  if (d.alcance === "global" && d.sede_id)
+    ctx.addIssue({ code: "custom", path: ["sede_id"], message: "El contenido global no lleva sede." });
 }
 
-function validarVigencia(d: { vigente_desde?: string | null; vigente_hasta: string | null }, ctx: z.RefinementCtx) {
+function validarVigencia(
+  d: { vigente_desde?: string | null; vigente_hasta: string | null },
+  ctx: z.RefinementCtx,
+) {
   if (d.vigente_desde && d.vigente_hasta && d.vigente_hasta < d.vigente_desde) {
-    ctx.addIssue({ code: "custom", path: ["vigente_hasta"], message: "La fecha de fin tiene que ser posterior al inicio." });
+    ctx.addIssue({
+      code: "custom",
+      path: ["vigente_hasta"],
+      message: "La fecha de fin tiene que ser posterior al inicio.",
+    });
   }
 }
 
@@ -51,7 +60,10 @@ export const esquemaRecurso = z
     categoria_id: z.uuid("Elegí la categoría."),
     campana_id: uuidOpcional,
     etiquetas: z.preprocess(
-      (v) => (Array.isArray(v) ? v : String(v ?? "").split(",")).map((e) => String(e).trim().toLowerCase()).filter(Boolean),
+      (v) =>
+        (Array.isArray(v) ? v : String(v ?? "").split(","))
+          .map((e) => String(e).trim().toLowerCase())
+          .filter(Boolean),
       z.array(z.string().max(40)).max(20),
     ),
     url_externa: urlOpcional,
@@ -62,8 +74,10 @@ export const esquemaRecurso = z
   .superRefine(validarAlcance)
   .superRefine((d, ctx) => {
     const necesitaUrl = d.tipo === "enlace" || (d.tipo === "video" && !d.tiene_archivo);
-    if (necesitaUrl && !d.url_externa) ctx.addIssue({ code: "custom", path: ["url_externa"], message: "Falta el link." });
-    if (!d.tiene_archivo && !d.url_externa) ctx.addIssue({ code: "custom", path: ["url_externa"], message: "Subí un archivo o poné un link." });
+    if (necesitaUrl && !d.url_externa)
+      ctx.addIssue({ code: "custom", path: ["url_externa"], message: "Falta el link." });
+    if (!d.tiene_archivo && !d.url_externa)
+      ctx.addIssue({ code: "custom", path: ["url_externa"], message: "Subí un archivo o poné un link." });
   });
 
 export const esquemaCampana = z

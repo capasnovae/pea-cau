@@ -346,3 +346,8 @@ from public.perfiles where email = 'asesor.roca@pea.local';
 select public.crear_alerta(id, 'actualizacion', 'Nueva actualización: Cambió el acceso al portal (ejemplo)', 'Tenés 10 días para completarla.',
   '/actualizaciones/d6000000-0000-4000-8000-000000000001', 'actualizacion:d5000000-0000-4000-8000-000000000001')
 from public.perfiles where email = 'asesor.roca@pea.local';
+
+-- Repaso diario · una pregunta que le toca hoy a Rocío (asesor.roca)
+insert into public.repaso (usuario_id, pregunta_id, caja, proxima, aciertos)
+select id, 'd2000000-0000-4000-8000-000000000041', 1, public.hoy_ar(), 1
+from public.perfiles where email = 'asesor.roca@pea.local';

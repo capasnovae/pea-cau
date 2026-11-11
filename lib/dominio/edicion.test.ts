@@ -35,9 +35,9 @@ describe("mensajeErrorGuardado", () => {
     expect(mensajeErrorGuardado({ code: "23505" })).toBe("Ya hay un artículo con ese slug en la categoría.");
   });
   it("padre de otra categoría", () => {
-    expect(mensajeErrorGuardado({ code: "P0001", message: "integridad: el artículo padre es de otra categoría" })).toBe(
-      "El artículo padre tiene que ser de la misma categoría.",
-    );
+    expect(
+      mensajeErrorGuardado({ code: "P0001", message: "integridad: el artículo padre es de otra categoría" }),
+    ).toBe("El artículo padre tiene que ser de la misma categoría.");
   });
   it("cualquier otro error", () => {
     expect(mensajeErrorGuardado({ code: "XX000" })).toBe("No pudimos guardar. Probá de nuevo.");

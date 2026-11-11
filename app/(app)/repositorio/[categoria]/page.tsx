@@ -21,9 +21,19 @@ type Fila = {
   estado: "borrador" | "publicado" | "archivado";
 };
 
-function Lista({ nodos, categoria, nivel }: { nodos: NodoArticulo<Fila>[]; categoria: string; nivel: number }) {
+function Lista({
+  nodos,
+  categoria,
+  nivel,
+}: {
+  nodos: NodoArticulo<Fila>[];
+  categoria: string;
+  nivel: number;
+}) {
   return (
-    <ul className={nivel === 0 ? "flex flex-col gap-3" : "mt-2 flex flex-col gap-1 border-l border-border pl-3"}>
+    <ul
+      className={nivel === 0 ? "flex flex-col gap-3" : "mt-2 flex flex-col gap-1 border-l border-border pl-3"}
+    >
       {nodos.map((n) => (
         <li key={n.id}>
           {nivel === 0 ? (

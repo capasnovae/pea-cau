@@ -61,26 +61,31 @@ const esquemaRespuesta = z.object({
 
 /** Comprueba una pregunta de práctica: la de un paso "práctica" (examen) o el Probalo de una lección. */
 export async function comprobarPractica(
-  origen: { tipo: "examen" | "leccion"; id: string },
+  origen: { tipo: "examen" | "leccion"; id: string } | { tipo: "repaso" },
   preguntaId: string,
   respuesta: unknown,
 ): Promise<ResultadoPractica> {
   await requerirPerfil();
-  const ids = z.object({ o: z.uuid(), p: z.uuid() }).safeParse({ o: origen.id, p: preguntaId });
+  const ids = z
+    .object({ o: z.uuid(), p: z.uuid() })
+    .safeParse({ o: origen.tipo === "repaso" ? preguntaId : origen.id, p: preguntaId });
   const r = esquemaRespuesta.safeParse(respuesta);
-  if (!ids.success || !r.success || (origen.tipo !== "examen" && origen.tipo !== "leccion"))
+  if (!ids.success || !r.success || !["examen", "leccion", "repaso"].includes(origen.tipo))
     return { ok: false, error: "Revisá la respuesta." };
   const supabase = await crearClienteServidor();
   const { data, error } =
-    origen.tipo === "examen"
-      ? await supabase
-          .rpc("comprobar_practica", { p_examen: ids.data.o, p_pregunta: ids.data.p, p_respuesta: r.data })
-          .maybeSingle()
-      : await supabase
-          .rpc("comprobar_probalo", { p_item: ids.data.o, p_pregunta: ids.data.p, p_respuesta: r.data })
-          .maybeSingle();
+    origen.tipo === "repaso"
+      ? await supabase.rpc("responder_repaso", { p_pregunta: ids.data.p, p_respuesta: r.data }).maybeSingle()
+      : origen.tipo === "examen"
+        ? await supabase
+            .rpc("comprobar_practica", { p_examen: ids.data.o, p_pregunta: ids.data.p, p_respuesta: r.data })
+            .maybeSingle()
+        : await supabase
+            .rpc("comprobar_probalo", { p_item: ids.data.o, p_pregunta: ids.data.p, p_respuesta: r.data })
+            .maybeSingle();
   if (error || !data) return { ok: false, error: "No pudimos comprobar. Probá de nuevo." };
-  revalidatePath("/estudiar", "layout");
+  // En el repaso no se revalida: la página se recargaría y borraría la devolución antes de leerla
+  if (origen.tipo !== "repaso") revalidatePath("/estudiar", "layout");
   return {
     ok: true,
     es_correcta: data.es_correcta,

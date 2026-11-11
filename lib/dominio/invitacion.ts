@@ -4,7 +4,10 @@ import { ROLES, type RolApp } from "./roles";
 const ROLES_CON_SEDE: RolApp[] = ["asesor", "lider", "coordinador"];
 
 const opcionalUuid = z.preprocess((v) => (v === "" || v === undefined ? null : v), z.uuid().nullable());
-const opcionalArea = z.preprocess((v) => (v === "" || v === undefined ? null : v), z.enum(["servicio", "ventas"]).nullable());
+const opcionalArea = z.preprocess(
+  (v) => (v === "" || v === undefined ? null : v),
+  z.enum(["servicio", "ventas"]).nullable(),
+);
 
 export const esquemaInvitacion = z
   .object({
@@ -26,7 +29,8 @@ export const esquemaInvitacion = z
 export type DatosInvitacion = z.infer<typeof esquemaInvitacion>;
 
 export function mensajeErrorInvitacion(mensajeOriginal: string): string {
-  if (/already (been )?registered|already exists/i.test(mensajeOriginal)) return "Ya existe un usuario con ese email.";
+  if (/already (been )?registered|already exists/i.test(mensajeOriginal))
+    return "Ya existe un usuario con ese email.";
   return "No pudimos mandar la invitación. Probá de nuevo.";
 }
 

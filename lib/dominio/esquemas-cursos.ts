@@ -72,13 +72,18 @@ export const esquemaItem = z
       ctx.addIssue({ code: "custom", path: ["requisito"], message: "“Aprobar” es solo para exámenes." });
     if (d.tipo === "leccion") {
       if (d.requisito !== "ver" && d.requisito !== "marcar_hecho")
-        ctx.addIssue({ code: "custom", path: ["requisito"], message: "La lección se cumple al verla o al marcarla hecha." });
+        ctx.addIssue({
+          code: "custom",
+          path: ["requisito"],
+          message: "La lección se cumple al verla o al marcarla hecha.",
+        });
       const l = d.leccion === JSON_INVALIDO ? null : esquemaLeccion.safeParse(d.leccion);
       if (!l || !l.success)
         ctx.addIssue({
           code: "custom",
           path: ["leccion"],
-          message: l?.error?.issues[0]?.message && d.leccion ? l.error.issues[0].message : "Revisá la lección.",
+          message:
+            l?.error?.issues[0]?.message && d.leccion ? l.error.issues[0].message : "Revisá la lección.",
         });
     }
     const falta =

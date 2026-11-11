@@ -2338,6 +2338,79 @@ export type Database = {
           },
         ];
       };
+      repaso: {
+        Row: {
+          aciertos: number;
+          caja: number;
+          fallos: number;
+          pregunta_id: string;
+          proxima: string;
+          updated_at: string;
+          usuario_id: string;
+        };
+        ComputedFields: never;
+        Insert: {
+          aciertos?: number;
+          caja?: number;
+          fallos?: number;
+          pregunta_id: string;
+          proxima?: string;
+          updated_at?: string;
+          usuario_id: string;
+        };
+        Update: {
+          aciertos?: number;
+          caja?: number;
+          fallos?: number;
+          pregunta_id?: string;
+          proxima?: string;
+          updated_at?: string;
+          usuario_id?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "repaso_pregunta_id_fkey";
+            columns: ["pregunta_id"];
+            isOneToOne: false;
+            referencedRelation: "preguntas";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "repaso_usuario_id_fkey";
+            columns: ["usuario_id"];
+            isOneToOne: false;
+            referencedRelation: "perfiles";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
+      repaso_dias: {
+        Row: {
+          dia: string;
+          respuestas: number;
+          usuario_id: string;
+        };
+        ComputedFields: never;
+        Insert: {
+          dia: string;
+          respuestas?: number;
+          usuario_id: string;
+        };
+        Update: {
+          dia?: string;
+          respuestas?: number;
+          usuario_id?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "repaso_dias_usuario_id_fkey";
+            columns: ["usuario_id"];
+            isOneToOne: false;
+            referencedRelation: "perfiles";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
       respuestas: {
         Row: {
           corregida_at: string | null;
@@ -2754,6 +2827,7 @@ export type Database = {
       };
       iniciar_intento: { Args: { p_examen: string }; Returns: string };
       iniciar_ubicacion: { Args: Record<PropertyKey, never>; Returns: string };
+      intervalo_repaso: { Args: { p_caja: number }; Returns: number };
       item_cumplido: { Args: { p_item: string; p_usuario: string }; Returns: boolean };
       item_disponible: { Args: { p_item: string; p_usuario: string }; Returns: boolean };
       item_disponible_para_mi: { Args: { p_item: string }; Returns: boolean };
@@ -2809,6 +2883,14 @@ export type Database = {
           cursos_total: number;
           nivel_actual: number;
           nivel_titulo: string;
+        }[];
+      };
+      mi_repaso: {
+        Args: Record<PropertyKey, never>;
+        Returns: {
+          hechas_hoy: number;
+          pendientes: number;
+          racha: number;
         }[];
       };
       mi_rol: { Args: Record<PropertyKey, never>; Returns: Database["public"]["Enums"]["rol_app"] };
@@ -2934,6 +3016,7 @@ export type Database = {
       pozo_practica: { Args: { p_examen: string }; Returns: string[] };
       pozo_probalo: { Args: { p_item: string }; Returns: string[] };
       pozo_probalo_de: { Args: { p_item: string; p_usuario: string }; Returns: string[] };
+      pozo_repaso: { Args: Record<PropertyKey, never>; Returns: string[] };
       practica_preguntas: {
         Args: { p_examen: string };
         Returns: {
@@ -3038,7 +3121,31 @@ export type Database = {
       puede_ver_usuario_como: { Args: { p_actor: string; p_objetivo: string }; Returns: boolean };
       registrar_salida: { Args: { p_intento: string }; Returns: number };
       rellenar_insignias: { Args: Record<PropertyKey, never>; Returns: undefined };
+      repaso_de_hoy: {
+        Args: Record<PropertyKey, never>;
+        Returns: {
+          acertada: boolean;
+          caso_contexto_md: string;
+          caso_titulo: string;
+          config: Json;
+          contexto_md: string;
+          enunciado_md: string;
+          opciones: Json;
+          orden: number;
+          pregunta_id: string;
+          puntaje_max: number;
+          tipo: Database["public"]["Enums"]["tipo_pregunta"];
+        }[];
+      };
       responder: { Args: { p_conversacion: string; p_cuerpo: string }; Returns: string };
+      responder_repaso: {
+        Args: { p_pregunta: string; p_respuesta: Json };
+        Returns: {
+          es_correcta: boolean;
+          explicacion_md: string;
+          solucion: Json;
+        }[];
+      };
       respuesta_correcta: {
         Args: { p_opcion_ids: string[]; p_orden: string[]; p_pregunta: string; p_valores: Json };
         Returns: boolean;

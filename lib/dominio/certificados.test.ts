@@ -43,7 +43,10 @@ describe("busquedaCertificados", () => {
     expect(busquedaCertificados("Fernández")).toEqual({ tipo: "nombre", terminos: ["Fernández"] });
   });
   it("separa el nombre completo en términos y saca los caracteres del filtro", () => {
-    expect(busquedaCertificados("Andrés  Asesor")).toEqual({ tipo: "nombre", terminos: ["Andrés", "Asesor"] });
+    expect(busquedaCertificados("Andrés  Asesor")).toEqual({
+      tipo: "nombre",
+      terminos: ["Andrés", "Asesor"],
+    });
     expect(busquedaCertificados("a%b,(c)")).toEqual({ tipo: "nombre", terminos: ["a", "b", "c"] });
     expect(busquedaCertificados("   ")).toBeNull();
   });

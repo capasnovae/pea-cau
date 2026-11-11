@@ -37,7 +37,10 @@ const esquemaActualizacion = z.object({
   evidencia_path: z.preprocess((v) => (v === "" || v == null ? null : v), z.string().max(400).nullable()),
 });
 
-export async function actualizarAsignacion(_prev: ResultadoAsignacion, formData: FormData): Promise<ResultadoAsignacion> {
+export async function actualizarAsignacion(
+  _prev: ResultadoAsignacion,
+  formData: FormData,
+): Promise<ResultadoAsignacion> {
   const perfil = await requerirPerfil();
   const d = esquemaActualizacion.safeParse(Object.fromEntries(formData));
   if (!d.success) return { ok: false, error: "Revisá los datos." };
@@ -71,7 +74,10 @@ export async function actualizarAsignacion(_prev: ResultadoAsignacion, formData:
   }
   revalidatePath("/consignas");
   revalidatePath("/inicio");
-  return { ok: true, mensaje: d.data.estado === "hecha" ? "¡Listo! La marcaste como hecha." : "La marcaste en curso." };
+  return {
+    ok: true,
+    mensaje: d.data.estado === "hecha" ? "¡Listo! La marcaste como hecha." : "La marcaste en curso.",
+  };
 }
 
 export async function confirmarLectura(asignacionId: string): Promise<ResultadoAsignacion> {
@@ -90,12 +96,18 @@ export async function confirmarLectura(asignacionId: string): Promise<ResultadoA
   return { ok: true, mensaje: "Lectura confirmada." };
 }
 
-export async function urlEvidencia(asignacionId: string): Promise<{ ok: true; url: string } | { ok: false; error: string }> {
+export async function urlEvidencia(
+  asignacionId: string,
+): Promise<{ ok: true; url: string } | { ok: false; error: string }> {
   await requerirPerfil();
   const id = z.uuid().safeParse(asignacionId);
   if (!id.success) return { ok: false, error: "No encontramos esa evidencia." };
   const supabase = await crearClienteServidor();
-  const { data: a } = await supabase.from("consigna_asignaciones").select("evidencia_path").eq("id", id.data).maybeSingle();
+  const { data: a } = await supabase
+    .from("consigna_asignaciones")
+    .select("evidencia_path")
+    .eq("id", id.data)
+    .maybeSingle();
   if (!a?.evidencia_path) return { ok: false, error: "No encontramos esa evidencia." };
   const { data, error } = await supabase.storage.from("evidencias").createSignedUrl(a.evidencia_path, 600);
   if (error || !data) return { ok: false, error: "No pudimos abrir la evidencia." };

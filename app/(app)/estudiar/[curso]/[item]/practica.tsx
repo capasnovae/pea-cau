@@ -59,10 +59,11 @@ export function Practica({
   origen,
   preguntas,
 }: {
-  origen: { tipo: "examen" | "leccion"; id: string };
+  origen: { tipo: "examen" | "leccion"; id: string } | { tipo: "repaso" };
   preguntas: PreguntaPractica[];
 }) {
-  const nombre = origen.tipo === "leccion" ? "Probalo" : "Práctica";
+  const esRepaso = origen.tipo === "repaso";
+  const nombre = esRepaso ? "Repaso" : origen.tipo === "leccion" ? "Probalo" : "Práctica";
   const router = useRouter();
   const [actual, setActual] = useState(0);
   const [valores, setValores] = useState<Record<string, Valor>>({});
@@ -88,7 +89,7 @@ export function Practica({
       if (r.es_correcta) {
         const nuevas = new Set(acertadas).add(p.pregunta_id);
         setAcertadas(nuevas);
-        if (nuevas.size === preguntas.length) router.refresh();
+        if (nuevas.size === preguntas.length && !esRepaso) router.refresh();
       }
     });
   const ir = (i: number) => {
@@ -158,7 +159,15 @@ export function Practica({
         </div>
       )}
       <div className="flex gap-3">
-        {resultado ? (
+        {resultado && esRepaso ? (
+          <button
+            type="button"
+            onClick={() => (actual + 1 < preguntas.length ? ir(actual + 1) : router.refresh())}
+            className="min-h-12 flex-1 rounded-2xl bg-primary font-bold text-white"
+          >
+            {actual + 1 < preguntas.length ? "Siguiente" : "Terminar"}
+          </button>
+        ) : resultado ? (
           <>
             <button
               type="button"

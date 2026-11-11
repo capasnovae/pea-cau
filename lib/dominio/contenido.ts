@@ -32,7 +32,13 @@ export function esNuevaVersion(version: number, updatedAt: string, hoy: Date = n
 export function rutaArchivo(carpeta: string, nombreOriginal: string, id: string): string {
   const punto = nombreOriginal.lastIndexOf(".");
   const base = punto > 0 ? nombreOriginal.slice(0, punto) : nombreOriginal;
-  const ext = punto > 0 ? nombreOriginal.slice(punto + 1).toLowerCase().replace(/[^a-z0-9]/g, "") : "";
+  const ext =
+    punto > 0
+      ? nombreOriginal
+          .slice(punto + 1)
+          .toLowerCase()
+          .replace(/[^a-z0-9]/g, "")
+      : "";
   const nombre = slugificar(base) || "archivo";
   return `${carpeta}/${id}-${nombre}${ext ? `.${ext}` : ""}`;
 }
