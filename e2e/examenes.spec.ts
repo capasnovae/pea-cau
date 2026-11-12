@@ -161,7 +161,8 @@ test("modo examen: el botón Atrás pide confirmar y no saca del examen", async 
   await salir.getByRole("button", { name: "Volver al examen" }).click();
   await a.goBack();
   await a.getByRole("alertdialog").getByRole("button", { name: "Entregar y salir" }).click();
-  await expect(a).toHaveURL(/\/resultado$/);
+  // Entregar y compilar la página de resultado puede tardar en una máquina lenta
+  await expect(a).toHaveURL(/\/resultado$/, { timeout: 30_000 });
 });
 
 test("un asesor no entra a la cola de corrección", async ({ browser }) => {

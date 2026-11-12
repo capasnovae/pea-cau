@@ -88,6 +88,8 @@ test("contenido de sede: borrador, publicación, versión, archivo y promoción"
     asesor.waitForEvent("popup"),
     tarjeta.getByRole("button", { name: "Descargar" }).click(),
   ]);
+  // La pestaña nueva arranca en blanco y recién después navega al enlace firmado
+  await popup.waitForURL(/\/storage\/v1\/object\/sign\/recursos\//, { timeout: 30_000 });
   const url = popup.url();
   expect(url).toContain("/storage/v1/object/sign/recursos/");
   expect((await asesor.request.get(url)).status()).toBe(200);
