@@ -1,5 +1,11 @@
 import { describe, expect, it } from "vitest";
-import { esquemaAsignacion, esquemaInvitacion, mensajeErrorInvitacion } from "./invitacion";
+import {
+  enlaceAcceso,
+  enlaceWhatsApp,
+  esquemaAsignacion,
+  esquemaInvitacion,
+  mensajeErrorInvitacion,
+} from "./invitacion";
 
 const SEDE = "8a4f6a3e-0b8d-4f7e-9a51-1d2c3b4a5e6f";
 const base = {
@@ -69,5 +75,30 @@ describe("esquemaAsignacion", () => {
   });
   it("no permite equipo sin sede", () => {
     expect(esquemaAsignacion.safeParse({ ...ok, sede_id: "", equipo_id: U }).success).toBe(false);
+  });
+});
+
+describe("enlaceAcceso", () => {
+  it("arma el link a /auth/confirm con el token y el tipo", () => {
+    expect(enlaceAcceso("https://peacapa.netlify.app", "abc123", "invite")).toBe(
+      "https://peacapa.netlify.app/auth/confirm?token_hash=abc123&type=invite",
+    );
+    expect(enlaceAcceso("http://127.0.0.1:3000/", "a b", "recovery")).toBe(
+      "http://127.0.0.1:3000/auth/confirm?token_hash=a+b&type=recovery",
+    );
+  });
+  it("no arma links con un origen raro", () => {
+    expect(() => enlaceAcceso("javascript:alert(1)", "x", "invite")).toThrow();
+    expect(() => enlaceAcceso("", "x", "invite")).toThrow();
+  });
+});
+
+describe("enlaceWhatsApp", () => {
+  it("prepara el mensaje para mandar por WhatsApp", () => {
+    const url = new URL(enlaceWhatsApp("Ana", "https://pea.test/auth/confirm?token_hash=t&type=invite"));
+    expect(url.origin).toBe("https://wa.me");
+    expect(url.searchParams.get("text")).toBe(
+      "Hola Ana, te sumamos a PEA. Entrá con este link para definir tu contraseña (sirve una sola vez y vence en 24 horas): https://pea.test/auth/confirm?token_hash=t&type=invite",
+    );
   });
 });

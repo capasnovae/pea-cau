@@ -8,6 +8,8 @@ Reglas:
 - `supabase/seed.sql` **no** va a producción: crea usuarios de ejemplo con una contraseña conocida.
 - No uses ni toques el proyecto `amapola-tienda`.
 
+> **Estado (2026-11-12):** PEA ya está en producción en **Netlify** (`https://peacapa.netlify.app`) con el proyecto de Supabase `gjmmykkrvtlbsebnhdzr` (São Paulo). Las invitaciones no dependen del mail: el admin genera un link y lo comparte (copiar o WhatsApp). Esta guía queda como referencia para rehacer el despliegue; donde dice Vercel, en Netlify las mismas tres variables van en _Site configuration → Environment variables_.
+
 ## 0. Antes de empezar
 
 1. En GitHub, fusioná el pull request de `mejoras-1-repaso-y-diseno` en `main` (capacitacion-nova/PEA#1). Vercel publica lo que está en `main`.
@@ -109,6 +111,8 @@ En el panel de Supabase:
 5. Si vas a usar un dominio propio: Project Settings → **Domains**. Después volvé al paso 3.2 y poné esa dirección en Supabase.
 
 ## 6. Crear el primer admin
+
+Con las invitaciones por link, el primer admin también puede crearse generando un link de invitación con la API de administración (así se hizo en producción). El camino manual sigue siendo este:
 
 La pantalla de invitaciones solo la ve un admin, así que el primero se crea a mano:
 

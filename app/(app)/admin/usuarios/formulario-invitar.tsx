@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input, Select } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { ETIQUETA_ROL, ROLES } from "@/lib/dominio/roles";
+import { EnlaceCompartir } from "@/components/admin/enlace-compartir";
 import { invitarUsuario, type ResultadoAccion } from "./acciones";
 
 type Opcion = { id: string; nombre: string };
@@ -66,15 +67,20 @@ export function FormularioInvitar({ sedes, puestos }: { sedes: Opcion[]; puestos
         </Select>
       </div>
       {estado && (
-        <p
-          role={estado.ok ? "status" : "alert"}
-          className={`sm:col-span-2 text-sm ${estado.ok ? "" : "text-destructive"}`}
-        >
-          {estado.ok ? estado.mensaje : estado.error}
-        </p>
+        <div className="flex flex-col gap-2 sm:col-span-2">
+          <p
+            role={estado.ok ? "status" : "alert"}
+            className={`text-sm ${estado.ok ? "font-semibold" : "text-destructive"}`}
+          >
+            {estado.ok ? estado.mensaje : estado.error}
+          </p>
+          {estado.ok && estado.enlace && (
+            <EnlaceCompartir enlace={estado.enlace} nombre={estado.nombre ?? ""} />
+          )}
+        </div>
       )}
       <Button type="submit" disabled={pendiente} className="sm:col-span-2 sm:justify-self-start">
-        {pendiente ? "Enviando…" : "Mandar invitación"}
+        {pendiente ? "Generando…" : "Generar invitación"}
       </Button>
     </form>
   );

@@ -2,12 +2,18 @@
 
 import { revalidatePath } from "next/cache";
 import { headers } from "next/headers";
-import { esquemaAsignacion, esquemaInvitacion, mensajeErrorInvitacion } from "@/lib/dominio/invitacion";
+import {
+  enlaceAcceso,
+  esquemaAsignacion,
+  esquemaInvitacion,
+  mensajeErrorInvitacion,
+} from "@/lib/dominio/invitacion";
 import { ROLES, type RolApp } from "@/lib/dominio/roles";
 import { crearClienteAdmin } from "@/lib/supabase/admin";
 import { requerirRol } from "@/lib/supabase/permisos";
 
-export type ResultadoAccion = { ok: true; mensaje?: string } | { ok: false; error: string } | null;
+export type ResultadoAccion =
+  { ok: true; mensaje?: string; enlace?: string; nombre?: string } | { ok: false; error: string } | null;
 
 const SIN_PERMISO = "No tenés permiso para hacer esto.";
 
@@ -16,14 +22,18 @@ export async function invitarUsuario(_prev: ResultadoAccion, formData: FormData)
   const datos = esquemaInvitacion.safeParse(Object.fromEntries(formData));
   if (!datos.success) return { ok: false, error: datos.error.issues[0]?.message ?? "Revisá los datos." };
   const { email, nombre, apellido, rol, sede_id, area, puesto_id } = datos.data;
-  const origen = (await headers()).get("origin") ?? "";
+  const origen = await origenDelPedido();
+  if (!origen) return { ok: false, error: "No pudimos armar el link. Probá de nuevo." };
   const cliente = crearClienteAdmin();
+  // Se genera el link sin mandar mail: el admin lo comparte (WhatsApp, chat). No depende del correo.
   // La metadata del usuario solo lleva el nombre: rol, sede y área NO se toman de ahí (ver migración 0500).
-  const { data, error } = await cliente.auth.admin.inviteUserByEmail(email, {
-    data: { nombre, apellido },
-    redirectTo: `${origen}/auth/confirm`,
+  const { data, error } = await cliente.auth.admin.generateLink({
+    type: "invite",
+    email,
+    options: { data: { nombre, apellido } },
   });
-  if (error || !data.user) return { ok: false, error: mensajeErrorInvitacion(error?.message ?? "") };
+  if (error || !data.user || !data.properties?.hashed_token)
+    return { ok: false, error: mensajeErrorInvitacion(error?.message ?? "") };
   // Los privilegios los fija el servidor, con datos ya validados.
   const { error: errorPerfil } = await cliente
     .from("perfiles")
@@ -43,7 +53,55 @@ export async function invitarUsuario(_prev: ResultadoAccion, formData: FormData)
     datos: { email, rol },
   });
   revalidatePath("/admin/usuarios");
-  return { ok: true, mensaje: `Invitación enviada a ${email}.` };
+  return {
+    ok: true,
+    mensaje: `Listo. Mandale este link a ${nombre}: sirve una sola vez y vence en 24 horas.`,
+    enlace: enlaceAcceso(origen, data.properties.hashed_token, "invite"),
+    nombre,
+  };
+}
+
+/** Dirección de la app desde la que se hizo el pedido (para armar links que vuelvan a esta misma app). */
+async function origenDelPedido(): Promise<string | null> {
+  const h = await headers();
+  const origen = h.get("origin");
+  if (origen) return origen;
+  const host = h.get("x-forwarded-host") ?? h.get("host");
+  return host ? `${h.get("x-forwarded-proto") ?? "https"}://${host}` : null;
+}
+
+/**
+ * Link nuevo para entrar y definir contraseña: para quien perdió la invitación, la dejó vencer
+ * u olvidó su contraseña, sin depender del mail.
+ */
+export async function generarEnlaceAcceso(id: string): Promise<ResultadoAccion> {
+  const admin = await requerirRol(["admin"]);
+  if (!/^[0-9a-f-]{36}$/i.test(id)) return { ok: false, error: SIN_PERMISO };
+  const cliente = crearClienteAdmin();
+  const { data: perfil } = await cliente
+    .from("perfiles")
+    .select("email, nombre, activo")
+    .eq("id", id)
+    .maybeSingle();
+  if (!perfil) return { ok: false, error: SIN_PERMISO };
+  if (!perfil.activo) return { ok: false, error: "Activá a la persona antes de mandarle un link." };
+  const origen = await origenDelPedido();
+  if (!origen) return { ok: false, error: "No pudimos armar el link. Probá de nuevo." };
+  const { data, error } = await cliente.auth.admin.generateLink({ type: "recovery", email: perfil.email });
+  if (error || !data.properties?.hashed_token)
+    return { ok: false, error: "No pudimos armar el link. Probá de nuevo." };
+  await cliente.from("auditoria").insert({
+    actor_id: admin.id,
+    accion: "generar_enlace_acceso",
+    entidad: "perfiles",
+    entidad_id: id,
+  });
+  return {
+    ok: true,
+    mensaje: `Mandale este link a ${perfil.nombre}: sirve una sola vez y vence en 24 horas.`,
+    enlace: enlaceAcceso(origen, data.properties.hashed_token, "recovery"),
+    nombre: perfil.nombre,
+  };
 }
 
 export async function cambiarEstadoUsuario(id: string, activo: boolean): Promise<ResultadoAccion> {
