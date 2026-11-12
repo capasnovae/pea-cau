@@ -49,3 +49,19 @@ export const esquemaAsignacion = z
   });
 
 export type DatosAsignacion = z.infer<typeof esquemaAsignacion>;
+
+/** Link de un solo uso para entrar a PEA sin depender del mail: lo verifica /auth/confirm. */
+export function enlaceAcceso(origen: string, tokenHash: string, tipo: "invite" | "recovery"): string {
+  const base = new URL(origen);
+  if (base.protocol !== "https:" && base.protocol !== "http:") throw new Error("Origen inválido");
+  const url = new URL("/auth/confirm", base);
+  url.searchParams.set("token_hash", tokenHash);
+  url.searchParams.set("type", tipo);
+  return url.toString();
+}
+
+/** Abre WhatsApp con el mensaje listo para mandarle el link a la persona. */
+export function enlaceWhatsApp(nombre: string, enlace: string): string {
+  const texto = `Hola ${nombre}, te sumamos a PEA. Entrá con este link para definir tu contraseña (sirve una sola vez y vence en 24 horas): ${enlace}`;
+  return `https://wa.me/?text=${encodeURIComponent(texto)}`;
+}

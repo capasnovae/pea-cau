@@ -68,6 +68,9 @@ const TRAZOS = {
   ),
   "flecha-arriba": <path d="M12 19V5M6 11l6-6 6 6" />,
   "flecha-abajo": <path d="M12 5v14M6 13l6 6 6-6" />,
+  enlace: (
+    <path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1" />
+  ),
   mensaje: <path d="M4 5h16v11H9l-5 4z" />,
   repetir: (
     <>
