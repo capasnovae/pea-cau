@@ -4,28 +4,64 @@ curso: "tramites"
 modulo: "Trámites"
 orden: 5
 fuente: "rg-3-2-cambios-de-modalidad"
+formato: "tarjetas"
 ---
 
-## En 30 segundos
+## caso
 
-- Se pide dentro de las fechas del calendario de trámites de cada año, que varían según la modalidad de origen.
-- Requisitos: condiciones de ingreso de la nueva modalidad, libre deuda, legajo completo, no estar inscripto a un final ni tener una nota pendiente de carga.
-- No tiene que haber hecho más de 2 pases entre presencial y distancia (PH/MP/PD a ED/EDH o al revés).
-- Aprobadas y regulares se conservan. Las que está cursando y las Libre por Nota quedan Libre por Pase: las recursa.
-- Las regulares se rinden con las reglas de la modalidad nueva.
+persona: Lucía
+canal: whatsapp
+Hola! Curso EDH pero con el trabajo no me dan los horarios. Me quiero pasar a ED. Estoy cursando 2 materias y el jueves rindo un final. ¿Se puede?
 
-## Así llega al CAU
+## preguntar
 
-- "Me quiero pasar a distancia pero estoy anotado a un final el jueves." → Todavía no puede: no tiene que estar inscripto a una mesa ni tener una nota pendiente de carga.
-- "Tengo 3 materias cursando, ¿las pierdo?" → Esas quedan Libre por Pase y las recursa. Las regulares y las aprobadas se mantienen.
-- "Ya me cambié tres veces entre presencial y distancia." → No puede hacer otro pase: el requisito es no haber hecho más de 2 pases entre esas modalidades.
+- [x] ¿Estás anotada a algún final o te falta que carguen alguna nota?
+  > Con un final anotado o una nota pendiente de carga no puede pedir el pase.
+- [x] ¿Cómo están tus materias: aprobadas, regulares, cursando, libres?
+  > De eso depende qué conserva y qué tiene que recursar.
+- [x] ¿Tenés el Seminario de Práctica regular?
+  > Entre ED y EDH esa regularidad se conserva; en otros pases se pierde.
+- [ ] ¿Ya aprobaste Universitario 21?
+  > No es requisito para cambiar de modalidad.
 
-## Ojo con
+## idea: Antes de pedirlo, que esté en regla
 
-- Libre por Nota no se conserva: pasa a Libre por Pase.
-- Los idiomas que está cursando o tiene regulares se pierden.
-- Si pasa a ED o cambia de CAU, debe confirmar su lugar con el CAU de destino.
-- Seminario de Práctica regular: solo se conserva en el pase ED↔EDH. El Seminario Final regular se mantiene siempre.
+El pase se pide en las fechas del calendario de trámites de cada año, que cambian según la modalidad de origen: fuera de esa ventana no se puede. Además tiene que cumplir las condiciones de ingreso de la nueva modalidad, tener libre deuda y el legajo completo, y no estar anotada a una mesa de final ni tener una nota de final pendiente de carga.
+No hace falta tener Universitario 21 ni materias aprobadas.
+
+clave: En fecha, sin deuda, legajo completo y sin finales pendientes.
+ejemplo: Lucía rinde el jueves: primero rinde (o se da de baja de esa mesa) y recién después pide el pase.
+
+## idea: Qué pasa con cada materia
+
+Lo que ya ganó, lo conserva: las aprobadas siguen aprobadas y las regulares siguen regulares, pero las rinde con las reglas de evaluación de la modalidad nueva. Lo que está en curso se pierde: las que está cursando y las Libre por Nota quedan Libre por Pase, y las tiene que recursar.
+Por eso, antes de pedir el pase, conviene que revise cómo le quedarían.
+
+clave: Aprobadas y regulares se conservan; cursando y Libre por Nota se recursan.
+ejemplo: Las 2 materias que Lucía está cursando hoy quedarían Libre por Pase.
+
+## probalo 1
+
+## idea: El Seminario de Práctica, la excepción
+
+En casi todos los pases, el Seminario de Práctica pierde su condición. La excepción es justamente el pase más común del CAU: entre ED y EDH, si lo tiene regular, conserva la regularidad.
+El Seminario Final regular se mantiene siempre, en cualquier pase.
+
+clave: Entre ED y EDH, el Seminario de Práctica regular se conserva.
+
+## probalo 2
+
+## ojo
+
+Que no se vaya sin confirmar su lugar: en todo pase a ED (y en todo cambio de CAU) es responsabilidad del estudiante contactar al CAU de destino, porque no todos los CAU ofrecen todas las carreras ni todas las materias.
+
+## probalo 3
+
+## cierre
+
+A Lucía le respondés que sí se puede, pero no todavía: primero rinde el final del jueves (o se da de baja de esa mesa) y espera que carguen la nota. Le avisás que las 2 materias que cursa quedarían Libre por Pase, que conserva sus aprobadas y regulares, y que antes confirme su lugar en el CAU de ED. Después lo pide dentro de las fechas del calendario de trámites.
+
+recordar: Primero sin finales pendientes, después el pase, en fecha.
 
 ## Probalo
 
