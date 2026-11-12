@@ -122,7 +122,11 @@ describe("lecciones de contenido/lecciones", () => {
     expect(slugs.has(l.fuente)).toBe(true);
     expect(l.probalo.length).toBeGreaterThanOrEqual(1);
     expect(l.probalo.length).toBeLessThanOrEqual(3);
-    for (const p of l.probalo) expect(p.opciones.filter((o) => o.correcta)).toHaveLength(1);
+    for (const p of l.probalo) {
+      if (p.tipo === "ordenar") expect(p.opciones.length).toBeGreaterThanOrEqual(3);
+      else if (p.tipo === "clasificar") expect(p.columnas!.length).toBeGreaterThanOrEqual(2);
+      else expect(p.opciones.filter((o) => o.correcta)).toHaveLength(1);
+    }
   });
 });
 
@@ -149,9 +153,100 @@ describe("armarSqlLecciones", () => {
     expect(sql).toContain("'practica'");
     expect(sql).toContain(`'${idDe("pea-item:02-cambio-de-modalidad")}'`);
     expect(sql).toContain("rg-3-2-cambios-de-modalidad");
-    expect(sql).toContain("on conflict do nothing");
+    expect(sql).toContain("on conflict (id) do update");
   });
   it("es determinístico", () => {
     expect(armarSqlLecciones([leerLeccion("contenido/lecciones/02-cambio-de-modalidad.md", md)])).toBe(sql);
+  });
+});
+
+const mdRico = `---
+titulo: "Inscripción a exámenes"
+curso: "evaluacion"
+modulo: "Trabajos y exámenes"
+orden: 3
+fuente: "ln-inscripcion-a-examenes"
+---
+
+## En 30 segundos
+
+- Se inscribe desde el Portal.
+
+## Así llega al CAU
+
+- "¿Dónde me anoto?" → En el Portal, en Exámenes.
+
+## Probalo
+
+### unica: Ana cursa EDH y quiere rendir el jueves. ¿Qué le decís?
+
+- [ ] Que vaya directo a la mesa.
+  > En EDH la inscripción previa es obligatoria.
+- [x] Que se inscriba antes en el Portal.
+  > Sin inscripción no figura en el acta.
+
+> Siempre hay que inscribirse antes de rendir.
+
+### ordenar: Ordená los pasos para inscribirse.
+
+1. Entrar al Portal.
+2. Ir a Exámenes.
+3. Elegir la mesa y confirmar.
+
+> El orden es el del Portal.
+
+### clasificar: ¿Dónde se resuelve cada consulta?
+
+- Cambio de mesa → CAU
+- Pago de una cuota → Tesorería
+- Duda de inscripción → CAU
+
+> Lo administrativo de exámenes es del CAU.
+`;
+
+describe("Probalo con tipos ricos", () => {
+  const l = leerLeccion("contenido/lecciones/22-inscripcion.md", mdRico);
+  it("lee la explicación de cada opción, aparte de la general", () => {
+    const [p] = l.probalo;
+    expect(p!.tipo).toBe("opcion_multiple");
+    expect(p!.opciones.map((o) => o.explicacion)).toEqual([
+      "En EDH la inscripción previa es obligatoria.",
+      "Sin inscripción no figura en el acta.",
+    ]);
+    expect(p!.explicacion).toBe("Siempre hay que inscribirse antes de rendir.");
+  });
+  it("lee las preguntas para ordenar con su posición correcta", () => {
+    const p = l.probalo[1]!;
+    expect(p.tipo).toBe("ordenar");
+    expect(p.opciones.map((o) => [o.texto, o.posicion])).toEqual([
+      ["Entrar al Portal.", 1],
+      ["Ir a Exámenes.", 2],
+      ["Elegir la mesa y confirmar.", 3],
+    ]);
+  });
+  it("lee las preguntas para clasificar con sus columnas", () => {
+    const p = l.probalo[2]!;
+    expect(p.tipo).toBe("clasificar");
+    expect(p.columnas).toEqual(["CAU", "Tesorería"]);
+    expect(p.opciones.map((o) => o.grupo)).toEqual(["CAU", "Tesorería", "CAU"]);
+  });
+  it("arma el SQL con explicaciones, posiciones y columnas", () => {
+    const sql = armarSqlLecciones([l]);
+    expect(sql).toContain("'ordenar'");
+    expect(sql).toContain("'clasificar'");
+    expect(sql).toContain('{"columnas":["CAU","Tesorería"]}');
+    expect(sql).toContain("En EDH la inscripción previa es obligatoria.");
+    expect(sql).toMatch(
+      /opciones \(id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo\)/,
+    );
+  });
+  it("actualiza solo lo que sigue en borrador y quita las preguntas que ya no están", () => {
+    const sql = armarSqlLecciones([l]);
+    expect(sql).toContain("on conflict (id) do update");
+    expect(sql).toMatch(/estado = 'borrador'/);
+    expect(sql).toContain(`delete from public.preguntas`);
+    // Cada pregunta se actualiza (no se ignora) y sus opciones se rehacen
+    expect(sql.match(/insert into public\.preguntas[^;]*on conflict \(id\) do update/g)).toHaveLength(3);
+    expect(sql.match(/delete from public\.opciones where pregunta_id/g)).toHaveLength(3);
   });
 });

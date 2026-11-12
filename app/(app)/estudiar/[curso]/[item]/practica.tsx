@@ -59,6 +59,58 @@ function Solucion({ p, s }: { p: PreguntaRender; s: Record<string, unknown> }) {
   return <p>{((s.opcion_ids as string[]) ?? []).map((id) => texto.get(id)).join(" · ")}</p>;
 }
 
+const tieneExplicaciones = (s: Record<string, unknown>) =>
+  Object.keys((s.explicaciones as Record<string, string> | undefined) ?? {}).length > 0;
+
+/**
+ * Probalo como caso: por qué la opción elegida está bien o mal y, si se equivocó, por qué la correcta lo es.
+ * Solo para preguntas de opciones que traen explicación por opción.
+ */
+function PorOpcion({
+  p,
+  elegidas,
+  s,
+  acerto,
+}: {
+  p: PreguntaRender;
+  elegidas: string[];
+  s: Record<string, unknown>;
+  acerto: boolean;
+}) {
+  const exp = (s.explicaciones as Record<string, string> | undefined) ?? {};
+  if (!tieneExplicaciones(s) || (p.tipo !== "opcion_multiple" && p.tipo !== "verdadero_falso")) return null;
+  const correctas = (s.opcion_ids as string[] | undefined) ?? [];
+  const texto = new Map(p.opciones.map((o) => [o.id, o.texto]));
+  const filas = [
+    ...elegidas.map((id) => ({ id, etiqueta: "Tu respuesta", ok: correctas.includes(id) })),
+    ...(acerto
+      ? []
+      : correctas
+          .filter((id) => !elegidas.includes(id))
+          .map((id) => ({ id, etiqueta: "La correcta", ok: true }))),
+  ].filter((f) => exp[f.id]);
+  if (filas.length === 0) return null;
+  return (
+    <ul className="flex flex-col gap-2 text-sm">
+      {filas.map((f) => (
+        <li key={f.id} className="flex gap-2">
+          <Icono
+            nombre={f.ok ? "tilde" : "cruz"}
+            tamano={16}
+            className={cn("mt-0.5 shrink-0", f.ok ? "text-success" : "text-destructive")}
+          />
+          <span>
+            <span className="font-bold">
+              {f.etiqueta}: {texto.get(f.id)}.
+            </span>{" "}
+            {exp[f.id]}
+          </span>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
 export function Practica({
   origen,
   preguntas,
@@ -158,7 +210,13 @@ export function Practica({
             {resultado.es_correcta ? <TildeAnimado tamano={28} /> : <Icono nombre="cruz" tamano={24} />}
             {resultado.es_correcta ? "¡Bien!" : "Todavía no"}
           </p>
-          {!resultado.es_correcta && (
+          <PorOpcion
+            p={p}
+            elegidas={valores[p.pregunta_id]?.opcion_ids ?? []}
+            s={resultado.solucion}
+            acerto={resultado.es_correcta}
+          />
+          {!resultado.es_correcta && !tieneExplicaciones(resultado.solucion) && (
             <div className="text-sm">
               <p className="font-bold">Solución</p>
               <Solucion p={p} s={resultado.solucion} />

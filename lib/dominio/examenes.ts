@@ -110,6 +110,12 @@ const opcion = z.object({
   texto: z.string().trim().min(1, "Completá el texto de cada opción.").max(500),
   es_correcta: checkbox,
   grupo: z.string().trim().max(60).optional().default(""),
+  explicacion: z
+    .string()
+    .trim()
+    .max(400, "La explicación de una opción va en 400 caracteres.")
+    .optional()
+    .default(""),
 });
 const campo = z.object({
   id: z
@@ -204,6 +210,7 @@ export function preguntaParaGuardar(p: PreguntaValida) {
           posicion_correcta: p.tipo === "ordenar" ? i + 1 : null,
           grupo: p.tipo === "clasificar" ? o.grupo : null,
           orden: i + 1,
+          explicacion: o.explicacion || null,
         }));
   const { opciones: _o, columnas: _c, campos: _f, ...resto } = p;
   return {

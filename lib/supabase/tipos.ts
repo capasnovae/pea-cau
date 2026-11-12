@@ -1783,6 +1783,7 @@ export type Database = {
       opciones: {
         Row: {
           es_correcta: boolean;
+          explicacion: string | null;
           grupo: string | null;
           id: string;
           orden: number;
@@ -1793,6 +1794,7 @@ export type Database = {
         ComputedFields: never;
         Insert: {
           es_correcta?: boolean;
+          explicacion?: string | null;
           grupo?: string | null;
           id?: string;
           orden?: number;
@@ -1802,6 +1804,7 @@ export type Database = {
         };
         Update: {
           es_correcta?: boolean;
+          explicacion?: string | null;
           grupo?: string | null;
           id?: string;
           orden?: number;

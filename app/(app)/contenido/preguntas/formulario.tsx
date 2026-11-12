@@ -9,7 +9,7 @@ import { ETIQUETA_TIPO_PREGUNTA, TIPOS_PREGUNTA, type TipoPregunta } from "@/lib
 import { guardarPregunta, type ResultadoPregunta } from "./acciones";
 
 type Opcion = { id: string; nombre: string };
-type OpcionEdit = { texto: string; es_correcta: boolean; grupo: string };
+type OpcionEdit = { texto: string; es_correcta: boolean; grupo: string; explicacion?: string };
 type CampoEdit = {
   id: string;
   etiqueta: string;
@@ -43,7 +43,7 @@ export type PreguntaEditable = {
 };
 
 const AREA = "w-full rounded-xl border border-border bg-card p-3 text-sm";
-const VACIA = (): OpcionEdit => ({ texto: "", es_correcta: false, grupo: "" });
+const VACIA = (): OpcionEdit => ({ texto: "", es_correcta: false, grupo: "", explicacion: "" });
 
 function mover<T>(lista: T[], i: number, d: -1 | 1): T[] {
   const n = [...lista];
@@ -233,78 +233,90 @@ export function FormularioPregunta({
             </div>
           )}
           {opciones.map((o, i) => (
-            <div key={i} className="flex items-center gap-2">
-              {tipo !== "ordenar" && tipo !== "clasificar" && (
-                <input
-                  type={tipo === "verdadero_falso" ? "radio" : "checkbox"}
-                  name="__correcta"
-                  aria-label={`Opción ${i + 1} correcta`}
-                  checked={o.es_correcta}
-                  onChange={() =>
-                    setOpciones(
-                      tipo === "verdadero_falso"
-                        ? opciones.map((x, j) => ({ ...x, es_correcta: j === i }))
-                        : opciones.map((x, j) => (j === i ? { ...x, es_correcta: !x.es_correcta } : x)),
-                    )
-                  }
-                  className="size-5 accent-primary"
+            <div key={i} className="flex flex-col gap-1.5">
+              <div className="flex items-center gap-2">
+                {tipo !== "ordenar" && tipo !== "clasificar" && (
+                  <input
+                    type={tipo === "verdadero_falso" ? "radio" : "checkbox"}
+                    name="__correcta"
+                    aria-label={`Opción ${i + 1} correcta`}
+                    checked={o.es_correcta}
+                    onChange={() =>
+                      setOpciones(
+                        tipo === "verdadero_falso"
+                          ? opciones.map((x, j) => ({ ...x, es_correcta: j === i }))
+                          : opciones.map((x, j) => (j === i ? { ...x, es_correcta: !x.es_correcta } : x)),
+                      )
+                    }
+                    className="size-5 accent-primary"
+                  />
+                )}
+                {tipo === "ordenar" && (
+                  <span className="w-5 text-center font-bold text-primary-strong">{i + 1}</span>
+                )}
+                <Input
+                  aria-label={`Opción ${i + 1}`}
+                  value={o.texto}
+                  onChange={(e) => setOp(i, { texto: e.target.value })}
+                  className="min-w-0 flex-1"
                 />
-              )}
-              {tipo === "ordenar" && (
-                <span className="w-5 text-center font-bold text-primary-strong">{i + 1}</span>
-              )}
-              <Input
-                aria-label={`Opción ${i + 1}`}
-                value={o.texto}
-                onChange={(e) => setOp(i, { texto: e.target.value })}
-                className="min-w-0 flex-1"
-              />
-              {tipo === "clasificar" && (
-                <Select
-                  aria-label={`Columna de la opción ${i + 1}`}
-                  value={o.grupo}
-                  onChange={(e) => setOp(i, { grupo: e.target.value })}
-                  className="w-40! shrink-0"
-                >
-                  <option value="">Columna…</option>
-                  {columnas.filter(Boolean).map((c) => (
-                    <option key={c} value={c}>
-                      {c}
-                    </option>
-                  ))}
-                </Select>
-              )}
-              {tipo === "ordenar" && (
-                <>
+                {tipo === "clasificar" && (
+                  <Select
+                    aria-label={`Columna de la opción ${i + 1}`}
+                    value={o.grupo}
+                    onChange={(e) => setOp(i, { grupo: e.target.value })}
+                    className="w-40! shrink-0"
+                  >
+                    <option value="">Columna…</option>
+                    {columnas.filter(Boolean).map((c) => (
+                      <option key={c} value={c}>
+                        {c}
+                      </option>
+                    ))}
+                  </Select>
+                )}
+                {tipo === "ordenar" && (
+                  <>
+                    <button
+                      type="button"
+                      disabled={i === 0}
+                      onClick={() => setOpciones(mover(opciones, i, -1))}
+                      aria-label={`Subir opción ${i + 1}`}
+                      className="size-9 rounded-lg disabled:opacity-30"
+                    >
+                      <Icono nombre="flecha-arriba" />
+                    </button>
+                    <button
+                      type="button"
+                      disabled={i === opciones.length - 1}
+                      onClick={() => setOpciones(mover(opciones, i, 1))}
+                      aria-label={`Bajar opción ${i + 1}`}
+                      className="size-9 rounded-lg disabled:opacity-30"
+                    >
+                      <Icono nombre="flecha-abajo" />
+                    </button>
+                  </>
+                )}
+                {tipo !== "verdadero_falso" && opciones.length > 2 && (
                   <button
                     type="button"
-                    disabled={i === 0}
-                    onClick={() => setOpciones(mover(opciones, i, -1))}
-                    aria-label={`Subir opción ${i + 1}`}
-                    className="size-9 rounded-lg disabled:opacity-30"
+                    onClick={() => setOpciones(opciones.filter((_, j) => j !== i))}
+                    aria-label={`Quitar opción ${i + 1}`}
+                    className="size-9 rounded-lg text-muted"
                   >
-                    <Icono nombre="flecha-arriba" />
+                    <Icono nombre="cruz" tamano={16} />
                   </button>
-                  <button
-                    type="button"
-                    disabled={i === opciones.length - 1}
-                    onClick={() => setOpciones(mover(opciones, i, 1))}
-                    aria-label={`Bajar opción ${i + 1}`}
-                    className="size-9 rounded-lg disabled:opacity-30"
-                  >
-                    <Icono nombre="flecha-abajo" />
-                  </button>
-                </>
-              )}
-              {tipo !== "verdadero_falso" && opciones.length > 2 && (
-                <button
-                  type="button"
-                  onClick={() => setOpciones(opciones.filter((_, j) => j !== i))}
-                  aria-label={`Quitar opción ${i + 1}`}
-                  className="size-9 rounded-lg text-muted"
-                >
-                  <Icono nombre="cruz" tamano={16} />
-                </button>
+                )}
+              </div>
+              {(tipo === "opcion_multiple" || tipo === "verdadero_falso") && (
+                <Input
+                  aria-label={`Por qué la opción ${i + 1} ${o.es_correcta ? "es correcta" : "no es correcta"}`}
+                  placeholder={o.es_correcta ? "Por qué es correcta (opcional)" : "Por qué no (opcional)"}
+                  value={o.explicacion ?? ""}
+                  maxLength={400}
+                  onChange={(e) => setOp(i, { explicacion: e.target.value })}
+                  className="h-9 text-sm"
+                />
               )}
             </div>
           ))}

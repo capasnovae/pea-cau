@@ -27,7 +27,7 @@ export default async function PaginaPregunta({
     const { data } = await supabase
       .from("preguntas")
       .select(
-        "id, tipo, enunciado_md, contexto_md, explicacion_md, rubrica_md, puntaje_max, dificultad, caso_id, orden_en_caso, modulo_id, categoria_id, articulo_fuente_id, alcance, sede_id, estado, uso, item_id, config, solucion, opciones(texto, es_correcta, posicion_correcta, grupo, orden)",
+        "id, tipo, enunciado_md, contexto_md, explicacion_md, rubrica_md, puntaje_max, dificultad, caso_id, orden_en_caso, modulo_id, categoria_id, articulo_fuente_id, alcance, sede_id, estado, uso, item_id, config, solucion, opciones(texto, es_correcta, posicion_correcta, grupo, orden, explicacion)",
       )
       .eq("id", id)
       .maybeSingle();
@@ -38,7 +38,12 @@ export default async function PaginaPregunta({
       ...data,
       opciones: [...data.opciones]
         .sort((a, b) => (a.posicion_correcta ?? a.orden) - (b.posicion_correcta ?? b.orden))
-        .map((o) => ({ texto: o.texto, es_correcta: o.es_correcta, grupo: o.grupo ?? "" })),
+        .map((o) => ({
+          texto: o.texto,
+          es_correcta: o.es_correcta,
+          grupo: o.grupo ?? "",
+          explicacion: o.explicacion ?? "",
+        })),
       columnas: config.columnas ?? [],
       campos: (config.campos ?? []).map((c) => ({
         ...c,
