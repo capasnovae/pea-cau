@@ -1,7 +1,7 @@
 import { readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
-import { esquemaLeccion } from "../dominio/lecciones";
+import { esquemaLeccion, esquemaLeccionV2, esLeccionV2, type LeccionV2 } from "../dominio/lecciones";
 import { z } from "zod";
 import { CURSOS, armarSqlLecciones, idDe, leerLeccion } from "./importar";
 
@@ -118,7 +118,9 @@ describe("lecciones de contenido/lecciones", () => {
   });
   it.each(archivos)("%s es válida, con fuente existente y Probalo de 1 a 3 preguntas", (f) => {
     const l = leerLeccion(join(dir, f), readFileSync(join(dir, f), "utf8"));
-    expect(esquemaLeccion.safeParse(l.leccion).success).toBe(true);
+    expect((esLeccionV2(l.leccion) ? esquemaLeccionV2 : esquemaLeccion).safeParse(l.leccion).success).toBe(
+      true,
+    );
     expect(slugs.has(l.fuente)).toBe(true);
     expect(l.probalo.length).toBeGreaterThanOrEqual(1);
     expect(l.probalo.length).toBeLessThanOrEqual(3);
@@ -258,5 +260,116 @@ describe("Probalo con tipos ricos", () => {
     // Cada pregunta se actualiza (no se ignora) y sus opciones se rehacen
     expect(sql.match(/insert into public\.preguntas[^;]*on conflict \(id\) do update/g)).toHaveLength(3);
     expect(sql.match(/delete from public\.opciones where pregunta_id/g)).toHaveLength(3);
+  });
+});
+
+const mdTarjetas = `---
+titulo: "Cambio de modalidad"
+curso: "tramites"
+modulo: "Trámites"
+orden: 2
+fuente: "rg-3-2-cambios-de-modalidad"
+formato: "tarjetas"
+---
+
+## caso
+
+persona: Lucía
+canal: whatsapp
+Hola, curso EDH y me quiero pasar a ED. Tengo un final el jueves.
+
+## preguntar
+
+- [x] ¿Estás anotada a algún final?
+  > Con un final anotado no puede pedir el pase.
+- [x] ¿Cuántos pases hiciste?
+  > No puede hacer más de 2.
+- [ ] ¿Qué carrera hacés?
+  > No cambia los requisitos del pase.
+
+## idea: Cuándo se pide
+
+Se pide en las fechas del calendario de trámites.
+Fuera de fecha no se puede.
+
+clave: Solo en las fechas del calendario.
+ejemplo: Si escribe una semana tarde, toca esperar la próxima ventana.
+
+## probalo 1
+
+## ojo
+
+Libre por Nota no se conserva: pasa a Libre por Pase.
+
+## cierre
+
+Primero rinde (o se da de baja de la mesa) y después pide el pase.
+
+recordar: Sin mesas pendientes no hay pase.
+
+## Probalo
+
+### vf: Las materias regulares se conservan.
+
+- [x] Verdadero
+- [ ] Falso
+
+> Aprobadas y regulares se conservan.
+`;
+
+describe("lecciones por tarjetas", () => {
+  const l = leerLeccion("contenido/lecciones/05-cambio-de-modalidad.md", mdTarjetas);
+  it("lee las tarjetas en el orden escrito y pasan el esquema v2", () => {
+    expect(esquemaLeccionV2.safeParse(l.leccion).success).toBe(true);
+    expect((l.leccion as LeccionV2).tarjetas.map((t) => t.tipo)).toEqual([
+      "caso",
+      "preguntar",
+      "idea",
+      "probalo",
+      "ojo",
+      "cierre",
+    ]);
+  });
+  it("lee cada campo de las tarjetas", () => {
+    const [caso, preguntar, idea, probalo, , cierre] = (l.leccion as LeccionV2).tarjetas;
+    expect(caso).toEqual({
+      tipo: "caso",
+      persona: "Lucía",
+      canal: "whatsapp",
+      consulta: "Hola, curso EDH y me quiero pasar a ED. Tengo un final el jueves.",
+    });
+    expect(preguntar).toMatchObject({
+      opciones: [
+        {
+          texto: "¿Estás anotada a algún final?",
+          clave: true,
+          porque: "Con un final anotado no puede pedir el pase.",
+        },
+        { clave: true },
+        { clave: false },
+      ],
+    });
+    expect(idea).toEqual({
+      tipo: "idea",
+      titulo: "Cuándo se pide",
+      texto: "Se pide en las fechas del calendario de trámites.\nFuera de fecha no se puede.",
+      clave: "Solo en las fechas del calendario.",
+      ejemplo: "Si escribe una semana tarde, toca esperar la próxima ventana.",
+    });
+    expect(probalo).toEqual({ tipo: "probalo", n: 1 });
+    expect(cierre).toEqual({
+      tipo: "cierre",
+      resolucion: "Primero rinde (o se da de baja de la mesa) y después pide el pase.",
+      recordar: "Sin mesas pendientes no hay pase.",
+    });
+    expect(l.probalo).toHaveLength(1);
+  });
+  it("una tarjeta probalo que apunta a una pregunta que no existe avisa con la ruta", () => {
+    expect(() =>
+      leerLeccion("contenido/lecciones/05-x.md", mdTarjetas.replace("## probalo 1", "## probalo 4")),
+    ).toThrow(/05-x\.md/);
+  });
+  it("arma el SQL con la versión 2", () => {
+    expect(armarSqlLecciones([l])).toContain('"version":2');
   });
 });

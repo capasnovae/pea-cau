@@ -1,6 +1,7 @@
 // Convierte las lecciones escritas a mano (contenido/lecciones/*.md) en SQL de borradores.
 // Sin imports con alias: lo usa también el script de línea de comandos.
 import { createHash } from "node:crypto";
+import type { LeccionV2, Tarjeta } from "../dominio/lecciones";
 
 export type Leccion = {
   resumen: string[];
@@ -32,7 +33,7 @@ export type LeccionArchivo = {
   modulo: string;
   orden: number;
   fuente: string;
-  leccion: Leccion;
+  leccion: Leccion | LeccionV2;
   probalo: PreguntaProbalo[];
 };
 
@@ -153,6 +154,7 @@ export function leerLeccion(ruta: string, texto: string): LeccionArchivo {
     const i = linea.indexOf(":");
     if (i > 0) meta[linea.slice(0, i).trim()] = JSON.parse(linea.slice(i + 1).trim());
   }
+  if (meta.formato === "tarjetas") return conMeta(ruta, meta, leerTarjetas(ruta, m[2]!));
   const b = bloques(m[2]!);
   if (!b.has("En 30 segundos") || !b.has("Así llega al CAU")) throw new Error(`Faltan bloques en ${ruta}`);
   const ejemplos = vinetas(b.get("Así llega al CAU")).map((l) => {
@@ -164,6 +166,17 @@ export function leerLeccion(ruta: string, texto: string): LeccionArchivo {
     .split(/^### /m)
     .slice(1)
     .map((q) => leerPregunta(ruta, q));
+  return conMeta(ruta, meta, {
+    leccion: { resumen: vinetas(b.get("En 30 segundos")), ejemplos, ojo: vinetas(b.get("Ojo con")) },
+    probalo,
+  });
+}
+
+function conMeta(
+  ruta: string,
+  meta: Record<string, unknown>,
+  cuerpo: Pick<LeccionArchivo, "leccion" | "probalo">,
+): LeccionArchivo {
   const curso = String(meta.curso ?? "");
   const modulo = String(meta.modulo ?? "");
   const c = CURSOS.find((x) => x.slug === curso);
@@ -177,9 +190,87 @@ export function leerLeccion(ruta: string, texto: string): LeccionArchivo {
     modulo,
     orden: Number(meta.orden ?? 0),
     fuente: String(meta.fuente ?? ""),
-    leccion: { resumen: vinetas(b.get("En 30 segundos")), ejemplos, ojo: vinetas(b.get("Ojo con")) },
-    probalo,
+    ...cuerpo,
   };
+}
+
+/** "campo: valor" al principio de una línea. */
+const campo = (lineas: string[], nombre: string) =>
+  lineas
+    .find((l) => l.startsWith(`${nombre}:`))
+    ?.slice(nombre.length + 1)
+    .trim();
+const sinCampos = (lineas: string[], nombres: string[]) =>
+  lineas.filter((l) => !nombres.some((n) => l.startsWith(`${n}:`)));
+const parrafo = (lineas: string[]) =>
+  lineas
+    .map((l) => l.trim())
+    .filter(Boolean)
+    .join("\n");
+
+/**
+ * Lección por tarjetas (front matter `formato: "tarjetas"`): una sección "## tipo" por tarjeta, en orden,
+ * y al final el bloque "## Probalo" con las preguntas de siempre.
+ */
+function leerTarjetas(ruta: string, cuerpo: string): Pick<LeccionArchivo, "leccion" | "probalo"> {
+  const tarjetas: Tarjeta[] = [];
+  let probalo: PreguntaProbalo[] = [];
+  for (const parte of cuerpo.split(/^## /m).slice(1)) {
+    const i = parte.indexOf("\n");
+    const cabeza = (i < 0 ? parte : parte.slice(0, i)).trim();
+    const lineas = (i < 0 ? "" : parte.slice(i + 1)).split("\n").map((l) => l.replace(/\s+$/, ""));
+    let m: RegExpExecArray | null;
+    if (cabeza === "Probalo") {
+      probalo = lineas
+        .join("\n")
+        .split(/^### /m)
+        .slice(1)
+        .map((q) => leerPregunta(ruta, q));
+    } else if (cabeza === "video") {
+      tarjetas.push({ tipo: "video", ruta: campo(lineas, "ruta") ?? "" });
+    } else if (cabeza === "caso") {
+      tarjetas.push({
+        tipo: "caso",
+        persona: campo(lineas, "persona") ?? "",
+        canal: (campo(lineas, "canal") ?? "") as "whatsapp",
+        consulta: parrafo(sinCampos(lineas, ["persona", "canal"])),
+      });
+    } else if (cabeza === "preguntar") {
+      const opciones: { texto: string; clave: boolean; porque: string }[] = [];
+      for (const cruda of lineas) {
+        const l = cruda.trim();
+        if ((m = /^- \[( |x)\] (.+)$/.exec(l)))
+          opciones.push({ texto: m[2]!.trim(), clave: m[1] === "x", porque: "" });
+        else if (l.startsWith("> ") && opciones.length) opciones.at(-1)!.porque = l.slice(2).trim();
+      }
+      tarjetas.push({ tipo: "preguntar", opciones });
+    } else if ((m = /^idea:\s*(.+)$/.exec(cabeza))) {
+      const ejemplo = campo(lineas, "ejemplo");
+      tarjetas.push({
+        tipo: "idea",
+        titulo: m[1]!.trim(),
+        texto: parrafo(sinCampos(lineas, ["clave", "ejemplo"])),
+        clave: campo(lineas, "clave") ?? "",
+        ...(ejemplo ? { ejemplo } : {}),
+      });
+    } else if ((m = /^probalo (\d+)$/.exec(cabeza))) {
+      tarjetas.push({ tipo: "probalo", n: Number(m[1]) });
+    } else if (cabeza === "ojo") {
+      tarjetas.push({ tipo: "ojo", texto: parrafo(lineas) });
+    } else if (cabeza === "cierre") {
+      tarjetas.push({
+        tipo: "cierre",
+        resolucion: parrafo(sinCampos(lineas, ["recordar"])),
+        recordar: campo(lineas, "recordar") ?? "",
+      });
+    } else {
+      throw new Error(`Tarjeta desconocida en ${ruta}: ## ${cabeza}`);
+    }
+  }
+  for (const t of tarjetas)
+    if (t.tipo === "probalo" && t.n > probalo.length)
+      throw new Error(`La tarjeta "probalo ${t.n}" no tiene pregunta en ${ruta}`);
+  return { leccion: { version: 2, tarjetas }, probalo };
 }
 
 function literal(texto: string): string {
