@@ -172,7 +172,7 @@ export function Practica({
         </div>
       )}
       <div className="flex gap-3">
-        {resultado && esRepaso ? (
+        {(resultado || error) && esRepaso ? (
           <Button
             type="button"
             tamano="lg"

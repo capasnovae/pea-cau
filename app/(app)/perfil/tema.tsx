@@ -23,13 +23,30 @@ export function ElegirTema({ inicial }: { inicial: Tema }) {
         Tema
       </span>
       <div role="radiogroup" aria-labelledby="tema-etiqueta" className="flex rounded-boton bg-surface-2 p-1">
-        {TEMAS.map((t) => (
+        {TEMAS.map((t, i) => (
           <button
             key={t}
             type="button"
             role="radio"
             aria-checked={tema === t}
+            tabIndex={tema === t ? 0 : -1}
             onClick={() => cambiar(t)}
+            onKeyDown={(e) => {
+              // Patrón de grupo de radios: las flechas mueven la selección y el foco
+              const paso =
+                e.key === "ArrowRight" || e.key === "ArrowDown"
+                  ? 1
+                  : e.key === "ArrowLeft" || e.key === "ArrowUp"
+                    ? -1
+                    : 0;
+              if (!paso) return;
+              e.preventDefault();
+              const siguiente = TEMAS[(i + paso + TEMAS.length) % TEMAS.length]!;
+              cambiar(siguiente);
+              (
+                e.currentTarget.parentElement?.children[TEMAS.indexOf(siguiente)] as HTMLElement | undefined
+              )?.focus();
+            }}
             className={cn(
               "min-h-10 rounded-campo px-3 font-semibold transition",
               tema === t ? "bg-card text-primary-strong shadow-1" : "text-muted hover:text-ink",

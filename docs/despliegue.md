@@ -48,7 +48,7 @@ Se abre el navegador: entrá con la cuenta nueva.
 npx supabase link --project-ref TU_PROJECT_REF
 ```
 
-Te pide la contraseña de la base. Con eso, subí el esquema (todas las migraciones):
+Con el proyecto vinculado, subí el esquema (todas las migraciones). Si la herramienta te pide la contraseña de la base, es la que guardaste en el paso 1:
 
 ```bash
 npx supabase db push --remote

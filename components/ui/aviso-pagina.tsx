@@ -9,7 +9,7 @@ export function AvisoPagina({ titulo, children }: { titulo: string; children?: R
         {children}
         <Link
           href="/inicio"
-          className="inline-flex min-h-12 items-center rounded-2xl bg-primary px-5 font-bold text-white"
+          className="inline-flex min-h-12 items-center rounded-boton bg-primary px-5 font-bold text-primary-foreground transition hover:bg-primary-strong active:scale-[0.97]"
         >
           Ir al inicio
         </Link>
