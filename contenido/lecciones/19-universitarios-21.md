@@ -16,11 +16,11 @@ fuente: "ln-universitarios21"
 ## Así llega al CAU
 
 - "¿Por qué no me deja anotarme a una materia de cuarto cuatrimestre?" → Porque necesita tener aprobado Universitarios 21.
-- "Tengo materias aprobadas en otra universidad, ¿hago Universitarios 21?" → Si suma 5 o más materias aprobadas en su legajo de Siglo 21 puede quedar eximido; revisá las condiciones en la fuente.
+- "Tengo materias aprobadas en otra universidad, ¿hago Universitarios 21?" → Si con equivalencias externas, solas o sumadas a materias cursadas en Siglo 21, llega a 5 o más aprobadas en su legajo, queda eximido de las dos materias.
 
 ## Ojo con
 
-- Aprender en el Siglo 21 usa como bibliografía el Reglamento Institucional.
+- Parte de la bibliografía de Aprender en el Siglo 21 es el Reglamento Institucional.
 
 ## Probalo
 

@@ -10,19 +10,19 @@ fuente: "rg-12-2-trabajo-final-de-graduacion"
 
 - Tiene 3 etapas: Seminario Final, Comisión Académica Evaluadora (CAE) y Defensa Oral.
 - En distancia, Seminario Final se regulariza cumpliendo las entregas de avance del tutor. No hay prórrogas.
-- La CAE evalúa el TFG en 60 días: puede habilitar la defensa, pedir ajustes con un plazo o no aprobarlo.
+- La CAE evalúa el TFG en 60 días corridos: puede habilitar la defensa, pedir ajustes con un plazo o no aprobarlo.
 - Habilitado, se inscribe a la mesa de Defensa Oral en un máximo de 30 días corridos.
 - La nota final pondera Seminario Final, CAE y defensa; con menos de 4 se recursa Seminario Final.
 
 ## Así llega al CAU
 
-- "Ya regularicé Seminario Final, ¿qué sigue?" → Se le asigna una CAE, que evalúa el trabajo en un plazo de 60 días.
+- "Ya regularicé Seminario Final, ¿qué sigue?" → Se le asigna una CAE, que evalúa el trabajo en un plazo de 60 días corridos.
 - "La CAE me pidió cambios." → Recibe un acta rúbrica con las recomendaciones y el plazo para entregar el trabajo ajustado.
 - "Me habilitaron a defensa, ¿hay plazo para anotarme?" → Sí: tiene que inscribirse a la mesa de Defensa Oral dentro de los 30 días corridos.
 
 ## Ojo con
 
-- Para la Defensa Oral necesita el EFIP II aprobado.
+- Para la Defensa Oral necesita el visado del analítico y, en ED/EDH, el EFIP II aprobado (salvo en los ciclos de complementación).
 - El TFG es individual.
 
 ## Probalo

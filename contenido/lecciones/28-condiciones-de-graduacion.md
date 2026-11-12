@@ -19,14 +19,14 @@ fuente: "rg-12-1-condiciones-para-la-graduacion"
 
 ## Ojo con
 
-- Después del egreso siguen el trámite del título (tasa y hasta 120 días) y la colación: mirá esas lecciones.
+- Después del egreso siguen el trámite del título (tasa y emisión en hasta 120 días corridos con el legajo completo) y la colación: mirá esas lecciones.
 
 ## Probalo
 
 ### unica: Gonzalo cursa una carrera de grado en EDH. Regularizó Seminario Final hace 20 meses y todavía no aprobó el TFG. Quiere saber si puede seguir con el mismo trabajo. ¿Qué le decís?
 
 - [ ] Que sí, que pida una prórroga de la regularidad.
-  > El plazo de 18 meses no tiene prórroga en la fuente.
+  > El plazo de 18 meses no tiene prórroga.
 - [x] Que no: pasaron los 18 meses, queda Libre en Seminario Final y tiene que recursarla para hacer un nuevo TFG.
   > Es la regla del plazo máximo.
 - [ ] Que sí, siempre que tenga el EFIP II aprobado.

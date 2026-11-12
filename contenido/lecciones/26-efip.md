@@ -25,7 +25,7 @@ fuente: "rg-4-5-sitema-de-evaluacion-de-los-aprendizajes-eva-21"
 - Sin EFIP I aprobado no puede inscribirse a cursar Seminario Final.
 - Aprobar el Seminario de Práctica no aprueba el EFIP I: igual tiene que rendirlo.
 - Para EFIP II necesita además el visado del analítico aprobado y no tener deuda.
-- La Universidad puede autorizar rendir en el CAU con tecnología; el examen queda grabado.
+- Rendir el EFIP en un CAU con tecnología es excepcional: a criterio de la Universidad, ante una imposibilidad permanente de viajar acreditada. Se graba.
 
 ## Probalo
 

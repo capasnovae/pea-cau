@@ -9,10 +9,10 @@ fuente: "rg-14-1-planes-de-estudio"
 ## En 30 segundos
 
 - Los planes los aprueba el Consejo Superior y después el Ministerio de Educación.
-- Cuando entra un plan nuevo, el anterior se mantiene por la duración teórica de la carrera más un año.
+- Cuando entra un plan nuevo, el anterior puede conservarse por la duración teórica de la carrera más un año.
 - Si no terminó en ese plazo, la Universidad puede pasarlo al plan nuevo y debe cursar todas sus materias.
 - Las materias que están en los dos planes se reconocen por equivalencia directa y automática.
-- Quien estuvo inactivo más de un período y retoma fuera de ese plazo también puede ser migrado al plan vigente.
+- Quien estuvo inactivo más de un período y no terminó en ese plazo, al retomar es migrado al plan vigente: no puede seguir en su plan de origen.
 
 ## Así llega al CAU
 
@@ -23,6 +23,7 @@ fuente: "rg-14-1-planes-de-estudio"
 ## Ojo con
 
 - Cuando la Universidad migra alumnos de plan, arma un plan de transición con los pasos a seguir.
+- Las materias aprobadas del plan anterior que no están en el nuevo pueden tomarse como electivas.
 
 ## Probalo
 

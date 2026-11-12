@@ -169,7 +169,8 @@ test("vista previa: el admin recorre un curso en borrador y un asesor no lo ve",
   const probalo = adm.getByRole("region", { name: "Probalo" });
   await probalo.getByRole("radio").first().check();
   await probalo.getByRole("button", { name: "Comprobar" }).click();
-  await expect(probalo.getByRole("status")).toBeVisible();
+  // Probalo como caso: explica por qué la opción elegida está bien o mal
+  await expect(probalo.getByRole("status")).toContainText("Tu respuesta:");
   await expect(adm.getByRole("status").filter({ hasText: "Vista previa" })).toBeVisible();
 
   const a = await (await browser.newContext()).newPage();

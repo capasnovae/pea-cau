@@ -235,7 +235,12 @@ where item_id = ${item} and id not in (${ids.map((x) => `'${x}'::uuid`).join(", 
   and ${enBorrador};`);
     l.probalo.forEach((p, n) => {
       const pid = `'${ids[n]}'::uuid`;
-      const config = p.columnas ? literal(JSON.stringify({ columnas: p.columnas })) + "::jsonb" : "null";
+      // "unica": una sola correcta; se muestra con botones de radio en vez de "Marcá todas las correctas"
+      const config = p.columnas
+        ? literal(JSON.stringify({ columnas: p.columnas })) + "::jsonb"
+        : p.tipo === "opcion_multiple"
+          ? literal(JSON.stringify({ una: true })) + "::jsonb"
+          : "null";
       s.push(`insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
 select ${pid}, '${p.tipo}', ${literal(p.enunciado)}, ${literal(p.explicacion)}, (select id from public.categorias where slug = 'reglamento'),
        'publicado', 'global', 'practica', ${item}, ${config}

@@ -8,7 +8,7 @@ fuente: "rg-14-3-becas-y-beneficios"
 
 ## En 30 segundos
 
-- Una beca es un apoyo económico por buen nivel académico y regularidad (ver requisitos en la fuente); un beneficio, por una situación o cualidad del estudiante.
+- Una beca se otorga por mérito (buen nivel académico y regularidad) a quien no tiene recursos suficientes; un beneficio, por una situación o cualidad del estudiante.
 - No son acumulables entre sí: si califica para más de una, se aplica la más provechosa.
 - Becas del primer semestre: postulación del 1 de octubre del año anterior al 1 de enero.
 - Becas del segundo semestre: postulación del 1 de abril al 1 de julio.
@@ -17,7 +17,7 @@ fuente: "rg-14-3-becas-y-beneficios"
 
 - "Tengo beca y me corresponde también el beneficio por familiar, ¿se suman?" → No: becas y beneficios no son acumulables; se aplica el que más le convenga.
 - "¿Cuándo me postulo para el primer semestre?" → Del 1 de octubre del año anterior al 1 de enero; el resultado se confirma hasta el 1 de febrero.
-- "¿Hasta cuándo pido un beneficio para el subperíodo 1B?" → Según el calendario de trámites 2026, del 30/3 al 29/5. Las fechas cambian cada año.
+- "¿Hasta cuándo pido un beneficio para el subperíodo 1B?" → Los beneficios tienen fechas propias por subperíodo, distintas de las becas. Fijate en el calendario de trámites vigente: cambian cada año.
 - "Entregué la solicitud incompleta." → Las solicitudes incompletas o con deficiencias se rechazan: tiene que cumplir todos los requisitos de la categoría.
 
 ## Ojo con

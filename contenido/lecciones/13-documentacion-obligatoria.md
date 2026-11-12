@@ -11,7 +11,7 @@ fuente: "rg-2-2-documentacion-obligatoria-y-complementaria"
 - El legajo completo es requisito. Se presenta en la sede o CAU con original y copia; la copia certificada se envía en formato digital.
 - Grado y pregrado: solicitud de inscripción firmada, DNI vigente (no el digital), secundario completo, 2 fotos color 3x3 y ficha médica.
 - Sin el analítico todavía, sirve una constancia de título en trámite que diga que no adeuda materias: vale 1 año y se presenta una sola vez.
-- Grado: plazo de un año y medio; si no, no puede reinscribirse al cuarto período. Pregrado: dentro del primer año.
+- Plazo para completar el legajo: grado, 1 año y medio (si no, no se reinscribe al 4.º período); pregrado, 1 año (si no, no se reinscribe al 3.º).
 
 ## Así llega al CAU
 
@@ -23,7 +23,7 @@ fuente: "rg-2-2-documentacion-obligatoria-y-complementaria"
 
 - La secretaría del juzgado no sirve para certificar copias.
 - Mayores de 25 sin secundario completo: ingreso por trámite especial con resolución rectoral (45 días hábiles).
-- Los ciclos de complementación tienen otra documentación y otros plazos: consultá la fuente.
+- Ciclos de complementación: piden título superior previo y el legajo se completa en el primer año (Escribanía, en 6 meses).
 
 ## Probalo
 

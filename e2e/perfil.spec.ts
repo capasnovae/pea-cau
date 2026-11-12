@@ -52,7 +52,10 @@ test.describe.serial("perfil, insignias y certificados", () => {
   }) => {
     const codigo = verificar.split("/").pop()!;
     const adm = await sesion(browser, "admin@pea.local");
-    const fila = adm.getByRole("list", { name: "Certificados" }).getByRole("listitem").filter({ hasText: codigo });
+    const fila = adm
+      .getByRole("list", { name: "Certificados" })
+      .getByRole("listitem")
+      .filter({ hasText: codigo });
     await adm.goto("/admin/certificaciones?q=Asesor");
     await expect(fila).toBeVisible();
     await adm.goto(`/admin/certificaciones?q=${encodeURIComponent("Andrés Asesor")}`);
@@ -70,7 +73,11 @@ test.describe.serial("perfil, insignias y certificados", () => {
     await a.goto("/perfil");
     await expect(a.getByRole("list", { name: "Insignias" })).toContainText("Perdida");
     await expect(
-      a.getByRole("list", { name: "Certificados" }).getByRole("listitem").filter({ hasText: "Revocado" }).getByRole("link", { name: "PDF" }),
+      a
+        .getByRole("list", { name: "Certificados" })
+        .getByRole("listitem")
+        .filter({ hasText: "Revocado" })
+        .getByRole("link", { name: "PDF" }),
     ).toHaveCount(0);
     expect((await a.request.get(pdf)).status()).toBe(404);
   });

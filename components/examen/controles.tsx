@@ -21,7 +21,8 @@ export type PreguntaRender = {
   caso_titulo: string | null;
   caso_contexto_md: string | null;
   puntaje_max: number;
-  config: { columnas?: string[]; campos?: Campo[] } | null;
+  /** `una`: opción múltiple con una sola respuesta correcta (se elige con botones de radio). */
+  config: { columnas?: string[]; campos?: Campo[]; una?: boolean } | null;
   opciones: Opcion[];
 };
 
@@ -81,7 +82,7 @@ export function ControlPregunta({
   deshabilitado?: boolean;
 }) {
   const nombre = `p-${p.pregunta_id}`;
-  if (p.tipo === "verdadero_falso") {
+  if (p.tipo === "verdadero_falso" || (p.tipo === "opcion_multiple" && p.config?.una)) {
     return (
       <fieldset className="flex flex-col gap-2.5" disabled={deshabilitado}>
         <legend className="sr-only">Respuesta</legend>

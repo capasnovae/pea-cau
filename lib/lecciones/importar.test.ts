@@ -245,6 +245,7 @@ describe("Probalo con tipos ricos", () => {
     expect(sql).toContain("'clasificar'");
     expect(sql).toContain('{"columnas":["CAU","Tesorería"]}');
     expect(sql).toContain("En EDH la inscripción previa es obligatoria.");
+    expect(sql).toContain('{"una":true}');
     expect(sql).toMatch(
       /opciones \(id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo\)/,
     );

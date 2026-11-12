@@ -23,6 +23,7 @@ fuente: "rg-4-5-sitema-de-evaluacion-de-los-aprendizajes-eva-21"
 
 - Hay casos especiales regulados (Res. CS 535/2017) que son excepción a esta regla: derivá.
 - Si no completa todos los datos del pedido de revisión, el pedido es nulo.
+- Si se inscribió a un recuperatorio o integrador y no se presenta, no queda solo Ausente: se califica con 0 y cuenta para la nota.
 
 ## Probalo
 
