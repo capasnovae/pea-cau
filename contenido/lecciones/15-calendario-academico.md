@@ -27,15 +27,34 @@ fuente: "rg-5-1-calendario-academico"
 
 ## Probalo
 
-### unica: En ED y EDH, ¿en qué semanas se rinde el 2do parcial?
+### unica: Agustina cursa en EDH una materia MIP (cuatrimestral) y pregunta si su 1er parcial tiene que ser sí o sí entre las semanas 1 y 4. ¿Qué le decís?
 
-- [ ] Semanas 1 a 4.
-- [x] Semanas 5 a 8.
-- [ ] Semana 9.
+- [ ] Que sí, como en todas las materias de ED y EDH.
+  > Esa ventana es para las materias bimestrales; MIP es cuatrimestral.
+- [x] Que no: en MIP el 1er parcial va de la semana 1 a la 8, el 2do de la 10 a la 17 y el recuperatorio es en la 18.
+  > Es el esquema de MIP en Distancia.
+- [ ] Que lo rinde en la semana 9, junto con los recuperatorios.
+  > La semana 9 es de recuperatorios en las materias bimestrales.
 
-> El 1er parcial va de la semana 1 a la 4 y el 2do de la 5 a la 8.
+> Antes de dar semanas, preguntá el tipo de materia: MIP en ED/EDH tiene calendario cuatrimestral.
 
-### vf: La semana 9 del subperíodo es de recuperatorios e integradores.
+### unica: Nicolás cursa en ED y su parcial cae en un feriado provincial. ¿Qué le explicás?
 
-- [x] Verdadero
-- [ ] Falso
+- [ ] Que no se mueve, porque solo cuentan los feriados nacionales.
+  > Esa regla es la de PD; en ED y EDH cuentan nacionales y provinciales.
+- [x] Que se reprograma al sábado siguiente o a la semana siguiente, salvo que la Secretaría disponga otra solución.
+  > Es lo que fija el reglamento para ED y EDH.
+- [ ] Que pierde esa fecha y tiene que ir directo al recuperatorio.
+  > El parcial se reprograma; no pierde la instancia.
+
+> En ED/EDH, un parcial en feriado nacional o provincial se reprograma; en PD, solo por feriado nacional.
+
+### clasificar: Clasificá cada dato del calendario según la modalidad a la que corresponde.
+
+- 1er parcial entre las semanas 1 y 4 (materia bimestral) → ED/EDH
+- 1er parcial en las semanas 7 y 8 → PD
+- 2do parcial en las semanas 14 y 15 → PD
+- Recuperatorios en la semana 9 del subperíodo → ED/EDH
+- Semestre de 16 semanas → PD
+
+> ED/EDH trabaja con subperíodos de 9 semanas; PD, con semestres de 16 semanas.

@@ -28,15 +28,34 @@ fuente: "rg-4-5-sitema-de-evaluacion-de-los-aprendizajes-eva-21"
 
 ## Probalo
 
-### unica: En una materia MIA, ¿cuántas veces se puede entregar cada TP?
+### unica: Micaela cursa en ED, sacó 4 en el TP1 de una MEC y el cronograma del SAM todavía está abierto. ¿Qué le decís?
 
-- [x] Una sola vez, en la fecha del calendario.
-- [ ] Ilimitadas, hasta el cierre del SAM.
-- [ ] Dos veces.
+- [ ] Que no puede rehacerlo: cada TP se entrega una sola vez.
+  > Eso es en MIA y MIP; en MEC se rehace.
+- [x] Que puede rehacerlo las veces que quiera dentro del cronograma del SAM, y vale la última nota.
+  > Es la regla de MEC y MAP.
+- [ ] Que puede rehacerlo, pero se promedian todas las notas que saque.
+  > Vale la última nota, no un promedio de intentos.
 
-> En MIA y MIP el TP se presenta por única vez.
+> MEC y MAP: TP sin límite dentro del cronograma y vale la última nota. MIA y MIP: una sola entrega.
 
-### vf: Para regularizar hay que aprobar al menos 3 de los 4 TP con 5 o más.
+### unica: Facundo cursa EDH y no entregó en fecha el TP1 de una MIA. Los otros TP los tiene al día. ¿Qué le explicás?
 
-- [x] Verdadero
-- [ ] Falso
+- [ ] Que puede entregarlo tarde con 5 puntos menos por día de demora.
+  > La entrega tardía con descuento es de MEC y MAP.
+- [x] Que ese TP queda con 0 y se promedia, pero puede regularizar si aprueba los otros 3 TP con 5 o más y cumple foros y parciales.
+  > En MIA el TP se entrega una sola vez; regulariza con 3 de 4 aprobados.
+- [ ] Que quedó libre en la materia.
+  > Un TP sin entregar no lo deja libre; le quedan 3 para regularizar.
+
+> En MIA y MIP el TP no entregado es 0 y promedia; la regularidad pide 3 de 4 TP con 5 o más, foros y parciales.
+
+### clasificar: Clasificá cada regla de TP según el tipo de materia.
+
+- Se rehace sin límite y vale la última nota → MEC y MAP
+- Se entrega una sola vez, en la fecha del calendario → MIA y MIP
+- Entregar tarde resta 5 puntos por día, sin bajar de 5 → MEC y MAP
+- Tiene foros grupales obligatorios en algunos TP → MIA y MIP
+- Si no lo entrega, es 0 y promedia → MIA y MIP
+
+> Antes de responder sobre un TP, preguntá el tipo de materia: las reglas de MEC/MAP y de MIA/MIP son opuestas.

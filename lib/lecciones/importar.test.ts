@@ -122,7 +122,16 @@ describe("lecciones de contenido/lecciones", () => {
     expect(slugs.has(l.fuente)).toBe(true);
     expect(l.probalo.length).toBeGreaterThanOrEqual(1);
     expect(l.probalo.length).toBeLessThanOrEqual(3);
+    expect(
+      l.probalo.filter((p) => p.tipo === "verdadero_falso").length,
+      "como máximo un V/F",
+    ).toBeLessThanOrEqual(1);
     for (const p of l.probalo) {
+      expect(p.explicacion, `explicación general: ${p.enunciado}`).not.toBe("");
+      for (const o of p.opciones) {
+        expect(o.texto.length).toBeLessThanOrEqual(500);
+        expect((o.explicacion ?? "").length).toBeLessThanOrEqual(400);
+      }
       if (p.tipo === "ordenar") expect(p.opciones.length).toBeGreaterThanOrEqual(3);
       else if (p.tipo === "clasificar") expect(p.columnas!.length).toBeGreaterThanOrEqual(2);
       else expect(p.opciones.filter((o) => o.correcta)).toHaveLength(1);

@@ -27,10 +27,34 @@ fuente: "rg-14-3-becas-y-beneficios"
 
 ## Probalo
 
-### unica: Un alumno califica para dos beneficios. ¿Qué pasa?
+### unica: Sofía cursa grado en ED con beca por alto rendimiento. Su hermano empieza a cursar y ella pregunta si además le suman el beneficio por familiar directo. ¿Qué le decís?
 
-- [ ] Se le aplican los dos.
-- [x] Se le aplica el más provechoso.
-- [ ] No se le aplica ninguno.
+- [ ] Que sí, se suman los dos descuentos.
+  > Becas y beneficios no son acumulables entre sí.
+- [x] Que no se suman: se le aplica la ayuda que le resulte más provechosa.
+  > Es la regla cuando alguien califica para más de una ayuda económica.
+- [ ] Que por pedir el beneficio pierde la beca.
+  > No pierde nada: se aplica la más provechosa.
 
-> Las ayudas económicas no son acumulables; se aplica la más provechosa.
+> Becas y beneficios no se acumulan; si califica para más de una, se aplica la más conveniente. Las promociones sí pueden sumarse.
+
+### unica: Tomás cursa EDH y el 10 de julio llama para postularse a una beca para el segundo semestre. ¿Qué le respondés?
+
+- [ ] Que está a tiempo hasta que empiecen las clases del segundo semestre.
+  > La postulación del segundo semestre cierra el 1 de julio.
+- [ ] Que se postule igual y, si sale, se le aplica desde el inicio del semestre.
+  > Las ayudas rigen desde su otorgamiento y nunca son retroactivas.
+- [x] Que la postulación cerró el 1 de julio y que la próxima es para el primer semestre, del 1 de octubre al 1 de enero.
+  > Son los plazos fijos del reglamento para becas.
+
+> Becas: 1er semestre del 1/10 al 1/1; 2do semestre del 1/4 al 1/7. Fuera de plazo no se puede postular.
+
+### clasificar: Clasificá cada ayuda o mejora según su tipo.
+
+- Descuento por tener un familiar directo cursando → Beneficio
+- Apoyo por mérito académico para quien no tiene recursos suficientes → Beca
+- Mejora en las condiciones de pago que ofrece la Universidad a su criterio → Promoción
+- Descuento por ser deportista federado → Beneficio
+- Beca por alto rendimiento académico → Beca
+
+> Beca: mérito. Beneficio: situación o cualidad del estudiante. Promoción: mejora de pago que no es ayuda económica y puede sumarse.

@@ -20,9 +20,23 @@ fuente: "ln-tutoresvirtuales"
 
 ## Probalo
 
-### vf: El tutor virtual resuelve las dudas de contenido de cada materia.
+### clasificar: Un alumno de primer año (EDH) trae estas dudas. Clasificá a quién le corresponde cada una.
 
-- [ ] Verdadero
-- [x] Falso
+- No sabe cómo organizar sus semanas de estudio → Profesor Tutor Virtual
+- No entiende un concepto de la lectura 2 de la materia → Docente a cargo
+- No encuentra dónde se entregan los TP en Canvas → Profesor Tutor Virtual
+- Tiene dudas sobre la resolución de un ejercicio del parcial de práctica → Docente a cargo
+- No entiende cómo funciona el modelo de aprendizaje de la universidad → Profesor Tutor Virtual
 
-> El tutor acompaña la organización y el cursado; el contenido lo responde el docente.
+> El tutor acompaña cursado, organización, plataforma y modelo de aprendizaje; el contenido específico de cada materia va al docente.
+
+### unica: Camila (ED, primer cuatrimestre) quiere sumarse a un taller de hábitos de estudio y a una consulta en vivo con el tutor, pero no sabe cuándo son. ¿Dónde le decís que busque?
+
+- [ ] En el Portal de Estudiantes, sección Exámenes.
+  > Ahí se gestionan inscripciones a exámenes, no talleres ni consultas con tutores.
+- [x] En la sección Anuncios de sus materias en Canvas, donde están el cronograma de Potenciar 21 y los horarios de consulta por Teams.
+  > La fuente indica que los anuncios de cada materia tienen ese cronograma.
+- [ ] Que llame al CAU para que la anoten.
+  > El CAU no gestiona esos espacios; la información está en el aula.
+
+> Los Talleres Potenciar 21 y los horarios de consulta por Teams se publican en los anuncios de cada materia en Canvas.

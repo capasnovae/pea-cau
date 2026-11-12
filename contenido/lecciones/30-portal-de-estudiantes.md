@@ -21,10 +21,33 @@ fuente: "ln-portal-de-estudiantes"
 
 ## Probalo
 
-### unica: Un alumno no puede entrar al portal. ¿Qué le sugerís primero?
+### unica: Bruno es ingresante, se inscribió hace un día hábil y dice que nunca le llegaron los datos para entrar al Portal. ¿Qué le decís?
 
-- [x] Borrar cookies y caché del navegador e intentar de nuevo.
-- [ ] Hacer un cambio de carrera.
-- [ ] Esperar al próximo semestre.
+- [ ] Que entre con su DNI como usuario.
+  > Se entra con la cuenta institucional, no con el DNI.
+- [ ] Que restablezca la contraseña desde el portal.
+  > Sin haber recibido todavía el usuario, primero hay que verificar el correo.
+- [x] Que revise el correo no deseado del mail que informó al inscribirse, y que puede demorar hasta 48 hs hábiles.
+  > Es lo que indica la guía para ingresantes.
 
-> Es el primer paso que indica la guía del portal.
+> A los ingresantes los datos de acceso les llegan al mail informado al inscribirse. Hay que revisar el correo no deseado y tener en cuenta que puede demorar 48 hs hábiles.
+
+### ordenar: Ordená los pasos para recuperar la contraseña del Portal de Estudiantes.
+
+1. Hacer clic en "Si no conocés o si olvidaste tu contraseña, podés restablecerla desde aquí".
+2. Escribir el usuario institucional sin @soysiglo.21.edu.ar.
+3. Confirmar el correo de recuperación (el mail personal registrado) y hacer clic en "Enviar contraseña".
+4. Seguir el enlace del mail que llega y crear una nueva clave.
+
+> El usuario va sin el dominio, y el mail de recuperación es el personal registrado en el portal.
+
+### unica: Lara usó ayer el simulador de precios y hoy, al pagar, ve otro monto. Cree que hay un error. ¿Qué le decís?
+
+- [ ] Que el simulador da un precio fijo y tiene que reclamar la diferencia.
+  > El simulador no garantiza el precio.
+- [x] Que el simulador es estimativo, que la estimación vale 24 hs y que los descuentos y becas pueden variar.
+  > Es lo que aclara la guía del portal.
+- [ ] Que es un error de ePagos y tiene que pagar igual el monto de ayer.
+  > No hay error: el monto del simulador era una estimación.
+
+> El simulador sirve para estimar gastos: los precios pueden variar, y la estimación tiene una vigencia de 24 hs.

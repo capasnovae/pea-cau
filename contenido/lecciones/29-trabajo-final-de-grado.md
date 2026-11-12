@@ -27,10 +27,33 @@ fuente: "rg-12-2-trabajo-final-de-graduacion"
 
 ## Probalo
 
-### unica: ¿Cuál es la segunda etapa del TFG?
+### ordenar: Ordená el recorrido de un alumno de ED desde Seminario Final hasta la nota del TFG.
 
-- [x] La Comisión Académica Evaluadora (CAE).
-- [ ] La Defensa Oral.
-- [ ] El Seminario Final.
+1. Regulariza Seminario Final cumpliendo las entregas de avance.
+2. La CAE evalúa el TFG dentro de los 60 días corridos.
+3. Habilitado a defensa, se inscribe a la mesa de Defensa Oral dentro de los 30 días corridos.
+4. Rinde la Defensa Oral y recibe la nota ponderada con la de Seminario Final y la CAE.
 
-> Seminario Final, CAE y Defensa Oral, en ese orden.
+> Las etapas son Seminario Final, CAE y Defensa Oral. Cada paso tiene un plazo, y no hay prórrogas.
+
+### unica: Julián cursa ED y recibió de la CAE un acta rúbrica con ajustes para su TFG. Pregunta qué pasa si no los entrega a tiempo. ¿Qué le decís?
+
+- [ ] Que le pida una prórroga al tutor de Seminario Final.
+  > La fuente no prevé prórrogas para la entrega ajustada.
+- [x] Que si no entrega dentro del plazo (30 días corridos) o no responde a lo pedido, Seminario Final queda desaprobado y tiene que recursarla con un nuevo TFG.
+  > Es la consecuencia prevista.
+- [ ] Que pasa igual a la defensa, con una nota más baja.
+  > Sin los ajustes no queda habilitado a la defensa.
+
+> Si la CAE pide ajustes, hay que entregarlos dentro del plazo y respondiendo a lo pedido. Si no, se desaprueba Seminario Final.
+
+### unica: Rocío cursa una carrera de grado en EDH (no es un ciclo de complementación). Fue habilitada a Defensa Oral pero todavía no aprobó el EFIP II. ¿Puede rendir la defensa?
+
+- [ ] Sí: el EFIP II se rinde después de la defensa.
+  > El EFIP II es requisito previo de la defensa.
+- [ ] Sí, si tiene todas las materias aprobadas.
+  > Las materias aprobadas no reemplazan al EFIP II.
+- [x] No: en ED/EDH necesita el EFIP II aprobado, además del visado del analítico.
+  > Son condiciones para la Defensa Oral.
+
+> En ED y EDH, sin el EFIP II aprobado no hay Defensa Oral. La excepción son los ciclos de complementación.

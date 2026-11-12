@@ -19,7 +19,7 @@ fuente: "rg-4-5-sitema-de-evaluacion-de-los-aprendizajes-eva-21"
 - "No llegué a las horas de la Práctica Profesional." → Sin las 250 horas no se aprueba; si no cumple al terminar el cursado queda Libre y la recursa.
 - "Aprobé la Práctica Profesional pero me debe una correlativa." → Queda Regular hasta aprobarla, con un máximo de 18 meses; si no, pierde la regularidad y recursa.
 - "No terminé los niveles de inglés este año." → Si no alcanza la regularidad en el año de cursado, pierde el avance y reinicia la materia.
-- "¿Puedo usar diccionario en el examen de inglés?" → No: no se permiten diccionarios, glosarios ni listas de verbos.
+- "¿Puedo usar diccionario en el examen de idioma?" → No: no se permiten diccionarios, glosarios ni listas de verbos.
 
 ## Ojo con
 
@@ -29,15 +29,39 @@ fuente: "rg-4-5-sitema-de-evaluacion-de-los-aprendizajes-eva-21"
 
 ## Probalo
 
-### unica: ¿Cuántas horas en una organización pide la Práctica Profesional?
+### unica: Camila cursa ED. Terminó la Práctica Profesional con las 250 horas, evaluación 8 de la organización y 3 de 4 TP aprobados, incluido el TP4, pero le falta aprobar una correlativa. ¿Qué le decís?
 
-- [x] 250
-- [ ] 100
-- [ ] 400
+- [ ] Que la práctica queda aprobada igual: la correlativa no influye.
+  > Sin las correlativas aprobadas la práctica no se aprueba.
+- [ ] Que queda Libre y tiene que recursarla.
+  > Cumplió las demás condiciones: queda Regular, no Libre.
+- [x] Que queda Regular hasta aprobar la correlativa, con un máximo de 18 meses; si no la aprueba en ese plazo, recursa.
+  > Es la regla de la Práctica Profesional.
+- [ ] Que apruebe la correlativa y después rinda el final de la práctica.
+  > Las materias de proceso no tienen final: la nota es el promedio de los TP.
 
-> 250 horas con planilla de asistencia y evaluación de desempeño de 7 o más.
+> En la Práctica Profesional, sin las correlativas aprobadas queda Regular hasta 18 meses; vencido el plazo, la pierde y recursa.
 
-### vf: Las materias de proceso se pueden rendir como libre por nota.
+### unica: Nicolás cursa EDH. Cumplió las horas de la Práctica Solidaria con nota 6 de la organización, aprobó el TP1, el TP2 y el TP3, pero desaprobó el TP4. ¿Qué pasa?
 
-- [ ] Verdadero
-- [x] Falso
+- [ ] Aprueba, porque tiene 3 de 4 TP.
+  > Error común: el TP4 es obligatorio.
+- [x] Queda Libre y tiene que recursar la materia.
+  > Sin el TP4 aprobado no cumple las condiciones, y las materias de proceso no tienen otra instancia.
+- [ ] Rinde un examen final para compensar el TP4.
+  > La Práctica Solidaria no tiene examen final.
+- [ ] La puede rendir como libre por nota.
+  > Las materias de proceso no se rinden libres por nota.
+
+> Práctica Solidaria: carga horaria completa, nota de 5 o más de la organización y 3 de 4 TP con el TP4 aprobado. Si no cumple, queda Libre.
+
+### unica: Julieta empezó Inglés en la plataforma en el primer semestre y, al terminar el segundo, aprobó solo hasta el nivel 4. ¿Qué le decís?
+
+- [ ] Que conserva los niveles aprobados y sigue el año que viene.
+  > Si no alcanza la regularidad en el año de cursado, pierde todo el avance.
+- [ ] Que igual puede rendir el examen final integrador.
+  > Para rendirlo necesita aprobar el nivel 6 o el Avanzado 3.
+- [x] Que pierde el avance y tiene que reiniciar la materia desde el comienzo.
+  > Es la regla para quien no regulariza en el año.
+
+> Idiomas se regulariza en el año de cursado, con 6 niveles consecutivos al 70% o el Avanzado 3. Si no, se reinicia.

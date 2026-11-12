@@ -24,10 +24,31 @@ fuente: "rg-14-5-solicitud-de-baja"
 
 ## Probalo
 
-### unica: Un alumno con deuda pide la baja. ¿Qué le decís?
+### unica: Micaela cursa EDH, está al día con las cuotas y pide la baja. En el sistema figura que tiene un libro de la biblioteca sin devolver. ¿Qué le decís?
 
-- [ ] Que se la damos y la deuda se cancela.
-- [x] Que primero tiene que regularizar la deuda.
-- [ ] Que la baja le devuelve el último pago.
+- [ ] Que le tramitás la baja igual: el libro no tiene nada que ver.
+  > No adeudar libros es requisito para otorgar la baja.
+- [x] Que primero tiene que devolver el libro; después puede pedir la baja.
+  > Es uno de los requisitos expresos.
+- [ ] Que no puede darse de baja porque tiene materias regulares.
+  > Tener materias regulares no impide la baja.
 
-> No registrar deuda es requisito para otorgar la baja.
+> Para otorgar la baja no tiene que adeudar libros ni registrar deuda, baja administrativa o inhabilitación académica.
+
+### unica: Joaquín pagó el semestre completo, cursó tres semanas y pide la baja con reintegro por motivos personales. ¿Qué le respondés?
+
+- [ ] Que le devuelven la parte proporcional del semestre que no cursó.
+  > La baja no implica reintegro de dinero.
+- [ ] Que el reintegro corresponde si la baja se pide antes de la mitad del subperíodo.
+  > Esa regla no existe en el reglamento.
+- [x] Que la baja no implica reintegro ni cancela la deuda de aranceles, salvo razones institucionales aprobadas por el Vicerrectorado de Gestión Institucional.
+  > Es la regla, con su única excepción.
+
+> La baja no devuelve dinero ni cancela deuda de aranceles semestrales, salvo razones institucionales justificadas y aprobadas.
+
+### vf: Para pedir la baja, el alumno tiene que ir sí o sí a la Mesa de Atención de Alumnos.
+
+- [ ] Verdadero
+- [x] Falso
+
+> También la puede pedir desde las herramientas de autogestión del portal de estudiantes.

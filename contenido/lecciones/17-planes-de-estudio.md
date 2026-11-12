@@ -26,7 +26,31 @@ fuente: "rg-14-1-planes-de-estudio"
 
 ## Probalo
 
-### vf: Las materias que están en el plan anterior y en el nuevo se reconocen automáticamente.
+### unica: Ramiro cursaba en ED, estuvo varios períodos sin actividad y su plan ya terminó el período de conservación. Quiere volver. ¿Qué le explicás?
 
-- [x] Verdadero
-- [ ] Falso
+- [ ] Que sigue con su plan original porque ya lo había empezado.
+  > Si retoma fuera del plazo, no puede seguir en su plan de origen.
+- [x] Que pasa al plan vigente: lo que coincide se reconoce automáticamente y tiene que cursar las materias nuevas del plan.
+  > Es lo que fija el reglamento para inactivos fuera del plazo.
+- [ ] Que pierde todas las materias aprobadas y empieza de cero.
+  > Las coincidentes se reconocen por equivalencia directa y las demás pueden ser electivas.
+
+> Inactivo más de un período y fuera del plazo de conservación: migración obligatoria al plan vigente.
+
+### unica: A Carla la migraron al plan nuevo y tiene aprobada una materia que no existe en ese plan. ¿Qué pasa con esa materia?
+
+- [ ] Se pierde, porque no está en el plan nuevo.
+  > El reglamento prevé reconocerla de otro modo.
+- [x] Puede considerarse como electiva en el plan nuevo.
+  > Así lo establece el reglamento para materias que no pertenecen al plan nuevo.
+- [ ] Se reconoce automáticamente por cualquier materia obligatoria del plan nuevo.
+  > La equivalencia automática es solo para materias que están en los dos planes.
+
+> Materia en ambos planes: equivalencia directa. Materia solo en el plan viejo: puede ir como electiva.
+
+### vf: Cuando entra un plan nuevo, la Universidad siempre espera la duración teórica de la carrera más un año antes de migrar a alguien.
+
+- [ ] Verdadero
+- [x] Falso
+
+> Ese plazo es de conservación posible, no garantizado; si el cambio responde a estándares de autoevaluación, puede migrar sin esperar.

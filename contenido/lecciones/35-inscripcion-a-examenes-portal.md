@@ -22,15 +22,40 @@ fuente: "ln-inscripcion-a-examenes"
 
 ## Ojo con
 
-- Si falta a un parcial, queda registrado como Ausente.
+- Si falta a un parcial, recuperatorio o integrador queda Ausente y no se reprograma. En un final, además, pierde una oportunidad antes de quedar Libre.
 - Recuperatorio o integrador: cuando puede elegir, se inscribe solo a uno de los dos.
+- Recuperatorio o integrador: se inscribe hasta 24 horas antes de la fecha en que quiere rendir.
 
 ## Probalo
 
-### unica: Un alumno de ED no se inscribió al parcial dentro del plazo. ¿Qué pasa?
+### unica: Agustina (PD) llama preocupada: no encuentra cómo inscribirse al Parcial 1 en el Portal. ¿Qué le respondés?
 
-- [ ] Pierde el parcial y queda libre.
-- [x] El sistema le asigna una fecha automáticamente.
-- [ ] Tiene que pedir una mesa especial.
+- [ ] Que el plazo venció y el sistema le va a asignar una fecha automática.
+  > Eso aplica a ED/EDH cuando no se inscriben a tiempo. En PD no hay inscripción a parciales.
+- [x] Que en PD no se inscribe: fecha, lugar y franja se asignan según el cronograma y los ve en su Portal.
+  > Así lo indica la guía para la modalidad Presencial Distribuida.
+- [ ] Que entre en Exámenes, Nueva inscripción, y elija fecha y franja.
+  > Es el procedimiento de ED/EDH; en PD el parcial ya viene asignado.
 
-> Según la guía de inscripción, el sistema asigna una fecha si no se inscribe a tiempo.
+> Antes de explicar pasos, preguntá la modalidad: ED/EDH se inscriben a los parciales; en PD se asignan por cronograma.
+
+### unica: Federico (EDH) faltó al Parcial 2 y quiere que se lo reprogramen. ¿Qué le explicás?
+
+- [ ] Que se inscriba otra vez al Parcial 2 en otra franja.
+  > La inasistencia no habilita reprogramar el parcial.
+- [x] Que queda registrado como Ausente y no se reprograma; según su situación, puede inscribirse al recuperatorio o integrador hasta 24 horas antes.
+  > La fuente indica que en parciales la inasistencia no habilita reprogramación; la inscripción a recuperatorio o integrador cierra 24 horas antes.
+- [ ] Que perdió una oportunidad y quedó libre en la materia.
+  > Perder una oportunidad aplica a los finales, no a los parciales.
+
+> Ausente en un parcial no se reprograma. Perder una oportunidad camino a Libre es una consecuencia de los finales.
+
+### ordenar: Ordená los pasos para inscribirse a un parcial en el Portal (ED/EDH).
+
+1. Ir a Exámenes y hacer clic en Nueva inscripción.
+2. Elegir la materia y el parcial (1 o 2).
+3. Elegir el lugar, el día en el calendario y la franja horaria.
+4. Revisar el resumen de inscripción.
+5. Confirmar con Inscribirme al examen.
+
+> El resumen se revisa antes de confirmar; no hace falta haber rendido el P1 para anotarse al P2.

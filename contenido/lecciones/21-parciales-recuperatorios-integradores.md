@@ -24,19 +24,43 @@ fuente: "rg-4-5-sitema-de-evaluacion-de-los-aprendizajes-eva-21"
 
 - Si se inscribe a un recuperatorio o integrador y no se presenta, la nota es 0 y cuenta para la materia.
 - En ED y EDH, el 1er parcial se rinde entre las semanas 1 y 4 y el 2do entre las semanas 5 y 8.
-- Cuando puede elegir entre recuperatorio e integrador, se inscribe solo a uno de los dos.
+- La nota del integrador también reemplaza a la de los parciales, aunque sea menor.
 
 ## Probalo
 
-### unica: Un alumno sacó 3 y 3 en los parciales. ¿Qué puede rendir?
+### unica: Martina cursa EDH. Sacó 6 en el parcial 1 y 8 en el parcial 2, y quiere promocionar. ¿Qué le decís?
 
-- [ ] El recuperatorio del parcial 1.
-- [x] El integrador.
-- [ ] Nada: queda libre.
+- [ ] Que rinda el integrador, que toma los dos parciales.
+  > El integrador es para quien desaprobó o faltó a los dos parciales, o los aprobó a ambos con 5 o 6.
+- [x] Que puede rendir el recuperatorio del parcial 1 para intentar llegar a 7.
+  > Con un parcial de 7 o más y el otro con 5 o 6 corresponde recuperar el más bajo, y así puede acceder a la promoción directa.
+- [ ] Que recupere el parcial 2 para subir el promedio.
+  > Un parcial con 7 o más no se recupera.
+- [ ] Que elija entre recuperatorio e integrador, lo que le resulte más cómodo.
+  > Esa opción existe solo cuando un parcial está desaprobado o ausente y el otro aprobado.
 
-> Con los dos parciales desaprobados corresponde el integrador.
+> Si un parcial tiene 7 o más y el otro 5 o 6, solo se recupera el más bajo. La nota del recuperatorio reemplaza a la anterior, sea mayor o menor.
 
-### vf: La nota del recuperatorio reemplaza a la del parcial aunque sea menor.
+### unica: Tomás cursa ED, tiene 5 y 6 en los parciales y quiere rendir el integrador "total no pierde nada". ¿Qué le advertís?
 
-- [x] Verdadero
-- [ ] Falso
+- [ ] Que si le va mal se queda con el 5 y el 6.
+  > Error común: la nota del integrador siempre reemplaza a la de los parciales.
+- [ ] Que si se inscribe y después no va, solo queda Ausente.
+  > Si se inscribe a un integrador y no se presenta, se lo califica con 0 y esa nota cuenta para la materia.
+- [x] Que la nota del integrador reemplaza a la de los parciales aunque sea menor, y que para la promoción directa necesita 7.
+  > Eso es lo que tiene que saber antes de decidir.
+- [ ] Que con aprobar el integrador con 5 ya promociona en forma directa.
+  > El integrador se aprueba con 5, pero para la promoción directa hace falta 7 o más.
+
+> El integrador reemplaza siempre la nota de los parciales. Se aprueba con 5, y para la promoción directa hace falta 7 o más, además de los TP y las demás condiciones.
+
+### clasificar: Clasificá qué puede rendir cada alumno según las notas de sus parciales (P1 y P2).
+
+- P1: 4 · P2: 7 → Recuperatorio o integrador
+- P1: ausente · P2: 6 → Recuperatorio o integrador
+- P1: 7 · P2: 5 → Solo recuperatorio
+- P1: 6 · P2: 6 → Solo integrador
+- P1: ausente · P2: 3 → Solo integrador
+- P1: 8 · P2: 9 → Nada que rendir
+
+> Uno desaprobado o ausente y el otro aprobado: recuperatorio o integrador. 7 o más y 5/6: recuperatorio del más bajo. Los dos con 5/6, o los dos desaprobados o ausentes: integrador. Un parcial con 7 o más no se recupera.

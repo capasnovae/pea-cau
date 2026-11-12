@@ -26,17 +26,35 @@ fuente: "rg-6-1-sistema-de-equivalencias-para-todas-las-modalidades"
 
 ## Probalo
 
-### unica: ¿Cuál es el máximo del plan que se puede reconocer por equivalencias externas?
+### unica: Pablo se inscribe a una carrera de grado en EDH y quiere pedir equivalencia por la Práctica Profesional y el Seminario Final que aprobó en otra universidad. ¿Qué le decís?
 
-- [ ] 50%
-- [x] 70%
-- [ ] 100%
+- [ ] Que sí, si las materias tienen el mismo nombre.
+  > El nombre no define la equivalencia y, además, esas materias están exceptuadas.
+- [ ] Que se las pueden dar como regulares y después rinde el final.
+  > Nunca se otorga la condición de regular por equivalencia.
+- [x] Que no: Práctica Profesional, Práctica Solidaria y Seminario Final se aprueban siempre en Siglo 21.
+  > Son materias exceptuadas del reconocimiento externo.
 
-> El reconocimiento externo no puede superar el 70% del plan de la carrera de destino.
+> Práctica Solidaria, Práctica Profesional y Seminario Final no se reconocen por equivalencia externa.
 
-### vf: Una materia con el mismo nombre se da por equivalente automáticamente.
+### unica: Marina va a cursar en ED y aprobó "Seminario de Práctica" en otra institución, con contenidos casi idénticos. Pregunta si se lo reconocen. ¿Qué le respondés?
 
-- [ ] Verdadero
-- [x] Falso
+- [ ] Que sí, porque los contenidos coinciden.
+  > En distancia esa materia está exceptuada, aunque los contenidos coincidan.
+- [x] Que no: en distancia el Seminario de Práctica no se da por equivalencia externa, porque se aprueba con el EFIP I.
+  > Es la excepción expresa del reglamento para modalidad distancia.
+- [ ] Que sí, pero solo como reconocimiento parcial.
+  > No existe el reconocimiento parcial.
 
-> Se evalúan contenidos, objetivos, bibliografía y nivel, no el nombre.
+> En modalidad distancia, el Seminario de Práctica (o de Planificación y Control de Gestión) no se reconoce por equivalencia externa, porque su aprobación está atada al EFIP I.
+
+### unica: Esteban trae DNI, analítico legalizado, plan legalizado y el comprobante de la tasa, pero no los programas. Su carrera de origen tiene un pre-dictamen aprobado para Siglo 21. ¿Qué le decís?
+
+- [ ] Que sin programas no puede iniciar el trámite.
+  > Con pre-dictamen aprobado, los programas no se exigen.
+- [x] Que puede avanzar: con pre-dictamen aprobado no se piden los programas.
+  > El pre-dictamen ya fija las equivalencias para esa institución, carrera y plan.
+- [ ] Que no necesita pagar la tasa porque hay pre-dictamen.
+  > La tasa administrativa se exige para iniciar cualquier trámite de equivalencias.
+
+> Si hay un pre-dictamen aprobado por resolución rectoral, no se exigen los programas; el resto de la documentación y la tasa sí.

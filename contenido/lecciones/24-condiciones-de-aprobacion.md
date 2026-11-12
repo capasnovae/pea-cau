@@ -27,15 +27,33 @@ fuente: "rg-4-5-sitema-de-evaluacion-de-los-aprendizajes-eva-21"
 
 ## Probalo
 
-### unica: Un alumno tiene 3 TP con 8, parciales con 7 y 9, y correlativas aprobadas. ¿Qué condición tiene?
+### unica: Agustina cursa ED, cumplió la asistencia, tiene los 4 TP con 8, parciales con 6 y 5, y las correlativas aprobadas. ¿Qué condición tiene?
 
-- [x] Promoción directa.
-- [ ] Regular.
-- [ ] Libre por nota.
+- [ ] Regular: tiene que rendir el final.
+  > Con 4 de 4 TP con 7 o más y parciales con 5 o 6 no queda regular.
+- [x] Promoción indirecta: aprueba sin final.
+  > 4 de 4 TP con 7 o más, parciales con 5 o 6 y correlativas aprobadas.
+- [ ] Promoción directa.
+  > La directa exige los dos parciales con 7 o más.
 
-> 3 de 4 TP y parciales con 7 o más, con correlativas aprobadas, es promoción directa.
+> La promoción indirecta pide los 4 TP con 7 o más, parciales con 5 o 6 y las correlativas aprobadas. No aplica en Idiomas.
 
-### vf: En EDH se exige el 75% de asistencia.
+### unica: Ramiro cursa EDH y quedó libre por nota en una materia. Pregunta qué opciones tiene. ¿Qué le decís?
 
-- [ ] Verdadero
-- [x] Falso
+- [ ] Que tiene 18 meses y 3 oportunidades para el final.
+  > Eso corresponde al final regular.
+- [x] Que tiene 3 meses y una sola oportunidad para un final de 50 preguntas, que aprueba con 24 correctas.
+  > Esas son las condiciones del libre por nota.
+- [ ] Que tiene que recursar la materia sí o sí.
+  > Recursa quien queda Libre, no quien queda libre por nota.
+
+> Libre por nota: final de 50 preguntas, nota 4 (24 correctas), vigencia de 3 meses y una sola oportunidad.
+
+### clasificar: Clasificá la condición de cada alumno de EDH, en una materia MEC.
+
+- 3 TP con 7, parciales con 7 y 8, correlativas aprobadas → Promoción directa
+- 4 TP con 9, parciales con 5 y 6, correlativas aprobadas → Promoción indirecta
+- 3 TP con 6, parciales con 5 y 5 → Regular
+- 3 TP con 9, parciales con 8 y 9, debe una correlativa → Regular
+
+> Si al terminar el cursado no tiene las correlativas aprobadas, la materia queda Regular aunque las notas alcancen para promocionar.
