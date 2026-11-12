@@ -32,7 +32,7 @@ export function Insignia({
         className={cn(
           "medalla relative flex items-center justify-center rounded-full font-extrabold",
           tamano === "lg" ? "size-24 text-2xl" : "size-16 text-lg",
-          apagada ? "bg-surface-2 text-subtle" : "text-white shadow-2",
+          apagada ? "bg-surface-2 text-subtle" : "text-sobre-color shadow-2",
           bloqueada && "border-2 border-dashed border-border-control",
           perdida && "grayscale",
           entrada && "medalla-entra",

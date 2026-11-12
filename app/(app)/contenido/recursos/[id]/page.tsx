@@ -1,3 +1,4 @@
+import { Icono } from "@/components/ui/icono";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { BotonPromover } from "@/components/contenido/boton-promover";
@@ -33,8 +34,9 @@ export default async function PaginaEditarRecurso({
   return (
     <div className="flex flex-col gap-5">
       <div>
-        <Link href="/contenido?tab=recursos" className="text-sm text-primary">
-          ← Contenido
+        <Link href="/contenido?tab=recursos" className="inline-flex items-center gap-1 text-sm text-primary">
+          <Icono nombre="chevron-izq" tamano={16} />
+          Contenido
         </Link>
         <h1 className="mt-1 text-h1">{nuevo ? "Nuevo recurso" : "Editar recurso"}</h1>
         {creado && (

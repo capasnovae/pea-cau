@@ -1,3 +1,4 @@
+import { Icono } from "@/components/ui/icono";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { BadgesContenido } from "@/components/repositorio/badges";
@@ -81,8 +82,9 @@ export default async function PaginaCategoria({ params }: PageProps<"/repositori
   return (
     <div className="flex flex-col gap-5">
       <div>
-        <Link href="/repositorio" className="text-sm text-primary">
-          ← Repositorio
+        <Link href="/repositorio" className="inline-flex items-center gap-1 text-sm text-primary">
+          <Icono nombre="chevron-izq" tamano={16} />
+          Repositorio
         </Link>
         <h1 className="mt-1 text-h1">{categoria.nombre}</h1>
         <p className="text-sm text-muted">{categoria.descripcion}</p>

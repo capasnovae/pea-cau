@@ -24,7 +24,7 @@ export function AvisosEmail({ inicial }: { inicial: boolean }) {
         />
         <span
           aria-hidden="true"
-          className="pointer-events-none relative ml-0.5 size-6 rounded-full bg-white shadow-1 transition-transform duration-(--dur-2) ease-salida peer-checked:translate-x-5"
+          className="pointer-events-none relative ml-0.5 size-6 rounded-full bg-sobre-color shadow-1 transition-transform duration-(--dur-2) ease-salida peer-checked:translate-x-5"
         />
       </span>
     </label>

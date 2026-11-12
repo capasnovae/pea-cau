@@ -30,19 +30,19 @@ export function MenuPrincipal({
   const clase = (activo: boolean) =>
     cn(
       "relative flex min-h-14 w-full flex-col items-center justify-center gap-0.5 px-1 text-[11px] transition-colors",
-      activo ? "font-bold text-white" : "text-nav-fg-muted",
+      activo ? "font-bold text-nav-fg-activo" : "text-nav-fg-muted",
     );
   return (
     <>
       <nav
         aria-label="Principal"
-        className="sobre-oscuro fixed inset-x-3 bottom-3 z-10 rounded-tarjeta bg-ink shadow-3 md:hidden"
+        className="sobre-oscuro fixed inset-x-3 bottom-3 z-10 rounded-tarjeta bg-nav shadow-3 md:hidden"
       >
         <ul ref={ref} className="relative flex">
           {caja && (
             <li
               aria-hidden="true"
-              className="pointer-events-none absolute left-0 top-1.5 rounded-boton bg-white/12 transition-transform duration-(--dur-3) ease-salida"
+              className="pointer-events-none absolute left-0 top-1.5 rounded-boton bg-nav-fg/15 transition-transform duration-(--dur-3) ease-salida"
               style={{
                 width: caja.ancho - 12,
                 height: caja.alto - 12,

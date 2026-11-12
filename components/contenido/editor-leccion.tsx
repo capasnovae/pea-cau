@@ -1,5 +1,6 @@
 "use client";
 
+import { Icono } from "@/components/ui/icono";
 import { useState } from "react";
 import { LIMITES_LECCION, type Ejemplo, type Leccion } from "@/lib/dominio/lecciones";
 
@@ -49,7 +50,7 @@ function Lista({
               onClick={() => onCambio(valores.filter((_, j) => j !== i))}
               className="self-start rounded-lg px-2 py-1 text-muted"
             >
-              ×
+              <Icono nombre="cruz" tamano={16} />
             </button>
           </div>
           <span className="self-end text-xs">

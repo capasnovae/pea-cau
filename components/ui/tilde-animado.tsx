@@ -38,7 +38,7 @@ export function TildeAnimado({
           <path
             className="tilde-dibujar"
             d="M5 12.5l4.5 4.5L19 7.5"
-            stroke="#fff"
+            stroke="var(--sobre-color)"
             strokeWidth="3"
             strokeLinecap="round"
             strokeLinejoin="round"

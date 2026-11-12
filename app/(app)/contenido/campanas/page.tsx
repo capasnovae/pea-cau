@@ -1,3 +1,4 @@
+import { Icono } from "@/components/ui/icono";
 import Link from "next/link";
 import { BadgesContenido } from "@/components/repositorio/badges";
 import { Card } from "@/components/ui/card";
@@ -21,8 +22,9 @@ export default async function PaginaCampanas() {
   return (
     <div className="flex flex-col gap-5">
       <div>
-        <Link href="/contenido" className="text-sm text-primary">
-          ← Contenido
+        <Link href="/contenido" className="inline-flex items-center gap-1 text-sm text-primary">
+          <Icono nombre="chevron-izq" tamano={16} />
+          Contenido
         </Link>
         <h1 className="mt-1 text-h1">Campañas</h1>
       </div>

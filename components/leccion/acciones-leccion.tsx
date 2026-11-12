@@ -48,7 +48,7 @@ export function BarraSiguiente({
         <button
           type="button"
           disabled={pendiente}
-          className="flex min-h-14 w-full items-center justify-center gap-2 rounded-boton text-base font-bold text-white shadow-2 transition active:scale-[0.98] disabled:opacity-60"
+          className="flex min-h-14 w-full items-center justify-center gap-2 rounded-boton text-base font-bold text-sobre-color shadow-2 transition active:scale-[0.98] disabled:opacity-60"
           style={{ background: color }}
           onClick={() =>
             iniciar(async () => {
@@ -63,7 +63,7 @@ export function BarraSiguiente({
       ) : (
         <Link
           href={siguienteHref}
-          className="flex min-h-14 w-full items-center justify-center gap-2 rounded-boton text-base font-bold text-white shadow-2 transition active:scale-[0.98]"
+          className="flex min-h-14 w-full items-center justify-center gap-2 rounded-boton text-base font-bold text-sobre-color shadow-2 transition active:scale-[0.98]"
           style={{ background: color }}
         >
           Siguiente

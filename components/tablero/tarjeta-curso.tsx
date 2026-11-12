@@ -34,7 +34,7 @@ export function TarjetaCurso({ curso, favorito = false }: { curso: FilaMiRuta; f
   const cuerpo = (
     <>
       <div
-        className="flex items-center justify-between gap-3 p-4 text-white"
+        className="flex items-center justify-between gap-3 p-4 text-sobre-color"
         style={{ background: color.fondo }}
       >
         <span className="flex items-center gap-1.5 text-overline uppercase">
@@ -42,15 +42,15 @@ export function TarjetaCurso({ curso, favorito = false }: { curso: FilaMiRuta; f
           {etiquetaTipo(curso)}
         </span>
         {!curso.desbloqueado ? (
-          <span className="flex size-11 items-center justify-center rounded-full bg-white/20">
+          <span className="flex size-11 items-center justify-center rounded-full bg-sobre-color/20">
             <Candado />
           </span>
         ) : (
           <Anillo
             valor={pct}
             etiqueta={`${pct}% de ${curso.titulo}`}
-            color="#fff"
-            pista="rgb(255 255 255 / 0.3)"
+            color="var(--sobre-color)"
+            pista="color-mix(in srgb, var(--sobre-color) 30%, transparent)"
           >
             {curso.cumplido ? (
               <Icono nombre="tilde" tamano={20} />

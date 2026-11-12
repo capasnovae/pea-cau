@@ -65,7 +65,7 @@ export default async function PaginaUbicacion({ searchParams }: PageProps<"/equi
                     <form action={habilitar.bind(null, a.id)}>
                       <button
                         type="submit"
-                        className="rounded-xl bg-primary px-4 py-2 text-sm font-bold text-white"
+                        className="rounded-xl bg-primary px-4 py-2 text-sm font-bold text-primary-foreground"
                       >
                         Habilitar
                       </button>

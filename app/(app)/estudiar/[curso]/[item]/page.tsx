@@ -45,8 +45,12 @@ export default async function PaginaLeccion({ params }: PageProps<"/estudiar/[cu
     const pendiente = filas.find((f) => f.disponible && !f.cumplido);
     return (
       <div className="flex flex-col gap-4">
-        <Link href={`/estudiar/${cursoId}`} className="text-sm font-semibold text-primary-strong">
-          ← {curso.titulo}
+        <Link
+          href={`/estudiar/${cursoId}`}
+          className="inline-flex items-center gap-1 text-sm font-semibold text-primary-strong"
+        >
+          <Icono nombre="chevron-izq" tamano={16} />
+          {curso.titulo}
         </Link>
         <div className="rounded-3xl bg-card p-6 text-center shadow-1">
           <h1 className="text-h2">{item.titulo}</h1>
@@ -56,7 +60,7 @@ export default async function PaginaLeccion({ params }: PageProps<"/estudiar/[cu
           {pendiente && (
             <Link
               href={`/estudiar/${cursoId}/${pendiente.item_id}`}
-              className="mt-4 inline-flex min-h-11 items-center rounded-2xl bg-primary px-5 font-bold text-white"
+              className="mt-4 inline-flex min-h-11 items-center rounded-2xl bg-primary px-5 font-bold text-primary-foreground"
             >
               Ir a: {pendiente.titulo}
             </Link>
@@ -123,9 +127,10 @@ export default async function PaginaLeccion({ params }: PageProps<"/estudiar/[cu
         <Markdown texto={art.cuerpo_md} />
         <Link
           href={`/repositorio/${art.categorias?.slug}/${art.slug}`}
-          className="mt-4 inline-block text-sm font-semibold text-primary-strong"
+          className="inline-flex items-center gap-1 mt-4 inline-block text-sm font-semibold text-primary-strong"
         >
-          Ver en el repositorio →
+          Ver en el repositorio
+          <Icono nombre="flecha-der" tamano={16} />
         </Link>
       </>
     ) : (
@@ -205,7 +210,7 @@ export default async function PaginaLeccion({ params }: PageProps<"/estudiar/[cu
         ) : (
           <Link
             href={`/examenes/${examen.id}`}
-            className="inline-flex min-h-11 items-center rounded-2xl bg-primary px-5 font-bold text-white"
+            className="inline-flex min-h-11 items-center rounded-2xl bg-primary px-5 font-bold text-primary-foreground"
           >
             Ir al examen
           </Link>

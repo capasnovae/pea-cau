@@ -1,3 +1,4 @@
+import { Icono } from "@/components/ui/icono";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Markdown } from "@/components/markdown";
@@ -42,18 +43,22 @@ export default async function PaginaCurso({ params }: PageProps<"/estudiar/[curs
           Vista previa · borrador
         </p>
       )}
-      <div className="flex flex-col gap-3 rounded-3xl p-5 text-white" style={{ background: c.fondo }}>
-        <Link href="/estudiar" className="text-sm font-semibold text-white/85">
-          ← Mi ruta
+      <div className="flex flex-col gap-3 rounded-3xl p-5 text-sobre-color" style={{ background: c.fondo }}>
+        <Link
+          href="/estudiar"
+          className="inline-flex items-center gap-1 text-sm font-semibold text-sobre-color/85"
+        >
+          <Icono nombre="chevron-izq" tamano={16} />
+          Mi ruta
         </Link>
-        <span className="self-start rounded-full bg-white/20 px-3 py-1 text-xs font-bold">
+        <span className="self-start rounded-full bg-sobre-color/20 px-3 py-1 text-xs font-bold">
           {curso.tipo === "nivel" ? `NIVEL ${curso.nivel_orden}` : "CAPACITACIÓN"}
         </span>
         <h1 className="text-h1 leading-tight">{curso.titulo}</h1>
-        <div className="h-2 rounded bg-white/25">
-          <div className="h-2 rounded bg-white/80" style={{ width: `${pct}%` }} />
+        <div className="h-2 rounded bg-sobre-color/25">
+          <div className="h-2 rounded bg-sobre-color/80" style={{ width: `${pct}%` }} />
         </div>
-        <p className="text-sm text-white/85">{pct}% completado</p>
+        <p className="text-sm text-sobre-color/85">{pct}% completado</p>
       </div>
 
       {!desbloqueado && (
@@ -89,7 +94,7 @@ export default async function PaginaCurso({ params }: PageProps<"/estudiar/[curs
                       aria-hidden="true"
                       className={`flex size-10 shrink-0 items-center justify-center rounded-xl ${it.cumplido ? "bg-success-soft text-success" : it.disponible ? "bg-primary-soft text-primary-strong" : "bg-surface-2 text-muted"}`}
                     >
-                      {it.cumplido ? "✓" : <IconoItem tipo={it.tipo} />}
+                      {it.cumplido ? <Icono nombre="tilde" /> : <IconoItem tipo={it.tipo} />}
                     </span>
                     <span className="min-w-0 flex-1">
                       <span

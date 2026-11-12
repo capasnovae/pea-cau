@@ -125,7 +125,7 @@ export default async function PaginaCalendario({ searchParams }: PageProps<"/cal
                     <span
                       className={cn(
                         "cifras flex size-7 items-center justify-center rounded-full text-caption font-bold",
-                        dia === hoy && "bg-primary text-white",
+                        dia === hoy && "bg-primary text-primary-foreground",
                         otroMes && "text-muted/60",
                       )}
                     >

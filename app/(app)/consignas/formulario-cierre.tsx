@@ -1,5 +1,6 @@
 "use client";
 
+import { Icono } from "@/components/ui/icono";
 import { startTransition, useActionState, useState, useTransition } from "react";
 import { MensajeResultado } from "@/components/contenido/campos";
 import { Button } from "@/components/ui/button";
@@ -16,7 +17,13 @@ import {
 export function BotonLeido({ asignacionId, leida }: { asignacionId: string; leida: boolean }) {
   const [pendiente, iniciar] = useTransition();
   const [r, setR] = useState<ResultadoAsignacion>(null);
-  if (leida) return <p className="text-sm text-primary">✓ Lectura confirmada</p>;
+  if (leida)
+    return (
+      <p className="inline-flex items-center gap-1 text-sm font-semibold text-success">
+        <Icono nombre="tilde" tamano={16} />
+        Lectura confirmada
+      </p>
+    );
   return (
     <div className="flex flex-col items-start gap-1">
       <Button

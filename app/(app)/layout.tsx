@@ -32,11 +32,7 @@ export default async function LayoutApp({ children }: LayoutProps<"/">) {
       />
       <div className="flex min-w-0 flex-1 flex-col">
         <header className="sticky top-0 z-10 flex h-14 items-center justify-between bg-background/80 px-4 backdrop-blur-md md:hidden">
-          <Link
-            href="/inicio"
-            aria-label="PEA"
-            className="flex min-h-11 items-center text-primary"
-          >
+          <Link href="/inicio" aria-label="PEA" className="flex min-h-11 items-center text-primary">
             <Logo tamano={28} />
           </Link>
           <div className="flex items-center gap-1">

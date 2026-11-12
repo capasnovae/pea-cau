@@ -1,3 +1,4 @@
+import { Icono } from "@/components/ui/icono";
 import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
 import { ROLES_GESTION } from "@/lib/dominio/roles";
@@ -19,8 +20,12 @@ export default async function PaginaCorregir({ params }: PageProps<"/equipo/corr
     .maybeSingle();
   return (
     <div className="mx-auto flex w-full max-w-3xl flex-col gap-4">
-      <Link href="/equipo/correcciones" className="text-sm font-semibold text-primary-strong">
-        ‹ Correcciones
+      <Link
+        href="/equipo/correcciones"
+        className="inline-flex items-center gap-1 text-sm font-semibold text-primary-strong"
+      >
+        <Icono nombre="chevron-izq" tamano={16} />
+        Correcciones
       </Link>
       <div>
         <p className="text-sm font-semibold text-muted">

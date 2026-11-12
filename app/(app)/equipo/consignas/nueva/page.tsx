@@ -1,3 +1,4 @@
+import { Icono } from "@/components/ui/icono";
 import Link from "next/link";
 import { Card } from "@/components/ui/card";
 import { destinosPermitidos } from "@/lib/dominio/consignas";
@@ -45,8 +46,9 @@ export default async function PaginaNuevaConsigna() {
   return (
     <div className="flex flex-col gap-5">
       <div>
-        <Link href="/equipo/consignas" className="text-sm text-primary">
-          ← Consignas del equipo
+        <Link href="/equipo/consignas" className="inline-flex items-center gap-1 text-sm text-primary">
+          <Icono nombre="chevron-izq" tamano={16} />
+          Consignas del equipo
         </Link>
         <h1 className="mt-1 text-h1">Nueva consigna</h1>
       </div>

@@ -1,3 +1,4 @@
+import { Icono } from "@/components/ui/icono";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Card } from "@/components/ui/card";
@@ -26,8 +27,12 @@ export default async function PaginaCaso({ params }: PageProps<"/contenido/casos
   const preguntas = [...caso.preguntas].sort((a, b) => (a.orden_en_caso ?? 0) - (b.orden_en_caso ?? 0));
   return (
     <div className="mx-auto flex w-full max-w-3xl flex-col gap-4">
-      <Link href="/contenido/casos" className="text-sm font-semibold text-primary-strong">
-        ‹ Casos
+      <Link
+        href="/contenido/casos"
+        className="inline-flex items-center gap-1 text-sm font-semibold text-primary-strong"
+      >
+        <Icono nombre="chevron-izq" tamano={16} />
+        Casos
       </Link>
       <h1 className="text-h1">{caso.titulo}</h1>
       <Card>

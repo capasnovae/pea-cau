@@ -33,7 +33,7 @@ export function PanelCuenta({
         className={cn(
           "flex cursor-pointer flex-col items-center justify-center gap-1",
           variante === "lateral"
-            ? "w-full px-1 py-2.5 text-xs text-nav-fg hover:text-white"
+            ? "w-full px-1 py-2.5 text-xs text-nav-fg hover:text-nav-fg-activo xl:flex-row xl:justify-start xl:gap-3 xl:px-3 xl:text-sm"
             : "size-11 rounded-full",
         )}
       >
@@ -45,7 +45,9 @@ export function PanelCuenta({
         popover="auto"
         className={cn(
           "menu-flotante w-60 rounded-tarjeta bg-card p-4 text-ink shadow-3",
-          variante === "lateral" ? "left-[100px] top-14 origin-top-left" : "right-3 top-14 origin-top-right",
+          variante === "lateral"
+            ? "left-[100px] top-14 origin-top-left xl:left-[240px]"
+            : "right-3 top-14 origin-top-right",
         )}
       >
         <div className="flex items-center gap-3">

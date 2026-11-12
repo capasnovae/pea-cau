@@ -1,3 +1,4 @@
+import { Icono } from "@/components/ui/icono";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { COLOR_ESTADO } from "@/components/examen/estado";
@@ -41,69 +42,83 @@ export default async function PaginaExamen({ params, searchParams }: PageProps<"
   });
   const aviso = mensajeDeCodigo(typeof error === "string" ? error : undefined);
   const datos = [
-    { etiqueta: "Preguntas", valor: String(e.cantidad_preguntas) },
-    { etiqueta: "Para aprobar", valor: `${e.nota_minima}%` },
-    { etiqueta: "Tiempo", valor: e.tiempo_limite_min ? `${e.tiempo_limite_min} min` : "Libre" },
-    { etiqueta: "Intentos", valor: String(e.intentos_restantes) },
+    { etiqueta: "Preguntas", valor: String(e.cantidad_preguntas), icono: "libro" as const },
+    { etiqueta: "Para aprobar", valor: `${e.nota_minima}%`, icono: "medalla" as const },
+    {
+      etiqueta: "Tiempo",
+      valor: e.tiempo_limite_min ? `${e.tiempo_limite_min} min` : "Libre",
+      icono: "reloj" as const,
+    },
+    { etiqueta: "Intentos", valor: String(e.intentos_restantes), icono: "repetir" as const },
   ];
 
   return (
     <div className="mx-auto flex w-full max-w-3xl flex-col gap-5">
-      <Link href="/examenes" className="text-sm font-semibold text-primary-strong">
-        ‹ Exámenes
+      <Link
+        href="/examenes"
+        className="inline-flex items-center gap-1 text-sm font-semibold text-primary-strong"
+      >
+        <Icono nombre="chevron-izq" tamano={16} />
+        Exámenes
       </Link>
-      <div className="flex flex-wrap items-start justify-between gap-3">
-        <div>
-          <p className="text-sm font-semibold text-muted">
-            {ETIQUETA_TIPO_EXAMEN[e.tipo]}
-            {e.curso_titulo ? ` · ${e.curso_titulo}` : ""}
-          </p>
-          <h1 className="text-h1 md:text-[32px]">{e.titulo}</h1>
-        </div>
-        <span className={cn("rounded-full px-3 py-1.5 text-sm font-bold", COLOR_ESTADO[estado])}>
-          {ETIQUETA_ESTADO_EXAMEN[estado]}
-        </span>
-      </div>
-      {aviso && (
-        <p role="alert" className="rounded-2xl bg-warning-soft p-4 font-semibold text-warning">
-          {aviso}
-        </p>
-      )}
-      <dl className="grid grid-cols-2 gap-3 sm:grid-cols-4">
-        {datos.map((d) => (
-          <div
-            key={d.etiqueta}
-            className="flex flex-col-reverse rounded-2xl bg-card p-4 text-center shadow-1"
-          >
-            <dt className="text-xs font-semibold text-muted">{d.etiqueta}</dt>
-            <dd className="text-h1">{d.valor}</dd>
+      <section aria-label="Portada" className="flex flex-col gap-5 rounded-hoja bg-card p-6 shadow-2 md:p-8">
+        <div className="flex flex-wrap items-start justify-between gap-3">
+          <div className="min-w-0">
+            <p className="text-overline uppercase text-muted">
+              {ETIQUETA_TIPO_EXAMEN[e.tipo]}
+              {e.curso_titulo ? ` · ${e.curso_titulo}` : ""}
+            </p>
+            <h1 className="text-h1 md:text-[32px]">{e.titulo}</h1>
           </div>
-        ))}
-      </dl>
-
-      {estado === "en_curso" && e.intento_en_curso && (
-        <Link
-          href={`/examenes/intento/${e.intento_en_curso}`}
-          className="flex min-h-12 items-center justify-center rounded-2xl bg-primary font-extrabold text-white"
-        >
-          Continuar
-        </Link>
-      )}
-      {estado === "disponible" && (
-        <form action={empezar.bind(null, e.examen_id)}>
-          <button
-            type="submit"
-            className="flex min-h-12 w-full items-center justify-center rounded-2xl bg-primary font-extrabold text-white hover:bg-primary-strong"
+          <span className={cn("rounded-full px-3 py-1.5 text-sm font-bold", COLOR_ESTADO[estado])}>
+            {ETIQUETA_ESTADO_EXAMEN[estado]}
+          </span>
+        </div>
+        <dl className="grid grid-cols-2 gap-x-4 gap-y-4 border-y border-border py-4 sm:grid-cols-4">
+          {datos.map((d) => (
+            <div key={d.etiqueta} className="flex items-center gap-3">
+              <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-primary-soft text-primary-strong">
+                <Icono nombre={d.icono} />
+              </span>
+              <span className="flex flex-col-reverse">
+                <dt className="text-caption text-muted">{d.etiqueta}</dt>
+                <dd className="cifras text-h3">{d.valor}</dd>
+              </span>
+            </div>
+          ))}
+        </dl>
+        {aviso && (
+          <p role="alert" className="rounded-boton bg-warning-soft p-4 font-semibold text-warning">
+            {aviso}
+          </p>
+        )}
+        {estado === "en_curso" && e.intento_en_curso && (
+          <Link
+            href={`/examenes/intento/${e.intento_en_curso}`}
+            className="flex min-h-13 w-full items-center justify-center gap-2 rounded-boton bg-primary font-bold text-primary-foreground shadow-brand transition hover:bg-primary-strong active:scale-[0.98] md:w-80"
           >
-            Empezar
-          </button>
-        </form>
-      )}
-      {estado === "en_espera" && e.espera_hasta && (
-        <p className="rounded-2xl bg-background p-4 text-center font-semibold text-muted">
-          Podés volver a intentarlo el {formatearFecha(e.espera_hasta)}.
-        </p>
-      )}
+            Continuar
+            <Icono nombre="flecha-der" />
+          </Link>
+        )}
+        {estado === "disponible" && (
+          <form action={empezar.bind(null, e.examen_id)}>
+            <button
+              type="submit"
+              className="flex min-h-13 w-full items-center justify-center gap-2 rounded-boton bg-primary font-bold text-primary-foreground shadow-brand transition hover:bg-primary-strong active:scale-[0.98] md:w-80"
+            >
+              Empezar
+              <Icono nombre="flecha-der" />
+            </button>
+          </form>
+        )}
+        {estado === "en_espera" && e.espera_hasta && (
+          <p className="inline-flex items-center gap-2 rounded-boton bg-surface-2 p-4 font-semibold text-muted">
+            <Icono nombre="reloj" />
+            Podés volver a intentarlo el {formatearFecha(e.espera_hasta)}.
+          </p>
+        )}
+      </section>
 
       {(intentos ?? []).some((i) => i.estado !== "en_curso") && (
         <section aria-label="Tus intentos" className="flex flex-col gap-2">
@@ -116,7 +131,7 @@ export default async function PaginaExamen({ params, searchParams }: PageProps<"
                   <li key={i.id} className="border-t border-border first:border-t-0">
                     <Link
                       href={`/examenes/intento/${i.id}/resultado`}
-                      className="flex items-center justify-between gap-3 px-5 py-3.5"
+                      className="flex min-h-14 items-center justify-between gap-3 px-5 py-3.5 transition-colors hover:bg-surface-2"
                     >
                       <span>{i.entregado_at ? formatearFecha(i.entregado_at) : "—"}</span>
                       <span

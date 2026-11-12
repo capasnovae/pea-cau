@@ -84,7 +84,7 @@ export function FormularioCorreccion({
           name="accion"
           value="cerrar"
           disabled={pendiente}
-          className="min-h-12 rounded-2xl bg-primary px-5 font-bold text-white"
+          className="min-h-12 rounded-2xl bg-primary px-5 font-bold text-primary-foreground"
         >
           Cerrar corrección
         </button>

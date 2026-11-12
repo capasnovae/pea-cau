@@ -1,3 +1,4 @@
+import { Icono } from "@/components/ui/icono";
 import Link from "next/link";
 import { Markdown } from "@/components/markdown";
 import { normalizarTexto } from "@/lib/dominio/examenes";
@@ -36,7 +37,7 @@ function Marca({ ok }: { ok: boolean }) {
       aria-label={ok ? "Correcta" : "Incorrecta"}
       className={cn("font-extrabold", ok ? "text-success" : "text-destructive")}
     >
-      {ok ? "✓" : "✗"}
+      <Icono nombre={ok ? "tilde" : "cruz"} tamano={16} />
     </span>
   );
 }
@@ -92,7 +93,10 @@ export function DetalleRespuesta({ p }: { p: FilaRevision }) {
             >
               <Marca ok={ok} />
               <span className="font-semibold">{o.texto}</span>
-              <span className="text-sm text-muted">→ {elegida || "sin ubicar"}</span>
+              <span className="inline-flex items-center gap-1 text-sm text-muted">
+                <Icono nombre="flecha-der" tamano={16} />
+                {elegida || "sin ubicar"}
+              </span>
               {!ok && <span className="text-sm font-semibold text-success">(va en {o.grupo})</span>}
             </li>
           );
@@ -168,8 +172,12 @@ export function Revision({ filas }: { filas: FilaRevision[] }) {
             </div>
           )}
           {p.estudiar_href && (
-            <Link href={p.estudiar_href} className="self-start text-sm font-bold text-primary-strong">
-              Estudiá esto →
+            <Link
+              href={p.estudiar_href}
+              className="inline-flex items-center gap-1 self-start text-sm font-bold text-primary-strong"
+            >
+              Estudiá esto
+              <Icono nombre="flecha-der" tamano={16} />
             </Link>
           )}
         </li>

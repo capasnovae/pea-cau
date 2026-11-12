@@ -13,7 +13,7 @@ export default function PaginaBienvenida() {
     <main className="flex min-h-dvh flex-1 flex-col md:flex-row">
       <section
         aria-label="PEA"
-        className="sobre-oscuro flex flex-col bg-nav px-6 py-8 text-white md:w-[620px] md:px-14 md:py-14"
+        className="sobre-oscuro flex flex-col bg-nav px-6 py-8 text-nav-fg-activo md:w-[620px] md:px-14 md:py-14"
       >
         <Logo tamano={40} />
         <span className="text-[13px] text-nav-fg-muted">Perfil Evolutivo de Asesor</span>
@@ -38,7 +38,13 @@ export default function PaginaBienvenida() {
           {NIVELES.map((n) => (
             <g key={n.n} fontWeight="800">
               <circle cx={n.x} cy={n.y} r="24" style={{ fill: n.color }} />
-              <text x={n.x} y={n.y + 6} textAnchor="middle" fill="#fff" fontSize="15">
+              <text
+                x={n.x}
+                y={n.y + 6}
+                textAnchor="middle"
+                style={{ fill: "var(--sobre-color)" }}
+                fontSize="15"
+              >
                 {n.n}
               </text>
               <text

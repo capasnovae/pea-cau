@@ -19,7 +19,7 @@ Rama `etapa-9-recertificacion`. Pruebas hechas contra la base local y la app cor
 | Markdown | `react-markdown` sin HTML crudo; no hay `dangerouslySetInnerHTML` | Bien |
 | Filtros | El texto de búsqueda que entra a `.or()` se limpia de comas, paréntesis y comodines | Bien |
 | Redirecciones | `/auth/confirm` y `/salir` redirigen solo a rutas fijas | Bien |
-| Secretos | No se usa la clave `service_role`; solo hay variables públicas (URL y clave publicable); `.env.local` no está en el repositorio | Bien |
+| Secretos | La clave secreta (`SUPABASE_SECRET_KEY`) se usa solo en el servidor (`lib/supabase/admin.ts`, con `server-only`) para invitar usuarios, y solo después de verificar que quien llama es admin. El navegador recibe únicamente la URL y la clave publicable. `.env.local` no está en el repositorio | Bien |
 | Dependencias | `npm audit --omit=dev`: 0 vulnerabilidades | Bien |
 
 ## 3. Hallazgos y estado
@@ -56,12 +56,12 @@ A cargo del dueño del proyecto:
 - [ ] Definir el dominio del sitio.
 
 A cargo de la implementación al desplegar:
-- [ ] Subir **solo las migraciones**. Los seeds (`seed.sql`, `seed-relevamiento.sql`, `seed-lecciones.sql`) crean usuarios de ejemplo con contraseña conocida y **no** van a producción; el contenido relevado se carga aparte.
+- [ ] Subir las migraciones y, aparte, `datos-base.sql`, `seed-relevamiento.sql` y `seed-lecciones.sql`. **`seed.sql` no va a producción**: crea usuarios de ejemplo con contraseña conocida. Ver `docs/despliegue.md`.
 - [ ] Crear el primer admin por invitación.
 - [ ] Supabase Auth: URL del sitio y URLs de redirección, desactivar el registro abierto, SMTP propio, límite de intentos de login.
 - [ ] Activar `pg_cron` y comprobar que el job `pea-diario` quedó programado.
 - [ ] Copias de seguridad diarias y una prueba de restauración.
-- [ ] Variables en Vercel: URL y clave publicable de Supabase. Ninguna clave de servicio.
+- [ ] Variables en Vercel: URL y clave publicable de Supabase, y la clave secreta **sin** prefijo `NEXT_PUBLIC_` (solo la usa el servidor para invitar).
 
 ## 6. Paquetes de trabajo
 

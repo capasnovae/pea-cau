@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Markdown } from "@/components/markdown";
 import { AvatarIniciales } from "@/components/ui/avatar";
 import { Card } from "@/components/ui/card";
 import { Icono } from "@/components/ui/icono";
@@ -45,10 +44,8 @@ function Grupo({ titulo, personas }: { titulo: string; personas: Persona[] }) {
 export default async function PaginaOrganigrama() {
   const perfil = await requerirPerfil();
   const supabase = await crearClienteServidor();
-  const [{ data }, { data: puestos }, { data: subroles }, { data: sedes }] = await Promise.all([
+  const [{ data }, { data: sedes }] = await Promise.all([
     supabase.rpc("organigrama"),
-    supabase.from("puestos").select("id, nombre, descripcion_md").order("orden"),
-    supabase.from("subroles").select("id, nombre, descripcion_md").order("orden"),
     supabase.from("sedes").select("id, nombre").eq("activa", true),
   ]);
   const org = armarOrganigrama((data ?? []) as FilaOrganigrama[], sedes ?? []);
@@ -58,7 +55,6 @@ export default async function PaginaOrganigrama() {
       <div className="flex flex-wrap items-end justify-between gap-2">
         <div>
           <h1 className="text-h1">Organigrama</h1>
-          <p className="text-sm text-muted">Quién es quién en los CAU.</p>
         </div>
         <Link
           href="/organigrama/derivaciones"
@@ -133,20 +129,6 @@ export default async function PaginaOrganigrama() {
           </details>
         ))}
       </div>
-
-      <Card>
-        <h2 className="mb-3 text-h2">Qué hace cada puesto</h2>
-        <dl className="flex flex-col gap-3">
-          {[...(puestos ?? []), ...(subroles ?? [])].map((p) => (
-            <div key={p.id}>
-              <dt className="font-medium">{p.nombre}</dt>
-              <dd className="text-sm text-muted">
-                {p.descripcion_md ? <Markdown texto={p.descripcion_md} /> : "—"}
-              </dd>
-            </div>
-          ))}
-        </dl>
-      </Card>
     </div>
   );
 }

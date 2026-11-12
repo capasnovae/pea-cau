@@ -52,3 +52,10 @@ export function formatearFecha(iso: string): string {
 export function normalizarBusqueda(q: string): string {
   return q.normalize("NFD").replace(/\p{M}/gu, "").trim();
 }
+
+/** Patrón `ilike` de "contiene" para buscar por título: escapa los comodines que escriba el usuario. */
+export function patronBusqueda(q: string | undefined): string | null {
+  const t = (q ?? "").trim().slice(0, 80);
+  if (!t) return null;
+  return `%${t.replace(/[\\%_]/g, (c) => `\\${c}`)}%`;
+}

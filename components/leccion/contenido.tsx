@@ -32,7 +32,7 @@ export function ContenidoLeccion({ texto }: { texto: string }) {
               tipo === "error"
                 ? "border-warning/40 bg-warning-soft text-warning"
                 : tipo === "tip"
-                  ? "border-success/40 bg-success-soft text-[#064e3b]"
+                  ? "border-success/40 bg-success-soft text-success"
                   : "border-border bg-background text-muted";
             return <aside className={`rounded-2xl border p-4 not-italic ${estilo}`}>{children}</aside>;
           },

@@ -36,7 +36,7 @@ export default async function PaginaExamenes({ searchParams }: PageProps<"/exame
       {ubicacion?.habilitada && !ubicacion.rendida && (
         <section
           aria-label="Examen de ubicación"
-          className="flex flex-wrap items-center gap-4 rounded-3xl bg-nav p-5 text-white"
+          className="flex flex-wrap items-center gap-4 rounded-3xl bg-nav p-5 text-nav-fg-activo"
         >
           <div className="min-w-0 flex-1">
             <p className="text-xs font-bold uppercase text-nav-fg-muted">Examen de ubicación</p>
@@ -49,13 +49,13 @@ export default async function PaginaExamenes({ searchParams }: PageProps<"/exame
           {ubicacion.intento_en_curso ? (
             <Link
               href={`/examenes/intento/${ubicacion.intento_en_curso}`}
-              className="rounded-2xl bg-white px-5 py-3 font-extrabold text-nav"
+              className="rounded-2xl bg-sobre-color px-5 py-3 font-extrabold text-nav"
             >
               Continuar
             </Link>
           ) : (
             <form action={empezarUbicacion}>
-              <button type="submit" className="rounded-2xl bg-white px-5 py-3 font-extrabold text-nav">
+              <button type="submit" className="rounded-2xl bg-sobre-color px-5 py-3 font-extrabold text-nav">
                 Empezar
               </button>
             </form>

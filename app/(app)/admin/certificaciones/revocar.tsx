@@ -37,7 +37,7 @@ export function Revocar({ id }: { id: string }) {
         <button
           type="submit"
           disabled={pendiente}
-          className="min-h-11 rounded-xl bg-destructive font-bold text-white"
+          className="min-h-11 rounded-xl bg-destructive font-bold text-primary-foreground"
         >
           Confirmar
         </button>

@@ -1,3 +1,4 @@
+import { Icono } from "@/components/ui/icono";
 import Link from "next/link";
 import { Markdown } from "@/components/markdown";
 import { Card } from "@/components/ui/card";
@@ -14,8 +15,9 @@ export default async function PaginaDerivaciones() {
   return (
     <div className="flex flex-col gap-5">
       <div>
-        <Link href="/organigrama" className="text-sm text-primary">
-          ← Organigrama
+        <Link href="/organigrama" className="inline-flex items-center gap-1 text-sm text-primary">
+          <Icono nombre="chevron-izq" tamano={16} />
+          Organigrama
         </Link>
         <h1 className="mt-1 text-h1">Áreas de derivación</h1>
         <p className="text-sm text-muted">Qué resuelve cada área de Siglo y cómo contactarla.</p>

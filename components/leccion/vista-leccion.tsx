@@ -1,3 +1,4 @@
+import { Icono } from "@/components/ui/icono";
 import Link from "next/link";
 import type { Leccion } from "@/lib/dominio/lecciones";
 
@@ -40,7 +41,7 @@ export function VistaLeccion({
               <p className="italic">“{e.consulta}”</p>
               <p className="flex gap-2 font-semibold">
                 <span aria-hidden className="text-primary">
-                  →
+                  <Icono nombre="flecha-der" tamano={16} />
                 </span>
                 <span>{e.respuesta}</span>
               </p>
@@ -59,8 +60,12 @@ export function VistaLeccion({
       )}
       {fuente && (
         <Bloque titulo="Fuente">
-          <Link href={fuente.href} className="font-semibold text-primary-strong">
-            {fuente.titulo} →
+          <Link
+            href={fuente.href}
+            className="inline-flex items-center gap-1 font-semibold text-primary-strong"
+          >
+            {fuente.titulo}
+            <Icono nombre="flecha-der" tamano={16} />
           </Link>
         </Bloque>
       )}

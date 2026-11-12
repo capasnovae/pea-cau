@@ -122,11 +122,11 @@ async function VistaTablero({ cursos, usuarioId }: { cursos: FilaMiRuta[]; usuar
           <Link
             href="/repaso"
             aria-label="Repaso de hoy"
-            className="flex items-center justify-between gap-3 rounded-tarjeta bg-primary p-5 text-white shadow-brand transition hover:-translate-y-0.5 active:scale-[0.99]"
+            className="flex items-center justify-between gap-3 rounded-tarjeta bg-primary p-5 text-primary-foreground shadow-brand transition hover:-translate-y-0.5 active:scale-[0.99]"
           >
             <span>
               <span className="block text-h2">Repaso de hoy</span>
-              <span className="block text-sm text-white/85">
+              <span className="block text-sm text-sobre-color/85">
                 {textoRepaso(Math.min(5, repaso?.pendientes ?? 0))}
                 {repaso?.racha ? ` · ${textoRacha(repaso.racha)}` : ""}
               </span>
@@ -278,11 +278,11 @@ function ProgresoActual({ curso }: { curso: FilaMiRuta }) {
   return (
     <section
       aria-label="Tu ruta"
-      className="flex flex-col gap-3 rounded-3xl p-5 text-white"
+      className="flex flex-col gap-3 rounded-3xl p-5 text-sobre-color"
       style={{ background: color.fondo }}
     >
       <div className="flex items-center justify-between">
-        <span className="rounded-full bg-white/20 px-3 py-1.5 text-xs font-bold uppercase">
+        <span className="rounded-full bg-sobre-color/20 px-3 py-1.5 text-xs font-bold uppercase">
           {etiquetaTipo(curso)}
         </span>
         <span className="text-3xl font-extrabold">
@@ -290,14 +290,19 @@ function ProgresoActual({ curso }: { curso: FilaMiRuta }) {
         </span>
       </div>
       <h3 className="text-h1 leading-tight">{curso.titulo}</h3>
-      <Barra valor={pct} etiqueta={`${pct}% del curso`} color="#fff" pista="rgb(255 255 255 / 0.3)" />
+      <Barra
+        valor={pct}
+        etiqueta={`${pct}% del curso`}
+        color="var(--sobre-color)"
+        pista="color-mix(in srgb, var(--sobre-color) 30%, transparent)"
+      />
       <Link
         href={
           curso.siguiente_item
             ? `/estudiar/${curso.curso_id}/${curso.siguiente_item}`
             : `/estudiar/${curso.curso_id}`
         }
-        className="flex min-h-12 items-center justify-center gap-2 rounded-boton bg-white px-4 text-base font-bold transition active:scale-[0.98]"
+        className="flex min-h-12 items-center justify-center gap-2 rounded-boton bg-sobre-color px-4 text-base font-bold transition active:scale-[0.98]"
         style={{ color: color.texto }}
       >
         Continuar

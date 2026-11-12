@@ -109,7 +109,10 @@ export default async function PaginaResultado({ params }: PageProps<"/examenes/i
       )}
       {ubicacion && !ubicacion.rendida && (
         <form action={empezarUbicacion}>
-          <button type="submit" className="min-h-12 w-full rounded-2xl bg-nav font-extrabold text-white">
+          <button
+            type="submit"
+            className="min-h-12 w-full rounded-2xl bg-nav font-extrabold text-nav-fg-activo"
+          >
             Seguir con el Nivel {ubicacion.bloque_actual}
           </button>
         </form>

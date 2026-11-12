@@ -1,3 +1,4 @@
+import { Icono } from "@/components/ui/icono";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Markdown } from "@/components/markdown";
@@ -44,9 +45,10 @@ export default async function PaginaArticulo({ params }: PageProps<"/repositorio
       <div>
         <Link
           href={padre ? `/repositorio/${slugCategoria}/${padre.slug}` : `/repositorio/${slugCategoria}`}
-          className="text-sm text-primary"
+          className="inline-flex items-center gap-1 text-sm text-primary"
         >
-          ← {padre ? padre.titulo : categoria.nombre}
+          <Icono nombre="chevron-izq" tamano={16} />
+          {padre ? padre.titulo : categoria.nombre}
         </Link>
         <h1 className="mt-1 text-h1">{articulo.titulo}</h1>
         <div className="mt-1">

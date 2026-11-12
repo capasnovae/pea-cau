@@ -49,7 +49,7 @@ function Dialogo({
     }
   };
   return (
-    <div className="animate-aparecer fixed inset-0 z-50 flex items-center justify-center bg-ink/50 p-4">
+    <div className="animate-aparecer fixed inset-0 z-50 flex items-center justify-center bg-(--overlay) p-4">
       <div
         ref={caja}
         onKeyDown={atrapar}
@@ -296,7 +296,7 @@ export function Rendir({
             className={cn(
               "cifras size-11 rounded-full text-sm font-bold transition active:scale-95",
               !revisar && i === actual
-                ? "bg-primary text-white"
+                ? "bg-primary text-primary-foreground"
                 : respondida(q, valores[q.pregunta_id])
                   ? "bg-primary-soft text-primary-strong"
                   : "bg-card text-muted shadow-1",

@@ -1,5 +1,6 @@
 "use client";
 
+import { Icono } from "@/components/ui/icono";
 import { useActionState, useState } from "react";
 import { Campo, CamposAlcance, MensajeResultado } from "@/components/contenido/campos";
 import { Button } from "@/components/ui/button";
@@ -282,7 +283,7 @@ export function FormularioPregunta({
                     aria-label={`Subir opción ${i + 1}`}
                     className="size-9 rounded-lg disabled:opacity-30"
                   >
-                    ↑
+                    <Icono nombre="flecha-arriba" />
                   </button>
                   <button
                     type="button"
@@ -291,7 +292,7 @@ export function FormularioPregunta({
                     aria-label={`Bajar opción ${i + 1}`}
                     className="size-9 rounded-lg disabled:opacity-30"
                   >
-                    ↓
+                    <Icono nombre="flecha-abajo" />
                   </button>
                 </>
               )}
@@ -302,7 +303,7 @@ export function FormularioPregunta({
                   aria-label={`Quitar opción ${i + 1}`}
                   className="size-9 rounded-lg text-muted"
                 >
-                  ×
+                  <Icono nombre="cruz" tamano={16} />
                 </button>
               )}
             </div>

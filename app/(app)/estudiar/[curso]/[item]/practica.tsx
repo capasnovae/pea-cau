@@ -36,7 +36,8 @@ function Solucion({ p, s }: { p: PreguntaRender; s: Record<string, unknown> }) {
       <ul className="flex flex-col gap-0.5">
         {Object.entries((s.grupos as Record<string, string>) ?? {}).map(([id, g]) => (
           <li key={id}>
-            {texto.get(id)} → <b>{g}</b>
+            {texto.get(id)} <Icono nombre="flecha-der" tamano={16} className="inline align-[-3px]" />{" "}
+            <b>{g}</b>
           </li>
         ))}
       </ul>

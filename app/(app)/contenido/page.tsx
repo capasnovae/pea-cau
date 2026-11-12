@@ -1,6 +1,10 @@
 import Link from "next/link";
 import { BadgesContenido } from "@/components/repositorio/badges";
 import { Pestanas } from "@/components/ui/pestanas";
+import { patronBusqueda } from "@/lib/dominio/contenido";
+import { Button } from "@/components/ui/button";
+import { Icono } from "@/components/ui/icono";
+import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import { filtroEditable } from "@/lib/dominio/edicion";
 import { ROLES_EDITORES } from "@/lib/dominio/roles";
@@ -28,6 +32,9 @@ export default async function PaginaContenido({ searchParams }: PageProps<"/cont
   const supabase = await crearClienteServidor();
   const pagina = Math.max(1, Number.parseInt(typeof sp.pagina === "string" ? sp.pagina : "1", 10) || 1);
   const desde = (pagina - 1) * POR_PAGINA;
+  const q = typeof sp.q === "string" ? sp.q.trim().slice(0, 80) : "";
+  const patron = patronBusqueda(q);
+  const conQ = q ? `&q=${encodeURIComponent(q)}` : "";
   let total = 0;
 
   // Filtramos en el servidor lo que el rol puede editar (lo global solo para el admin),
@@ -49,6 +56,7 @@ export default async function PaginaContenido({ searchParams }: PageProps<"/cont
         { count: "exact" },
       )
       .match(filtro ?? {})
+      .ilike("titulo", patron ?? "%")
       .order("updated_at", { ascending: false })
       .order("id")
       .range(desde, desde + POR_PAGINA - 1);
@@ -68,6 +76,7 @@ export default async function PaginaContenido({ searchParams }: PageProps<"/cont
         { count: "exact" },
       )
       .match(filtro ?? {})
+      .ilike("titulo", patron ?? "%")
       .order("updated_at", { ascending: false })
       .order("id")
       .range(desde, desde + POR_PAGINA - 1);
@@ -104,9 +113,26 @@ export default async function PaginaContenido({ searchParams }: PageProps<"/cont
             : `/contenido?tab=${t.id}`,
         }))}
       />
+      <form role="search" className="flex gap-2">
+        <input type="hidden" name="tab" value={tab} />
+        <label htmlFor="buscar-contenido" className="sr-only">
+          Buscar por título
+        </label>
+        <Input
+          id="buscar-contenido"
+          name="q"
+          type="search"
+          defaultValue={q}
+          placeholder="Buscar por título"
+          maxLength={80}
+        />
+        <Button type="submit" variante="secundario" aria-label="Buscar">
+          <Icono nombre="buscar" />
+        </Button>
+      </form>
       {filas.length === 0 ? (
         <Card>
-          <p className="text-sm text-muted">Sin contenido.</p>
+          <p className="text-sm text-muted">{q ? "Sin resultados." : "Sin contenido."}</p>
         </Card>
       ) : (
         <ul className="flex flex-col gap-2" aria-label="Contenido editable">
@@ -126,7 +152,7 @@ export default async function PaginaContenido({ searchParams }: PageProps<"/cont
       {total > POR_PAGINA && (
         <nav aria-label="Páginas" className="flex items-center justify-between text-sm font-semibold">
           {pagina > 1 ? (
-            <Link href={`/contenido?tab=${tab}&pagina=${pagina - 1}`} className="text-primary-strong">
+            <Link href={`/contenido?tab=${tab}&pagina=${pagina - 1}${conQ}`} className="text-primary-strong">
               Anterior
             </Link>
           ) : (
@@ -136,7 +162,7 @@ export default async function PaginaContenido({ searchParams }: PageProps<"/cont
             {pagina} de {Math.ceil(total / POR_PAGINA)}
           </span>
           {desde + POR_PAGINA < total ? (
-            <Link href={`/contenido?tab=${tab}&pagina=${pagina + 1}`} className="text-primary-strong">
+            <Link href={`/contenido?tab=${tab}&pagina=${pagina + 1}${conQ}`} className="text-primary-strong">
               Siguiente
             </Link>
           ) : (

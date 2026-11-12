@@ -52,7 +52,7 @@ export default async function PaginaCorrecciones({ searchParams }: PageProps<"/e
                   <span className="flex gap-2">
                     <Link
                       href={`/equipo/correcciones/${c.intento_id}`}
-                      className="rounded-xl bg-primary px-4 py-2 text-sm font-bold text-white"
+                      className="rounded-xl bg-primary px-4 py-2 text-sm font-bold text-primary-foreground"
                     >
                       Seguir
                     </Link>
@@ -70,7 +70,7 @@ export default async function PaginaCorrecciones({ searchParams }: PageProps<"/e
                     <form action={tomar.bind(null, c.intento_id)}>
                       <button
                         type="submit"
-                        className="rounded-xl bg-primary px-4 py-2 text-sm font-bold text-white"
+                        className="rounded-xl bg-primary px-4 py-2 text-sm font-bold text-primary-foreground"
                       >
                         Tomar
                       </button>

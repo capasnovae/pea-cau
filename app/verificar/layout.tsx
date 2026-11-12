@@ -5,7 +5,7 @@ export default function LayoutVerificar({ children }: LayoutProps<"/verificar">)
   return (
     <div className="flex min-h-dvh flex-1 flex-col bg-background">
       <header className="sobre-oscuro flex h-16 items-center bg-nav px-5">
-        <Link href="/" aria-label="PEA" className="flex min-h-11 items-center text-white">
+        <Link href="/" aria-label="PEA" className="flex min-h-11 items-center text-nav-fg-activo">
           <Logo tamano={28} />
         </Link>
         <span className="ml-3 text-sm text-nav-fg-muted">Verificación de certificados</span>

@@ -1,3 +1,4 @@
+import { Icono } from "@/components/ui/icono";
 import Link from "next/link";
 import { Card } from "@/components/ui/card";
 import { formatearFecha } from "@/lib/dominio/contenido";
@@ -27,8 +28,12 @@ export default async function PaginaActualizacionesAdmin() {
     <div className="flex flex-col gap-5">
       <div className="flex items-baseline justify-between gap-3">
         <h1 className="text-h1">Actualizaciones</h1>
-        <Link href="/contenido" className="text-sm font-semibold text-primary-strong">
-          ‹ Contenido
+        <Link
+          href="/contenido"
+          className="inline-flex items-center gap-1 text-sm font-semibold text-primary-strong"
+        >
+          <Icono nombre="chevron-izq" tamano={16} />
+          Contenido
         </Link>
       </div>
       <Card>

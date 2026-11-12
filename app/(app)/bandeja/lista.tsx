@@ -26,7 +26,7 @@ export async function MarcoBandeja({
   const filas = data ?? [];
   const ahora = new Date();
   return (
-    <div className="-mx-4 -mt-2 flex flex-col md:fixed md:inset-y-0 md:left-[92px] md:right-0 md:m-0">
+    <div className="-mx-4 -mt-2 flex flex-col md:fixed md:inset-y-0 md:left-[92px] md:right-0 md:m-0 xl:left-[232px]">
       <div className="flex flex-wrap items-center gap-2.5 border-b border-border bg-card px-4 py-3 md:px-7 md:py-4">
         <h1 className="mr-2 text-h2 md:text-[26px]">Bandeja de entrada</h1>
         <SelectFiltro

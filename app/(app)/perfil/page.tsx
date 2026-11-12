@@ -1,6 +1,9 @@
+import { cookies } from "next/headers";
+import { COOKIE_TEMA, temaDesdeCookie } from "@/lib/dominio/tema";
 import Link from "next/link";
 import { Avatar } from "@/components/nav/panel-cuenta";
 import { Insignia } from "@/components/perfil/insignia";
+import { Sendero } from "@/components/perfil/sendero";
 import { Card } from "@/components/ui/card";
 import {
   COLOR_ESTADO_CERT,
@@ -19,6 +22,7 @@ import { requerirPerfil } from "@/lib/supabase/permisos";
 import { crearClienteServidor } from "@/lib/supabase/servidor";
 import { cn } from "@/lib/utils/cn";
 import { AvisosEmail } from "./avisos-email";
+import { ElegirTema } from "./tema";
 import { FormularioTelefono } from "./formulario-telefono";
 
 function Seccion({
@@ -132,7 +136,7 @@ export default async function PaginaPerfil() {
         )}
         {nivel !== null && (
           <span
-            className="rounded-full px-4 py-2 font-extrabold text-white"
+            className="rounded-full px-4 py-2 font-extrabold text-sobre-color"
             style={{ background: color.fondo }}
           >
             Nivel {nivel}
@@ -145,6 +149,9 @@ export default async function PaginaPerfil() {
         <div className="flex flex-col gap-6">
           <Seccion titulo="Mi ruta">
             <Card className="flex flex-col gap-2">
+              <div className="mb-2 flex justify-center">
+                <Sendero nivel={nivel} />
+              </div>
               <div className="flex items-baseline justify-between">
                 <span className="font-bold">Cursos obligatorios</span>
                 <span className="text-h1">
@@ -327,8 +334,9 @@ export default async function PaginaPerfil() {
             <Card>
               <FormularioTelefono telefono={perfil.telefono} />
             </Card>
-            <Card>
+            <Card className="flex flex-col gap-2">
               <AvisosEmail inicial={datos?.avisos_email ?? false} />
+              <ElegirTema inicial={temaDesdeCookie((await cookies()).get(COOKIE_TEMA)?.value)} />
             </Card>
           </Seccion>
         </div>

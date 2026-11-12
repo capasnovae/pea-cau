@@ -83,7 +83,7 @@ export default async function PaginaPanel({ searchParams }: PageProps<"/equipo/p
             aria-current={!soloAtrasados ? "true" : undefined}
             className={cn(
               "inline-flex min-h-11 items-center rounded-full px-4 text-sm font-semibold transition-colors",
-              !soloAtrasados ? "bg-primary text-white" : "bg-primary-soft text-primary-strong",
+              !soloAtrasados ? "bg-primary text-primary-foreground" : "bg-primary-soft text-primary-strong",
             )}
           >
             Todos
@@ -93,7 +93,7 @@ export default async function PaginaPanel({ searchParams }: PageProps<"/equipo/p
             aria-current={soloAtrasados ? "true" : undefined}
             className={cn(
               "inline-flex min-h-11 items-center rounded-full px-4 text-sm font-semibold transition-colors",
-              soloAtrasados ? "bg-primary text-white" : "bg-primary-soft text-primary-strong",
+              soloAtrasados ? "bg-primary text-primary-foreground" : "bg-primary-soft text-primary-strong",
             )}
           >
             Solo atrasados
