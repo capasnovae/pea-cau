@@ -2,7 +2,15 @@ import { describe, expect, it } from "vitest";
 import { esquemaAsignacion, esquemaInvitacion, mensajeErrorInvitacion } from "./invitacion";
 
 const SEDE = "8a4f6a3e-0b8d-4f7e-9a51-1d2c3b4a5e6f";
-const base = { email: "ana@siglo.test", nombre: "Ana", apellido: "Paz", rol: "asesor", sede_id: SEDE, area: "servicio", puesto_id: null };
+const base = {
+  email: "ana@siglo.test",
+  nombre: "Ana",
+  apellido: "Paz",
+  rol: "asesor",
+  sede_id: SEDE,
+  area: "servicio",
+  puesto_id: null,
+};
 
 describe("esquemaInvitacion", () => {
   it("acepta un asesor completo", () => {
@@ -15,7 +23,9 @@ describe("esquemaInvitacion", () => {
     expect(esquemaInvitacion.safeParse({ ...base, rol: "coordinador", area: null }).success).toBe(false);
   });
   it("permite director sin sede ni área", () => {
-    expect(esquemaInvitacion.safeParse({ ...base, rol: "director", sede_id: null, area: null }).success).toBe(true);
+    expect(esquemaInvitacion.safeParse({ ...base, rol: "director", sede_id: null, area: null }).success).toBe(
+      true,
+    );
   });
   it("rechaza un email inválido", () => {
     expect(esquemaInvitacion.safeParse({ ...base, email: "no-es-mail" }).success).toBe(false);
@@ -38,7 +48,14 @@ describe("mensajeErrorInvitacion", () => {
 
 describe("esquemaAsignacion", () => {
   const U = "0b1c2d3e-4f50-4a61-8b72-9c83d4e5f601";
-  const ok = { id: U, sede_id: SEDE, area: "servicio", equipo_id: "", puesto_id: "", subrol_ids: [] as string[] };
+  const ok = {
+    id: U,
+    sede_id: SEDE,
+    area: "servicio",
+    equipo_id: "",
+    puesto_id: "",
+    subrol_ids: [] as string[],
+  };
   it("acepta sede y área con equipo y puesto vacíos", () => {
     const r = esquemaAsignacion.safeParse(ok);
     expect(r.success).toBe(true);

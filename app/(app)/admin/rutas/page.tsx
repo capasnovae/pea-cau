@@ -29,7 +29,7 @@ export default async function PaginaRutas() {
   return (
     <div className="flex flex-col gap-4">
       <div>
-        <h1 className="text-2xl font-extrabold">Rutas por puesto</h1>
+        <h1 className="text-h1">Rutas por puesto</h1>
         <p className="text-sm text-muted">
           Qué capacitaciones hace cada puesto o subrol. Los niveles los hacen todos.
         </p>
@@ -37,7 +37,7 @@ export default async function PaginaRutas() {
       {(cursos ?? []).length === 0 ? (
         <p className="text-sm text-muted">Todavía no hay capacitaciones.</p>
       ) : (
-        <div className="overflow-x-auto rounded-2xl bg-card shadow-[var(--shadow-suave)]">
+        <div className="overflow-x-auto rounded-2xl bg-card shadow-1">
           <table className="min-w-[720px] w-full text-sm">
             <thead>
               <tr className="text-left text-xs text-muted">

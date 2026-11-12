@@ -20,7 +20,7 @@ export default async function PaginaBandeja({ searchParams }: PageProps<"/bandej
             <path d="M4 13h5l1 2h4l1-2h5" />
           </svg>
         </span>
-        <p className="text-lg font-extrabold text-ink">Ninguna conversación abierta</p>
+        <p className="text-h2 text-ink">Ninguna conversación abierta</p>
       </div>
     </MarcoBandeja>
   );

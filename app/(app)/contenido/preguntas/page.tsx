@@ -69,7 +69,7 @@ export default async function PaginaPreguntas({ searchParams }: PageProps<"/cont
         <span className="flex-1" />
         <Link
           href="/contenido/preguntas/nueva"
-          className="flex h-10 items-center rounded-xl bg-primary px-4 text-sm font-bold text-white"
+          className="flex h-10 items-center rounded-xl bg-primary px-4 text-sm font-bold text-primary-foreground"
         >
           Nueva pregunta
         </Link>

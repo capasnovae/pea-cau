@@ -1,3 +1,4 @@
+import { Icono } from "@/components/ui/icono";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { BotonPromover } from "@/components/contenido/boton-promover";
@@ -78,17 +79,25 @@ export default async function PaginaEditarCurso({
   return (
     <div className="flex flex-col gap-5">
       <div>
-        <Link href="/contenido/cursos" className="text-sm font-semibold text-primary-strong">
-          ← Cursos
+        <Link
+          href="/contenido/cursos"
+          className="inline-flex items-center gap-1 text-sm font-semibold text-primary-strong"
+        >
+          <Icono nombre="chevron-izq" tamano={16} />
+          Cursos
         </Link>
-        <h1 className="mt-1 text-2xl font-extrabold">{curso.titulo}</h1>
+        <h1 className="mt-1 text-h1">{curso.titulo}</h1>
         {creado && (
           <p role="status" className="text-sm font-semibold text-success">
             Curso creado. Ahora sumale módulos y pasos.
           </p>
         )}
-        <Link href={`/estudiar/${curso.id}`} className="text-sm font-semibold text-primary-strong">
-          Ver como asesor →
+        <Link
+          href={`/estudiar/${curso.id}`}
+          className="inline-flex items-center gap-1 text-sm font-semibold text-primary-strong"
+        >
+          Ver como asesor
+          <Icono nombre="flecha-der" tamano={16} />
         </Link>
       </div>
       <Card>
@@ -120,7 +129,7 @@ export default async function PaginaEditarCurso({
             aria-label={`Módulo ${m.titulo}`}
           >
             <div className="flex items-center justify-between">
-              <h2 className="text-lg font-extrabold">Módulo: {m.titulo}</h2>
+              <h2 className="text-h2">Módulo: {m.titulo}</h2>
               <BotonBorrar tabla="modulos" id={m.id} etiqueta={`el módulo “${m.titulo}” y sus pasos`} />
             </div>
             <FormularioModulo
@@ -135,7 +144,7 @@ export default async function PaginaEditarCurso({
               }}
             />
             {items.map((it) => (
-              <details key={it.id} className="rounded-2xl bg-card p-3 shadow-[var(--shadow-suave)]">
+              <details key={it.id} className="rounded-2xl bg-card p-3 shadow-1">
                 <summary className="cursor-pointer font-semibold">
                   {it.orden}. {it.titulo} <span className="text-xs font-normal text-muted">({it.tipo})</span>
                 </summary>

@@ -24,19 +24,31 @@ export default async function PaginaRecursos({ searchParams }: PageProps<"/recur
   await requerirPerfil();
   const sp = await searchParams;
   const valor = (k: string) => (typeof sp[k] === "string" ? (sp[k] as string) : "");
-  const [categoria, tipo, campana, q, idRecurso] = [valor("categoria"), valor("tipo"), valor("campana"), valor("q").trim(), valor("id")];
+  const [categoria, tipo, campana, q, idRecurso] = [
+    valor("categoria"),
+    valor("tipo"),
+    valor("campana"),
+    valor("q").trim(),
+    valor("id"),
+  ];
 
   const supabase = await crearClienteServidor();
   let consulta = supabase
     .from("recursos")
-    .select("id, titulo, descripcion, tipo, archivo_path, url_externa, etiquetas, vigente_hasta, alcance, categorias(nombre, slug), campanas(nombre)")
+    .select(
+      "id, titulo, descripcion, tipo, archivo_path, url_externa, etiquetas, vigente_hasta, alcance, categorias(nombre, slug), campanas(nombre)",
+    )
     .eq("estado", "publicado")
     .order("created_at", { ascending: false })
     .limit(100);
   if (categoria) consulta = consulta.eq("categoria_id", categoria);
   if (tipo && tipo in TIPOS) consulta = consulta.eq("tipo", tipo as TipoRecurso);
   if (campana) consulta = consulta.eq("campana_id", campana);
-  if (q) consulta = consulta.textSearch("busqueda", normalizarBusqueda(q), { type: "websearch", config: "spanish" });
+  if (q)
+    consulta = consulta.textSearch("busqueda", normalizarBusqueda(q), {
+      type: "websearch",
+      config: "spanish",
+    });
   if (/^[0-9a-f-]{36}$/i.test(idRecurso)) consulta = consulta.eq("id", idRecurso);
 
   const [{ data: recursos }, { data: categorias }, { data: campanas }] = await Promise.all([
@@ -55,19 +67,25 @@ export default async function PaginaRecursos({ searchParams }: PageProps<"/recur
           <Select name="categoria" aria-label="Categoría" defaultValue={categoria}>
             <option value="">Todas las categorías</option>
             {(categorias ?? []).map((c) => (
-              <option key={c.id} value={c.id}>{c.nombre}</option>
+              <option key={c.id} value={c.id}>
+                {c.nombre}
+              </option>
             ))}
           </Select>
           <Select name="tipo" aria-label="Tipo" defaultValue={tipo}>
             <option value="">Todos los tipos</option>
             {Object.entries(TIPOS).map(([v, e]) => (
-              <option key={v} value={v}>{e}</option>
+              <option key={v} value={v}>
+                {e}
+              </option>
             ))}
           </Select>
           <Select name="campana" aria-label="Campaña" defaultValue={campana}>
             <option value="">Todas las campañas</option>
             {(campanas ?? []).map((c) => (
-              <option key={c.id} value={c.id}>{c.nombre}</option>
+              <option key={c.id} value={c.id}>
+                {c.nombre}
+              </option>
             ))}
           </Select>
           <Button type="submit">Filtrar</Button>
@@ -84,8 +102,12 @@ export default async function PaginaRecursos({ searchParams }: PageProps<"/recur
               <Card className="flex h-full flex-col gap-2 p-4">
                 <div className="flex flex-wrap items-center gap-1.5">
                   <Badge>{TIPOS[r.tipo]}</Badge>
-                  {r.alcance === "sede" && <Badge className="border-primary/40 text-primary">De tu sede</Badge>}
-                  {r.campanas?.nombre && <Badge className="border-transparent bg-background">{r.campanas.nombre}</Badge>}
+                  {r.alcance === "sede" && (
+                    <Badge className="border-primary/40 text-primary">De tu sede</Badge>
+                  )}
+                  {r.campanas?.nombre && (
+                    <Badge className="border-transparent bg-background">{r.campanas.nombre}</Badge>
+                  )}
                 </div>
                 <h2 className="font-medium">{r.titulo}</h2>
                 {r.descripcion && <p className="text-sm text-muted">{r.descripcion}</p>}
@@ -94,12 +116,20 @@ export default async function PaginaRecursos({ searchParams }: PageProps<"/recur
                   {r.archivo_path ? (
                     <BotonDescargar recursoId={r.id} />
                   ) : r.url_externa ? (
-                    <a href={r.url_externa} target="_blank" rel="noopener noreferrer"
-                      className="inline-flex h-9 items-center rounded-lg border border-border bg-card px-4 text-sm font-medium hover:bg-background">
+                    <a
+                      href={r.url_externa}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex h-9 items-center rounded-lg border border-border bg-card px-4 text-sm font-medium hover:bg-background"
+                    >
                       Abrir
                     </a>
                   ) : null}
-                  {r.vigente_hasta && <span className="text-xs text-muted">Vigente hasta el {formatearFecha(r.vigente_hasta)}</span>}
+                  {r.vigente_hasta && (
+                    <span className="text-xs text-muted">
+                      Vigente hasta el {formatearFecha(r.vigente_hasta)}
+                    </span>
+                  )}
                 </div>
               </Card>
             </li>

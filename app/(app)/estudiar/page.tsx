@@ -7,8 +7,8 @@ import { crearClienteServidor } from "@/lib/supabase/servidor";
 import { BotonFavorito } from "./boton-favorito";
 
 function colorCurso(c: FilaMiRuta): string {
-  if (c.cumplido) return "#047857";
-  return c.tipo === "nivel" ? colorNivel(c.nivel_orden).fondo : "#be185d";
+  if (c.cumplido) return "var(--success)";
+  return colorNivel(c.tipo === "nivel" ? c.nivel_orden : null).fondo;
 }
 
 function estado(c: FilaMiRuta): string {
@@ -112,7 +112,7 @@ export default async function PaginaEstudiar() {
 
   return (
     <div className="flex flex-col gap-6">
-      <h1 className="text-2xl font-extrabold md:text-[32px]">Mis cursos</h1>
+      <h1 className="text-h1 md:text-[32px]">Mis cursos</h1>
 
       {cursos.length === 0 && (
         <Card>
@@ -131,20 +131,14 @@ export default async function PaginaEstudiar() {
       )}
 
       {activos.length > 0 && (
-        <section
-          aria-label="Todos los cursos"
-          className="overflow-hidden rounded-[20px] bg-card shadow-[var(--shadow-suave)]"
-        >
-          <h2 className="px-5 pb-1 pt-4 text-lg font-extrabold">Todos los cursos</h2>
+        <section aria-label="Todos los cursos" className="overflow-hidden rounded-[20px] bg-card shadow-1">
+          <h2 className="px-5 pb-1 pt-4 text-h2">Todos los cursos</h2>
           <TablaCursos cursos={activos} favs={favs} vigencias={vigencias} />
         </section>
       )}
 
       {terminados.length > 0 && (
-        <section
-          aria-label="Terminados"
-          className="overflow-hidden rounded-[20px] bg-card shadow-[var(--shadow-suave)]"
-        >
+        <section aria-label="Terminados" className="overflow-hidden rounded-[20px] bg-card shadow-1">
           <h2 className="px-5 pb-1 pt-4 text-base font-extrabold text-muted">Terminados</h2>
           <TablaCursos cursos={terminados} favs={favs} vigencias={vigencias} />
         </section>

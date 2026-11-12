@@ -58,14 +58,12 @@ export async function cambiarEstadoUsuario(id: string, activo: boolean): Promise
   });
   if (errorBloqueo)
     return { ok: false, error: "Se actualizó el estado, pero no pudimos cerrar su acceso. Probá de nuevo." };
-  await cliente
-    .from("auditoria")
-    .insert({
-      actor_id: admin.id,
-      accion: activo ? "activar" : "desactivar",
-      entidad: "perfiles",
-      entidad_id: id,
-    });
+  await cliente.from("auditoria").insert({
+    actor_id: admin.id,
+    accion: activo ? "activar" : "desactivar",
+    entidad: "perfiles",
+    entidad_id: id,
+  });
   revalidatePath("/admin/usuarios");
   return { ok: true };
 }
@@ -80,15 +78,13 @@ export async function cambiarRol(id: string, rol: string): Promise<ResultadoAcci
     .update({ rol: rol as RolApp })
     .eq("id", id);
   if (error) return { ok: false, error: SIN_PERMISO };
-  await cliente
-    .from("auditoria")
-    .insert({
-      actor_id: admin.id,
-      accion: "cambiar_rol",
-      entidad: "perfiles",
-      entidad_id: id,
-      datos: { rol },
-    });
+  await cliente.from("auditoria").insert({
+    actor_id: admin.id,
+    accion: "cambiar_rol",
+    entidad: "perfiles",
+    entidad_id: id,
+    datos: { rol },
+  });
   revalidatePath("/admin/usuarios");
   return { ok: true };
 }
@@ -124,15 +120,13 @@ export async function asignarDatosUsuario(
       .from("perfil_subroles")
       .insert(subrol_ids.map((subrol_id) => ({ perfil_id: id, subrol_id })));
   }
-  await cliente
-    .from("auditoria")
-    .insert({
-      actor_id: admin.id,
-      accion: "asignar_datos",
-      entidad: "perfiles",
-      entidad_id: id,
-      datos: { ...valores, subrol_ids },
-    });
+  await cliente.from("auditoria").insert({
+    actor_id: admin.id,
+    accion: "asignar_datos",
+    entidad: "perfiles",
+    entidad_id: id,
+    datos: { ...valores, subrol_ids },
+  });
   revalidatePath("/admin/usuarios");
   return { ok: true, mensaje: "Datos guardados." };
 }

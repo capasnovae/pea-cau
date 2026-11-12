@@ -1,5 +1,12 @@
 import { describe, expect, it } from "vitest";
-import { esNuevaVersion, estaVencido, normalizarBusqueda, rutaArchivo, slugificar } from "./contenido";
+import {
+  esNuevaVersion,
+  estaVencido,
+  normalizarBusqueda,
+  patronBusqueda,
+  rutaArchivo,
+  slugificar,
+} from "./contenido";
 
 describe("slugificar", () => {
   it("normaliza acentos, espacios y signos", () => {
@@ -49,5 +56,15 @@ describe("rutaArchivo", () => {
 describe("normalizarBusqueda", () => {
   it("saca tildes y eñes como la columna de búsqueda", () => {
     expect(normalizarBusqueda("  Campaña año Inscripción ")).toBe("Campana ano Inscripcion");
+  });
+});
+
+describe("patronBusqueda", () => {
+  it("arma un patrón de contiene, sin comodines del usuario", () => {
+    expect(patronBusqueda("  Reinscripción ")).toBe("%Reinscripción%");
+    expect(patronBusqueda("100%_seguro\\")).toBe("%100\\%\\_seguro\\\\%");
+    expect(patronBusqueda("   ")).toBeNull();
+    expect(patronBusqueda(undefined)).toBeNull();
+    expect(patronBusqueda("x".repeat(200))?.length).toBe(82);
   });
 });

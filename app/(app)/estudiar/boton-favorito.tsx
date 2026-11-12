@@ -1,5 +1,6 @@
 "use client";
 
+import { Icono } from "@/components/ui/icono";
 import { useState, useTransition } from "react";
 import { alternarFavorito } from "./acciones";
 
@@ -18,9 +19,9 @@ export function BotonFavorito({ cursoId, inicial }: { cursoId: string; inicial: 
           if (r.ok) setFavorito(r.favorito);
         })
       }
-      className={`flex size-11 items-center justify-center rounded-xl text-xl hover:bg-primary-soft ${favorito ? "text-[#f59e0b]" : "text-[#c4c4d4]"}`}
+      className={`flex size-11 items-center justify-center rounded-xl text-xl hover:bg-primary-soft ${favorito ? "text-gold" : "text-border-control"}`}
     >
-      {favorito ? "★" : "☆"}
+      <Icono nombre="estrella" relleno={favorito} tamano={24} className={favorito ? "latir" : undefined} />
     </button>
   );
 }

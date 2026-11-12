@@ -20,8 +20,27 @@ describe("armarOrganigrama", () => {
   const filas = [
     f({ id: "d", rol: "director", apellido: "Director" }),
     f({ id: "c", rol: "coordinador", area: "servicio", sede_id: "r", sede: "Roca", apellido: "Coord" }),
-    f({ id: "l", rol: "lider", area: "servicio", sede_id: "n", sede: "Neuquén", equipo_id: "e1", equipo: "Equipo 1", es_lider: true, apellido: "Lider" }),
-    f({ id: "a", rol: "asesor", area: "servicio", sede_id: "n", sede: "Neuquén", equipo_id: "e1", equipo: "Equipo 1", apellido: "Zeta" }),
+    f({
+      id: "l",
+      rol: "lider",
+      area: "servicio",
+      sede_id: "n",
+      sede: "Neuquén",
+      equipo_id: "e1",
+      equipo: "Equipo 1",
+      es_lider: true,
+      apellido: "Lider",
+    }),
+    f({
+      id: "a",
+      rol: "asesor",
+      area: "servicio",
+      sede_id: "n",
+      sede: "Neuquén",
+      equipo_id: "e1",
+      equipo: "Equipo 1",
+      apellido: "Zeta",
+    }),
     f({ id: "b", rol: "asesor", area: "ventas", sede_id: "n", sede: "Neuquén", apellido: "Beta" }),
   ];
   const o = armarOrganigrama(filas);
@@ -44,7 +63,13 @@ describe("armarOrganigrama", () => {
 
 describe("armarOrganigrama con todas las sedes", () => {
   it("incluye las sedes sin gente", () => {
-    const o = armarOrganigrama([], [{ id: "z", nombre: "Zapala" }, { id: "b", nombre: "Bariloche" }]);
+    const o = armarOrganigrama(
+      [],
+      [
+        { id: "z", nombre: "Zapala" },
+        { id: "b", nombre: "Bariloche" },
+      ],
+    );
     expect(o.sedes.map((s) => s.nombre)).toEqual(["Bariloche", "Zapala"]);
     expect(o.sedes[0]!.equipos).toEqual([]);
   });

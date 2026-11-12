@@ -30,7 +30,7 @@ export function FormularioCorreccion({
         <section
           key={x.respuesta_id}
           aria-label={`Respuesta ${i + 1}`}
-          className="flex flex-col gap-3 rounded-3xl bg-card p-5 shadow-[var(--shadow-suave)]"
+          className="flex flex-col gap-3 rounded-3xl bg-card p-5 shadow-1"
         >
           <input type="hidden" name="respuesta" value={x.respuesta_id} />
           <div className="font-bold">
@@ -84,7 +84,7 @@ export function FormularioCorreccion({
           name="accion"
           value="cerrar"
           disabled={pendiente}
-          className="min-h-12 rounded-2xl bg-primary px-5 font-bold text-white"
+          className="min-h-12 rounded-2xl bg-primary px-5 font-bold text-primary-foreground"
         >
           Cerrar corrección
         </button>

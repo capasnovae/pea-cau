@@ -1,5 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
+import { Dialogo } from "@/components/ui/dialogo";
 import { leerFiltrosUsuarios } from "@/lib/dominio/filtros-usuarios";
 import { ETIQUETA_ROL, ROLES } from "@/lib/dominio/roles";
 import { Button } from "@/components/ui/button";
@@ -38,11 +39,12 @@ export default async function PaginaUsuarios({ searchParams }: PageProps<"/admin
 
   return (
     <div className="flex flex-col gap-6">
-      <h1 className="text-2xl font-semibold">Usuarios</h1>
-      <Card>
-        <h2 className="mb-4 text-lg font-semibold">Invitar a alguien</h2>
-        <FormularioInvitar sedes={sedes ?? []} puestos={puestos ?? []} />
-      </Card>
+      <div className="flex items-center justify-between gap-3">
+        <h1 className="text-h1">Usuarios</h1>
+        <Dialogo boton="Invitar" icono="mas" titulo="Invitar a alguien">
+          <FormularioInvitar sedes={sedes ?? []} puestos={puestos ?? []} />
+        </Dialogo>
+      </div>
       <form
         role="search"
         aria-label="Filtrar usuarios"

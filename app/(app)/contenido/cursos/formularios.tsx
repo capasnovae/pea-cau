@@ -1,5 +1,6 @@
 "use client";
 
+import { Confirmar } from "@/components/ui/confirmar";
 import { useActionState, useState, useTransition } from "react";
 import { Campo, CamposAlcance, MensajeResultado } from "@/components/contenido/campos";
 import { EditorLeccion } from "@/components/contenido/editor-leccion";
@@ -394,17 +395,23 @@ export function BotonBorrar({
   const [r, setR] = useState<ResultadoCurso>(null);
   return (
     <span className="inline-flex flex-col">
-      <button
-        type="button"
-        disabled={pendiente}
-        className="text-sm font-semibold text-destructive"
-        onClick={() => {
-          if (window.confirm(`¿Eliminar ${etiqueta}?`))
-            iniciar(async () => setR(await borrarFila(tabla, id)));
-        }}
+      <Confirmar
+        titulo={`¿Eliminar ${etiqueta}?`}
+        confirmar="Eliminar"
+        peligro
+        onConfirmar={() => iniciar(async () => setR(await borrarFila(tabla, id)))}
       >
-        Eliminar
-      </button>
+        {(abrir) => (
+          <button
+            type="button"
+            disabled={pendiente}
+            className="min-h-11 text-sm font-semibold text-destructive"
+            onClick={abrir}
+          >
+            Eliminar
+          </button>
+        )}
+      </Confirmar>
       {r && !r.ok && <span className="text-xs text-destructive">{r.error}</span>}
     </span>
   );

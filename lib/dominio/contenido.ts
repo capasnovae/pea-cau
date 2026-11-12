@@ -32,7 +32,13 @@ export function esNuevaVersion(version: number, updatedAt: string, hoy: Date = n
 export function rutaArchivo(carpeta: string, nombreOriginal: string, id: string): string {
   const punto = nombreOriginal.lastIndexOf(".");
   const base = punto > 0 ? nombreOriginal.slice(0, punto) : nombreOriginal;
-  const ext = punto > 0 ? nombreOriginal.slice(punto + 1).toLowerCase().replace(/[^a-z0-9]/g, "") : "";
+  const ext =
+    punto > 0
+      ? nombreOriginal
+          .slice(punto + 1)
+          .toLowerCase()
+          .replace(/[^a-z0-9]/g, "")
+      : "";
   const nombre = slugificar(base) || "archivo";
   return `${carpeta}/${id}-${nombre}${ext ? `.${ext}` : ""}`;
 }
@@ -45,4 +51,11 @@ export function formatearFecha(iso: string): string {
 /** Saca tildes y eñes, igual que f_unaccent en la columna de búsqueda, para que la consulta matchee. */
 export function normalizarBusqueda(q: string): string {
   return q.normalize("NFD").replace(/\p{M}/gu, "").trim();
+}
+
+/** Patrón `ilike` de "contiene" para buscar por título: escapa los comodines que escriba el usuario. */
+export function patronBusqueda(q: string | undefined): string | null {
+  const t = (q ?? "").trim().slice(0, 80);
+  if (!t) return null;
+  return `%${t.replace(/[\\%_]/g, (c) => `\\${c}`)}%`;
 }

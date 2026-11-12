@@ -1,3 +1,4 @@
+import { Icono } from "@/components/ui/icono";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Markdown } from "@/components/markdown";
@@ -35,19 +36,27 @@ export default async function PaginaActualizacion({ params }: PageProps<"/actual
       : null;
   return (
     <div className="flex flex-col gap-4">
-      <Link href="/actualizaciones" className="text-sm font-semibold text-primary-strong">
-        ← Actualizaciones
+      <Link
+        href="/actualizaciones"
+        className="inline-flex items-center gap-1 text-sm font-semibold text-primary-strong"
+      >
+        <Icono nombre="chevron-izq" tamano={16} />
+        Actualizaciones
       </Link>
       <div className="flex flex-wrap items-center justify-between gap-3">
-        <h1 className="text-2xl font-extrabold">{act.titulo}</h1>
+        <h1 className="text-h1">{act.titulo}</h1>
         <EstadoChip estado={estado} />
       </div>
       <p className="text-sm text-muted">Vence el {formatearFecha(a.vence_at)}</p>
       <Card className="flex flex-col gap-4">
         {act.descripcion_md && <Markdown texto={act.descripcion_md} />}
         {fuente && (
-          <Link href={fuente.href} className="font-semibold text-primary-strong">
-            Ver {fuente.titulo} →
+          <Link
+            href={fuente.href}
+            className="inline-flex items-center gap-1 font-semibold text-primary-strong"
+          >
+            Ver {fuente.titulo}
+            <Icono nombre="flecha-der" tamano={16} />
           </Link>
         )}
       </Card>

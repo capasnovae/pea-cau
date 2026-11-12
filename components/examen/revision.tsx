@@ -1,3 +1,4 @@
+import { Icono } from "@/components/ui/icono";
 import Link from "next/link";
 import { Markdown } from "@/components/markdown";
 import { normalizarTexto } from "@/lib/dominio/examenes";
@@ -28,15 +29,15 @@ export type FilaRevision = Omit<PreguntaRender, "opciones"> & {
 };
 
 const OK = "border-success bg-success-soft";
-const MAL = "border-[#b91c1c] bg-[#fef2f2]";
+const MAL = "border-destructive bg-destructive-soft";
 
 function Marca({ ok }: { ok: boolean }) {
   return (
     <span
       aria-label={ok ? "Correcta" : "Incorrecta"}
-      className={cn("font-extrabold", ok ? "text-success" : "text-[#b91c1c]")}
+      className={cn("font-extrabold", ok ? "text-success" : "text-destructive")}
     >
-      {ok ? "✓" : "✗"}
+      <Icono nombre={ok ? "tilde" : "cruz"} tamano={16} />
     </span>
   );
 }
@@ -92,7 +93,10 @@ export function DetalleRespuesta({ p }: { p: FilaRevision }) {
             >
               <Marca ok={ok} />
               <span className="font-semibold">{o.texto}</span>
-              <span className="text-sm text-muted">→ {elegida || "sin ubicar"}</span>
+              <span className="inline-flex items-center gap-1 text-sm text-muted">
+                <Icono nombre="flecha-der" tamano={16} />
+                {elegida || "sin ubicar"}
+              </span>
               {!ok && <span className="text-sm font-semibold text-success">(va en {o.grupo})</span>}
             </li>
           );
@@ -152,10 +156,7 @@ export function Revision({ filas }: { filas: FilaRevision[] }) {
   return (
     <ol aria-label="Revisión" className="flex flex-col gap-4">
       {filas.map((p, i) => (
-        <li
-          key={p.pregunta_id}
-          className="flex flex-col gap-3 rounded-3xl bg-card p-5 shadow-[var(--shadow-suave)]"
-        >
+        <li key={p.pregunta_id} className="flex flex-col gap-3 rounded-3xl bg-card p-5 shadow-1">
           <div className="flex items-center justify-between gap-2">
             <span className="text-sm font-bold text-muted">Pregunta {i + 1}</span>
             <span className="flex items-center gap-2 text-sm font-bold">
@@ -171,8 +172,12 @@ export function Revision({ filas }: { filas: FilaRevision[] }) {
             </div>
           )}
           {p.estudiar_href && (
-            <Link href={p.estudiar_href} className="self-start text-sm font-bold text-primary-strong">
-              Estudiá esto →
+            <Link
+              href={p.estudiar_href}
+              className="inline-flex items-center gap-1 self-start text-sm font-bold text-primary-strong"
+            >
+              Estudiá esto
+              <Icono nombre="flecha-der" tamano={16} />
             </Link>
           )}
         </li>

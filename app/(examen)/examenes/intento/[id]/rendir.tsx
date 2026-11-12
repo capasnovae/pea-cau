@@ -1,5 +1,6 @@
 "use client";
 
+import { Icono } from "@/components/ui/icono";
 import { useCallback, useEffect, useRef, useState, useTransition } from "react";
 import {
   ControlPregunta,
@@ -48,16 +49,16 @@ function Dialogo({
     }
   };
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-ink/50 p-4">
+    <div className="animate-aparecer fixed inset-0 z-50 flex items-center justify-center bg-(--overlay) p-4">
       <div
         ref={caja}
         onKeyDown={atrapar}
         role="alertdialog"
         aria-modal="true"
         aria-labelledby="dialogo-titulo"
-        className="flex w-full max-w-md flex-col gap-4 rounded-3xl bg-card p-6 shadow-xl"
+        className="animate-pop flex w-full max-w-md flex-col gap-4 rounded-hoja bg-card p-6 shadow-4"
       >
-        <h2 id="dialogo-titulo" className="text-xl font-extrabold">
+        <h2 id="dialogo-titulo" className="text-h2">
           {titulo}
         </h2>
         {children}
@@ -85,10 +86,12 @@ function Reloj({ venceAt, onFin }: { venceAt: string; onFin: () => void }) {
       role="timer"
       aria-label="Tiempo restante"
       className={cn(
-        "rounded-full px-3 py-1.5 font-mono text-sm font-bold",
-        resta < 60 ? "bg-[#fef2f2] text-[#b91c1c]" : "bg-primary-soft text-primary-strong",
+        "cifras inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-sm font-bold transition-colors",
+        resta < 60 ? "bg-warning-soft text-warning" : "bg-primary-soft text-primary-strong",
+        resta < 60 && Math.floor(resta) % 10 === 0 && "latir",
       )}
     >
+      <Icono nombre="reloj" tamano={16} />
       {formatoDuracion(resta)}
     </span>
   );
@@ -107,7 +110,15 @@ export function Rendir({
   preguntas: PreguntaRender[];
   iniciales: Record<string, Valor>;
 }) {
-  const [actual, setActual] = useState(0);
+  const [actual, setActualBase] = useState(0);
+  const [sentido, setSentido] = useState<"der" | "izq">("der");
+  /** Cambia de pregunta recordando hacia dónde, para que la nueva entre desde ese lado. */
+  const setActual = (destino: number | ((i: number) => number)) =>
+    setActualBase((i) => {
+      const n = typeof destino === "function" ? destino(i) : destino;
+      setSentido(n >= i ? "der" : "izq");
+      return n;
+    });
   const [revisar, setRevisar] = useState(false);
   const [valores, setValores] = useState<Record<string, Valor>>(iniciales);
   const [guardado, setGuardado] = useState<EstadoGuardado>("guardado");
@@ -205,19 +216,27 @@ export function Rendir({
   return (
     <div className="mx-auto flex w-full max-w-3xl flex-col gap-4 pb-24 md:pb-0">
       <div className="flex items-center justify-between gap-3">
-        <h1 className="truncate text-lg font-extrabold">{titulo}</h1>
+        <h1 className="truncate text-h2">{titulo}</h1>
         <div className="flex shrink-0 items-center gap-2">
           <span
             aria-live="polite"
-            className={cn("text-xs font-semibold", guardado === "error" ? "text-[#b91c1c]" : "text-muted")}
+            className={cn(
+              "inline-flex items-center gap-1 text-xs font-semibold",
+              guardado === "error" ? "text-destructive" : "text-muted",
+            )}
           >
+            {guardado === "guardando" ? (
+              <span aria-hidden="true" className="guardando size-2 rounded-full bg-primary" />
+            ) : guardado === "guardado" ? (
+              <Icono nombre="tilde" tamano={16} className="text-success" />
+            ) : null}
             {guardado === "guardando" ? "Guardando…" : guardado === "error" ? "Sin guardar" : "Guardado"}
           </span>
           {venceAt && <Reloj venceAt={venceAt} onFin={confirmarEntrega} />}
           <button
             type="button"
             onClick={() => setSalir(true)}
-            className="rounded-xl border border-border bg-card px-3 py-1.5 text-sm font-bold"
+            className="min-h-11 rounded-boton border border-border-control bg-card px-3 text-sm font-bold transition active:scale-[0.97]"
           >
             Salir
           </button>
@@ -231,7 +250,7 @@ export function Rendir({
             <button
               type="button"
               onClick={() => setSalir(false)}
-              className="min-h-12 flex-1 rounded-2xl bg-primary font-bold text-white"
+              className="min-h-12 flex-1 rounded-boton bg-primary font-bold text-primary-foreground transition hover:bg-primary-strong active:scale-[0.98]"
             >
               Volver al examen
             </button>
@@ -239,7 +258,7 @@ export function Rendir({
               type="button"
               disabled={entregando}
               onClick={confirmarEntrega}
-              className="min-h-12 flex-1 rounded-2xl border-2 border-[#b91c1c] font-bold text-[#b91c1c] disabled:opacity-60"
+              className="min-h-12 flex-1 rounded-boton border-2 border-destructive font-bold text-destructive transition active:scale-[0.98] disabled:opacity-60"
             >
               {entregando ? "Entregando…" : "Entregar y salir"}
             </button>
@@ -256,7 +275,7 @@ export function Rendir({
           <button
             type="button"
             onClick={() => setAviso(null)}
-            className="min-h-12 rounded-2xl bg-primary font-bold text-white"
+            className="min-h-12 rounded-boton bg-primary font-bold text-primary-foreground transition hover:bg-primary-strong active:scale-[0.98]"
           >
             Volver al examen
           </button>
@@ -275,12 +294,12 @@ export function Rendir({
             aria-current={!revisar && i === actual ? "step" : undefined}
             aria-label={`Pregunta ${i + 1}${respondida(q, valores[q.pregunta_id]) ? ", respondida" : ""}`}
             className={cn(
-              "size-9 rounded-full text-sm font-bold",
+              "cifras size-11 rounded-full text-sm font-bold transition active:scale-95",
               !revisar && i === actual
-                ? "bg-primary text-white"
+                ? "bg-primary text-primary-foreground"
                 : respondida(q, valores[q.pregunta_id])
                   ? "bg-primary-soft text-primary-strong"
-                  : "bg-card text-muted shadow-[var(--shadow-suave)]",
+                  : "bg-card text-muted shadow-1",
             )}
           >
             {i + 1}
@@ -289,7 +308,10 @@ export function Rendir({
       </nav>
 
       {error && (
-        <p role="alert" className="rounded-2xl bg-[#fef2f2] p-3 text-sm font-semibold text-[#b91c1c]">
+        <p
+          role="alert"
+          className="rounded-2xl bg-destructive-soft p-3 text-sm font-semibold text-destructive"
+        >
           {error}
         </p>
       )}
@@ -297,9 +319,9 @@ export function Rendir({
       {revisar ? (
         <section
           aria-label="Revisar"
-          className="flex flex-col gap-4 rounded-3xl bg-card p-5 shadow-[var(--shadow-suave)]"
+          className="animate-subir flex flex-col gap-4 rounded-tarjeta bg-card p-5 shadow-1"
         >
-          <h2 className="text-xl font-extrabold">Revisar antes de entregar</h2>
+          <h2 className="text-h2">Revisar antes de entregar</h2>
           <ul className="grid gap-2 sm:grid-cols-2">
             {preguntas.map((q, i) => {
               const ok = respondida(q, valores[q.pregunta_id]);
@@ -311,7 +333,7 @@ export function Rendir({
                       setRevisar(false);
                       setActual(i);
                     }}
-                    className="flex w-full items-center justify-between gap-2 rounded-2xl border border-border px-4 py-3 text-left"
+                    className="flex min-h-12 w-full items-center justify-between gap-2 rounded-boton border border-border px-4 py-3 text-left transition-colors hover:bg-surface-2"
                   >
                     <span className="font-bold">Pregunta {i + 1}</span>
                     <span className={cn("text-sm font-semibold", ok ? "text-success" : "text-warning")}>
@@ -326,7 +348,7 @@ export function Rendir({
             type="button"
             disabled={entregando}
             onClick={confirmarEntrega}
-            className="min-h-12 rounded-2xl bg-primary font-extrabold text-white hover:bg-primary-strong disabled:opacity-60"
+            className="min-h-13 rounded-boton bg-primary font-bold text-primary-foreground shadow-brand transition hover:bg-primary-strong active:scale-[0.98] disabled:opacity-60"
           >
             {entregando
               ? "Entregando…"
@@ -337,8 +359,12 @@ export function Rendir({
         </section>
       ) : (
         <section
+          key={p.pregunta_id}
           aria-label={`Pregunta ${actual + 1} de ${preguntas.length}`}
-          className="flex flex-col gap-4 rounded-3xl bg-card p-5 shadow-[var(--shadow-suave)]"
+          className={cn(
+            "flex flex-col gap-4 rounded-tarjeta bg-card p-5 shadow-1",
+            sentido === "der" ? "entra-der" : "entra-izq",
+          )}
         >
           <p className="text-sm font-bold text-muted">
             Pregunta {actual + 1} de {preguntas.length}
@@ -357,7 +383,7 @@ export function Rendir({
         <button
           type="button"
           onClick={() => setRevisar(true)}
-          className="self-center text-sm font-bold text-primary-strong"
+          className="min-h-11 self-center px-3 text-sm font-bold text-primary-strong"
         >
           Revisar y entregar
         </button>
@@ -368,7 +394,7 @@ export function Rendir({
             type="button"
             disabled={actual === 0}
             onClick={() => setActual((i) => i - 1)}
-            className="min-h-12 flex-1 rounded-2xl border border-border bg-card font-bold disabled:opacity-40"
+            className="min-h-12 flex-1 rounded-boton border border-border-control bg-card font-bold transition active:scale-[0.98] disabled:opacity-40"
           >
             Anterior
           </button>
@@ -376,7 +402,7 @@ export function Rendir({
             <button
               type="button"
               onClick={() => setActual((i) => i + 1)}
-              className="min-h-12 flex-1 rounded-2xl bg-primary font-bold text-white"
+              className="min-h-12 flex-1 rounded-boton bg-primary font-bold text-primary-foreground transition hover:bg-primary-strong active:scale-[0.98]"
             >
               Siguiente
             </button>
@@ -384,7 +410,7 @@ export function Rendir({
             <button
               type="button"
               onClick={() => setRevisar(true)}
-              className="min-h-12 flex-1 rounded-2xl bg-primary font-bold text-white"
+              className="min-h-12 flex-1 rounded-boton bg-primary font-bold text-primary-foreground transition hover:bg-primary-strong active:scale-[0.98]"
             >
               Entregar
             </button>

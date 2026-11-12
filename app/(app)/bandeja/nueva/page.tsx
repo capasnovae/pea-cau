@@ -1,3 +1,4 @@
+import { Icono } from "@/components/ui/icono";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Card } from "@/components/ui/card";
@@ -15,10 +16,14 @@ export default async function PaginaNuevoMensaje({ searchParams }: PageProps<"/b
 
   return (
     <div className="mx-auto flex w-full max-w-2xl flex-col gap-4">
-      <Link href="/bandeja" className="text-sm font-semibold text-primary-strong">
-        ‹ Bandeja
+      <Link
+        href="/bandeja"
+        className="inline-flex items-center gap-1 text-sm font-semibold text-primary-strong"
+      >
+        <Icono nombre="chevron-izq" tamano={16} />
+        Bandeja
       </Link>
-      <h1 className="text-2xl font-extrabold">{esAnuncio ? "Nuevo anuncio" : "Nuevo mensaje"}</h1>
+      <h1 className="text-h1">{esAnuncio ? "Nuevo anuncio" : "Nuevo mensaje"}</h1>
       <Card>
         {esAnuncio ? (
           <FormAnuncio rol={perfil.rol} sedeId={perfil.sede_id} />

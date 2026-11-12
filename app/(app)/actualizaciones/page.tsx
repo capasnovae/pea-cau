@@ -17,7 +17,7 @@ export default async function PaginaActualizaciones() {
   const ahora = new Date();
   return (
     <div className="flex flex-col gap-4">
-      <h1 className="text-2xl font-extrabold">Actualizaciones</h1>
+      <h1 className="text-h1">Actualizaciones</h1>
       <Card className="p-0!">
         {(data ?? []).length === 0 ? (
           <p className="p-5 text-sm text-muted">Sin actualizaciones.</p>

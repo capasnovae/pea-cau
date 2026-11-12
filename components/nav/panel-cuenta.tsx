@@ -8,7 +8,7 @@ export function Avatar({ nombre, className }: { nombre: string; className?: stri
     <span
       aria-hidden="true"
       className={cn(
-        "flex size-8 items-center justify-center rounded-full bg-[#ffd9a8] font-extrabold text-[#9a4a00]",
+        "flex size-8 items-center justify-center rounded-full bg-avatar font-extrabold text-avatar-fg",
         className,
       )}
     >
@@ -26,20 +26,28 @@ export function PanelCuenta({
   variante: "lateral" | "encabezado";
 }) {
   return (
-    <details className="group relative">
-      <summary
+    <>
+      <button
+        type="button"
+        popoverTarget={`cuenta-${variante}`}
         className={cn(
-          "flex cursor-pointer list-none flex-col items-center gap-1 [&::-webkit-details-marker]:hidden",
-          variante === "lateral" ? "px-1 py-2.5 text-xs text-[#c7d2fe] hover:text-white" : "",
+          "flex cursor-pointer flex-col items-center justify-center gap-1",
+          variante === "lateral"
+            ? "w-full px-1 py-2.5 text-xs text-nav-fg hover:text-nav-fg-activo xl:flex-row xl:justify-start xl:gap-3 xl:px-3 xl:text-sm"
+            : "size-11 rounded-full",
         )}
       >
         <Avatar nombre={perfil.nombre} />
         {variante === "lateral" ? <span>Cuenta</span> : <span className="sr-only">Cuenta</span>}
-      </summary>
+      </button>
       <div
+        id={`cuenta-${variante}`}
+        popover="auto"
         className={cn(
-          "absolute z-30 w-60 rounded-2xl bg-card p-4 text-ink shadow-lg",
-          variante === "lateral" ? "left-full top-0 ml-2" : "right-0 top-full mt-2",
+          "menu-flotante w-60 rounded-tarjeta bg-card p-4 text-ink shadow-3",
+          variante === "lateral"
+            ? "left-[100px] top-14 origin-top-left xl:left-[240px]"
+            : "right-3 top-14 origin-top-right",
         )}
       >
         <div className="flex items-center gap-3">
@@ -77,6 +85,6 @@ export function PanelCuenta({
           </li>
         </ul>
       </div>
-    </details>
+    </>
   );
 }

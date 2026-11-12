@@ -23,7 +23,7 @@ export default async function PaginaGestionExamenes() {
       <NavExamenes actual="examenes" />
       <Link
         href="/contenido/examenes/nuevo"
-        className="flex h-10 items-center self-end rounded-xl bg-primary px-4 text-sm font-bold text-white"
+        className="flex h-10 items-center self-end rounded-xl bg-primary px-4 text-sm font-bold text-primary-foreground"
       >
         Nuevo examen
       </Link>

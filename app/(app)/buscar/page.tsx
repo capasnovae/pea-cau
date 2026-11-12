@@ -16,9 +16,15 @@ export default async function PaginaBuscar({ searchParams }: PageProps<"/buscar"
 
   return (
     <div className="flex flex-col gap-5">
-      <h1 className="text-2xl font-semibold">Buscar</h1>
+      <h1 className="text-h1">Buscar</h1>
       <form role="search" className="flex gap-2">
-        <Input name="q" aria-label="¿Qué estás buscando?" placeholder="¿Qué estás buscando?" defaultValue={q} autoFocus={!q} />
+        <Input
+          name="q"
+          aria-label="¿Qué estás buscando?"
+          placeholder="¿Qué estás buscando?"
+          defaultValue={q}
+          autoFocus={!q}
+        />
         <Button type="submit">Buscar</Button>
       </form>
       {q && articulos.length + recursos.length === 0 && (
@@ -33,7 +39,10 @@ export default async function PaginaBuscar({ searchParams }: PageProps<"/buscar"
             {articulos.map((a) => (
               <li key={a.id}>
                 <Card className="p-4">
-                  <Link href={`/repositorio/${a.categoria_slug}/${a.slug}`} className="font-medium text-primary">
+                  <Link
+                    href={`/repositorio/${a.categoria_slug}/${a.slug}`}
+                    className="font-medium text-primary"
+                  >
                     {a.titulo}
                   </Link>
                   {a.resumen && <p className="text-sm text-muted">{a.resumen}</p>}

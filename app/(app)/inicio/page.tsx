@@ -1,9 +1,13 @@
+import { textoRacha, textoRepaso } from "@/lib/dominio/repaso";
 import Link from "next/link";
 import { Avatar } from "@/components/nav/panel-cuenta";
 import { Pestanas } from "@/components/tablero/pestanas";
 import { TarjetaCurso, etiquetaTipo, type FilaMiRuta } from "@/components/tablero/tarjeta-curso";
 import { Card } from "@/components/ui/card";
 import { formatearFecha } from "@/lib/dominio/contenido";
+import { Conteo } from "@/components/ui/conteo";
+import { Icono } from "@/components/ui/icono";
+import { Barra } from "@/components/ui/progreso";
 import { colorNivel, porcentaje } from "@/lib/dominio/leccion";
 import { requerirPerfil } from "@/lib/supabase/permisos";
 import { crearClienteServidor } from "@/lib/supabase/servidor";
@@ -25,7 +29,7 @@ function Seccion({
   return (
     <section aria-label={titulo} className="flex flex-col gap-2.5">
       <div className="flex items-baseline justify-between">
-        <h2 className="text-lg font-extrabold">{titulo}</h2>
+        <h2 className="text-h2">{titulo}</h2>
         {accion}
       </div>
       {children}
@@ -49,7 +53,7 @@ export default async function PaginaInicio({ searchParams }: PageProps<"/inicio"
     <div className="flex flex-col gap-5">
       <div className="flex items-center gap-3">
         <Avatar nombre={perfil.nombre} className="size-11 text-lg" />
-        <p className="text-2xl font-extrabold md:text-[32px]">¡Hola, {perfil.nombre}!</p>
+        <p className="text-h1 md:text-[32px]">¡Hola, {perfil.nombre}!</p>
       </div>
       <Pestanas opciones={PESTANAS} actual={actualVista} />
       {actualVista === "cursos" ? (
@@ -82,32 +86,54 @@ function VistaCursos({ cursos, favs }: { cursos: FilaMiRuta[]; favs: Set<string>
 
 async function VistaTablero({ cursos, usuarioId }: { cursos: FilaMiRuta[]; usuarioId: string }) {
   const supabase = await crearClienteServidor();
-  const [{ data: trabajo }, { data: pendientes }, { data: novedades }, { data: contactos }] =
-    await Promise.all([
-      supabase.rpc("mi_trabajo").maybeSingle(),
-      supabase
-        .from("consigna_asignaciones")
-        .select("id, vence_el, consignas(titulo)")
-        .eq("usuario_id", usuarioId)
-        .in("estado", ["pendiente", "en_curso", "vencida"])
-        .order("vence_el", { ascending: true, nullsFirst: false })
-        .limit(3),
-      supabase.rpc("mi_bandeja", { p_filtro: "anuncios" }).limit(3),
-      supabase.rpc("contactos_bandeja"),
-    ]);
+  const [
+    { data: trabajo },
+    { data: pendientes },
+    { data: novedades },
+    { data: contactos },
+    { data: repaso },
+  ] = await Promise.all([
+    supabase.rpc("mi_trabajo").maybeSingle(),
+    supabase
+      .from("consigna_asignaciones")
+      .select("id, vence_el, consignas(titulo)")
+      .eq("usuario_id", usuarioId)
+      .in("estado", ["pendiente", "en_curso", "vencida"])
+      .order("vence_el", { ascending: true, nullsFirst: false })
+      .limit(3),
+    supabase.rpc("mi_bandeja", { p_filtro: "anuncios" }).limit(3),
+    supabase.rpc("contactos_bandeja"),
+    supabase.rpc("mi_repaso").maybeSingle(),
+  ]);
   const equipo = (contactos ?? []).filter((c) => c.mismo_equipo).slice(0, 6);
   const enCurso = cursos.filter((c) => c.desbloqueado && !c.cumplido);
   const actual = enCurso.find((c) => c.obligatorio) ?? enCurso[0];
   const otros = enCurso.filter((c) => c.curso_id !== actual?.curso_id);
   const contadores = [
     { etiqueta: "Por vencer", valor: trabajo?.por_vencer ?? 0, color: "text-warning" },
-    { etiqueta: "Vencidas", valor: trabajo?.vencidas ?? 0, color: "text-[#b91c1c]" },
+    { etiqueta: "Vencidas", valor: trabajo?.vencidas ?? 0, color: "text-destructive" },
     { etiqueta: "Hechas", valor: trabajo?.hechas ?? 0, color: "text-success" },
   ];
 
   return (
     <div className="grid gap-6 lg:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)]">
       <div className="flex flex-col gap-6">
+        {(repaso?.pendientes ?? 0) > 0 && (
+          <Link
+            href="/repaso"
+            aria-label="Repaso de hoy"
+            className="flex items-center justify-between gap-3 rounded-tarjeta bg-primary p-5 text-primary-foreground shadow-brand transition hover:-translate-y-0.5 active:scale-[0.99]"
+          >
+            <span>
+              <span className="block text-h2">Repaso de hoy</span>
+              <span className="block text-sm text-sobre-color/85">
+                {textoRepaso(Math.min(5, repaso?.pendientes ?? 0))}
+                {repaso?.racha ? ` · ${textoRacha(repaso.racha)}` : ""}
+              </span>
+            </span>
+            <Icono nombre="flecha-der" tamano={24} />
+          </Link>
+        )}
         <Seccion
           titulo="Mi trabajo"
           accion={
@@ -120,7 +146,9 @@ async function VistaTablero({ cursos, usuarioId }: { cursos: FilaMiRuta[]; usuar
             <dl className="grid grid-cols-3 gap-3">
               {contadores.map((c) => (
                 <div key={c.etiqueta} className="rounded-2xl bg-background p-3 text-center">
-                  <dd className={`text-3xl font-extrabold ${c.color}`}>{c.valor}</dd>
+                  <dd className={`text-3xl font-extrabold ${c.valor === 0 ? "text-subtle" : c.color}`}>
+                    <Conteo valor={c.valor} />
+                  </dd>
                   <dt className="text-xs font-semibold text-muted">{c.etiqueta}</dt>
                 </div>
               ))}
@@ -250,29 +278,35 @@ function ProgresoActual({ curso }: { curso: FilaMiRuta }) {
   return (
     <section
       aria-label="Tu ruta"
-      className="flex flex-col gap-3 rounded-3xl p-5 text-white"
+      className="flex flex-col gap-3 rounded-3xl p-5 text-sobre-color"
       style={{ background: color.fondo }}
     >
       <div className="flex items-center justify-between">
-        <span className="rounded-full bg-white/20 px-3 py-1.5 text-xs font-bold uppercase">
+        <span className="rounded-full bg-sobre-color/20 px-3 py-1.5 text-xs font-bold uppercase">
           {etiquetaTipo(curso)}
         </span>
-        <span className="text-3xl font-extrabold">{pct}%</span>
+        <span className="text-3xl font-extrabold">
+          <Conteo valor={pct} sufijo="%" />
+        </span>
       </div>
-      <h3 className="text-2xl font-extrabold leading-tight">{curso.titulo}</h3>
-      <div className="h-2 overflow-hidden rounded bg-white/30" aria-hidden="true">
-        <div className="h-full rounded bg-[#a5f3c4]" style={{ width: `${pct}%` }} />
-      </div>
+      <h3 className="text-h1 leading-tight">{curso.titulo}</h3>
+      <Barra
+        valor={pct}
+        etiqueta={`${pct}% del curso`}
+        color="var(--sobre-color)"
+        pista="color-mix(in srgb, var(--sobre-color) 30%, transparent)"
+      />
       <Link
         href={
           curso.siguiente_item
             ? `/estudiar/${curso.curso_id}/${curso.siguiente_item}`
             : `/estudiar/${curso.curso_id}`
         }
-        className="flex min-h-12 items-center justify-center rounded-2xl bg-white px-4 text-base font-extrabold"
+        className="flex min-h-12 items-center justify-center gap-2 rounded-boton bg-sobre-color px-4 text-base font-bold transition active:scale-[0.98]"
         style={{ color: color.texto }}
       >
         Continuar
+        <Icono nombre="flecha-der" />
       </Link>
     </section>
   );

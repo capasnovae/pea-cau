@@ -12,6 +12,8 @@ describe("armarArbol", () => {
     expect(arbol[0]?.hijos.map((n) => n.id)).toEqual(["c", "b"]);
   });
   it("deja en la raíz a los que tienen un padre que no se ve", () => {
-    expect(armarArbol([{ id: "x", padre_id: "oculto", orden: 0, titulo: "X" }]).map((n) => n.id)).toEqual(["x"]);
+    expect(armarArbol([{ id: "x", padre_id: "oculto", orden: 0, titulo: "X" }]).map((n) => n.id)).toEqual([
+      "x",
+    ]);
   });
 });

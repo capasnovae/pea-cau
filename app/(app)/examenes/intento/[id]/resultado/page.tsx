@@ -1,5 +1,10 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { Insignia } from "@/components/perfil/insignia";
+import { Confeti } from "@/components/ui/confeti";
+import { Conteo } from "@/components/ui/conteo";
+import { Icono } from "@/components/ui/icono";
+import { Anillo } from "@/components/ui/progreso";
 import { Revision, type FilaRevision } from "@/components/examen/revision";
 import { requerirPerfil } from "@/lib/supabase/permisos";
 import { crearClienteServidor } from "@/lib/supabase/servidor";
@@ -13,7 +18,9 @@ export default async function PaginaResultado({ params }: PageProps<"/examenes/i
   const supabase = await crearClienteServidor();
   const { data: intento } = await supabase
     .from("intentos")
-    .select("id, estado, nota, aprobado, usuario_id, examen_id, salidas, examenes(titulo, nota_minima, tipo)")
+    .select(
+      "id, estado, nota, aprobado, usuario_id, examen_id, salidas, examenes(titulo, nota_minima, tipo, cursos(nivel_orden, titulo))",
+    )
     .eq("id", id)
     .maybeSingle();
   if (!intento || intento.estado === "en_curso") notFound();
@@ -49,25 +56,50 @@ export default async function PaginaResultado({ params }: PageProps<"/examenes/i
     <div className="mx-auto flex w-full max-w-3xl flex-col gap-5">
       <Link
         href={propio ? `/examenes/${intento.examen_id}` : "/examenes"}
-        className="text-sm font-semibold text-primary-strong"
+        className="inline-flex items-center gap-1 text-sm font-semibold text-primary-strong"
       >
-        ‹ {examen?.titulo ?? "Exámenes"}
+        <Icono nombre="chevron-izq" tamano={16} />
+        {examen?.titulo ?? "Exámenes"}
       </Link>
       {intento.estado === "pendiente_correccion" ? (
-        <section className="flex flex-col items-center gap-2 rounded-3xl bg-card p-8 text-center shadow-[var(--shadow-suave)]">
-          <h1 className="text-2xl font-extrabold">Pendiente de corrección</h1>
+        <section className="flex flex-col items-center gap-2 rounded-3xl bg-card p-8 text-center shadow-1">
+          <h1 className="text-h1">Pendiente de corrección</h1>
         </section>
       ) : (
         <section
           aria-label="Resultado"
           className={cn(
-            "flex flex-col items-center gap-1 rounded-3xl p-8 text-center text-white",
-            intento.aprobado ? "bg-success" : "bg-[#b91c1c]",
+            "flex flex-col items-center gap-2 rounded-hoja p-8 text-center",
+            intento.aprobado ? "bg-success-soft" : "bg-destructive-soft",
           )}
         >
-          <p className="text-6xl font-extrabold">{intento.nota}%</p>
-          <h1 className="text-2xl font-extrabold">{intento.aprobado ? "Aprobado" : "No aprobado"}</h1>
-          <p className="text-sm text-white/85">Para aprobar: {examen?.nota_minima}%</p>
+          {intento.aprobado && propio && <Confeti />}
+          <Anillo
+            valor={Number(intento.nota ?? 0)}
+            etiqueta={`Nota: ${intento.nota}%`}
+            tamano={144}
+            grosor={12}
+            color={intento.aprobado ? "var(--success)" : "var(--subtle)"}
+            pista="var(--card)"
+          >
+            <span className="text-4xl font-extrabold tracking-tight text-ink">
+              <Conteo valor={Number(intento.nota ?? 0)} sufijo="%" />
+            </span>
+          </Anillo>
+          <h1 className={cn("animate-pop text-h1", intento.aprobado ? "text-success" : "text-destructive")}>
+            {intento.aprobado ? "Aprobado" : "No aprobado"}
+          </h1>
+          <p className="text-sm text-muted">Para aprobar: {examen?.nota_minima}%</p>
+          {intento.aprobado && propio && examen?.tipo === "nivel" && examen.cursos?.nivel_orden && (
+            <Link href="/perfil#insignias" aria-label="Ver mis insignias" className="mt-3">
+              <Insignia
+                nivel={examen.cursos.nivel_orden}
+                nombre={examen.cursos.titulo ?? ""}
+                tamano="lg"
+                entrada
+              />
+            </Link>
+          )}
         </section>
       )}
       {intento.salidas > 0 && (
@@ -79,7 +111,7 @@ export default async function PaginaResultado({ params }: PageProps<"/examenes/i
         <form action={empezarUbicacion}>
           <button
             type="submit"
-            className="min-h-12 w-full rounded-2xl bg-[#1e1b4b] font-extrabold text-white"
+            className="min-h-12 w-full rounded-2xl bg-nav font-extrabold text-nav-fg-activo"
           >
             Seguir con el Nivel {ubicacion.bloque_actual}
           </button>

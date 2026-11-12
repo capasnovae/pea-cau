@@ -73,7 +73,15 @@ describe("esquemaModulo", () => {
 
 describe("esquemaItem: lección", () => {
   const leccion = JSON.stringify({ resumen: ["a"], ejemplos: [{ consulta: "c", respuesta: "r" }], ojo: [] });
-  const base = { modulo_id: U, titulo: "L", tipo: "leccion", requisito: "ver", orden: 1, leccion, articulo_id: U };
+  const base = {
+    modulo_id: U,
+    titulo: "L",
+    tipo: "leccion",
+    requisito: "ver",
+    orden: 1,
+    leccion,
+    articulo_id: U,
+  };
   it("necesita la fuente", () => {
     const r = esquemaItem.safeParse({ ...base, articulo_id: "" });
     expect(r.success).toBe(false);

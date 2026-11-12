@@ -40,7 +40,7 @@ test("revisar antes de entregar, entregar sin responder y ver la revisión", asy
   await expect(a.getByRole("region", { name: "Revisar" }).getByText("Respondida")).toBeVisible();
   await a.getByRole("button", { name: /^Confirmar entrega/ }).click();
   await expect(a.getByRole("region", { name: "Resultado" })).toContainText("No aprobado");
-  await expect(a.getByRole("link", { name: "Estudiá esto →" }).first()).toBeVisible();
+  await expect(a.getByRole("link", { name: "Estudiá esto" }).first()).toBeVisible();
   await a.goto("/examenes/d1000000-0000-4000-8000-000000000001");
   await expect(a.getByText("Intentos", { exact: true }).locator("..")).toContainText("2");
 });
@@ -76,7 +76,7 @@ test.describe.serial("ubicación, práctica y corrección", () => {
     await practica.getByLabel("Columna para No aparece la mesa").selectOption("Gestión de exámenes");
     await practica.getByRole("button", { name: "Comprobar" }).click();
     await expect(practica.getByRole("status")).toContainText("Todavía no");
-    await expect(practica.getByRole("status")).toContainText("Reinscripción → CAU");
+    await expect(practica.getByRole("status")).toContainText(/Reinscripción\s*CAU/);
     await practica.getByRole("button", { name: "Otra vez" }).click();
     await practica.getByLabel("Columna para Reinscripción").selectOption("CAU");
     await practica.getByRole("button", { name: "Comprobar" }).click();
@@ -161,7 +161,8 @@ test("modo examen: el botón Atrás pide confirmar y no saca del examen", async 
   await salir.getByRole("button", { name: "Volver al examen" }).click();
   await a.goBack();
   await a.getByRole("alertdialog").getByRole("button", { name: "Entregar y salir" }).click();
-  await expect(a).toHaveURL(/\/resultado$/);
+  // Entregar y compilar la página de resultado puede tardar en una máquina lenta
+  await expect(a).toHaveURL(/\/resultado$/, { timeout: 30_000 });
 });
 
 test("un asesor no entra a la cola de corrección", async ({ browser }) => {

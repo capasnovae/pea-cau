@@ -4,12 +4,12 @@ import Link from "next/link";
 export function AvisoPagina({ titulo, children }: { titulo: string; children?: React.ReactNode }) {
   return (
     <div className="mx-auto flex min-h-[50vh] max-w-md flex-col items-center justify-center gap-4 px-4 text-center">
-      <h1 className="text-2xl font-extrabold">{titulo}</h1>
+      <h1 className="text-h1">{titulo}</h1>
       <div className="flex flex-wrap justify-center gap-3">
         {children}
         <Link
           href="/inicio"
-          className="inline-flex min-h-12 items-center rounded-2xl bg-primary px-5 font-bold text-white"
+          className="inline-flex min-h-12 items-center rounded-boton bg-primary px-5 font-bold text-primary-foreground transition hover:bg-primary-strong active:scale-[0.97]"
         >
           Ir al inicio
         </Link>

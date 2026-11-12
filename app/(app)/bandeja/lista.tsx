@@ -1,35 +1,13 @@
 import Link from "next/link";
-import {
-  ETIQUETA_FILTRO,
-  FILTROS_BANDEJA,
-  fechaCorta,
-  iniciales,
-  type FiltroBandeja,
-} from "@/lib/dominio/bandeja";
+import { ETIQUETA_FILTRO, FILTROS_BANDEJA, fechaCorta, type FiltroBandeja } from "@/lib/dominio/bandeja";
+import { AvatarIniciales } from "@/components/ui/avatar";
+import { Icono } from "@/components/ui/icono";
+import { Vacio } from "@/components/ui/vacio";
 import { crearClienteServidor } from "@/lib/supabase/servidor";
 import { cn } from "@/lib/utils/cn";
 import { SelectFiltro } from "./formularios";
 
-const PALETA = [
-  ["#e0e7ff", "#3730a3"],
-  ["#ccfbf1", "#115e59"],
-  ["#fce7f3", "#9d174d"],
-  ["#ffedd5", "#9a3412"],
-  ["#ede9fe", "#5b21b6"],
-] as const;
-
-export function AvatarIniciales({ nombre }: { nombre: string }) {
-  const [fondo, texto] = PALETA[[...nombre].reduce((a, c) => a + c.charCodeAt(0), 0) % PALETA.length]!;
-  return (
-    <span
-      aria-hidden="true"
-      className="flex size-10 shrink-0 items-center justify-center rounded-full text-sm font-extrabold"
-      style={{ background: fondo, color: texto }}
-    >
-      {iniciales(nombre) || "?"}
-    </span>
-  );
-}
+export { AvatarIniciales } from "@/components/ui/avatar";
 
 /** Barra superior, lista de conversaciones y panel derecho. En celular se ve la lista o la conversación, no las dos. */
 export async function MarcoBandeja({
@@ -48,9 +26,9 @@ export async function MarcoBandeja({
   const filas = data ?? [];
   const ahora = new Date();
   return (
-    <div className="-mx-4 -mt-2 flex flex-col md:fixed md:inset-y-0 md:left-[92px] md:right-0 md:m-0">
+    <div className="-mx-4 -mt-2 flex flex-col md:fixed md:inset-y-0 md:left-[92px] md:right-0 md:m-0 xl:left-[232px]">
       <div className="flex flex-wrap items-center gap-2.5 border-b border-border bg-card px-4 py-3 md:px-7 md:py-4">
-        <h1 className="mr-2 text-xl font-extrabold md:text-[26px]">Bandeja de entrada</h1>
+        <h1 className="mr-2 text-h2 md:text-[26px]">Bandeja de entrada</h1>
         <SelectFiltro
           actual={filtro}
           opciones={FILTROS_BANDEJA.map((f) => ({ valor: f, etiqueta: ETIQUETA_FILTRO[f] }))}
@@ -59,15 +37,16 @@ export async function MarcoBandeja({
         {puedeAnunciar && (
           <Link
             href="/bandeja/nueva?anuncio=1"
-            className="flex h-10 items-center rounded-xl border border-border px-3.5 text-sm font-bold text-primary-strong"
+            className="flex h-11 items-center rounded-boton border border-border-control px-3.5 text-sm font-bold text-primary-strong transition hover:bg-primary-soft active:scale-[0.97]"
           >
             Nuevo anuncio
           </Link>
         )}
         <Link
           href="/bandeja/nueva"
-          className="flex h-10 items-center rounded-xl bg-primary px-4 text-sm font-bold text-white hover:bg-primary-strong"
+          className="flex h-11 items-center gap-1.5 rounded-boton bg-primary px-4 text-sm font-bold text-primary-foreground transition hover:bg-primary-strong active:scale-[0.97]"
         >
+          <Icono nombre="lapiz" tamano={16} />
           Nuevo mensaje
         </Link>
       </div>
@@ -80,7 +59,7 @@ export async function MarcoBandeja({
           )}
         >
           {filas.length === 0 ? (
-            <p className="p-6 text-sm text-muted">Sin conversaciones.</p>
+            <Vacio icono="mensaje" texto="Sin conversaciones." />
           ) : (
             <ul>
               {filas.map((f) => (
@@ -89,7 +68,7 @@ export async function MarcoBandeja({
                     href={`/bandeja/${f.conversacion_id}${filtro === "entrada" ? "" : `?filtro=${filtro}`}`}
                     aria-current={actual === f.conversacion_id ? "page" : undefined}
                     className={cn(
-                      "flex items-start gap-3 border-b border-border px-4 py-3.5",
+                      "flex items-start gap-3 border-b border-border px-4 py-3.5 transition-colors hover:bg-surface-2",
                       actual === f.conversacion_id && "bg-primary-soft",
                     )}
                   >
@@ -108,7 +87,7 @@ export async function MarcoBandeja({
                         >
                           {f.participantes}
                           {f.es_anuncio && (
-                            <span className="ml-1.5 rounded-md bg-warning-soft px-1.5 py-0.5 text-[10px] font-extrabold text-warning">
+                            <span className="ml-1.5 rounded-chip bg-warning-soft px-1.5 py-0.5 text-[10px] font-extrabold text-warning">
                               ANUNCIO
                             </span>
                           )}

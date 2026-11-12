@@ -15,7 +15,7 @@ export default async function PaginaCorrecciones({ searchParams }: PageProps<"/e
   const cola = data ?? [];
   return (
     <div className="flex flex-col gap-4">
-      <h1 className="text-2xl font-extrabold">Correcciones</h1>
+      <h1 className="text-h1">Correcciones</h1>
       {typeof error === "string" && (
         <p role="alert" className="rounded-2xl bg-warning-soft p-3 font-semibold text-warning">
           {error}
@@ -45,14 +45,14 @@ export default async function PaginaCorrecciones({ searchParams }: PageProps<"/e
                     {c.tomado_por && !c.tomado_por_mi ? ` · lo corrige ${c.tomado_por}` : ""}
                   </span>
                 </span>
-                <span className={cn("text-sm font-bold", c.vencida ? "text-[#b91c1c]" : "text-muted")}>
+                <span className={cn("text-sm font-bold", c.vencida ? "text-destructive" : "text-muted")}>
                   {c.vencida ? "Vencida" : `Plazo ${formatearFecha(c.correccion_vence_at)}`}
                 </span>
                 {c.tomado_por_mi ? (
                   <span className="flex gap-2">
                     <Link
                       href={`/equipo/correcciones/${c.intento_id}`}
-                      className="rounded-xl bg-primary px-4 py-2 text-sm font-bold text-white"
+                      className="rounded-xl bg-primary px-4 py-2 text-sm font-bold text-primary-foreground"
                     >
                       Seguir
                     </Link>
@@ -70,7 +70,7 @@ export default async function PaginaCorrecciones({ searchParams }: PageProps<"/e
                     <form action={tomar.bind(null, c.intento_id)}>
                       <button
                         type="submit"
-                        className="rounded-xl bg-primary px-4 py-2 text-sm font-bold text-white"
+                        className="rounded-xl bg-primary px-4 py-2 text-sm font-bold text-primary-foreground"
                       >
                         Tomar
                       </button>

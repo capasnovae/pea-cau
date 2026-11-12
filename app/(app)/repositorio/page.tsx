@@ -1,8 +1,12 @@
 import Link from "next/link";
 import { EncabezadoRepositorio } from "@/components/repositorio/encabezado";
 import { Card } from "@/components/ui/card";
+import { Icono } from "@/components/ui/icono";
+import { cn } from "@/lib/utils/cn";
 import { requerirPerfil } from "@/lib/supabase/permisos";
 import { crearClienteServidor } from "@/lib/supabase/servidor";
+
+const TONOS = ["--nivel-1", "--nivel-2", "--nivel-3", "--nivel-4", "--nivel-cap"];
 
 export default async function PaginaRepositorio() {
   await requerirPerfil();
@@ -18,21 +22,36 @@ export default async function PaginaRepositorio() {
     <div className="flex flex-col gap-5">
       <EncabezadoRepositorio actual="articulos" />
       <ul className="grid gap-3 sm:grid-cols-2">
-        {(categorias ?? []).map((c) => (
-          <li key={c.id}>
-            <Link href={`/repositorio/${c.slug}`} className="block h-full">
-              <Card className="h-full p-4 transition hover:border-primary">
-                <div className="flex items-baseline justify-between gap-2">
-                  <h2 className="font-semibold">{c.nombre}</h2>
-                  <span className="shrink-0 text-xs text-muted">
-                    {cantidad.get(c.id) ?? 0} {cantidad.get(c.id) === 1 ? "artículo" : "artículos"}
+        {(categorias ?? []).map((c, i) => {
+          const n = cantidad.get(c.id) ?? 0;
+          const t = TONOS[i % TONOS.length]!;
+          return (
+            <li key={c.id}>
+              <Link href={`/repositorio/${c.slug}`} className="block h-full">
+                <Card
+                  interactiva
+                  className={cn("flex h-full items-center gap-3 p-4", n === 0 && "opacity-60")}
+                >
+                  <span
+                    className="flex size-11 shrink-0 items-center justify-center rounded-boton"
+                    style={{ background: `var(${t}-soft)`, color: `var(${t}-fg)` }}
+                  >
+                    <Icono nombre="libro" />
                   </span>
-                </div>
-                <p className="mt-1 text-sm text-muted">{c.descripcion}</p>
-              </Card>
-            </Link>
-          </li>
-        ))}
+                  <span className="min-w-0 flex-1">
+                    <span className="flex items-baseline justify-between gap-2">
+                      <h2 className="text-h3">{c.nombre}</h2>
+                      <span className="shrink-0 text-xs text-muted">
+                        {n} {n === 1 ? "artículo" : "artículos"}
+                      </span>
+                    </span>
+                    <span className="line-clamp-1 text-sm text-muted">{c.descripcion}</span>
+                  </span>
+                </Card>
+              </Link>
+            </li>
+          );
+        })}
       </ul>
     </div>
   );

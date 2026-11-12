@@ -1,3 +1,4 @@
+import { Icono } from "@/components/ui/icono";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Markdown } from "@/components/markdown";
@@ -43,10 +44,11 @@ export default async function PaginaDetalleConsigna({
   return (
     <div className="flex flex-col gap-5">
       <div>
-        <Link href="/equipo/consignas" className="text-sm text-primary">
-          ← Consignas del equipo
+        <Link href="/equipo/consignas" className="inline-flex items-center gap-1 text-sm text-primary">
+          <Icono nombre="chevron-izq" tamano={16} />
+          Consignas del equipo
         </Link>
-        <h1 className="mt-1 text-2xl font-semibold">{c.titulo}</h1>
+        <h1 className="mt-1 text-h1">{c.titulo}</h1>
         {sp.creada && (
           <p role="status" className="text-sm text-primary">
             Consigna asignada a {delPeriodo.length} {delPeriodo.length === 1 ? "persona" : "personas"}.

@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { Card } from "@/components/ui/card";
+import { Icono } from "@/components/ui/icono";
+import { Vacio } from "@/components/ui/vacio";
 import {
   COLOR_CATEGORIA,
   DIAS_SEMANA,
@@ -30,8 +32,8 @@ type Fila = {
 function Chip({ e }: { e: Fila }) {
   const color = COLOR_CATEGORIA[e.categoria];
   const texto = `${e.hora ? `${e.hora.slice(0, 5)} ` : ""}${e.titulo}`;
-  const clase = "block truncate rounded-md border-l-[3px] px-1.5 py-0.5 text-[11px] font-bold";
-  const estilo = { color, borderColor: color, background: `${color}1a` };
+  const clase = "block truncate rounded-chip border-l-[3px] px-1.5 py-1 text-micro font-bold";
+  const estilo = { color, borderColor: color, background: `color-mix(in srgb, ${color} 10%, transparent)` };
   return e.categoria === "consigna" ? (
     <Link href="/consignas" className={clase} style={estilo} title={texto}>
       {texto}
@@ -43,7 +45,8 @@ function Chip({ e }: { e: Fila }) {
   );
 }
 
-const BOTON = "flex h-10 items-center rounded-xl border border-border bg-card px-3.5 text-sm font-bold";
+const BOTON =
+  "flex h-11 min-w-11 items-center justify-center rounded-boton border border-border-control bg-card px-3 text-sm font-bold transition hover:bg-primary-soft active:scale-[0.97]";
 
 export default async function PaginaCalendario({ searchParams }: PageProps<"/calendario">) {
   const perfil = await requerirPerfil();
@@ -72,7 +75,7 @@ export default async function PaginaCalendario({ searchParams }: PageProps<"/cal
     <div className="flex flex-col gap-5 lg:flex-row">
       <section className="flex min-w-0 flex-1 flex-col gap-4">
         <div className="flex flex-wrap items-center gap-2">
-          <h1 className="mr-auto text-2xl font-extrabold md:text-[32px]">Calendario</h1>
+          <h1 className="mr-auto text-h1 md:text-[32px]">Calendario</h1>
           <Link href="/calendario" className={BOTON}>
             Hoy
           </Link>
@@ -81,22 +84,22 @@ export default async function PaginaCalendario({ searchParams }: PageProps<"/cal
             aria-label="Mes anterior"
             className={BOTON}
           >
-            ‹
+            <Icono nombre="chevron-izq" />
           </Link>
           <Link
             href={`/calendario?mes=${claveMes(mesVecino(mes, 1))}`}
             aria-label="Mes siguiente"
             className={BOTON}
           >
-            ›
+            <Icono nombre="chevron-der" />
           </Link>
-          <h2 className="w-44 text-lg font-extrabold">{nombreMes(mes)}</h2>
+          <h2 className="w-44 text-h2">{nombreMes(mes)}</h2>
         </div>
 
         <div
           role="grid"
           aria-label={nombreMes(mes)}
-          className="hidden overflow-hidden rounded-[20px] bg-card shadow-[var(--shadow-suave)] md:block"
+          className="hidden overflow-hidden rounded-tarjeta bg-card shadow-1 md:block"
         >
           <div role="row" className="grid grid-cols-7 border-b border-border">
             {DIAS_SEMANA.map((d) => (
@@ -121,8 +124,8 @@ export default async function PaginaCalendario({ searchParams }: PageProps<"/cal
                   >
                     <span
                       className={cn(
-                        "flex size-6 items-center justify-center rounded-full text-[13px] font-bold",
-                        dia === hoy && "bg-primary text-white",
+                        "cifras flex size-7 items-center justify-center rounded-full text-caption font-bold",
+                        dia === hoy && "bg-primary text-primary-foreground",
                         otroMes && "text-muted/60",
                       )}
                     >
@@ -142,7 +145,7 @@ export default async function PaginaCalendario({ searchParams }: PageProps<"/cal
           {delMes.length === 0 && (
             <li>
               <Card>
-                <p className="text-sm text-muted">Sin fechas este mes.</p>
+                <Vacio icono="calendario" texto="Sin fechas este mes." />
               </Card>
             </li>
           )}
@@ -150,11 +153,14 @@ export default async function PaginaCalendario({ searchParams }: PageProps<"/cal
             <li key={dia} className="flex gap-3">
               <span
                 className={cn(
-                  "w-11 shrink-0 pt-1 text-center text-xl font-extrabold",
-                  dia === hoy && "text-primary-strong",
+                  "flex size-12 shrink-0 flex-col items-center justify-center rounded-boton",
+                  dia === hoy ? "bg-primary text-primary-foreground" : "bg-card shadow-1",
                 )}
               >
-                {Number(dia.slice(8))}
+                <span className="text-[10px] font-bold uppercase leading-none opacity-80">
+                  {DIAS_SEMANA[(new Date(`${dia}T12:00:00`).getDay() + 6) % 7]}
+                </span>
+                <span className="cifras text-h3 leading-tight">{Number(dia.slice(8))}</span>
               </span>
               <span className="flex min-w-0 flex-1 flex-col gap-1.5">
                 {eventos.map((e) => (

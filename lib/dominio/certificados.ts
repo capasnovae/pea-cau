@@ -23,7 +23,7 @@ export const ETIQUETA_ESTADO_CERT: Record<EstadoCertificado, string> = {
 export const COLOR_ESTADO_CERT: Record<EstadoCertificado, string> = {
   vigente: "bg-success-soft text-success",
   vencida: "bg-warning-soft text-warning",
-  revocada: "bg-[#fef2f2] text-[#b91c1c]",
+  revocada: "bg-destructive-soft text-destructive",
 };
 
 export function textoVencimiento(venceAt: string | null): string {
@@ -38,7 +38,8 @@ export function normalizarCodigo(c: string): string {
   return c.replace(/[\s-]/g, "").toUpperCase();
 }
 
-export type BusquedaCertificados = { tipo: "codigo"; codigo: string } | { tipo: "nombre"; terminos: string[] };
+export type BusquedaCertificados =
+  { tipo: "codigo"; codigo: string } | { tipo: "nombre"; terminos: string[] };
 
 /** Un código de verificación (10 hex, con o sin guiones o espacios) o términos de nombre y apellido. */
 export function busquedaCertificados(q: string): BusquedaCertificados | null {

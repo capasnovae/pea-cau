@@ -1,5 +1,8 @@
 import Link from "next/link";
 import { Card } from "@/components/ui/card";
+import { Conteo } from "@/components/ui/conteo";
+import { Icono } from "@/components/ui/icono";
+import { Barra } from "@/components/ui/progreso";
 import { enlacePregunta, motivosAtraso } from "@/lib/dominio/panel";
 import { ROLES_GESTION } from "@/lib/dominio/roles";
 import { cargarPanel } from "@/lib/panel/datos";
@@ -9,9 +12,14 @@ import { cn } from "@/lib/utils/cn";
 function Seccion({ titulo, csv, children }: { titulo: string; csv: string; children: React.ReactNode }) {
   return (
     <section aria-label={titulo} className="flex flex-col gap-2.5">
-      <div className="flex items-baseline justify-between">
-        <h2 className="text-lg font-extrabold">{titulo}</h2>
-        <a href={`/equipo/panel/csv/${csv}`} className="text-sm font-semibold text-primary-strong">
+      <div className="flex items-center justify-between">
+        <h2 className="text-h2">{titulo}</h2>
+        <a
+          href={`/equipo/panel/csv/${csv}`}
+          aria-label={`Descargar ${titulo} en CSV`}
+          className="inline-flex min-h-11 items-center gap-1.5 rounded-campo px-2 text-sm font-semibold text-primary-strong transition-colors hover:bg-primary-soft"
+        >
+          <Icono nombre="descargar" tamano={16} />
           CSV
         </a>
       </div>
@@ -20,14 +28,30 @@ function Seccion({ titulo, csv, children }: { titulo: string; csv: string; child
   );
 }
 
-function Dato({ etiqueta, valor, alerta }: { etiqueta: string; valor: string; alerta?: boolean }) {
+function Dato({
+  etiqueta,
+  valor,
+  sufijo,
+  alerta,
+}: {
+  etiqueta: string;
+  valor: number | null;
+  sufijo?: string;
+  alerta?: boolean;
+}) {
   return (
     <Card className="flex flex-col gap-1">
-      <span className="text-xs font-semibold text-muted">{etiqueta}</span>
-      <span className={cn("text-2xl font-extrabold", alerta && "text-warning")}>{valor}</span>
+      <span className="text-caption font-semibold text-muted">{etiqueta}</span>
+      <span className={cn("text-h1", alerta && "text-warning", valor === 0 && "text-subtle")}>
+        {valor === null ? "—" : <Conteo valor={valor} sufijo={sufijo} />}
+      </span>
     </Card>
   );
 }
+
+/** Color de una tasa de acierto: bien, regular o a revisar. */
+const colorTasa = (t: number) =>
+  t >= 80 ? "var(--success)" : t >= 60 ? "var(--warning)" : "var(--destructive)";
 
 const vacio = (texto: string) => <p className="p-5 text-sm text-muted">{texto}</p>;
 
@@ -44,12 +68,12 @@ export default async function PaginaPanel({ searchParams }: PageProps<"/equipo/p
 
   return (
     <div className="flex flex-col gap-6">
-      <h1 className="text-2xl font-extrabold">Panel</h1>
+      <h1 className="text-h1">Panel</h1>
       <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
-        <Dato etiqueta="Asesores" valor={String(d.asesores.length)} />
-        <Dato etiqueta="Atrasados" valor={String(atrasadosN)} alerta={atrasadosN > 0} />
-        <Dato etiqueta="Acierto general" valor={d.tasaGeneral === null ? "—" : `${d.tasaGeneral}%`} />
-        <Dato etiqueta="Por corregir" valor={String(porCorregir)} alerta={porCorregir > 0} />
+        <Dato etiqueta="Asesores" valor={d.asesores.length} />
+        <Dato etiqueta="Atrasados" valor={atrasadosN} alerta={atrasadosN > 0} />
+        <Dato etiqueta="Acierto general" valor={d.tasaGeneral} sufijo="%" />
+        <Dato etiqueta="Por corregir" valor={porCorregir} alerta={porCorregir > 0} />
       </div>
 
       <Seccion titulo="Asesores" csv="asesores">
@@ -58,8 +82,8 @@ export default async function PaginaPanel({ searchParams }: PageProps<"/equipo/p
             href="/equipo/panel"
             aria-current={!soloAtrasados ? "true" : undefined}
             className={cn(
-              "rounded-full px-3 py-1.5 text-sm font-semibold",
-              !soloAtrasados ? "bg-primary text-white" : "bg-primary-soft text-primary-strong",
+              "inline-flex min-h-11 items-center rounded-full px-4 text-sm font-semibold transition-colors",
+              !soloAtrasados ? "bg-primary text-primary-foreground" : "bg-primary-soft text-primary-strong",
             )}
           >
             Todos
@@ -68,8 +92,8 @@ export default async function PaginaPanel({ searchParams }: PageProps<"/equipo/p
             href="/equipo/panel?atrasados=1"
             aria-current={soloAtrasados ? "true" : undefined}
             className={cn(
-              "rounded-full px-3 py-1.5 text-sm font-semibold",
-              soloAtrasados ? "bg-primary text-white" : "bg-primary-soft text-primary-strong",
+              "inline-flex min-h-11 items-center rounded-full px-4 text-sm font-semibold transition-colors",
+              soloAtrasados ? "bg-primary text-primary-foreground" : "bg-primary-soft text-primary-strong",
             )}
           >
             Solo atrasados
@@ -97,8 +121,14 @@ export default async function PaginaPanel({ searchParams }: PageProps<"/equipo/p
                           .join(" · ")}
                       </span>
                     </span>
-                    <span className="text-sm font-bold" aria-label={`${pct}% de la ruta`}>
-                      {pct}%
+                    <span className="flex w-28 shrink-0 items-center gap-2">
+                      <Barra
+                        valor={pct}
+                        etiqueta={`${pct}% de la ruta`}
+                        color={pct === 100 ? "var(--success)" : "var(--primary)"}
+                        className="flex-1"
+                      />
+                      <span className="cifras w-9 text-right text-sm font-bold">{pct}%</span>
                     </span>
                     {a.motivos.length > 0 && (
                       <span className="flex w-full flex-wrap gap-1.5">
@@ -151,7 +181,9 @@ export default async function PaginaPanel({ searchParams }: PageProps<"/equipo/p
                         <span className="min-w-0 flex-1">{contenido}</span>
                       );
                     })()}
-                    <span className="shrink-0 text-lg font-extrabold">{p.tasa}%</span>
+                    <span className="cifras shrink-0 text-h3" style={{ color: colorTasa(p.tasa ?? 0) }}>
+                      {p.tasa}%
+                    </span>
                   </li>
                 ))}
               </ul>
@@ -169,13 +201,22 @@ export default async function PaginaPanel({ searchParams }: PageProps<"/equipo/p
                   {d.categorias.map((c) => (
                     <li
                       key={c.categoria}
-                      className="flex items-center gap-3 border-t border-border px-5 py-3 first:border-t-0"
+                      className="flex flex-col gap-1.5 border-t border-border px-5 py-3 first:border-t-0"
                     >
-                      <span className="min-w-0 flex-1 font-semibold">{c.categoria}</span>
-                      <span className="text-xs text-muted">{c.respuestas} resp.</span>
-                      <span className="w-12 text-right font-extrabold">
-                        {c.tasa === null ? "—" : `${c.tasa}%`}
+                      <span className="flex items-center gap-3">
+                        <span className="min-w-0 flex-1 font-semibold">{c.categoria}</span>
+                        <span className="text-xs text-muted">{c.respuestas} resp.</span>
+                        <span className="cifras w-12 text-right font-bold">
+                          {c.tasa === null ? "—" : `${c.tasa}%`}
+                        </span>
                       </span>
+                      {c.tasa !== null && (
+                        <Barra
+                          valor={c.tasa}
+                          etiqueta={`Acierto en ${c.categoria}`}
+                          color={colorTasa(c.tasa)}
+                        />
+                      )}
                     </li>
                   ))}
                 </ul>

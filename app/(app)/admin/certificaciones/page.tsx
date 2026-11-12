@@ -33,7 +33,7 @@ export default async function PaginaCertificaciones({ searchParams }: PageProps<
   const ahora = new Date();
   return (
     <div className="flex flex-col gap-4">
-      <h1 className="text-2xl font-extrabold">Certificados</h1>
+      <h1 className="text-h1">Certificados</h1>
       <form className="flex gap-2" role="search">
         <input
           name="q"

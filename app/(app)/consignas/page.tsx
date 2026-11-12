@@ -3,7 +3,12 @@ import { Markdown } from "@/components/markdown";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { formatearFecha } from "@/lib/dominio/contenido";
-import { ETIQUETA_ESTADO, ETIQUETA_PRIORIDAD, ETIQUETA_RECURRENCIA, type EstadoAsignacion } from "@/lib/dominio/consignas";
+import {
+  ETIQUETA_ESTADO,
+  ETIQUETA_PRIORIDAD,
+  ETIQUETA_RECURRENCIA,
+  type EstadoAsignacion,
+} from "@/lib/dominio/consignas";
 import { requerirPerfil } from "@/lib/supabase/permisos";
 import { crearClienteServidor } from "@/lib/supabase/servidor";
 import { cn } from "@/lib/utils/cn";
@@ -39,20 +44,29 @@ export default async function PaginaConsignas({ searchParams }: PageProps<"/cons
   return (
     <div className="flex flex-col gap-5">
       <div>
-        <h1 className="text-2xl font-semibold">Consignas</h1>
+        <h1 className="text-h1">Consignas</h1>
         <p className="text-sm text-muted">Lo que te pidieron tu líder o tu coordinación.</p>
       </div>
       <nav aria-label="Estado" className="flex gap-1 rounded-lg border border-border bg-card p-1">
         {TABS.map((t) => (
-          <Link key={t.id} href={`/consignas?tab=${t.id}`} aria-current={tab.id === t.id ? "page" : undefined}
-            className={cn("flex-1 rounded-md px-3 py-2 text-center text-sm", tab.id === t.id ? "bg-background font-semibold text-primary" : "text-muted")}>
+          <Link
+            key={t.id}
+            href={`/consignas?tab=${t.id}`}
+            aria-current={tab.id === t.id ? "page" : undefined}
+            className={cn(
+              "flex-1 rounded-md px-3 py-2 text-center text-sm",
+              tab.id === t.id ? "bg-background font-semibold text-primary" : "text-muted",
+            )}
+          >
             {t.etiqueta}
           </Link>
         ))}
       </nav>
       {asignaciones.length === 0 ? (
         <Card>
-          <p className="text-sm">{tab.id === "pendientes" ? "No tenés consignas pendientes. ¡Bien ahí!" : "No hay nada acá."}</p>
+          <p className="text-sm">
+            {tab.id === "pendientes" ? "No tenés consignas pendientes. ¡Bien ahí!" : "No hay nada acá."}
+          </p>
         </Card>
       ) : (
         <ul className="flex flex-col gap-3" aria-label="Mis consignas">
@@ -64,9 +78,19 @@ export default async function PaginaConsignas({ searchParams }: PageProps<"/cons
                 <Card className="flex flex-col gap-3 p-4">
                   <div className="flex flex-wrap items-center gap-1.5">
                     <Badge>{ETIQUETA_ESTADO[a.estado]}</Badge>
-                    {c.tipo === "lectura" && <Badge className="border-primary/40 text-primary">Lectura</Badge>}
-                    {c.prioridad === "alta" && <Badge className="border-destructive/50 text-destructive">Prioridad {ETIQUETA_PRIORIDAD.alta.toLowerCase()}</Badge>}
-                    {c.recurrencia !== "ninguna" && <Badge className="border-transparent bg-background">{ETIQUETA_RECURRENCIA[c.recurrencia]}</Badge>}
+                    {c.tipo === "lectura" && (
+                      <Badge className="border-primary/40 text-primary">Lectura</Badge>
+                    )}
+                    {c.prioridad === "alta" && (
+                      <Badge className="border-destructive/50 text-destructive">
+                        Prioridad {ETIQUETA_PRIORIDAD.alta.toLowerCase()}
+                      </Badge>
+                    )}
+                    {c.recurrencia !== "ninguna" && (
+                      <Badge className="border-transparent bg-background">
+                        {ETIQUETA_RECURRENCIA[c.recurrencia]}
+                      </Badge>
+                    )}
                   </div>
                   <h2 className="font-semibold">{c.titulo}</h2>
                   <p className="text-xs text-muted">
@@ -77,21 +101,31 @@ export default async function PaginaConsignas({ searchParams }: PageProps<"/cons
                   {c.detalle_md && <Markdown texto={c.detalle_md} />}
                   {c.tipo === "lectura" && !c.articulos && a.estado !== "hecha" && (
                     <div className="flex flex-wrap items-center gap-3">
-                      <p className="text-sm text-muted">El artículo de esta lectura ya no está disponible. Avisale a quien te la asignó.</p>
+                      <p className="text-sm text-muted">
+                        El artículo de esta lectura ya no está disponible. Avisale a quien te la asignó.
+                      </p>
                       <BotonLeido asignacionId={a.id} leida={!!a.leida_at} />
                     </div>
                   )}
                   {c.tipo === "lectura" && c.articulos && (
                     <div className="flex flex-wrap items-center gap-3">
-                      <Link href={`/repositorio/${c.articulos.categorias?.slug}/${c.articulos.slug}`} className="text-sm text-primary underline">
+                      <Link
+                        href={`/repositorio/${c.articulos.categorias?.slug}/${c.articulos.slug}`}
+                        className="text-sm text-primary underline"
+                      >
                         Leer: {c.articulos.titulo}
                       </Link>
                       {a.estado !== "hecha" && <BotonLeido asignacionId={a.id} leida={!!a.leida_at} />}
                     </div>
                   )}
                   {a.estado !== "hecha" ? (
-                    <FormularioCierre asignacionId={a.id} estado={a.estado} comentario={a.comentario}
-                      requiereEvidencia={c.requiere_evidencia} tieneEvidencia={!!a.evidencia_path} />
+                    <FormularioCierre
+                      asignacionId={a.id}
+                      estado={a.estado}
+                      comentario={a.comentario}
+                      requiereEvidencia={c.requiere_evidencia}
+                      tieneEvidencia={!!a.evidencia_path}
+                    />
                   ) : (
                     a.comentario && <p className="text-sm">Tu comentario: {a.comentario}</p>
                   )}

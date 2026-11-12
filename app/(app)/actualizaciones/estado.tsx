@@ -9,7 +9,7 @@ const ETIQUETA: Record<EstadoActualizacion, string> = {
 const COLOR: Record<EstadoActualizacion, string> = {
   pendiente: "bg-warning-soft text-warning",
   cumplida: "bg-success-soft text-success",
-  vencida: "bg-[#fef2f2] text-[#b91c1c]",
+  vencida: "bg-destructive-soft text-destructive",
 };
 
 export function EstadoChip({ estado }: { estado: EstadoActualizacion }) {

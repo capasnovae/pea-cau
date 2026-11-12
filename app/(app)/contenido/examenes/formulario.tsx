@@ -1,5 +1,6 @@
 "use client";
 
+import { Icono } from "@/components/ui/icono";
 import { useActionState, useState } from "react";
 import { Campo, CamposAlcance, MensajeResultado } from "@/components/contenido/campos";
 import { Button } from "@/components/ui/button";
@@ -180,7 +181,7 @@ export function FormularioExamen({
                 aria-label={`Quitar fuente ${i + 1}`}
                 className="rounded-lg text-muted"
               >
-                ×
+                <Icono nombre="cruz" tamano={16} />
               </button>
             </div>
           ))}

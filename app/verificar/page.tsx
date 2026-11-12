@@ -1,4 +1,6 @@
 import { redirect } from "next/navigation";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { normalizarCodigo } from "@/lib/dominio/certificados";
 
 async function buscar(formData: FormData) {
@@ -9,24 +11,21 @@ async function buscar(formData: FormData) {
 
 export default function PaginaBuscarCertificado() {
   return (
-    <form
-      action={buscar}
-      className="flex flex-col gap-3 rounded-3xl bg-card p-6 shadow-[var(--shadow-suave)]"
-    >
-      <h1 className="text-2xl font-extrabold">Verificar un certificado</h1>
+    <form action={buscar} className="flex flex-col gap-4 rounded-hoja bg-card p-6 shadow-2">
+      <h1 className="text-h1">Verificar un certificado</h1>
       <label className="flex flex-col gap-1.5 text-sm font-semibold">
         Código
-        <input
+        <Input
           name="codigo"
           required
           maxLength={40}
           autoComplete="off"
-          className="h-12 rounded-xl border border-border bg-card px-3 font-mono text-lg uppercase"
+          className="h-13 font-mono text-lg uppercase tracking-wider"
         />
       </label>
-      <button type="submit" className="min-h-12 rounded-2xl bg-primary font-extrabold text-white">
+      <Button type="submit" tamano="lg">
         Verificar
-      </button>
+      </Button>
     </form>
   );
 }

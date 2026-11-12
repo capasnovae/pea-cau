@@ -1,6 +1,9 @@
+import { cookies } from "next/headers";
+import { COOKIE_TEMA, temaDesdeCookie } from "@/lib/dominio/tema";
 import Link from "next/link";
 import { Avatar } from "@/components/nav/panel-cuenta";
 import { Insignia } from "@/components/perfil/insignia";
+import { Sendero } from "@/components/perfil/sendero";
 import { Card } from "@/components/ui/card";
 import {
   COLOR_ESTADO_CERT,
@@ -9,12 +12,17 @@ import {
   textoVencimiento,
 } from "@/lib/dominio/certificados";
 import { formatearFecha } from "@/lib/dominio/contenido";
+import { Conteo } from "@/components/ui/conteo";
+import { Icono } from "@/components/ui/icono";
+import { textoRacha } from "@/lib/dominio/repaso";
+import { Barra } from "@/components/ui/progreso";
 import { colorNivel, porcentaje } from "@/lib/dominio/leccion";
 import { ETIQUETA_ROL } from "@/lib/dominio/roles";
 import { requerirPerfil } from "@/lib/supabase/permisos";
 import { crearClienteServidor } from "@/lib/supabase/servidor";
 import { cn } from "@/lib/utils/cn";
 import { AvisosEmail } from "./avisos-email";
+import { ElegirTema } from "./tema";
 import { FormularioTelefono } from "./formulario-telefono";
 
 function Seccion({
@@ -31,7 +39,7 @@ function Seccion({
   return (
     <section id={id} aria-label={titulo} className="flex scroll-mt-6 flex-col gap-2.5">
       <div className="flex items-baseline justify-between">
-        <h2 className="text-lg font-extrabold">{titulo}</h2>
+        <h2 className="text-h2">{titulo}</h2>
         {accion}
       </div>
       {children}
@@ -50,6 +58,7 @@ export default async function PaginaPerfil() {
     { data: certificados },
     { data: intentos },
     { data: consignas },
+    { data: repaso },
   ] = await Promise.all([
     supabase
       .from("perfiles")
@@ -82,6 +91,7 @@ export default async function PaginaPerfil() {
       .in("estado", ["pendiente", "en_curso", "vencida"])
       .order("vence_el", { ascending: true, nullsFirst: false })
       .limit(5),
+    supabase.rpc("mi_repaso").maybeSingle(),
   ]);
   const subroles = (datos?.perfil_subroles ?? [])
     .map((s) => s.subroles?.nombre)
@@ -110,7 +120,7 @@ export default async function PaginaPerfil() {
       <div className="flex flex-wrap items-center gap-4">
         <Avatar nombre={perfil.nombre} className="size-16 text-2xl" />
         <div className="min-w-0 flex-1">
-          <h1 className="text-2xl font-extrabold md:text-[32px]">
+          <h1 className="text-h1 md:text-[32px]">
             {perfil.nombre} {perfil.apellido}
           </h1>
           <p className="text-sm text-muted">
@@ -118,9 +128,15 @@ export default async function PaginaPerfil() {
             {datos?.sedes?.nombre ? ` · ${datos.sedes.nombre}` : ""}
           </p>
         </div>
+        {(repaso?.racha ?? 0) > 0 && (
+          <span className="inline-flex items-center gap-1 rounded-full bg-warning-soft px-3 py-2 text-sm font-bold text-warning">
+            <Icono nombre="llama" tamano={16} relleno />
+            {textoRacha(repaso?.racha ?? 0)}
+          </span>
+        )}
         {nivel !== null && (
           <span
-            className="rounded-full px-4 py-2 font-extrabold text-white"
+            className="rounded-full px-4 py-2 font-extrabold text-sobre-color"
             style={{ background: color.fondo }}
           >
             Nivel {nivel}
@@ -133,17 +149,16 @@ export default async function PaginaPerfil() {
         <div className="flex flex-col gap-6">
           <Seccion titulo="Mi ruta">
             <Card className="flex flex-col gap-2">
+              <div className="mb-2 flex justify-center">
+                <Sendero nivel={nivel} />
+              </div>
               <div className="flex items-baseline justify-between">
                 <span className="font-bold">Cursos obligatorios</span>
-                <span className="text-2xl font-extrabold">{pct}%</span>
+                <span className="text-h1">
+                  <Conteo valor={pct} sufijo="%" />
+                </span>
               </div>
-              <div
-                className="h-2.5 overflow-hidden rounded-full bg-background"
-                aria-label={`${pct}% de la ruta`}
-                role="img"
-              >
-                <div className="h-full rounded-full" style={{ width: `${pct}%`, background: color.fondo }} />
-              </div>
+              <Barra valor={pct} etiqueta={`${pct}% de la ruta`} color={color.fondo} className="h-2.5" />
               <p className="text-xs text-muted">
                 {resumen?.cursos_cumplidos ?? 0} de {resumen?.cursos_total ?? 0}
               </p>
@@ -152,21 +167,24 @@ export default async function PaginaPerfil() {
 
           <Seccion titulo="Insignias" id="insignias">
             <Card>
-              {listaInsignias.length === 0 ? (
-                <p className="text-sm text-muted">Sin insignias todavía.</p>
-              ) : (
-                <ul aria-label="Insignias" className="grid grid-cols-3 gap-4 sm:grid-cols-4">
-                  {listaInsignias.map((i) => (
-                    <li key={i.id}>
-                      <Insignia
-                        nivel={i.insignias?.cursos?.nivel_orden ?? 0}
-                        nombre={i.insignias?.nombre ?? ""}
-                        perdida={Boolean(i.perdida_at)}
-                      />
+              <ul aria-label="Insignias" className="grid grid-cols-4 gap-3">
+                {listaInsignias.map((i) => (
+                  <li key={i.id}>
+                    <Insignia
+                      nivel={i.insignias?.cursos?.nivel_orden ?? 0}
+                      nombre={i.insignias?.nombre ?? ""}
+                      perdida={Boolean(i.perdida_at)}
+                    />
+                  </li>
+                ))}
+                {[1, 2, 3, 4]
+                  .filter((n) => !listaInsignias.some((i) => i.insignias?.cursos?.nivel_orden === n))
+                  .map((n) => (
+                    <li key={n}>
+                      <Insignia nivel={n} nombre={`Nivel ${n}`} bloqueada />
                     </li>
                   ))}
-                </ul>
-              )}
+              </ul>
             </Card>
           </Seccion>
 
@@ -181,9 +199,9 @@ export default async function PaginaPerfil() {
                     return (
                       <li
                         key={c.id}
-                        className="flex flex-wrap items-center gap-3 border-t border-border px-5 py-3.5 first:border-t-0"
+                        className="flex flex-wrap items-center gap-x-3 gap-y-2 border-t border-border px-5 py-3.5 first:border-t-0"
                       >
-                        <span className="min-w-0 flex-1">
+                        <span className="min-w-0 basis-full sm:flex-1 sm:basis-0">
                           <span className="block font-bold">
                             Nivel {c.cursos?.nivel_orden} · {c.cursos?.titulo}
                           </span>
@@ -205,15 +223,16 @@ export default async function PaginaPerfil() {
                         {c.origen === "examen" && estado !== "revocada" && (
                           <a
                             href={`/certificados/${c.id}/pdf`}
-                            className="rounded-xl bg-primary px-3 py-2 text-sm font-bold text-white"
+                            className="ml-auto inline-flex min-h-11 items-center gap-1.5 rounded-boton bg-primary px-3 text-sm font-bold text-primary-foreground transition hover:bg-primary-strong active:scale-[0.97]"
                           >
+                            <Icono nombre="descargar" tamano={16} />
                             PDF
                           </a>
                         )}
                         <Link
                           href={`/verificar/${c.codigo_verificacion}`}
                           target="_blank"
-                          className="text-sm font-bold text-primary-strong"
+                          className="inline-flex min-h-11 items-center text-sm font-bold text-primary-strong"
                         >
                           Verificar
                         </Link>
@@ -259,7 +278,7 @@ export default async function PaginaPerfil() {
                               ? "bg-warning-soft text-warning"
                               : i.aprobado
                                 ? "bg-success-soft text-success"
-                                : "bg-[#fef2f2] text-[#b91c1c]",
+                                : "bg-destructive-soft text-destructive",
                           )}
                         >
                           {i.estado !== "cerrado" ? "Pendiente" : `${i.nota}%`}
@@ -315,8 +334,9 @@ export default async function PaginaPerfil() {
             <Card>
               <FormularioTelefono telefono={perfil.telefono} />
             </Card>
-            <Card>
+            <Card className="flex flex-col gap-2">
               <AvisosEmail inicial={datos?.avisos_email ?? false} />
+              <ElegirTema inicial={temaDesdeCookie((await cookies()).get(COOKIE_TEMA)?.value)} />
             </Card>
           </Seccion>
         </div>

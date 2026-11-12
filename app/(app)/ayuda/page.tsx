@@ -1,4 +1,7 @@
+import { Icono } from "@/components/ui/icono";
+import { Markdown } from "@/components/markdown";
 import { Card } from "@/components/ui/card";
+import { crearClienteServidor } from "@/lib/supabase/servidor";
 import { requerirPerfil } from "@/lib/supabase/permisos";
 
 const CONTACTOS = [
@@ -9,9 +12,14 @@ const CONTACTOS = [
 
 export default async function PaginaAyuda() {
   await requerirPerfil();
+  const supabase = await crearClienteServidor();
+  const [{ data: puestos }, { data: subroles }] = await Promise.all([
+    supabase.from("puestos").select("id, nombre, descripcion_md").order("orden"),
+    supabase.from("subroles").select("id, nombre, descripcion_md").order("orden"),
+  ]);
   return (
     <div className="flex flex-col gap-5">
-      <h1 className="text-2xl font-extrabold md:text-[32px]">Ayuda</h1>
+      <h1 className="text-h1 md:text-[32px]">Ayuda</h1>
       <Card className="p-0!">
         <ul>
           {CONTACTOS.map((c) => (
@@ -25,6 +33,25 @@ export default async function PaginaAyuda() {
           ))}
         </ul>
       </Card>
+      <section aria-label="Qué hace cada puesto" className="flex flex-col gap-2.5">
+        <h2 className="text-h2">Qué hace cada puesto</h2>
+        <Card className="p-0!">
+          {[...(puestos ?? []), ...(subroles ?? [])].map((p) => (
+            <details key={p.id} className="acordeon group border-t border-border first:border-t-0">
+              <summary className="flex min-h-14 cursor-pointer list-none items-center gap-2 px-5 font-semibold [&::-webkit-details-marker]:hidden">
+                <span className="flex-1">{p.nombre}</span>
+                <Icono
+                  nombre="chevron-der"
+                  className="text-muted transition-transform group-open:rotate-90"
+                />
+              </summary>
+              <div className="px-5 pb-4 text-sm text-muted">
+                {p.descripcion_md ? <Markdown texto={p.descripcion_md} /> : "Sin descripción."}
+              </div>
+            </details>
+          ))}
+        </Card>
+      </section>
     </div>
   );
 }

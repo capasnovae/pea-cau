@@ -12,9 +12,9 @@ export default async function PaginaSedes() {
     .order("nombre");
   return (
     <div className="flex flex-col gap-6">
-      <h1 className="text-2xl font-semibold">Sedes</h1>
+      <h1 className="text-h1">Sedes</h1>
       <Card>
-        <h2 className="mb-3 text-lg font-semibold">Nueva sede</h2>
+        <h2 className="mb-3 text-h2">Nueva sede</h2>
         <FormularioSede />
       </Card>
       <ul className="flex flex-col gap-3" aria-label="Sedes">

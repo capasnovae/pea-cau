@@ -1,5 +1,6 @@
 "use client";
 
+import { Icono } from "@/components/ui/icono";
 import { useState } from "react";
 import { LIMITES_LECCION, type Ejemplo, type Leccion } from "@/lib/dominio/lecciones";
 
@@ -7,7 +8,7 @@ const L = LIMITES_LECCION;
 
 function Contador({ n, max }: { n: number; max: number }) {
   return (
-    <span className={n > max ? "text-[#b91c1c]" : "text-muted"}>
+    <span className={n > max ? "text-destructive" : "text-muted"}>
       {n}/{max}
     </span>
   );
@@ -49,7 +50,7 @@ function Lista({
               onClick={() => onCambio(valores.filter((_, j) => j !== i))}
               className="self-start rounded-lg px-2 py-1 text-muted"
             >
-              ×
+              <Icono nombre="cruz" tamano={16} />
             </button>
           </div>
           <span className="self-end text-xs">

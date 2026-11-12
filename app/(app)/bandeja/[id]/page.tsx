@@ -1,3 +1,4 @@
+import { Icono } from "@/components/ui/icono";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { parseFiltro, puedeAnunciar } from "@/lib/dominio/bandeja";
@@ -50,11 +51,15 @@ export default async function PaginaConversacion({ params, searchParams }: PageP
       puedeAnunciar={puedeAnunciar(perfil.rol)}
     >
       <div className="flex items-start gap-3 border-b border-border bg-card px-4 py-3 md:px-6">
-        <Link href="/bandeja" className="pt-1 text-sm font-semibold text-primary-strong md:hidden">
-          ‹ Bandeja
+        <Link
+          href="/bandeja"
+          className="inline-flex items-center gap-1 pt-1 text-sm font-semibold text-primary-strong md:hidden"
+        >
+          <Icono nombre="chevron-izq" tamano={16} />
+          Bandeja
         </Link>
         <div className="min-w-0 flex-1">
-          <h2 className="truncate text-lg font-extrabold">{conv.asunto}</h2>
+          <h2 className="truncate text-h2">{conv.asunto}</h2>
           {otros.length > 0 && <p className="truncate text-[13px] text-muted">{otros.join(", ")}</p>}
         </div>
         <form action={archivar.bind(null, id, !archivada)}>
@@ -78,7 +83,7 @@ export default async function PaginaConversacion({ params, searchParams }: PageP
             <p
               className={cn(
                 "whitespace-pre-wrap rounded-2xl px-4 py-2.5 text-[15px]",
-                m.propio ? "bg-primary-soft" : "bg-card shadow-[var(--shadow-suave)]",
+                m.propio ? "bg-primary-soft" : "bg-card shadow-1",
               )}
             >
               {m.cuerpo}

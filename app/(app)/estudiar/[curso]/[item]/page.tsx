@@ -6,6 +6,7 @@ import { VistaLeccion } from "@/components/leccion/vista-leccion";
 import { esquemaLeccion, minutosDeLectura } from "@/lib/dominio/lecciones";
 import { Markdown } from "@/components/markdown";
 import { BotonDescargar } from "@/app/(app)/recursos/boton-descargar";
+import { Icono } from "@/components/ui/icono";
 import { colorNivel, idsRecursoEnMarkdown, reemplazarRecursos, urlEmbedVideo } from "@/lib/dominio/leccion";
 import { requerirPerfil } from "@/lib/supabase/permisos";
 import { crearClienteServidor } from "@/lib/supabase/servidor";
@@ -44,18 +45,22 @@ export default async function PaginaLeccion({ params }: PageProps<"/estudiar/[cu
     const pendiente = filas.find((f) => f.disponible && !f.cumplido);
     return (
       <div className="flex flex-col gap-4">
-        <Link href={`/estudiar/${cursoId}`} className="text-sm font-semibold text-primary-strong">
-          ← {curso.titulo}
+        <Link
+          href={`/estudiar/${cursoId}`}
+          className="inline-flex items-center gap-1 text-sm font-semibold text-primary-strong"
+        >
+          <Icono nombre="chevron-izq" tamano={16} />
+          {curso.titulo}
         </Link>
-        <div className="rounded-3xl bg-card p-6 text-center shadow-[var(--shadow-suave)]">
-          <h1 className="text-xl font-extrabold">{item.titulo}</h1>
+        <div className="rounded-3xl bg-card p-6 text-center shadow-1">
+          <h1 className="text-h2">{item.titulo}</h1>
           <p className="mt-2 text-muted">
             Esta lección todavía está bloqueada. Completá lo anterior para seguir.
           </p>
           {pendiente && (
             <Link
               href={`/estudiar/${cursoId}/${pendiente.item_id}`}
-              className="mt-4 inline-flex min-h-11 items-center rounded-2xl bg-primary px-5 font-bold text-white"
+              className="mt-4 inline-flex min-h-11 items-center rounded-2xl bg-primary px-5 font-bold text-primary-foreground"
             >
               Ir a: {pendiente.titulo}
             </Link>
@@ -92,7 +97,7 @@ export default async function PaginaLeccion({ params }: PageProps<"/estudiar/[cu
     conProbalo = (preguntas ?? []).length > 0;
     if (conProbalo)
       probalo = (
-        <div className="rounded-3xl bg-card p-5 shadow-[var(--shadow-suave)]">
+        <div className="rounded-3xl bg-card p-5 shadow-1">
           <Practica
             origen={{ tipo: "leccion", id: itemId }}
             preguntas={(preguntas ?? []) as unknown as Parameters<typeof Practica>[0]["preguntas"]}
@@ -122,9 +127,10 @@ export default async function PaginaLeccion({ params }: PageProps<"/estudiar/[cu
         <Markdown texto={art.cuerpo_md} />
         <Link
           href={`/repositorio/${art.categorias?.slug}/${art.slug}`}
-          className="mt-4 inline-block text-sm font-semibold text-primary-strong"
+          className="inline-flex items-center gap-1 mt-4 inline-block text-sm font-semibold text-primary-strong"
         >
-          Ver en el repositorio →
+          Ver en el repositorio
+          <Icono nombre="flecha-der" tamano={16} />
         </Link>
       </>
     ) : (
@@ -204,7 +210,7 @@ export default async function PaginaLeccion({ params }: PageProps<"/estudiar/[cu
         ) : (
           <Link
             href={`/examenes/${examen.id}`}
-            className="inline-flex min-h-11 items-center rounded-2xl bg-primary px-5 font-bold text-white"
+            className="inline-flex min-h-11 items-center rounded-2xl bg-primary px-5 font-bold text-primary-foreground"
           >
             Ir al examen
           </Link>
@@ -227,9 +233,9 @@ export default async function PaginaLeccion({ params }: PageProps<"/estudiar/[cu
         <Link
           href={`/estudiar/${cursoId}`}
           aria-label="Volver al curso"
-          className="flex size-11 items-center justify-center rounded-full bg-card text-xl shadow-[var(--shadow-suave)]"
+          className="flex size-11 items-center justify-center rounded-full bg-card shadow-1 transition active:scale-95"
         >
-          ×
+          <Icono nombre="cruz" />
         </Link>
         <div
           className="grid flex-1 gap-1.5"
@@ -238,19 +244,22 @@ export default async function PaginaLeccion({ params }: PageProps<"/estudiar/[cu
           role="img"
         >
           {delModulo.map((f, i) => (
-            <div
-              key={f.item_id}
-              className="h-2 rounded"
-              style={{ background: f.cumplido || i < posModulo ? color : "#e6e6ef" }}
-            />
+            <div key={f.item_id} className="h-2 overflow-hidden rounded-full bg-border">
+              {(f.cumplido || i < posModulo) && (
+                <div
+                  className={`h-full w-full origin-left rounded-full ${i === posModulo ? "barra-llenar" : ""}`}
+                  style={{ background: color, "--v": 1 } as React.CSSProperties}
+                />
+              )}
+            </div>
           ))}
         </div>
       </div>
       <p className="text-sm font-semibold text-muted">
         {fila.modulo_titulo} · paso {posModulo + 1} de {delModulo.length}
       </p>
-      <h1 className="text-2xl font-extrabold leading-tight">{item.titulo}</h1>
-      <div className="rounded-3xl bg-card p-5 shadow-[var(--shadow-suave)]">{cuerpo}</div>
+      <h1 className="text-h1 leading-tight">{item.titulo}</h1>
+      <div className="rounded-3xl bg-card p-5 shadow-1">{cuerpo}</div>
       {probalo}
       <BarraSiguiente
         itemId={itemId}
