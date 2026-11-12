@@ -58,10 +58,91 @@ export const esquemaLeccion = z.object({
   ),
 });
 
+/** Lección por tarjetas (versión 2): una secuencia corta que enseña con un caso. La base la vuelve a validar. */
+export const LIMITES_TARJETAS = {
+  minTarjetas: 5,
+  maxTarjetas: 10,
+  titulo: 80,
+  texto: 500,
+  consulta: 300,
+  opcion: 120,
+  porque: 200,
+  clave: 120,
+} as const;
+const T = LIMITES_TARJETAS;
+const texto = (max: number) => z.string().trim().min(1).max(max);
+
+const tarjeta = z.discriminatedUnion("tipo", [
+  z.object({ tipo: z.literal("video"), ruta: texto(200) }),
+  z.object({
+    tipo: z.literal("caso"),
+    persona: texto(T.titulo),
+    canal: z.enum(["mostrador", "telefono", "whatsapp"]),
+    consulta: texto(T.consulta),
+  }),
+  z.object({
+    tipo: z.literal("preguntar"),
+    opciones: z
+      .array(z.object({ texto: texto(T.opcion), clave: z.boolean(), porque: texto(T.porque) }))
+      .min(3)
+      .max(5)
+      .refine((os) => os.some((o) => o.clave), "Marcá al menos una pregunta clave."),
+  }),
+  z.object({
+    tipo: z.literal("idea"),
+    titulo: texto(T.titulo),
+    texto: texto(T.texto),
+    clave: texto(T.clave),
+    ejemplo: texto(T.texto).optional(),
+  }),
+  z.object({ tipo: z.literal("probalo"), n: z.number().int().min(1).max(3) }),
+  z.object({ tipo: z.literal("ojo"), texto: texto(T.texto) }),
+  z.object({ tipo: z.literal("cierre"), resolucion: texto(T.texto), recordar: texto(T.clave) }),
+]);
+
+export type Tarjeta = z.infer<typeof tarjeta>;
+export type LeccionV2 = { version: 2; tarjetas: Tarjeta[] };
+
+export const esquemaLeccionV2 = z
+  .object({ version: z.literal(2), tarjetas: z.array(tarjeta).min(T.minTarjetas).max(T.maxTarjetas) })
+  .superRefine((l, ctx) => {
+    const tipos = l.tarjetas.map((t) => t.tipo);
+    const cuenta = (x: string) => tipos.filter((t) => t === x).length;
+    if (cuenta("caso") !== 1) ctx.addIssue({ code: "custom", message: "Tiene que haber un caso." });
+    if (cuenta("cierre") !== 1 || tipos.at(-1) !== "cierre")
+      ctx.addIssue({ code: "custom", message: "La última tarjeta es el cierre." });
+    if (cuenta("video") > 1 || (cuenta("video") === 1 && tipos[0] !== "video"))
+      ctx.addIssue({ code: "custom", message: "El video va primero." });
+  });
+
+export function esLeccionV2(l: unknown): l is LeccionV2 {
+  return typeof l === "object" && l !== null && (l as { version?: unknown }).version === 2;
+}
+
+/** Todo el texto que se lee de una tarjeta. */
+function textosDeTarjeta(t: Tarjeta): string[] {
+  switch (t.tipo) {
+    case "caso":
+      return [t.persona, t.consulta];
+    case "preguntar":
+      return t.opciones.flatMap((o) => [o.texto, o.porque]);
+    case "idea":
+      return [t.titulo, t.texto, t.ejemplo ?? ""];
+    case "ojo":
+      return [t.texto];
+    case "cierre":
+      return [t.resolucion, t.recordar];
+    default:
+      return [];
+  }
+}
+
 const PALABRAS_POR_MINUTO = 200;
 
-export function minutosDeLectura(l: Leccion): number {
-  const texto = [...l.resumen, ...l.ejemplos.flatMap((e) => [e.consulta, e.respuesta]), ...l.ojo].join(" ");
+export function minutosDeLectura(l: Leccion | LeccionV2): number {
+  const texto = esLeccionV2(l)
+    ? l.tarjetas.flatMap(textosDeTarjeta).join(" ")
+    : [...l.resumen, ...l.ejemplos.flatMap((e) => [e.consulta, e.respuesta]), ...l.ojo].join(" ");
   const palabras = texto.split(/\s+/).filter(Boolean).length;
   return Math.max(1, Math.ceil(palabras / PALABRAS_POR_MINUTO));
 }
