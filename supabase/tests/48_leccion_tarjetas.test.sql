@@ -1,6 +1,6 @@
 -- Lecciones por tarjetas (versión 2): la base acepta el formato nuevo y sigue aceptando el de bloques
 begin;
-select plan(7);
+select plan(9);
 
 create temp table v2 as select '{"version":2,"tarjetas":[
   {"tipo":"video","ruta":"lecciones/05.mp4"},
@@ -16,6 +16,13 @@ create temp table v2 as select '{"version":2,"tarjetas":[
 select ok(public.leccion_valida((select l from v2)), 'acepta una lección por tarjetas válida');
 select ok(not public.leccion_valida(jsonb_set((select l from v2), '{tarjetas}', ((select l from v2)->'tarjetas') - 0 - 0 - 0)),
   'pide al menos 5 tarjetas');
+select ok(public.leccion_valida(jsonb_set((select l from v2), '{tarjetas}',
+  jsonb_build_array((select l from v2)->'tarjetas'->0, (select l from v2)->'tarjetas'->1)
+  || (select jsonb_agg((select l from v2)->'tarjetas'->3) from generate_series(1, 8))
+  || jsonb_build_array((select l from v2)->'tarjetas'->6))),
+  'el video no cuenta en el tope de 10');
+select ok(not public.leccion_valida(jsonb_set((select l from v2), '{tarjetas}', ((select l from v2)->'tarjetas') - 4 - 2)),
+  'con el video, igual pide 5 tarjetas de contenido');
 select ok(not public.leccion_valida(jsonb_set((select l from v2), '{tarjetas,3,texto}', to_jsonb(repeat('a', 501)))),
   'una idea no pasa de 500 caracteres');
 select ok(not public.leccion_valida(jsonb_set((select l from v2), '{tarjetas,5,tipo}', '"chiste"')),

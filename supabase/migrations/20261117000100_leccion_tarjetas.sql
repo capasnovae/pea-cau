@@ -31,7 +31,8 @@ create or replace function public.leccion_valida(l jsonb) returns boolean
 language sql immutable set search_path = '' as $$
   select coalesce(case when l ->> 'version' = '2' then
     jsonb_typeof(l -> 'tarjetas') = 'array'
-    and jsonb_array_length(l -> 'tarjetas') between 5 and 10
+    -- el video es opcional y no cuenta: entre 5 y 10 tarjetas de contenido
+    and (select count(*) from jsonb_array_elements(l -> 'tarjetas') t where t ->> 'tipo' is distinct from 'video') between 5 and 10
     and (select bool_and(public.tarjeta_valida(t)) from jsonb_array_elements(l -> 'tarjetas') t)
     and (select count(*) from jsonb_array_elements(l -> 'tarjetas') t where t ->> 'tipo' = 'caso') = 1
     and (select count(*) from jsonb_array_elements(l -> 'tarjetas') t where t ->> 'tipo' = 'cierre') = 1

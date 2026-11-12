@@ -21,6 +21,7 @@ export function VistaTarjetas({
   fuente,
   minutos,
   color,
+  alFinal,
 }: {
   tarjetas: TarjetaConPregunta[];
   preguntas: Record<string, PreguntaPractica>;
@@ -28,6 +29,8 @@ export function VistaTarjetas({
   fuente: { titulo: string; href: string } | null;
   minutos: number;
   color: string;
+  /** El paso siguiente del curso: se muestra recién en la última tarjeta, para que haya un solo "Siguiente". */
+  alFinal?: React.ReactNode;
 }) {
   const total = tarjetas.length;
   const [actual, setActual] = useState(0);
@@ -132,6 +135,7 @@ export function VistaTarjetas({
           </button>
         )}
       </div>
+      {actual === total - 1 && alFinal}
     </div>
   );
 }

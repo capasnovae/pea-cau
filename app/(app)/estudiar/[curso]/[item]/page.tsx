@@ -76,6 +76,16 @@ export default async function PaginaLeccion({ params }: PageProps<"/estudiar/[cu
   let probalo: React.ReactNode = null;
   let conProbalo = false;
   let sinMarco = false;
+  let barraEnTarjetas = false;
+  const barra = () => (
+    <BarraSiguiente
+      itemId={itemId}
+      requisito={item.tipo === "practica" || conProbalo ? "ninguno" : item.requisito}
+      cumplido={fila.cumplido}
+      siguienteHref={siguienteHref}
+      color={color}
+    />
+  );
   const v2 =
     item.tipo === "leccion" && esLeccionV2(item.leccion) ? esquemaLeccionV2.safeParse(item.leccion) : null;
   const leccion = item.tipo === "leccion" && !v2 ? esquemaLeccion.safeParse(item.leccion) : null;
@@ -115,8 +125,10 @@ export default async function PaginaLeccion({ params }: PageProps<"/estudiar/[cu
           fuente={
             art ? { titulo: art.titulo, href: `/repositorio/${art.categorias?.slug}/${art.slug}` } : null
           }
+          alFinal={barra()}
         />
       );
+      barraEnTarjetas = true;
     }
   } else if (leccion) {
     const [{ data: art }, { data: preguntas }] = await Promise.all([
@@ -305,13 +317,7 @@ export default async function PaginaLeccion({ params }: PageProps<"/estudiar/[cu
       <h1 className="text-h1 leading-tight">{item.titulo}</h1>
       {sinMarco ? cuerpo : <div className="rounded-3xl bg-card p-5 shadow-1">{cuerpo}</div>}
       {probalo}
-      <BarraSiguiente
-        itemId={itemId}
-        requisito={item.tipo === "practica" || conProbalo ? "ninguno" : item.requisito}
-        cumplido={fila.cumplido}
-        siguienteHref={siguienteHref}
-        color={color}
-      />
+      {!barraEnTarjetas && barra()}
     </article>
   );
 }

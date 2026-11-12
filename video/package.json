@@ -1,0 +1,20 @@
+{
+  "name": "pea-video",
+  "private": true,
+  "type": "module",
+  "description": "Videos de las lecciones de PEA, fabricados con Revideo (MIT) a partir del guion de cada lecci\u00f3n.",
+  "scripts": {
+    "render": "tsx render.ts"
+  },
+  "dependencies": {
+    "@revideo/2d": "0.11.0",
+    "@revideo/core": "0.11.0",
+    "@revideo/renderer": "0.11.0",
+    "@revideo/vite-plugin": "0.11.0",
+    "@revideo/ui": "0.11.0"
+  },
+  "devDependencies": {
+    "tsx": "4.21.0",
+    "typescript": "5.9.3"
+  }
+}

@@ -7,6 +7,10 @@ fuente: "rg-3-2-cambios-de-modalidad"
 formato: "tarjetas"
 ---
 
+## video
+
+ruta: lecciones/05-cambio-de-modalidad.mp4
+
 ## caso
 
 persona: Lucía

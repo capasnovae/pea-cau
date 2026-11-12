@@ -123,6 +123,15 @@ describe("esquemaLeccionV2", () => {
       false,
     );
   });
+  it("el video no cuenta en el tope: hasta 10 tarjetas de contenido más el video", () => {
+    const idea = V2.tarjetas[3];
+    expect(
+      esquemaLeccionV2.safeParse(conTarjetas((t) => [t[0], t[1], ...Array(8).fill(idea), t[6]])).success,
+    ).toBe(true);
+    expect(esquemaLeccionV2.safeParse(conTarjetas((t) => [t[0], t[1], t[3], t[5], t[6]])).success).toBe(
+      false,
+    );
+  });
   it("respeta los largos y los valores permitidos", () => {
     expect(
       esquemaLeccionV2.safeParse(

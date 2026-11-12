@@ -21,6 +21,8 @@ const eslintConfig = defineConfig([
     ".superpowers/**",
     // Scripts de relevamiento en CommonJS (Playwright desde la línea de comandos)
     "scripts/relevamiento/**",
+    // Proyecto de videos (Revideo): su JSX no es React y tiene su propio tsconfig
+    "video/**",
   ]),
 ]);
 

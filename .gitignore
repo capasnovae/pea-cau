@@ -46,3 +46,7 @@ next-env.d.ts
 supabase/.temp
 /test-results
 /playwright-report
+
+# Videos de lecciones (Revideo)
+video/node_modules
+video/salida

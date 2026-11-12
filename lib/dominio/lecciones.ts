@@ -104,10 +104,17 @@ export type Tarjeta = z.infer<typeof tarjeta>;
 export type LeccionV2 = { version: 2; tarjetas: Tarjeta[] };
 
 export const esquemaLeccionV2 = z
-  .object({ version: z.literal(2), tarjetas: z.array(tarjeta).min(T.minTarjetas).max(T.maxTarjetas) })
+  .object({ version: z.literal(2), tarjetas: z.array(tarjeta) })
   .superRefine((l, ctx) => {
     const tipos = l.tarjetas.map((t) => t.tipo);
     const cuenta = (x: string) => tipos.filter((t) => t === x).length;
+    // El video es opcional y no cuenta en el tope: entre 5 y 10 tarjetas de contenido
+    const contenido = tipos.length - cuenta("video");
+    if (contenido < T.minTarjetas || contenido > T.maxTarjetas)
+      ctx.addIssue({
+        code: "custom",
+        message: `Entre ${T.minTarjetas} y ${T.maxTarjetas} tarjetas, sin contar el video.`,
+      });
     if (cuenta("caso") !== 1) ctx.addIssue({ code: "custom", message: "Tiene que haber un caso." });
     if (cuenta("cierre") !== 1 || tipos.at(-1) !== "cierre")
       ctx.addIssue({ code: "custom", message: "La última tarjeta es el cierre." });

@@ -12,7 +12,8 @@
     "test:db": "supabase test db",
     "e2e": "playwright test",
     "db:types": "supabase gen types typescript --local > lib/supabase/tipos.ts",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "videos": "cd video && DISABLE_TELEMETRY=true node --experimental-strip-types --no-warnings render.ts"
   },
   "dependencies": {
     "@supabase/ssr": "^0.12.7",
