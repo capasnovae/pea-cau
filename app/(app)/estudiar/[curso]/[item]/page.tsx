@@ -3,7 +3,9 @@ import { notFound } from "next/navigation";
 import { BarraSiguiente, MarcarVisto } from "@/components/leccion/acciones-leccion";
 import { ContenidoLeccion } from "@/components/leccion/contenido";
 import { VistaLeccion } from "@/components/leccion/vista-leccion";
-import { esquemaLeccion, minutosDeLectura } from "@/lib/dominio/lecciones";
+import { esLeccionV2, esquemaLeccion, esquemaLeccionV2, minutosDeLectura } from "@/lib/dominio/lecciones";
+import { ordenarTarjetas } from "@/components/leccion/tarjetas/orden";
+import { VistaTarjetas } from "@/components/leccion/tarjetas/vista-tarjetas";
 import { Markdown } from "@/components/markdown";
 import { BotonDescargar } from "@/app/(app)/recursos/boton-descargar";
 import { Icono } from "@/components/ui/icono";
@@ -73,8 +75,50 @@ export default async function PaginaLeccion({ params }: PageProps<"/estudiar/[cu
   let cuerpo: React.ReactNode = null;
   let probalo: React.ReactNode = null;
   let conProbalo = false;
-  const leccion = item.tipo === "leccion" ? esquemaLeccion.safeParse(item.leccion) : null;
-  if (leccion) {
+  let sinMarco = false;
+  const v2 =
+    item.tipo === "leccion" && esLeccionV2(item.leccion) ? esquemaLeccionV2.safeParse(item.leccion) : null;
+  const leccion = item.tipo === "leccion" && !v2 ? esquemaLeccion.safeParse(item.leccion) : null;
+  if (v2) {
+    const [{ data: art }, { data: preguntas }] = await Promise.all([
+      item.articulo_id
+        ? supabase
+            .from("articulos")
+            .select("titulo, slug, categorias(slug)")
+            .eq("id", item.articulo_id)
+            .maybeSingle()
+        : Promise.resolve({ data: null }),
+      supabase.rpc("probalo_preguntas", { p_item: itemId }),
+    ]);
+    type P = Parameters<typeof Practica>[0]["preguntas"][number];
+    const lista = (preguntas ?? []) as unknown as P[];
+    conProbalo = lista.length > 0;
+    sinMarco = true;
+    if (!v2.success) cuerpo = <p className="text-muted">Esta lección no se puede mostrar.</p>;
+    else {
+      // El video vive en un bucket privado: se ve con un enlace firmado; si no está, la tarjeta no aparece
+      const ruta = v2.data.tarjetas.find((t) => t.tipo === "video")?.ruta;
+      const { data: firmado } = ruta
+        ? await supabase.storage.from("videos").createSignedUrl(ruta, 3600)
+        : { data: null };
+      cuerpo = (
+        <VistaTarjetas
+          tarjetas={ordenarTarjetas(
+            v2.data.tarjetas,
+            lista.map((p) => p.pregunta_id),
+            firmado?.signedUrl ?? null,
+          )}
+          preguntas={Object.fromEntries(lista.map((p) => [p.pregunta_id, p]))}
+          itemId={itemId}
+          minutos={minutosDeLectura(v2.data)}
+          color={color}
+          fuente={
+            art ? { titulo: art.titulo, href: `/repositorio/${art.categorias?.slug}/${art.slug}` } : null
+          }
+        />
+      );
+    }
+  } else if (leccion) {
     const [{ data: art }, { data: preguntas }] = await Promise.all([
       item.articulo_id
         ? supabase
@@ -259,7 +303,7 @@ export default async function PaginaLeccion({ params }: PageProps<"/estudiar/[cu
         {fila.modulo_titulo} · paso {posModulo + 1} de {delModulo.length}
       </p>
       <h1 className="text-h1 leading-tight">{item.titulo}</h1>
-      <div className="rounded-3xl bg-card p-5 shadow-1">{cuerpo}</div>
+      {sinMarco ? cuerpo : <div className="rounded-3xl bg-card p-5 shadow-1">{cuerpo}</div>}
       {probalo}
       <BarraSiguiente
         itemId={itemId}

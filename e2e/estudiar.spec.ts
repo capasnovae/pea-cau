@@ -165,16 +165,56 @@ test("vista previa: el admin recorre un curso en borrador y un asesor no lo ve",
   await adm.getByRole("link", { name: /Ver como asesor/ }).click();
   await expect(adm.getByRole("status").filter({ hasText: "Vista previa" })).toBeVisible();
   await adm.getByRole("link", { name: /Cambio de modalidad/ }).click();
-  await expect(adm.getByRole("region", { name: "En 30 segundos" })).toBeVisible();
-  const probalo = adm.getByRole("region", { name: "Probalo" });
-  await probalo.getByRole("radio").first().check();
-  await probalo.getByRole("button", { name: "Comprobar" }).click();
-  // Probalo como caso: explica por qué la opción elegida está bien o mal
-  await expect(probalo.getByRole("status")).toContainText("Tu respuesta:");
+  await expect(adm.getByRole("region", { name: "Caso" })).toBeVisible();
   await expect(adm.getByRole("status").filter({ hasText: "Vista previa" })).toBeVisible();
 
   const a = await (await browser.newContext()).newPage();
   await ingresar(a, "asesor.nqn@pea.local");
   await esperarInicio(a);
   expect((await a.goto(`/estudiar/${TRAMITES}`))?.status()).toBe(404);
+});
+
+test("lección por tarjetas: caso, qué preguntar, Probalo intercalado y caso resuelto", async ({
+  browser,
+}) => {
+  const TRAMITES = "9fe6df40-deab-4faa-8040-e0ecc8236963";
+  const adm = await (await browser.newContext({ viewport: { width: 360, height: 780 } })).newPage();
+  await ingresar(adm, "admin@pea.local");
+  await esperarInicio(adm);
+  await adm.goto(`/estudiar/${TRAMITES}`);
+  await adm.getByRole("link", { name: /Cambio de modalidad/ }).click();
+  const siguiente = () => adm.getByRole("button", { name: "Siguiente" }).click();
+
+  await expect(adm.getByRole("region", { name: "Caso" })).toContainText("Lucía");
+  await expect(adm.getByRole("progressbar", { name: /Tarjeta 1 de \d+/ })).toBeVisible();
+  await siguiente();
+
+  const preguntar = adm.getByRole("region", { name: "Antes de responder" });
+  await preguntar.getByRole("checkbox", { name: /anotada a algún final/ }).check();
+  await preguntar.getByRole("button", { name: "Ver qué importa" }).click();
+  await expect(preguntar.getByRole("status")).toContainText("no puede pedir el pase");
+  await siguiente();
+
+  await expect(adm.getByRole("heading", { name: "Antes de pedirlo, que esté en regla" })).toBeVisible();
+  await siguiente();
+  await expect(adm.getByRole("heading", { name: "Qué pasa con cada materia" })).toBeVisible();
+  await siguiente();
+
+  const probalo = adm.getByRole("region", { name: "Probalo" });
+  await probalo.getByRole("radio").first().check();
+  await probalo.getByRole("button", { name: "Comprobar" }).click();
+  await expect(probalo.getByRole("status")).toContainText("Tu respuesta:");
+  // Volver atrás y adelante conserva lo respondido
+  await adm.getByRole("button", { name: "Anterior" }).click();
+  await siguiente();
+  await expect(adm.getByRole("region", { name: "Probalo" }).getByRole("status")).toContainText(
+    "Tu respuesta:",
+  );
+
+  for (let i = 0; i < 8 && !(await adm.getByRole("region", { name: "Caso resuelto" }).isVisible()); i++)
+    await siguiente();
+  await expect(adm.getByRole("region", { name: "Caso resuelto" })).toContainText("Lucía");
+  expect(
+    await adm.evaluate(() => document.documentElement.scrollWidth - window.innerWidth),
+  ).toBeLessThanOrEqual(0);
 });
