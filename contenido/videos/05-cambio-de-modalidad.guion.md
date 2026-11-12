@@ -4,7 +4,7 @@ Fuente: Reglamento General, 3.2 Cambios de modalidad (lección 05). Los nombres 
 Duración estimada: 4 minutos.
 
 **Personajes y voces**
-- **Lucía**: estudiante de EDH, 24 años, trabaja en un comercio. Voz: Elena (Buenos Aires).
+- **Lucía**: estudiante de ED, 24 años, trabaja en un comercio. Voz: Elena (Buenos Aires).
 - **Martín**: asesor del CAU. Voz: Tomás (Buenos Aires).
 - **Narradora**: una compañera con experiencia que te explica. Voz: Valentina (Montevideo, acento rioplatense).
 
@@ -17,7 +17,7 @@ Todo el caso pasa **por WhatsApp**, igual que en la tarjeta de la lección: Luc�
 
 *Lucía en el colectivo, escribiendo en el celular. Se escucha la calle. En pantalla, el chat de WhatsApp con el CAU.*
 
-**LUCÍA (escribe):** «Hola! Curso EDH pero con el trabajo no me dan los horarios. Me quiero pasar a ED. Estoy cursando 2 materias y el jueves rindo un final. ¿Se puede?»
+**LUCÍA (escribe):** «Hola! Curso ED pero con el trabajo no llego a cumplir la asistencia en el CAU. Me quiero pasar a EDH. Estoy cursando 2 materias y el jueves rindo un final. ¿Se puede?»
 
 *En el CAU, a Martín le llega el mensaje en la computadora.*
 
@@ -58,7 +58,7 @@ Y cinco: no estar anotada a una mesa de final ni tener una nota de final pendien
 
 *Las materias de Lucía como tarjetas en dos columnas: «Se conserva» y «Se recursa».*
 
-**NARRADORA:** La regla es simple: lo que ya ganó, lo conserva. Las cuatro aprobadas siguen aprobadas. La regular sigue regular, pero la va a rendir con las reglas de evaluación de ED.
+**NARRADORA:** La regla es simple: lo que ya ganó, lo conserva. Las cuatro aprobadas siguen aprobadas. La regular sigue regular, pero la va a rendir con las reglas de evaluación de EDH.
 Lo que está en curso, en cambio, se pierde: las dos que está cursando quedan «Libre por Pase» y las tiene que recursar. Lo mismo pasa con las que estén «Libre por Nota».
 
 *Las dos tarjetas de cursada se deslizan a «Se recursa».*
@@ -74,13 +74,13 @@ Y el Seminario Final regular se mantiene siempre, en cualquier pase.
 
 *Ícono de alerta. Un mapa con varios CAU.*
 
-**NARRADORA:** Un error común es que la persona se vaya sin confirmar su lugar. En todo pase a ED, y en todo cambio de CAU, es responsabilidad del estudiante contactar al CAU de destino, porque no todos los CAU ofrecen todas las carreras ni todas las materias.
+**NARRADORA:** A Lucía esto no le toca, porque se va a EDH. Pero si te llega el caso al revés, alguien que pasa a ED o que cambia de CAU, que no se vaya sin confirmar su lugar: en esos casos es responsabilidad del estudiante contactar al CAU de destino, porque no todos los CAU ofrecen todas las carreras ni todas las materias.
 
 ## 8. Ahora sí, la respuesta (3:25–3:55)
 
 *Vuelve el chat. Martín escribe con calma.*
 
-**MARTÍN (escribe):** «Sí se puede, pero todavía no. Primero rendí el final del jueves (o date de baja de esa mesa) y esperá que carguen la nota. Las 2 materias que estás cursando te quedarían Libre por Pase; las aprobadas, la regular y el Seminario de Práctica los conservás. Antes, confirmá tu lugar con el CAU de ED. Después lo pedís en las fechas del calendario de trámites.»
+**MARTÍN (escribe):** «Sí se puede, pero todavía no. Primero rendí el final del jueves (o date de baja de esa mesa) y esperá que carguen la nota. Las 2 materias que estás cursando te quedarían Libre por Pase; las aprobadas, la regular y el Seminario de Práctica los conservás. Después lo pedís en las fechas del calendario de trámites.»
 
 **LUCÍA (audio):** Buenísimo, entonces rindo el jueves y después me fijo las fechas. ¡Gracias, Martín!
 

@@ -15,7 +15,7 @@ ruta: lecciones/05-cambio-de-modalidad.mp4
 
 persona: Lucía
 canal: whatsapp
-Hola! Curso EDH pero con el trabajo no me dan los horarios. Me quiero pasar a ED. Estoy cursando 2 materias y el jueves rindo un final. ¿Se puede?
+Hola! Curso ED pero con el trabajo no llego a cumplir la asistencia en el CAU. Me quiero pasar a EDH. Estoy cursando 2 materias y el jueves rindo un final. ¿Se puede?
 
 ## preguntar
 
@@ -57,13 +57,13 @@ clave: Entre ED y EDH, el Seminario de Práctica regular se conserva.
 
 ## ojo
 
-Que no se vaya sin confirmar su lugar: en todo pase a ED (y en todo cambio de CAU) es responsabilidad del estudiante contactar al CAU de destino, porque no todos los CAU ofrecen todas las carreras ni todas las materias.
+Si el pase es al revés, a ED (o cambia de CAU), que no se vaya sin confirmar su lugar: en esos casos es responsabilidad del estudiante contactar al CAU de destino, porque no todos los CAU ofrecen todas las carreras ni todas las materias.
 
 ## probalo 3
 
 ## cierre
 
-A Lucía le respondés que sí se puede, pero no todavía: primero rinde el final del jueves (o se da de baja de esa mesa) y espera que carguen la nota. Le avisás que las 2 materias que cursa quedarían Libre por Pase, que conserva sus aprobadas y regulares, y que antes confirme su lugar en el CAU de ED. Después lo pide dentro de las fechas del calendario de trámites.
+A Lucía le respondés que sí se puede, pero no todavía: primero rinde el final del jueves (o se da de baja de esa mesa) y espera que carguen la nota. Le avisás que las 2 materias que cursa quedarían Libre por Pase, y que conserva sus aprobadas, sus regulares (que rinde con las reglas de EDH) y, si lo tiene regular, el Seminario de Práctica. Después lo pide dentro de las fechas del calendario de trámites.
 
 recordar: Primero sin finales pendientes, después el pase, en fecha.
 
