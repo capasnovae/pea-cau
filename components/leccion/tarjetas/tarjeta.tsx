@@ -24,11 +24,13 @@ export function Tarjeta({
   t,
   itemId,
   pregunta,
+  posicion,
   fuente,
 }: {
   t: TarjetaConPregunta;
   itemId: string;
   pregunta?: PreguntaPractica;
+  posicion?: { n: number; total: number };
   fuente: { titulo: string; href: string } | null;
 }) {
   switch (t.tipo) {
@@ -85,7 +87,9 @@ export function Tarjeta({
         </section>
       );
     case "probalo":
-      return pregunta ? <Practica origen={{ tipo: "leccion", id: itemId }} preguntas={[pregunta]} /> : null;
+      return pregunta ? (
+        <Practica origen={{ tipo: "leccion", id: itemId }} preguntas={[pregunta]} posicion={posicion} />
+      ) : null;
     case "ojo":
       return (
         <section aria-label="Ojo con" className="flex flex-col gap-3">

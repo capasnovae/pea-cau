@@ -114,9 +114,12 @@ function PorOpcion({
 export function Practica({
   origen,
   preguntas,
+  posicion,
 }: {
   origen: { tipo: "examen" | "leccion"; id: string } | { tipo: "repaso" };
   preguntas: PreguntaPractica[];
+  /** En una lección por tarjetas, cada tarjeta trae una pregunta: cuál es del total del Probalo. */
+  posicion?: { n: number; total: number };
 }) {
   const esRepaso = origen.tipo === "repaso";
   const nombre = esRepaso ? "Repaso" : origen.tipo === "leccion" ? "Probalo" : "Práctica";
@@ -161,19 +164,21 @@ export function Practica({
           {origen.tipo === "leccion" && (
             <span className="mr-2 text-base font-extrabold text-ink">Probalo</span>
           )}
-          {actual + 1} de {preguntas.length}
+          {posicion ? posicion.n : actual + 1} de {posicion ? posicion.total : preguntas.length}
         </span>
-        <span
-          className={cn(
-            "text-sm font-bold",
-            acertadas.size === preguntas.length ? "text-success" : "text-primary-strong",
-          )}
-        >
-          <span key={acertadas.size} className="latir inline-block">
-            {acertadas.size}/{preguntas.length}
-          </span>{" "}
-          acertadas
-        </span>
+        {!posicion && (
+          <span
+            className={cn(
+              "text-sm font-bold",
+              acertadas.size === preguntas.length ? "text-success" : "text-primary-strong",
+            )}
+          >
+            <span key={acertadas.size} className="latir inline-block">
+              {acertadas.size}/{preguntas.length}
+            </span>{" "}
+            acertadas
+          </span>
+        )}
       </div>
       <div key={p.pregunta_id} className="animate-subir flex flex-col gap-4">
         <Enunciado p={p} />
@@ -250,14 +255,16 @@ export function Practica({
             >
               Otra vez
             </Button>
-            <Button
-              type="button"
-              tamano="lg"
-              className="flex-1"
-              onClick={() => ir((actual + 1) % preguntas.length)}
-            >
-              Otra pregunta
-            </Button>
+            {preguntas.length > 1 && (
+              <Button
+                type="button"
+                tamano="lg"
+                className="flex-1"
+                onClick={() => ir((actual + 1) % preguntas.length)}
+              >
+                Otra pregunta
+              </Button>
+            )}
           </>
         ) : (
           <Button

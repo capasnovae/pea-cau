@@ -33,6 +33,8 @@ export function VistaTarjetas({
   alFinal?: React.ReactNode;
 }) {
   const total = tarjetas.length;
+  // Qué pregunta del Probalo es cada tarjeta "probalo" (1 de 3, 2 de 3…)
+  const probalos = tarjetas.flatMap((t, i) => (t.tipo === "probalo" ? [i] : []));
   const [actual, setActual] = useState(0);
   const [sentido, setSentido] = useState<"der" | "izq">("der");
   const inicio = useRef<number | null>(null);
@@ -113,6 +115,9 @@ export function VistaTarjetas({
             itemId={itemId}
             fuente={fuente}
             pregunta={t.tipo === "probalo" ? preguntas[t.preguntaId] : undefined}
+            posicion={
+              t.tipo === "probalo" ? { n: probalos.indexOf(i) + 1, total: probalos.length } : undefined
+            }
           />
         </div>
       ))}

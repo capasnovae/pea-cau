@@ -101,7 +101,10 @@ export default async function PaginaLeccion({ params }: PageProps<"/estudiar/[cu
       supabase.rpc("probalo_preguntas", { p_item: itemId }),
     ]);
     type P = Parameters<typeof Practica>[0]["preguntas"][number];
-    const lista = (preguntas ?? []) as unknown as P[];
+    // probalo N toma la N-ésima pregunta: la consulta no garantiza el orden de las filas
+    const lista = ((preguntas ?? []) as unknown as (P & { orden: number })[]).toSorted(
+      (a, b) => a.orden - b.orden,
+    );
     conProbalo = lista.length > 0;
     sinMarco = true;
     if (!v2.success) cuerpo = <p className="text-muted">Esta lección no se puede mostrar.</p>;

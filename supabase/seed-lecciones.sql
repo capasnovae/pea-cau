@@ -104,12 +104,12 @@ where item_id = '0c8bd593-8354-49df-8d58-bb7d3fb8bcdf'::uuid and id not in ('da4
   and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = 'c07fdef2-d72d-4f2c-8aa6-1b2ba9d7227f'::uuid and c.estado = 'borrador');
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select 'da469af9-09e9-45b9-89a6-f52b16e9e992'::uuid, 'opcion_multiple', $pea0$Martín cursa EDH y escribe por WhatsApp: "No me llegó el aviso de cambio de fecha. Hace un año cambié de mail, pero nunca lo actualicé en el portal". ¿Qué le respondés?$pea0$, $pea0$El correo que el estudiante registró es el canal oficial de comunicación, y mantenerlo actualizado es su responsabilidad.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', '0c8bd593-8354-49df-8d58-bb7d3fb8bcdf'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', '0c8bd593-8354-49df-8d58-bb7d3fb8bcdf'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 1
 where exists (select 1 from public.items where id = '0c8bd593-8354-49df-8d58-bb7d3fb8bcdf'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = 'c07fdef2-d72d-4f2c-8aa6-1b2ba9d7227f'::uuid and c.estado = 'borrador');
 
@@ -125,12 +125,12 @@ select x.id, 'da469af9-09e9-45b9-89a6-f52b16e9e992'::uuid, x.texto, x.correcta, 
 where exists (select 1 from public.preguntas where id = 'da469af9-09e9-45b9-89a6-f52b16e9e992'::uuid)
 on conflict do nothing;
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select 'b9704758-3057-4bee-882b-681051a82bff'::uuid, 'opcion_multiple', $pea0$Carla cursa ED y tiene que rendir su primer parcial virtual. Tiene una notebook con Windows 8, cámara y micrófono. ¿Qué le decís?$pea0$, $pea0$Para rendir exámenes virtuales se pide una notebook que cumpla todos los requisitos técnicos: sistema operativo, procesador, RAM, cámara, micrófono y conexión.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', '0c8bd593-8354-49df-8d58-bb7d3fb8bcdf'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', '0c8bd593-8354-49df-8d58-bb7d3fb8bcdf'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 2
 where exists (select 1 from public.items where id = '0c8bd593-8354-49df-8d58-bb7d3fb8bcdf'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = 'c07fdef2-d72d-4f2c-8aa6-1b2ba9d7227f'::uuid and c.estado = 'borrador');
 
@@ -146,12 +146,12 @@ select x.id, 'b9704758-3057-4bee-882b-681051a82bff'::uuid, x.texto, x.correcta, 
 where exists (select 1 from public.preguntas where id = 'b9704758-3057-4bee-882b-681051a82bff'::uuid)
 on conflict do nothing;
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select 'b4c6991a-6506-4560-81d2-b6321f2d21bd'::uuid, 'opcion_multiple', $pea0$Diego quiere inscribirse en EDH y cuenta que no tiene Internet en su casa. ¿Qué hacés?$pea0$, $pea0$Sin conexión a Internet, la persona tiene que informarlo a la Universidad, que decide si es viable su admisión o que siga cursando.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', '0c8bd593-8354-49df-8d58-bb7d3fb8bcdf'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', '0c8bd593-8354-49df-8d58-bb7d3fb8bcdf'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 3
 where exists (select 1 from public.items where id = '0c8bd593-8354-49df-8d58-bb7d3fb8bcdf'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = 'c07fdef2-d72d-4f2c-8aa6-1b2ba9d7227f'::uuid and c.estado = 'borrador');
 
@@ -181,12 +181,12 @@ where item_id = 'a0ce0cfc-f526-4528-83dd-560760fd78fa'::uuid and id not in ('0cd
   and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '4b76d45b-9828-41e8-8e9f-c2cd2148e1b0'::uuid and c.estado = 'borrador');
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select '0cd974c7-c188-4575-8ad2-9d3615efe786'::uuid, 'clasificar', $pea0$Clasificá cada característica según la modalidad a la que corresponde.$pea0$, $pea0$ED combina plataforma y Open Class en el CAU; EDH es íntegramente en la plataforma; PD es presencial y cuatrimestral con actividades sincrónicas en el CAU.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', 'a0ce0cfc-f526-4528-83dd-560760fd78fa'::uuid, $pea0${"columnas":["ED","EDH","PD"]}$pea0$::jsonb
+       'publicado', 'global', 'practica', 'a0ce0cfc-f526-4528-83dd-560760fd78fa'::uuid, $pea0${"columnas":["ED","EDH","PD"]}$pea0$::jsonb, now() + interval '1 millisecond' * 1
 where exists (select 1 from public.items where id = 'a0ce0cfc-f526-4528-83dd-560760fd78fa'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '4b76d45b-9828-41e8-8e9f-c2cd2148e1b0'::uuid and c.estado = 'borrador');
 
@@ -204,12 +204,12 @@ select x.id, '0cd974c7-c188-4575-8ad2-9d3615efe786'::uuid, x.texto, x.correcta, 
 where exists (select 1 from public.preguntas where id = '0cd974c7-c188-4575-8ad2-9d3615efe786'::uuid)
 on conflict do nothing;
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select '2e4d6eb3-7635-4d7f-813a-0cafd91612a4'::uuid, 'opcion_multiple', $pea0$Tomás cursa una carrera de pregrado en ED. Ya tiene 2 materias con Open Class en el subperíodo y quiere sumar una tercera "100% virtual" para no venir al CAU. ¿Qué le decís?$pea0$, $pea0$En ED se cursan hasta 2 materias con asistencia por subperíodo; solo en grado se puede sumar 1 materia íntegramente virtual, que se rige por las reglas de EDH.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', 'a0ce0cfc-f526-4528-83dd-560760fd78fa'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', 'a0ce0cfc-f526-4528-83dd-560760fd78fa'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 2
 where exists (select 1 from public.items where id = 'a0ce0cfc-f526-4528-83dd-560760fd78fa'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '4b76d45b-9828-41e8-8e9f-c2cd2148e1b0'::uuid and c.estado = 'borrador');
 
@@ -225,12 +225,12 @@ select x.id, '2e4d6eb3-7635-4d7f-813a-0cafd91612a4'::uuid, x.texto, x.correcta, 
 where exists (select 1 from public.preguntas where id = '2e4d6eb3-7635-4d7f-813a-0cafd91612a4'::uuid)
 on conflict do nothing;
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select 'e5868466-321d-4c2a-8e10-990a5246c857'::uuid, 'opcion_multiple', $pea0$Lucía cursa EDH y tiene ajustes razonables por el Protocolo de Prácticas Educativas Inclusivas. Pregunta si puede rendir el final desde su casa, como sus compañeros. ¿Qué le respondés?$pea0$, $pea0$Quienes requieren ajustes razonables rinden de forma obligatoria en su sede o CAU, nunca en su domicilio, tanto en ED como en EDH.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', 'a0ce0cfc-f526-4528-83dd-560760fd78fa'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', 'a0ce0cfc-f526-4528-83dd-560760fd78fa'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 3
 where exists (select 1 from public.items where id = 'a0ce0cfc-f526-4528-83dd-560760fd78fa'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '4b76d45b-9828-41e8-8e9f-c2cd2148e1b0'::uuid and c.estado = 'borrador');
 
@@ -260,12 +260,12 @@ where item_id = '51622ea5-2aad-4a37-8328-1bbfc5b489fb'::uuid and id not in ('26d
   and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select '26d8df03-a1a9-4918-8e13-73ba925845df'::uuid, 'opcion_multiple', $pea0$Julieta cursa una carrera de grado en EDH, no es ingresante y sus correlativas le permiten todo. Al inicio del semestre se quiere anotar a 7 materias. ¿Qué le decís?$pea0$, $pea0$En ED/EDH, grado: hasta 6 materias al inicio del semestre más 2 extra con arancel adicional, si las correlativas lo permiten y no es ingresante.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', '51622ea5-2aad-4a37-8328-1bbfc5b489fb'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', '51622ea5-2aad-4a37-8328-1bbfc5b489fb'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 1
 where exists (select 1 from public.items where id = '51622ea5-2aad-4a37-8328-1bbfc5b489fb'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
 
@@ -281,12 +281,12 @@ select x.id, '26d8df03-a1a9-4918-8e13-73ba925845df'::uuid, x.texto, x.correcta, 
 where exists (select 1 from public.preguntas where id = '26d8df03-a1a9-4918-8e13-73ba925845df'::uuid)
 on conflict do nothing;
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select '2a455e9a-0c90-40c0-8825-1048e0326aa1'::uuid, 'opcion_multiple', $pea0$Nahuel es ingresante en una carrera de grado en ED y empieza en el segundo subperíodo (octubre). Se quiere anotar a 4 materias. ¿Qué le respondés?$pea0$, $pea0$Quien empieza en un segundo subperíodo (junio u octubre) cursa solo materias de ese subperíodo, hasta 3; los ingresantes no pueden sumar materias extra.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', '51622ea5-2aad-4a37-8328-1bbfc5b489fb'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', '51622ea5-2aad-4a37-8328-1bbfc5b489fb'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 2
 where exists (select 1 from public.items where id = '51622ea5-2aad-4a37-8328-1bbfc5b489fb'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
 
@@ -302,12 +302,12 @@ select x.id, '2a455e9a-0c90-40c0-8825-1048e0326aa1'::uuid, x.texto, x.correcta, 
 where exists (select 1 from public.preguntas where id = '2a455e9a-0c90-40c0-8825-1048e0326aa1'::uuid)
 on conflict do nothing;
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select '774b0ecb-a395-4371-8276-b95406282879'::uuid, 'verdadero_falso', $pea0$Si el alumno ya se anotó a la materia en el portal, está inscripto aunque todavía no haya pagado los aranceles.$pea0$, $pea0$La condición de inscripto a la materia se adquiere solo cuando abonó los aranceles e hizo la inscripción.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', '51622ea5-2aad-4a37-8328-1bbfc5b489fb'::uuid, null
+       'publicado', 'global', 'practica', '51622ea5-2aad-4a37-8328-1bbfc5b489fb'::uuid, null, now() + interval '1 millisecond' * 3
 where exists (select 1 from public.items where id = '51622ea5-2aad-4a37-8328-1bbfc5b489fb'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
 
@@ -336,12 +336,12 @@ where item_id = '167ada6b-e3cf-4327-8c9a-e06a0122ddc1'::uuid and id not in ('bc5
   and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select 'bc5e3d3b-e07a-45da-831f-939b305124e5'::uuid, 'clasificar', $pea0$Clasificá cada situación según si corresponde o no un cambio de cátedra.$pea0$, $pea0$Solo corresponde en modalidades presenciales (en el CAU, PD), dentro del período, con superposición entre materias del mismo semestre, con aranceles pagos y a una cátedra del mismo turno.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', '167ada6b-e3cf-4327-8c9a-e06a0122ddc1'::uuid, $pea0${"columnas":["Corresponde","No corresponde"]}$pea0$::jsonb
+       'publicado', 'global', 'practica', '167ada6b-e3cf-4327-8c9a-e06a0122ddc1'::uuid, $pea0${"columnas":["Corresponde","No corresponde"]}$pea0$::jsonb, now() + interval '1 millisecond' * 1
 where exists (select 1 from public.items where id = '167ada6b-e3cf-4327-8c9a-e06a0122ddc1'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
 
@@ -358,12 +358,12 @@ select x.id, 'bc5e3d3b-e07a-45da-831f-939b305124e5'::uuid, x.texto, x.correcta, 
 where exists (select 1 from public.preguntas where id = 'bc5e3d3b-e07a-45da-831f-939b305124e5'::uuid)
 on conflict do nothing;
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select 'c6a5d744-7c69-425c-8e31-1e36e0a96c4a'::uuid, 'opcion_multiple', $pea0$Ramiro cursa PD a la mañana. Dos materias del mismo semestre se le superponen, tiene los aranceles pagos y está dentro del período. Pide pasarse a una cátedra del turno noche. ¿Qué le respondés?$pea0$, $pea0$El cambio de cátedra solo se hace a cátedras del mismo turno de cursado.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', '167ada6b-e3cf-4327-8c9a-e06a0122ddc1'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', '167ada6b-e3cf-4327-8c9a-e06a0122ddc1'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 2
 where exists (select 1 from public.items where id = '167ada6b-e3cf-4327-8c9a-e06a0122ddc1'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
 
@@ -379,12 +379,12 @@ select x.id, 'c6a5d744-7c69-425c-8e31-1e36e0a96c4a'::uuid, x.texto, x.correcta, 
 where exists (select 1 from public.preguntas where id = 'c6a5d744-7c69-425c-8e31-1e36e0a96c4a'::uuid)
 on conflict do nothing;
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select '5f635f65-66a8-428e-8585-d267225d7c4f'::uuid, 'opcion_multiple', $pea0$Agustina cursa PD y este semestre tiene materias de 1.º y de 3.er cuatrimestre del plan; dos de ellas se superponen. ¿Qué le decís?$pea0$, $pea0$El cambio de cátedra aplica a superposiciones entre materias del mismo semestre; si se cursan materias de distintos cuatrimestres, la Universidad no puede garantizar que no se superpongan.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', '167ada6b-e3cf-4327-8c9a-e06a0122ddc1'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', '167ada6b-e3cf-4327-8c9a-e06a0122ddc1'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 3
 where exists (select 1 from public.items where id = '167ada6b-e3cf-4327-8c9a-e06a0122ddc1'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
 
@@ -414,12 +414,12 @@ where item_id = '046b3b65-8558-4c89-810b-922567df3cb0'::uuid and id not in ('6b4
   and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '6e4190d9-c64f-44b2-86d1-aefc20de8215'::uuid and c.estado = 'borrador');
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select '6b41783d-37e9-4583-808c-1e36ac3f5202'::uuid, 'opcion_multiple', $pea0$Valentina cursa EDH y se quiere pasar a ED. Tiene 5 materias aprobadas, 1 regular, 1 Libre por Nota y 2 cursando. ¿Cómo le quedan?$pea0$, $pea0$Aprobadas y regulares se conservan (las regulares se rinden con las reglas de la modalidad de destino); "cursando" y "Libre por Nota" pasan a Libre por Pase.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', '046b3b65-8558-4c89-810b-922567df3cb0'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', '046b3b65-8558-4c89-810b-922567df3cb0'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 1
 where exists (select 1 from public.items where id = '046b3b65-8558-4c89-810b-922567df3cb0'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '6e4190d9-c64f-44b2-86d1-aefc20de8215'::uuid and c.estado = 'borrador');
 
@@ -435,12 +435,12 @@ select x.id, '6b41783d-37e9-4583-808c-1e36ac3f5202'::uuid, x.texto, x.correcta, 
 where exists (select 1 from public.preguntas where id = '6b41783d-37e9-4583-808c-1e36ac3f5202'::uuid)
 on conflict do nothing;
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select '42369db1-c3c5-4986-8b34-2272b155a33f'::uuid, 'opcion_multiple', $pea0$Florencia cursa una carrera de grado en ED, tiene el Seminario de Práctica regular y se quiere pasar a EDH. Pregunta si lo pierde. ¿Qué le respondés?$pea0$, $pea0$El Seminario de Práctica pierde su condición en los pases entre modalidades, salvo en ED↔EDH, donde se conserva la regularidad.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', '046b3b65-8558-4c89-810b-922567df3cb0'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', '046b3b65-8558-4c89-810b-922567df3cb0'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 2
 where exists (select 1 from public.items where id = '046b3b65-8558-4c89-810b-922567df3cb0'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '6e4190d9-c64f-44b2-86d1-aefc20de8215'::uuid and c.estado = 'borrador');
 
@@ -456,12 +456,12 @@ select x.id, '42369db1-c3c5-4986-8b34-2272b155a33f'::uuid, x.texto, x.correcta, 
 where exists (select 1 from public.preguntas where id = '42369db1-c3c5-4986-8b34-2272b155a33f'::uuid)
 on conflict do nothing;
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select 'fb8b142d-05d3-45c5-8c98-bffdd7b114c5'::uuid, 'opcion_multiple', $pea0$Ezequiel cursa EDH, cumple todos los requisitos y se quiere pasar a ED en tu CAU. ¿Qué más le recomendás antes de tramitar el pase?$pea0$, $pea0$En todo pase a ED, o cambio de CAU, el estudiante tiene que confirmar su lugar con el CAU de destino.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', '046b3b65-8558-4c89-810b-922567df3cb0'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', '046b3b65-8558-4c89-810b-922567df3cb0'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 3
 where exists (select 1 from public.items where id = '046b3b65-8558-4c89-810b-922567df3cb0'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '6e4190d9-c64f-44b2-86d1-aefc20de8215'::uuid and c.estado = 'borrador');
 
@@ -491,12 +491,12 @@ where item_id = '0e0f7567-7780-4bb1-8f96-8da38a4030a0'::uuid and id not in ('af2
   and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '6e4190d9-c64f-44b2-86d1-aefc20de8215'::uuid and c.estado = 'borrador');
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select 'af2f9107-574e-4419-811c-91a2a94f4b51'::uuid, 'opcion_multiple', $pea0$Pablo se inscribe a una carrera de grado en EDH y quiere pedir equivalencia por la Práctica Profesional y el Seminario Final que aprobó en otra universidad. ¿Qué le decís?$pea0$, $pea0$Práctica Solidaria, Práctica Profesional y Seminario Final no se reconocen por equivalencia externa.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', '0e0f7567-7780-4bb1-8f96-8da38a4030a0'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', '0e0f7567-7780-4bb1-8f96-8da38a4030a0'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 1
 where exists (select 1 from public.items where id = '0e0f7567-7780-4bb1-8f96-8da38a4030a0'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '6e4190d9-c64f-44b2-86d1-aefc20de8215'::uuid and c.estado = 'borrador');
 
@@ -512,12 +512,12 @@ select x.id, 'af2f9107-574e-4419-811c-91a2a94f4b51'::uuid, x.texto, x.correcta, 
 where exists (select 1 from public.preguntas where id = 'af2f9107-574e-4419-811c-91a2a94f4b51'::uuid)
 on conflict do nothing;
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select '0f8f45fd-48a2-4352-8e1d-01fd5e89c37d'::uuid, 'opcion_multiple', $pea0$Marina va a cursar en ED y aprobó "Seminario de Práctica" en otra institución, con contenidos casi idénticos. Pregunta si se lo reconocen. ¿Qué le respondés?$pea0$, $pea0$En modalidad distancia, el Seminario de Práctica (o de Planificación y Control de Gestión) no se reconoce por equivalencia externa, porque su aprobación está atada al EFIP I.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', '0e0f7567-7780-4bb1-8f96-8da38a4030a0'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', '0e0f7567-7780-4bb1-8f96-8da38a4030a0'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 2
 where exists (select 1 from public.items where id = '0e0f7567-7780-4bb1-8f96-8da38a4030a0'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '6e4190d9-c64f-44b2-86d1-aefc20de8215'::uuid and c.estado = 'borrador');
 
@@ -533,12 +533,12 @@ select x.id, '0f8f45fd-48a2-4352-8e1d-01fd5e89c37d'::uuid, x.texto, x.correcta, 
 where exists (select 1 from public.preguntas where id = '0f8f45fd-48a2-4352-8e1d-01fd5e89c37d'::uuid)
 on conflict do nothing;
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select '232916ee-2681-425b-8bd6-aefc592c4556'::uuid, 'opcion_multiple', $pea0$Esteban trae DNI, analítico legalizado, plan legalizado y el comprobante de la tasa, pero no los programas. Su carrera de origen tiene un pre-dictamen aprobado para Siglo 21. ¿Qué le decís?$pea0$, $pea0$Si hay un pre-dictamen aprobado por resolución rectoral, no se exigen los programas; el resto de la documentación y la tasa sí.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', '0e0f7567-7780-4bb1-8f96-8da38a4030a0'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', '0e0f7567-7780-4bb1-8f96-8da38a4030a0'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 3
 where exists (select 1 from public.items where id = '0e0f7567-7780-4bb1-8f96-8da38a4030a0'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '6e4190d9-c64f-44b2-86d1-aefc20de8215'::uuid and c.estado = 'borrador');
 
@@ -568,12 +568,12 @@ where item_id = 'e2088b9a-c2dc-4c4f-8417-e514aa081194'::uuid and id not in ('845
   and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '6e4190d9-c64f-44b2-86d1-aefc20de8215'::uuid and c.estado = 'borrador');
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select '8458be8d-9545-4c2d-8ab1-f08268066010'::uuid, 'opcion_multiple', $pea0$Micaela cursa EDH, está al día con las cuotas y pide la baja. En el sistema figura que tiene un libro de la biblioteca sin devolver. ¿Qué le decís?$pea0$, $pea0$Para otorgar la baja no tiene que adeudar libros ni registrar deuda, baja administrativa o inhabilitación académica.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', 'e2088b9a-c2dc-4c4f-8417-e514aa081194'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', 'e2088b9a-c2dc-4c4f-8417-e514aa081194'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 1
 where exists (select 1 from public.items where id = 'e2088b9a-c2dc-4c4f-8417-e514aa081194'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '6e4190d9-c64f-44b2-86d1-aefc20de8215'::uuid and c.estado = 'borrador');
 
@@ -589,12 +589,12 @@ select x.id, '8458be8d-9545-4c2d-8ab1-f08268066010'::uuid, x.texto, x.correcta, 
 where exists (select 1 from public.preguntas where id = '8458be8d-9545-4c2d-8ab1-f08268066010'::uuid)
 on conflict do nothing;
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select 'acb95661-26bd-4d82-84da-22743d0cf1dc'::uuid, 'opcion_multiple', $pea0$Joaquín pagó el semestre completo, cursó tres semanas y pide la baja con reintegro por motivos personales. ¿Qué le respondés?$pea0$, $pea0$La baja no devuelve dinero ni cancela deuda de aranceles semestrales, salvo razones institucionales justificadas y aprobadas.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', 'e2088b9a-c2dc-4c4f-8417-e514aa081194'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', 'e2088b9a-c2dc-4c4f-8417-e514aa081194'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 2
 where exists (select 1 from public.items where id = 'e2088b9a-c2dc-4c4f-8417-e514aa081194'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '6e4190d9-c64f-44b2-86d1-aefc20de8215'::uuid and c.estado = 'borrador');
 
@@ -610,12 +610,12 @@ select x.id, 'acb95661-26bd-4d82-84da-22743d0cf1dc'::uuid, x.texto, x.correcta, 
 where exists (select 1 from public.preguntas where id = 'acb95661-26bd-4d82-84da-22743d0cf1dc'::uuid)
 on conflict do nothing;
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select 'fe0a8d75-83a4-4806-85a3-1c9c8898299d'::uuid, 'verdadero_falso', $pea0$Para pedir la baja, el alumno tiene que ir sí o sí a la Mesa de Atención de Alumnos.$pea0$, $pea0$También la puede pedir desde las herramientas de autogestión del portal de estudiantes.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', 'e2088b9a-c2dc-4c4f-8417-e514aa081194'::uuid, null
+       'publicado', 'global', 'practica', 'e2088b9a-c2dc-4c4f-8417-e514aa081194'::uuid, null, now() + interval '1 millisecond' * 3
 where exists (select 1 from public.items where id = 'e2088b9a-c2dc-4c4f-8417-e514aa081194'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '6e4190d9-c64f-44b2-86d1-aefc20de8215'::uuid and c.estado = 'borrador');
 
@@ -644,12 +644,12 @@ where item_id = '0f80ea74-e6e6-4df4-89fc-6772efbf2e38'::uuid and id not in ('01b
   and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '8c20971f-24fa-4481-895a-3d84f2bc0384'::uuid and c.estado = 'borrador');
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select '01b1b453-33e8-4c3d-848b-f372f2a9a339'::uuid, 'opcion_multiple', $pea0$Rocío ya figura como Egresada en una carrera de grado, pero le falta presentar documentación obligatoria del legajo. Pregunta cuándo va a tener el diploma. ¿Qué le respondés?$pea0$, $pea0$El diploma se emite en hasta 120 días corridos desde que el legajo es Egresado, siempre que la documentación obligatoria esté completa.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', '0f80ea74-e6e6-4df4-89fc-6772efbf2e38'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', '0f80ea74-e6e6-4df4-89fc-6772efbf2e38'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 1
 where exists (select 1 from public.items where id = '0f80ea74-e6e6-4df4-89fc-6772efbf2e38'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '8c20971f-24fa-4481-895a-3d84f2bc0384'::uuid and c.estado = 'borrador');
 
@@ -665,12 +665,12 @@ select x.id, '01b1b453-33e8-4c3d-848b-f372f2a9a339'::uuid, x.texto, x.correcta, 
 where exists (select 1 from public.preguntas where id = '01b1b453-33e8-4c3d-848b-f372f2a9a339'::uuid)
 on conflict do nothing;
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select 'e0dab6bb-f345-44a0-8f90-fc5b7adf3b78'::uuid, 'opcion_multiple', $pea0$Lautaro cursa una carrera que prevé título intermedio y ya cumplió lo exigido para esa titulación. Pregunta cómo lo obtiene. ¿Qué le decís?$pea0$, $pea0$El título intermedio se pide a requerimiento del estudiante, cuando cumplió lo exigido por la carrera, y lleva la tasa del trámite.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', '0f80ea74-e6e6-4df4-89fc-6772efbf2e38'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', '0f80ea74-e6e6-4df4-89fc-6772efbf2e38'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 2
 where exists (select 1 from public.items where id = '0f80ea74-e6e6-4df4-89fc-6772efbf2e38'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '8c20971f-24fa-4481-895a-3d84f2bc0384'::uuid and c.estado = 'borrador');
 
@@ -700,12 +700,12 @@ where item_id = 'a129de96-9b9a-43fb-8ba8-f02c2eb96b2b'::uuid and id not in ('406
   and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '8c20971f-24fa-4481-895a-3d84f2bc0384'::uuid and c.estado = 'borrador');
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select '4060d6ec-397c-4022-8cd5-a85fd26dcc57'::uuid, 'opcion_multiple', $pea0$Camila egresó de una carrera de grado el 15 de septiembre y pregunta si entra en la colación de este año. ¿Qué le respondés?$pea0$, $pea0$Cada colación incluye a quienes egresaron entre el 1 de septiembre del año anterior y el 31 de agosto del año en curso.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', 'a129de96-9b9a-43fb-8ba8-f02c2eb96b2b'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', 'a129de96-9b9a-43fb-8ba8-f02c2eb96b2b'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 1
 where exists (select 1 from public.items where id = 'a129de96-9b9a-43fb-8ba8-f02c2eb96b2b'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '8c20971f-24fa-4481-895a-3d84f2bc0384'::uuid and c.estado = 'borrador');
 
@@ -721,12 +721,12 @@ select x.id, '4060d6ec-397c-4022-8cd5-a85fd26dcc57'::uuid, x.texto, x.correcta, 
 where exists (select 1 from public.preguntas where id = '4060d6ec-397c-4022-8cd5-a85fd26dcc57'::uuid)
 on conflict do nothing;
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select '9a595659-5526-4023-8cbc-2ec96e582059'::uuid, 'opcion_multiple', $pea0$Facundo egresó de una carrera de pregrado en un CAU de otra provincia (no es Córdoba ni Río IV) y quiere anotarse en la colación. ¿Qué le decís?$pea0$, $pea0$La colación de pregrado alcanza a egresados de CAU Córdoba y Río IV, salvo que la Universidad amplíe el alcance.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', 'a129de96-9b9a-43fb-8ba8-f02c2eb96b2b'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', 'a129de96-9b9a-43fb-8ba8-f02c2eb96b2b'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 2
 where exists (select 1 from public.items where id = 'a129de96-9b9a-43fb-8ba8-f02c2eb96b2b'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '8c20971f-24fa-4481-895a-3d84f2bc0384'::uuid and c.estado = 'borrador');
 
@@ -742,12 +742,12 @@ select x.id, '9a595659-5526-4023-8cbc-2ec96e582059'::uuid, x.texto, x.correcta, 
 where exists (select 1 from public.preguntas where id = '9a595659-5526-4023-8cbc-2ec96e582059'::uuid)
 on conflict do nothing;
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select '42befa12-758c-4a5d-87d2-aa5085579bc9'::uuid, 'verdadero_falso', $pea0$En la colación se entrega el título oficial.$pea0$, $pea0$Se entrega un diploma simbólico; el título oficial sigue su propio trámite.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', 'a129de96-9b9a-43fb-8ba8-f02c2eb96b2b'::uuid, null
+       'publicado', 'global', 'practica', 'a129de96-9b9a-43fb-8ba8-f02c2eb96b2b'::uuid, null, now() + interval '1 millisecond' * 3
 where exists (select 1 from public.items where id = 'a129de96-9b9a-43fb-8ba8-f02c2eb96b2b'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '8c20971f-24fa-4481-895a-3d84f2bc0384'::uuid and c.estado = 'borrador');
 
@@ -776,12 +776,12 @@ where item_id = 'b8dffd86-0f08-4e8a-80ba-47301a5100f0'::uuid and id not in ('dd5
   and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '76245ecd-e9fa-4ed3-80a7-b09b0791dd31'::uuid and c.estado = 'borrador');
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select 'dd5d628c-d652-4fd6-810e-3a29a6c18ee0'::uuid, 'opcion_multiple', $pea0$Brenda cursa una carrera de grado en EDH. Tiene una materia regular del primer semestre, no pagó la matrícula del segundo y quiere rendir el final en septiembre. ¿Qué le decís?$pea0$, $pea0$Para rendir parciales, finales o la defensa del Seminario Final, la matrícula semestral tiene que estar paga y activa.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', 'b8dffd86-0f08-4e8a-80ba-47301a5100f0'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', 'b8dffd86-0f08-4e8a-80ba-47301a5100f0'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 1
 where exists (select 1 from public.items where id = 'b8dffd86-0f08-4e8a-80ba-47301a5100f0'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '76245ecd-e9fa-4ed3-80a7-b09b0791dd31'::uuid and c.estado = 'borrador');
 
@@ -797,12 +797,12 @@ select x.id, 'dd5d628c-d652-4fd6-810e-3a29a6c18ee0'::uuid, x.texto, x.correcta, 
 where exists (select 1 from public.preguntas where id = 'dd5d628c-d652-4fd6-810e-3a29a6c18ee0'::uuid)
 on conflict do nothing;
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select '48188209-7e94-41c1-8c51-f59ffb1dd64a'::uuid, 'opcion_multiple', $pea0$Iván cursa una carrera de grado en ED, tiene una beca del 50% y se anota a una materia extra. Pregunta cuánto paga por esa extra. ¿Qué le respondés?$pea0$, $pea0$Materias extra en ED/EDH: grado 1/6 y pregrado 1/4 del arancel A+B, sin becas ni beneficios.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', 'b8dffd86-0f08-4e8a-80ba-47301a5100f0'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', 'b8dffd86-0f08-4e8a-80ba-47301a5100f0'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 2
 where exists (select 1 from public.items where id = 'b8dffd86-0f08-4e8a-80ba-47301a5100f0'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '76245ecd-e9fa-4ed3-80a7-b09b0791dd31'::uuid and c.estado = 'borrador');
 
@@ -818,12 +818,12 @@ select x.id, '48188209-7e94-41c1-8c51-f59ffb1dd64a'::uuid, x.texto, x.correcta, 
 where exists (select 1 from public.preguntas where id = '48188209-7e94-41c1-8c51-f59ffb1dd64a'::uuid)
 on conflict do nothing;
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select '7988da7e-8946-4368-8653-34f0c5548c2c'::uuid, 'opcion_multiple', $pea0$Paula cursa una carrera de pregrado en ED y quiere cursar una sola materia en el subperíodo A. ¿Qué tiene que pagar?$pea0$, $pea0$En distancia, pregrado y ciclos de complementación no tienen ticket único para el subperíodo A: si cursan en A, pagan el semestre completo.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', 'b8dffd86-0f08-4e8a-80ba-47301a5100f0'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', 'b8dffd86-0f08-4e8a-80ba-47301a5100f0'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 3
 where exists (select 1 from public.items where id = 'b8dffd86-0f08-4e8a-80ba-47301a5100f0'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '76245ecd-e9fa-4ed3-80a7-b09b0791dd31'::uuid and c.estado = 'borrador');
 
@@ -853,12 +853,12 @@ where item_id = '74d76fb4-4d7e-476b-88ad-3529e9fcbdfa'::uuid and id not in ('8f0
   and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '76245ecd-e9fa-4ed3-80a7-b09b0791dd31'::uuid and c.estado = 'borrador');
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select '8f08fc6e-49d5-49ae-835f-005e17246cd0'::uuid, 'opcion_multiple', $pea0$Martina cursa EDH, debe una cuota del semestre anterior y quiere pagar ya la matrícula del semestre actual para inscribirse. ¿Qué le decís?$pea0$, $pea0$Con deuda anterior no se puede pagar el período actual ni tasas de trámites; cualquier pago va primero a la deuda.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', '74d76fb4-4d7e-476b-88ad-3529e9fcbdfa'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', '74d76fb4-4d7e-476b-88ad-3529e9fcbdfa'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 1
 where exists (select 1 from public.items where id = '74d76fb4-4d7e-476b-88ad-3529e9fcbdfa'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '76245ecd-e9fa-4ed3-80a7-b09b0791dd31'::uuid and c.estado = 'borrador');
 
@@ -874,12 +874,12 @@ select x.id, '8f08fc6e-49d5-49ae-835f-005e17246cd0'::uuid, x.texto, x.correcta, 
 where exists (select 1 from public.preguntas where id = '8f08fc6e-49d5-49ae-835f-005e17246cd0'::uuid)
 on conflict do nothing;
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select '919ae05f-fb53-4bbb-88ca-b5e5dd70828d'::uuid, 'opcion_multiple', $pea0$Joaquín cursa ED, pagó el ticket hoy a la tarde y la inscripción a materias cierra pasado mañana. Te pregunta si llega. ¿Qué le respondés?$pea0$, $pea0$El pago tarda unas 72 horas hábiles en acreditarse; por eso se paga con anticipación y se guarda el comprobante.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', '74d76fb4-4d7e-476b-88ad-3529e9fcbdfa'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', '74d76fb4-4d7e-476b-88ad-3529e9fcbdfa'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 2
 where exists (select 1 from public.items where id = '74d76fb4-4d7e-476b-88ad-3529e9fcbdfa'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '76245ecd-e9fa-4ed3-80a7-b09b0791dd31'::uuid and c.estado = 'borrador');
 
@@ -895,12 +895,12 @@ select x.id, '919ae05f-fb53-4bbb-88ca-b5e5dd70828d'::uuid, x.texto, x.correcta, 
 where exists (select 1 from public.preguntas where id = '919ae05f-fb53-4bbb-88ca-b5e5dd70828d'::uuid)
 on conflict do nothing;
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select '31f129b3-60cd-4c38-8c33-3c893444d16a'::uuid, 'verdadero_falso', $pea0$Si un alumno deja de cursar a mitad de semestre por motivos personales, se le devuelve lo que pagó por las materias que no terminó.$pea0$, $pea0$No hay reintegro por abandono o baja por causas personales; solo se reintegra si no pudo inscribirse a ninguna materia por causas imputables a la Universidad.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', '74d76fb4-4d7e-476b-88ad-3529e9fcbdfa'::uuid, null
+       'publicado', 'global', 'practica', '74d76fb4-4d7e-476b-88ad-3529e9fcbdfa'::uuid, null, now() + interval '1 millisecond' * 3
 where exists (select 1 from public.items where id = '74d76fb4-4d7e-476b-88ad-3529e9fcbdfa'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '76245ecd-e9fa-4ed3-80a7-b09b0791dd31'::uuid and c.estado = 'borrador');
 
@@ -929,12 +929,12 @@ where item_id = '925fa6bc-a7b4-42cf-8605-e8f52ddbfab3'::uuid and id not in ('9bc
   and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '7dd9fd98-5e03-4d1b-8cea-6b5288e2a78b'::uuid and c.estado = 'borrador');
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select '9bc4ddf0-d48b-411d-8d61-2bd5ad1774bd'::uuid, 'opcion_multiple', $pea0$Sofía cursa grado en ED con beca por alto rendimiento. Su hermano empieza a cursar y ella pregunta si además le suman el beneficio por familiar directo. ¿Qué le decís?$pea0$, $pea0$Becas y beneficios no se acumulan; si califica para más de una, se aplica la más conveniente. Las promociones sí pueden sumarse.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', '925fa6bc-a7b4-42cf-8605-e8f52ddbfab3'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', '925fa6bc-a7b4-42cf-8605-e8f52ddbfab3'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 1
 where exists (select 1 from public.items where id = '925fa6bc-a7b4-42cf-8605-e8f52ddbfab3'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '7dd9fd98-5e03-4d1b-8cea-6b5288e2a78b'::uuid and c.estado = 'borrador');
 
@@ -950,12 +950,12 @@ select x.id, '9bc4ddf0-d48b-411d-8d61-2bd5ad1774bd'::uuid, x.texto, x.correcta, 
 where exists (select 1 from public.preguntas where id = '9bc4ddf0-d48b-411d-8d61-2bd5ad1774bd'::uuid)
 on conflict do nothing;
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select '7d55d7f5-76c7-4024-8ec1-cbb7984bf46e'::uuid, 'opcion_multiple', $pea0$Tomás cursa EDH y el 10 de julio llama para postularse a una beca para el segundo semestre. ¿Qué le respondés?$pea0$, $pea0$Becas: 1er semestre del 1/10 al 1/1; 2do semestre del 1/4 al 1/7. Fuera de plazo no se puede postular.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', '925fa6bc-a7b4-42cf-8605-e8f52ddbfab3'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', '925fa6bc-a7b4-42cf-8605-e8f52ddbfab3'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 2
 where exists (select 1 from public.items where id = '925fa6bc-a7b4-42cf-8605-e8f52ddbfab3'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '7dd9fd98-5e03-4d1b-8cea-6b5288e2a78b'::uuid and c.estado = 'borrador');
 
@@ -971,12 +971,12 @@ select x.id, '7d55d7f5-76c7-4024-8ec1-cbb7984bf46e'::uuid, x.texto, x.correcta, 
 where exists (select 1 from public.preguntas where id = '7d55d7f5-76c7-4024-8ec1-cbb7984bf46e'::uuid)
 on conflict do nothing;
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select '67db813b-293a-4825-868e-21d4ab31fbb5'::uuid, 'clasificar', $pea0$Clasificá cada ayuda o mejora según su tipo.$pea0$, $pea0$Beca: mérito. Beneficio: situación o cualidad del estudiante. Promoción: mejora de pago que no es ayuda económica y puede sumarse.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', '925fa6bc-a7b4-42cf-8605-e8f52ddbfab3'::uuid, $pea0${"columnas":["Beneficio","Beca","Promoción"]}$pea0$::jsonb
+       'publicado', 'global', 'practica', '925fa6bc-a7b4-42cf-8605-e8f52ddbfab3'::uuid, $pea0${"columnas":["Beneficio","Beca","Promoción"]}$pea0$::jsonb, now() + interval '1 millisecond' * 3
 where exists (select 1 from public.items where id = '925fa6bc-a7b4-42cf-8605-e8f52ddbfab3'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '7dd9fd98-5e03-4d1b-8cea-6b5288e2a78b'::uuid and c.estado = 'borrador');
 
@@ -1008,12 +1008,12 @@ where item_id = 'ea14167f-c386-4580-8436-18216b1e7f3e'::uuid and id not in ('d61
   and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = 'c07fdef2-d72d-4f2c-8aa6-1b2ba9d7227f'::uuid and c.estado = 'borrador');
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select 'd61d2310-ef5c-4ba6-8cfc-c5520d64b8c3'::uuid, 'opcion_multiple', $pea0$Valentina terminó el secundario en diciembre y se inscribe en una carrera de grado EDH, pero el colegio todavía no le dio el analítico. ¿Qué le indicás?$pea0$, $pea0$Sin analítico, sirve la constancia de título en trámite sin materias adeudadas; si no trae el definitivo en un año, pierde validez.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', 'ea14167f-c386-4580-8436-18216b1e7f3e'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', 'ea14167f-c386-4580-8436-18216b1e7f3e'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 1
 where exists (select 1 from public.items where id = 'ea14167f-c386-4580-8436-18216b1e7f3e'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = 'c07fdef2-d72d-4f2c-8aa6-1b2ba9d7227f'::uuid and c.estado = 'borrador');
 
@@ -1029,12 +1029,12 @@ select x.id, 'd61d2310-ef5c-4ba6-8cfc-c5520d64b8c3'::uuid, x.texto, x.correcta, 
 where exists (select 1 from public.preguntas where id = 'd61d2310-ef5c-4ba6-8cfc-c5520d64b8c3'::uuid)
 on conflict do nothing;
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select '83cdc2c5-16bd-484d-8072-dddf700eccc3'::uuid, 'opcion_multiple', $pea0$Lucas cursa una carrera de pregrado en ED, está por reinscribirse a su tercer período y todavía no completó el legajo. ¿Qué le explicás?$pea0$, $pea0$Grado: 1 año y medio (bloquea el 4.º período). Pregrado: 1 año (bloquea el 3.º).$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', 'ea14167f-c386-4580-8436-18216b1e7f3e'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', 'ea14167f-c386-4580-8436-18216b1e7f3e'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 2
 where exists (select 1 from public.items where id = 'ea14167f-c386-4580-8436-18216b1e7f3e'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = 'c07fdef2-d72d-4f2c-8aa6-1b2ba9d7227f'::uuid and c.estado = 'borrador');
 
@@ -1050,12 +1050,12 @@ select x.id, '83cdc2c5-16bd-484d-8072-dddf700eccc3'::uuid, x.texto, x.correcta, 
 where exists (select 1 from public.preguntas where id = '83cdc2c5-16bd-484d-8072-dddf700eccc3'::uuid)
 on conflict do nothing;
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select '2c22b046-aaaf-4137-855d-beb9e74eb091'::uuid, 'clasificar', $pea0$Una alumna pregunta dónde certificar la copia de su documentación. Clasificá cada opción.$pea0$, $pea0$Certifican el CAU o la sede, juez de paz, registro civil o escribano; la secretaría del juzgado no. Después se envía en formato digital.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', 'ea14167f-c386-4580-8436-18216b1e7f3e'::uuid, $pea0${"columnas":["Sirve","No sirve"]}$pea0$::jsonb
+       'publicado', 'global', 'practica', 'ea14167f-c386-4580-8436-18216b1e7f3e'::uuid, $pea0${"columnas":["Sirve","No sirve"]}$pea0$::jsonb, now() + interval '1 millisecond' * 3
 where exists (select 1 from public.items where id = 'ea14167f-c386-4580-8436-18216b1e7f3e'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = 'c07fdef2-d72d-4f2c-8aa6-1b2ba9d7227f'::uuid and c.estado = 'borrador');
 
@@ -1087,12 +1087,12 @@ where item_id = 'c4622600-4c5e-4aca-80d3-9513920094b9'::uuid and id not in ('7af
   and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = 'c07fdef2-d72d-4f2c-8aa6-1b2ba9d7227f'::uuid and c.estado = 'borrador');
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select '7afd21f6-c3ea-45d8-8064-b4825dc08535'::uuid, 'opcion_multiple', $pea0$Camila terminó el secundario en Bolivia y quiere empezar una carrera de grado en ED. Todavía no tramitó la convalidación. ¿Qué le decís?$pea0$, $pea0$El secundario extranjero se convalida sí o sí: es requisito para la admisión definitiva y excluyente para el título.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', 'c4622600-4c5e-4aca-80d3-9513920094b9'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', 'c4622600-4c5e-4aca-80d3-9513920094b9'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 1
 where exists (select 1 from public.items where id = 'c4622600-4c5e-4aca-80d3-9513920094b9'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = 'c07fdef2-d72d-4f2c-8aa6-1b2ba9d7227f'::uuid and c.estado = 'borrador');
 
@@ -1108,12 +1108,12 @@ select x.id, '7afd21f6-c3ea-45d8-8064-b4825dc08535'::uuid, x.texto, x.correcta, 
 where exists (select 1 from public.preguntas where id = '7afd21f6-c3ea-45d8-8064-b4825dc08535'::uuid)
 on conflict do nothing;
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select 'd150b1aa-7e36-4192-89c8-0df5192a6e9f'::uuid, 'opcion_multiple', $pea0$Rafael quiere pedir equivalencias de una universidad de Brasil y sus certificados están en portugués. ¿Qué le pedís?$pea0$, $pea0$Estudios del exterior: legalización (apostilla o consulado) y traducción pública si no están en español.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', 'c4622600-4c5e-4aca-80d3-9513920094b9'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', 'c4622600-4c5e-4aca-80d3-9513920094b9'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 2
 where exists (select 1 from public.items where id = 'c4622600-4c5e-4aca-80d3-9513920094b9'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = 'c07fdef2-d72d-4f2c-8aa6-1b2ba9d7227f'::uuid and c.estado = 'borrador');
 
@@ -1129,12 +1129,12 @@ select x.id, 'd150b1aa-7e36-4192-89c8-0df5192a6e9f'::uuid, x.texto, x.correcta, 
 where exists (select 1 from public.preguntas where id = 'd150b1aa-7e36-4192-89c8-0df5192a6e9f'::uuid)
 on conflict do nothing;
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select '5c9e43cf-dc17-4062-8593-d733e5a1bff8'::uuid, 'opcion_multiple', $pea0$Diego es extranjero, cursa grado en EDH, se inscribió con pasaporte y está terminando su primer año. ¿Qué le recordás?$pea0$, $pea0$Extranjeros de grado y pregrado: DNI argentino obligatorio en el primer año; la residencia la tramita el estudiante en Migraciones.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', 'c4622600-4c5e-4aca-80d3-9513920094b9'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', 'c4622600-4c5e-4aca-80d3-9513920094b9'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 3
 where exists (select 1 from public.items where id = 'c4622600-4c5e-4aca-80d3-9513920094b9'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = 'c07fdef2-d72d-4f2c-8aa6-1b2ba9d7227f'::uuid and c.estado = 'borrador');
 
@@ -1164,12 +1164,12 @@ where item_id = 'ac8ab6d1-104c-4f63-87e3-a4a00c2cac9c'::uuid and id not in ('d1b
   and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select 'd1b553a5-1e5b-4590-8c58-2a348262adf9'::uuid, 'opcion_multiple', $pea0$Agustina cursa en EDH una materia MIP (cuatrimestral) y pregunta si su 1er parcial tiene que ser sí o sí entre las semanas 1 y 4. ¿Qué le decís?$pea0$, $pea0$Antes de dar semanas, preguntá el tipo de materia: MIP en ED/EDH tiene calendario cuatrimestral.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', 'ac8ab6d1-104c-4f63-87e3-a4a00c2cac9c'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', 'ac8ab6d1-104c-4f63-87e3-a4a00c2cac9c'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 1
 where exists (select 1 from public.items where id = 'ac8ab6d1-104c-4f63-87e3-a4a00c2cac9c'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
 
@@ -1185,12 +1185,12 @@ select x.id, 'd1b553a5-1e5b-4590-8c58-2a348262adf9'::uuid, x.texto, x.correcta, 
 where exists (select 1 from public.preguntas where id = 'd1b553a5-1e5b-4590-8c58-2a348262adf9'::uuid)
 on conflict do nothing;
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select 'b62ca47e-3c80-45e6-8e5a-23550d37042b'::uuid, 'opcion_multiple', $pea0$Nicolás cursa en ED y su parcial cae en un feriado provincial. ¿Qué le explicás?$pea0$, $pea0$En ED/EDH, un parcial en feriado nacional o provincial se reprograma; en PD, solo por feriado nacional.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', 'ac8ab6d1-104c-4f63-87e3-a4a00c2cac9c'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', 'ac8ab6d1-104c-4f63-87e3-a4a00c2cac9c'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 2
 where exists (select 1 from public.items where id = 'ac8ab6d1-104c-4f63-87e3-a4a00c2cac9c'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
 
@@ -1206,12 +1206,12 @@ select x.id, 'b62ca47e-3c80-45e6-8e5a-23550d37042b'::uuid, x.texto, x.correcta, 
 where exists (select 1 from public.preguntas where id = 'b62ca47e-3c80-45e6-8e5a-23550d37042b'::uuid)
 on conflict do nothing;
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select 'c94bfaa3-5318-4e20-8bea-e316c9b4d2e1'::uuid, 'clasificar', $pea0$Clasificá cada dato del calendario según la modalidad a la que corresponde.$pea0$, $pea0$ED/EDH trabaja con subperíodos de 9 semanas; PD, con semestres de 16 semanas.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', 'ac8ab6d1-104c-4f63-87e3-a4a00c2cac9c'::uuid, $pea0${"columnas":["ED/EDH","PD"]}$pea0$::jsonb
+       'publicado', 'global', 'practica', 'ac8ab6d1-104c-4f63-87e3-a4a00c2cac9c'::uuid, $pea0${"columnas":["ED/EDH","PD"]}$pea0$::jsonb, now() + interval '1 millisecond' * 3
 where exists (select 1 from public.items where id = 'ac8ab6d1-104c-4f63-87e3-a4a00c2cac9c'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
 
@@ -1243,12 +1243,12 @@ where item_id = 'd3fca8ba-6f12-4c04-89e9-36b3d9ed59b9'::uuid and id not in ('d0a
   and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select 'd0a2521d-72d6-4c75-8520-2bb9ba15a85a'::uuid, 'opcion_multiple', $pea0$Bruno cursa ED, se reinscribe y quiere hacer 5 materias en verano, entre ellas una MIP. ¿Qué le decís?$pea0$, $pea0$Verano: solo reinscriptos, hasta 4 materias, únicamente MEC y MIA.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', 'd3fca8ba-6f12-4c04-89e9-36b3d9ed59b9'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', 'd3fca8ba-6f12-4c04-89e9-36b3d9ed59b9'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 1
 where exists (select 1 from public.items where id = 'd3fca8ba-6f12-4c04-89e9-36b3d9ed59b9'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
 
@@ -1264,12 +1264,12 @@ select x.id, 'd0a2521d-72d6-4c75-8520-2bb9ba15a85a'::uuid, x.texto, x.correcta, 
 where exists (select 1 from public.preguntas where id = 'd0a2521d-72d6-4c75-8520-2bb9ba15a85a'::uuid)
 on conflict do nothing;
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select 'eb8c5da7-bf72-4641-8e38-7198dd822712'::uuid, 'opcion_multiple', $pea0$Julieta se inscribió el mes pasado en su primera carrera, tiene beca del 50% y quiere adelantar una materia en verano. ¿Qué le respondés?$pea0$, $pea0$El verano es para reinscriptos; además, se paga arancel por materia sin becas ni beneficios.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', 'd3fca8ba-6f12-4c04-89e9-36b3d9ed59b9'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', 'd3fca8ba-6f12-4c04-89e9-36b3d9ed59b9'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 2
 where exists (select 1 from public.items where id = 'd3fca8ba-6f12-4c04-89e9-36b3d9ed59b9'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
 
@@ -1285,12 +1285,12 @@ select x.id, 'eb8c5da7-bf72-4641-8e38-7198dd822712'::uuid, x.texto, x.correcta, 
 where exists (select 1 from public.preguntas where id = 'eb8c5da7-bf72-4641-8e38-7198dd822712'::uuid)
 on conflict do nothing;
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select '5bec1448-f272-460a-88d9-63c6af6d2b53'::uuid, 'verdadero_falso', $pea0$Una materia de verano se abre siempre, aunque se inscriba una sola persona.$pea0$, $pea0$Abrir una materia de verano requiere un mínimo de 15 inscriptos; si no se completa, la Universidad puede no abrirla.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', 'd3fca8ba-6f12-4c04-89e9-36b3d9ed59b9'::uuid, null
+       'publicado', 'global', 'practica', 'd3fca8ba-6f12-4c04-89e9-36b3d9ed59b9'::uuid, null, now() + interval '1 millisecond' * 3
 where exists (select 1 from public.items where id = 'd3fca8ba-6f12-4c04-89e9-36b3d9ed59b9'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
 
@@ -1319,12 +1319,12 @@ where item_id = 'b6a5cf93-414c-4287-8d12-3c8a12eeebda'::uuid and id not in ('014
   and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select '014755aa-174f-4775-8d35-0490286b0f3b'::uuid, 'opcion_multiple', $pea0$Ramiro cursaba en ED, estuvo varios períodos sin actividad y su plan ya terminó el período de conservación. Quiere volver. ¿Qué le explicás?$pea0$, $pea0$Inactivo más de un período y fuera del plazo de conservación: migración obligatoria al plan vigente.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', 'b6a5cf93-414c-4287-8d12-3c8a12eeebda'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', 'b6a5cf93-414c-4287-8d12-3c8a12eeebda'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 1
 where exists (select 1 from public.items where id = 'b6a5cf93-414c-4287-8d12-3c8a12eeebda'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
 
@@ -1340,12 +1340,12 @@ select x.id, '014755aa-174f-4775-8d35-0490286b0f3b'::uuid, x.texto, x.correcta, 
 where exists (select 1 from public.preguntas where id = '014755aa-174f-4775-8d35-0490286b0f3b'::uuid)
 on conflict do nothing;
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select 'd32ce0d1-1995-462e-8041-6bcb0d3aee45'::uuid, 'opcion_multiple', $pea0$A Carla la migraron al plan nuevo y tiene aprobada una materia que no existe en ese plan. ¿Qué pasa con esa materia?$pea0$, $pea0$Materia en ambos planes: equivalencia directa. Materia solo en el plan viejo: puede ir como electiva.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', 'b6a5cf93-414c-4287-8d12-3c8a12eeebda'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', 'b6a5cf93-414c-4287-8d12-3c8a12eeebda'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 2
 where exists (select 1 from public.items where id = 'b6a5cf93-414c-4287-8d12-3c8a12eeebda'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
 
@@ -1361,12 +1361,12 @@ select x.id, 'd32ce0d1-1995-462e-8041-6bcb0d3aee45'::uuid, x.texto, x.correcta, 
 where exists (select 1 from public.preguntas where id = 'd32ce0d1-1995-462e-8041-6bcb0d3aee45'::uuid)
 on conflict do nothing;
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select 'e8dad6b6-9a92-4e20-87fd-1f4de47ab79e'::uuid, 'verdadero_falso', $pea0$Cuando entra un plan nuevo, la Universidad siempre espera la duración teórica de la carrera más un año antes de migrar a alguien.$pea0$, $pea0$Ese plazo es de conservación posible, no garantizado; si el cambio responde a estándares de autoevaluación, puede migrar sin esperar.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', 'b6a5cf93-414c-4287-8d12-3c8a12eeebda'::uuid, null
+       'publicado', 'global', 'practica', 'b6a5cf93-414c-4287-8d12-3c8a12eeebda'::uuid, null, now() + interval '1 millisecond' * 3
 where exists (select 1 from public.items where id = 'b6a5cf93-414c-4287-8d12-3c8a12eeebda'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
 
@@ -1395,12 +1395,12 @@ where item_id = '0c5a2f5c-1591-406a-83d5-4a8612cc7208'::uuid and id not in ('9d8
   and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select '9d818327-6a0c-4fe4-87c2-7334bda05bd3'::uuid, 'opcion_multiple', $pea0$Pablo cursa EDH y quiere inscribirse a una materia. Tiene la correlativa regular, pero todavía no la aprobó. ¿Qué le decís?$pea0$, $pea0$Inscribirse: correlativas regulares. Aprobar o promocionar: correlativas aprobadas.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', '0c5a2f5c-1591-406a-83d5-4a8612cc7208'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', '0c5a2f5c-1591-406a-83d5-4a8612cc7208'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 1
 where exists (select 1 from public.items where id = '0c5a2f5c-1591-406a-83d5-4a8612cc7208'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
 
@@ -1416,12 +1416,12 @@ select x.id, '9d818327-6a0c-4fe4-87c2-7334bda05bd3'::uuid, x.texto, x.correcta, 
 where exists (select 1 from public.preguntas where id = '9d818327-6a0c-4fe4-87c2-7334bda05bd3'::uuid)
 on conflict do nothing;
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select '43271fac-477f-4c91-8d4a-02daaf47aca8'::uuid, 'opcion_multiple', $pea0$Lara cumplió las condiciones de promoción de una materia que terminó hace 30 días, pero su correlativa anterior sigue regular. ¿Qué le explicás?$pea0$, $pea0$Hay 60 días desde el fin del cursado para aprobar la correlativa y conservar la promoción.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', '0c5a2f5c-1591-406a-83d5-4a8612cc7208'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', '0c5a2f5c-1591-406a-83d5-4a8612cc7208'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 2
 where exists (select 1 from public.items where id = '0c5a2f5c-1591-406a-83d5-4a8612cc7208'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
 
@@ -1437,12 +1437,12 @@ select x.id, '43271fac-477f-4c91-8d4a-02daaf47aca8'::uuid, x.texto, x.correcta, 
 where exists (select 1 from public.preguntas where id = '43271fac-477f-4c91-8d4a-02daaf47aca8'::uuid)
 on conflict do nothing;
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select '6c59ada9-633b-4c55-8bbc-6bfcc3c9afdf'::uuid, 'ordenar', $pea0$Un alumno quiere saber qué correlativas tiene una materia. Ordená los pasos que le indicás en el Portal de Estudiantes.$pea0$, $pea0$Las correlativas y el programa de cada materia están en el Plan de Estudio de la carrera, en el Portal.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', '0c5a2f5c-1591-406a-83d5-4a8612cc7208'::uuid, null
+       'publicado', 'global', 'practica', '0c5a2f5c-1591-406a-83d5-4a8612cc7208'::uuid, null, now() + interval '1 millisecond' * 3
 where exists (select 1 from public.items where id = '0c5a2f5c-1591-406a-83d5-4a8612cc7208'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
 
@@ -1473,12 +1473,12 @@ where item_id = '1311ce80-81e8-4b51-8d5e-f04bf6c3cf98'::uuid and id not in ('233
   and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = 'c07fdef2-d72d-4f2c-8aa6-1b2ba9d7227f'::uuid and c.estado = 'borrador');
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select '233aad7a-517e-4f9b-8ab7-268f7944dc92'::uuid, 'opcion_multiple', $pea0$Emilia cursa EDH y no puede inscribirse a una materia de 4.º cuatrimestre. Aprobó Aprender en el Siglo 21, pero tiene regular Tecnología, Humanidades y Modelos Globales. ¿Qué le explicás?$pea0$, $pea0$Universitarios 21 completo y aprobado es condición para inscribirse a materias de 4.º cuatrimestre.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', '1311ce80-81e8-4b51-8d5e-f04bf6c3cf98'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', '1311ce80-81e8-4b51-8d5e-f04bf6c3cf98'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 1
 where exists (select 1 from public.items where id = '1311ce80-81e8-4b51-8d5e-f04bf6c3cf98'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = 'c07fdef2-d72d-4f2c-8aa6-1b2ba9d7227f'::uuid and c.estado = 'borrador');
 
@@ -1494,12 +1494,12 @@ select x.id, '233aad7a-517e-4f9b-8ab7-268f7944dc92'::uuid, x.texto, x.correcta, 
 where exists (select 1 from public.preguntas where id = '233aad7a-517e-4f9b-8ab7-268f7944dc92'::uuid)
 on conflict do nothing;
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select '07044a1a-9876-4989-8762-16f230dc8c98'::uuid, 'opcion_multiple', $pea0$Gonzalo ingresa con 6 materias reconocidas por equivalencias externas y pregunta si tiene que cursar Universitarios 21. ¿Qué le respondés?$pea0$, $pea0$No hay equivalencia que reemplace a una materia de U21, pero con 5 o más aprobadas en el legajo se exime todo el programa.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', '1311ce80-81e8-4b51-8d5e-f04bf6c3cf98'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', '1311ce80-81e8-4b51-8d5e-f04bf6c3cf98'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 2
 where exists (select 1 from public.items where id = '1311ce80-81e8-4b51-8d5e-f04bf6c3cf98'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = 'c07fdef2-d72d-4f2c-8aa6-1b2ba9d7227f'::uuid and c.estado = 'borrador');
 
@@ -1529,12 +1529,12 @@ where item_id = 'c51091da-e129-4679-8501-c7e57fa62334'::uuid and id not in ('157
   and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '831fe14c-2f13-4c3f-872b-08ecde33344e'::uuid and c.estado = 'borrador');
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select '1572d416-66d1-46a4-8a15-5d246854ae75'::uuid, 'opcion_multiple', $pea0$Micaela cursa en ED, sacó 4 en el TP1 de una MEC y el cronograma del SAM todavía está abierto. ¿Qué le decís?$pea0$, $pea0$MEC y MAP: TP sin límite dentro del cronograma y vale la última nota. MIA y MIP: una sola entrega.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', 'c51091da-e129-4679-8501-c7e57fa62334'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', 'c51091da-e129-4679-8501-c7e57fa62334'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 1
 where exists (select 1 from public.items where id = 'c51091da-e129-4679-8501-c7e57fa62334'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '831fe14c-2f13-4c3f-872b-08ecde33344e'::uuid and c.estado = 'borrador');
 
@@ -1550,12 +1550,12 @@ select x.id, '1572d416-66d1-46a4-8a15-5d246854ae75'::uuid, x.texto, x.correcta, 
 where exists (select 1 from public.preguntas where id = '1572d416-66d1-46a4-8a15-5d246854ae75'::uuid)
 on conflict do nothing;
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select '91178283-a39e-40c6-8716-357a81e78d99'::uuid, 'opcion_multiple', $pea0$Facundo cursa EDH y no entregó en fecha el TP1 de una MIA. Los otros TP los tiene al día. ¿Qué le explicás?$pea0$, $pea0$En MIA y MIP el TP no entregado es 0 y promedia; la regularidad pide 3 de 4 TP con 5 o más, foros y parciales.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', 'c51091da-e129-4679-8501-c7e57fa62334'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', 'c51091da-e129-4679-8501-c7e57fa62334'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 2
 where exists (select 1 from public.items where id = 'c51091da-e129-4679-8501-c7e57fa62334'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '831fe14c-2f13-4c3f-872b-08ecde33344e'::uuid and c.estado = 'borrador');
 
@@ -1571,12 +1571,12 @@ select x.id, '91178283-a39e-40c6-8716-357a81e78d99'::uuid, x.texto, x.correcta, 
 where exists (select 1 from public.preguntas where id = '91178283-a39e-40c6-8716-357a81e78d99'::uuid)
 on conflict do nothing;
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select 'e0b61f97-d12f-4e7f-819c-07e3a8faf88d'::uuid, 'clasificar', $pea0$Clasificá cada regla de TP según el tipo de materia.$pea0$, $pea0$Antes de responder sobre un TP, preguntá el tipo de materia: las reglas de MEC/MAP y de MIA/MIP son opuestas.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', 'c51091da-e129-4679-8501-c7e57fa62334'::uuid, $pea0${"columnas":["MEC y MAP","MIA y MIP"]}$pea0$::jsonb
+       'publicado', 'global', 'practica', 'c51091da-e129-4679-8501-c7e57fa62334'::uuid, $pea0${"columnas":["MEC y MAP","MIA y MIP"]}$pea0$::jsonb, now() + interval '1 millisecond' * 3
 where exists (select 1 from public.items where id = 'c51091da-e129-4679-8501-c7e57fa62334'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '831fe14c-2f13-4c3f-872b-08ecde33344e'::uuid and c.estado = 'borrador');
 
@@ -1608,12 +1608,12 @@ where item_id = '3bd31396-9081-42be-8037-888a17438850'::uuid and id not in ('2cb
   and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '831fe14c-2f13-4c3f-872b-08ecde33344e'::uuid and c.estado = 'borrador');
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select '2cb05b60-ec80-416d-82c6-8269024b0ae0'::uuid, 'opcion_multiple', $pea0$Martina cursa EDH. Sacó 6 en el parcial 1 y 8 en el parcial 2, y quiere promocionar. ¿Qué le decís?$pea0$, $pea0$Si un parcial tiene 7 o más y el otro 5 o 6, solo se recupera el más bajo. La nota del recuperatorio reemplaza a la anterior, sea mayor o menor.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', '3bd31396-9081-42be-8037-888a17438850'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', '3bd31396-9081-42be-8037-888a17438850'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 1
 where exists (select 1 from public.items where id = '3bd31396-9081-42be-8037-888a17438850'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '831fe14c-2f13-4c3f-872b-08ecde33344e'::uuid and c.estado = 'borrador');
 
@@ -1630,12 +1630,12 @@ select x.id, '2cb05b60-ec80-416d-82c6-8269024b0ae0'::uuid, x.texto, x.correcta, 
 where exists (select 1 from public.preguntas where id = '2cb05b60-ec80-416d-82c6-8269024b0ae0'::uuid)
 on conflict do nothing;
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select '2082d590-1f43-4add-8bff-3b0ed1127bf9'::uuid, 'opcion_multiple', $pea0$Tomás cursa ED, tiene 5 y 6 en los parciales y quiere rendir el integrador "total no pierde nada". ¿Qué le advertís?$pea0$, $pea0$El integrador reemplaza siempre la nota de los parciales. Se aprueba con 5, y para la promoción directa hace falta 7 o más, además de los TP y las demás condiciones.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', '3bd31396-9081-42be-8037-888a17438850'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', '3bd31396-9081-42be-8037-888a17438850'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 2
 where exists (select 1 from public.items where id = '3bd31396-9081-42be-8037-888a17438850'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '831fe14c-2f13-4c3f-872b-08ecde33344e'::uuid and c.estado = 'borrador');
 
@@ -1652,12 +1652,12 @@ select x.id, '2082d590-1f43-4add-8bff-3b0ed1127bf9'::uuid, x.texto, x.correcta, 
 where exists (select 1 from public.preguntas where id = '2082d590-1f43-4add-8bff-3b0ed1127bf9'::uuid)
 on conflict do nothing;
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select '9a9e7371-0d06-422d-8316-bb3ef91b1a9d'::uuid, 'clasificar', $pea0$Clasificá qué puede rendir cada alumno según las notas de sus parciales (P1 y P2).$pea0$, $pea0$Uno desaprobado o ausente y el otro aprobado: recuperatorio o integrador. 7 o más y 5/6: recuperatorio del más bajo. Los dos con 5/6, o los dos desaprobados o ausentes: integrador. Un parcial con 7 o más no se recupera.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', '3bd31396-9081-42be-8037-888a17438850'::uuid, $pea0${"columnas":["Recuperatorio o integrador","Solo recuperatorio","Solo integrador","Nada que rendir"]}$pea0$::jsonb
+       'publicado', 'global', 'practica', '3bd31396-9081-42be-8037-888a17438850'::uuid, $pea0${"columnas":["Recuperatorio o integrador","Solo recuperatorio","Solo integrador","Nada que rendir"]}$pea0$::jsonb, now() + interval '1 millisecond' * 3
 where exists (select 1 from public.items where id = '3bd31396-9081-42be-8037-888a17438850'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '831fe14c-2f13-4c3f-872b-08ecde33344e'::uuid and c.estado = 'borrador');
 
@@ -1690,12 +1690,12 @@ where item_id = '56017845-afc2-40e3-843c-ef094ad2f073'::uuid and id not in ('dc4
   and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '831fe14c-2f13-4c3f-872b-08ecde33344e'::uuid and c.estado = 'borrador');
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select 'dc462016-2585-44ea-8ee1-6bdab95b72ec'::uuid, 'opcion_multiple', $pea0$Sofía cursa ED. Se anotó a un parcial para mañana y le surgió un viaje de trabajo. ¿Qué le decís?$pea0$, $pea0$En ED y EDH la inscripción al parcial se hace hasta 24 horas antes y no se puede anular ni modificar. Si falta, queda Ausente y puede recuperar.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', '56017845-afc2-40e3-843c-ef094ad2f073'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', '56017845-afc2-40e3-843c-ef094ad2f073'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 1
 where exists (select 1 from public.items where id = '56017845-afc2-40e3-843c-ef094ad2f073'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '831fe14c-2f13-4c3f-872b-08ecde33344e'::uuid and c.estado = 'borrador');
 
@@ -1712,12 +1712,12 @@ select x.id, 'dc462016-2585-44ea-8ee1-6bdab95b72ec'::uuid, x.texto, x.correcta, 
 where exists (select 1 from public.preguntas where id = 'dc462016-2585-44ea-8ee1-6bdab95b72ec'::uuid)
 on conflict do nothing;
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select '47b33b58-af32-427f-8382-6413f4deb85f'::uuid, 'opcion_multiple', $pea0$Diego cursa en PD y pregunta hasta cuándo puede anotarse al primer parcial. ¿Qué le respondés?$pea0$, $pea0$Antes de responder, preguntá la modalidad: en PD los parciales no llevan inscripción; en ED y EDH sí.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', '56017845-afc2-40e3-843c-ef094ad2f073'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', '56017845-afc2-40e3-843c-ef094ad2f073'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 2
 where exists (select 1 from public.items where id = '56017845-afc2-40e3-843c-ef094ad2f073'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '831fe14c-2f13-4c3f-872b-08ecde33344e'::uuid and c.estado = 'borrador');
 
@@ -1733,12 +1733,12 @@ select x.id, '47b33b58-af32-427f-8382-6413f4deb85f'::uuid, x.texto, x.correcta, 
 where exists (select 1 from public.preguntas where id = '47b33b58-af32-427f-8382-6413f4deb85f'::uuid)
 on conflict do nothing;
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select '5176d910-dabd-40a5-8b84-a7821022dc21'::uuid, 'clasificar', $pea0$Clasificá cada caso de un alumno de ED según si todavía puede anular la inscripción.$pea0$, $pea0$Recuperatorio o integrador: se anula hasta 48 horas antes. Final: hasta 8 días corridos antes, mientras no esté aceptado. Parcial en ED/EDH: nunca.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', '56017845-afc2-40e3-843c-ef094ad2f073'::uuid, $pea0${"columnas":["Puede anular","Ya no puede anular"]}$pea0$::jsonb
+       'publicado', 'global', 'practica', '56017845-afc2-40e3-843c-ef094ad2f073'::uuid, $pea0${"columnas":["Puede anular","Ya no puede anular"]}$pea0$::jsonb, now() + interval '1 millisecond' * 3
 where exists (select 1 from public.items where id = '56017845-afc2-40e3-843c-ef094ad2f073'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '831fe14c-2f13-4c3f-872b-08ecde33344e'::uuid and c.estado = 'borrador');
 
@@ -1770,12 +1770,12 @@ where item_id = '3039650a-f7a0-4135-8566-df7fb2192825'::uuid and id not in ('70d
   and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '831fe14c-2f13-4c3f-872b-08ecde33344e'::uuid and c.estado = 'borrador');
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select '70dd4a87-8fd7-436d-87db-287a1b71760b'::uuid, 'opcion_multiple', $pea0$Lucas cursa EDH. Se inscribió al integrador y no se presentó porque se enfermó. Pregunta si lo puede rendir otro día. ¿Qué le decís?$pea0$, $pea0$Faltar no habilita a reprogramar. En recuperatorios e integradores con inscripción, el no presentarse se califica con 0.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', '3039650a-f7a0-4135-8566-df7fb2192825'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', '3039650a-f7a0-4135-8566-df7fb2192825'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 1
 where exists (select 1 from public.items where id = '3039650a-f7a0-4135-8566-df7fb2192825'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '831fe14c-2f13-4c3f-872b-08ecde33344e'::uuid and c.estado = 'borrador');
 
@@ -1791,12 +1791,12 @@ select x.id, '70dd4a87-8fd7-436d-87db-287a1b71760b'::uuid, x.texto, x.correcta, 
 where exists (select 1 from public.preguntas where id = '70dd4a87-8fd7-436d-87db-287a1b71760b'::uuid)
 on conflict do nothing;
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select 'fdc9d327-c8dd-43f6-8b1c-26af8e2bb83c'::uuid, 'opcion_multiple', $pea0$Valentina rindió un final hace dos horas y cree que una pregunta estaba mal corregida. ¿Qué le decís?$pea0$, $pea0$La revisión se pide solo en el sistema, al terminar el examen: 10 minutos en parciales, 15 en finales. La respuesta llega en 15 días.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', '3039650a-f7a0-4135-8566-df7fb2192825'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', '3039650a-f7a0-4135-8566-df7fb2192825'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 2
 where exists (select 1 from public.items where id = '3039650a-f7a0-4135-8566-df7fb2192825'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '831fe14c-2f13-4c3f-872b-08ecde33344e'::uuid and c.estado = 'borrador');
 
@@ -1812,12 +1812,12 @@ select x.id, 'fdc9d327-c8dd-43f6-8b1c-26af8e2bb83c'::uuid, x.texto, x.correcta, 
 where exists (select 1 from public.preguntas where id = 'fdc9d327-c8dd-43f6-8b1c-26af8e2bb83c'::uuid)
 on conflict do nothing;
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select '32e4e2e9-ea15-4633-84ce-68c9f89ae7c8'::uuid, 'verdadero_falso', $pea0$Si un alumno falta a un final por un paro de transporte, no pierde esa oportunidad.$pea0$, $pea0$El paro no habilita a reprogramar. En un final, el ausente consume una de las oportunidades.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', '3039650a-f7a0-4135-8566-df7fb2192825'::uuid, null
+       'publicado', 'global', 'practica', '3039650a-f7a0-4135-8566-df7fb2192825'::uuid, null, now() + interval '1 millisecond' * 3
 where exists (select 1 from public.items where id = '3039650a-f7a0-4135-8566-df7fb2192825'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '831fe14c-2f13-4c3f-872b-08ecde33344e'::uuid and c.estado = 'borrador');
 
@@ -1846,12 +1846,12 @@ where item_id = '184d1130-cf11-41be-8840-e304df55102c'::uuid and id not in ('44e
   and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = 'ded24f8c-0a3b-444b-8201-48f555f45573'::uuid and c.estado = 'borrador');
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select '44e1c16f-3b31-4f74-8690-e54e4aade280'::uuid, 'opcion_multiple', $pea0$Agustina cursa ED, cumplió la asistencia, tiene los 4 TP con 8, parciales con 6 y 5, y las correlativas aprobadas. ¿Qué condición tiene?$pea0$, $pea0$La promoción indirecta pide los 4 TP con 7 o más, parciales con 5 o 6 y las correlativas aprobadas. No aplica en Idiomas.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', '184d1130-cf11-41be-8840-e304df55102c'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', '184d1130-cf11-41be-8840-e304df55102c'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 1
 where exists (select 1 from public.items where id = '184d1130-cf11-41be-8840-e304df55102c'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = 'ded24f8c-0a3b-444b-8201-48f555f45573'::uuid and c.estado = 'borrador');
 
@@ -1867,12 +1867,12 @@ select x.id, '44e1c16f-3b31-4f74-8690-e54e4aade280'::uuid, x.texto, x.correcta, 
 where exists (select 1 from public.preguntas where id = '44e1c16f-3b31-4f74-8690-e54e4aade280'::uuid)
 on conflict do nothing;
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select 'c394e7c0-5f3e-46cd-8ad4-ff4ea9c820ec'::uuid, 'opcion_multiple', $pea0$Ramiro cursa EDH y quedó libre por nota en una materia. Pregunta qué opciones tiene. ¿Qué le decís?$pea0$, $pea0$Libre por nota: final de 50 preguntas, nota 4 (24 correctas), vigencia de 3 meses y una sola oportunidad.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', '184d1130-cf11-41be-8840-e304df55102c'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', '184d1130-cf11-41be-8840-e304df55102c'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 2
 where exists (select 1 from public.items where id = '184d1130-cf11-41be-8840-e304df55102c'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = 'ded24f8c-0a3b-444b-8201-48f555f45573'::uuid and c.estado = 'borrador');
 
@@ -1888,12 +1888,12 @@ select x.id, 'c394e7c0-5f3e-46cd-8ad4-ff4ea9c820ec'::uuid, x.texto, x.correcta, 
 where exists (select 1 from public.preguntas where id = 'c394e7c0-5f3e-46cd-8ad4-ff4ea9c820ec'::uuid)
 on conflict do nothing;
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select 'fd42d2d6-4e48-41d2-88ef-6d8567f0456b'::uuid, 'clasificar', $pea0$Clasificá la condición de cada alumno de EDH, en una materia MEC.$pea0$, $pea0$Si al terminar el cursado no tiene las correlativas aprobadas, la materia queda Regular aunque las notas alcancen para promocionar.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', '184d1130-cf11-41be-8840-e304df55102c'::uuid, $pea0${"columnas":["Promoción directa","Promoción indirecta","Regular"]}$pea0$::jsonb
+       'publicado', 'global', 'practica', '184d1130-cf11-41be-8840-e304df55102c'::uuid, $pea0${"columnas":["Promoción directa","Promoción indirecta","Regular"]}$pea0$::jsonb, now() + interval '1 millisecond' * 3
 where exists (select 1 from public.items where id = '184d1130-cf11-41be-8840-e304df55102c'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = 'ded24f8c-0a3b-444b-8201-48f555f45573'::uuid and c.estado = 'borrador');
 
@@ -1924,12 +1924,12 @@ where item_id = 'af8288cb-e294-424d-835d-bd4be9907e56'::uuid and id not in ('60f
   and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '0ba24b95-30a6-4f75-88ec-f101f5bc73ed'::uuid and c.estado = 'borrador');
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select '60fdca89-8cf5-40bc-8b7e-bb12210864fb'::uuid, 'opcion_multiple', $pea0$Camila cursa ED. Terminó la Práctica Profesional con las 250 horas, evaluación 8 de la organización y 3 de 4 TP aprobados, incluido el TP4, pero le falta aprobar una correlativa. ¿Qué le decís?$pea0$, $pea0$En la Práctica Profesional, sin las correlativas aprobadas queda Regular hasta 18 meses; vencido el plazo, la pierde y recursa.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', 'af8288cb-e294-424d-835d-bd4be9907e56'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', 'af8288cb-e294-424d-835d-bd4be9907e56'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 1
 where exists (select 1 from public.items where id = 'af8288cb-e294-424d-835d-bd4be9907e56'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '0ba24b95-30a6-4f75-88ec-f101f5bc73ed'::uuid and c.estado = 'borrador');
 
@@ -1946,12 +1946,12 @@ select x.id, '60fdca89-8cf5-40bc-8b7e-bb12210864fb'::uuid, x.texto, x.correcta, 
 where exists (select 1 from public.preguntas where id = '60fdca89-8cf5-40bc-8b7e-bb12210864fb'::uuid)
 on conflict do nothing;
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select '865f2ebb-0e64-49aa-836b-18ad7c4f6b42'::uuid, 'opcion_multiple', $pea0$Nicolás cursa EDH. Cumplió las horas de la Práctica Solidaria con nota 6 de la organización, aprobó el TP1, el TP2 y el TP3, pero desaprobó el TP4. ¿Qué pasa?$pea0$, $pea0$Práctica Solidaria: carga horaria completa, nota de 5 o más de la organización y 3 de 4 TP con el TP4 aprobado. Si no cumple, queda Libre.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', 'af8288cb-e294-424d-835d-bd4be9907e56'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', 'af8288cb-e294-424d-835d-bd4be9907e56'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 2
 where exists (select 1 from public.items where id = 'af8288cb-e294-424d-835d-bd4be9907e56'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '0ba24b95-30a6-4f75-88ec-f101f5bc73ed'::uuid and c.estado = 'borrador');
 
@@ -1968,12 +1968,12 @@ select x.id, '865f2ebb-0e64-49aa-836b-18ad7c4f6b42'::uuid, x.texto, x.correcta, 
 where exists (select 1 from public.preguntas where id = '865f2ebb-0e64-49aa-836b-18ad7c4f6b42'::uuid)
 on conflict do nothing;
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select 'd2d686ba-7ea8-49e4-8855-7c9f2495854f'::uuid, 'opcion_multiple', $pea0$Julieta empezó Inglés en la plataforma en el primer semestre y, al terminar el segundo, aprobó solo hasta el nivel 4. ¿Qué le decís?$pea0$, $pea0$Idiomas se regulariza en el año de cursado, con 6 niveles consecutivos al 70% o el Avanzado 3. Si no, se reinicia.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', 'af8288cb-e294-424d-835d-bd4be9907e56'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', 'af8288cb-e294-424d-835d-bd4be9907e56'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 3
 where exists (select 1 from public.items where id = 'af8288cb-e294-424d-835d-bd4be9907e56'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '0ba24b95-30a6-4f75-88ec-f101f5bc73ed'::uuid and c.estado = 'borrador');
 
@@ -2003,12 +2003,12 @@ where item_id = '8d2c9c40-243e-47a0-8b05-a293d6dd3ae6'::uuid and id not in ('d07
   and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '0ba24b95-30a6-4f75-88ec-f101f5bc73ed'::uuid and c.estado = 'borrador');
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select 'd0777b37-f1f0-4aba-88b1-5064afedafa3'::uuid, 'opcion_multiple', $pea0$Paula cursa una tecnicatura (pregrado) en ED y pregunta cuándo rinde el EFIP. ¿Qué le decís?$pea0$, $pea0$El EFIP aplica exclusivamente a carreras de grado en ED y EDH. No lo rinden el pregrado, los ciclos de complementación ni PD.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', '8d2c9c40-243e-47a0-8b05-a293d6dd3ae6'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', '8d2c9c40-243e-47a0-8b05-a293d6dd3ae6'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 1
 where exists (select 1 from public.items where id = '8d2c9c40-243e-47a0-8b05-a293d6dd3ae6'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '0ba24b95-30a6-4f75-88ec-f101f5bc73ed'::uuid and c.estado = 'borrador');
 
@@ -2024,12 +2024,12 @@ select x.id, 'd0777b37-f1f0-4aba-88b1-5064afedafa3'::uuid, x.texto, x.correcta, 
 where exists (select 1 from public.preguntas where id = 'd0777b37-f1f0-4aba-88b1-5064afedafa3'::uuid)
 on conflict do nothing;
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select '8080da1a-b662-44a5-83a1-fccff0a8be67'::uuid, 'opcion_multiple', $pea0$Martín cursa una carrera de grado en EDH que incluye idiomas, y ya aprobó el Examen Integrador de Inglés en la plataforma. ¿Qué rinde en el EFIP I?$pea0$, $pea0$Quien aprobó el integrador de idioma en la plataforma, o fue eximido de Idiomas, no rinde el módulo de idioma del EFIP I.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', '8d2c9c40-243e-47a0-8b05-a293d6dd3ae6'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', '8d2c9c40-243e-47a0-8b05-a293d6dd3ae6'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 2
 where exists (select 1 from public.items where id = '8d2c9c40-243e-47a0-8b05-a293d6dd3ae6'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '0ba24b95-30a6-4f75-88ec-f101f5bc73ed'::uuid and c.estado = 'borrador');
 
@@ -2045,12 +2045,12 @@ select x.id, '8080da1a-b662-44a5-83a1-fccff0a8be67'::uuid, x.texto, x.correcta, 
 where exists (select 1 from public.preguntas where id = '8080da1a-b662-44a5-83a1-fccff0a8be67'::uuid)
 on conflict do nothing;
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select '46488501-3675-4b12-8e07-21d9c4ff53ca'::uuid, 'opcion_multiple', $pea0$Florencia desaprobó tres veces el EFIP I. Su carrera no tiene Módulo de cursado EFIP I. ¿Qué le decís?$pea0$, $pea0$Con 3 reprobaciones o ausencias en el EFIP I: si la carrera tiene Módulo EFIP I, se reinscribe a él; si no, recursa el Seminario correspondiente.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', '8d2c9c40-243e-47a0-8b05-a293d6dd3ae6'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', '8d2c9c40-243e-47a0-8b05-a293d6dd3ae6'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 3
 where exists (select 1 from public.items where id = '8d2c9c40-243e-47a0-8b05-a293d6dd3ae6'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '0ba24b95-30a6-4f75-88ec-f101f5bc73ed'::uuid and c.estado = 'borrador');
 
@@ -2081,12 +2081,12 @@ where item_id = '4434f5d7-adf9-4696-8f1e-1bf7ad66bc32'::uuid and id not in ('ae4
   and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '2594b0a0-0047-4677-845e-19307b8d00ef'::uuid and c.estado = 'borrador');
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select 'ae46221c-c43a-42d0-8d74-1a86434c2e35'::uuid, 'opcion_multiple', $pea0$Federico entregó un TP en el que más de la mitad estaba copiada de un compañero. Pregunta qué le puede pasar. ¿Qué le decís?$pea0$, $pea0$En los TP, una copia menor al 50% es leve y una mayor al 50% es grave. La sanción la resuelve la Universidad, no el CAU.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', '4434f5d7-adf9-4696-8f1e-1bf7ad66bc32'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', '4434f5d7-adf9-4696-8f1e-1bf7ad66bc32'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 1
 where exists (select 1 from public.items where id = '4434f5d7-adf9-4696-8f1e-1bf7ad66bc32'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '2594b0a0-0047-4677-845e-19307b8d00ef'::uuid and c.estado = 'borrador');
 
@@ -2102,12 +2102,12 @@ select x.id, 'ae46221c-c43a-42d0-8d74-1a86434c2e35'::uuid, x.texto, x.correcta, 
 where exists (select 1 from public.preguntas where id = 'ae46221c-c43a-42d0-8d74-1a86434c2e35'::uuid)
 on conflict do nothing;
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select '1d961ece-56bb-4339-8cc7-766698e3ccce'::uuid, 'clasificar', $pea0$Clasificá cada conducta durante un examen online según el tipo de falta.$pea0$, $pea0$Las leves dificultan la auditoría (voz alta, teclado, auriculares, mirada). Las graves suponen ayuda externa o materiales. Ser reemplazado por otra persona es muy grave.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', '4434f5d7-adf9-4696-8f1e-1bf7ad66bc32'::uuid, $pea0${"columnas":["Leve","Grave","Muy grave"]}$pea0$::jsonb
+       'publicado', 'global', 'practica', '4434f5d7-adf9-4696-8f1e-1bf7ad66bc32'::uuid, $pea0${"columnas":["Leve","Grave","Muy grave"]}$pea0$::jsonb, now() + interval '1 millisecond' * 2
 where exists (select 1 from public.items where id = '4434f5d7-adf9-4696-8f1e-1bf7ad66bc32'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '2594b0a0-0047-4677-845e-19307b8d00ef'::uuid and c.estado = 'borrador');
 
@@ -2126,12 +2126,12 @@ select x.id, '1d961ece-56bb-4339-8cc7-766698e3ccce'::uuid, x.texto, x.correcta, 
 where exists (select 1 from public.preguntas where id = '1d961ece-56bb-4339-8cc7-766698e3ccce'::uuid)
 on conflict do nothing;
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select 'a93eda91-62ea-4c21-8090-8636b6efb64e'::uuid, 'verdadero_falso', $pea0$El llamado de atención queda registrado en el certificado analítico.$pea0$, $pea0$El llamado de atención consta solo en el legajo. Las demás sanciones quedan en el analítico.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', '4434f5d7-adf9-4696-8f1e-1bf7ad66bc32'::uuid, null
+       'publicado', 'global', 'practica', '4434f5d7-adf9-4696-8f1e-1bf7ad66bc32'::uuid, null, now() + interval '1 millisecond' * 3
 where exists (select 1 from public.items where id = '4434f5d7-adf9-4696-8f1e-1bf7ad66bc32'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '2594b0a0-0047-4677-845e-19307b8d00ef'::uuid and c.estado = 'borrador');
 
@@ -2160,12 +2160,12 @@ where item_id = '20292778-d608-4f42-8e8c-13f8a66040dd'::uuid and id not in ('5bf
   and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = 'd51876dc-9913-421a-8cf0-44f5895e5c2b'::uuid and c.estado = 'borrador');
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select '5bf6758d-c69c-4aae-8d01-435c43d5ab12'::uuid, 'opcion_multiple', $pea0$Gonzalo cursa una carrera de grado en EDH. Regularizó Seminario Final hace 20 meses y todavía no aprobó el TFG. Quiere saber si puede seguir con el mismo trabajo. ¿Qué le decís?$pea0$, $pea0$En grado, el TFG se aprueba dentro de los 18 meses de regularizar Seminario Final. Si no, queda Libre y hay que hacer un TFG nuevo.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', '20292778-d608-4f42-8e8c-13f8a66040dd'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', '20292778-d608-4f42-8e8c-13f8a66040dd'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 1
 where exists (select 1 from public.items where id = '20292778-d608-4f42-8e8c-13f8a66040dd'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = 'd51876dc-9913-421a-8cf0-44f5895e5c2b'::uuid and c.estado = 'borrador');
 
@@ -2181,12 +2181,12 @@ select x.id, '5bf6758d-c69c-4aae-8d01-435c43d5ab12'::uuid, x.texto, x.correcta, 
 where exists (select 1 from public.preguntas where id = '5bf6758d-c69c-4aae-8d01-435c43d5ab12'::uuid)
 on conflict do nothing;
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select 'e99490cd-5a26-45c7-8b38-aabea1d54cc3'::uuid, 'opcion_multiple', $pea0$Carla estudia una tecnicatura a distancia y pregunta cómo es su trabajo final. ¿Qué le decís?$pea0$, $pea0$Para egresar siempre hay una evaluación integral: en pregrado, Integración Profesional - Estudio del Caso; en grado, el TFG con defensa oral.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', '20292778-d608-4f42-8e8c-13f8a66040dd'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', '20292778-d608-4f42-8e8c-13f8a66040dd'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 2
 where exists (select 1 from public.items where id = '20292778-d608-4f42-8e8c-13f8a66040dd'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = 'd51876dc-9913-421a-8cf0-44f5895e5c2b'::uuid and c.estado = 'borrador');
 
@@ -2202,12 +2202,12 @@ select x.id, 'e99490cd-5a26-45c7-8b38-aabea1d54cc3'::uuid, x.texto, x.correcta, 
 where exists (select 1 from public.preguntas where id = 'e99490cd-5a26-45c7-8b38-aabea1d54cc3'::uuid)
 on conflict do nothing;
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select '53b4d64a-e17a-4548-8431-f9203dbf4d89'::uuid, 'verdadero_falso', $pea0$En el trabajo final, no citar con normas APA es solo un error de formato y no tiene sanción.$pea0$, $pea0$Omitir las citas APA es una falta pasible de sanción, según el régimen de plagio.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', '20292778-d608-4f42-8e8c-13f8a66040dd'::uuid, null
+       'publicado', 'global', 'practica', '20292778-d608-4f42-8e8c-13f8a66040dd'::uuid, null, now() + interval '1 millisecond' * 3
 where exists (select 1 from public.items where id = '20292778-d608-4f42-8e8c-13f8a66040dd'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = 'd51876dc-9913-421a-8cf0-44f5895e5c2b'::uuid and c.estado = 'borrador');
 
@@ -2236,12 +2236,12 @@ where item_id = '9ed54b62-6be5-44f2-897d-871d98de3293'::uuid and id not in ('014
   and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = 'd51876dc-9913-421a-8cf0-44f5895e5c2b'::uuid and c.estado = 'borrador');
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select '0146e795-39b5-4d65-8b4f-3ef76d6ee451'::uuid, 'ordenar', $pea0$Ordená el recorrido de un alumno de ED desde Seminario Final hasta la nota del TFG.$pea0$, $pea0$Las etapas son Seminario Final, CAE y Defensa Oral. Cada paso tiene un plazo, y no hay prórrogas.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', '9ed54b62-6be5-44f2-897d-871d98de3293'::uuid, null
+       'publicado', 'global', 'practica', '9ed54b62-6be5-44f2-897d-871d98de3293'::uuid, null, now() + interval '1 millisecond' * 1
 where exists (select 1 from public.items where id = '9ed54b62-6be5-44f2-897d-871d98de3293'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = 'd51876dc-9913-421a-8cf0-44f5895e5c2b'::uuid and c.estado = 'borrador');
 
@@ -2258,12 +2258,12 @@ select x.id, '0146e795-39b5-4d65-8b4f-3ef76d6ee451'::uuid, x.texto, x.correcta, 
 where exists (select 1 from public.preguntas where id = '0146e795-39b5-4d65-8b4f-3ef76d6ee451'::uuid)
 on conflict do nothing;
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select '2d9ca37e-5a12-46e1-8093-72726e5cfbe8'::uuid, 'opcion_multiple', $pea0$Julián cursa ED y recibió de la CAE un acta rúbrica con ajustes para su TFG. Pregunta qué pasa si no los entrega a tiempo. ¿Qué le decís?$pea0$, $pea0$Si la CAE pide ajustes, hay que entregarlos dentro del plazo y respondiendo a lo pedido. Si no, se desaprueba Seminario Final.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', '9ed54b62-6be5-44f2-897d-871d98de3293'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', '9ed54b62-6be5-44f2-897d-871d98de3293'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 2
 where exists (select 1 from public.items where id = '9ed54b62-6be5-44f2-897d-871d98de3293'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = 'd51876dc-9913-421a-8cf0-44f5895e5c2b'::uuid and c.estado = 'borrador');
 
@@ -2279,12 +2279,12 @@ select x.id, '2d9ca37e-5a12-46e1-8093-72726e5cfbe8'::uuid, x.texto, x.correcta, 
 where exists (select 1 from public.preguntas where id = '2d9ca37e-5a12-46e1-8093-72726e5cfbe8'::uuid)
 on conflict do nothing;
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select '2c8d2508-72a4-4863-8a24-1a9ed0699e73'::uuid, 'opcion_multiple', $pea0$Rocío cursa una carrera de grado en EDH (no es un ciclo de complementación). Fue habilitada a Defensa Oral pero todavía no aprobó el EFIP II. ¿Puede rendir la defensa?$pea0$, $pea0$En ED y EDH, sin el EFIP II aprobado no hay Defensa Oral. La excepción son los ciclos de complementación.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', '9ed54b62-6be5-44f2-897d-871d98de3293'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', '9ed54b62-6be5-44f2-897d-871d98de3293'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 3
 where exists (select 1 from public.items where id = '9ed54b62-6be5-44f2-897d-871d98de3293'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = 'd51876dc-9913-421a-8cf0-44f5895e5c2b'::uuid and c.estado = 'borrador');
 
@@ -2314,12 +2314,12 @@ where item_id = 'c886f8d7-6dbe-4f3d-8e48-129e52eaf434'::uuid and id not in ('df4
   and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '30ea230c-fdc6-41a9-8eee-304ca7965041'::uuid and c.estado = 'borrador');
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select 'df467d01-3f9f-40ca-8005-d511d4203049'::uuid, 'opcion_multiple', $pea0$Bruno es ingresante, se inscribió hace un día hábil y dice que nunca le llegaron los datos para entrar al Portal. ¿Qué le decís?$pea0$, $pea0$A los ingresantes los datos de acceso les llegan al mail informado al inscribirse. Hay que revisar el correo no deseado y tener en cuenta que puede demorar 48 hs hábiles.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', 'c886f8d7-6dbe-4f3d-8e48-129e52eaf434'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', 'c886f8d7-6dbe-4f3d-8e48-129e52eaf434'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 1
 where exists (select 1 from public.items where id = 'c886f8d7-6dbe-4f3d-8e48-129e52eaf434'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '30ea230c-fdc6-41a9-8eee-304ca7965041'::uuid and c.estado = 'borrador');
 
@@ -2335,12 +2335,12 @@ select x.id, 'df467d01-3f9f-40ca-8005-d511d4203049'::uuid, x.texto, x.correcta, 
 where exists (select 1 from public.preguntas where id = 'df467d01-3f9f-40ca-8005-d511d4203049'::uuid)
 on conflict do nothing;
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select 'acf420a9-cdad-433e-8888-0658b4d80928'::uuid, 'ordenar', $pea0$Ordená los pasos para recuperar la contraseña del Portal de Estudiantes.$pea0$, $pea0$El usuario va sin el dominio, y el mail de recuperación es el personal registrado en el portal.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', 'c886f8d7-6dbe-4f3d-8e48-129e52eaf434'::uuid, null
+       'publicado', 'global', 'practica', 'c886f8d7-6dbe-4f3d-8e48-129e52eaf434'::uuid, null, now() + interval '1 millisecond' * 2
 where exists (select 1 from public.items where id = 'c886f8d7-6dbe-4f3d-8e48-129e52eaf434'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '30ea230c-fdc6-41a9-8eee-304ca7965041'::uuid and c.estado = 'borrador');
 
@@ -2357,12 +2357,12 @@ select x.id, 'acf420a9-cdad-433e-8888-0658b4d80928'::uuid, x.texto, x.correcta, 
 where exists (select 1 from public.preguntas where id = 'acf420a9-cdad-433e-8888-0658b4d80928'::uuid)
 on conflict do nothing;
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select 'a1f26b77-a60b-4611-899e-2edaf689e1eb'::uuid, 'opcion_multiple', $pea0$Lara usó ayer el simulador de precios y hoy, al pagar, ve otro monto. Cree que hay un error. ¿Qué le decís?$pea0$, $pea0$El simulador sirve para estimar gastos: los precios pueden variar, y la estimación tiene una vigencia de 24 hs.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', 'c886f8d7-6dbe-4f3d-8e48-129e52eaf434'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', 'c886f8d7-6dbe-4f3d-8e48-129e52eaf434'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 3
 where exists (select 1 from public.items where id = 'c886f8d7-6dbe-4f3d-8e48-129e52eaf434'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '30ea230c-fdc6-41a9-8eee-304ca7965041'::uuid and c.estado = 'borrador');
 
@@ -2392,12 +2392,12 @@ where item_id = 'd36cf7d1-c546-495d-8749-ea007754750c'::uuid and id not in ('9b6
   and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '30ea230c-fdc6-41a9-8eee-304ca7965041'::uuid and c.estado = 'borrador');
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select '9b6c1d17-3db5-4d0b-839f-9928199ef12f'::uuid, 'opcion_multiple', $pea0$Martín (EDH) llama porque no puede recuperar la contraseña del aula: en la pantalla de recuperación escribió su correo institucional completo, N.PEREZ@soysiglo.21.edu.ar. ¿Qué le decís?$pea0$, $pea0$Para iniciar sesión se usa el correo institucional completo; para recuperar la clave, el usuario sin @soysiglo.21.edu.ar.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', 'd36cf7d1-c546-495d-8749-ea007754750c'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', 'd36cf7d1-c546-495d-8749-ea007754750c'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 1
 where exists (select 1 from public.items where id = 'd36cf7d1-c546-495d-8749-ea007754750c'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '30ea230c-fdc6-41a9-8eee-304ca7965041'::uuid and c.estado = 'borrador');
 
@@ -2413,12 +2413,12 @@ select x.id, '9b6c1d17-3db5-4d0b-839f-9928199ef12f'::uuid, x.texto, x.correcta, 
 where exists (select 1 from public.preguntas where id = '9b6c1d17-3db5-4d0b-839f-9928199ef12f'::uuid)
 on conflict do nothing;
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select '1d98327f-f4d9-4a89-8b27-15b314168fed'::uuid, 'opcion_multiple', $pea0$Sofía (ED) ya pidió restablecer la clave del aula, pero dice que el mail nunca le llegó. ¿Qué revisás primero con ella?$pea0$, $pea0$La nueva clave se genera desde el mail personal registrado en el Portal de Estudiantes: si está desactualizado, no le va a llegar.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', 'd36cf7d1-c546-495d-8749-ea007754750c'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', 'd36cf7d1-c546-495d-8749-ea007754750c'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 2
 where exists (select 1 from public.items where id = 'd36cf7d1-c546-495d-8749-ea007754750c'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '30ea230c-fdc6-41a9-8eee-304ca7965041'::uuid and c.estado = 'borrador');
 
@@ -2434,12 +2434,12 @@ select x.id, '1d98327f-f4d9-4a89-8b27-15b314168fed'::uuid, x.texto, x.correcta, 
 where exists (select 1 from public.preguntas where id = '1d98327f-f4d9-4a89-8b27-15b314168fed'::uuid)
 on conflict do nothing;
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select 'f30ce66a-708b-4b72-8cea-dbc53bfe2b0f'::uuid, 'opcion_multiple', $pea0$Lucas (EDH) pregunta cómo escribirle al profesor por una duda del TP. ¿Qué le indicás?$pea0$, $pea0$Las consultas al docente van por la Bandeja de Entrada de Canvas, con asunto específico y firma con nombre completo y DNI.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', 'd36cf7d1-c546-495d-8749-ea007754750c'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', 'd36cf7d1-c546-495d-8749-ea007754750c'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 3
 where exists (select 1 from public.items where id = 'd36cf7d1-c546-495d-8749-ea007754750c'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '30ea230c-fdc6-41a9-8eee-304ca7965041'::uuid and c.estado = 'borrador');
 
@@ -2469,12 +2469,12 @@ where item_id = '3ff5fecf-dfe1-40b9-8105-6c44641d758e'::uuid and id not in ('423
   and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '8c4605a5-9df3-4fd3-8577-00afba728ba5'::uuid and c.estado = 'borrador');
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select '4239eb9f-3b8f-485f-84ff-d4f0c8383322'::uuid, 'opcion_multiple', $pea0$Valentina (EDH) rinde su primer parcial online pasado mañana y todavía no se registró en Klarway. ¿Qué le decís?$pea0$, $pea0$Sin registro aprobado no se puede rendir. Conviene hacerlo con anticipación porque la validación puede demorar.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', '3ff5fecf-dfe1-40b9-8105-6c44641d758e'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', '3ff5fecf-dfe1-40b9-8105-6c44641d758e'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 1
 where exists (select 1 from public.items where id = '3ff5fecf-dfe1-40b9-8105-6c44641d758e'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '8c4605a5-9df3-4fd3-8577-00afba728ba5'::uuid and c.estado = 'borrador');
 
@@ -2490,12 +2490,12 @@ select x.id, '4239eb9f-3b8f-485f-84ff-d4f0c8383322'::uuid, x.texto, x.correcta, 
 where exists (select 1 from public.preguntas where id = '4239eb9f-3b8f-485f-84ff-d4f0c8383322'::uuid)
 on conflict do nothing;
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select 'd8449da0-d8fa-48f7-8fb7-f4378449bb12'::uuid, 'opcion_multiple', $pea0$Tomás (ED) rindió en su casa y Klarway se colgó a mitad del parcial. Llama al CAU. ¿Qué le indicás?$pea0$, $pea0$Si rindió en su casa, el error se reporta con una captura que muestre día y hora, por Consulta Alumnos (Área Tecnológica, Sistema de Examen).$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', '3ff5fecf-dfe1-40b9-8105-6c44641d758e'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', '3ff5fecf-dfe1-40b9-8105-6c44641d758e'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 2
 where exists (select 1 from public.items where id = '3ff5fecf-dfe1-40b9-8105-6c44641d758e'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '8c4605a5-9df3-4fd3-8577-00afba728ba5'::uuid and c.estado = 'borrador');
 
@@ -2511,12 +2511,12 @@ select x.id, 'd8449da0-d8fa-48f7-8fb7-f4378449bb12'::uuid, x.texto, x.correcta, 
 where exists (select 1 from public.preguntas where id = 'd8449da0-d8fa-48f7-8fb7-f4378449bb12'::uuid)
 on conflict do nothing;
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select '63116713-017d-47bf-878e-9bf15e47aef2'::uuid, 'verdadero_falso', $pea0$Si el alumno se pone auriculares durante el examen online pero no habla con nadie, no hay problema.$pea0$, $pea0$El uso de cualquier tipo de auricular una vez iniciado el examen es una falta según el Régimen General de Sanciones.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', '3ff5fecf-dfe1-40b9-8105-6c44641d758e'::uuid, null
+       'publicado', 'global', 'practica', '3ff5fecf-dfe1-40b9-8105-6c44641d758e'::uuid, null, now() + interval '1 millisecond' * 3
 where exists (select 1 from public.items where id = '3ff5fecf-dfe1-40b9-8105-6c44641d758e'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '8c4605a5-9df3-4fd3-8577-00afba728ba5'::uuid and c.estado = 'borrador');
 
@@ -2545,12 +2545,12 @@ where item_id = '5862ba03-4027-4188-81b3-64dc1c964e32'::uuid and id not in ('2e9
   and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '68dfd532-3a2f-4662-8fc5-75c65d7f8f0a'::uuid and c.estado = 'borrador');
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select '2e99d294-e92f-42fd-8baf-ca7f2734133d'::uuid, 'clasificar', $pea0$Clasificá cada consulta según el canal al que corresponde derivarla.$pea0$, $pea0$Contenido de la materia: docente por Canvas. Gestiones escritas: Consulta Alumnos. Atención inmediata: chat con un Asesor Institucional.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', '5862ba03-4027-4188-81b3-64dc1c964e32'::uuid, $pea0${"columnas":["Docente, por mensajería de Canvas","Consulta Alumnos, pestaña Consultar","Chat con un Asesor Institucional","ComunidadNET"]}$pea0$::jsonb
+       'publicado', 'global', 'practica', '5862ba03-4027-4188-81b3-64dc1c964e32'::uuid, $pea0${"columnas":["Docente, por mensajería de Canvas","Consulta Alumnos, pestaña Consultar","Chat con un Asesor Institucional","ComunidadNET"]}$pea0$::jsonb, now() + interval '1 millisecond' * 1
 where exists (select 1 from public.items where id = '5862ba03-4027-4188-81b3-64dc1c964e32'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '68dfd532-3a2f-4662-8fc5-75c65d7f8f0a'::uuid and c.estado = 'borrador');
 
@@ -2568,12 +2568,12 @@ select x.id, '2e99d294-e92f-42fd-8baf-ca7f2734133d'::uuid, x.texto, x.correcta, 
 where exists (select 1 from public.preguntas where id = '2e99d294-e92f-42fd-8baf-ca7f2734133d'::uuid)
 on conflict do nothing;
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select 'abd32c2b-1fda-43f2-842e-5283775866da'::uuid, 'opcion_multiple', $pea0$Paula (ED, dos carreras) dejó una consulta escrita ayer y pregunta dónde va a ver la respuesta. ¿Qué le decís?$pea0$, $pea0$La consulta escrita se carga en Consulta Alumnos > Consultar, eligiendo legajo y motivo; la respuesta llega por mail al resolverse.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', '5862ba03-4027-4188-81b3-64dc1c964e32'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', '5862ba03-4027-4188-81b3-64dc1c964e32'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 2
 where exists (select 1 from public.items where id = '5862ba03-4027-4188-81b3-64dc1c964e32'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '68dfd532-3a2f-4662-8fc5-75c65d7f8f0a'::uuid and c.estado = 'borrador');
 
@@ -2603,12 +2603,12 @@ where item_id = 'acba49f6-9e64-4d80-8562-653a61b4346d'::uuid and id not in ('b10
   and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '68dfd532-3a2f-4662-8fc5-75c65d7f8f0a'::uuid and c.estado = 'borrador');
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select 'b10eff4a-edce-4a92-81cd-c7aaa6eb5d75'::uuid, 'clasificar', $pea0$Un alumno de primer año (EDH) trae estas dudas. Clasificá a quién le corresponde cada una.$pea0$, $pea0$El tutor acompaña cursado, organización, plataforma y modelo de aprendizaje; el contenido específico de cada materia va al docente.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', 'acba49f6-9e64-4d80-8562-653a61b4346d'::uuid, $pea0${"columnas":["Profesor Tutor Virtual","Docente a cargo"]}$pea0$::jsonb
+       'publicado', 'global', 'practica', 'acba49f6-9e64-4d80-8562-653a61b4346d'::uuid, $pea0${"columnas":["Profesor Tutor Virtual","Docente a cargo"]}$pea0$::jsonb, now() + interval '1 millisecond' * 1
 where exists (select 1 from public.items where id = 'acba49f6-9e64-4d80-8562-653a61b4346d'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '68dfd532-3a2f-4662-8fc5-75c65d7f8f0a'::uuid and c.estado = 'borrador');
 
@@ -2626,12 +2626,12 @@ select x.id, 'b10eff4a-edce-4a92-81cd-c7aaa6eb5d75'::uuid, x.texto, x.correcta, 
 where exists (select 1 from public.preguntas where id = 'b10eff4a-edce-4a92-81cd-c7aaa6eb5d75'::uuid)
 on conflict do nothing;
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select '39ccc7a9-d86f-49d0-89a5-ec516b83366b'::uuid, 'opcion_multiple', $pea0$Camila (ED, primer cuatrimestre) quiere sumarse a un taller de hábitos de estudio y a una consulta en vivo con el tutor, pero no sabe cuándo son. ¿Dónde le decís que busque?$pea0$, $pea0$Los Talleres Potenciar 21 y los horarios de consulta por Teams se publican en los anuncios de cada materia en Canvas.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', 'acba49f6-9e64-4d80-8562-653a61b4346d'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', 'acba49f6-9e64-4d80-8562-653a61b4346d'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 2
 where exists (select 1 from public.items where id = 'acba49f6-9e64-4d80-8562-653a61b4346d'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '68dfd532-3a2f-4662-8fc5-75c65d7f8f0a'::uuid and c.estado = 'borrador');
 
@@ -2661,12 +2661,12 @@ where item_id = 'fa3f849b-6994-4c30-8d5c-0278e45215f7'::uuid and id not in ('c13
   and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '8c4605a5-9df3-4fd3-8577-00afba728ba5'::uuid and c.estado = 'borrador');
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select 'c1387fe8-abc5-4013-8667-8c06e508b862'::uuid, 'opcion_multiple', $pea0$Agustina (PD) llama preocupada: no encuentra cómo inscribirse al Parcial 1 en el Portal. ¿Qué le respondés?$pea0$, $pea0$Antes de explicar pasos, preguntá la modalidad: ED/EDH se inscriben a los parciales; en PD se asignan por cronograma.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', 'fa3f849b-6994-4c30-8d5c-0278e45215f7'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', 'fa3f849b-6994-4c30-8d5c-0278e45215f7'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 1
 where exists (select 1 from public.items where id = 'fa3f849b-6994-4c30-8d5c-0278e45215f7'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '8c4605a5-9df3-4fd3-8577-00afba728ba5'::uuid and c.estado = 'borrador');
 
@@ -2682,12 +2682,12 @@ select x.id, 'c1387fe8-abc5-4013-8667-8c06e508b862'::uuid, x.texto, x.correcta, 
 where exists (select 1 from public.preguntas where id = 'c1387fe8-abc5-4013-8667-8c06e508b862'::uuid)
 on conflict do nothing;
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select '6063fc98-61bf-4610-834f-9fccce26d79c'::uuid, 'opcion_multiple', $pea0$Federico (EDH) faltó al Parcial 2 y quiere que se lo reprogramen. ¿Qué le explicás?$pea0$, $pea0$Ausente en un parcial no se reprograma. Perder una oportunidad camino a Libre es una consecuencia de los finales.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', 'fa3f849b-6994-4c30-8d5c-0278e45215f7'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', 'fa3f849b-6994-4c30-8d5c-0278e45215f7'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 2
 where exists (select 1 from public.items where id = 'fa3f849b-6994-4c30-8d5c-0278e45215f7'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '8c4605a5-9df3-4fd3-8577-00afba728ba5'::uuid and c.estado = 'borrador');
 
@@ -2703,12 +2703,12 @@ select x.id, '6063fc98-61bf-4610-834f-9fccce26d79c'::uuid, x.texto, x.correcta, 
 where exists (select 1 from public.preguntas where id = '6063fc98-61bf-4610-834f-9fccce26d79c'::uuid)
 on conflict do nothing;
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select '871f0d2c-e080-4229-8223-bdf5e6c533bf'::uuid, 'ordenar', $pea0$Ordená los pasos para inscribirse a un parcial en el Portal (ED/EDH).$pea0$, $pea0$El resumen se revisa antes de confirmar; no hace falta haber rendido el P1 para anotarse al P2.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', 'fa3f849b-6994-4c30-8d5c-0278e45215f7'::uuid, null
+       'publicado', 'global', 'practica', 'fa3f849b-6994-4c30-8d5c-0278e45215f7'::uuid, null, now() + interval '1 millisecond' * 3
 where exists (select 1 from public.items where id = 'fa3f849b-6994-4c30-8d5c-0278e45215f7'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '8c4605a5-9df3-4fd3-8577-00afba728ba5'::uuid and c.estado = 'borrador');
 
@@ -2740,12 +2740,12 @@ where item_id = 'c4c2e72c-bbb1-4946-8b80-ce01f5f4d17b'::uuid and id not in ('007
   and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '30ea230c-fdc6-41a9-8eee-304ca7965041'::uuid and c.estado = 'borrador');
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select '007dc56a-13f7-472a-8d5e-fdbe04cd4acc'::uuid, 'opcion_multiple', $pea0$Nicolás (ED) quiere registrar la asistencia de la Open Class con la app, pero al tocar el ícono del QR no pasa nada y la cámara no abre. Es la primera vez que la usa. ¿Qué le decís?$pea0$, $pea0$La primera vez que se registra asistencia hay que dar permiso a la cámara; después se escanea el QR desde el ícono de la parte superior.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', 'c4c2e72c-bbb1-4946-8b80-ce01f5f4d17b'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', 'c4c2e72c-bbb1-4946-8b80-ce01f5f4d17b'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 1
 where exists (select 1 from public.items where id = 'c4c2e72c-bbb1-4946-8b80-ce01f5f4d17b'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '30ea230c-fdc6-41a9-8eee-304ca7965041'::uuid and c.estado = 'borrador');
 
@@ -2761,12 +2761,12 @@ select x.id, '007dc56a-13f7-472a-8d5e-fdbe04cd4acc'::uuid, x.texto, x.correcta, 
 where exists (select 1 from public.preguntas where id = '007dc56a-13f7-472a-8d5e-fdbe04cd4acc'::uuid)
 on conflict do nothing;
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select '6b31550c-d8c7-4f0d-86ec-1d0a0343f4c3'::uuid, 'opcion_multiple', $pea0$Julieta estudia dos carreras y quiere ver en la app las notas de la segunda, pero solo le aparece una. ¿Qué le indicás?$pea0$, $pea0$Con un solo usuario (el del Portal) se consultan todos los legajos desde la app.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', 'c4c2e72c-bbb1-4946-8b80-ce01f5f4d17b'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', 'c4c2e72c-bbb1-4946-8b80-ce01f5f4d17b'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 2
 where exists (select 1 from public.items where id = 'c4c2e72c-bbb1-4946-8b80-ce01f5f4d17b'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '30ea230c-fdc6-41a9-8eee-304ca7965041'::uuid and c.estado = 'borrador');
 
@@ -2782,12 +2782,12 @@ select x.id, '6b31550c-d8c7-4f0d-86ec-1d0a0343f4c3'::uuid, x.texto, x.correcta, 
 where exists (select 1 from public.preguntas where id = '6b31550c-d8c7-4f0d-86ec-1d0a0343f4c3'::uuid)
 on conflict do nothing;
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select '00325340-a91f-467e-8e68-54dc05a38cfe'::uuid, 'verdadero_falso', $pea0$En ED, si el alumno estuvo en la Open Class pero no escaneó el QR de la app, la asistencia igual queda registrada.$pea0$, $pea0$En ED la asistencia se toma con la App Siglo 21 y se exige el 75% en cada materia (fuente: modalidad ED). Sin el escaneo, no queda registrada.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', 'c4c2e72c-bbb1-4946-8b80-ce01f5f4d17b'::uuid, null
+       'publicado', 'global', 'practica', 'c4c2e72c-bbb1-4946-8b80-ce01f5f4d17b'::uuid, null, now() + interval '1 millisecond' * 3
 where exists (select 1 from public.items where id = 'c4c2e72c-bbb1-4946-8b80-ce01f5f4d17b'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '30ea230c-fdc6-41a9-8eee-304ca7965041'::uuid and c.estado = 'borrador');
 
@@ -2816,12 +2816,12 @@ where item_id = '2bdca9f6-e70b-439f-852d-e32c79ab3538'::uuid and id not in ('bfa
   and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = 'd51876dc-9913-421a-8cf0-44f5895e5c2b'::uuid and c.estado = 'borrador');
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select 'bfaccff1-04ee-4d42-87a9-3fed159462aa'::uuid, 'opcion_multiple', $pea0$Rocío (EDH, Lic. en Administración) tiene el TFG aprobado por la CAE, pagó la Tasa de Graduación hace 3 días y todavía no aprobó el EFIP II. Quiere saber por qué no avanza su pedido de defensa. ¿Qué le explicás?$pea0$, $pea0$En distancia, el visado exige todas las materias, electivas, EFIP II aprobado y Seminario Final regular. La única excepción al EFIP II es la Licenciatura en Educación.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', '2bdca9f6-e70b-439f-852d-e32c79ab3538'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', '2bdca9f6-e70b-439f-852d-e32c79ab3538'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 1
 where exists (select 1 from public.items where id = '2bdca9f6-e70b-439f-852d-e32c79ab3538'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = 'd51876dc-9913-421a-8cf0-44f5895e5c2b'::uuid and c.estado = 'borrador');
 
@@ -2837,12 +2837,12 @@ select x.id, 'bfaccff1-04ee-4d42-87a9-3fed159462aa'::uuid, x.texto, x.correcta, 
 where exists (select 1 from public.preguntas where id = 'bfaccff1-04ee-4d42-87a9-3fed159462aa'::uuid)
 on conflict do nothing;
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select 'b629688c-7341-4974-86de-d02e774ed4dc'::uuid, 'ordenar', $pea0$Ordená el proceso para llegar a la Defensa Oral una vez que la CAE aprobó el TFG.$pea0$, $pea0$La tasa dispara el visado; con el visado completo se pide la mesa, que se coordina en hasta 10 días hábiles.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', '2bdca9f6-e70b-439f-852d-e32c79ab3538'::uuid, null
+       'publicado', 'global', 'practica', '2bdca9f6-e70b-439f-852d-e32c79ab3538'::uuid, null, now() + interval '1 millisecond' * 2
 where exists (select 1 from public.items where id = '2bdca9f6-e70b-439f-852d-e32c79ab3538'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = 'd51876dc-9913-421a-8cf0-44f5895e5c2b'::uuid and c.estado = 'borrador');
 
@@ -2860,12 +2860,12 @@ select x.id, 'b629688c-7341-4974-86de-d02e774ed4dc'::uuid, x.texto, x.correcta, 
 where exists (select 1 from public.preguntas where id = 'b629688c-7341-4974-86de-d02e774ed4dc'::uuid)
 on conflict do nothing;
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select 'fb752522-4668-4dfd-8d7b-668d20ea40e2'::uuid, 'opcion_multiple', $pea0$Diego (ED) ya pidió la mesa de defensa y ahora quiere anularla porque le cayó un viaje laboral. ¿Qué le decís?$pea0$, $pea0$La fecha de Defensa Oral no se anula una vez pedida, y siempre se rinde en el Campus.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', '2bdca9f6-e70b-439f-852d-e32c79ab3538'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', '2bdca9f6-e70b-439f-852d-e32c79ab3538'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 3
 where exists (select 1 from public.items where id = '2bdca9f6-e70b-439f-852d-e32c79ab3538'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = 'd51876dc-9913-421a-8cf0-44f5895e5c2b'::uuid and c.estado = 'borrador');
 
@@ -2895,12 +2895,12 @@ where item_id = 'd3a159c7-0420-4c1c-81a5-6773c969f70b'::uuid and id not in ('5fb
   and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '0ba24b95-30a6-4f75-88ec-f101f5bc73ed'::uuid and c.estado = 'borrador');
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select '5fb9eeda-39a7-4a1f-8423-d203f91a314e'::uuid, 'opcion_multiple', $pea0$Ignacio (EDH) tiene un certificado de Cambridge Assessment International Education con nivel B2 y pregunta si queda eximido de todo el inglés de su carrera. ¿Qué le respondés?$pea0$, $pea0$No todos los B2 eximen de lo mismo: Oxford B2 cubre placement y niveles del plan; Cambridge International B2, solo el inglés del curso de ingreso.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', 'd3a159c7-0420-4c1c-81a5-6773c969f70b'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', 'd3a159c7-0420-4c1c-81a5-6773c969f70b'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 1
 where exists (select 1 from public.items where id = 'd3a159c7-0420-4c1c-81a5-6773c969f70b'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '0ba24b95-30a6-4f75-88ec-f101f5bc73ed'::uuid and c.estado = 'borrador');
 
@@ -2916,12 +2916,12 @@ select x.id, '5fb9eeda-39a7-4a1f-8423-d203f91a314e'::uuid, x.texto, x.correcta, 
 where exists (select 1 from public.preguntas where id = '5fb9eeda-39a7-4a1f-8423-d203f91a314e'::uuid)
 on conflict do nothing;
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select 'be9088a1-00ab-425f-8406-a2bc577f8373'::uuid, 'opcion_multiple', $pea0$Carla (ED) dice "rendí el TOEFL y saqué 520". ¿Qué hacés antes de responder?$pea0$, $pea0$Con TOEFL, primero averiguá la versión (iBT, Computer o Paper): cada una tiene un puntaje mínimo distinto.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', 'd3a159c7-0420-4c1c-81a5-6773c969f70b'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', 'd3a159c7-0420-4c1c-81a5-6773c969f70b'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 2
 where exists (select 1 from public.items where id = 'd3a159c7-0420-4c1c-81a5-6773c969f70b'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '0ba24b95-30a6-4f75-88ec-f101f5bc73ed'::uuid and c.estado = 'borrador');
 
@@ -2937,12 +2937,12 @@ select x.id, 'be9088a1-00ab-425f-8406-a2bc577f8373'::uuid, x.texto, x.correcta, 
 where exists (select 1 from public.preguntas where id = 'be9088a1-00ab-425f-8406-a2bc577f8373'::uuid)
 on conflict do nothing;
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select '0a16f6cc-e8f8-4cd4-818a-0cad7792d529'::uuid, 'clasificar', $pea0$Clasificá cada certificación según si figura o no en la lista de eximición de inglés.$pea0$, $pea0$IELTS 5 a 9, TOEIC 600 o más, TOEFL iBT 60 o más y GESE 7-8-9 figuran en la lista; por debajo de esos mínimos no corresponde la eximición.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', 'd3a159c7-0420-4c1c-81a5-6773c969f70b'::uuid, $pea0${"columnas":["Aceptada","No alcanza"]}$pea0$::jsonb
+       'publicado', 'global', 'practica', 'd3a159c7-0420-4c1c-81a5-6773c969f70b'::uuid, $pea0${"columnas":["Aceptada","No alcanza"]}$pea0$::jsonb, now() + interval '1 millisecond' * 3
 where exists (select 1 from public.items where id = 'd3a159c7-0420-4c1c-81a5-6773c969f70b'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '0ba24b95-30a6-4f75-88ec-f101f5bc73ed'::uuid and c.estado = 'borrador');
 
@@ -2974,12 +2974,12 @@ where item_id = 'bf74500f-6fef-4705-8fcb-5624bc1c5b59'::uuid and id not in ('349
   and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = 'c07fdef2-d72d-4f2c-8aa6-1b2ba9d7227f'::uuid and c.estado = 'borrador');
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select '34953aa7-2ffd-4dde-80c4-ce7f244b77fc'::uuid, 'opcion_multiple', $pea0$Brenda (EDH) se inscribió a Introducción al Derecho y a Derecho Romano, y pregunta por qué solo le aparece Módulo 0 en una de las dos. ¿Qué le decís?$pea0$, $pea0$Antes de responder, chequeá la materia contra el listado: no todas tienen Módulo 0.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', 'bf74500f-6fef-4705-8fcb-5624bc1c5b59'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', 'bf74500f-6fef-4705-8fcb-5624bc1c5b59'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 1
 where exists (select 1 from public.items where id = 'bf74500f-6fef-4705-8fcb-5624bc1c5b59'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = 'c07fdef2-d72d-4f2c-8aa6-1b2ba9d7227f'::uuid and c.estado = 'borrador');
 
@@ -2995,12 +2995,12 @@ select x.id, '34953aa7-2ffd-4dde-80c4-ce7f244b77fc'::uuid, x.texto, x.correcta, 
 where exists (select 1 from public.preguntas where id = '34953aa7-2ffd-4dde-80c4-ce7f244b77fc'::uuid)
 on conflict do nothing;
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select 'c4e189b1-afef-40ad-878e-046247fe7462'::uuid, 'opcion_multiple', $pea0$Ezequiel (ED) está haciendo el Módulo 0 de Herramientas Matemáticas I y no entiende un ejercicio de repaso. ¿A quién le indicás que consulte?$pea0$, $pea0$El Módulo 0 se cursa en Canvas con cuatro lecturas, actividades con feedback inmediato y un tutor virtual por mensajería.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', 'bf74500f-6fef-4705-8fcb-5624bc1c5b59'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', 'bf74500f-6fef-4705-8fcb-5624bc1c5b59'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 2
 where exists (select 1 from public.items where id = 'bf74500f-6fef-4705-8fcb-5624bc1c5b59'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = 'c07fdef2-d72d-4f2c-8aa6-1b2ba9d7227f'::uuid and c.estado = 'borrador');
 
@@ -3016,12 +3016,12 @@ select x.id, 'c4e189b1-afef-40ad-878e-046247fe7462'::uuid, x.texto, x.correcta, 
 where exists (select 1 from public.preguntas where id = 'c4e189b1-afef-40ad-878e-046247fe7462'::uuid)
 on conflict do nothing;
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select 'e0106235-69ea-4ece-86d8-e8746d4001ad'::uuid, 'ordenar', $pea0$Ordená cómo se accede a una lectura del Módulo 0.$pea0$, $pea0$Las actividades de repaso dan feedback inmediato con la respuesta correcta y su justificación.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', 'bf74500f-6fef-4705-8fcb-5624bc1c5b59'::uuid, null
+       'publicado', 'global', 'practica', 'bf74500f-6fef-4705-8fcb-5624bc1c5b59'::uuid, null, now() + interval '1 millisecond' * 3
 where exists (select 1 from public.items where id = 'bf74500f-6fef-4705-8fcb-5624bc1c5b59'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = 'c07fdef2-d72d-4f2c-8aa6-1b2ba9d7227f'::uuid and c.estado = 'borrador');
 
@@ -3052,12 +3052,12 @@ where item_id = '444e3f43-cdbe-4389-81a6-5b8c27daf134'::uuid and id not in ('ec9
   and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '68dfd532-3a2f-4662-8fc5-75c65d7f8f0a'::uuid and c.estado = 'borrador');
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select 'ec9975a2-9339-4da8-807b-3ee87d1af53e'::uuid, 'opcion_multiple', $pea0$Mariana (EDH) rinde el EFIP en unas semanas, está muy ansiosa y cree que el Gabinete de Bienestar es solo para alumnos presenciales. ¿Qué le decís?$pea0$, $pea0$El Gabinete de Bienestar es para todas las modalidades y tiene ciclos para EFIP y Defensa Oral, además de encuentros individuales.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', '444e3f43-cdbe-4389-81a6-5b8c27daf134'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', '444e3f43-cdbe-4389-81a6-5b8c27daf134'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 1
 where exists (select 1 from public.items where id = '444e3f43-cdbe-4389-81a6-5b8c27daf134'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '68dfd532-3a2f-4662-8fc5-75c65d7f8f0a'::uuid and c.estado = 'borrador');
 
@@ -3073,12 +3073,12 @@ select x.id, 'ec9975a2-9339-4da8-807b-3ee87d1af53e'::uuid, x.texto, x.correcta, 
 where exists (select 1 from public.preguntas where id = 'ec9975a2-9339-4da8-807b-3ee87d1af53e'::uuid)
 on conflict do nothing;
 
-insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select '68948be4-b0e4-4c41-840a-fec5c797d77f'::uuid, 'opcion_multiple', $pea0$Gonzalo (ED) tiene fecha de Defensa Oral y dice que se traba armando la presentación y que lo paraliza el miedo a exponer. ¿Qué le recomendás?$pea0$, $pea0$Para la defensa, el Gabinete ofrece un ciclo que combina preparación técnica (estructura, visuales, simulacros) y emocional.$pea0$, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', '444e3f43-cdbe-4389-81a6-5b8c27daf134'::uuid, $pea0${"una":true}$pea0$::jsonb
+       'publicado', 'global', 'practica', '444e3f43-cdbe-4389-81a6-5b8c27daf134'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 2
 where exists (select 1 from public.items where id = '444e3f43-cdbe-4389-81a6-5b8c27daf134'::uuid)
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
                where m.id = '68dfd532-3a2f-4662-8fc5-75c65d7f8f0a'::uuid and c.estado = 'borrador');
 

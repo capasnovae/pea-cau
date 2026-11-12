@@ -152,6 +152,11 @@ describe("idDe", () => {
 
 describe("armarSqlLecciones", () => {
   const sql = armarSqlLecciones([leerLeccion("contenido/lecciones/02-cambio-de-modalidad.md", md)]);
+  it("fija el orden del Probalo como en el Markdown (probalo N toma la N-ésima)", () => {
+    // Se insertan en la misma transacción: sin created_at explícito el orden salía de los uuid
+    expect(sql).toMatch(/now\(\) \+ interval '1 millisecond' \* 1\b/);
+    expect(sql).toContain("created_at = excluded.created_at");
+  });
   it("crea el curso en borrador, el módulo, el ítem y el Probalo con ids estables", () => {
     expect(sql).toContain("'capacitacion'");
     expect(sql).toContain(`'${idDe("pea-curso:tramites")}'`);

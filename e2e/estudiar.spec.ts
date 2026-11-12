@@ -203,9 +203,14 @@ test("lección por tarjetas: caso, qué preguntar, Probalo intercalado y caso re
   await siguiente();
 
   const probalo = adm.getByRole("region", { name: "Probalo" });
+  // La primera pregunta del Markdown, justo después de la idea que prueba
+  await expect(probalo).toContainText("Valentina");
   await probalo.getByRole("radio").first().check();
   await probalo.getByRole("button", { name: "Comprobar" }).click();
   await expect(probalo.getByRole("status")).toContainText("Tu respuesta:");
+  // Cada tarjeta dice qué pregunta del Probalo es y no ofrece "Otra pregunta" (la siguiente es otra tarjeta)
+  await expect(probalo).toContainText(/1 de 3/);
+  await expect(probalo.getByRole("button", { name: "Otra pregunta" })).toHaveCount(0);
   // Volver atrás y adelante conserva lo respondido
   await adm.getByRole("button", { name: "Anterior" }).click();
   await siguiente();

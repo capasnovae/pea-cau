@@ -332,12 +332,13 @@ where item_id = ${item} and id not in (${ids.map((x) => `'${x}'::uuid`).join(", 
         : p.tipo === "opcion_multiple"
           ? literal(JSON.stringify({ una: true })) + "::jsonb"
           : "null";
-      s.push(`insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config)
+      // created_at fija el orden del Probalo (probalo_preguntas numera por created_at): el del Markdown
+      s.push(`insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
 select ${pid}, '${p.tipo}', ${literal(p.enunciado)}, ${literal(p.explicacion)}, (select id from public.categorias where slug = 'reglamento'),
-       'publicado', 'global', 'practica', ${item}, ${config}
+       'publicado', 'global', 'practica', ${item}, ${config}, now() + interval '1 millisecond' * ${n + 1}
 where exists (select 1 from public.items where id = ${item})
 on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
-  explicacion_md = excluded.explicacion_md, config = excluded.config
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
 where ${enBorrador};`);
       const valor = (v: string | number | undefined) =>
         v === undefined ? "null" : typeof v === "number" ? String(v) : literal(v);
