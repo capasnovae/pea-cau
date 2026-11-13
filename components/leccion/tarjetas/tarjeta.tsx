@@ -64,7 +64,7 @@ export function Tarjeta({
       return (
         <section aria-label="Antes de responder" className="flex flex-col gap-3">
           <Rotulo>Antes de responder</Rotulo>
-          <h2 className="text-h2">¿Qué le preguntás?</h2>
+          <h2 className="text-h2">¿Qué revisás o preguntás?</h2>
           <Preguntar opciones={t.opciones} />
         </section>
       );

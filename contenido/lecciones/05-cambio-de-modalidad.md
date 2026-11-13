@@ -19,13 +19,13 @@ Hola! Curso ED pero con el trabajo no llego a cumplir la asistencia en el CAU. M
 
 ## preguntar
 
-- [x] ¿Estás anotada a algún final o te falta que carguen alguna nota?
+- [x] ¿Está anotada a algún final o le falta que carguen una nota?
   > Con un final anotado o una nota pendiente de carga no puede pedir el pase.
-- [x] ¿Cómo están tus materias: aprobadas, regulares, cursando, libres?
+- [x] ¿Cómo están sus materias: aprobadas, regulares, cursando, libres?
   > De eso depende qué conserva y qué tiene que recursar.
-- [x] ¿Tenés el Seminario de Práctica regular?
+- [x] ¿Tiene el Seminario de Práctica regular?
   > Entre ED y EDH esa regularidad se conserva; en otros pases se pierde.
-- [ ] ¿Ya aprobaste Universitario 21?
+- [ ] ¿Aprobó Universitario 21?
   > No es requisito para cambiar de modalidad.
 
 ## idea: Antes de pedirlo, que esté en regla
