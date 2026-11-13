@@ -4,26 +4,54 @@ curso: "evaluacion"
 modulo: "Trabajos y exámenes"
 orden: 23
 fuente: "rg-4-5-sitema-de-evaluacion-de-los-aprendizajes-eva-21"
+formato: "tarjetas"
 ---
 
-## En 30 segundos
+## caso
 
-- Faltar a un examen, por cualquier motivo (personal, laboral, médico, paro), no permite reprogramarlo: queda Ausente.
-- En un final, el ausente además consume una de las 3 oportunidades antes de quedar Libre.
-- La revisión se pide en el sistema al terminar el examen: 10 minutos en parciales y 15 en finales. No hay otra vía.
-- La respuesta llega en 15 días. Si estaba desaprobado, puede cambiar la nota o habilitarse a rendir otra vez.
+persona: Gisela
+canal: whatsapp
+Hola, ayer no pude ir al parcial porque tuve fiebre. ¿Me lo reprograman?
 
-## Así llega al CAU
+## preguntar
 
-- "Tuve fiebre y no pude rendir el parcial, ¿me lo reprograman?" → No: las razones médicas tampoco habilitan a reprogramar; queda Ausente.
-- "Ayer rendí y una pregunta estaba mal corregida." → Ya no se puede pedir: la revisión solo se solicita en el sistema al terminar el examen (10 minutos en parciales, 15 en finales).
-- "Pedí revisión, ¿cuándo me responden?" → El plazo de respuesta es de 15 días.
+- [x] ¿A qué examen faltó: parcial, recuperatorio, integrador o final?
+  > En un final el ausente consume una oportunidad; en un recuperatorio o integrador inscripto, es 0.
+- [x] ¿Su situación puede estar entre los casos especiales regulados?
+  > La Res. CS 535/2017 prevé excepciones: esos casos se derivan.
+- [x] ¿Quiere pedir revisión de un examen que ya rindió?
+  > Solo se pide en el sistema, al terminar el examen.
+- [ ] ¿En qué horario era el parcial?
+  > No cambia que quede Ausente.
 
-## Ojo con
+## idea: Faltar no se reprograma
 
-- Hay casos especiales regulados (Res. CS 535/2017) que son excepción a esta regla: derivá.
-- Si no completa todos los datos del pedido de revisión, el pedido es nulo.
-- Si se inscribió a un recuperatorio o integrador y no se presenta, no queda solo Ausente: se califica con 0 y cuenta para la nota.
+Faltar a un examen, por cualquier motivo (personal, laboral, médico o un paro), no permite reprogramarlo: queda Ausente. En un final, además, el ausente consume una de las 3 oportunidades antes de quedar Libre. Y si se inscribió a un recuperatorio o integrador y no se presentó, se califica con 0 y cuenta para la nota.
+
+clave: El ausente no se reprograma; en un final consume una oportunidad.
+ejemplo: Gisela queda Ausente en el parcial, aunque haya tenido fiebre.
+
+## probalo 1
+
+## probalo 3
+
+## idea: La revisión, al terminar
+
+La revisión se pide en el sistema al terminar el examen: 10 minutos en parciales y 15 en finales. No hay otra vía, y si no completa todos los datos del pedido, es nulo. La respuesta llega en 15 días; si estaba desaprobado, puede cambiar la nota o habilitarse a rendir otra vez.
+
+clave: Revisión en el sistema al terminar: 10 minutos en parciales, 15 en finales.
+
+## probalo 2
+
+## ojo
+
+Hay casos especiales regulados (Res. CS 535/2017) que son excepción a esta regla: no los resuelvas vos, derivá.
+
+## cierre
+
+A Gisela le explicás que faltar por razones médicas no permite reprogramar el parcial: queda Ausente. Si su situación pudiera entrar entre los casos especiales regulados, la derivás.
+
+recordar: El ausente no se reprograma; la revisión, solo al terminar el examen.
 
 ## Probalo
 

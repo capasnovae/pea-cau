@@ -4,27 +4,60 @@ curso: "evaluacion"
 modulo: "Trabajos y exámenes"
 orden: 21
 fuente: "rg-4-5-sitema-de-evaluacion-de-los-aprendizajes-eva-21"
+formato: "tarjetas"
 ---
 
-## En 30 segundos
+## caso
 
-- Parciales: 20 preguntas de opción múltiple; se aprueban con 5 (9 correctas). El 1º toma los módulos 1 y 2; el 2º, los 3 y 4.
-- Recuperatorio: si sacó menos de 5 o faltó a un parcial, o para llevar a 7 un parcial si el otro ya es 7 o más. Reemplaza la nota, mayor o menor.
-- Integrador: 30 preguntas de los dos parciales, para quien desaprobó o faltó a ambos o los aprobó con 5 o 6. Aprueba con 5; promociona con 7.
-- Un parcial con 7 o más no se recupera.
-- Duración: parciales y recuperatorios, 40 minutos; integrador, 60; finales, 90.
+persona: Leandro
+canal: whatsapp
+Hola! Saqué 6 y 6 en los parciales. ¿Puedo hacer algo para promocionar?
 
-## Así llega al CAU
+## preguntar
 
-- "Saqué 4 en el primer parcial y 8 en el segundo." → Puede rendir el recuperatorio del parcial 1 o el integrador. La nota nueva reemplaza a la anterior.
-- "Tengo 6 y 6, ¿puedo promocionar?" → Puede rendir el integrador: con 7 o más accede a la promoción directa, si cumple los TP y las demás condiciones.
-- "Saqué 7 en un parcial, ¿lo recupero para subir la nota?" → No: un parcial con 7 o más no se recupera.
+- [x] ¿Qué nota tiene en cada parcial?
+  > De eso depende si recupera o rinde el integrador.
+- [x] ¿Cumple los TP y las demás condiciones de promoción?
+  > Con 7 en el integrador promociona solo si cumple el resto.
+- [x] ¿Ya se inscribió a algún recuperatorio o integrador?
+  > Si se inscribe y no se presenta, la nota es 0 y cuenta.
+- [ ] ¿En qué horario prefiere rendir?
+  > No cambia lo que puede rendir.
 
-## Ojo con
+## idea: Los parciales
 
-- Si se inscribe a un recuperatorio o integrador y no se presenta, la nota es 0 y cuenta para la materia.
-- En ED y EDH, el 1er parcial se rinde entre las semanas 1 y 4 y el 2do entre las semanas 5 y 8.
-- La nota del integrador también reemplaza a la de los parciales, aunque sea menor.
+Los parciales tienen 20 preguntas de opción múltiple y se aprueban con 5 (9 correctas): el 1.º toma los módulos 1 y 2; el 2.º, los 3 y 4. Duran 40 minutos. Un parcial con 7 o más no se recupera.
+
+clave: 20 preguntas, aprueba con 5; un 7 o más no se recupera.
+
+## idea: El recuperatorio
+
+Se rinde si sacó menos de 5 o faltó a un parcial, o para llevar a 7 un parcial si el otro ya es 7 o más. Dura 40 minutos y la nota nueva reemplaza a la anterior, sea mayor o menor.
+
+clave: Se recupera con menos de 5, ausente, o para llevar a 7 si el otro ya es 7.
+
+## probalo 1
+
+## idea: El integrador
+
+Tiene 30 preguntas de los dos parciales y dura 60 minutos. Lo rinde quien desaprobó o faltó a ambos, o los aprobó con 5 o 6. Aprueba con 5 y promociona con 7, y su nota también reemplaza a la de los parciales, aunque sea menor.
+
+clave: Integrador con 5 o 6 en los dos: promociona con 7 y reemplaza aunque baje.
+ejemplo: Leandro, con 6 y 6, puede rendir el integrador para promocionar.
+
+## probalo 2
+
+## probalo 3
+
+## ojo
+
+Si se inscribe a un recuperatorio o integrador y no se presenta, la nota es 0 y cuenta para la materia.
+
+## cierre
+
+A Leandro le explicás que, con 6 y 6, puede rendir el integrador: con 7 o más accede a la promoción directa si cumple los TP y las demás condiciones. Que tenga en cuenta que la nota del integrador reemplaza a la de los parciales, aunque sea menor.
+
+recordar: Con 5 o 6 en los dos, integrador; reemplaza la nota aunque baje.
 
 ## Probalo
 

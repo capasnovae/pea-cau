@@ -4,27 +4,61 @@ curso: "evaluacion"
 modulo: "Trabajos y exámenes"
 orden: 22
 fuente: "rg-4-5-sitema-de-evaluacion-de-los-aprendizajes-eva-21"
+formato: "tarjetas"
 ---
 
-## En 30 segundos
+## caso
 
-- ED y EDH, parcial: inscripción hasta 24 horas antes. Esa inscripción no se anula ni se modifica.
-- Recuperatorio o integrador: inscripción hasta 24 horas antes; se puede anular hasta 48 horas antes.
-- Final: con al menos 4 días corridos de anticipación; se anula antes de que sea aceptada, es decir, hasta 8 días corridos antes.
-- PD: los parciales no requieren inscripción; finales, recuperatorios e integradores, con los mismos plazos.
-- Para rendir: DNI vigente, matrícula paga, estar inscripto y, si corresponde, notebook con el navegador institucional. Tolerancia: 15 minutos.
+persona: Carolina
+canal: whatsapp
+Hola! Quiero rendir el final el lunes. ¿Me anoto el viernes?
 
-## Así llega al CAU
+## preguntar
 
-- "Me anoté al parcial y no puedo ir, ¿lo cambio?" → En ED y EDH la inscripción al parcial no se puede anular ni modificar.
-- "Quiero rendir el final el lunes, ¿me anoto el viernes?" → No llega: el final se pide con al menos 4 días corridos de anticipación. Que busque la próxima fecha que publique su sede o CAU.
-- "Me anoté al recuperatorio y no voy a poder ir." → Puede anular hasta 48 horas antes; si no se presenta, la nota es 0 y cuenta para la materia.
-- "¿Cuándo me anoto al EFIP?" → Hasta 6 días corridos antes de la fecha; puede anular hasta 7 días antes. Las fechas salen en la Cartelera del Portal.
+- [x] ¿Qué examen quiere rendir: parcial, recuperatorio, integrador o final?
+  > Cada uno tiene su plazo de inscripción y de anulación.
+- [x] ¿En qué modalidad cursa?
+  > En PD los parciales no requieren inscripción.
+- [x] ¿Tiene la matrícula paga y el DNI vigente?
+  > Son requisitos para rendir.
+- [ ] ¿Qué nota espera sacar?
+  > No cambia los plazos.
 
-## Ojo con
+## idea: Parciales en ED y EDH
 
-- Los turnos dependen de la disponibilidad de la sede o CAU.
-- Materias virtuales: la mesa de final se pide cuando está cargada la condición al terminar el bimestre.
+La inscripción al parcial es hasta 24 horas antes, y no se anula ni se modifica. En PD, los parciales no requieren inscripción.
+
+clave: Parcial: hasta 24 h antes y sin anular (en PD, sin inscripción).
+
+## probalo 1
+
+## probalo 2
+
+## idea: Recuperatorios, integradores y finales
+
+Recuperatorio o integrador: inscripción hasta 24 horas antes, y se puede anular hasta 48 horas antes. Final: con al menos 4 días corridos de anticipación, y se anula antes de que sea aceptada, hasta 8 días corridos antes. En PD rigen los mismos plazos.
+
+clave: Recuperatorio e integrador: 24 h (anula 48 h). Final: 4 días corridos (anula 8).
+ejemplo: Para rendir el lunes, a Carolina no le alcanza anotarse el viernes.
+
+## probalo 3
+
+## idea: Para rendir
+
+Tiene que llevar DNI vigente, tener la matrícula paga, estar inscripto y, si corresponde, una notebook con el navegador institucional. La tolerancia es de 15 minutos. El EFIP se pide hasta 6 días corridos antes y se anula hasta 7 días antes; sus fechas salen en la Cartelera del Portal.
+
+clave: DNI, matrícula paga, inscripción y 15 minutos de tolerancia.
+
+## ojo
+
+Si se anota a un recuperatorio y no se presenta, la nota es 0 y cuenta para la materia: que anule a tiempo.
+Los turnos dependen de la disponibilidad de la sede o CAU, y en materias virtuales la mesa de final se pide cuando está cargada la condición al terminar el bimestre.
+
+## cierre
+
+A Carolina le explicás que el viernes ya no llega: el final se pide con al menos 4 días corridos de anticipación. Que busque la próxima fecha que publique su sede o CAU y se anote a tiempo.
+
+recordar: Final: 4 días corridos antes; se anula hasta 8 días antes.
 
 ## Probalo
 

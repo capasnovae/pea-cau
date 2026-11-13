@@ -4,26 +4,61 @@ curso: "evaluacion"
 modulo: "Aprobación"
 orden: 24
 fuente: "rg-4-5-sitema-de-evaluacion-de-los-aprendizajes-eva-21"
+formato: "tarjetas"
 ---
 
-## En 30 segundos
+## caso
 
-- Regular: 3 de 4 TP con 5 o más y 2 parciales con 5 o más (puede mediar recuperatorio o integrador). Rinde final de 30 preguntas.
-- Promoción directa: 3 de 4 TP con 7 o más, 2 parciales con 7 o más y correlativas aprobadas. Aprueba sin final.
-- Promoción indirecta: 4 de 4 TP con 7 o más, parciales con 5 o 6 y correlativas aprobadas. También aprueba sin final.
-- Final regular: aprueba con 4 (14 de 30), vigencia 18 meses, 3 oportunidades. Libre por nota: 50 preguntas, 3 meses, 1 oportunidad.
-- Asistencia del 75% en ED y PD; no aplica en EDH.
+persona: Rodrigo
+canal: whatsapp
+Hola! Quedé regular en una materia. ¿Con cuánto apruebo el final y cuántas veces lo puedo rendir?
 
-## Así llega al CAU
+## preguntar
 
-- "¿Con cuánto apruebo el final regular?" → Con 4, que equivale a 14 respuestas correctas de 30.
-- "Quedé libre por nota, ¿cuánto tiempo tengo?" → 3 meses y una sola oportunidad para el final de 50 preguntas; aprueba con 24 correctas.
-- "Promocioné pero me debe una correlativa." → Sin las correlativas aprobadas la materia queda Regular y tiene que rendir final.
+- [x] ¿Qué condición tiene en la materia: regular o libre por nota?
+  > El final, la vigencia y las oportunidades cambian según la condición.
+- [x] ¿En qué modalidad cursa?
+  > En ED y PD se pide 75% de asistencia; en EDH no.
+- [x] ¿Tiene las correlativas aprobadas?
+  > Sin correlativas aprobadas no hay promoción.
+- [ ] ¿Cuántas horas estudia por semana?
+  > No cambia las condiciones.
 
-## Ojo con
+## idea: Regular o promoción
 
-- En PD, en MEC, MIA y MAP, el final suma un oral si aprueba el escrito; en MIP no.
-- Idiomas no tiene promoción indirecta.
+Regular: 3 de 4 TP con 5 o más y 2 parciales con 5 o más (puede mediar recuperatorio o integrador); rinde final. Promoción directa: 3 de 4 TP con 7 o más, 2 parciales con 7 o más y correlativas aprobadas. Promoción indirecta: 4 de 4 TP con 7 o más, parciales con 5 o 6 y correlativas aprobadas. Las dos promociones aprueban sin final.
+
+clave: Promoción directa: todo con 7. Indirecta: 4 TP con 7 y parciales con 5 o 6.
+
+## probalo 1
+
+## probalo 3
+
+## idea: El final regular
+
+El final regular tiene 30 preguntas y se aprueba con 4 (14 correctas). La regularidad dura 18 meses y da 3 oportunidades.
+
+clave: Final regular: 30 preguntas, aprueba con 4; 18 meses y 3 oportunidades.
+ejemplo: Rodrigo aprueba con 14 de 30 y tiene 3 oportunidades en 18 meses.
+
+## idea: Libre por nota
+
+Si queda libre por nota, tiene 3 meses y una sola oportunidad para un final de 50 preguntas, que aprueba con 24 correctas.
+
+clave: Libre por nota: 50 preguntas, 3 meses, una oportunidad.
+
+## probalo 2
+
+## ojo
+
+La asistencia del 75% se pide en ED y PD; en EDH no aplica.
+En PD, en MEC, MIA y MAP, el final suma un oral si aprueba el escrito (en MIP no). Idiomas no tiene promoción indirecta.
+
+## cierre
+
+A Rodrigo le explicás que el final regular tiene 30 preguntas y se aprueba con 4, es decir, con 14 correctas, y que tiene 3 oportunidades dentro de los 18 meses de vigencia de la regularidad.
+
+recordar: Regular: final de 30, aprueba con 4; 18 meses y 3 oportunidades.
 
 ## Probalo
 
