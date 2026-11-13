@@ -1,12 +1,12 @@
 # Guion · Cambio de modalidad (borrador, a validar)
 
 Fuente: Reglamento General, 3.2 Cambios de modalidad (lección 05), y la práctica del CAU (el pase lo pide el CAU por interno). Los nombres y los datos de Lucía son inventados.
-Duración estimada: 4 minutos.
+Duración: 4 minutos 16 segundos (la marca el audio). Video: video/guiones/05-cambio-de-modalidad.ts.
 
 **Personajes y voces**
-- **Lucía**: estudiante de ED, 24 años, trabaja en un comercio. Voz: Elena (Buenos Aires).
-- **Martín**: asesor del CAU. Voz: Tomás (Buenos Aires).
-- **Narradora**: una compañera con experiencia que te explica. Voz: Valentina (Montevideo, acento rioplatense).
+- **Lucía**: estudiante de ED, 24 años, trabaja en un comercio. Voz: Elena (Buenos Aires, voz neuronal de Microsoft).
+- **Martín**: asesor del CAU. Voz: Tomás (Buenos Aires, voz neuronal de Microsoft).
+- **Narradora**: una compañera con experiencia que te explica. Voz: Valentina (Montevideo, acento rioplatense, voz neuronal de Microsoft).
 
 Las escenas se ven con personajes ilustrados y animados. Mientras hablan, el texto va en pantalla.
 Todo el caso pasa **por WhatsApp**, igual que en la tarjeta de la lección: Lucía escribe y después manda audios; Martín contesta por escrito desde el CAU (mientras tipea, se escucha su voz leyendo lo que escribe).

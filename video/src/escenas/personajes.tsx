@@ -148,7 +148,7 @@ function Icono({ tipo }: { tipo: "lupa" | "calendario" | "estrella" | "alerta" |
   switch (tipo) {
     case "lupa":
       return (
-        <Node>
+        <Node scale={0.85}>
           <Circle size={52} stroke={C.blanco} lineWidth={9} x={-6} y={-6} />
           <Line points={[[14, 14], [32, 32]]} stroke={C.blanco} lineWidth={10} lineCap="round" />
         </Node>
@@ -235,7 +235,7 @@ export default makeScene2D("personajes", function* (view) {
     <Rect ref={banda} width={1000} height={250} y={518} radius={40} fill={C.banda} opacity={0}>
       <Circle size={176} x={-382} fill="#3f3a8a" clip>
         {(["lucia", "martin", "narradora"] as const).map((q) => (
-          <Node ref={caras[q].nodo} y={30} scale={0.95} opacity={0}>
+          <Node ref={caras[q].nodo} y={14} scale={0.82} opacity={0}>
             <Cabeza look={GENTE[q]} boca={caras[q].boca} ojos={caras[q].ojos} />
           </Node>
         ))}
@@ -268,8 +268,10 @@ export default makeScene2D("personajes", function* (view) {
     nombre().fill(GENTE[l.quien].color);
     if (l.modo === "escribe") {
       nombre().text(`${GENTE[l.quien].nombre} · escribe`);
-      dicho().text("");
+      dicho().text("Lo que escribe aparece en el chat…");
+      dicho().fill(C.suave);
     } else {
+      dicho().fill(C.blanco);
       nombre().text(l.modo === "audio" ? `${GENTE[l.quien].nombre} · mensaje de voz` : GENTE[l.quien].nombre);
       const ps = partes(l);
       dicho().text(ps[0]?.texto ?? "");
@@ -433,14 +435,6 @@ export default makeScene2D("personajes", function* (view) {
         const n = (
           <Node ref={raiz}>
             <Rect width={940} height={930} y={-180} radius={44} fill={C.fondoChat} clip>
-              <Rect width={940} height={130} y={-400} fill={C.chat} />
-              <Circle size={84} x={-380} y={-400} fill="#99f6e4" clip>
-                <Node y={22} scale={0.5}>
-                  <Cabeza look={GENTE.lucia} boca={createRef()} ojos={createRef()} />
-                </Node>
-              </Circle>
-              <Txt x={-318} y={-418} offset={[-1, 0]} text="Lucía" fontFamily={LETRA} fontSize={38} fontWeight={700} fill={C.blanco} />
-              <Txt x={-318} y={-378} offset={[-1, 0]} text="Estudiante · ED" fontFamily={LETRA} fontSize={26} fontWeight={500} fill="#ccfbf1" />
               <Layout
                 ref={columna}
                 layout
@@ -451,6 +445,14 @@ export default makeScene2D("personajes", function* (view) {
                 height={760}
                 y={60}
               />
+              <Rect width={940} height={130} y={-400} fill={C.chat} />
+              <Circle size={84} x={-380} y={-400} fill="#99f6e4" clip>
+                <Node y={22} scale={0.5}>
+                  <Cabeza look={GENTE.lucia} boca={createRef()} ojos={createRef()} />
+                </Node>
+              </Circle>
+              <Txt x={-318} y={-418} offset={[-1, 0]} text="Lucía" fontFamily={LETRA} fontSize={38} fontWeight={700} fill={C.blanco} />
+              <Txt x={-318} y={-378} offset={[-1, 0]} text="Estudiante · ED" fontFamily={LETRA} fontSize={26} fontWeight={500} fill="#ccfbf1" />
               <Rect ref={tapa} width={940} height={930} fill="rgba(15,23,42,0.6)" opacity={0} />
               <Node ref={narr} y={120} scale={0}>
                 <Circle size={360} fill={C.banda} />
@@ -551,8 +553,10 @@ export default makeScene2D("personajes", function* (view) {
             <Layout layout direction="column" gap={34} width={920} y={-200} alignItems="start">
               <Layout direction="row" gap={24} alignItems="center">
                 {plano.icono && (
-                  <Rect width={96} height={96} radius={28} fill={plano.icono === "alerta" ? C.aviso : C.primario} layout={false}>
-                    <Icono tipo={plano.icono} />
+                  <Rect width={96} height={96} radius={28} fill={plano.icono === "alerta" ? C.aviso : C.primario}>
+                    <Rect layout={false}>
+                      <Icono tipo={plano.icono} />
+                    </Rect>
                   </Rect>
                 )}
                 <T t={plano.titulo} tam={54} peso={800} ancho={plano.icono ? 790 : 920} />
@@ -580,12 +584,13 @@ export default makeScene2D("personajes", function* (view) {
               <T t={plano.titulo} tam={54} peso={800} ancho={920} />
               {plano.items.map((it, i) => (
                 <Layout ref={marcas[i].fila} direction="row" gap={24} alignItems="center" opacity={0.45}>
-                  <Circle ref={marcas[i].caja} size={70} stroke={C.suave} lineWidth={6} layout={false} x={35} />
-                  <Rect ref={marcas[i].tilde} scale={0} layout={false} x={35}>
-                    <Circle size={70} fill={C.ok} />
-                    <Icono tipo="check" />
-                  </Rect>
-                  <Rect width={70} height={70} />
+                  <Layout width={70} height={70}>
+                    <Circle ref={marcas[i].caja} size={70} stroke={C.suave} lineWidth={6} layout={false} />
+                    <Rect ref={marcas[i].tilde} scale={0} layout={false}>
+                      <Circle size={70} fill={C.ok} />
+                      <Icono tipo="check" />
+                    </Rect>
+                  </Layout>
                   <T t={`${i + 1}. ${it}`} tam={40} peso={700} ancho={820} />
                 </Layout>
               ))}
@@ -608,10 +613,11 @@ export default makeScene2D("personajes", function* (view) {
         const n = (
           <Node ref={raiz}>
             <Layout layout direction="column" gap={40} width={920} y={-200} alignItems="center">
-              <Circle size={130} fill={C.ok} layout={false} y={-330}>
-                <Icono tipo="check" />
+              <Circle size={130} fill={C.ok}>
+                <Rect layout={false}>
+                  <Icono tipo="check" />
+                </Rect>
               </Circle>
-              <Rect height={120} />
               <T t="Para recordar" tam={44} color={C.ok} peso={700} />
               {plano.items.map((f, i) => (
                 <Txt ref={frases[i]} text={f} fontFamily={LETRA} fontSize={72} fontWeight={800} fill={C.blanco} opacity={0} textAlign="center" width={920} textWrap />
