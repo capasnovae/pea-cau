@@ -5,6 +5,7 @@ import type { Guion } from "./tipos.ts";
 const guion: Guion = {
   titulo: "Cambio de modalidad",
   bajada: "Un caso real, paso a paso",
+  musica: "suave",
   planos: [
     { tipo: "portada" },
     {

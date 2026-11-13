@@ -80,7 +80,7 @@ export async function renderGuion(slug: string) {
   const efectos = join(dir, "salida", "efectos");
   execFileSync(py, [join(dir, "sfx.py"), efectos]);
   const musica = join(dir, "salida", `${slug}.musica.wav`);
-  execFileSync(py, [join(dir, "musica.py"), String(total), musica]);
+  execFileSync(py, [join(dir, "musica.py"), String(total), musica, guion.musica ?? "lofi"]);
   const sfx: { archivo: string; inicio: number }[] = [];
   const efecto = (nombre: string, inicio: number) => sfx.push({ archivo: join(efectos, `${nombre}.wav`), inicio: Math.max(0, inicio) });
   for (const p of planos) {

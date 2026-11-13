@@ -37,7 +37,8 @@ export type Plano = Base &
     | { tipo: "cierre"; items: string[] }
   );
 
-export type Guion = { titulo: string; bajada: string; planos: Plano[] };
+/** musica: "lofi" (por defecto) o "suave" (piano y cuerdas, la de Cambio de modalidad). */
+export type Guion = { titulo: string; bajada: string; musica?: "lofi" | "suave"; planos: Plano[] };
 
 /** Palabra dicha: inicio y duración en segundos desde que empieza la línea. */
 export type Palabra = { t: number; d: number; p: string };
