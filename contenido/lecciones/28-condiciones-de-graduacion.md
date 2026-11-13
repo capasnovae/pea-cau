@@ -4,22 +4,60 @@ curso: "egreso"
 modulo: "Trabajo final"
 orden: 28
 fuente: "rg-12-1-condiciones-para-la-graduacion"
+formato: "tarjetas"
 ---
 
-## En 30 segundos
+## caso
 
-- Para egresar hay una evaluación integral: en pregrado, la materia Integración Profesional - Estudio del Caso; en grado, el Trabajo Final de Graduación (TFG) con defensa oral.
-- En todos los casos las citas van con normas APA; omitirlas es una falta por plagio.
-- En grado, el TFG se aprueba en un máximo de 18 meses desde que regulariza Seminario Final; si no, queda Libre en Seminario Final.
+persona: Natalia
+canal: whatsapp
+Hola! Estoy terminando la carrera. ¿Qué me falta para recibirme? ¿Tengo que hacer un trabajo final?
 
-## Así llega al CAU
+## preguntar
 
-- "Estudio una tecnicatura, ¿tengo que hacer un trabajo final?" → En pregrado la instancia final es la materia Integración Profesional - Estudio del Caso, no un TFG.
-- "Regularicé Seminario Final hace 2 años y no defendí." → Pasados 18 meses sin aprobar el TFG queda Libre en Seminario Final y tiene que recursarla.
+- [x] ¿Es una carrera de grado o de pregrado?
+  > En grado es el TFG con defensa; en pregrado, Integración Profesional - Estudio del Caso.
+- [x] ¿Cuándo regularizó Seminario Final?
+  > El TFG se aprueba en hasta 18 meses desde ahí.
+- [x] ¿Sabe que las citas van con normas APA?
+  > Omitirlas es una falta por plagio.
+- [ ] ¿Qué tema le gustaría investigar?
+  > No cambia los requisitos.
 
-## Ojo con
+## idea: La evaluación integral
 
-- Después del egreso siguen el trámite del título (tasa y emisión en hasta 120 días corridos con el legajo completo) y la colación: mirá esas lecciones.
+Para egresar hay una evaluación integral: en pregrado, la materia Integración Profesional - Estudio del Caso; en grado, el Trabajo Final de Graduación (TFG) con defensa oral.
+
+clave: Grado: TFG con defensa. Pregrado: Integración Profesional - Estudio del Caso.
+
+## probalo 2
+
+## idea: 18 meses para el TFG
+
+En grado, el TFG se aprueba en un máximo de 18 meses desde que regulariza Seminario Final; si no, queda Libre en Seminario Final y tiene que recursarla.
+
+clave: TFG: hasta 18 meses desde que regulariza Seminario Final.
+ejemplo: Si Natalia regularizó Seminario Final, desde ahí corren sus 18 meses.
+
+## probalo 1
+
+## idea: Citas con APA
+
+En todos los casos las citas van con normas APA: omitirlas es una falta por plagio, no un error de formato.
+
+clave: Sin citas APA, hay plagio.
+
+## probalo 3
+
+## ojo
+
+Después del egreso siguen el trámite del título (tasa y emisión en hasta 120 días corridos con el legajo completo) y la colación: son otros trámites.
+
+## cierre
+
+A Natalia le explicás que, en grado, para egresar tiene que aprobar el Trabajo Final de Graduación con defensa oral, dentro de los 18 meses desde que regulariza Seminario Final, y que las citas van con normas APA: omitirlas es plagio.
+
+recordar: Grado: TFG con defensa en 18 meses; citas con APA.
 
 ## Probalo
 

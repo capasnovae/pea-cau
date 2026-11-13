@@ -4,26 +4,60 @@ curso: "normas"
 modulo: "Normas"
 orden: 27
 fuente: "rg-13-1-regimen-general-de-sanciones"
+formato: "tarjetas"
 ---
 
-## En 30 segundos
+## caso
 
-- Las faltas son leves, graves, muy graves o gravísimas; el plagio también se gradúa de leve a gravísimo.
-- Según la gravedad: llamado de atención, apercibimiento, suspensión o expulsión.
-- Además se pone 0 en la actividad; desde el apercibimiento la materia queda Libre, y la suspensión aparta al alumno de toda actividad hasta 1 año.
-- Todas las sanciones, salvo el llamado de atención, quedan registradas en el certificado analítico.
-- En exámenes son faltas leves: leer en voz alta, usar el teclado o auriculares, desviar la mirada en forma sostenida, tapar parcialmente la cámara o bajar el micrófono.
+persona: Tamara
+canal: whatsapp
+Hola, en el examen online me marcaron una falta por mirar para el costado. ¿Qué me va a pasar?
 
-## Así llega al CAU
+## preguntar
 
-- "En el examen me marcaron por mirar para el costado." → Desviar la mirada en forma sostenida y reiterada puede ser una falta leve: llamado de atención y 0 en ese examen. Si se suma otra anomalía leve en el mismo examen, pasa a grave. Lo resuelve la Universidad, no el CAU.
-- "Copié un TP de un compañero, ¿qué me puede pasar?" → Depende de cuánto: una copia menor al 50% es falta leve (llamado de atención y 0 en el TP); mayor al 50% es grave (apercibimiento, 0, materia Libre, y queda en el analítico).
-- "¿La sanción queda en mi analítico?" → Sí, salvo el llamado de atención, que queda solo en su legajo.
+- [x] ¿Qué conducta le marcaron?
+  > Desviar la mirada en forma sostenida puede ser falta leve.
+- [x] ¿Hubo otra anomalía en el mismo examen?
+  > Si se suma otra falta leve, pasa a grave.
+- [x] ¿Quién está resolviendo el caso?
+  > Lo resuelve la Universidad, no el CAU.
+- [ ] ¿Qué nota esperaba sacar?
+  > No cambia la falta.
 
-## Ojo con
+## idea: Faltas y sanciones
 
-- La expulsión es definitiva y se comunica a todo el Sistema Universitario Nacional.
-- No rendir en el CAU cuando la modalidad lo exige también es falta leve.
+Las faltas son leves, graves, muy graves o gravísimas, y el plagio también se gradúa. Según la gravedad: llamado de atención, apercibimiento, suspensión o expulsión. Además se pone 0 en la actividad; desde el apercibimiento la materia queda Libre, y la suspensión aparta al alumno de toda actividad hasta 1 año.
+
+clave: Leve: llamado de atención y 0. Desde el apercibimiento, materia Libre.
+
+## idea: Copiar un TP
+
+Una copia menor al 50% es falta leve: llamado de atención y 0 en el TP. Mayor al 50% es grave: apercibimiento, 0, la materia queda Libre y queda registrado en el analítico.
+
+clave: Copia de menos del 50%: leve. De más del 50%: grave y materia Libre.
+
+## probalo 1
+
+## idea: En los exámenes online
+
+Son faltas leves leer en voz alta, usar el teclado o auriculares, desviar la mirada en forma sostenida, tapar parcialmente la cámara o bajar el micrófono. Una falta leve es llamado de atención y 0 en ese examen; si se suma otra anomalía leve en el mismo examen, pasa a grave. Lo resuelve la Universidad, no el CAU.
+
+clave: Leve en examen: llamado de atención y 0; dos en el mismo examen, grave.
+ejemplo: A Tamara, si fue solo la mirada, le corresponde llamado de atención y 0 en ese examen.
+
+## probalo 2
+
+## ojo
+
+Todas las sanciones, salvo el llamado de atención, quedan en el certificado analítico; el llamado de atención queda solo en el legajo. La expulsión es definitiva y se comunica a todo el Sistema Universitario Nacional.
+
+## probalo 3
+
+## cierre
+
+A Tamara le explicás que desviar la mirada en forma sostenida puede ser una falta leve: llamado de atención y 0 en ese examen, que no queda en el analítico. Si en el mismo examen hubo otra anomalía leve, pasa a grave. Y que lo resuelve la Universidad, no el CAU.
+
+recordar: Falta leve: llamado de atención y 0; no va al analítico.
 
 ## Probalo
 

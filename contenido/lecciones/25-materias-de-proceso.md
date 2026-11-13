@@ -4,28 +4,61 @@ curso: "evaluacion"
 modulo: "Materias especiales"
 orden: 25
 fuente: "rg-4-5-sitema-de-evaluacion-de-los-aprendizajes-eva-21"
+formato: "tarjetas"
 ---
 
-## En 30 segundos
+## caso
 
-- Las materias de proceso no se promocionan ni se rinden libres: si no se cumplen las condiciones, quedan Libres y se recursan.
-- Práctica Solidaria: carga horaria completa con nota 5 o más de la organización, y 3 de 4 TP con el TP4 aprobado. Nota: promedio de TP, sin final.
-- Práctica Profesional: 250 horas con nota 7 o más de la organización, 3 de 4 TP con el TP4 aprobado y correlativas aprobadas.
-- Los TP de estas prácticas vencen en las semanas 6, 8, 12 y 15, el domingo a las 23:59.
-- Idiomas: placement test único; regular con 6 niveles seguidos al 70% o Avanzado 3; integrador de 50 preguntas, aprueba con 4.
+persona: Andrés
+canal: whatsapp
+Hola, terminé la Práctica Profesional pero no llegué a las 250 horas. ¿La puedo rendir libre?
 
-## Así llega al CAU
+## preguntar
 
-- "No llegué a las horas de la Práctica Profesional." → Sin las 250 horas no se aprueba; si no cumple al terminar el cursado queda Libre y la recursa.
-- "Aprobé la Práctica Profesional pero me debe una correlativa." → Queda Regular hasta aprobarla, con un máximo de 18 meses; si no, pierde la regularidad y recursa.
-- "No terminé los niveles de inglés este año." → Si no alcanza la regularidad en el año de cursado, pierde el avance y reinicia la materia.
-- "¿Puedo usar diccionario en el examen de idioma?" → No: no se permiten diccionarios, glosarios ni listas de verbos.
+- [x] ¿Qué práctica es: Solidaria o Profesional?
+  > Las horas, la nota de la organización y las correlativas cambian.
+- [x] ¿Cumplió la carga horaria y la nota de la organización?
+  > Sin las horas no se aprueba.
+- [x] ¿Aprobó 3 de 4 TP, incluido el TP4?
+  > Es condición en las dos prácticas.
+- [ ] ¿En qué organización la hizo?
+  > No cambia las condiciones.
 
-## Ojo con
+## idea: Las materias de proceso
 
-- Para cursar el último semestre necesita todos los niveles de idioma aprobados.
-- Seminario de Práctica en distancia queda Regular y su nota es la del EFIP I.
-- Pregrado: Integración Profesional - Estudio del Caso pide el TP4 y 2 de los TP 1 a 3 con 5 o más.
+Las materias de proceso no se promocionan ni se rinden libres: si no se cumplen las condiciones, quedan Libres y se recursan. Los TP de las prácticas vencen en las semanas 6, 8, 12 y 15, el domingo a las 23:59.
+
+clave: No se promocionan ni se rinden libres: si no cumple, se recursa.
+ejemplo: Andrés no puede rendirla libre: sin las horas, la recursa.
+
+## idea: Solidaria y Profesional
+
+Práctica Solidaria: carga horaria completa con nota 5 o más de la organización y 3 de 4 TP con el TP4 aprobado; la nota es el promedio de los TP, sin final. Práctica Profesional: 250 horas con nota 7 o más de la organización, 3 de 4 TP con el TP4 aprobado y correlativas aprobadas; si le falta una correlativa, queda Regular hasta aprobarla, con un máximo de 18 meses.
+
+clave: Solidaria: horas, nota 5 y TP4. Profesional: 250 h, nota 7, TP4 y correlativas.
+
+## probalo 1
+
+## probalo 2
+
+## idea: Idiomas
+
+Idiomas tiene un placement test único. Queda regular con 6 niveles seguidos al 70% o con Avanzado 3, y rinde un integrador de 50 preguntas que aprueba con 4. Si no alcanza la regularidad en el año de cursado, pierde el avance y reinicia la materia. No se permiten diccionarios, glosarios ni listas de verbos.
+
+clave: Idiomas: regular dentro del año; si no, reinicia. Integrador de 50, aprueba con 4.
+
+## probalo 3
+
+## ojo
+
+Para cursar el último semestre necesita todos los niveles de idioma aprobados.
+En distancia, el Seminario de Práctica queda Regular y su nota es la del EFIP I.
+
+## cierre
+
+A Andrés le explicás que la Práctica Profesional es una materia de proceso: no se rinde libre. Sin las 250 horas no se aprueba, queda Libre y tiene que recursarla.
+
+recordar: En las prácticas, sin las horas o sin el TP4, se recursa.
 
 ## Probalo
 

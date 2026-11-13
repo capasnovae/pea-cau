@@ -4,28 +4,61 @@ curso: "evaluacion"
 modulo: "Materias especiales"
 orden: 26
 fuente: "rg-4-5-sitema-de-evaluacion-de-los-aprendizajes-eva-21"
+formato: "tarjetas"
 ---
 
-## En 30 segundos
+## caso
 
-- Solo para carreras de grado en ED y EDH; no para pregrado ni ciclos de complementación. Son presenciales, ante un tribunal.
-- EFIP I: integración curricular (escrita y oral) y, si la carrera tiene idiomas, producción en idioma. Hay que aprobar las dos en el mismo turno.
-- Para rendir EFIP I: Seminario de Práctica (o de Planificación y Control) Regular, o el Módulo EFIP I cursando o Regular, y las correlativas aprobadas.
-- EFIP I se rinde hasta 3 veces; si no aprueba, vuelve a cursar el Módulo EFIP I o el Seminario de Práctica.
-- EFIP II: todas las materias aprobadas (con Práctica Solidaria y electivas) y Seminario Final Regular. Es requisito para la defensa del TFG.
+persona: Sebastián
+canal: mostrador
+Hola, curso una carrera de grado en EDH. ¿Cuándo rindo el EFIP y qué necesito?
 
-## Así llega al CAU
+## preguntar
 
-- "Desaprobé el EFIP I tres veces." → Tiene que inscribirse de nuevo al Módulo EFIP I; si su carrera no lo tiene, recursa el Seminario de Práctica (o de Planificación y Control).
-- "¿Puedo cursar materias de séptimo sin el EFIP I?" → Como regla, en distancia necesita el EFIP I aprobado para cursar y aprobar 7º y 8º; en Abogacía y Contador depende de las correlativas.
-- "¿Dónde veo las fechas del EFIP?" → En la Cartelera del Portal de estudiante, al inicio de cada año. Se inscribe hasta 6 días corridos antes.
+- [x] ¿Es una carrera de grado o de pregrado?
+  > El EFIP es solo para grado en ED y EDH.
+- [x] ¿Tiene el Seminario de Práctica regular, o el Módulo EFIP I cursando o regular?
+  > Es requisito para rendir el EFIP I, junto con las correlativas.
+- [x] ¿Su carrera tiene idiomas?
+  > Entonces el EFIP I suma la producción en idioma.
+- [ ] ¿Prefiere rendir a la mañana o a la tarde?
+  > No es lo que define cuándo rinde.
 
-## Ojo con
+## idea: Qué es el EFIP
 
-- Sin EFIP I aprobado no puede inscribirse a cursar Seminario Final.
-- Aprobar el Seminario de Práctica no aprueba el EFIP I: igual tiene que rendirlo.
-- Para EFIP II necesita además el visado del analítico aprobado y no tener deuda.
-- Rendir el EFIP en un CAU con tecnología es excepcional: a criterio de la Universidad, ante una imposibilidad permanente de viajar acreditada. Se graba.
+Es solo para carreras de grado en ED y EDH; no para pregrado ni ciclos de complementación. Se rinde presencial, ante un tribunal. Las fechas salen en la Cartelera del Portal de estudiante al inicio de cada año, y se inscribe hasta 6 días corridos antes.
+
+clave: Grado en ED y EDH, presencial ante un tribunal; fechas en la Cartelera.
+
+## probalo 1
+
+## idea: El EFIP I
+
+Tiene integración curricular (escrita y oral) y, si la carrera tiene idiomas, producción en idioma: hay que aprobar las dos en el mismo turno. Para rendirlo: Seminario de Práctica Regular, o el Módulo EFIP I cursando o Regular, y las correlativas aprobadas. Se rinde hasta 3 veces; si no aprueba, vuelve a cursar el Módulo EFIP I o el Seminario de Práctica.
+
+clave: EFIP I: integración e idioma en el mismo turno; hasta 3 veces.
+ejemplo: Si la carrera de Sebastián tiene idiomas, rinde también la producción en idioma.
+
+## probalo 2
+
+## probalo 3
+
+## idea: El EFIP II
+
+Pide todas las materias aprobadas (con Práctica Solidaria y electivas), Seminario Final Regular, el visado del analítico aprobado y no tener deuda. Es requisito para la defensa del TFG.
+
+clave: EFIP II: todo aprobado, Seminario Final regular y sin deuda.
+
+## ojo
+
+Aprobar el Seminario de Práctica no aprueba el EFIP I: igual tiene que rendirlo. Y sin EFIP I aprobado no puede inscribirse a cursar Seminario Final.
+Rendirlo en un CAU con tecnología es excepcional: a criterio de la Universidad, ante una imposibilidad permanente de viajar acreditada.
+
+## cierre
+
+A Sebastián le explicás que el EFIP I se rinde presencial ante un tribunal, en las fechas de la Cartelera del Portal, con inscripción hasta 6 días corridos antes, y que necesita el Seminario de Práctica regular (o el Módulo EFIP I cursando o regular) y las correlativas aprobadas.
+
+recordar: EFIP: solo grado a distancia; el EFIP I, hasta 3 veces.
 
 ## Probalo
 
