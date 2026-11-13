@@ -75,13 +75,39 @@ export async function renderGuion(slug: string) {
   });
   const total = t + 1;
 
-  // 3) pista de sonido: cada voz en su momento
+  // 3) sonido: voces, efectos y música (la música baja sola cuando alguien habla)
+  const py = process.env.PEA_PYTHON ?? "python3";
+  const efectos = join(dir, "salida", "efectos");
+  execFileSync(py, [join(dir, "sfx.py"), efectos]);
+  const musica = join(dir, "salida", `${slug}.musica.wav`);
+  execFileSync(py, [join(dir, "musica.py"), String(total), musica]);
+  const sfx: { archivo: string; inicio: number }[] = [];
+  const efecto = (nombre: string, inicio: number) => sfx.push({ archivo: join(efectos, `${nombre}.wav`), inicio: Math.max(0, inicio) });
+  for (const p of planos) {
+    if (p.inicio > 0) efecto("transicion", p.inicio - 0.15);
+    if (p.tipo === "escena" && p.lugar === "cau") efecto("notificacion", p.inicio + 0.6 + 0.5);
+    for (const l of p.lineas) {
+      if (l.modo === "escribe" || l.modo === "audio") efecto("mensaje", l.inicio);
+      if (l.modo === "congela") efecto("congelar", l.inicio - 0.8);
+      if (l.marca !== undefined && (p.tipo === "lista" || p.tipo === "tablero")) efecto("tilde", l.inicio);
+    }
+  }
   const pista = join(dir, "salida", `${slug}.m4a`);
-  const entradas = clips.flatMap((c) => ["-i", c.archivo]);
-  const filtros =
-    clips.map((c, i) => `[${i}:a]aresample=48000,adelay=${Math.round(c.inicio * 1000)}:all=1[a${i}]`).join(";") +
-    `;${clips.map((_, i) => `[a${i}]`).join("")}amix=inputs=${clips.length}:normalize=0,apad=whole_dur=${total}[out]`;
-  execFileSync("ffmpeg", ["-loglevel", "error", "-y", ...entradas, "-filter_complex", filtros, "-map", "[out]", "-t", String(total), "-c:a", "aac", "-b:a", "128k", pista]);
+  const todos = [...clips, ...sfx];
+  const entradas = [...todos.flatMap((c) => ["-i", c.archivo]), "-i", musica];
+  const retrasa = (i: number, c: { inicio: number }, etiqueta: string) =>
+    `[${i}:a]aresample=48000,aformat=channel_layouts=mono,adelay=${Math.round(c.inicio * 1000)}:all=1[${etiqueta}${i}]`;
+  const nv = clips.length;
+  const filtros = [
+    ...clips.map((c, i) => retrasa(i, c, "v")),
+    ...sfx.map((c, k) => retrasa(nv + k, c, "e")),
+    `${clips.map((_, i) => `[v${i}]`).join("")}amix=inputs=${nv}:normalize=0,apad=whole_dur=${total},asplit=2[voces][clave]`,
+    `${sfx.map((_, k) => `[e${nv + k}]`).join("")}amix=inputs=${sfx.length}:normalize=0,volume=0.35,apad=whole_dur=${total}[fx]`,
+    `[${todos.length}:a]aformat=channel_layouts=mono,volume=0.55[mus]`,
+    `[mus][clave]sidechaincompress=threshold=0.02:ratio=8:attack=40:release=600[musbaja]`,
+    `[voces][fx][musbaja]amix=inputs=3:normalize=0,alimiter=limit=0.95[out]`,
+  ].join(";");
+  execFileSync("ffmpeg", ["-loglevel", "error", "-y", ...entradas, "-filter_complex", filtros, "-map", "[out]", "-t", String(total), "-c:a", "aac", "-b:a", "160k", pista]);
 
   // 4) imagen
   const mudo = await renderVideo({

@@ -2,7 +2,7 @@
   "name": "pea-video",
   "private": true,
   "type": "module",
-  "description": "Videos de las lecciones de PEA, fabricados con Revideo (MIT) a partir del guion de cada lecci\u00f3n.",
+  "description": "Videos de las lecciones de PEA, fabricados con Revideo (MIT) a partir del guion de cada lección.",
   "scripts": {
     "render": "tsx render.ts"
   },
@@ -10,10 +10,13 @@
     "@revideo/2d": "0.11.0",
     "@revideo/core": "0.11.0",
     "@revideo/renderer": "0.11.0",
-    "@revideo/vite-plugin": "0.11.0",
-    "@revideo/ui": "0.11.0"
+    "@revideo/ui": "0.11.0",
+    "@revideo/vite-plugin": "0.11.0"
   },
   "devDependencies": {
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "react-peeps": "^0.1.10",
     "tsx": "4.21.0",
     "typescript": "5.9.3"
   }

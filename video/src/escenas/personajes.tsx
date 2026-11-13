@@ -1,34 +1,51 @@
-// Video con personajes: Lucía, Martín y la narradora, un chat del CAU y tableros que se arman mientras se habla.
-// La línea de tiempo viene armada desde render.ts (cada línea con su audio medido): la escena solo espera a cada momento.
-import { Circle, Layout, Line, Node, Rect, Txt, makeScene2D } from "@revideo/2d";
+// Video con personajes dibujados (Open Peeps, CC0): Lucía, Martín y la narradora, un chat del CAU y tableros animados.
+// La línea de tiempo viene armada desde render-guion.ts (cada línea con su audio medido): la escena espera a cada momento.
+import { Circle, Gradient, Img, Layout, Line, Node, Rect, Txt, makeScene2D } from "@revideo/2d";
 import type { Reference, ThreadGenerator } from "@revideo/core";
-import { all, createRef, easeOutBack, loop, spawn, useScene, useThread, waitFor } from "@revideo/core";
+import {
+  all,
+  createRef,
+  easeInOutCubic,
+  easeInOutSine,
+  easeOutBack,
+  easeOutCubic,
+  loop,
+  spawn,
+  useScene,
+  useThread,
+  waitFor,
+} from "@revideo/core";
 import type { LineaConTiempo, Palabra, PlanoConTiempo, Quien, Tarjeta, Tono } from "../../guiones/tipos.ts";
+
+type Persona = Exclude<Quien, "nadie">;
+type Cara = "cerrada" | "abierta" | "preocupada" | "contenta" | "apurada";
 
 const C = {
   nav: "#1e1b4b",
-  banda: "#2e2a6b",
   primario: "#4f46e5",
   suave: "#c7d2fe",
+  crema: "#fdf6ec",
   blanco: "#ffffff",
-  tinta: "#111827",
-  gris: "#64748b",
+  tinta: "#1f1d2b",
+  gris: "#6b7280",
   aviso: "#f59e0b",
   ok: "#10b981",
   mal: "#ef4444",
   chat: "#0f766e",
-  fondoChat: "#efe7dd",
+  fondoChat: "#ece5dd",
   enviado: "#d9fdd3",
 };
 const LETRA = "Plus Jakarta Sans";
 const TONO: Record<Tono, string> = { ok: C.ok, aviso: C.aviso, mal: C.mal, neutro: C.primario };
-
-type Look = { piel: string; pelo: string; ropa: string; estilo: "largo" | "corto" | "rodete"; nombre: string; color: string };
-const GENTE: Record<Exclude<Quien, "nadie">, Look> = {
-  lucia: { piel: "#f2c7a5", pelo: "#3b2418", ropa: "#f97316", estilo: "largo", nombre: "Lucía", color: "#fdba74" },
-  martin: { piel: "#d9a47e", pelo: "#2b1d14", ropa: "#2563eb", estilo: "corto", nombre: "Martín · asesor del CAU", color: "#93c5fd" },
-  narradora: { piel: "#e8b894", pelo: "#7c3f1d", ropa: "#0f766e", estilo: "rodete", nombre: "Narradora", color: "#6ee7b7" },
+const SIGNO: Record<Tono, string> = { ok: "✓", aviso: "!", mal: "✕", neutro: "•" };
+const GENTE: Record<Persona, { nombre: string; color: string; fondo: string }> = {
+  lucia: { nombre: "Lucía", color: "#ea580c", fondo: "#fed7aa" },
+  martin: { nombre: "Martín · asesor del CAU", color: "#2563eb", fondo: "#bfdbfe" },
+  narradora: { nombre: "Narradora", color: "#0f766e", fondo: "#a7f3d0" },
 };
+// Los dibujos miden 850 × 1200; la cabeza ocupa más o menos el 40 % de arriba
+const PROP = 850 / 1200;
+const src = (q: Persona, c: Cara) => `/peeps/${q}-${c}.svg`;
 
 // ---------- tiempo ----------
 function* hasta(t: number) {
@@ -36,97 +53,78 @@ function* hasta(t: number) {
   if (falta > 0.0001) yield* waitFor(falta);
 }
 
-/** Abre y cierra la boca con cada palabra dicha. */
-function* hablar(bocas: Reference<Rect>[], palabras: Palabra[], inicio: number) {
+/** Boca abierta y cerrada con cada palabra: se alterna la cara "abierta" por encima de la de reposo. */
+function* hablar(bocas: Reference<Img>[], palabras: Palabra[], inicio: number) {
   for (const w of palabras) {
     yield* hasta(inicio + w.t);
-    const abre = Math.min(0.09, w.d * 0.45);
-    yield* all(...bocas.map((b) => b().height(18, abre)));
-    yield* all(...bocas.map((b) => b().height(6, Math.min(0.09, w.d * 0.45))));
+    for (const b of bocas) b().opacity(1);
+    yield* waitFor(Math.max(0.06, Math.min(0.16, w.d * 0.55)));
+    for (const b of bocas) b().opacity(0);
   }
 }
 
-function parpadear(ojos: Reference<Node>) {
+/** Respiración: el personaje sube y baja apenas, para que no quede congelado. */
+function respirar(n: Reference<Node>, fase = 0) {
   spawn(
     loop(Infinity, function* () {
-      yield* waitFor(2.4 + Math.random() * 2);
-      yield* ojos().scale.y(0.1, 0.07);
-      yield* ojos().scale.y(1, 0.08);
+      yield* n().scale.y(1.012, 1.6 + fase, easeInOutSine);
+      yield* n().scale.y(1, 1.6 + fase, easeInOutSine);
     }),
   );
 }
 
 // ---------- personajes ----------
-function Cabeza({ look, boca, ojos }: { look: Look; boca: Reference<Rect>; ojos: Reference<Node> }) {
-  return (
-    <Node>
-      {look.estilo === "largo" && <Rect width={206} height={270} radius={[103, 103, 40, 40]} y={62} fill={look.pelo} />}
-      {look.estilo === "rodete" && <Circle size={86} y={-96} fill={look.pelo} />}
-      <Circle size={160} fill={look.piel} />
-      <Circle
-        size={174}
-        y={-10}
-        startAngle={look.estilo === "corto" ? 192 : 180}
-        endAngle={look.estilo === "corto" ? 348 : 360}
-        closed
-        fill={look.pelo}
-      />
-      {look.estilo === "corto" && <Rect width={150} height={16} y={-16} radius={8} fill={look.pelo} />}
-      <Node ref={ojos} y={8}>
-        <Circle size={15} x={-30} fill={C.tinta} />
-        <Circle size={15} x={30} fill={C.tinta} />
-      </Node>
-      <Rect width={30} height={5} x={-30} y={-14} radius={3} fill={look.pelo} />
-      <Rect width={30} height={5} x={30} y={-14} radius={3} fill={look.pelo} />
-      {look.estilo === "rodete" && (
-        <Node y={8}>
-          <Circle size={48} x={-30} stroke="#334155" lineWidth={5} />
-          <Circle size={48} x={30} stroke="#334155" lineWidth={5} />
-          <Line points={[[-6, 0], [6, 0]]} stroke="#334155" lineWidth={5} />
-        </Node>
-      )}
-      <Circle size={24} x={-50} y={34} fill="#f87171" opacity={0.35} />
-      <Circle size={24} x={50} y={34} fill="#f87171" opacity={0.35} />
-      <Rect ref={boca} width={32} height={6} y={46} radius={4} fill="#7f1d1d" />
-    </Node>
-  );
-}
+type Muñeco = { nodo: Reference<Node>; boca: Reference<Img>; base: Reference<Img> };
+const nuevoMuñeco = (): Muñeco => ({ nodo: createRef(), boca: createRef(), base: createRef() });
 
-function Persona({ quien, boca, ojos, telefono }: { quien: Exclude<Quien, "nadie">; boca: Reference<Rect>; ojos: Reference<Node>; telefono?: boolean }) {
-  const look = GENTE[quien];
+function Dibujo({ q, alto, m, cara = "cerrada", x = 0, y = 0, espejo = false }: { q: Persona; alto: number; m: Muñeco; cara?: Cara; x?: number; y?: number; espejo?: boolean }) {
   return (
-    <Node>
-      <Rect width={246} height={250} radius={[120, 120, 30, 30]} y={210} fill={look.ropa} />
-      <Rect width={52} height={50} y={92} fill={look.piel} />
-      {quien === "martin" && <Rect width={8} height={120} x={-40} y={170} fill="#facc15" />}
-      <Cabeza look={look} boca={boca} ojos={ojos} />
-      {telefono && (
-        <Node y={200}>
-          <Rect width={150} height={46} radius={23} x={-60} rotation={-20} fill={look.piel} />
-          <Rect width={150} height={46} radius={23} x={60} rotation={20} fill={look.piel} />
-          <Rect width={70} height={112} radius={12} y={-34} fill={C.tinta}>
-            <Rect width={58} height={92} radius={8} fill="#a7f3d0" />
-          </Rect>
-        </Node>
-      )}
+    <Node ref={m.nodo} x={x} y={y} scaleX={espejo ? -1 : 1}>
+      <Img ref={m.base} src={src(q, cara)} height={alto} width={alto * PROP} y={-alto / 2} />
+      <Img ref={m.boca} src={src(q, "abierta")} height={alto} width={alto * PROP} y={-alto / 2} opacity={0} />
     </Node>
   );
 }
 
 // ---------- piezas ----------
-const T = (props: { t: string; tam: number; color?: string; peso?: number; ancho?: number; alinea?: CanvasTextAlign }) => (
+const T = (p: { t: string; tam: number; color?: string; peso?: number; ancho?: number; alinea?: CanvasTextAlign }) => (
   <Txt
-    text={props.t}
+    text={p.t}
     fontFamily={LETRA}
-    fontSize={props.tam}
-    fontWeight={props.peso ?? 600}
-    fill={props.color ?? C.blanco}
-    textWrap={props.ancho ? true : false}
-    width={props.ancho}
-    textAlign={props.alinea ?? "left"}
-    lineHeight="130%"
+    fontSize={p.tam}
+    fontWeight={p.peso ?? 600}
+    fill={p.color ?? C.tinta}
+    textWrap={p.ancho ? true : false}
+    width={p.ancho}
+    textAlign={p.alinea ?? "left"}
+    lineHeight="128%"
   />
 );
+
+const degradado = (a: string, b: string) =>
+  new Gradient({ type: "linear", from: [0, -675], to: [0, 675], stops: [{ offset: 0, color: a }, { offset: 1, color: b }] });
+
+/** Fondo con manchas suaves que flotan despacio. */
+function Fondo({ a, b, manchas }: { a: string; b: string; manchas: string }) {
+  const refs = [createRef<Circle>(), createRef<Circle>(), createRef<Circle>()];
+  const n = (
+    <Node>
+      <Rect width={1080} height={1350} fill={degradado(a, b)} />
+      <Circle ref={refs[0]} size={620} x={-380} y={-460} fill={manchas} opacity={0.35} />
+      <Circle ref={refs[1]} size={420} x={420} y={-120} fill={manchas} opacity={0.25} />
+      <Circle ref={refs[2]} size={520} x={-300} y={420} fill={manchas} opacity={0.2} />
+    </Node>
+  );
+  refs.forEach((r, i) =>
+    spawn(
+      loop(Infinity, function* () {
+        yield* r().position([r().x() + (i % 2 ? -40 : 40), r().y() + 30], 6 + i, easeInOutSine);
+        yield* r().position([r().x() - (i % 2 ? -40 : 40), r().y() - 30], 6 + i, easeInOutSine);
+      }),
+    ),
+  );
+  return n;
+}
 
 function Sendero({ escala = 1 }: { escala?: number }) {
   const puntos = [
@@ -144,57 +142,14 @@ function Sendero({ escala = 1 }: { escala?: number }) {
   );
 }
 
-function Icono({ tipo }: { tipo: "lupa" | "calendario" | "estrella" | "alerta" | "check" }) {
-  switch (tipo) {
-    case "lupa":
-      return (
-        <Node scale={0.85}>
-          <Circle size={52} stroke={C.blanco} lineWidth={9} x={-6} y={-6} />
-          <Line points={[[14, 14], [32, 32]]} stroke={C.blanco} lineWidth={10} lineCap="round" />
-        </Node>
-      );
-    case "calendario":
-      return (
-        <Node>
-          <Rect width={70} height={62} radius={10} stroke={C.blanco} lineWidth={8} y={4} />
-          <Rect width={70} height={16} y={-20} fill={C.blanco} />
-          <Rect width={18} height={18} x={12} y={14} radius={4} fill={C.aviso} />
-        </Node>
-      );
-    case "estrella":
-      return (
-        <Line
-          points={Array.from({ length: 10 }, (_, i) => {
-            const r = i % 2 ? 16 : 38;
-            const a = (Math.PI / 5) * i - Math.PI / 2;
-            return [Math.cos(a) * r, Math.sin(a) * r] as [number, number];
-          })}
-          closed
-          fill={C.blanco}
-        />
-      );
-    case "alerta":
-      return (
-        <Node>
-          <Line points={[[0, -36], [40, 32], [-40, 32]]} closed fill={C.blanco} lineJoin="round" />
-          <Rect width={9} height={26} y={0} radius={4} fill={C.aviso} />
-          <Circle size={10} y={20} fill={C.aviso} />
-        </Node>
-      );
-    case "check":
-      return <Line points={[[-22, 2], [-6, 18], [24, -16]]} stroke={C.blanco} lineWidth={11} lineCap="round" lineJoin="round" />;
-  }
-}
-
 /** Texto de los subtítulos en partes cortas, cada una con el momento en que empieza. */
 function partes(l: LineaConTiempo): { t: number; texto: string }[] {
   const frases = l.texto.match(/[^.:;?!]+[.:;?!…»]*\s*/g) ?? [l.texto];
   const trozos: string[] = [];
   for (const f of frases) {
     const pal = f.trim().split(/\s+/);
-    if (f.length <= 95) trozos.push(f.trim());
+    if (f.length <= 80) trozos.push(f.trim());
     else {
-      // frases largas: se cortan en una coma cerca de la mitad, o a la mitad de las palabras
       const comas = [...f.matchAll(/,\s/g)].map((m) => m.index ?? 0);
       const mitad = f.length / 2;
       const corte = comas.sort((a, b) => Math.abs(a - mitad) - Math.abs(b - mitad))[0];
@@ -212,6 +167,13 @@ function partes(l: LineaConTiempo): { t: number; texto: string }[] {
 
 // ---------- escena ----------
 type Mensaje = { de: "lucia" | "martin"; tipo: "texto" | "audio"; texto: string; dur?: number; borrador?: boolean };
+type Armado = {
+  nodo: Node;
+  alEntrar?: () => ThreadGenerator;
+  linea?: (l: LineaConTiempo) => ThreadGenerator;
+  congelar?: () => ThreadGenerator;
+  bocas?: Partial<Record<Persona, Reference<Img>>>;
+};
 
 export default makeScene2D("personajes", function* (view) {
   const planos = useScene().variables.get("planos", [] as PlanoConTiempo[])();
@@ -222,57 +184,50 @@ export default makeScene2D("personajes", function* (view) {
   const fuente = new FontFace(LETRA, "url(/plus-jakarta-sans.woff2)", { weight: "400 800" });
   yield fuente.load().then((f) => document.fonts.add(f));
 
-  // Banda de abajo: quién habla (con su cara) y lo que dice
+  // ---- subtítulo: tarjeta blanca abajo, con la cara de quien habla ----
   const escenario = createRef<Node>();
   const banda = createRef<Rect>();
+  const chip = createRef<Rect>();
   const nombre = createRef<Txt>();
   const dicho = createRef<Txt>();
-  const caras = {} as Record<Exclude<Quien, "nadie">, { nodo: Reference<Node>; boca: Reference<Rect>; ojos: Reference<Node> }>;
-  for (const q of ["lucia", "martin", "narradora"] as const) caras[q] = { nodo: createRef(), boca: createRef(), ojos: createRef() };
+  const retratos = {} as Record<Persona, Muñeco & { marco: Reference<Circle> }>;
+  for (const q of ["lucia", "martin", "narradora"] as const) retratos[q] = { ...nuevoMuñeco(), marco: createRef() };
 
   view.add(<Node ref={escenario} />);
   view.add(
-    <Rect ref={banda} width={1000} height={250} y={518} radius={40} fill={C.banda} opacity={0}>
-      <Circle size={176} x={-382} fill="#3f3a8a" clip>
-        {(["lucia", "martin", "narradora"] as const).map((q) => (
-          <Node ref={caras[q].nodo} y={14} scale={0.82} opacity={0}>
-            <Cabeza look={GENTE[q]} boca={caras[q].boca} ojos={caras[q].ojos} />
-          </Node>
-        ))}
-      </Circle>
-      <Txt ref={nombre} x={-270} y={-78} offset={[-1, 0]} fontFamily={LETRA} fontSize={30} fontWeight={700} fill={C.suave} text="" />
-      <Txt
-        ref={dicho}
-        x={-270}
-        y={14}
-        offset={[-1, 0]}
-        width={730}
-        textWrap
-        fontFamily={LETRA}
-        fontSize={40}
-        fontWeight={600}
-        lineHeight="130%"
-        fill={C.blanco}
-        text=""
-      />
+    <Rect ref={banda} width={1000} height={230} y={530} radius={36} fill={C.blanco} opacity={0} shadowColor="rgba(15,23,42,0.25)" shadowBlur={40} shadowOffsetY={12}>
+      {(["lucia", "martin", "narradora"] as const).map((q) => (
+        <Circle ref={retratos[q].marco} size={160} x={-390} fill={GENTE[q].fondo} clip opacity={0}>
+          <Dibujo q={q} alto={400} m={retratos[q]} y={292} />
+        </Circle>
+      ))}
+      <Rect ref={chip} x={-285} y={-72} offset={[-1, 0]} layout padding={[6, 18]} radius={20} fill={C.primario}>
+        <Txt ref={nombre} fontFamily={LETRA} fontSize={26} fontWeight={700} fill={C.blanco} text="" />
+      </Rect>
+      <Txt ref={dicho} x={-285} y={18} offset={[-1, 0]} width={740} textWrap fontFamily={LETRA} fontSize={38} fontWeight={600} lineHeight="130%" fill={C.tinta} text="" />
     </Rect>,
   );
-  for (const q of ["lucia", "martin", "narradora"] as const) parpadear(caras[q].ojos);
 
+  let enBanda: Persona | null = null;
   function* mostrarBanda(l: LineaConTiempo) {
     if (l.quien === "nadie") {
-      yield* banda().opacity(0, 0.3);
+      if (banda().opacity() > 0) yield* all(banda().opacity(0, 0.3), banda().y(560, 0.3));
+      enBanda = null;
       return;
     }
-    for (const q of ["lucia", "martin", "narradora"] as const) caras[q].nodo().opacity(q === l.quien ? 1 : 0);
-    nombre().fill(GENTE[l.quien].color);
+    const q = l.quien;
+    if (enBanda !== q) {
+      for (const p of ["lucia", "martin", "narradora"] as const) retratos[p].marco().opacity(p === q ? 1 : 0);
+      chip().fill(GENTE[q].color);
+      enBanda = q;
+    }
     if (l.modo === "escribe") {
-      nombre().text(`${GENTE[l.quien].nombre} · escribe`);
+      nombre().text(`${GENTE[q].nombre} · escribe`);
+      dicho().fill(C.gris);
       dicho().text("Lo que escribe aparece en el chat…");
-      dicho().fill(C.suave);
     } else {
-      dicho().fill(C.blanco);
-      nombre().text(l.modo === "audio" ? `${GENTE[l.quien].nombre} · mensaje de voz` : GENTE[l.quien].nombre);
+      nombre().text(l.modo === "audio" ? `${GENTE[q].nombre} · mensaje de voz` : GENTE[q].nombre);
+      dicho().fill(C.tinta);
       const ps = partes(l);
       dicho().text(ps[0]?.texto ?? "");
       spawn(function* () {
@@ -282,7 +237,10 @@ export default makeScene2D("personajes", function* (view) {
         }
       });
     }
-    if (banda().opacity() < 1) yield* banda().opacity(1, 0.25);
+    if (banda().opacity() < 1) {
+      banda().y(560);
+      yield* all(banda().opacity(1, 0.3), banda().y(530, 0.35, easeOutCubic));
+    }
   }
 
   const historial: Mensaje[] = [];
@@ -290,125 +248,157 @@ export default makeScene2D("personajes", function* (view) {
   for (const plano of planos) {
     yield* hasta(plano.inicio);
     const raiz = createRef<Node>();
-    const extra = armar(plano, historial, raiz);
-    escenario().add(extra.nodo);
+    const a = armar(plano, historial, raiz);
+    escenario().add(a.nodo);
     raiz().opacity(0);
-    raiz().y(24);
-    yield* all(raiz().opacity(1, 0.4), raiz().y(0, 0.4));
-    if (extra.alEntrar) yield* extra.alEntrar();
+    raiz().scale(1.04);
+    yield* all(raiz().opacity(1, 0.45, easeOutCubic), raiz().scale(1, 0.6, easeOutCubic));
+    if (a.alEntrar) spawn(a.alEntrar());
 
     for (const l of plano.lineas) {
       yield* hasta(l.inicio - (l.modo === "congela" ? 0.8 : 0));
-      if (l.modo === "congela" && extra.congelar) yield* extra.congelar();
+      if (l.modo === "congela" && a.congelar) yield* a.congelar();
       yield* hasta(l.inicio);
       yield* mostrarBanda(l);
-      const bocas: Reference<Rect>[] = l.quien === "nadie" ? [] : [caras[l.quien].boca];
-      if (l.modo === "congela" && extra.bocaNarradora) bocas.push(extra.bocaNarradora);
+      const bocas: Reference<Img>[] = [];
+      if (l.quien !== "nadie") {
+        bocas.push(retratos[l.quien].boca);
+        const propia = a.bocas?.[l.quien];
+        if (propia) bocas.push(propia);
+      }
       if (bocas.length) spawn(hablar(bocas, l.palabras, l.inicio));
-      if (extra.linea) spawn(extra.linea(l));
+      if (a.linea) spawn(a.linea(l));
       yield* hasta(l.inicio + l.dur);
     }
 
-    yield* hasta(plano.fin - 0.35);
-    const ultimo = plano === planos[planos.length - 1];
-    if (!ultimo) {
-      yield* all(raiz().opacity(0, 0.35), raiz().y(-24, 0.35), ...(plano.lineas.length ? [] : [banda().opacity(0, 0.35)]));
-      extra.nodo.remove();
+    yield* hasta(plano.fin - 0.4);
+    if (plano !== planos[planos.length - 1]) {
+      yield* all(raiz().opacity(0, 0.4, easeInOutCubic), raiz().scale(0.97, 0.4), ...(plano.lineas.some((l) => l.quien !== "nadie") ? [] : [banda().opacity(0, 0.3)]));
+      a.nodo.remove();
     }
   }
   yield* hasta(total);
 
   // ---------- planos ----------
-  function armar(
-    plano: PlanoConTiempo,
-    historial: Mensaje[],
-    raiz: Reference<Node>,
-  ): {
-    nodo: Node;
-    alEntrar?: () => ThreadGenerator;
-    linea?: (l: LineaConTiempo) => ThreadGenerator;
-    congelar?: () => ThreadGenerator;
-    bocaNarradora?: Reference<Rect>;
-  } {
+  function armar(plano: PlanoConTiempo, historial: Mensaje[], raiz: Reference<Node>): Armado {
     switch (plano.tipo) {
       case "portada": {
+        const ms = [nuevoMuñeco(), nuevoMuñeco(), nuevoMuñeco()];
+        const titulo1 = createRef<Layout>();
         const n = (
           <Node ref={raiz}>
-            <Layout layout direction="column" alignItems="center" gap={34} y={-120}>
-              <Sendero escala={0.85} />
-              <T t="PEA · Lección" tam={40} color={C.suave} />
-              <T t={titulo} tam={92} peso={800} ancho={940} alinea="center" />
-              <T t={bajada} tam={42} color={C.suave} peso={500} />
+            <Fondo a="#312e81" b={C.nav} manchas="#6366f1" />
+            <Layout ref={titulo1} layout direction="column" alignItems="center" gap={30} y={-300}>
+              <Sendero escala={0.75} />
+              <T t="PEA · Lección" tam={38} color={C.suave} />
+              <T t={titulo} tam={96} peso={800} color={C.blanco} ancho={960} alinea="center" />
+              <T t={bajada} tam={40} color={C.suave} peso={500} />
             </Layout>
+            <Circle size={420} x={-300} y={560} fill={GENTE.lucia.fondo} />
+            <Circle size={420} x={0} y={600} fill={GENTE.narradora.fondo} />
+            <Circle size={420} x={300} y={560} fill={GENTE.martin.fondo} />
+            <Dibujo q="lucia" alto={560} m={ms[0]} x={-300} y={720} cara="contenta" />
+            <Dibujo q="narradora" alto={560} m={ms[1]} x={0} y={740} cara="contenta" />
+            <Dibujo q="martin" alto={560} m={ms[2]} x={300} y={720} cara="contenta" />
           </Node>
         ) as Node;
-        return { nodo: n };
-      }
-
-      case "escena": {
-        const boca = createRef<Rect>();
-        const ojos = createRef<Node>();
-        const ciudad = createRef<Node>();
-        const aviso = createRef<Rect>();
-        const colectivo = plano.lugar === "colectivo";
-        const n = (
-          <Node ref={raiz}>
-            <Rect width={960} height={900} y={-170} radius={48} clip fill={colectivo ? "#bfdbfe" : "#e0e7ff"}>
-              {colectivo ? (
-                <Node>
-                  <Rect width={880} height={330} y={-200} radius={30} fill="#7dd3fc" clip>
-                    <Node ref={ciudad} y={60}>
-                      {Array.from({ length: 16 }, (_, i) => (
-                        <Rect
-                          x={-520 + i * 120}
-                          y={40 - ((i * 37) % 90)}
-                          width={100}
-                          height={220 + ((i * 53) % 140)}
-                          radius={8}
-                          fill={["#94a3b8", "#64748b", "#a5b4fc", "#cbd5e1"][i % 4]}
-                        />
-                      ))}
-                    </Node>
-                  </Rect>
-                  <Rect width={960} height={400} y={250} fill="#fde68a" />
-                  <Rect width={330} height={420} y={110} radius={50} fill="#2563eb" />
-                  <Node y={40} scale={1.2}>
-                    <Persona quien="lucia" boca={boca} ojos={ojos} telefono />
-                  </Node>
-                </Node>
-              ) : (
-                <Node>
-                  <Rect width={160} height={200} x={-300} y={-250} radius={14} fill="#c7d2fe" />
-                  <Circle size={90} x={330} y={-260} fill="#a7f3d0" />
-                  <Node x={-170} y={20} scale={1.15}>
-                    <Persona quien="martin" boca={boca} ojos={ojos} />
-                  </Node>
-                  <Rect width={960} height={260} y={330} fill="#b45309" />
-                  <Rect width={330} height={220} x={200} y={100} radius={18} fill={C.tinta}>
-                    <Rect width={300} height={186} radius={10} fill="#e2e8f0">
-                      <Rect width={200} height={26} x={-30} y={-50} radius={13} fill={C.blanco} />
-                      <Rect width={160} height={26} x={50} y={0} radius={13} fill={C.enviado} />
-                    </Rect>
-                  </Rect>
-                  <Rect width={30} height={70} x={200} y={240} fill="#334155" />
-                  <Rect ref={aviso} x={200} y={-90} radius={30} padding={[18, 30]} layout fill={C.chat} scale={0} gap={14} alignItems="center">
-                    <Circle size={22} fill={C.blanco} />
-                    <T t="Nuevo mensaje · Lucía" tam={32} peso={700} />
-                  </Rect>
-                </Node>
-              )}
-              <Rect layout padding={[16, 28]} radius={28} y={-400} fill="rgba(30,27,75,0.85)">
-                <T t={plano.rotulo} tam={32} peso={700} />
-              </Rect>
-            </Rect>
-          </Node>
-        ) as Node;
-        parpadear(ojos);
+        ms.forEach((m, i) => respirar(m.nodo, i * 0.2));
         return {
           nodo: n,
           alEntrar: function* () {
-            if (colectivo) spawn(ciudad().x(-600, plano.fin - plano.inicio, (v) => v));
-            else spawn(aviso().scale(1, 0.5, easeOutBack));
+            ms.forEach((m) => m.nodo().y(m.nodo().y() + 400));
+            yield* all(...ms.map((m, i) => m.nodo().y(m.nodo().y() - 400, 0.8 + i * 0.12, easeOutBack)));
+          },
+        };
+      }
+
+      case "escena": {
+        const m = nuevoMuñeco();
+        const ciudad = createRef<Node>();
+        const aviso = createRef<Rect>();
+        const camara = createRef<Node>();
+        const colectivo = plano.lugar === "colectivo";
+        const n = (
+          <Node ref={raiz}>
+            <Node ref={camara}>
+              {colectivo ? (
+                <Node>
+                  <Rect width={1080} height={1350} fill={degradado("#fde68a", "#fbbf24")} />
+                  {/* ventanilla con la ciudad que pasa */}
+                  <Rect width={940} height={520} y={-330} radius={60} fill={degradado("#7dd3fc", "#e0f2fe")} clip stroke="#92400e" lineWidth={22}>
+                    <Circle size={120} x={300} y={-150} fill="#fef9c3" />
+                    <Node ref={ciudad} y={120}>
+                      {Array.from({ length: 20 }, (_, i) => (
+                        <Rect x={-560 + i * 110} y={60 - ((i * 37) % 120)} width={96} height={260 + ((i * 53) % 160)} radius={10} fill={["#64748b", "#475569", "#818cf8", "#94a3b8"][i % 4]}>
+                          {Array.from({ length: 4 }, (_, k) => (
+                            <Rect y={-80 + k * 50} width={56} height={18} radius={4} fill="#fef3c7" opacity={0.7} />
+                          ))}
+                        </Rect>
+                      ))}
+                    </Node>
+                    <Rect width={940} height={70} y={225} fill="#334155" />
+                  </Rect>
+                  <Rect width={14} height={520} y={-330} fill="#92400e" />
+                  {/* asiento */}
+                  <Rect width={520} height={620} y={300} radius={[80, 80, 20, 20]} fill="#1d4ed8" />
+                  <Rect width={440} height={80} y={40} radius={40} fill="#3b82f6" />
+                  <Dibujo q="lucia" alto={900} m={m} y={700} cara="preocupada" />
+                  {/* agarradera */}
+                  <Line points={[[-420, -675], [-420, -560]]} stroke="#9ca3af" lineWidth={10} />
+                  <Circle size={70} x={-420} y={-530} stroke="#9ca3af" lineWidth={12} />
+                </Node>
+              ) : (
+                <Node>
+                  <Rect width={1080} height={1350} fill={degradado("#e0e7ff", "#c7d2fe")} />
+                  <Rect width={260} height={340} x={-330} y={-420} radius={20} fill="#ffffff" opacity={0.7}>
+                    <Rect width={200} height={30} y={-110} radius={8} fill="#a5b4fc" />
+                    <Rect width={200} height={18} y={-60} radius={6} fill="#e0e7ff" />
+                    <Rect width={160} height={18} y={-30} radius={6} fill="#e0e7ff" />
+                  </Rect>
+                  {/* planta */}
+                  <Node x={400} y={-60}>
+                    <Circle size={150} y={-120} fill="#34d399" />
+                    <Circle size={110} x={-60} y={-60} fill="#10b981" />
+                    <Rect width={110} height={120} radius={[10, 10, 30, 30]} fill="#b45309" />
+                  </Node>
+                  <Dibujo q="martin" alto={820} m={m} x={-210} y={560} />
+                  {/* escritorio y monitor */}
+                  <Rect width={1080} height={430} y={460} fill={degradado("#a16207", "#78350f")} />
+                  <Rect width={1080} height={26} y={258} fill="#ca8a04" />
+                  <Rect width={420} height={290} x={240} y={60} radius={22} fill={C.tinta}>
+                    <Rect width={384} height={252} radius={12} fill="#f1f5f9">
+                      <Rect width={384} height={50} y={-101} fill={C.chat} />
+                      <Rect width={220} height={34} x={-60} y={-30} radius={17} fill={C.blanco} />
+                      <Rect width={180} height={34} x={70} y={30} radius={17} fill={C.enviado} />
+                    </Rect>
+                  </Rect>
+                  <Rect width={40} height={70} x={240} y={232} fill="#334155" />
+                  <Rect ref={aviso} x={240} y={-150} radius={32} padding={[20, 30]} layout fill={C.blanco} scale={0} gap={16} alignItems="center" shadowColor="rgba(0,0,0,0.2)" shadowBlur={30} shadowOffsetY={8}>
+                    <Circle size={48} fill={C.chat} />
+                    <Layout direction="column">
+                      <T t="Lucía" tam={30} peso={800} />
+                      <T t="Hola! Curso ED pero…" tam={26} color={C.gris} peso={500} />
+                    </Layout>
+                  </Rect>
+                </Node>
+              )}
+            </Node>
+            <Rect layout padding={[18, 32]} radius={30} y={-600} fill="rgba(30,27,75,0.85)">
+              <T t={plano.rotulo} tam={32} peso={700} color={C.blanco} />
+            </Rect>
+          </Node>
+        ) as Node;
+        respirar(m.nodo);
+        const dur = plano.fin - plano.inicio;
+        return {
+          nodo: n,
+          alEntrar: function* () {
+            spawn(camara().scale(1.07, dur, (v) => v));
+            if (colectivo) yield* ciudad().x(-900, dur, (v) => v);
+            else {
+              yield* waitFor(0.5);
+              yield* aviso().scale(1, 0.5, easeOutBack);
+            }
           },
         };
       }
@@ -416,10 +406,13 @@ export default makeScene2D("personajes", function* (view) {
       case "nota": {
         const n = (
           <Node ref={raiz}>
-            <Rect layout direction="column" gap={26} width={860} padding={60} y={-180} radius={40} fill="#fef3c7" rotation={-2}>
-              <T t="Lo que Martín todavía no sabe" tam={34} color="#92400e" peso={700} />
-              <T t={plano.texto} tam={58} color={C.tinta} peso={800} ancho={740} />
-              {plano.detalle && <T t={plano.detalle} tam={38} color="#92400e" peso={600} ancho={740} />}
+            <Fondo a="#312e81" b={C.nav} manchas="#6366f1" />
+            <Rect layout direction="column" gap={24} width={840} padding={64} y={-160} radius={36} fill="#fef3c7" rotation={-2} shadowColor="rgba(0,0,0,0.35)" shadowBlur={50} shadowOffsetY={20}>
+              <Rect layout padding={[8, 18]} radius={16} fill="#f59e0b">
+                <T t="Lo que Martín todavía no sabe" tam={28} color={C.blanco} peso={800} />
+              </Rect>
+              <T t={plano.texto} tam={60} color={C.tinta} peso={800} ancho={712} />
+              {plano.detalle && <T t={plano.detalle} tam={38} color="#92400e" peso={600} ancho={712} />}
             </Rect>
           </Node>
         ) as Node;
@@ -429,49 +422,66 @@ export default makeScene2D("personajes", function* (view) {
       case "chat": {
         const columna = createRef<Layout>();
         const tapa = createRef<Rect>();
-        const narr = createRef<Node>();
-        const bocaN = createRef<Rect>();
-        const ojosN = createRef<Node>();
+        const narr = nuevoMuñeco();
+        const narrCaja = createRef<Node>();
+        const gente = { lucia: nuevoMuñeco(), martin: nuevoMuñeco() };
+        const telefono = createRef<Node>();
+        const circulo = createRef<Circle>();
         const n = (
           <Node ref={raiz}>
-            <Rect width={940} height={930} y={-180} radius={44} fill={C.fondoChat} clip>
-              <Layout
-                ref={columna}
-                layout
-                direction="column"
-                justifyContent="end"
-                gap={18}
-                width={880}
-                height={760}
-                y={60}
-              />
-              <Rect width={940} height={130} y={-400} fill={C.chat} />
-              <Circle size={84} x={-380} y={-400} fill="#99f6e4" clip>
-                <Node y={22} scale={0.5}>
-                  <Cabeza look={GENTE.lucia} boca={createRef()} ojos={createRef()} />
-                </Node>
-              </Circle>
-              <Txt x={-318} y={-418} offset={[-1, 0]} text="Lucía" fontFamily={LETRA} fontSize={38} fontWeight={700} fill={C.blanco} />
-              <Txt x={-318} y={-378} offset={[-1, 0]} text="Estudiante · ED" fontFamily={LETRA} fontSize={26} fontWeight={500} fill="#ccfbf1" />
-              <Rect ref={tapa} width={940} height={930} fill="rgba(15,23,42,0.6)" opacity={0} />
-              <Node ref={narr} y={120} scale={0}>
-                <Circle size={360} fill={C.banda} />
-                <Node y={40} scale={1.3}>
-                  <Cabeza look={GENTE.narradora} boca={bocaN} ojos={ojosN} />
-                </Node>
-                <Rect layout padding={[18, 34]} radius={30} y={-250} fill={C.aviso}>
-                  <T t="¡Pará!" tam={56} peso={800} color={C.tinta} />
+            <Node ref={telefono}>
+              <Fondo a="#e0e7ff" b="#c7d2fe" manchas="#a5b4fc" />
+              {/* quien escribe o habla, al costado del teléfono */}
+              <Circle ref={circulo} size={440} x={-320} y={120} fill={GENTE.lucia.fondo} opacity={0.9} />
+              <Dibujo q="lucia" alto={680} m={gente.lucia} x={-320} y={440} />
+              <Dibujo q="martin" alto={680} m={gente.martin} x={-320} y={440} />
+              {/* teléfono */}
+              <Rect width={620} height={1000} x={200} y={-160} radius={70} fill="#111827" shadowColor="rgba(15,23,42,0.4)" shadowBlur={60} shadowOffsetY={24}>
+                <Rect width={580} height={960} radius={52} fill={C.fondoChat} clip>
+                  <Layout ref={columna} layout direction="column" justifyContent="end" gap={14} width={540} height={790} y={65} />
+                  <Rect width={580} height={150} y={-405} fill={C.chat} />
+                  <Circle size={70} x={-205} y={-380} fill={GENTE.lucia.fondo} clip>
+                    <Img src={src("lucia", "cerrada")} height={200} width={200 * PROP} y={60} />
+                  </Circle>
+                  <Txt x={-155} y={-396} offset={[-1, 0]} text="Lucía" fontFamily={LETRA} fontSize={34} fontWeight={700} fill={C.blanco} />
+                  <Txt x={-155} y={-360} offset={[-1, 0]} text="Estudiante · ED" fontFamily={LETRA} fontSize={22} fontWeight={500} fill="#ccfbf1" />
+                  <Rect width={170} height={32} y={-462} radius={16} fill="#111827" />
                 </Rect>
-              </Node>
-            </Rect>
+              </Rect>
+            </Node>
+            <Rect ref={tapa} width={1080} height={1350} fill="rgba(15,23,42,0.55)" opacity={0} />
+            <Node ref={narrCaja} x={1300}>
+              <Circle size={560} x={250} y={120} fill={GENTE.narradora.fondo} />
+              <Dibujo q="narradora" alto={980} m={narr} x={250} y={560} espejo />
+              <Rect layout padding={[22, 40]} radius={40} x={40} y={-380} fill={C.aviso} rotation={-4} shadowColor="rgba(0,0,0,0.3)" shadowBlur={30}>
+                <T t="¡Pará, Martín!" tam={60} peso={800} color={C.tinta} />
+              </Rect>
+            </Node>
           </Node>
         ) as Node;
-        parpadear(ojosN);
+        respirar(gente.lucia.nodo);
+        respirar(gente.martin.nodo, 0.3);
+        respirar(narr.nodo);
+        // empieza mostrando a quien habla primero en este plano
+        const primero = plano.lineas.find((l) => l.quien === "lucia" || l.quien === "martin")?.quien ?? "lucia";
+        let visible: "lucia" | "martin" = primero as "lucia" | "martin";
+        circulo().fill(GENTE[visible].fondo);
+        gente.lucia.nodo().opacity(visible === "lucia" ? 1 : 0);
+        gente.martin.nodo().opacity(visible === "martin" ? 1 : 0);
         const borrar = plano.borra && historial[historial.length - 1]?.borrador;
         for (const m of historial) columna().add(burbuja(m).fila);
+        function* cambiar(q: "lucia" | "martin") {
+          if (q === visible) return;
+          const sale = gente[visible].nodo();
+          const entra = gente[q].nodo();
+          visible = q;
+          yield* all(sale.opacity(0, 0.3), sale.x(-380, 0.3), circulo().fill(GENTE[q].fondo, 0.5));
+          entra.x(-260);
+          yield* all(entra.opacity(1, 0.35), entra.x(-320, 0.35, easeOutCubic));
+        }
         return {
           nodo: n,
-          bocaNarradora: bocaN,
+          bocas: { narradora: narr.boca, lucia: gente.lucia.boca, martin: gente.martin.boca },
           alEntrar: function* () {
             if (borrar) {
               const fila = columna().children()[columna().children().length - 1] as Layout;
@@ -481,19 +491,19 @@ export default makeScene2D("personajes", function* (view) {
             }
           },
           congelar: function* () {
-            yield* all(tapa().opacity(1, 0.3), columna().filters.grayscale(1, 0.3), narr().scale(1, 0.5, easeOutBack));
+            yield* all(tapa().opacity(1, 0.3), telefono().filters.grayscale(1, 0.3), telefono().filters.blur(4, 0.3), narrCaja().x(0, 0.55, easeOutBack));
           },
           linea: function* (l) {
             if (l.quien !== "lucia" && l.quien !== "martin") return;
             if (l.modo !== "escribe" && l.modo !== "audio") return;
+            yield* cambiar(l.quien);
             const m: Mensaje = { de: l.quien, tipo: l.modo === "audio" ? "audio" : "texto", texto: l.texto, dur: l.dur, borrador: l.corta };
             const b = burbuja(m, true);
             columna().add(b.fila);
             b.fila.scale(0.85);
             b.fila.opacity(0);
-            yield* all(b.fila.scale(1, 0.25, easeOutBack), b.fila.opacity(1, 0.2));
+            yield* all(b.fila.scale(1, 0.3, easeOutBack), b.fila.opacity(1, 0.2));
             if (m.tipo === "texto" && m.de === "martin" && b.txt) {
-              // se escribe al ritmo de la voz
               const palabras = l.texto.split(/\s+/);
               for (let i = 0; i < palabras.length; i++) {
                 const w = l.palabras[Math.min(i, l.palabras.length - 1)];
@@ -515,94 +525,102 @@ export default makeScene2D("personajes", function* (view) {
         };
       }
 
-      case "tablero": {
-        const items: { t: Tarjeta; nodo: Reference<Rect> }[] = plano.tarjetas.map((t) => ({ t, nodo: createRef<Rect>() }));
-        const tarjeta = (t: Tarjeta, ref: Reference<Rect>, i: number, ancho: number) => (
-          <Rect ref={ref} layout direction="row" gap={22} alignItems="center" width={ancho} padding={[24, 28]} radius={28} fill={C.blanco} opacity={t.marca === undefined ? 1 : 0} scale={t.marca === undefined ? 1 : 0.9}>
-            {plano.numeradas ? (
-              <Circle size={58} fill={TONO[t.tono]} layout alignItems="center" justifyContent="center">
-                <T t={String(i + 1)} tam={32} peso={800} />
-              </Circle>
-            ) : (
-              <Rect width={14} height={70} radius={7} fill={TONO[t.tono]} />
-            )}
-            <Layout direction="column" gap={6} grow={1}>
-              <T t={t.texto} tam={plano.columnas ? 36 : 40} peso={800} color={C.tinta} ancho={ancho - 130} />
-              {t.detalle && <T t={t.detalle} tam={plano.columnas ? 28 : 31} peso={500} color={C.gris} ancho={ancho - 130} />}
+      case "tablero":
+      case "lista": {
+        const narr = nuevoMuñeco();
+        const esLista = plano.tipo === "lista";
+        const tarjetas: Tarjeta[] = esLista
+          ? plano.items.map((texto, i) => ({ texto: `${i + 1}. ${texto}`, tono: "neutro", marca: i }))
+          : plano.tarjetas;
+        const items = tarjetas.map((t) => ({ t, nodo: createRef<Rect>(), signo: createRef<Circle>(), signoTxt: createRef<Txt>() }));
+        const columnas = plano.tipo === "tablero" ? plano.columnas : undefined;
+        const numeradas = plano.tipo === "tablero" && plano.numeradas;
+        const ancho = columnas ? 320 : 640;
+        // en la lista todo se ve de entrada, gris, y se tilda cuando se nombra
+        const oculta = (t: Tarjeta) => !esLista && t.marca !== undefined;
+        const tarjeta = (it: (typeof items)[number], i: number) => (
+          <Rect
+            ref={it.nodo}
+            layout
+            direction="row"
+            gap={20}
+            alignItems="center"
+            width={ancho}
+            padding={[22, 24]}
+            radius={26}
+            fill={C.blanco}
+            shadowColor="rgba(30,27,75,0.18)"
+            shadowBlur={24}
+            shadowOffsetY={8}
+            opacity={oculta(it.t) ? 0 : esLista ? 0.55 : 1}
+            x={oculta(it.t) ? 60 : 0}
+          >
+            <Circle ref={it.signo} size={56} fill={esLista ? "#e5e7eb" : TONO[it.t.tono]} layout alignItems="center" justifyContent="center">
+              <Txt ref={it.signoTxt} text={numeradas ? String(i + 1) : esLista ? "" : SIGNO[it.t.tono]} fontFamily={LETRA} fontSize={30} fontWeight={800} fill={C.blanco} />
+            </Circle>
+            <Layout direction="column" gap={4}>
+              <T t={it.t.texto} tam={columnas ? 32 : 36} peso={800} ancho={ancho - 124} />
+              {it.t.detalle && <T t={it.t.detalle} tam={columnas ? 25 : 28} peso={500} color={C.gris} ancho={ancho - 124} />}
             </Layout>
           </Rect>
         );
-        const cuerpo = plano.columnas ? (
-          <Layout direction="row" gap={30} alignItems="start">
+        const cuerpo = columnas ? (
+          <Layout direction="row" gap={20} alignItems="start">
             {[0, 1].map((col) => (
-              <Layout direction="column" gap={20} width={445}>
-                <Rect layout padding={[14, 24]} radius={22} fill={col === 0 ? C.ok : C.mal}>
-                  <T t={plano.columnas![col]} tam={34} peso={800} />
+              <Layout direction="column" gap={16} width={320}>
+                <Rect layout padding={[12, 22]} radius={20} fill={col === 0 ? C.ok : C.mal}>
+                  <T t={columnas[col]} tam={30} peso={800} color={C.blanco} />
                 </Rect>
-                {items.map(({ t, nodo }, i) => (t.columna === col ? tarjeta(t, nodo, i, 445) : null))}
+                {items.map((it, i) => (it.t.columna === col ? tarjeta(it, i) : null))}
               </Layout>
             ))}
           </Layout>
         ) : (
-          <Layout direction="column" gap={20}>
-            {items.map(({ t, nodo }, i) => tarjeta(t, nodo, i, 920))}
+          <Layout direction="column" gap={16}>
+            {items.map((it, i) => tarjeta(it, i))}
           </Layout>
         );
+        const tituloTxt = plano.titulo;
+        const icono = plano.tipo === "tablero" ? plano.icono : undefined;
+        const subrayado = createRef<Rect>();
         const n = (
           <Node ref={raiz}>
-            <Layout layout direction="column" gap={34} width={920} y={-200} alignItems="start">
-              <Layout direction="row" gap={24} alignItems="center">
-                {plano.icono && (
-                  <Rect width={96} height={96} radius={28} fill={plano.icono === "alerta" ? C.aviso : C.primario}>
-                    <Rect layout={false}>
-                      <Icono tipo={plano.icono} />
-                    </Rect>
+            <Fondo a="#eef2ff" b="#e0e7ff" manchas="#c7d2fe" />
+            <Layout layout direction="column" gap={30} width={660} x={-170} y={-230} alignItems="start">
+              <Layout direction="column" gap={12} alignItems="start">
+                {icono && (
+                  <Rect layout padding={[6, 16]} radius={16} fill={icono === "alerta" ? C.aviso : C.primario}>
+                    <T t={{ lupa: "Chequeo", calendario: "Paso a paso", estrella: "Excepción", alerta: "Ojo" }[icono]} tam={24} peso={800} color={C.blanco} />
                   </Rect>
                 )}
-                <T t={plano.titulo} tam={54} peso={800} ancho={plano.icono ? 790 : 920} />
+                <T t={tituloTxt} tam={52} peso={800} color={C.nav} ancho={660} />
+                <Rect ref={subrayado} width={0} height={10} radius={5} fill={C.primario} />
               </Layout>
               {cuerpo}
             </Layout>
+            <Circle size={360} x={400} y={230} fill={GENTE.narradora.fondo} opacity={0.9} />
+            <Dibujo q="narradora" alto={620} m={narr} x={410} y={480} espejo />
           </Node>
         ) as Node;
+        respirar(narr.nodo);
         return {
           nodo: n,
-          linea: function* (l) {
-            if (l.marca === undefined) return;
-            yield* all(
-              ...items.filter(({ t }) => t.marca === l.marca).map(({ nodo }) => all(nodo().opacity(1, 0.35), nodo().scale(1, 0.45, easeOutBack))),
-            );
+          bocas: { narradora: narr.boca },
+          alEntrar: function* () {
+            yield* subrayado().width(140, 0.6, easeOutCubic);
           },
-        };
-      }
-
-      case "lista": {
-        const marcas = plano.items.map(() => ({ caja: createRef<Circle>(), tilde: createRef<Rect>(), fila: createRef<Layout>() }));
-        const n = (
-          <Node ref={raiz}>
-            <Layout layout direction="column" gap={24} width={920} y={-200} alignItems="start">
-              <T t={plano.titulo} tam={54} peso={800} ancho={920} />
-              {plano.items.map((it, i) => (
-                <Layout ref={marcas[i].fila} direction="row" gap={24} alignItems="center" opacity={0.45}>
-                  <Layout width={70} height={70}>
-                    <Circle ref={marcas[i].caja} size={70} stroke={C.suave} lineWidth={6} layout={false} />
-                    <Rect ref={marcas[i].tilde} scale={0} layout={false}>
-                      <Circle size={70} fill={C.ok} />
-                      <Icono tipo="check" />
-                    </Rect>
-                  </Layout>
-                  <T t={`${i + 1}. ${it}`} tam={40} peso={700} ancho={820} />
-                </Layout>
-              ))}
-            </Layout>
-          </Node>
-        ) as Node;
-        return {
-          nodo: n,
           linea: function* (l) {
             if (l.marca === undefined) return;
-            const m = marcas[l.marca];
-            yield* all(m.fila().opacity(1, 0.3), m.tilde().scale(1, 0.45, easeOutBack));
+            const nuevas = items.filter(({ t }) => t.marca === l.marca);
+            yield* all(
+              ...nuevas.map((it) =>
+                esLista
+                  ? all(it.nodo().opacity(1, 0.3), it.signo().fill(C.ok, 0.3), it.signo().scale(1.25, 0.15).to(1, 0.2), function* () {
+                      it.signoTxt().text("✓");
+                    }())
+                  : all(it.nodo().opacity(1, 0.35), it.nodo().x(0, 0.5, easeOutBack)),
+              ),
+            );
           },
         };
       }
@@ -610,31 +628,38 @@ export default makeScene2D("personajes", function* (view) {
       case "cierre": {
         const frases = plano.items.map(() => createRef<Txt>());
         const final = createRef<Layout>();
+        const ms = [nuevoMuñeco(), nuevoMuñeco(), nuevoMuñeco()];
         const n = (
           <Node ref={raiz}>
-            <Layout layout direction="column" gap={40} width={920} y={-200} alignItems="center">
-              <Circle size={130} fill={C.ok}>
-                <Rect layout={false}>
-                  <Icono tipo="check" />
-                </Rect>
-              </Circle>
-              <T t="Para recordar" tam={44} color={C.ok} peso={700} />
+            <Fondo a="#312e81" b={C.nav} manchas="#6366f1" />
+            <Layout layout direction="column" gap={22} width={960} y={-300} alignItems="center">
+              <Rect layout padding={[8, 20]} radius={18} fill={C.ok}>
+                <T t="Para recordar" tam={32} color={C.blanco} peso={800} />
+              </Rect>
               {plano.items.map((f, i) => (
-                <Txt ref={frases[i]} text={f} fontFamily={LETRA} fontSize={72} fontWeight={800} fill={C.blanco} opacity={0} textAlign="center" width={920} textWrap />
+                <Txt ref={frases[i]} text={f} fontFamily={LETRA} fontSize={70} fontWeight={800} fill={C.blanco} opacity={0} textAlign="center" width={960} textWrap />
               ))}
-              <Layout ref={final} direction="row" gap={24} alignItems="center" opacity={0}>
-                <Sendero escala={0.4} />
+              <Layout ref={final} direction="row" gap={20} alignItems="center" opacity={0}>
+                <Sendero escala={0.35} />
                 <T t="Ahora probá vos" tam={44} color={C.suave} peso={700} />
               </Layout>
             </Layout>
+            <Circle size={300} x={-330} y={290} fill={GENTE.lucia.fondo} />
+            <Circle size={300} x={330} y={290} fill={GENTE.martin.fondo} />
+            <Dibujo q="lucia" alto={380} m={ms[0]} x={-330} y={410} cara="contenta" />
+            <Dibujo q="martin" alto={380} m={ms[2]} x={330} y={410} cara="contenta" />
           </Node>
         ) as Node;
+        ms.forEach((m, i) => m.nodo() && respirar(m.nodo, i * 0.2));
         return {
           nodo: n,
           linea: function* (l) {
             if (l.marca === undefined) return;
-            if (l.marca < frases.length) yield* frases[l.marca]().opacity(1, 0.4);
-            else yield* final().opacity(1, 0.4);
+            if (l.marca < frases.length) {
+              const f = frases[l.marca]();
+              f.y(30);
+              yield* all(f.opacity(1, 0.4), f.y(0, 0.5, easeOutCubic));
+            } else yield* final().opacity(1, 0.4);
           },
         };
       }
@@ -649,49 +674,40 @@ function burbuja(m: Mensaje, nueva = false) {
   const barras: Rect[] = [];
   const mio = m.de === "martin";
   const fila = (
-    <Layout direction="row" width={880} justifyContent={mio ? "end" : "start"}>
+    <Layout direction="row" width={540} justifyContent={mio ? "end" : "start"}>
       <Rect
         layout
         direction="column"
-        gap={8}
-        padding={[18, 24]}
-        radius={mio ? [26, 6, 26, 26] : [6, 26, 26, 26]}
+        gap={6}
+        padding={[16, 20]}
+        radius={mio ? [24, 6, 24, 24] : [6, 24, 24, 24]}
         fill={mio ? C.enviado : C.blanco}
-        opacity={m.borrador ? 0.85 : 1}
+        opacity={m.borrador ? 0.9 : 1}
         lineWidth={m.borrador ? 3 : 0}
         stroke={C.aviso}
         lineDash={[12, 8]}
+        shadowColor="rgba(0,0,0,0.08)"
+        shadowBlur={6}
+        shadowOffsetY={2}
       >
         {m.tipo === "texto" ? (
-          <Txt
-            ref={txt}
-            text={nueva && mio ? "▍" : m.texto}
-            fontFamily={LETRA}
-            fontSize={33}
-            fontWeight={500}
-            fill={C.tinta}
-            lineHeight="128%"
-            textWrap
-            maxWidth={640}
-          />
+          <Txt ref={txt} text={nueva && mio ? "▍" : m.texto} fontFamily={LETRA} fontSize={27} fontWeight={500} fill={C.tinta} lineHeight="130%" textWrap maxWidth={420} />
         ) : (
-          <Layout direction="row" gap={18} alignItems="center">
-            <Circle size={62} fill={C.chat} layout alignItems="center" justifyContent="center">
-              <Line points={[[-8, -14], [14, 0], [-8, 14]]} closed fill={C.blanco} />
+          <Layout direction="row" gap={14} alignItems="center">
+            <Circle size={52} fill={C.chat} layout alignItems="center" justifyContent="center">
+              <Line points={[[-7, -12], [12, 0], [-7, 12]]} closed fill={C.blanco} />
             </Circle>
-            <Layout direction="row" gap={5} alignItems="center">
-              {Array.from({ length: 28 }, (_, i) => {
-                const r = (
-                  <Rect width={7} height={14 + Math.abs(Math.sin(i * 1.7) * 40)} radius={4} fill={nueva ? "#94a3b8" : C.chat} />
-                ) as Rect;
+            <Layout direction="row" gap={4} alignItems="center">
+              {Array.from({ length: 24 }, (_, i) => {
+                const r = (<Rect width={6} height={12 + Math.abs(Math.sin(i * 1.7) * 34)} radius={3} fill={nueva ? "#94a3b8" : C.chat} />) as Rect;
                 barras.push(r);
                 return r;
               })}
             </Layout>
-            <Txt text={`0:${String(Math.round(m.dur ?? 0)).padStart(2, "0")}`} fontFamily={LETRA} fontSize={26} fill={C.gris} />
+            <Txt text={`0:${String(Math.round(m.dur ?? 0)).padStart(2, "0")}`} fontFamily={LETRA} fontSize={22} fill={C.gris} />
           </Layout>
         )}
-        <Txt ref={meta} text={m.borrador ? "borrador" : nueva && mio ? "" : "10:42" + (mio ? " ✓✓" : "")} fontFamily={LETRA} fontSize={22} fill={m.borrador ? "#b45309" : C.gris} alignSelf="end" />
+        <Txt ref={meta} text={m.borrador ? "borrador" : nueva && mio ? "" : "10:42" + (mio ? " ✓✓" : "")} fontFamily={LETRA} fontSize={19} fill={m.borrador ? "#b45309" : C.gris} alignSelf="end" />
       </Rect>
     </Layout>
   ) as Layout;
