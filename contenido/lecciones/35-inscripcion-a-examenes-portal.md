@@ -4,27 +4,55 @@ curso: "plataformas"
 modulo: "Exámenes online"
 orden: 35
 fuente: "ln-inscripcion-a-examenes"
+formato: "tarjetas"
 ---
 
-## En 30 segundos
+## caso
 
-- En el Portal de Estudiantes: Exámenes, Nueva inscripción, elegir la materia, el lugar, la fecha y la franja horaria, y confirmar con Inscribirme al examen.
-- En ED y EDH, desde la primera semana de cursado se puede inscribir al Parcial 1 y al Parcial 2: no hace falta esperar a rendir el primero.
-- Si no se inscribe dentro del plazo, el sistema le asigna una fecha automáticamente.
-- En PD no se inscribe a los parciales: fecha, lugar y franja se asignan según el cronograma y se ven en el Portal.
+persona: Lisandro
+canal: whatsapp
+Hola! Todavía no rendí el primer parcial. ¿Ya me puedo anotar al segundo? ¿Cómo hago?
 
-## Así llega al CAU
+## preguntar
 
-- "¿Cómo me anoto al parcial?" → En el Portal: Exámenes, Nueva inscripción. Elige la materia, el lugar, el día y la franja, revisa el resumen y confirma con Inscribirme al examen.
-- "Todavía no rendí el primer parcial, ¿me puedo anotar al segundo?" → Sí: desde la primera semana se puede inscribir a los dos.
-- "No me anoté al parcial a tiempo." → Si venció el plazo, el sistema le asigna una fecha automáticamente; que la revise en el Portal.
-- "Curso en PD, ¿dónde me anoto al parcial?" → En PD no hace falta: el parcial se asigna según el cronograma y lo ve en su Portal.
+- [x] ¿En qué modalidad cursa?
+  > En PD no se inscribe a los parciales: se asignan según el cronograma.
+- [x] ¿Sigue abierto el plazo de inscripción?
+  > Si venció, el sistema le asigna una fecha automáticamente.
+- [x] ¿Es un parcial, un recuperatorio o un integrador?
+  > Recuperatorio e integrador: se inscribe a uno solo, hasta 24 horas antes.
+- [ ] ¿Qué nota sacó en los TP?
+  > No cambia cómo se inscribe.
 
-## Ojo con
+## idea: Cómo se inscribe en ED y EDH
 
-- Si falta a un parcial, recuperatorio o integrador queda Ausente y no se reprograma. En un final, además, pierde una oportunidad antes de quedar Libre.
-- Recuperatorio o integrador: cuando puede elegir, se inscribe solo a uno de los dos.
-- Recuperatorio o integrador: se inscribe hasta 24 horas antes de la fecha en que quiere rendir.
+En el Portal de Estudiantes: Exámenes, Nueva inscripción; elige la materia, el lugar, la fecha y la franja horaria, revisa el resumen y confirma con Inscribirme al examen. Desde la primera semana de cursado se puede inscribir al Parcial 1 y al Parcial 2: no hace falta esperar a rendir el primero.
+
+clave: Exámenes, Nueva inscripción; desde la primera semana, a los dos parciales.
+ejemplo: Lisandro ya se puede anotar al segundo parcial, aunque no haya rendido el primero.
+
+## probalo 3
+
+## idea: Si no se anota, o si cursa PD
+
+Si no se inscribe dentro del plazo, el sistema le asigna una fecha automáticamente: que la revise en el Portal. En PD no se inscribe a los parciales: fecha, lugar y franja se asignan según el cronograma y se ven en el Portal.
+
+clave: Fuera de plazo, fecha automática. En PD, el parcial ya viene asignado.
+
+## probalo 1
+
+## ojo
+
+Si falta a un parcial, recuperatorio o integrador queda Ausente y no se reprograma; en un final, además, pierde una oportunidad antes de quedar Libre.
+Para recuperatorio o integrador, cuando puede elegir, se inscribe solo a uno de los dos, hasta 24 horas antes.
+
+## probalo 2
+
+## cierre
+
+A Lisandro le explicás que sí: desde la primera semana de cursado se puede anotar a los dos parciales. En el Portal entra a Exámenes, Nueva inscripción, elige la materia, el lugar, la fecha y la franja, y confirma con Inscribirme al examen.
+
+recordar: Desde la primera semana, a los dos parciales; fuera de plazo, fecha automática.
 
 ## Probalo
 

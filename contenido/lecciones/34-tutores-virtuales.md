@@ -4,19 +4,58 @@ curso: "normas"
 modulo: "Acompañamiento"
 orden: 34
 fuente: "ln-tutoresvirtuales"
+formato: "tarjetas"
 ---
 
-## En 30 segundos
+## caso
 
-- El Centro de Profesores Tutores Virtuales (CPV) acompaña el primer año: organización, cursado, plataforma y modelo de aprendizaje.
-- Las dudas de contenido de cada materia no van al tutor: van al docente, por la mensajería de Canvas.
-- Al tutor se le escribe desde la Bandeja de Entrada de Canvas; también hay consultas por Teams en horarios fijos.
-- Talleres Potenciar 21: hábitos de estudio y organización. El cronograma está en los anuncios de cada materia.
+persona: Thiago
+canal: whatsapp
+Hola, soy nuevo y no sé cómo organizarme con las materias. ¿A quién le pregunto?
 
-## Así llega al CAU
+## preguntar
 
-- "Soy nuevo y no sé cómo organizarme." → Su Profesor Tutor Virtual lo acompaña en el primer año; también puede sumarse a los Talleres Potenciar 21.
-- "Le pregunté al tutor una duda de contenido y no me la resolvió." → Las dudas del contenido de cada materia van al docente a cargo, por la mensajería del aula.
+- [x] ¿Está en su primer año?
+  > El Profesor Tutor Virtual acompaña el primer año.
+- [x] ¿La duda es de organización o de contenido de una materia?
+  > La organización va al tutor; el contenido, al docente.
+- [x] ¿Le sirve un taller de hábitos de estudio?
+  > Para eso están los Talleres Potenciar 21.
+- [ ] ¿Qué nota sacó en el primer TP?
+  > No cambia a quién acudir.
+
+## idea: El tutor del primer año
+
+El Centro de Profesores Tutores Virtuales (CPV) acompaña el primer año: organización, cursado, plataforma y modelo de aprendizaje. Al tutor se le escribe desde la Bandeja de Entrada de Canvas, y también hay consultas por Teams en horarios fijos.
+
+clave: Primer año: el tutor ayuda con organización, cursado y plataforma.
+ejemplo: A Thiago lo acompaña su Profesor Tutor Virtual.
+
+## idea: El contenido, al docente
+
+Las dudas de contenido de cada materia no van al tutor: van al docente a cargo, por la mensajería de Canvas.
+
+clave: Contenido de la materia: al docente, no al tutor.
+
+## probalo 1
+
+## idea: Talleres Potenciar 21
+
+Los Talleres Potenciar 21 trabajan hábitos de estudio y organización. El cronograma está en los anuncios de cada materia.
+
+clave: Talleres Potenciar 21: el cronograma está en los anuncios de la materia.
+
+## probalo 2
+
+## ojo
+
+Si le preguntó al tutor una duda de contenido y no se la resolvió, no es un error del tutor: esas dudas van al docente de la materia.
+
+## cierre
+
+A Thiago le explicás que en el primer año lo acompaña su Profesor Tutor Virtual, al que le escribe desde la Bandeja de Entrada de Canvas, y que puede sumarse a los Talleres Potenciar 21, cuyo cronograma está en los anuncios de cada materia.
+
+recordar: Organización, al tutor; contenido, al docente.
 
 ## Probalo
 

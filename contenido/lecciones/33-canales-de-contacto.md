@@ -4,20 +4,58 @@ curso: "normas"
 modulo: "Acompañamiento"
 orden: 33
 fuente: "ln-canales-de-contacto"
+formato: "tarjetas"
 ---
 
-## En 30 segundos
+## caso
 
-- Dudas de contenido de una materia: al docente, por la mensajería del Aula Virtual.
-- Consulta escrita: en Consulta Alumnos, pestaña Consultar: elegir el legajo, el motivo en Título de tipificación y describir el caso. La respuesta llega por mail.
-- También puede chatear en el momento con un Asesor Institucional.
-- Los datos de cada CAU están en el mapa de Sedes y Centros; los directores de carrera tienen su mail publicado.
+persona: Melina
+canal: whatsapp
+Hola! Tengo una duda de un tema de una materia y además quiero dejar un reclamo por escrito. ¿A dónde escribo?
 
-## Así llega al CAU
+## preguntar
 
-- "¿Cómo dejo una consulta por escrito?" → En Consultar: elige el legajo, el motivo en Título de tipificación, describe el caso y adjunta un archivo si hace falta.
-- "Quiero hablar con alguien ahora." → Puede chatear con un Asesor Institucional en el momento.
-- "Quiero contactarme con otros estudiantes." → Puede sumarse a ComunidadNET.
+- [x] ¿La duda es de contenido de una materia?
+  > Va al docente, por la mensajería del aula.
+- [x] ¿Necesita dejarlo por escrito o resolverlo en el momento?
+  > Por escrito, Consulta Alumnos; en el momento, el chat con un Asesor Institucional.
+- [x] ¿Tiene más de un legajo?
+  > En Consultar elige el legajo de la consulta.
+- [ ] ¿Desde qué dispositivo escribe?
+  > No cambia el canal.
+
+## idea: Dudas de contenido
+
+Las dudas de contenido de una materia van al docente, por la mensajería del Aula Virtual.
+
+clave: Contenido de la materia: al docente, por el aula.
+
+## idea: Por escrito o en el momento
+
+Por escrito, en Consulta Alumnos, pestaña Consultar: elige el legajo, el motivo en Título de tipificación, describe el caso y adjunta un archivo si hace falta. La respuesta llega por mail. Si quiere hablar con alguien ahora, puede chatear con un Asesor Institucional.
+
+clave: Por escrito: Consultar, con respuesta por mail. Ya: chat con un Asesor Institucional.
+ejemplo: El reclamo de Melina va por Consultar, y la respuesta le llega por mail.
+
+## probalo 2
+
+## idea: Otros contactos
+
+Los datos de cada CAU están en el mapa de Sedes y Centros, y los directores de carrera tienen su mail publicado. Para contactarse con otros estudiantes, puede sumarse a ComunidadNET.
+
+clave: Datos del CAU en Sedes y Centros; otros estudiantes, en ComunidadNET.
+
+## probalo 1
+
+## ojo
+
+Una duda de contenido no va a Consulta Alumnos: la resuelve el docente de la materia, por la mensajería del aula.
+
+## cierre
+
+A Melina le explicás que la duda del tema se la escribe al docente por la mensajería del Aula Virtual, y que el reclamo lo deja en Consulta Alumnos, en Consultar, eligiendo el legajo y el motivo; la respuesta le llega por mail.
+
+recordar: Contenido, al docente; lo demás, por Consultar o el chat.
 
 ## Probalo
 

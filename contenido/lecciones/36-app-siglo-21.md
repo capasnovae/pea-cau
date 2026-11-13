@@ -4,20 +4,55 @@ curso: "plataformas"
 modulo: "Portal y aula"
 orden: 36
 fuente: "ln-app-siglo-21"
+formato: "tarjetas"
 ---
 
-## En 30 segundos
+## caso
 
-- La app se descarga de la tienda del celular y se entra con los datos del Portal de Estudiantes.
-- Desde la app: legajos, historial de materias, calificaciones, agenda, inscripción a materias y exámenes, y pago electrónico.
-- La asistencia se registra escaneando con la app el QR que muestra el profesor.
-- Si olvidó la contraseña, la resetea desde ¿Olvidaste tu contraseña?
+persona: Morena
+canal: mostrador
+Hola, hoy es mi primera Open Class. ¿Cómo registro la asistencia con la app?
 
-## Así llega al CAU
+## preguntar
 
-- "¿Cómo registro la asistencia?" → Con la app: toca el ícono del QR arriba en la pantalla y escanea el QR del profesor. La primera vez tiene que dar permiso a la cámara.
-- "Estudio dos carreras, ¿las veo en la app?" → Sí: puede consultar cada uno de sus legajos.
-- "¿Con qué usuario entro a la app?" → Con los mismos datos del Portal de Estudiantes.
+- [x] ¿Tiene la app instalada y entró con los datos del Portal?
+  > La app usa los mismos datos del Portal de Estudiantes.
+- [x] ¿Le dio permiso a la cámara?
+  > La primera vez hace falta para escanear el QR.
+- [x] ¿Tiene más de un legajo?
+  > La app permite consultar cada legajo por separado.
+- [ ] ¿Qué celular tiene?
+  > No cambia cómo se registra la asistencia.
+
+## idea: Qué se hace con la app
+
+La app se descarga de la tienda del celular y se entra con los datos del Portal de Estudiantes. Desde ahí ve sus legajos, el historial de materias, las calificaciones y la agenda, se inscribe a materias y exámenes y paga en forma electrónica. Si estudia dos carreras, cambia de legajo desde Tu Legajo.
+
+clave: Mismos datos del Portal; cada legajo se consulta desde Tu Legajo.
+
+## probalo 2
+
+## idea: La asistencia con el QR
+
+La asistencia se registra escaneando con la app el QR que muestra el profesor: se toca el ícono del QR arriba en la pantalla. La primera vez tiene que dar permiso a la cámara. En ED se exige el 75% de asistencia en cada materia, y sin el escaneo no queda registrada.
+
+clave: Escanear el QR del profesor; la primera vez, permiso a la cámara.
+ejemplo: Morena toca el ícono del QR, da permiso a la cámara y escanea.
+
+## probalo 1
+
+## probalo 3
+
+## ojo
+
+Estar en la Open Class no alcanza: si no escaneó el QR, la asistencia no queda registrada.
+Si olvidó la contraseña de la app, la resetea desde ¿Olvidaste tu contraseña?
+
+## cierre
+
+A Morena le explicás que abra la app con los datos del Portal, toque el ícono del QR arriba en la pantalla y escanee el QR que muestra el profesor. Como es la primera vez, la app le va a pedir permiso para usar la cámara.
+
+recordar: Asistencia: escanear el QR del profesor con la app.
 
 ## Probalo
 
