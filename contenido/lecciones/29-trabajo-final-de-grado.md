@@ -4,26 +4,60 @@ curso: "egreso"
 modulo: "Trabajo final"
 orden: 29
 fuente: "rg-12-2-trabajo-final-de-graduacion"
+formato: "tarjetas"
 ---
 
-## En 30 segundos
+## caso
 
-- Tiene 3 etapas: Seminario Final, Comisión Académica Evaluadora (CAE) y Defensa Oral.
-- En distancia, Seminario Final se regulariza cumpliendo las entregas de avance del tutor. No hay prórrogas.
-- La CAE evalúa el TFG en 60 días corridos: puede habilitar la defensa, pedir ajustes con un plazo o no aprobarlo.
-- Habilitado, se inscribe a la mesa de Defensa Oral en un máximo de 30 días corridos.
-- La nota final pondera Seminario Final, CAE y defensa; con menos de 4 se recursa Seminario Final.
+persona: Pilar
+canal: whatsapp
+Hola! Ya regularicé Seminario Final. ¿Qué sigue ahora para defender?
 
-## Así llega al CAU
+## preguntar
 
-- "Ya regularicé Seminario Final, ¿qué sigue?" → Se le asigna una CAE, que evalúa el trabajo en un plazo de 60 días corridos.
-- "La CAE me pidió cambios." → Recibe un acta rúbrica con las recomendaciones y el plazo para entregar el trabajo ajustado.
-- "Me habilitaron a defensa, ¿hay plazo para anotarme?" → Sí: tiene que inscribirse a la mesa de Defensa Oral dentro de los 30 días corridos.
+- [x] ¿Ya le asignaron una CAE?
+  > La CAE evalúa el TFG en 60 días corridos.
+- [x] ¿Tiene el visado del analítico y, en ED o EDH, el EFIP II aprobado?
+  > Son requisitos para la Defensa Oral.
+- [x] ¿Es un ciclo de complementación?
+  > En los ciclos no se pide el EFIP II.
+- [ ] ¿Hizo el TFG con un compañero?
+  > No hace falta preguntarlo: el TFG es individual.
 
-## Ojo con
+## idea: Tres etapas
 
-- Para la Defensa Oral necesita el visado del analítico y, en ED/EDH, el EFIP II aprobado (salvo en los ciclos de complementación).
-- El TFG es individual.
+El TFG tiene 3 etapas: Seminario Final, Comisión Académica Evaluadora (CAE) y Defensa Oral. En distancia, Seminario Final se regulariza cumpliendo las entregas de avance del tutor, sin prórrogas.
+
+clave: Seminario Final, CAE y Defensa Oral; sin prórrogas.
+
+## probalo 1
+
+## idea: La CAE
+
+La CAE evalúa el TFG en 60 días corridos: puede habilitar la defensa, pedir ajustes con un plazo o no aprobarlo. Si pide ajustes, el alumno recibe un acta rúbrica con las recomendaciones y el plazo para entregar el trabajo ajustado.
+
+clave: CAE: 60 días corridos; si pide ajustes, acta rúbrica con plazo.
+ejemplo: Pilar ya regularizó: ahora le asignan una CAE.
+
+## probalo 2
+
+## idea: La Defensa Oral
+
+Habilitado, se inscribe a la mesa de Defensa Oral en un máximo de 30 días corridos. Necesita el visado del analítico y, en ED y EDH, el EFIP II aprobado (salvo en los ciclos de complementación). La nota final pondera Seminario Final, CAE y defensa; con menos de 4 se recursa Seminario Final.
+
+clave: Defensa: inscripción en 30 días, con visado y EFIP II (salvo ciclos).
+
+## probalo 3
+
+## ojo
+
+No hay prórrogas para las entregas de avance de Seminario Final, y el TFG es individual.
+
+## cierre
+
+A Pilar le explicás que ahora le asignan una CAE, que evalúa su trabajo en 60 días corridos. Si la habilita, tiene 30 días corridos para inscribirse a la Defensa Oral, con el visado del analítico y el EFIP II aprobado.
+
+recordar: Seminario Final, CAE en 60 días y Defensa con inscripción en 30 días.
 
 ## Probalo
 

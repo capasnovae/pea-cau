@@ -4,20 +4,60 @@ curso: "plataformas"
 modulo: "Portal y aula"
 orden: 30
 fuente: "ln-portal-de-estudiantes"
+formato: "tarjetas"
 ---
 
-## En 30 segundos
+## caso
 
-- En el Portal ve su carrera y su avance, se inscribe a materias y exámenes, paga por ePagos y usa el simulador de pagos.
-- Se entra con la cuenta institucional: usuario@soysiglo.21.edu.ar y su contraseña.
-- Si da error al entrar: borrar cookies y caché, y probar otro navegador o una ventana de incógnito.
-- En "Más opciones" hay una guía del portal, cambio de contraseña y datos de contacto.
+persona: Kevin
+canal: whatsapp
+Hola, no puedo entrar al portal, me da error. ¿Qué hago?
 
-## Así llega al CAU
+## preguntar
 
-- "No puedo entrar al portal, me da error." → Que borre las cookies y la caché del navegador y vuelva a intentar; si sigue, otro navegador o modo incógnito.
-- "¿Dónde me inscribo a un final?" → En el Portal de Estudiantes, en el módulo de inscripción a exámenes.
-- "¿Con qué usuario entro?" → Con su correo institucional (usuario@soysiglo.21.edu.ar) y su contraseña.
+- [x] ¿Con qué usuario está entrando?
+  > Se entra con la cuenta institucional: usuario@soysiglo.21.edu.ar.
+- [x] ¿Probó borrar cookies y caché, u otro navegador?
+  > Es lo primero cuando da error al entrar.
+- [x] ¿Es ingresante y le llegaron los datos de acceso?
+  > Llegan al mail que informó al inscribirse y pueden demorar hasta 48 hs hábiles.
+- [ ] ¿Qué celular tiene?
+  > No cambia los pasos para entrar.
+
+## idea: Cómo se entra
+
+Se entra con la cuenta institucional: usuario@soysiglo.21.edu.ar y su contraseña. A los ingresantes, los datos de acceso les llegan al mail que informaron al inscribirse: que revisen el correo no deseado y tengan en cuenta que pueden demorar hasta 48 hs hábiles.
+
+clave: Usuario institucional; los ingresantes reciben los datos por mail (hasta 48 hs hábiles).
+
+## probalo 1
+
+## idea: Si da error
+
+Si da error al entrar: que borre las cookies y la caché del navegador y vuelva a intentar; si sigue, que pruebe otro navegador o una ventana de incógnito. Si olvidó la contraseña, la restablece desde el portal: el usuario va sin el dominio y el enlace llega al mail personal registrado.
+
+clave: Borrar cookies y caché, otro navegador o incógnito.
+ejemplo: Antes que nada, a Kevin le pedís que borre cookies y caché.
+
+## probalo 2
+
+## idea: Qué se hace en el Portal
+
+En el Portal ve su carrera y su avance, se inscribe a materias y exámenes, paga por ePagos y usa el simulador de pagos. En "Más opciones" hay una guía del portal, cambio de contraseña y datos de contacto.
+
+clave: Carrera, inscripciones, pagos y simulador, todo en el Portal.
+
+## probalo 3
+
+## ojo
+
+El simulador de pagos es estimativo: la estimación vale 24 hs y los descuentos y becas pueden variar.
+
+## cierre
+
+A Kevin le explicás que borre las cookies y la caché del navegador y vuelva a intentar, y si sigue, que pruebe otro navegador o una ventana de incógnito. Que entre con su usuario institucional (usuario@soysiglo.21.edu.ar) y, si olvidó la contraseña, que la restablezca desde el portal.
+
+recordar: Error al entrar: cookies y caché, otro navegador o incógnito.
 
 ## Probalo
 

@@ -4,19 +4,60 @@ curso: "plataformas"
 modulo: "Portal y aula"
 orden: 31
 fuente: "ln-aula-virtual"
+formato: "tarjetas"
 ---
 
-## En 30 segundos
+## caso
 
-- El Aula Virtual es Canvas: ahí están las materias, se presentan las actividades y se contacta al docente.
-- Se entra eligiendo Soy Estudiante y la cuenta institucional.
-- Si olvidó la contraseña, la restablece desde el enlace de recuperación, con su usuario sin @soysiglo.21.edu.ar.
-- Las dudas de contenido de cada materia van al docente, por la mensajería del aula.
+persona: Ailén
+canal: telefono
+Hola, olvidé la contraseña del aula virtual y tengo que entregar un TP hoy. ¿Cómo la recupero?
 
-## Así llega al CAU
+## preguntar
 
-- "Olvidé la contraseña del aula." → Desde el enlace de recuperación, con su usuario sin el @soysiglo.21.edu.ar. La nueva clave llega al mail personal registrado en el Portal de Estudiantes: si ese mail está viejo, que lo actualice primero.
-- "¿Cómo le escribo al profesor?" → Por la mensajería de su Aula Virtual (Canvas).
+- [x] ¿Cómo escribe el usuario en la pantalla de recuperación?
+  > Va sin el @soysiglo.21.edu.ar.
+- [x] ¿El mail personal registrado en el Portal está actualizado?
+  > La nueva clave llega a ese mail.
+- [x] ¿Revisó el correo no deseado?
+  > Es donde suele quedar el mail de recuperación.
+- [ ] ¿Qué materia tiene que entregar?
+  > No cambia cómo recupera la clave.
+
+## idea: El aula es Canvas
+
+El Aula Virtual es Canvas: ahí están las materias, se presentan las actividades y se contacta al docente. Se entra eligiendo Soy Estudiante y la cuenta institucional.
+
+clave: Canvas: se entra con Soy Estudiante y la cuenta institucional.
+
+## idea: Recuperar la contraseña
+
+Si olvidó la contraseña, la restablece desde el enlace de recuperación, con su usuario sin @soysiglo.21.edu.ar. La nueva clave llega al mail personal registrado en el Portal de Estudiantes: si ese mail está viejo, que lo actualice primero.
+
+clave: Usuario sin el dominio; la clave llega al mail personal registrado.
+ejemplo: Si Ailén escribe el correo completo, la recuperación no funciona.
+
+## probalo 1
+
+## probalo 2
+
+## idea: Las dudas de la materia
+
+Las dudas de contenido de cada materia van al docente, por la mensajería del Aula Virtual.
+
+clave: Dudas de contenido: al docente, por la mensajería del aula.
+
+## probalo 3
+
+## ojo
+
+Si el mail personal registrado en el Portal está viejo, la clave nueva nunca le va a llegar: que lo actualice antes de pedir la recuperación.
+
+## cierre
+
+A Ailén le explicás que entre al enlace de recuperación y escriba su usuario sin @soysiglo.21.edu.ar. La nueva clave le llega al mail personal registrado en el Portal de Estudiantes; si ese mail está viejo, que lo actualice primero.
+
+recordar: Usuario sin dominio; la clave llega al mail personal del Portal.
 
 ## Probalo
 

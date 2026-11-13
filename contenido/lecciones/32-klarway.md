@@ -4,25 +4,60 @@ curso: "plataformas"
 modulo: "Exámenes online"
 orden: 32
 fuente: "ln-klarway"
+formato: "tarjetas"
 ---
 
-## En 30 segundos
+## caso
 
-- Los exámenes online se rinden por el SOE (Sistema Online de Exámenes), con la app Klarway: de escritorio, para PC y algunas Mac, con validación de identidad.
-- Antes hay que registrarse una vez: DNI (digital o físico) o pasaporte, lugar iluminado, fondo liso y sin auriculares.
-- Al rendir: cerrar los programas, entrar con las credenciales del Portal, validar el rostro y aceptar las condiciones.
-- Recomendaciones: buena luz, batería al 80% o cargador, micrófono encendido y lugar silencioso.
+persona: Ludmila
+canal: whatsapp
+Hola! El jueves rindo mi primer parcial online. ¿Lo puedo hacer desde el celular? ¿Qué tengo que preparar?
 
-## Así llega al CAU
+## preguntar
 
-- "¿Puedo rendir desde el celular?" → No: Klarway es una aplicación de escritorio para PC y algunas versiones de Mac.
-- "Me falló Klarway rindiendo desde casa." → Que saque una captura del error con fecha y hora visibles y la envíe por Consulta Alumnos, Área Tecnológica, Sistema de Examen. También puede contactar a su CAU.
-- "Me pide registrarme, ¿qué necesito?" → Su DNI o pasaporte y la app instalada. La foto, en un lugar iluminado, con fondo liso, sin auriculares y con ropa adecuada.
+- [x] ¿Ya se registró en Klarway?
+  > El registro se valida en hasta 24 horas hábiles.
+- [x] ¿Con qué equipo va a rendir?
+  > Klarway es de escritorio: PC y algunas Mac, no celular.
+- [x] ¿Dónde va a rendir?
+  > Hace falta buena luz, un lugar silencioso y sin auriculares.
+- [ ] ¿Qué materia rinde?
+  > No cambia cómo se usa Klarway.
 
-## Ojo con
+## idea: Klarway y el registro
 
-- Una vez iniciado el examen, usar auriculares, bajar el micrófono o tapar la cámara son faltas según el Régimen General de Sanciones.
-- El registro en Klarway se valida en hasta 24 horas hábiles: que no lo deje para el día del examen.
+Los exámenes online se rinden por el SOE (Sistema Online de Exámenes), con la app Klarway: es de escritorio, para PC y algunas Mac, con validación de identidad. Antes hay que registrarse una vez con DNI (digital o físico) o pasaporte, en un lugar iluminado, con fondo liso y sin auriculares. El registro se valida en hasta 24 horas hábiles.
+
+clave: Klarway en PC o Mac, con registro previo que tarda hasta 24 h hábiles.
+ejemplo: Ludmila no puede rendir desde el celular y tiene que registrarse ya.
+
+## probalo 1
+
+## idea: El día del examen
+
+Al rendir: cerrar los programas, entrar con las credenciales del Portal, validar el rostro y aceptar las condiciones. Conviene buena luz, batería al 80% o cargador, micrófono encendido y un lugar silencioso.
+
+clave: Programas cerrados, rostro validado, buena luz y micrófono encendido.
+
+## idea: Si falla
+
+Si Klarway falla rindiendo desde casa, que saque una captura del error con fecha y hora visibles y la envíe por Consulta Alumnos, Área Tecnológica, Sistema de Examen. También puede contactar a su CAU.
+
+clave: Captura con fecha y hora, por Consulta Alumnos, Área Tecnológica.
+
+## probalo 2
+
+## ojo
+
+Una vez iniciado el examen, usar auriculares, bajar el micrófono o tapar la cámara son faltas según el Régimen General de Sanciones, aunque no hable con nadie.
+
+## probalo 3
+
+## cierre
+
+A Ludmila le explicás que desde el celular no se puede: Klarway es una app de escritorio para PC y algunas Mac. Que se registre hoy, porque el registro tarda hasta 24 horas hábiles en validarse, y que el jueves rinda con buena luz, el micrófono encendido y sin auriculares.
+
+recordar: Klarway en PC o Mac, registrado con 24 h hábiles de anticipación.
 
 ## Probalo
 
