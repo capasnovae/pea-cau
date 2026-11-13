@@ -4,26 +4,55 @@ curso: "cursado"
 modulo: "Cursado"
 orden: 17
 fuente: "rg-14-1-planes-de-estudio"
+formato: "tarjetas"
 ---
 
-## En 30 segundos
+## caso
 
-- Los planes los aprueba el Consejo Superior y después el Ministerio de Educación.
-- Cuando entra un plan nuevo, el anterior puede conservarse por la duración teórica de la carrera más un año.
-- Si no terminó en ese plazo, la Universidad puede pasarlo al plan nuevo y debe cursar todas sus materias.
-- Las materias que están en los dos planes se reconocen por equivalencia directa y automática.
-- Quien estuvo inactivo más de un período y no terminó en ese plazo, al retomar es migrado al plan vigente: no puede seguir en su plan de origen.
+persona: Hernán
+canal: telefono
+Hola, dejé la carrera hace tres años y quiero volver. ¿Sigo con mi plan o tengo que empezar de nuevo?
 
-## Así llega al CAU
+## preguntar
 
-- "Vuelvo después de mucho tiempo, ¿sigo con mi plan?" → Si su plan ya no se mantiene, al retomar se lo migra al plan vigente.
-- "Me pasaron de plan y tengo materias nuevas." → Al migrar debe hacer todas las materias del plan nuevo, aunque no estuvieran en el original. Las que coinciden se reconocen automáticamente.
-- "¿Qué son los créditos de una materia?" → Equivalen a la cantidad de horas semanales que tiene la materia.
+- [x] ¿Hace cuánto que no tiene actividad?
+  > Inactivo más de un período y fuera de plazo, se lo migra al plan vigente.
+- [x] ¿Su plan todavía se conserva?
+  > El plan anterior puede conservarse por la duración teórica de la carrera más un año.
+- [x] ¿Qué materias tiene aprobadas?
+  > Las que están en los dos planes se reconocen automáticamente.
+- [ ] ¿Por qué dejó la carrera?
+  > No cambia qué plan le toca.
 
-## Ojo con
+## idea: Cuánto dura un plan viejo
 
-- Cuando la Universidad migra alumnos de plan, arma un plan de transición con los pasos a seguir.
-- Las materias aprobadas del plan anterior que no están en el nuevo pueden tomarse como electivas.
+Cuando entra un plan nuevo, el anterior puede conservarse por la duración teórica de la carrera más un año. Si no terminó en ese plazo, la Universidad puede pasarlo al plan nuevo. Quien estuvo inactivo más de un período y no terminó en ese plazo, al retomar es migrado al plan vigente: no puede seguir en su plan de origen.
+
+clave: Plan viejo: duración teórica más un año; inactivo y fuera de plazo, migra.
+ejemplo: Si el plan de Hernán ya no se conserva, al volver pasa al plan vigente.
+
+## probalo 1
+
+## probalo 3
+
+## idea: Qué pasa con las materias
+
+Al migrar debe cursar todas las materias del plan nuevo, aunque no estuvieran en el original. Las que están en los dos planes se reconocen por equivalencia directa y automática, y las aprobadas del plan anterior que no están en el nuevo pueden tomarse como electivas.
+
+clave: Las que coinciden se reconocen solas; las que no están pueden ser electivas.
+
+## probalo 2
+
+## ojo
+
+Cuando la Universidad migra alumnos de plan, arma un plan de transición con los pasos a seguir.
+Y si preguntan por los créditos de una materia: equivalen a la cantidad de horas semanales que tiene.
+
+## cierre
+
+A Hernán le explicás que, si su plan ya no se conserva, al volver lo migran al plan vigente: las materias que coinciden se le reconocen automáticamente, las que no están en el plan nuevo pueden tomarse como electivas y va a tener que cursar las materias nuevas.
+
+recordar: Inactivo y fuera de plazo: plan vigente; lo que coincide se reconoce solo.
 
 ## Probalo
 

@@ -4,19 +4,54 @@ curso: "cursado"
 modulo: "Cursado"
 orden: 18
 fuente: "ln-correlativas"
+formato: "tarjetas"
 ---
 
-## En 30 segundos
+## caso
 
-- El plan de correlatividades fija el orden en que se cursan las materias.
-- Para inscribirse a una materia, sus correlativas tienen que estar regulares.
-- Para aprobar o promocionar, sus correlativas tienen que estar aprobadas.
-- Puede promocionar si aprueba la correlativa anterior dentro de los 60 días de terminada la materia; si no, la materia queda Regular.
+persona: Daiana
+canal: whatsapp
+Hola! Promocioné una materia pero todavía no aprobé la correlativa anterior. ¿Pierdo la promoción?
 
-## Así llega al CAU
+## preguntar
 
-- "¿Cómo sé qué correlativas tiene una materia?" → En el Portal de Estudiantes: su carrera, Plan de Estudio y Ver Correlativas. Ahí también está Ver Programa.
-- "Promocioné pero me falta aprobar la correlativa." → Tiene 60 días desde que terminó la materia para aprobar la correlativa anterior; si no, la materia queda Regular y rinde final.
+- [x] ¿Hace cuánto terminó la materia?
+  > Tiene 60 días para aprobar la correlativa anterior.
+- [x] ¿La correlativa está regular o aprobada?
+  > Regular alcanza para inscribirse; para aprobar o promocionar, tiene que estar aprobada.
+- [x] ¿Sabe dónde ver las correlativas?
+  > Están en el Portal de Estudiantes, en el plan de estudio de su carrera.
+- [ ] ¿Qué nota sacó en los parciales?
+  > Ya cumplió la promoción: lo que falta es la correlativa.
+
+## idea: Regular para cursar, aprobada para aprobar
+
+El plan de correlatividades fija el orden en que se cursan las materias. Para inscribirse a una materia, sus correlativas tienen que estar regulares; para aprobarla o promocionarla, tienen que estar aprobadas.
+
+clave: Inscribirse: correlativa regular. Aprobar o promocionar: correlativa aprobada.
+
+## probalo 1
+
+## idea: 60 días para no perder la promoción
+
+Si cumplió la promoción pero la correlativa anterior sigue regular, tiene 60 días desde que terminó la materia para aprobarla. Si no, la materia queda Regular y la rinde en un final.
+
+clave: 60 días para aprobar la correlativa; si no, la materia queda Regular.
+ejemplo: Daiana todavía puede promocionar si aprueba la correlativa dentro de los 60 días.
+
+## probalo 2
+
+## ojo
+
+Las correlativas no se responden de memoria: están en el Portal de Estudiantes, en su carrera, Plan de Estudio, Ver Correlativas. Ahí también está Ver Programa.
+
+## probalo 3
+
+## cierre
+
+A Daiana le explicás que no pierde la promoción todavía: tiene 60 días desde que terminó la materia para aprobar la correlativa anterior. Si no la aprueba en ese plazo, la materia queda Regular y tiene que rendir el final.
+
+recordar: Promoción con correlativa pendiente: 60 días para aprobarla.
 
 ## Probalo
 

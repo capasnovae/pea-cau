@@ -4,23 +4,53 @@ curso: "cursado"
 modulo: "Ingreso"
 orden: 19
 fuente: "ln-universitarios21"
+formato: "tarjetas"
 ---
 
-## En 30 segundos
+## caso
 
-- Es el programa de ingreso de grado y pregrado: dos materias del primer semestre, Aprender en el Siglo 21 y Tecnología, Humanidades y Modelos Globales.
-- Se cursan y evalúan con las mismas reglas que el resto de las materias de su modalidad.
-- Hay que aprobarlas para inscribirse a materias de cuarto cuatrimestre.
-- Una equivalencia externa no reemplaza a estas materias; hay eximición con 5 o más materias aprobadas en el legajo.
+persona: Brian
+canal: whatsapp
+Hola, no me deja anotarme a una materia de cuarto cuatrimestre. ¿Qué pasa?
 
-## Así llega al CAU
+## preguntar
 
-- "¿Por qué no me deja anotarme a una materia de cuarto cuatrimestre?" → Porque necesita tener aprobado Universitarios 21.
-- "Tengo materias aprobadas en otra universidad, ¿hago Universitarios 21?" → Si con equivalencias externas, solas o sumadas a materias cursadas en Siglo 21, llega a 5 o más aprobadas en su legajo, queda eximido de las dos materias.
+- [x] ¿Tiene aprobadas las dos materias de Universitarios 21?
+  > Hay que aprobarlas para inscribirse a materias de cuarto cuatrimestre.
+- [x] ¿Tiene 5 o más materias aprobadas en el legajo, contando equivalencias?
+  > Con 5 o más queda eximido de Universitarios 21.
+- [x] ¿Tiene regulares las correlativas de esa materia?
+  > Las correlativas también pueden frenar la inscripción.
+- [ ] ¿En qué turno cursa?
+  > No tiene que ver con Universitarios 21.
 
-## Ojo con
+## idea: Qué es Universitarios 21
 
-- Parte de la bibliografía de Aprender en el Siglo 21 es el Reglamento Institucional.
+Es el programa de ingreso de grado y pregrado: dos materias del primer semestre, Aprender en el Siglo 21 y Tecnología, Humanidades y Modelos Globales. Se cursan y evalúan con las mismas reglas que el resto de las materias de su modalidad, y hay que aprobar las dos para inscribirse a materias de cuarto cuatrimestre.
+
+clave: Las dos materias aprobadas, para anotarse en cuarto cuatrimestre.
+ejemplo: Si a Brian le falta aprobar una de las dos, por eso no lo deja anotarse.
+
+## probalo 1
+
+## idea: La eximición
+
+Una equivalencia externa no reemplaza a estas materias. Pero si con equivalencias externas, solas o sumadas a materias cursadas en Siglo 21, llega a 5 o más aprobadas en su legajo, queda eximido de las dos.
+
+clave: Con 5 o más aprobadas en el legajo, queda eximido.
+
+## probalo 2
+
+## ojo
+
+Una equivalencia externa por una de estas dos materias no sirve: lo que exime es llegar a 5 aprobadas en el legajo.
+Parte de la bibliografía de Aprender en el Siglo 21 es el Reglamento Institucional.
+
+## cierre
+
+A Brian le explicás que, para anotarse a materias de cuarto cuatrimestre, tiene que tener aprobadas las dos materias de Universitarios 21, salvo que tenga 5 o más materias aprobadas en el legajo, que lo eximen.
+
+recordar: Cuarto cuatrimestre: Universitarios 21 aprobado, o 5 aprobadas en el legajo.
 
 ## Probalo
 
