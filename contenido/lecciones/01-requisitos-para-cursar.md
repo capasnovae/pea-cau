@@ -4,25 +4,62 @@ curso: "cursado"
 modulo: "Ingreso"
 orden: 1
 fuente: "rg-2-5-requisitos-para-cursado"
+formato: "tarjetas"
 ---
 
-## En 30 segundos
+## caso
 
-- Hace falta conexión a Internet. Si no la tiene, debe informarlo a la Universidad para que evalúe su caso.
-- El correo electrónico que registra es el canal oficial: ahí llegan todas las notificaciones. Mantenerlo actualizado es su responsabilidad.
-- Para rendir exámenes virtuales o usar software especial necesita notebook con cámara y micrófono (Windows 10 o superior, o Mac Monterrey 12.6.3 o superior).
-- Seguir cursando depende de no tener sanciones académicas o administrativas.
+persona: Sofía
+canal: whatsapp
+Hola! No me llegó nada del cambio de fecha del parcial y mañana tengo que rendir el virtual. ¿Lo puedo hacer desde la tablet?
 
-## Así llega al CAU
+## preguntar
 
-- "No me llegan los avisos de la facultad." → Que revise el correo que tiene registrado: es el canal oficial. Si cambió de mail, tiene que actualizarlo en sus datos.
-- "¿Puedo rendir el virtual desde la tablet?" → No: para exámenes virtuales se pide notebook con cámara y micrófono, con Windows 10 o superior o Mac Monterrey 12.6.3 o superior.
-- "No tengo Internet en casa, ¿puedo cursar igual?" → Tiene que informarlo a la Universidad, que evalúa si puede admitirlo o continuar.
+- [x] ¿El correo que tiene registrado es el que usa hoy?
+  > Todas las notificaciones van al correo registrado; si cambió de mail, tiene que actualizarlo.
+- [x] ¿Con qué equipo va a rendir?
+  > Para exámenes virtuales se pide notebook con cámara, micrófono y un sistema operativo mínimo.
+- [x] ¿Tiene conexión a Internet?
+  > Es requisito para cursar; si no la tiene, debe informarlo a la Universidad.
+- [ ] ¿En qué año de la carrera está?
+  > No cambia lo que le tenés que decir.
 
-## Ojo con
+## idea: El correo registrado es el canal oficial
 
-- Una expulsión en otra universidad o instituto oficial inhabilita para cursar, salvo resolución del Rectorado.
-- En carreras que lo piden, el ambo o la chaquetilla es obligatorio y lo compra cada estudiante.
+Todas las notificaciones de la Universidad llegan al correo que la persona registró. Mantenerlo actualizado es responsabilidad suya: si cambió de mail y no lo actualizó en sus datos, los avisos le siguen llegando a una casilla que no usa.
+
+clave: Los avisos van al correo registrado; actualizarlo le toca al estudiante.
+ejemplo: Si Sofía cambió de mail, que lo actualice en sus datos y revise la casilla registrada.
+
+## probalo 1
+
+## idea: El equipo para rendir virtual
+
+Para rendir exámenes virtuales o usar software especial hace falta una notebook con cámara y micrófono, con Windows 10 o superior o Mac Monterrey 12.6.3 o superior, además del procesador, la memoria y la conexión que se piden. Tiene que cumplir todos los requisitos, no solo uno: la tablet o el celular no sirven.
+
+clave: Notebook con cámara, micrófono y sistema operativo mínimo; tablet o celular, no.
+ejemplo: Sofía no puede rendir desde la tablet: necesita una notebook que cumpla los requisitos.
+
+## probalo 2
+
+## idea: Sin Internet, se informa
+
+La conexión a Internet es requisito para cursar. Si la persona no la tiene, tiene que informarlo a la Universidad, que evalúa si puede admitirla o si puede seguir cursando. No es algo que el CAU pueda dar por resuelto.
+
+clave: Sin conexión, lo informa a la Universidad y ella decide.
+
+## probalo 3
+
+## ojo
+
+Seguir cursando depende de no tener sanciones académicas o administrativas, y una expulsión en otra universidad o instituto oficial inhabilita para cursar, salvo resolución del Rectorado.
+En las carreras que lo piden, el ambo o la chaquetilla es obligatorio y lo compra cada estudiante.
+
+## cierre
+
+A Sofía le respondés que los avisos llegan al correo que tiene registrado: que revise esa casilla y, si cambió de mail, que lo actualice en sus datos. Y que el virtual no lo puede rendir desde la tablet: necesita una notebook con cámara, micrófono y Windows 10 o superior (o Mac Monterrey 12.6.3 o superior).
+
+recordar: Avisos al correo registrado; el virtual, con una notebook que cumpla los requisitos.
 
 ## Probalo
 

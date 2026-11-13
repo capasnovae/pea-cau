@@ -4,27 +4,61 @@ curso: "aranceles"
 modulo: "Aranceles y pagos"
 orden: 10
 fuente: "rg-14-4-normas-arancelarias"
+formato: "tarjetas"
 ---
 
-## En 30 segundos
+## caso
 
-- La matrícula es semestral y debe estar paga y activa para rendir parciales, finales o la defensa del Seminario Final.
-- En distancia, la matrícula del 1er semestre va del 1/1 al 31/7 y la del 2do, del 1/8 al 31/12.
-- En ED y EDH se paga por paquete: Ticket A, Ticket B o semestre completo (A+B), según materias y subperíodo. En PD, tickets de 1, 3, 4 o 6 materias.
-- Materias extra en ED y EDH: arancel aparte (grado 1/6 y pregrado 1/4 del arancel A+B). No les aplican becas.
-- No se reintegra dinero por no completar el cursado por causas personales.
+persona: Matías
+canal: whatsapp
+Hola, no pagué la matrícula de este semestre. ¿Puedo rendir el final igual la semana que viene?
 
-## Así llega al CAU
+## preguntar
 
-- "No pagué la matrícula, ¿puedo rendir el final igual?" → No: para rendir parciales, finales o la defensa del Seminario Final la matrícula tiene que estar paga y activa.
-- "Dejé de cursar a mitad de semestre, ¿me devuelven el ticket?" → No: no hay reintegro cuando el servicio fue prestado y deja por causas personales.
-- "Mi beca, ¿cubre la materia extra?" → No: en materias extra y en las de verano no aplican becas ni beneficios.
+- [x] ¿Tiene la matrícula del semestre paga y activa?
+  > Sin eso no puede rendir parciales, finales ni la defensa del Seminario Final.
+- [x] ¿En qué modalidad cursa?
+  > Cambian los períodos de matrícula y la forma de pago.
+- [x] ¿Hace cuánto que no tiene actividad académica?
+  > Con más de 1 año sin actividad queda en baja administrativa.
+- [ ] ¿Qué materia rinde?
+  > No cambia el requisito de la matrícula.
 
-## Ojo con
+## idea: La matrícula, paga y activa
 
-- Sin actividad académica por más de 1 año calendario queda en baja administrativa y debe matricularse de nuevo.
-- Suspender no cambia la regularidad, pero para volver a inscribirse o rendir las regulares debe cancelar la deuda de tickets del período en que las regularizó.
-- Pregrado y ciclos de complementación en distancia no tienen arancel único para el subperíodo A: pagan semestre completo.
+La matrícula es semestral y tiene que estar paga y activa para rendir parciales, finales o la defensa del Seminario Final. En distancia, la del primer semestre va del 1/1 al 31/7 y la del segundo, del 1/8 al 31/12.
+
+clave: Sin matrícula paga y activa, no se rinde.
+ejemplo: Matías tiene que pagar la matrícula del semestre antes de rendir.
+
+## probalo 1
+
+## idea: Cómo se paga el cursado
+
+En ED y EDH se paga por paquete: Ticket A, Ticket B o semestre completo (A+B), según materias y subperíodo; en PD, tickets de 1, 3, 4 o 6 materias. Pregrado y ciclos de complementación en distancia no tienen arancel único para el subperíodo A: pagan semestre completo.
+
+clave: Distancia: Ticket A, B o A+B. PD: tickets por cantidad de materias.
+
+## probalo 3
+
+## idea: Extras y reintegros
+
+Las materias extra en ED y EDH tienen arancel aparte (en grado, 1/6 del arancel A+B; en pregrado, 1/4) y no les aplican becas ni beneficios. Y no se reintegra dinero cuando deja de cursar por causas personales.
+
+clave: Extras con arancel aparte y sin beca; sin reintegro por causas personales.
+
+## probalo 2
+
+## ojo
+
+Sin actividad académica por más de 1 año calendario queda en baja administrativa y debe matricularse de nuevo.
+Suspender no cambia la regularidad, pero para volver a inscribirse o rendir las regulares debe cancelar la deuda de tickets del período en que las regularizó.
+
+## cierre
+
+A Matías le explicás que no puede rendir: para presentarse a un final, la matrícula del semestre tiene que estar paga y activa. Que la pague antes de la fecha del examen.
+
+recordar: Para rendir, matrícula paga y activa.
 
 ## Probalo
 

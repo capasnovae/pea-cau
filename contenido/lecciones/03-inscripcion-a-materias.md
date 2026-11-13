@@ -4,28 +4,61 @@ curso: "cursado"
 modulo: "Cursado"
 orden: 3
 fuente: "rg-5-2-inscripcion-a-materias"
+formato: "tarjetas"
 ---
 
-## En 30 segundos
+## caso
 
-- Se inscribe en el período del Calendario Académico. Cerrado el período, no hay inscripción.
-- Necesita aranceles al día, legajo completo, estar matriculado y respetar las correlativas.
-- Para materias de cuarto cuatrimestre, debe tener aprobado Universitarios 21.
-- Queda inscripto a la materia con aranceles pagos e inscripción hecha. Al semestre, solo si pagó la matrícula antes del inicio del período o subperíodo.
-- Topes en ED y EDH: grado 6 + 2 extra; pregrado 4 + 2 extra. Si se inscribe solo en el subperíodo B, 1 extra. En PD, hasta 8 materias.
+persona: Bruno
+canal: telefono
+Hola, se me pasó la fecha de inscripción y todavía no pagué la cuota. ¿Me pueden anotar igual a las materias?
 
-## Así llega al CAU
+## preguntar
 
-- "Se me pasó la fecha, ¿me pueden anotar?" → No: una vez cerrado el período del Calendario Académico no se puede inscribir.
-- "Me anoté pero no pagué, ¿estoy cursando?" → No todavía: la inscripción a la materia queda firme cuando están pagos los aranceles.
-- "Estudio a distancia, ¿cuántas materias puedo hacer?" → En grado, hasta 6 al inicio del semestre más 2 adicionales si las correlativas lo permiten; en pregrado, 4 más 2. Las extras se pagan aparte.
-- "Empiezo en el segundo subperíodo, ¿a cuántas me anoto?" → Los ingresantes con equivalencias y quienes empiezan en los segundos subperíodos (junio u octubre) cursan solo materias de ese subperíodo, hasta 3.
+- [x] ¿Sigue abierto el período de inscripción del calendario?
+  > Cerrado el período, no hay inscripción.
+- [x] ¿Tiene los aranceles al día y el legajo completo?
+  > Son requisitos; sin los aranceles pagos la inscripción no queda firme.
+- [x] ¿Es grado o pregrado, y en qué modalidad?
+  > De eso dependen los topes de materias.
+- [ ] ¿Qué materia le gusta más?
+  > No cambia nada del trámite.
 
-## Ojo con
+## idea: Cuándo y con qué requisitos
 
-- Los ingresantes no pueden anotarse a materias extra.
-- Práctica Solidaria y Práctica Profesional: inscripción hasta el viernes previo al inicio de clases.
-- Procurador: 5 + 2. Licenciatura en Educación y Escribanía (ciclos): 4 + 2. Los ciclos con 6 materias por semestre siguen la regla de grado (6 + 2).
+Se inscribe en el período del Calendario Académico: cerrado el período, no hay inscripción. Necesita aranceles al día, legajo completo, estar matriculado y respetar las correlativas; para materias de cuarto cuatrimestre, además, Universitarios 21 aprobado. Queda inscripto a la materia recién con la inscripción hecha y los aranceles pagos.
+
+clave: En fecha, al día y con correlativas; sin pago, no queda inscripto.
+ejemplo: A Bruno, con el período cerrado, no se lo puede anotar.
+
+## probalo 3
+
+## idea: Cuántas materias
+
+En ED y EDH, en grado: hasta 6 materias al inicio del semestre más 2 adicionales; en pregrado, 4 más 2. Si se inscribe solo en el subperíodo B, 1 extra. En PD, hasta 8 materias. Las extras se pagan aparte y dependen de las correlativas.
+
+clave: Distancia: grado 6 + 2, pregrado 4 + 2. PD: hasta 8.
+
+## probalo 1
+
+## idea: Ingresantes y segundo subperíodo
+
+Los ingresantes no pueden anotarse a materias extra. Los ingresantes con equivalencias y quienes empiezan en los segundos subperíodos (junio u octubre) cursan solo materias de ese subperíodo, hasta 3.
+
+clave: Ingresantes: sin extras; si empiezan en junio u octubre, hasta 3.
+
+## probalo 2
+
+## ojo
+
+Práctica Solidaria y Práctica Profesional tienen su propia fecha: inscripción hasta el viernes previo al inicio de clases.
+Algunas carreras tienen otros topes: Procurador, 5 + 2; Licenciatura en Educación y Escribanía (ciclos), 4 + 2.
+
+## cierre
+
+A Bruno le explicás que, cerrado el período del Calendario Académico, no se lo puede inscribir, y que aunque se anote en fecha, la inscripción queda firme recién con los aranceles pagos. Que tenga en cuenta las fechas del próximo período y llegue con la cuota al día.
+
+recordar: Inscripción en fecha y con los aranceles pagos.
 
 ## Probalo
 

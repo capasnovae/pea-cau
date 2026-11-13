@@ -4,24 +4,56 @@ curso: "cursado"
 modulo: "Cursado"
 orden: 4
 fuente: "rg-5-4-cambio-de-catedra"
+formato: "tarjetas"
 ---
 
-## En 30 segundos
+## caso
 
-- Es solo para modalidades presenciales: en el CAU, aplica a PD.
-- Se pide en el período del Calendario Académico y solo si hay superposición de horarios entre materias del mismo semestre.
-- Requisitos: aranceles del semestre pagos y cambiar a una cátedra del mismo turno.
+persona: Joaquín
+canal: mostrador
+Hola, curso PD a la mañana y me quiero pasar a la cátedra de la tarde de una materia, porque me queda mejor con el trabajo. ¿Se puede?
 
-## Así llega al CAU
+## preguntar
 
-- "Curso en PD y se me superponen dos materias del mismo cuatrimestre." → Puede pedir cambio de cátedra en el período del calendario, con los aranceles pagos y a una cátedra del mismo turno.
-- "Quiero pasarme a la cátedra de la tarde porque me queda mejor." → Solo se cambia si hay superposición de horarios y siempre dentro del mismo turno.
-- "Estudio en ED, ¿puedo cambiar de cátedra?" → No: el cambio de cátedra es solo para las modalidades presenciales.
+- [x] ¿En qué modalidad cursa?
+  > El cambio de cátedra es solo para modalidades presenciales: en el CAU, PD.
+- [x] ¿Tiene superposición de horarios entre materias del mismo semestre?
+  > Es el único motivo por el que se cambia de cátedra.
+- [x] ¿Tiene pagos los aranceles del semestre?
+  > Es requisito para pedirlo.
+- [ ] ¿Qué docente prefiere?
+  > La preferencia por un docente no habilita el cambio.
 
-## Ojo con
+## idea: Solo en PD y solo por superposición
 
-- Si cursa materias de distintos cuatrimestres a la vez, la Universidad no garantiza que no haya superposiciones.
-- Las fechas del cambio de cátedra salen en el Calendario Académico de PD de cada año: chequealas ahí, no de memoria.
+El cambio de cátedra es solo para las modalidades presenciales: en el CAU, aplica a PD. Se pide en el período del Calendario Académico y solo si hay superposición de horarios entre materias del mismo semestre. No se cambia por comodidad ni por preferir otro docente.
+
+clave: PD, en fecha y solo si se superponen materias del mismo semestre.
+ejemplo: Si a Joaquín no se le superponen materias, no corresponde el cambio.
+
+## probalo 1
+
+## idea: Mismo turno y aranceles pagos
+
+Además, tiene que tener pagos los aranceles del semestre y el cambio es siempre a una cátedra del mismo turno: de mañana a mañana, no de mañana a tarde.
+
+clave: Con aranceles pagos y siempre dentro del mismo turno.
+ejemplo: Aunque Joaquín tuviera superposición, no podría pasar a la tarde.
+
+## probalo 2
+
+## ojo
+
+Si cursa materias de distintos cuatrimestres a la vez, la Universidad no garantiza que no haya superposiciones.
+Las fechas del cambio de cátedra salen en el Calendario Académico de PD de cada año: chequealas ahí, no de memoria.
+
+## probalo 3
+
+## cierre
+
+A Joaquín le explicás que no se puede: el cambio de cátedra se pide solo si hay superposición de horarios entre materias del mismo semestre, y siempre a una cátedra del mismo turno. Pasarse a la tarde porque le queda mejor no es un motivo que se acepte.
+
+recordar: Solo por superposición, en fecha, con aranceles pagos y en el mismo turno.
 
 ## Probalo
 

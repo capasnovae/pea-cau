@@ -4,23 +4,54 @@ curso: "tramites"
 modulo: "Trámites"
 orden: 7
 fuente: "rg-14-5-solicitud-de-baja"
+formato: "tarjetas"
 ---
 
-## En 30 segundos
+## caso
 
-- Se pide en la Mesa de Atención de Alumnos o por autogestión en el portal.
-- Requisito: no deber libros en la biblioteca ni tener deuda, baja administrativa o inhabilitación académica.
-- La baja no devuelve dinero ni cancela la deuda de aranceles del semestre, salvo razones institucionales aprobadas por el Vicerrectorado.
+persona: Gonzalo
+canal: whatsapp
+Hola, quiero darme de baja de la carrera. Tengo una cuota atrasada. ¿Me devuelven lo que pagué del semestre?
 
-## Así llega al CAU
+## preguntar
 
-- "Quiero darme de baja, ¿me devuelven lo que pagué?" → No: la baja no implica reintegro ni cancela deuda de aranceles, salvo razones institucionales justificadas y aprobadas.
-- "¿Dónde pido la baja?" → En la Mesa de Atención de Alumnos o desde las herramientas de autogestión del portal.
-- "Tengo una cuota atrasada y me quiero dar de baja." → Primero tiene que regularizar la deuda: es requisito para otorgar la baja.
+- [x] ¿Tiene deuda de aranceles?
+  > Sin regularizar la deuda no se otorga la baja.
+- [x] ¿Debe libros de la biblioteca?
+  > Es otro requisito para la baja.
+- [x] ¿Tiene una baja administrativa o una inhabilitación académica?
+  > También impiden otorgar la baja.
+- [ ] ¿Por qué motivo quiere dejar?
+  > No cambia los requisitos ni habilita un reintegro.
 
-## Ojo con
+## idea: Dónde se pide y qué se necesita
 
-- También puede renunciar a la regularidad de una materia aunque siga vigente.
+Se pide en la Mesa de Atención de Alumnos o por autogestión en el portal. Para otorgarla, no tiene que deber libros en la biblioteca ni tener deuda, baja administrativa o inhabilitación académica.
+
+clave: En la Mesa o por el portal; sin deuda ni libros pendientes.
+ejemplo: Gonzalo primero tiene que regularizar la cuota atrasada.
+
+## probalo 1
+
+## probalo 3
+
+## idea: No hay reintegro
+
+La baja no devuelve dinero ni cancela la deuda de aranceles del semestre. La única excepción son razones institucionales justificadas y aprobadas por el Vicerrectorado.
+
+clave: La baja no devuelve lo pagado ni cancela la deuda.
+
+## probalo 2
+
+## ojo
+
+Darse de baja de la carrera no es la única opción: también puede renunciar a la regularidad de una materia, aunque siga vigente.
+
+## cierre
+
+A Gonzalo le explicás que puede pedir la baja en la Mesa de Atención de Alumnos o desde el portal, pero primero tiene que regularizar la cuota atrasada. Y que la baja no le devuelve lo que pagó ni cancela la deuda del semestre.
+
+recordar: Primero sin deuda; la baja no tiene reintegro.
 
 ## Probalo
 

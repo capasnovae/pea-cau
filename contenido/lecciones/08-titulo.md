@@ -4,24 +4,52 @@ curso: "egreso"
 modulo: "Título y colación"
 orden: 8
 fuente: "rg-12-5-proceso-de-titulacion"
+formato: "tarjetas"
 ---
 
-## En 30 segundos
+## caso
 
-- La titulación empieza cuando cumplió todos los requisitos de la Universidad y de la normativa.
-- Se abona una tasa por el trámite del título.
-- El diploma se emite en hasta 120 días corridos desde que el legajo queda como Egresado, con la documentación completa.
-- En carreras que lo prevén, puede pedir el título intermedio.
+persona: Camila
+canal: whatsapp
+Hola! Ya rendí la última materia. ¿Cuándo me dan el título? ¿Tiene costo?
 
-## Así llega al CAU
+## preguntar
 
-- "Terminé la carrera, ¿cuándo tengo el título?" → El plazo es de hasta 120 días corridos desde que el legajo queda como Egresado, con toda la documentación obligatoria completa.
-- "¿El título tiene costo?" → Sí: se abona la tasa del trámite administrativo del título.
-- "Mi carrera tiene título intermedio, ¿cómo lo pido?" → Lo inicia el estudiante, siempre que cumpla lo exigido por la carrera para esa titulación.
+- [x] ¿Su legajo ya figura como Egresado?
+  > El plazo para el diploma corre desde ahí.
+- [x] ¿Tiene completa la documentación obligatoria?
+  > Sin la documentación completa, el plazo no empieza.
+- [x] ¿Egresó por articulación o doble titulación?
+  > En ese caso, el trámite empieza al terminar el reconocimiento de estudios.
+- [ ] ¿Qué nota sacó en la última materia?
+  > No influye en el trámite del título.
 
-## Ojo con
+## idea: Cuándo empieza y cuánto tarda
 
-- Si egresó por articulación o doble titulación, el trámite empieza al terminar el reconocimiento de estudios.
+La titulación empieza cuando cumplió todos los requisitos de la Universidad y de la normativa. El diploma se emite en hasta 120 días corridos desde que el legajo queda como Egresado, con toda la documentación obligatoria completa. Se abona una tasa por el trámite del título.
+
+clave: Hasta 120 días desde Egresado, con la documentación completa; tiene tasa.
+ejemplo: Si a Camila le falta documentación, el plazo todavía no corre.
+
+## probalo 1
+
+## idea: El título intermedio
+
+En las carreras que lo prevén, se puede pedir el título intermedio. Lo inicia el estudiante, siempre que cumpla lo exigido por la carrera para esa titulación.
+
+clave: El título intermedio lo pide el estudiante, si cumple lo exigido.
+
+## probalo 2
+
+## ojo
+
+Si egresó por articulación o doble titulación, el trámite del título empieza al terminar el reconocimiento de estudios, no antes.
+
+## cierre
+
+A Camila le explicás que el diploma se emite en hasta 120 días corridos desde que su legajo queda como Egresado, siempre que tenga toda la documentación obligatoria completa, y que el trámite tiene una tasa.
+
+recordar: Egresado y documentación completa: hasta 120 días, con tasa.
 
 ## Probalo
 

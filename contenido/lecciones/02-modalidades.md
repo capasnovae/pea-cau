@@ -4,27 +4,57 @@ curso: "cursado"
 modulo: "Modalidades"
 orden: 2
 fuente: "rg-3-1-modalidades-de-cursado"
+formato: "tarjetas"
 ---
 
-## En 30 segundos
+## caso
 
-- En el CAU se cursan carreras de grado y pregrado en tres modalidades: ED, EDH y PD.
-- ED: plataforma más Open Class en el CAU. Cada subperíodo dura 9 semanas y se asiste cada 2 semanas por materia.
-- En ED se cursan hasta 2 materias con asistencia al CAU por subperíodo; en grado se puede sumar 1 materia 100% virtual.
-- EDH: todo el cursado es en la plataforma, sin asistencia al CAU.
-- PD: es presencial; las materias se cursan cuatrimestralmente con actividades sincrónicas.
+persona: Agustina
+canal: mostrador
+Hola, quiero empezar a estudiar pero trabajo todo el día. ¿Me conviene ED o EDH? ¿Tengo que venir al CAU?
 
-## Así llega al CAU
+## preguntar
 
-- "Trabajo todo el día, ¿qué me conviene?" → Distancia está pensada para quien no puede asistir regularmente: ED, con Open Class en el CAU, o EDH, íntegramente en la plataforma.
-- "¿En ED tengo que venir al CAU?" → Sí, a las Open Class: cada 2 semanas por materia, en las fechas del calendario. En EDH no hay asistencia al CAU.
-- "¿Puedo sumar una materia sin venir al CAU?" → En carreras de grado en ED puede sumar 1 materia íntegramente virtual por subperíodo, que se rige por las reglas de EDH.
+- [x] ¿Puede venir al CAU cada 2 semanas por materia?
+  > En ED hay Open Class en el CAU; en EDH no hay asistencia.
+- [x] ¿Es una carrera de grado o de pregrado?
+  > En grado, en ED puede sumar 1 materia 100% virtual por subperíodo.
+- [x] ¿Necesita ajustes razonables?
+  > Con ajustes razonables rinde obligatoriamente en su sede o CAU.
+- [ ] ¿Qué promedio tuvo en el secundario?
+  > No cambia la modalidad que le conviene.
 
-## Ojo con
+## idea: ED: plataforma y Open Class en el CAU
 
-- Si en el CAU no se llega a 5 ingresantes de la misma carrera, la Universidad puede pasar a los de ED a EDH.
-- Quienes necesitan ajustes razonables rinden obligatoriamente en su sede o CAU, no en su casa.
-- El 75% de asistencia de las condiciones de aprobación no aplica en EDH.
+En ED se cursa en la plataforma y se asiste a Open Class en el CAU: cada subperíodo dura 9 semanas y se va cada 2 semanas por materia, en las fechas del calendario. Se cursan hasta 2 materias con asistencia por subperíodo; en grado se puede sumar 1 materia 100% virtual, que se rige por las reglas de EDH.
+
+clave: ED: Open Class cada 2 semanas por materia; en grado, +1 materia virtual.
+ejemplo: Si Agustina puede venir al CAU cada dos semanas, ED le sirve.
+
+## probalo 2
+
+## idea: EDH, todo en la plataforma; PD, presencial
+
+En EDH todo el cursado es en la plataforma, sin asistencia al CAU, y el 75% de asistencia de las condiciones de aprobación no aplica. Distancia (ED o EDH) está pensada para quien no puede asistir regularmente.
+PD, en cambio, es presencial: las materias se cursan cuatrimestralmente con actividades sincrónicas.
+
+clave: EDH: sin asistencia al CAU. PD: presencial y cuatrimestral.
+ejemplo: Si Agustina no puede venir nunca, EDH es la que le sirve.
+
+## probalo 1
+
+## ojo
+
+Quienes necesitan ajustes razonables rinden obligatoriamente en su sede o CAU, no en su casa, aunque cursen EDH.
+Y si en el CAU no se llega a 5 ingresantes de la misma carrera, la Universidad puede pasar a los de ED a EDH.
+
+## probalo 3
+
+## cierre
+
+A Agustina le explicás que las dos modalidades a distancia están pensadas para quien trabaja: en ED cursa en la plataforma y viene al CAU a las Open Class, cada 2 semanas por materia; en EDH todo es en la plataforma, sin venir al CAU. Que elija según si puede asistir cada dos semanas.
+
+recordar: ED: Open Class en el CAU. EDH: todo en la plataforma. PD: presencial.
 
 ## Probalo
 

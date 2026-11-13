@@ -4,25 +4,55 @@ curso: "egreso"
 modulo: "Título y colación"
 orden: 9
 fuente: "rg-12-6-colacion"
+formato: "tarjetas"
 ---
 
-## En 30 segundos
+## caso
 
-- Es el acto de reconocimiento a quienes terminaron su plan con todos los requisitos cumplidos.
-- Cada colación incluye a quienes egresaron entre el 1 de septiembre del año anterior y el 31 de agosto del año en curso.
-- En la ceremonia se entrega un diploma simbólico, no el título oficial.
-- Si adeuda documentación para el título, no participa.
+persona: Ignacio
+canal: mostrador
+Hola, terminé la carrera en octubre. ¿Entro en la colación de este año? ¿Ahí me dan el título?
 
-## Así llega al CAU
+## preguntar
 
-- "¿En la colación me dan el título?" → No: se entrega un diploma simbólico. El título oficial sigue su propio trámite.
-- "Terminé en octubre, ¿entro en la colación de este año?" → Entra quien egresó entre el 1 de septiembre del año anterior y el 31 de agosto del año en curso: octubre pasa a la siguiente.
-- "Me falta presentar un papel, ¿puedo colacionar igual?" → No: si adeuda documentación para emitir el título no puede participar.
+- [x] ¿Cuándo egresó?
+  > Entra quien egresó entre el 1 de septiembre del año anterior y el 31 de agosto del año en curso.
+- [x] ¿Tiene completa la documentación para el título?
+  > Si adeuda documentación, no participa.
+- [x] ¿Es grado o pregrado, y de qué CAU?
+  > En pregrado, el acto alcanza a egresados de CAU Córdoba y Río IV.
+- [ ] ¿Qué promedio tiene?
+  > No influye en la colación.
 
-## Ojo con
+## idea: Quién entra en cada colación
 
-- En pregrado, por la distancia, el acto alcanza a egresados de CAU Córdoba y Río IV, salvo que la Universidad lo amplíe.
-- No incluye títulos intermedios ni dobles titulaciones, salvo que haya gestionado equivalencias.
+La colación es el acto de reconocimiento a quienes terminaron su plan con todos los requisitos cumplidos. Cada una incluye a quienes egresaron entre el 1 de septiembre del año anterior y el 31 de agosto del año en curso. Si adeuda documentación para el título, no participa.
+
+clave: Egresados del 1/9 al 31/8, sin documentación pendiente.
+ejemplo: Ignacio terminó en octubre: pasa a la colación siguiente.
+
+## probalo 1
+
+## idea: Un diploma simbólico
+
+En la ceremonia se entrega un diploma simbólico, no el título oficial: el título sigue su propio trámite.
+
+clave: En la colación, diploma simbólico; el título va por su trámite.
+
+## probalo 3
+
+## ojo
+
+En pregrado, por la distancia, el acto alcanza a egresados de CAU Córdoba y Río IV, salvo que la Universidad lo amplíe.
+No incluye títulos intermedios ni dobles titulaciones, salvo que haya gestionado equivalencias.
+
+## probalo 2
+
+## cierre
+
+A Ignacio le explicás que, como egresó en octubre, entra en la colación siguiente, la de quienes egresan hasta el 31 de agosto del año que viene. Y que en el acto se entrega un diploma simbólico: el título oficial sigue su propio trámite.
+
+recordar: Del 1/9 al 31/8; en la colación, diploma simbólico.
 
 ## Probalo
 
