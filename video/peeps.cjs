@@ -9,6 +9,7 @@ const path = require("path");
 
 const GENTE = {
   lucia: { hair: "Long", body: "Device" },
+  sofia: { hair: "BunCurly", body: "Device", accessory: "None" },
   martin: { hair: "ShortVolumed", body: "ButtonShirt", facialHair: "Chin" },
   narradora: { hair: "Bun", body: "PointingUp", accessory: "GlassRoundThick" },
 };

@@ -1,6 +1,6 @@
-# Guion · Requisitos para cursar (borrador, a validar)
+# Guion · Requisitos para cursar (aprobado por la dueña; contenido a validar)
 
-Fuente: Reglamento General, 2.5 Requisitos para el cursado (lección 01). Los nombres y los datos de Sofía (que cambió de mail y usa la tablet) son inventados para el caso.
+Fuente: Reglamento General, 2.5 Requisitos para el cursado (lección 01), y la práctica del CAU (se puede rendir en el CAU). Los nombres y los datos de Sofía (que cambió de mail y usa la tablet) son inventados para el caso.
 Música: lo-fi.
 
 **Personajes y voces**
@@ -16,7 +16,7 @@ Todo el caso pasa **por WhatsApp**, como en la tarjeta de la lección.
 
 *Sofía en su casa, de noche, con la tablet en la mano.*
 
-**SOFÍA (escribe):** «Hola! No me llegó nada del cambio de fecha del parcial y mañana tengo que rendir el virtual. ¿Lo puedo hacer desde la tablet?»
+**SOFÍA (escribe):** «Hola! No me llegó nada del cambio de fecha del parcial y mañana tengo que rendir. ¿Lo puedo hacer desde la tablet?»
 
 ## 2. El error de apuro
 
@@ -70,7 +70,7 @@ Y en las carreras que lo piden, el ambo o la chaquetilla es obligatorio y lo com
 
 *Vuelve el chat. Martín escribe con calma.*
 
-**MARTÍN (escribe):** «Los avisos llegan al correo que tenés registrado: revisá esa casilla y actualizá tu mail en tus datos. El virtual no lo podés rendir desde la tablet: necesitás una notebook con cámara, micrófono y Windows 10 o superior (o Mac Monterrey 12.6.3 o superior).»
+**MARTÍN (escribe):** «Los avisos llegan al correo que tenés registrado: revisá esa casilla y actualizá tu mail en tus datos. El virtual no lo podés rendir desde la tablet: necesitás una notebook con cámara, micrófono y Windows 10 o superior (o Mac Monterrey 12.6.3 o superior). Si no, podés venir a rendir al CAU en nuestro horario de atención.»
 
 **SOFÍA (audio):** Ahí reviso el mail viejo y lo actualizo. ¡Gracias, Martín!
 

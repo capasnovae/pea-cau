@@ -1,4 +1,4 @@
-// Video con personajes dibujados (Open Peeps, CC0): Lucía, Martín y la narradora, un chat del CAU y tableros animados.
+// Video con personajes dibujados (Open Peeps, CC0): el estudiante del caso, Martín y la narradora, un chat del CAU y tableros animados.
 // La línea de tiempo viene armada desde render-guion.ts (cada línea con su audio medido): la escena espera a cada momento.
 import { Circle, Gradient, Img, Layout, Line, Node, Rect, Txt, makeScene2D } from "@revideo/2d";
 import type { Reference, ThreadGenerator } from "@revideo/core";
@@ -15,7 +15,7 @@ import {
   useThread,
   waitFor,
 } from "@revideo/core";
-import type { LineaConTiempo, Palabra, PlanoConTiempo, Quien, Tarjeta, Tono } from "../../guiones/tipos.ts";
+import type { Estudiante, LineaConTiempo, Palabra, PlanoConTiempo, Quien, Tarjeta, Tono } from "../../guiones/tipos.ts";
 
 type Persona = Exclude<Quien, "nadie">;
 type Cara = "cerrada" | "abierta" | "preocupada" | "contenta" | "apurada";
@@ -39,13 +39,14 @@ const LETRA = "Plus Jakarta Sans";
 const TONO: Record<Tono, string> = { ok: C.ok, aviso: C.aviso, mal: C.mal, neutro: C.primario };
 const SIGNO: Record<Tono, string> = { ok: "✓", aviso: "!", mal: "✕", neutro: "•" };
 const GENTE: Record<Persona, { nombre: string; color: string; fondo: string }> = {
-  lucia: { nombre: "Lucía", color: "#ea580c", fondo: "#fed7aa" },
+  estudiante: { nombre: "Lucía", color: "#ea580c", fondo: "#fed7aa" },
   martin: { nombre: "Martín · asesor del CAU", color: "#2563eb", fondo: "#bfdbfe" },
   narradora: { nombre: "Narradora", color: "#0f766e", fondo: "#a7f3d0" },
 };
 // Los dibujos miden 850 × 1200; la cabeza ocupa más o menos el 40 % de arriba
 const PROP = 850 / 1200;
-const src = (q: Persona, c: Cara) => `/peeps/${q}-${c}.svg`;
+let EST: Estudiante = { id: "lucia", nombre: "Lucía", detalle: "Estudiante" };
+const src = (q: Persona, c: Cara) => `/peeps/${q === "estudiante" ? EST.id : q}-${c}.svg`;
 
 // ---------- tiempo ----------
 function* hasta(t: number) {
@@ -166,7 +167,7 @@ function partes(l: LineaConTiempo): { t: number; texto: string }[] {
 }
 
 // ---------- escena ----------
-type Mensaje = { de: "lucia" | "martin"; tipo: "texto" | "audio"; texto: string; dur?: number; borrador?: boolean };
+type Mensaje = { de: "estudiante" | "martin"; tipo: "texto" | "audio"; texto: string; dur?: number; borrador?: boolean };
 type Armado = {
   nodo: Node;
   alEntrar?: () => ThreadGenerator;
@@ -180,6 +181,11 @@ export default makeScene2D("personajes", function* (view) {
   const titulo = useScene().variables.get("titulo", "Lección")();
   const bajada = useScene().variables.get("bajada", "")();
   const total = useScene().variables.get("total", 1)();
+  EST = useScene().variables.get("estudiante", EST)();
+  GENTE.estudiante.nombre = EST.nombre;
+  // lo primero que escribe el estudiante, para la notificación que le llega al asesor
+  const primerMensaje = planos.flatMap((p) => p.lineas).find((l) => l.quien === "estudiante" && l.modo === "escribe")?.texto ?? "";
+  const avisoTexto = primerMensaje.length > 24 ? primerMensaje.slice(0, 22).trimEnd() + "…" : primerMensaje;
 
   const fuente = new FontFace(LETRA, "url(/plus-jakarta-sans.woff2)", { weight: "400 800" });
   yield fuente.load().then((f) => document.fonts.add(f));
@@ -191,12 +197,12 @@ export default makeScene2D("personajes", function* (view) {
   const nombre = createRef<Txt>();
   const dicho = createRef<Txt>();
   const retratos = {} as Record<Persona, Muñeco & { marco: Reference<Circle> }>;
-  for (const q of ["lucia", "martin", "narradora"] as const) retratos[q] = { ...nuevoMuñeco(), marco: createRef() };
+  for (const q of ["estudiante", "martin", "narradora"] as const) retratos[q] = { ...nuevoMuñeco(), marco: createRef() };
 
   view.add(<Node ref={escenario} />);
   view.add(
     <Rect ref={banda} width={1000} height={230} y={530} radius={36} fill={C.blanco} opacity={0} shadowColor="rgba(15,23,42,0.25)" shadowBlur={40} shadowOffsetY={12}>
-      {(["lucia", "martin", "narradora"] as const).map((q) => (
+      {(["estudiante", "martin", "narradora"] as const).map((q) => (
         <Circle ref={retratos[q].marco} size={160} x={-390} fill={GENTE[q].fondo} clip opacity={0}>
           <Dibujo q={q} alto={400} m={retratos[q]} y={292} />
         </Circle>
@@ -217,7 +223,7 @@ export default makeScene2D("personajes", function* (view) {
     }
     const q = l.quien;
     if (enBanda !== q) {
-      for (const p of ["lucia", "martin", "narradora"] as const) retratos[p].marco().opacity(p === q ? 1 : 0);
+      for (const p of ["estudiante", "martin", "narradora"] as const) retratos[p].marco().opacity(p === q ? 1 : 0);
       chip().fill(GENTE[q].color);
       enBanda = q;
     }
@@ -294,10 +300,10 @@ export default makeScene2D("personajes", function* (view) {
               <T t={titulo} tam={96} peso={800} color={C.blanco} ancho={960} alinea="center" />
               <T t={bajada} tam={40} color={C.suave} peso={500} />
             </Layout>
-            <Circle size={420} x={-300} y={560} fill={GENTE.lucia.fondo} />
+            <Circle size={420} x={-300} y={560} fill={GENTE.estudiante.fondo} />
             <Circle size={420} x={0} y={600} fill={GENTE.narradora.fondo} />
             <Circle size={420} x={300} y={560} fill={GENTE.martin.fondo} />
-            <Dibujo q="lucia" alto={560} m={ms[0]} x={-300} y={720} cara="contenta" />
+            <Dibujo q="estudiante" alto={560} m={ms[0]} x={-300} y={720} cara="contenta" />
             <Dibujo q="narradora" alto={560} m={ms[1]} x={0} y={740} cara="contenta" />
             <Dibujo q="martin" alto={560} m={ms[2]} x={300} y={720} cara="contenta" />
           </Node>
@@ -321,7 +327,28 @@ export default makeScene2D("personajes", function* (view) {
         const n = (
           <Node ref={raiz}>
             <Node ref={camara}>
-              {colectivo ? (
+              {plano.lugar === "casa" ? (
+                <Node>
+                  {/* su casa, de noche */}
+                  <Rect width={1080} height={1350} fill={degradado("#312e81", "#4338ca")} />
+                  <Rect width={520} height={460} x={-200} y={-330} radius={30} fill={degradado("#0f172a", "#1e3a8a")} stroke="#a16207" lineWidth={18} clip>
+                    <Circle size={110} x={120} y={-90} fill="#fef9c3" />
+                    <Circle size={110} x={150} y={-110} fill="#1e293b" />
+                    {Array.from({ length: 14 }, (_, i) => (
+                      <Circle size={6 + (i % 3) * 3} x={-230 + ((i * 97) % 460)} y={-190 + ((i * 61) % 300)} fill="#fef3c7" opacity={0.8} />
+                    ))}
+                  </Rect>
+                  <Rect width={16} height={460} x={-200} y={-330} fill="#a16207" />
+                  {/* lámpara con su luz */}
+                  <Circle size={520} x={330} y={-120} fill="#fde68a" opacity={0.18} />
+                  <Line points={[[330, -60], [330, 300]]} stroke="#78350f" lineWidth={12} />
+                  <Line points={[[250, -60], [410, -60], [370, -200], [290, -200]]} closed fill="#fbbf24" />
+                  {/* sillón */}
+                  <Rect width={900} height={520} y={420} radius={[90, 90, 20, 20]} fill="#7c3aed" />
+                  <Rect width={1000} height={180} y={640} radius={40} fill="#6d28d9" />
+                  <Dibujo q="estudiante" alto={880} m={m} y={700} cara="preocupada" />
+                </Node>
+              ) : colectivo ? (
                 <Node>
                   <Rect width={1080} height={1350} fill={degradado("#fde68a", "#fbbf24")} />
                   {/* ventanilla con la ciudad que pasa */}
@@ -342,7 +369,7 @@ export default makeScene2D("personajes", function* (view) {
                   {/* asiento */}
                   <Rect width={520} height={620} y={300} radius={[80, 80, 20, 20]} fill="#1d4ed8" />
                   <Rect width={440} height={80} y={40} radius={40} fill="#3b82f6" />
-                  <Dibujo q="lucia" alto={900} m={m} y={700} cara="preocupada" />
+                  <Dibujo q="estudiante" alto={900} m={m} y={700} cara="preocupada" />
                   {/* agarradera */}
                   <Line points={[[-420, -675], [-420, -560]]} stroke="#9ca3af" lineWidth={10} />
                   <Circle size={70} x={-420} y={-530} stroke="#9ca3af" lineWidth={12} />
@@ -376,8 +403,8 @@ export default makeScene2D("personajes", function* (view) {
                   <Rect ref={aviso} x={240} y={-150} radius={32} padding={[20, 30]} layout fill={C.blanco} scale={0} gap={16} alignItems="center" shadowColor="rgba(0,0,0,0.2)" shadowBlur={30} shadowOffsetY={8}>
                     <Circle size={48} fill={C.chat} />
                     <Layout direction="column">
-                      <T t="Lucía" tam={30} peso={800} />
-                      <T t="Hola! Curso ED pero…" tam={26} color={C.gris} peso={500} />
+                      <T t={EST.nombre} tam={30} peso={800} />
+                      <T t={avisoTexto} tam={26} color={C.gris} peso={500} />
                     </Layout>
                   </Rect>
                 </Node>
@@ -395,7 +422,7 @@ export default makeScene2D("personajes", function* (view) {
           alEntrar: function* () {
             spawn(camara().scale(1.07, dur, (v) => v));
             if (colectivo) yield* ciudad().x(-900, dur, (v) => v);
-            else {
+            else if (plano.lugar === "cau") {
               yield* waitFor(0.5);
               yield* aviso().scale(1, 0.5, easeOutBack);
             }
@@ -424,7 +451,7 @@ export default makeScene2D("personajes", function* (view) {
         const tapa = createRef<Rect>();
         const narr = nuevoMuñeco();
         const narrCaja = createRef<Node>();
-        const gente = { lucia: nuevoMuñeco(), martin: nuevoMuñeco() };
+        const gente = { estudiante: nuevoMuñeco(), martin: nuevoMuñeco() };
         const telefono = createRef<Node>();
         const circulo = createRef<Circle>();
         const n = (
@@ -432,19 +459,19 @@ export default makeScene2D("personajes", function* (view) {
             <Node ref={telefono}>
               <Fondo a="#e0e7ff" b="#c7d2fe" manchas="#a5b4fc" />
               {/* quien escribe o habla, al costado del teléfono */}
-              <Circle ref={circulo} size={440} x={-320} y={120} fill={GENTE.lucia.fondo} opacity={0.9} />
-              <Dibujo q="lucia" alto={680} m={gente.lucia} x={-320} y={440} />
+              <Circle ref={circulo} size={440} x={-320} y={120} fill={GENTE.estudiante.fondo} opacity={0.9} />
+              <Dibujo q="estudiante" alto={680} m={gente.estudiante} x={-320} y={440} />
               <Dibujo q="martin" alto={680} m={gente.martin} x={-320} y={440} />
               {/* teléfono */}
               <Rect width={620} height={1000} x={200} y={-160} radius={70} fill="#111827" shadowColor="rgba(15,23,42,0.4)" shadowBlur={60} shadowOffsetY={24}>
                 <Rect width={580} height={960} radius={52} fill={C.fondoChat} clip>
                   <Layout ref={columna} layout direction="column" justifyContent="end" gap={14} width={540} height={790} y={65} />
                   <Rect width={580} height={150} y={-405} fill={C.chat} />
-                  <Circle size={70} x={-205} y={-380} fill={GENTE.lucia.fondo} clip>
-                    <Img src={src("lucia", "cerrada")} height={200} width={200 * PROP} y={60} />
+                  <Circle size={70} x={-205} y={-380} fill={GENTE.estudiante.fondo} clip>
+                    <Img src={src("estudiante", "cerrada")} height={200} width={200 * PROP} y={60} />
                   </Circle>
-                  <Txt x={-155} y={-396} offset={[-1, 0]} text="Lucía" fontFamily={LETRA} fontSize={34} fontWeight={700} fill={C.blanco} />
-                  <Txt x={-155} y={-360} offset={[-1, 0]} text="Estudiante · ED" fontFamily={LETRA} fontSize={22} fontWeight={500} fill="#ccfbf1" />
+                  <Txt x={-155} y={-396} offset={[-1, 0]} text={EST.nombre} fontFamily={LETRA} fontSize={34} fontWeight={700} fill={C.blanco} />
+                  <Txt x={-155} y={-360} offset={[-1, 0]} text={EST.detalle} fontFamily={LETRA} fontSize={22} fontWeight={500} fill="#ccfbf1" />
                   <Rect width={170} height={32} y={-462} radius={16} fill="#111827" />
                 </Rect>
               </Rect>
@@ -459,18 +486,18 @@ export default makeScene2D("personajes", function* (view) {
             </Node>
           </Node>
         ) as Node;
-        respirar(gente.lucia.nodo);
+        respirar(gente.estudiante.nodo);
         respirar(gente.martin.nodo, 0.3);
         respirar(narr.nodo);
         // empieza mostrando a quien habla primero en este plano
-        const primero = plano.lineas.find((l) => l.quien === "lucia" || l.quien === "martin")?.quien ?? "lucia";
-        let visible: "lucia" | "martin" = primero as "lucia" | "martin";
+        const primero = plano.lineas.find((l) => l.quien === "estudiante" || l.quien === "martin")?.quien ?? "estudiante";
+        let visible: "estudiante" | "martin" = primero as "estudiante" | "martin";
         circulo().fill(GENTE[visible].fondo);
-        gente.lucia.nodo().opacity(visible === "lucia" ? 1 : 0);
+        gente.estudiante.nodo().opacity(visible === "estudiante" ? 1 : 0);
         gente.martin.nodo().opacity(visible === "martin" ? 1 : 0);
         const borrar = plano.borra && historial[historial.length - 1]?.borrador;
         for (const m of historial) columna().add(burbuja(m).fila);
-        function* cambiar(q: "lucia" | "martin") {
+        function* cambiar(q: "estudiante" | "martin") {
           if (q === visible) return;
           const sale = gente[visible].nodo();
           const entra = gente[q].nodo();
@@ -481,7 +508,7 @@ export default makeScene2D("personajes", function* (view) {
         }
         return {
           nodo: n,
-          bocas: { narradora: narr.boca, lucia: gente.lucia.boca, martin: gente.martin.boca },
+          bocas: { narradora: narr.boca, estudiante: gente.estudiante.boca, martin: gente.martin.boca },
           alEntrar: function* () {
             if (borrar) {
               const fila = columna().children()[columna().children().length - 1] as Layout;
@@ -494,7 +521,7 @@ export default makeScene2D("personajes", function* (view) {
             yield* all(tapa().opacity(1, 0.3), telefono().filters.grayscale(1, 0.3), telefono().filters.blur(4, 0.3), narrCaja().x(0, 0.55, easeOutBack));
           },
           linea: function* (l) {
-            if (l.quien !== "lucia" && l.quien !== "martin") return;
+            if (l.quien !== "estudiante" && l.quien !== "martin") return;
             if (l.modo !== "escribe" && l.modo !== "audio") return;
             yield* cambiar(l.quien);
             const m: Mensaje = { de: l.quien, tipo: l.modo === "audio" ? "audio" : "texto", texto: l.texto, dur: l.dur, borrador: l.corta };
@@ -644,9 +671,9 @@ export default makeScene2D("personajes", function* (view) {
                 <T t="Ahora probá vos" tam={44} color={C.suave} peso={700} />
               </Layout>
             </Layout>
-            <Circle size={300} x={-330} y={290} fill={GENTE.lucia.fondo} />
+            <Circle size={300} x={-330} y={290} fill={GENTE.estudiante.fondo} />
             <Circle size={300} x={330} y={290} fill={GENTE.martin.fondo} />
-            <Dibujo q="lucia" alto={380} m={ms[0]} x={-330} y={410} cara="contenta" />
+            <Dibujo q="estudiante" alto={380} m={ms[0]} x={-330} y={410} cara="contenta" />
             <Dibujo q="martin" alto={380} m={ms[2]} x={330} y={410} cara="contenta" />
           </Node>
         ) as Node;
@@ -667,7 +694,7 @@ export default makeScene2D("personajes", function* (view) {
   }
 });
 
-/** Una burbuja del chat. Las de Martín (CAU) van a la derecha; las de Lucía, a la izquierda. */
+/** Una burbuja del chat. Las de Martín (CAU) van a la derecha; las del estudiante, a la izquierda. */
 function burbuja(m: Mensaje, nueva = false) {
   const txt = createRef<Txt>();
   const meta = createRef<Txt>();

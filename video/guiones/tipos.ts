@@ -1,6 +1,6 @@
 // Forma del guion de un video con personajes. Lo usan render.ts (voces y tiempos) y la escena de Revideo (lo que se ve).
 
-export type Quien = "lucia" | "martin" | "narradora" | "nadie";
+export type Quien = "estudiante" | "martin" | "narradora" | "nadie";
 
 export type Linea = {
   quien: Quien;
@@ -22,7 +22,7 @@ type Base = { lineas?: Linea[] };
 export type Plano = Base &
   (
     | { tipo: "portada" }
-    | { tipo: "escena"; lugar: "colectivo" | "cau"; rotulo: string }
+    | { tipo: "escena"; lugar: "colectivo" | "casa" | "cau"; rotulo: string }
     | { tipo: "chat"; sigue?: boolean; borra?: boolean }
     | { tipo: "nota"; texto: string; detalle?: string }
     | {
@@ -38,7 +38,9 @@ export type Plano = Base &
   );
 
 /** musica: "lofi" (por defecto) o "suave" (piano y cuerdas, la de Cambio de modalidad). */
-export type Guion = { titulo: string; bajada: string; musica?: "lofi" | "suave"; planos: Plano[] };
+/** El estudiante del caso: id del dibujo (public/peeps/<id>-*.svg), nombre, lo que se ve debajo del nombre en el chat y su voz. */
+export type Estudiante = { id: string; nombre: string; detalle: string; voz?: string; velocidad?: string };
+export type Guion = { titulo: string; bajada: string; musica?: "lofi" | "suave"; estudiante: Estudiante; planos: Plano[] };
 
 /** Palabra dicha: inicio y duración en segundos desde que empieza la línea. */
 export type Palabra = { t: number; d: number; p: string };

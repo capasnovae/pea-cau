@@ -6,6 +6,7 @@ const guion: Guion = {
   titulo: "Cambio de modalidad",
   bajada: "Un caso real, paso a paso",
   musica: "suave",
+  estudiante: { id: "lucia", nombre: "Lucía", detalle: "Estudiante · ED" },
   planos: [
     { tipo: "portada" },
     {
@@ -18,7 +19,7 @@ const guion: Guion = {
       tipo: "chat",
       lineas: [
         {
-          quien: "lucia",
+          quien: "estudiante",
           modo: "escribe",
           texto: "Hola! Curso ED pero con el trabajo no llego a cumplir la asistencia en el CAU. Me quiero pasar a EDH. ¿Se puede? ¿Cómo hago?",
         },
@@ -59,7 +60,7 @@ const guion: Guion = {
           texto: "Hola, Lucía. Antes de decirte cómo seguir, voy a hacer un chequeo de tus materias, porque si tenés materias cursando se pierden, y con un final anotado todavía no se puede pedir el pase.",
         },
         {
-          quien: "lucia",
+          quien: "estudiante",
           modo: "audio",
           texto: "Sí, el jueves rindo un final, como Libre por Nota. Tengo cuatro aprobadas, una regular y las dos que estoy cursando ahora. Y el Seminario de Práctica lo regularicé el año pasado.",
         },
@@ -199,7 +200,7 @@ const guion: Guion = {
           modo: "escribe",
           texto: "Sí se puede, pero todavía no. Primero rendí el final del jueves (o date de baja de esa mesa) y esperá que carguen la nota. Las 2 materias que estás cursando te quedarían Libre por Pase; las aprobadas, la regular y el Seminario de Práctica los conservás. Cuando tengas la nota cargada, avisanos y lo pedimos por interno, dentro de las fechas del calendario de trámites.",
         },
-        { quien: "lucia", modo: "audio", texto: "Buenísimo, entonces rindo el jueves y después les aviso. ¡Gracias, Martín!" },
+        { quien: "estudiante", modo: "audio", texto: "Buenísimo, entonces rindo el jueves y después les aviso. ¡Gracias, Martín!" },
       ],
     },
     {

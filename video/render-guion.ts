@@ -10,7 +10,7 @@ import type { Guion, LineaConTiempo, Palabra, PlanoConTiempo, Quien } from "./gu
 
 const VOZ: Record<Exclude<Quien, "nadie">, { voz: string; velocidad: string }> = {
   narradora: { voz: "es-UY-ValentinaNeural", velocidad: "+0%" },
-  lucia: { voz: "es-AR-ElenaNeural", velocidad: "+5%" },
+  estudiante: { voz: "es-AR-ElenaNeural", velocidad: "+5%" },
   martin: { voz: "es-AR-TomasNeural", velocidad: "+0%" },
 };
 const ENTRADA = 0.6; // segundos entre que aparece un plano y empieza la primera línea
@@ -22,6 +22,7 @@ export async function renderGuion(slug: string) {
   const dir = import.meta.dirname;
   const guion: Guion = (await import(join(dir, "guiones", `${slug}.ts`))).default;
   const audios = join(dir, "salida", "voces");
+  VOZ.estudiante = { voz: guion.estudiante.voz ?? VOZ.estudiante.voz, velocidad: guion.estudiante.velocidad ?? VOZ.estudiante.velocidad };
   mkdirSync(audios, { recursive: true });
 
   const id = (q: Exclude<Quien, "nadie">, texto: string) =>
@@ -112,7 +113,7 @@ export async function renderGuion(slug: string) {
   // 4) imagen
   const mudo = await renderVideo({
     projectFile: "./src/personajes.ts",
-    variables: { planos, titulo: guion.titulo, bajada: guion.bajada, total },
+    variables: { planos, titulo: guion.titulo, bajada: guion.bajada, estudiante: guion.estudiante, total },
     settings: {
       outFile: `${slug}.mudo.mp4`,
       outDir: "./salida",
