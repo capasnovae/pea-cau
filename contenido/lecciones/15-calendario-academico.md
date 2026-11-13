@@ -4,26 +4,60 @@ curso: "cursado"
 modulo: "Cursado"
 orden: 15
 fuente: "rg-5-1-calendario-academico"
+formato: "tarjetas"
 ---
 
-## En 30 segundos
+## caso
 
-- Se publica cada año en el Portal de estudiante; conocer las fechas es responsabilidad del alumno.
-- ED y EDH: 2 semestres con 2 subperíodos de 9 semanas cada uno. La semana 9 es de recuperatorios e integradores.
-- En ED y EDH el 1er parcial va de la semana 1 a la 4 y el 2do de la 5 a la 8. Excepción: MIP es cuatrimestral (semanas 1–8 y 10–17; recuperatorio en la 18).
-- PD: semestres de 16 semanas. 1ros parciales en las semanas 7 y 8; 2dos parciales en las semanas 14 y 15.
-- Si un parcial coincide con un feriado se reprograma; en PD, solo por feriado nacional.
+persona: Celeste
+canal: whatsapp
+Hola! Curso ED y el parcial me cae justo en el feriado provincial. ¿Lo cambian? ¿Dónde veo las fechas?
 
-## Así llega al CAU
+## preguntar
 
-- "¿Dónde veo las fechas de los TP y los parciales?" → En el calendario académico de su modalidad, publicado en el Portal de estudiante (también está en La Nube).
-- "¿Hasta cuándo me puedo inscribir en el subperíodo?" → Lo dice el calendario académico de Distancia del año en curso, en el Portal de estudiante: tiene la fecha de inicio de clases y el cierre de inscripción de cada subperíodo.
-- "¿Cuándo son los recuperatorios en ED?" → ¿Es una MIP? Si es bimestral, en la semana 9 del subperíodo; si es MIP, en la semana 18. Las fechas exactas, en el calendario vigente.
+- [x] ¿En qué modalidad cursa?
+  > ED y EDH tienen un calendario y PD otro.
+- [x] ¿La materia es MIP o bimestral?
+  > La MIP es cuatrimestral y tiene otras semanas de parcial y recuperatorio.
+- [x] ¿El feriado es nacional o provincial?
+  > Un parcial en feriado se reprograma; en PD, solo si el feriado es nacional.
+- [ ] ¿Qué nota sacó en el último TP?
+  > No cambia las fechas.
 
-## Ojo con
+## idea: Dónde están las fechas
 
-- Las fechas cambian cada año: verificá siempre el calendario vigente.
-- TP en Distancia: MEC y MAP vencen en las semanas 5 y 8; MIA, en la 4, 5, 7 y 8; MIP, en la 5, 9, 12 y 16. Las fechas, en el calendario vigente.
+El calendario académico se publica cada año en el Portal de estudiante (también está en La Nube), y conocer las fechas es responsabilidad del alumno. Las fechas cambian cada año: verificá siempre el calendario vigente de su modalidad.
+
+clave: Calendario vigente de su modalidad, en el Portal de estudiante.
+
+## idea: Cómo se organiza Distancia
+
+ED y EDH tienen 2 semestres con 2 subperíodos de 9 semanas. El 1.er parcial va de la semana 1 a la 4 y el 2.º, de la 5 a la 8; la semana 9 es de recuperatorios e integradores. La excepción es MIP, que es cuatrimestral: parciales en las semanas 1–8 y 10–17, y recuperatorio en la 18.
+
+clave: Distancia: parciales en semanas 1–4 y 5–8, recuperatorios en la 9 (MIP, otro esquema).
+
+## probalo 1
+
+## idea: PD y los feriados
+
+PD tiene semestres de 16 semanas: los primeros parciales, en las semanas 7 y 8, y los segundos, en la 14 y la 15. Si un parcial coincide con un feriado se reprograma; en PD, solo si es feriado nacional.
+
+clave: Un parcial en feriado se reprograma; en PD, solo por feriado nacional.
+ejemplo: Celeste cursa ED: su parcial se reprograma aunque el feriado sea provincial.
+
+## probalo 2
+
+## ojo
+
+Las entregas de TP en Distancia también tienen semanas fijas: MEC y MAP vencen en las semanas 5 y 8; MIA, en la 4, 5, 7 y 8; MIP, en la 5, 9, 12 y 16. Las fechas exactas, en el calendario vigente.
+
+## probalo 3
+
+## cierre
+
+A Celeste le explicás que, como cursa ED, el parcial que cae en un feriado se reprograma aunque el feriado sea provincial, y que las fechas las ve en el calendario académico de Distancia vigente, en el Portal de estudiante.
+
+recordar: Fechas en el calendario vigente; en feriado se reprograma (en PD, solo nacional).
 
 ## Probalo
 

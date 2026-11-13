@@ -4,25 +4,60 @@ curso: "cursado"
 modulo: "Ingreso"
 orden: 14
 fuente: "rg-2-4-documentacion-obligatoria-y-complementaria-extranjeros"
+formato: "tarjetas"
 ---
 
-## En 30 segundos
+## caso
 
-- Quien terminó el secundario en el exterior debe convalidar el título ante las autoridades educativas nacionales: es obligatorio.
-- Para equivalencias de estudios en el exterior: documentación legalizada (apostilla de La Haya o consulado) y traducción de Traductor Público si no está en español.
-- Necesita la residencia de la Dirección Nacional de Migraciones para estudiar en el país.
-- En grado y pregrado debe presentar el DNI argentino durante el primer año.
+persona: Mateo
+canal: whatsapp
+Hola! Terminé el secundario en Paraguay y me quiero inscribir a una carrera a distancia. ¿Qué necesito?
 
-## Así llega al CAU
+## preguntar
 
-- "Terminé el secundario en Paraguay, ¿me puedo inscribir?" → Sí, pero tiene que convalidar su título secundario ante las autoridades educativas nacionales: es un requisito obligatorio.
-- "Mis certificados están en portugués." → Tienen que estar legalizados (apostilla o consulado) y traducidos por Traductor Público Nacional; para Brasil no se exige que esté inscripto en el registro.
-- "¿Qué hago con la residencia?" → La tramita en Migraciones. El Centro de Internacionalización le da la constancia de inscripción para el trámite.
+- [x] ¿Ya convalidó el título secundario?
+  > Es obligatorio, ante las autoridades educativas nacionales.
+- [x] ¿Tiene la residencia de Migraciones?
+  > La necesita para estudiar en el país.
+- [x] ¿Quiere pedir equivalencias de estudios en el exterior?
+  > La documentación va legalizada y, si no está en español, traducida.
+- [ ] ¿Hace cuánto vive en Argentina?
+  > No es un requisito.
 
-## Ojo con
+## idea: Convalidar el título
 
-- En carreras que piden título de grado previo, no puede empezar sin la convalidación o reválida de ese título.
-- Migraciones pide acreditar avance académico a los 6 o 12 meses.
+Quien terminó el secundario en el exterior tiene que convalidar el título ante las autoridades educativas nacionales: es obligatorio. En las carreras que piden título de grado previo, tampoco puede empezar sin la convalidación o reválida de ese título.
+
+clave: Secundario del exterior: convalidación obligatoria.
+ejemplo: Mateo puede inscribirse, pero tiene que convalidar su título paraguayo.
+
+## probalo 1
+
+## idea: Documentación del exterior
+
+Para equivalencias de estudios en el exterior, la documentación va legalizada (apostilla de La Haya o consulado) y, si no está en español, traducida por Traductor Público Nacional. Para Brasil no hace falta que el traductor esté inscripto en el Registro.
+
+clave: Legalizada (apostilla o consulado) y con traducción pública si no está en español.
+
+## probalo 2
+
+## idea: Residencia y DNI
+
+Para estudiar en el país necesita la residencia de la Dirección Nacional de Migraciones, que se tramita allá; el Centro de Internacionalización le da la constancia de inscripción para el trámite. En grado y pregrado debe presentar el DNI argentino durante el primer año.
+
+clave: Residencia en Migraciones y DNI argentino durante el primer año.
+
+## probalo 3
+
+## ojo
+
+Migraciones pide acreditar avance académico a los 6 o 12 meses.
+
+## cierre
+
+A Mateo le explicás que puede inscribirse, pero tiene que convalidar su título secundario ante las autoridades educativas nacionales, tramitar la residencia en Migraciones (con la constancia que le da el Centro de Internacionalización) y presentar el DNI argentino durante el primer año.
+
+recordar: Convalidación, residencia y DNI argentino en el primer año.
 
 ## Probalo
 

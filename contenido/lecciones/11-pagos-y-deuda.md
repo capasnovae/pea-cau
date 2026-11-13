@@ -4,25 +4,56 @@ curso: "aranceles"
 modulo: "Aranceles y pagos"
 orden: 11
 fuente: "rg-14-4-normas-arancelarias"
+formato: "tarjetas"
 ---
 
-## En 30 segundos
+## caso
 
-- Los tickets se generan en la autogestión y el pago tarda unas 72 horas hábiles en acreditarse.
-- Es responsabilidad del estudiante pagar con anticipación y guardar el comprobante.
-- Con deuda anterior no puede pagar la matrícula ni los aranceles del período actual hasta cancelarla.
-- Todo pago se aplica primero a la deuda y puede tener recargo por mora.
+persona: Lorena
+canal: whatsapp
+Hola! Debo una cuota del semestre pasado. Hoy quiero pagar la matrícula de este semestre porque mañana cierra la inscripción. ¿Llego?
 
-## Así llega al CAU
+## preguntar
 
-- "Pagué hoy y mañana cierra la inscripción." → El pago tarda unas 72 horas hábiles en acreditarse: por eso se recomienda pagar con anticipación.
-- "Quiero pagar este semestre pero debo una cuota del anterior." → Primero tiene que cancelar lo adeudado: cualquier pago se aplica antes a la deuda.
-- "Me rechazaron el pago con tarjeta." → La Universidad lo intima a regularizar en un plazo; si no lo hace, pasa a baja administrativa.
+- [x] ¿Tiene deuda de períodos anteriores?
+  > Con deuda no puede pagar la matrícula ni los aranceles del período actual.
+- [x] ¿Cuándo cierra la inscripción?
+  > El pago tarda unas 72 horas hábiles en acreditarse.
+- [x] ¿Cómo va a pagar?
+  > Si un pago con tarjeta es rechazado, se la intima a regularizar en un plazo.
+- [ ] ¿Qué carrera cursa?
+  > No cambia cómo se aplican los pagos.
 
-## Ojo con
+## idea: Primero la deuda
 
-- Con deuda tampoco puede pagar tasas de trámites.
-- Si se da de baja del servicio, no hay devolución de dinero.
+Con deuda anterior no puede pagar la matrícula ni los aranceles del período actual hasta cancelarla, y tampoco las tasas de trámites. Todo pago se aplica primero a la deuda y puede tener recargo por mora.
+
+clave: Todo pago va primero a la deuda; con deuda, no paga lo actual.
+ejemplo: Lo que Lorena pague hoy se aplica primero a la cuota que debe.
+
+## probalo 1
+
+## idea: El pago tarda en acreditarse
+
+Los tickets se generan en la autogestión y el pago tarda unas 72 horas hábiles en acreditarse. Es responsabilidad del estudiante pagar con anticipación y guardar el comprobante.
+
+clave: Unas 72 horas hábiles para acreditarse: pagar con tiempo y guardar el comprobante.
+ejemplo: Si la inscripción cierra mañana, un pago de hoy puede no llegar a acreditarse.
+
+## probalo 2
+
+## ojo
+
+Si le rechazan un pago con tarjeta, la Universidad lo intima a regularizar en un plazo; si no lo hace, pasa a baja administrativa.
+Y si se da de baja del servicio, no hay devolución de dinero.
+
+## probalo 3
+
+## cierre
+
+A Lorena le explicás que primero tiene que cancelar la cuota que debe, porque todo pago se aplica antes a la deuda, y que el pago tarda unas 72 horas hábiles en acreditarse: pagando hoy, puede no llegar al cierre de mañana. Que pague cuanto antes y guarde el comprobante.
+
+recordar: Primero la deuda, y pagar con 72 horas hábiles de margen.
 
 ## Probalo
 

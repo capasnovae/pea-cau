@@ -4,26 +4,62 @@ curso: "cursado"
 modulo: "Ingreso"
 orden: 13
 fuente: "rg-2-2-documentacion-obligatoria-y-complementaria"
+formato: "tarjetas"
 ---
 
-## En 30 segundos
+## caso
 
-- El legajo completo es requisito. Se presenta en la sede o CAU con original y copia; la copia certificada se envía en formato digital.
-- Grado y pregrado: solicitud de inscripción firmada, DNI vigente (no el digital), secundario completo, 2 fotos color 3x3 y ficha médica.
-- Sin el analítico todavía, sirve una constancia de título en trámite que diga que no adeuda materias: vale 1 año y se presenta una sola vez.
-- Plazo para completar el legajo: grado, 1 año y medio (si no, no se reinscribe al 4.º período); pregrado, 1 año (si no, no se reinscribe al 3.º).
+persona: Milagros
+canal: mostrador
+Hola, vengo a dejar los papeles para inscribirme. Traje el DNI en el celular y todavía no tengo el analítico del secundario. ¿Sirve?
 
-## Así llega al CAU
+## preguntar
 
-- "¿Puedo presentar el DNI digital?" → No: para el legajo se acepta solo el DNI vigente, no el digital. Si es extranjero, pasaporte vigente.
-- "Todavía no me dieron el analítico del secundario." → Puede presentar una constancia de título en trámite donde conste que no adeuda materias. Vale 1 año desde su emisión y se presenta una sola vez.
-- "¿Quién me certifica las copias?" → Personal autorizado del CAU o la sede, juez de paz, registro civil o escribano público. Después la envía en formato digital.
+- [x] ¿Trae el DNI vigente en tarjeta?
+  > Para el legajo no se acepta el DNI digital.
+- [x] ¿Tiene el analítico o una constancia de título en trámite?
+  > La constancia sirve si dice que no adeuda materias.
+- [x] ¿Es una carrera de grado o de pregrado?
+  > Cambia el plazo para completar el legajo.
+- [ ] ¿Por qué eligió esta carrera?
+  > No cambia la documentación.
 
-## Ojo con
+## idea: Qué tiene que presentar
 
-- La secretaría del juzgado no sirve para certificar copias.
-- Mayores de 25 sin secundario completo: ingreso por trámite especial con resolución rectoral (45 días hábiles).
-- Ciclos de complementación: piden título superior previo y el legajo se completa en el primer año (Escribanía, en 6 meses).
+El legajo completo es requisito. En grado y pregrado: solicitud de inscripción firmada, DNI vigente (no el digital; si es extranjero, pasaporte vigente), secundario completo, 2 fotos color 3x3 y ficha médica. Se presenta en la sede o CAU con original y copia, y la copia certificada se envía en formato digital.
+
+clave: Solicitud, DNI vigente (no digital), secundario, 2 fotos 3x3 y ficha médica.
+ejemplo: Milagros tiene que traer el DNI en tarjeta: el del celular no sirve.
+
+## idea: Sin analítico, la constancia
+
+Si todavía no tiene el analítico, sirve una constancia de título en trámite que diga que no adeuda materias. Vale 1 año desde su emisión y se presenta una sola vez.
+
+clave: Constancia de título en trámite, sin materias adeudadas: vale 1 año, una vez.
+ejemplo: Milagros puede presentar la constancia del colegio mientras espera el analítico.
+
+## probalo 1
+
+## idea: Plazos para completarlo
+
+En grado hay 1 año y medio para completar el legajo; si no, no se reinscribe al 4.º período. En pregrado, 1 año; si no, no se reinscribe al 3.º.
+
+clave: Grado, 1 año y medio; pregrado, 1 año. Si no, no se reinscribe.
+
+## probalo 2
+
+## ojo
+
+Las copias las certifica personal autorizado del CAU o la sede, un juez de paz, el registro civil o un escribano público. La secretaría del juzgado no sirve.
+Mayores de 25 sin secundario completo ingresan por un trámite especial con resolución rectoral (45 días hábiles).
+
+## probalo 3
+
+## cierre
+
+A Milagros le explicás que el DNI digital no sirve para el legajo: tiene que presentar el DNI vigente. Y que, mientras espera el analítico, puede presentar una constancia de título en trámite que diga que no adeuda materias, que vale 1 año y se presenta una sola vez.
+
+recordar: DNI vigente (no digital) y, sin analítico, constancia de título en trámite.
 
 ## Probalo
 

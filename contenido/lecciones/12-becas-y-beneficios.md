@@ -4,26 +4,55 @@ curso: "aranceles"
 modulo: "Becas y beneficios"
 orden: 12
 fuente: "rg-14-3-becas-y-beneficios"
+formato: "tarjetas"
 ---
 
-## En 30 segundos
+## caso
 
-- Una beca se otorga por mérito (buen nivel académico y regularidad) a quien no tiene recursos suficientes; un beneficio, por una situación o cualidad del estudiante.
-- No son acumulables entre sí: si califica para más de una, se aplica la más provechosa.
-- Becas del primer semestre: postulación del 1 de octubre del año anterior al 1 de enero.
-- Becas del segundo semestre: postulación del 1 de abril al 1 de julio.
+persona: Ezequiel
+canal: mostrador
+Hola, tengo beca por rendimiento y mi hermana empieza a estudiar acá. ¿Me suman también el descuento por familiar?
 
-## Así llega al CAU
+## preguntar
 
-- "Tengo beca y me corresponde también el beneficio por familiar, ¿se suman?" → No: becas y beneficios no son acumulables; se aplica el que más le convenga.
-- "¿Cuándo me postulo para el primer semestre?" → Del 1 de octubre del año anterior al 1 de enero; el resultado se confirma hasta el 1 de febrero.
-- "¿Hasta cuándo pido un beneficio para el subperíodo 1B?" → Los beneficios tienen fechas propias por subperíodo, distintas de las becas. Fijate en el calendario de trámites vigente: cambian cada año.
-- "Entregué la solicitud incompleta." → Las solicitudes incompletas o con deficiencias se rechazan: tiene que cumplir todos los requisitos de la categoría.
+- [x] ¿Ya tiene una beca o un beneficio?
+  > Becas y beneficios no se acumulan: se aplica el más provechoso.
+- [x] ¿Para qué semestre quiere la ayuda?
+  > Cada semestre tiene su período de postulación.
+- [x] ¿Tiene alguna promoción vigente?
+  > Las promociones sí pueden sumarse, según sus condiciones.
+- [ ] ¿Qué carrera va a estudiar la hermana?
+  > No cambia si se acumulan.
 
-## Ojo con
+## idea: Beca o beneficio, no los dos
 
-- Las promociones sí pueden sumarse a una beca o beneficio, según sus condiciones.
-- Quien tiene beca debe informar cualquier cambio en su situación económica o académica.
+Una beca se otorga por mérito (buen nivel académico y regularidad) a quien no tiene recursos suficientes; un beneficio, por una situación o cualidad del estudiante. No son acumulables entre sí: si califica para más de una, se aplica la más provechosa. Las promociones, en cambio, sí pueden sumarse según sus condiciones.
+
+clave: Beca y beneficio no se suman: se aplica el que más conviene.
+ejemplo: A Ezequiel se le aplica la beca o el beneficio por familiar, el que le convenga más.
+
+## probalo 1
+
+## probalo 3
+
+## idea: Cuándo postularse
+
+Becas del primer semestre: postulación del 1 de octubre del año anterior al 1 de enero, con resultado hasta el 1 de febrero. Becas del segundo semestre: del 1 de abril al 1 de julio. Los beneficios tienen fechas propias por subperíodo: fijate en el calendario de trámites vigente, porque cambian cada año.
+
+clave: Becas: 1/10 al 1/1 y 1/4 al 1/7. Beneficios: según el calendario de trámites.
+
+## probalo 2
+
+## ojo
+
+Las solicitudes incompletas o con deficiencias se rechazan: tiene que cumplir todos los requisitos de la categoría.
+Y quien tiene beca debe informar cualquier cambio en su situación económica o académica.
+
+## cierre
+
+A Ezequiel le explicás que la beca y el beneficio por familiar no se suman: si califica para los dos, se le aplica el que más le convenga. Si tiene una promoción, esa sí puede sumarse según sus condiciones.
+
+recordar: Becas y beneficios no se acumulan; se aplica el más provechoso.
 
 ## Probalo
 
