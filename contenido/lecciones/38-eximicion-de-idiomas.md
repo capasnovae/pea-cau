@@ -4,23 +4,54 @@ curso: "evaluacion"
 modulo: "Materias especiales"
 orden: 38
 fuente: "ln-eximicion-idiomas"
+formato: "tarjetas"
 ---
 
-## En 30 segundos
+## caso
 
-- Puede pedir la eximición de Idioma Extranjero quien tiene una certificación internacional de inglés comprobable.
-- Se aceptan, entre otros: FCE, CAE o CPE de Cambridge; TOEFL iBT 60 o más; TOEIC 600 o más; Bachillerato Internacional Inglés B con 5 o más.
-- Oxford University Press (nivel B2) exime del placement test y de los niveles de inglés del plan; Cambridge International (B2) solo exime del inglés del curso de ingreso.
-- Portugués: títulos de grado o terciarios de inglés o portugués, o Celpe-Bras, por el trámite de equivalencias.
+persona: Josefina
+canal: whatsapp
+Hola! Tengo un certificado de inglés. ¿Tengo que cursar inglés igual?
 
-## Así llega al CAU
+## preguntar
 
-- "Tengo el First, ¿tengo que cursar inglés?" → Puede pedir la eximición: el FCE de Cambridge es una de las certificaciones aceptadas.
-- "Hice TOEFL y saqué 55." → No alcanza para el TOEFL iBT: se pide 60 o más.
+- [x] ¿Qué certificado rindió, y en qué versión?
+  > No todos están en la lista, y algunos dependen de la versión (por ejemplo, TOEFL iBT).
+- [x] ¿Qué nota o nivel tiene?
+  > Algunos piden un puntaje mínimo, como TOEFL iBT 60 o TOEIC 600.
+- [x] ¿El certificado es comprobable?
+  > Se pide que sea comprobable antes de confirmar.
+- [ ] ¿Hace cuánto que estudia inglés?
+  > Lo que cuenta es la certificación, no los años de estudio.
 
-## Ojo con
+## idea: Qué certificados eximen
 
-- Preguntá qué certificado y qué versión rindió (por ejemplo, TOEFL iBT, Computer o Paper) y pedí que sea comprobable antes de confirmar.
+Puede pedir la eximición de Idioma Extranjero quien tiene una certificación internacional de inglés comprobable. Se aceptan, entre otros: FCE, CAE o CPE de Cambridge; TOEFL iBT 60 o más; TOEIC 600 o más; Bachillerato Internacional Inglés B con 5 o más.
+
+clave: Certificación internacional comprobable, con el nivel o puntaje mínimo.
+ejemplo: Si Josefina tiene el First (FCE), puede pedir la eximición.
+
+## probalo 2
+
+## probalo 3
+
+## idea: Qué exime cada uno
+
+Oxford University Press (nivel B2) exime del placement test y de los niveles de inglés del plan; Cambridge International (B2) solo exime del inglés del curso de ingreso. Para portugués: títulos de grado o terciarios de inglés o portugués, o Celpe-Bras, por el trámite de equivalencias.
+
+clave: Oxford B2: todo el inglés del plan. Cambridge International B2: solo el ingreso.
+
+## probalo 1
+
+## ojo
+
+Antes de confirmar, preguntá qué certificado y qué versión rindió (por ejemplo, TOEFL iBT, Computer o Paper) y pedí que sea comprobable.
+
+## cierre
+
+A Josefina le preguntás qué certificado rindió, en qué versión y con qué nota. Si está en la lista y alcanza el mínimo (por ejemplo, FCE de Cambridge o TOEFL iBT 60 o más), puede pedir la eximición con el certificado comprobable.
+
+recordar: Eximición: certificación de la lista, con su mínimo y comprobable.
 
 ## Probalo
 

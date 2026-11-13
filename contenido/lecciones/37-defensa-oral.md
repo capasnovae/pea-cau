@@ -4,25 +4,55 @@ curso: "egreso"
 modulo: "Trabajo final"
 orden: 37
 fuente: "ln-defensa-oral"
+formato: "tarjetas"
 ---
 
-## En 30 segundos
+## caso
 
-- Se habilita cuando la CAE aprueba el TFG. Todas las defensas orales son presenciales, en el Campus de la Universidad.
-- En distancia (ED y EDH) necesita el EFIP II aprobado antes de pedir la mesa.
-- Pasos: pagar la Tasa de Graduación, controles automáticos del legajo, completar el formulario, enviar la solicitud y recibir la fecha.
-- La tasa activa el visado: constancia de que no adeuda materias y de que están al día documentación, administración, biblioteca y CAE.
-- La matrícula del semestre tiene que estar paga al iniciar el visado y al rendir.
+persona: Emiliano
+canal: whatsapp
+Hola! La CAE me aprobó el TFG. ¿Cómo pido la defensa? ¿La puedo hacer desde mi ciudad?
 
-## Así llega al CAU
+## preguntar
 
-- "La CAE me aprobó, ¿cómo pido la defensa?" → Paga la Tasa de Graduación (el ticket aparece en Pago Electrónico) y arranca el visado solo; puede tardar hasta 10 días hábiles. Después completa el formulario con el link al TFG final. La mesa se coordina en hasta 10 días hábiles.
-- "¿Puedo defender desde mi ciudad?" → No: todas las defensas orales se rinden en forma presencial en el Campus de la Universidad.
-- "¿Qué incluye la Tasa de Graduación?" → La gestión del diploma y el analítico con legalización, la opción de envío del título al CAU y la invitación a la colación.
+- [x] ¿Cursa ED o EDH y tiene el EFIP II aprobado?
+  > En distancia, sin el EFIP II no puede pedir la mesa.
+- [x] ¿Ya pagó la Tasa de Graduación?
+  > La tasa activa el visado, que puede tardar hasta 10 días hábiles.
+- [x] ¿Tiene la matrícula del semestre paga?
+  > Tiene que estarlo al iniciar el visado y al rendir.
+- [ ] ¿Quién fue su tutor?
+  > No cambia los pasos para pedir la defensa.
 
-## Ojo con
+## idea: Presencial, con el EFIP II
 
-- En ED o EDH sin el EFIP II aprobado no puede pedir la mesa (salvo la Licenciatura en Educación). Una vez pedida la fecha, no se puede anular.
+La defensa se habilita cuando la CAE aprueba el TFG. Todas las defensas orales son presenciales, en el Campus de la Universidad. En distancia (ED y EDH) necesita el EFIP II aprobado antes de pedir la mesa, salvo en la Licenciatura en Educación.
+
+clave: Defensa presencial en el Campus; en distancia, con el EFIP II aprobado.
+ejemplo: Emiliano no puede defender desde su ciudad: es en el Campus.
+
+## probalo 1
+
+## idea: Los pasos
+
+Paga la Tasa de Graduación (el ticket aparece en Pago Electrónico) y arranca el visado solo, que puede tardar hasta 10 días hábiles: constata que no adeuda materias y que están al día documentación, administración, biblioteca y CAE. Después completa el formulario con el link al TFG final y envía la solicitud; la mesa se coordina en hasta 10 días hábiles.
+
+clave: Tasa, visado (hasta 10 días hábiles), formulario y fecha.
+
+## probalo 2
+
+## ojo
+
+Una vez pedida la fecha de la defensa, no se puede anular.
+La matrícula del semestre tiene que estar paga al iniciar el visado y al rendir. La Tasa de Graduación incluye la gestión del diploma y el analítico con legalización, la opción de envío del título al CAU y la invitación a la colación.
+
+## probalo 3
+
+## cierre
+
+A Emiliano le explicás que la defensa es presencial, en el Campus. Para pedirla, paga la Tasa de Graduación, espera el visado (hasta 10 días hábiles), completa el formulario con el link al TFG final y recibe la fecha. Si cursa a distancia, necesita además el EFIP II aprobado.
+
+recordar: Presencial en el Campus; tasa, visado y formulario; con el EFIP II en distancia.
 
 ## Probalo
 
