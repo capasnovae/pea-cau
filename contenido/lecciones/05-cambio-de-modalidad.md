@@ -15,7 +15,7 @@ ruta: lecciones/05-cambio-de-modalidad.mp4
 
 persona: Lucía
 canal: whatsapp
-Hola! Curso ED pero con el trabajo no llego a cumplir la asistencia en el CAU. Me quiero pasar a EDH. Estoy cursando 2 materias y el jueves rindo un final. ¿Se puede?
+Hola! Curso ED pero con el trabajo no llego a cumplir la asistencia en el CAU. Me quiero pasar a EDH. ¿Se puede? ¿Cómo hago?
 
 ## preguntar
 
@@ -34,7 +34,7 @@ El pase se pide en las fechas del calendario de trámites de cada año, que camb
 No hace falta tener Universitario 21 ni materias aprobadas.
 
 clave: En fecha, sin deuda, legajo completo y sin finales pendientes.
-ejemplo: Lucía rinde el jueves: primero rinde (o se da de baja de esa mesa) y recién después pide el pase.
+ejemplo: En el chequeo ves que Lucía rinde el jueves un final Libre por Nota: primero rinde (o se da de baja de esa mesa) y recién después avisa al CAU para pedir el pase.
 
 ## idea: Qué pasa con cada materia
 
@@ -63,7 +63,7 @@ Si el pase es al revés, a ED (o cambia de CAU), que no se vaya sin confirmar su
 
 ## cierre
 
-A Lucía le respondés que sí se puede, pero no todavía: primero rinde el final del jueves (o se da de baja de esa mesa) y espera que carguen la nota. Le avisás que las 2 materias que cursa quedarían Libre por Pase, y que conserva sus aprobadas, sus regulares (que rinde con las reglas de EDH) y, si lo tiene regular, el Seminario de Práctica. Después lo pide dentro de las fechas del calendario de trámites.
+A Lucía le respondés que sí se puede, pero no todavía: primero rinde el final del jueves (o se da de baja de esa mesa) y espera que carguen la nota. Le avisás que las 2 materias que cursa quedarían Libre por Pase, y que conserva sus aprobadas, sus regulares (que rinde con las reglas de EDH) y, si lo tiene regular, el Seminario de Práctica. Cuando tenga la nota cargada, te avisa y el CAU lo pide por interno, dentro de las fechas del calendario de trámites.
 
 recordar: Primero sin finales pendientes, después el pase, en fecha.
 
