@@ -5,7 +5,7 @@ process.env.DISABLE_TELEMETRY = "true";
 const archivo = await renderVideo({
   projectFile: "./src/muestra.ts",
   settings: {
-    outFile: "muestra-frijol.mp4",
+    outFile: "muestra-boceto.mp4",
     outDir: "./salida",
     logProgress: false,
     puppeteer: {
