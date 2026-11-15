@@ -177,6 +177,7 @@ const guion: Guion = {
         { quien: "narradora", marca: 1, texto: "Y el Seminario Final regular se mantiene siempre, en cualquier pase." },
       ],
     },
+    { tipo: "capitulo", texto: "Ojo con esto" },
     {
       tipo: "tablero",
       titulo: "Ojo con el caso al revés",

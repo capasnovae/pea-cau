@@ -147,8 +147,10 @@ const Paso = ({ n, tam = 84 }: { n: string; tam?: number }) => (
 /** Sello torcido que "cae" sobre una tarjeta. */
 function Sello({ t, r, x = 0, y = 0, rot = -8 }: { t: string; r: Reference<Rect>; x?: number; y?: number; rot?: number }) {
   return (
-    <Rect ref={r} layout={false} x={x} y={y} rotation={rot} padding={[8, 16]} radius={10} stroke={C.acento} lineWidth={5} fill="rgba(244,239,230,0.85)" opacity={0} scale={1.8}>
-      <Txt text={t.toUpperCase()} fontFamily={TITULO} fontSize={38} fill={C.acento} layout={false} />
+    <Rect ref={r} layout={false} x={x} y={y} rotation={rot} opacity={0} scale={1.8}>
+      <Rect layout padding={[6, 14]} radius={10} stroke={C.acento} lineWidth={5} fill="rgba(244,239,230,0.92)">
+        <Txt text={t.toUpperCase()} fontFamily={TITULO} fontSize={30} fill={C.acento} />
+      </Rect>
     </Rect>
   );
 }
@@ -676,7 +678,7 @@ export default makeScene2D("personajes", function* (view) {
               <T t={it.t.texto} tam={columnas ? 28 : 34} peso={800} ancho={ancho - (columnas ? 100 : 116)} />
               {it.t.detalle && <T t={it.t.detalle} tam={columnas ? 23 : 27} peso={500} color={C.gris} ancho={ancho - (columnas ? 100 : 116)} />}
             </Layout>
-            {it.t.sello && <Sello t={it.t.sello} r={it.sello} x={ancho / 2 - 110} y={-34} rot={-9 + (i % 2) * 5} />}
+            {it.t.sello && <Sello t={it.t.sello} r={it.sello} x={ancho / 2 - 70} y={-38} rot={-8 + (i % 2) * 5} />}
           </Rect>
         );
         const cuerpo = columnas ? (
@@ -798,22 +800,22 @@ export default makeScene2D("personajes", function* (view) {
         const n = (
           <Node ref={raiz}>
             <Fondo />
-            <Layout layout direction="column" gap={26} width={960} y={-380} alignItems="center">
+            <Layout layout direction="column" gap={36} width={960} y={-100} alignItems="center">
               <Etiqueta t="// para recordar" tam={32} color={C.acento} />
               {plano.items.map((f, i) => (
-                <Txt ref={frases[i]} text={f.toUpperCase()} fontFamily={TITULO} fontSize={84} fill={i % 2 ? C.acento : C.tinta} opacity={0} textAlign="center" width={960} textWrap lineHeight="108%" />
+                <Txt ref={frases[i]} text={f.toUpperCase()} fontFamily={TITULO} fontSize={76} fill={i % 2 ? C.acento : C.tinta} opacity={0} textAlign="center" width={960} textWrap lineHeight="108%" />
               ))}
               <Layout ref={final} direction="row" gap={20} alignItems="center" opacity={0}>
                 <Sendero escala={0.35} />
                 <Txt text="Ahora probá vos" fontFamily={SERIF} fontStyle="italic" fontSize={60} fill={C.tinta} />
               </Layout>
             </Layout>
-            <Circle size={330} x={-330} y={430} fill={GENTE.estudiante.fondo} />
-            <Circle size={330} x={0} y={460} fill={GENTE.narradora.fondo} />
-            <Circle size={330} x={330} y={430} fill={GENTE.martin.fondo} />
-            <Dibujo q="estudiante" alto={440} m={ms[0]} x={-330} y={690} cara="contenta" />
-            <Dibujo q="narradora" alto={440} m={ms[1]} x={0} y={700} cara="contenta" />
-            <Dibujo q="martin" alto={440} m={ms[2]} x={330} y={690} cara="contenta" />
+            <Circle size={280} x={-330} y={500} fill={GENTE.estudiante.fondo} />
+            <Circle size={280} x={0} y={520} fill={GENTE.narradora.fondo} />
+            <Circle size={280} x={330} y={500} fill={GENTE.martin.fondo} />
+            <Dibujo q="estudiante" alto={360} m={ms[0]} x={-330} y={690} cara="contenta" />
+            <Dibujo q="narradora" alto={360} m={ms[1]} x={0} y={700} cara="contenta" />
+            <Dibujo q="martin" alto={360} m={ms[2]} x={330} y={690} cara="contenta" />
           </Node>
         ) as Node;
         ms.forEach((m, i) => respirar(m.nodo, i * 0.2));

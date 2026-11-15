@@ -130,6 +130,7 @@ const guion: Guion = {
         },
       ],
     },
+    { tipo: "capitulo", texto: "Ojo con esto" },
     {
       tipo: "tablero",
       titulo: "Ojo con esto",
