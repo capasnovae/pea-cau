@@ -303,6 +303,7 @@ export default makeScene2D("personajes", function* (view) {
   for (const plano of planos) {
     yield* hasta(plano.inicio);
     if (plano.tipo === "capitulo") pasoActual = plano.numero;
+    if (plano.tipo === "cierre") etiqueta = "// para recordar";
     if (plano.tipo === "capitulo" && plano.numero) etiqueta = `// paso ${plano.numero} · ${plano.texto.toLowerCase()}`;
     if (plano.tipo === "capitulo" && !plano.numero) etiqueta = `// ${plano.texto.toLowerCase()}`;
     const raiz = createRef<Node>();
