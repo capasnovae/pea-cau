@@ -54,6 +54,8 @@ const GENTE: Record<Persona, { nombre: string; color: string; fondo: string }> =
 const SOMBRA = { shadowColor: "rgba(28,25,23,0.95)", shadowBlur: 0, shadowOffset: [6, 6] as [number, number] };
 // Los dibujos miden 850 × 1200; la cabeza ocupa más o menos el 40 % de arriba
 const PROP = 850 / 1200;
+// La dueña prefirió los videos sin personajes dibujados: todo con motion graphics
+const SIN_PERSONAJES = true;
 let EST: Estudiante = { id: "lucia", nombre: "Lucía", detalle: "Estudiante" };
 const src = (q: Persona, c: Cara) => `/peeps/${q === "estudiante" ? EST.id : q}-${c}.svg`;
 
@@ -89,7 +91,7 @@ const nuevoMuñeco = (): Muñeco => ({ nodo: createRef(), boca: createRef(), bas
 
 function Dibujo({ q, alto, m, cara = "cerrada", x = 0, y = 0, espejo = false }: { q: Persona; alto: number; m: Muñeco; cara?: Cara; x?: number; y?: number; espejo?: boolean }) {
   return (
-    <Node ref={m.nodo} x={x} y={y} scaleX={espejo ? -1 : 1}>
+    <Node ref={m.nodo} x={x} y={y} scaleX={espejo ? -1 : 1} opacity={SIN_PERSONAJES ? 0 : 1}>
       <Img ref={m.base} src={src(q, cara)} height={alto} width={alto * PROP} y={-alto / 2} />
       <Img ref={m.boca} src={src(q, "abierta")} height={alto} width={alto * PROP} y={-alto / 2} opacity={0} />
     </Node>
@@ -100,7 +102,7 @@ function Dibujo({ q, alto, m, cara = "cerrada", x = 0, y = 0, espejo = false }: 
 function Presentadora({ m, x = 330, alto = 780 }: { m: Muñeco; x?: number; alto?: number }) {
   return (
     <Node>
-      <Circle size={alto * 0.62} x={x + 20} y={675 - alto * 0.42} fill={GENTE.narradora.fondo} />
+      {!SIN_PERSONAJES && <Circle size={alto * 0.62} x={x + 20} y={675 - alto * 0.42} fill={GENTE.narradora.fondo} />}
       <Dibujo q="narradora" alto={alto} m={m} x={x} y={690} espejo />
     </Node>
   );
@@ -359,6 +361,11 @@ export default makeScene2D("personajes", function* (view) {
     switch (plano.tipo) {
       case "portada": {
         const ms = [nuevoMuñeco(), nuevoMuñeco(), nuevoMuñeco()];
+        const iconosPortada = [
+          IconoAnimado({ tipo: "correo", x: -320, y: 380, tam: 230 }),
+          IconoAnimado({ tipo: "check", x: 0, y: 470, tam: 230 }),
+          IconoAnimado({ tipo: "notebook", x: 320, y: 380, tam: 230 }),
+        ];
         const subrayado = createRef<Rect>();
         const n = (
           <Node ref={raiz}>
@@ -372,9 +379,7 @@ export default makeScene2D("personajes", function* (view) {
               <Rect ref={subrayado} width={0} height={14} radius={7} fill={C.acento} />
               <Txt text={bajada} fontFamily={SERIF} fontStyle="italic" fontSize={58} fill={C.tinta} />
             </Layout>
-            <Circle size={400} x={-310} y={560} fill={GENTE.estudiante.fondo} />
-            <Circle size={400} x={0} y={600} fill={GENTE.narradora.fondo} />
-            <Circle size={400} x={310} y={560} fill={GENTE.martin.fondo} />
+            {iconosPortada.map((ic) => ic.nodo)}
             <Dibujo q="estudiante" alto={540} m={ms[0]} x={-310} y={720} cara="contenta" />
             <Dibujo q="narradora" alto={540} m={ms[1]} x={0} y={740} cara="contenta" />
             <Dibujo q="martin" alto={540} m={ms[2]} x={310} y={720} cara="contenta" />
@@ -385,7 +390,16 @@ export default makeScene2D("personajes", function* (view) {
           nodo: n,
           alEntrar: function* () {
             ms.forEach((m) => m.nodo().y(m.nodo().y() + 400));
-            yield* all(subrayado().width(320, 0.7, easeOutCubic), ...ms.map((m, i) => m.nodo().y(m.nodo().y() - 400, 0.8 + i * 0.12, easeOutBack)));
+            yield* all(
+              subrayado().width(320, 0.7, easeOutCubic),
+              ...ms.map((m, i) => m.nodo().y(m.nodo().y() - 400, 0.8 + i * 0.12, easeOutBack)),
+              ...iconosPortada.map((ic, i) =>
+                (function* () {
+                  yield* waitFor(0.2 + i * 0.15);
+                  yield* ic.animar();
+                })(),
+              ),
+            );
           },
         };
       }
@@ -394,6 +408,7 @@ export default makeScene2D("personajes", function* (view) {
         const m = nuevoMuñeco();
         const ciudad = createRef<Node>();
         const aviso = createRef<Rect>();
+        const envio = createRef<Rect>();
         const camara = createRef<Node>();
         const colectivo = plano.lugar === "colectivo";
         const n = (
@@ -464,15 +479,15 @@ export default makeScene2D("personajes", function* (view) {
                   {/* escritorio y monitor */}
                   <Rect width={1080} height={430} y={460} fill={degradado("#a16207", "#78350f")} />
                   <Rect width={1080} height={26} y={258} fill="#ca8a04" />
-                  <Rect width={420} height={290} x={240} y={60} radius={22} fill={C.tinta}>
+                  <Rect width={420} height={290} x={SIN_PERSONAJES ? 0 : 240} y={60} radius={22} fill={C.tinta} scale={SIN_PERSONAJES ? 1.5 : 1}>
                     <Rect width={384} height={252} radius={12} fill="#f1f5f9">
                       <Rect width={384} height={50} y={-101} fill={C.chat} />
                       <Rect width={220} height={34} x={-60} y={-30} radius={17} fill={C.blanco} />
                       <Rect width={180} height={34} x={70} y={30} radius={17} fill={C.enviado} />
                     </Rect>
                   </Rect>
-                  <Rect width={40} height={70} x={240} y={232} fill="#334155" />
-                  <Rect ref={aviso} x={240} y={-150} radius={32} padding={[20, 30]} layout fill={C.blanco} scale={0} gap={16} alignItems="center" shadowColor="rgba(0,0,0,0.2)" shadowBlur={30} shadowOffsetY={8}>
+                  <Rect width={40} height={70} x={SIN_PERSONAJES ? 0 : 240} y={SIN_PERSONAJES ? 290 : 232} fill="#334155" />
+                  <Rect ref={aviso} x={SIN_PERSONAJES ? 0 : 240} y={SIN_PERSONAJES ? -230 : -150} radius={32} padding={[20, 30]} layout fill={C.blanco} scale={0} gap={16} alignItems="center" shadowColor="rgba(0,0,0,0.2)" shadowBlur={30} shadowOffsetY={8}>
                     <Circle size={48} fill={C.chat} />
                     <Layout direction="column">
                       <T t={EST.nombre} tam={30} peso={800} />
@@ -482,6 +497,16 @@ export default makeScene2D("personajes", function* (view) {
                 </Node>
               )}
             </Node>
+            {plano.lugar !== "cau" && (
+              <Rect ref={envio} layout direction="column" gap={10} width={760} padding={[28, 34]} radius={28} y={140} fill={C.blanco} stroke={C.tinta} lineWidth={4} {...SOMBRA} scale={0}>
+                <Layout direction="row" gap={14} alignItems="center">
+                  <Circle size={46} fill={C.chat} />
+                  <Txt text={`${EST.nombre} → CAU`} fontFamily={LETRA} fontSize={32} fontWeight={800} fill={C.tinta} />
+                  <Txt text="enviando…" fontFamily={MONO} fontSize={24} fill={C.gris} />
+                </Layout>
+                <T t={primerMensaje} tam={34} peso={600} ancho={690} />
+              </Rect>
+            )}
             <Rect layout padding={[18, 32]} radius={30} y={-600} fill="rgba(30,27,75,0.85)">
               <T t={plano.rotulo} tam={32} peso={700} color={C.blanco} />
             </Rect>
@@ -500,7 +525,10 @@ export default makeScene2D("personajes", function* (view) {
                     yield* waitFor(0.5);
                     yield* aviso().scale(1, 0.5, easeOutBack);
                   })()
-                : waitFor(0),
+                : (function* () {
+                    yield* waitFor(0.4);
+                    yield* envio().scale(1, 0.5, easeOutBack);
+                  })(),
             );
           },
         };
@@ -532,15 +560,17 @@ export default makeScene2D("personajes", function* (view) {
           <Node ref={raiz}>
             <Node ref={telefono}>
               <Fondo />
-              <Circle ref={circulo} size={460} x={-330} y={330} fill={GENTE.estudiante.fondo} />
-              <Dibujo q="estudiante" alto={760} m={gente.estudiante} x={-330} y={690} />
-              <Dibujo q="martin" alto={760} m={gente.martin} x={-330} y={690} />
-              <Rect width={600} height={900} x={200} y={60} radius={64} fill="#111827" {...SOMBRA}>
+              <Circle ref={circulo} size={460} x={-330} y={330} fill={GENTE.estudiante.fondo} opacity={SIN_PERSONAJES ? 0 : 1} />
+              <Node opacity={SIN_PERSONAJES ? 0 : 1}>
+                <Dibujo q="estudiante" alto={760} m={gente.estudiante} x={-330} y={690} />
+                <Dibujo q="martin" alto={760} m={gente.martin} x={-330} y={690} />
+              </Node>
+              <Rect width={600} height={900} x={SIN_PERSONAJES ? 0 : 200} y={60} radius={64} fill="#111827" {...SOMBRA}>
                 <Rect width={562} height={862} radius={48} fill={C.fondoChat} clip>
                   <Layout ref={columna} layout direction="column" justifyContent="end" gap={12} width={524} height={700} y={65} />
                   <Rect width={562} height={140} y={-361} fill={C.chat} />
-                  <Circle size={66} x={-195} y={-340} fill={GENTE.estudiante.fondo} clip>
-                    <Img src={src("estudiante", "cerrada")} height={190} width={190 * PROP} y={56} />
+                  <Circle size={66} x={-195} y={-340} fill={GENTE.estudiante.fondo} layout alignItems="center" justifyContent="center">
+                    <Txt text={EST.nombre.slice(0, 1)} fontFamily={TITULO} fontSize={38} fill={GENTE.estudiante.color} />
                   </Circle>
                   <Txt x={-148} y={-354} offset={[-1, 0]} text={EST.nombre} fontFamily={LETRA} fontSize={32} fontWeight={700} fill={C.blanco} />
                   <Txt x={-148} y={-320} offset={[-1, 0]} text={EST.detalle} fontFamily={LETRA} fontSize={21} fontWeight={500} fill="#ccfbf1" />
@@ -549,12 +579,17 @@ export default makeScene2D("personajes", function* (view) {
               </Rect>
             </Node>
             <Rect ref={tapa} width={1080} height={1350} fill="rgba(28,25,23,0.55)" opacity={0} />
-            <Node ref={narrCaja} x={1300}>
-              <Circle size={540} x={250} y={260} fill={GENTE.narradora.fondo} />
+            <Node ref={narrCaja} x={SIN_PERSONAJES ? 0 : 1300} scale={SIN_PERSONAJES ? 0 : 1}>
+              {!SIN_PERSONAJES && <Circle size={540} x={250} y={260} fill={GENTE.narradora.fondo} />}
               <Dibujo q="narradora" alto={960} m={narr} x={250} y={690} espejo />
-              <Rect layout padding={[20, 36]} radius={16} x={10} y={-250} fill={C.acento} rotation={-5} {...SOMBRA}>
-                <Txt text="¡PARÁ, MARTÍN!" fontFamily={TITULO} fontSize={74} fill={C.blanco} />
+              <Rect layout padding={[24, 44]} radius={18} x={SIN_PERSONAJES ? 0 : 10} y={SIN_PERSONAJES ? -40 : -250} fill={C.acento} rotation={-5} {...SOMBRA}>
+                <Txt text="¡PARÁ, MARTÍN!" fontFamily={TITULO} fontSize={SIN_PERSONAJES ? 110 : 74} fill={C.blanco} />
               </Rect>
+              {SIN_PERSONAJES && (
+                <Rect layout padding={[10, 22]} radius={12} y={110} rotation={4} stroke={C.blanco} lineWidth={5}>
+                  <Txt text="PRIMERO, REVISÁ" fontFamily={TITULO} fontSize={54} fill={C.blanco} />
+                </Rect>
+              )}
             </Node>
           </Node>
         ) as Node;
@@ -589,7 +624,7 @@ export default makeScene2D("personajes", function* (view) {
             }
           },
           congelar: function* () {
-            yield* all(tapa().opacity(1, 0.3), telefono().filters.grayscale(1, 0.3), telefono().filters.blur(4, 0.3), narrCaja().x(0, 0.55, easeOutBack));
+            yield* all(tapa().opacity(1, 0.3), telefono().filters.grayscale(1, 0.3), telefono().filters.blur(4, 0.3), SIN_PERSONAJES ? narrCaja().scale(1, 0.45, easeOutBack) : narrCaja().x(0, 0.55, easeOutBack));
           },
           linea: function* (l) {
             if (l.quien !== "estudiante" && l.quien !== "martin") return;
@@ -653,7 +688,7 @@ export default makeScene2D("personajes", function* (view) {
         const items = tarjetas.map((t) => ({ t, nodo: createRef<Rect>(), signo: createRef<Circle>(), signoTxt: createRef<Txt>(), sello: createRef<Rect>() }));
         const columnas = plano.tipo === "tablero" ? plano.columnas : undefined;
         const numeradas = plano.tipo === "tablero" && plano.numeradas;
-        const ancho = columnas ? 300 : 610;
+        const ancho = SIN_PERSONAJES ? (columnas ? 460 : 940) : columnas ? 300 : 610;
         const oculta = (t: Tarjeta) => !esLista && t.marca !== undefined;
         const tarjeta = (it: (typeof items)[number], i: number) => (
           <Rect
@@ -676,8 +711,8 @@ export default makeScene2D("personajes", function* (view) {
               <Txt ref={it.signoTxt} text={numeradas ? String(i + 1) : esLista ? "" : SIGNO[it.t.tono]} fontFamily={LETRA} fontSize={28} fontWeight={800} fill={C.blanco} />
             </Circle>
             <Layout direction="column" gap={4}>
-              <T t={it.t.texto} tam={columnas ? 28 : 34} peso={800} ancho={ancho - (columnas ? 100 : 116)} />
-              {it.t.detalle && <T t={it.t.detalle} tam={columnas ? 23 : 27} peso={500} color={C.gris} ancho={ancho - (columnas ? 100 : 116)} />}
+              <T t={it.t.texto} tam={columnas ? 30 : 38} peso={800} ancho={ancho - (columnas ? 100 : 116)} />
+              {it.t.detalle && <T t={it.t.detalle} tam={columnas ? 25 : 30} peso={500} color={C.gris} ancho={ancho - (columnas ? 100 : 116)} />}
             </Layout>
             {it.t.sello && <Sello t={it.t.sello} r={it.sello} x={ancho / 2 - 70} y={-38} rot={-8 + (i % 2) * 5} />}
           </Rect>
@@ -685,7 +720,7 @@ export default makeScene2D("personajes", function* (view) {
         const cuerpo = columnas ? (
           <Layout direction="row" gap={14} alignItems="start">
             {[0, 1].map((col) => (
-              <Layout direction="column" gap={18} width={300}>
+              <Layout direction="column" gap={18} width={ancho}>
                 <Rect layout padding={[10, 18]} radius={12} fill={col === 0 ? C.ok : C.mal}>
                   <Txt text={columnas[col].toUpperCase()} fontFamily={TITULO} fontSize={36} fill={C.blanco} />
                 </Rect>
@@ -699,15 +734,15 @@ export default makeScene2D("personajes", function* (view) {
           </Layout>
         );
         const icono = plano.icono;
-        const animado = icono ? IconoAnimado({ tipo: icono, x: 390, y: -300, tam: 210 }) : undefined;
+        const animado = icono ? (SIN_PERSONAJES ? IconoAnimado({ tipo: icono, x: 400, y: -330, tam: 170 }) : IconoAnimado({ tipo: icono, x: 390, y: -300, tam: 210 })) : undefined;
         const subrayado = createRef<Rect>();
         const paso = pasoActual;
         const n = (
           <Node ref={raiz}>
             <Fondo />
-            <Layout layout direction="column" gap={26} width={640} x={-500} y={-410} offset={[-1, -1]} alignItems="start">
+            <Layout layout direction="column" gap={26} width={SIN_PERSONAJES ? 960 : 640} x={-490} y={-410} offset={[-1, -1]} alignItems="start">
               <Layout direction="row" gap={18} alignItems="end">
-                <Titulo texto={plano.titulo} tam={78} ancho={paso ? 520 : 640} />
+                <Titulo texto={plano.titulo} tam={SIN_PERSONAJES ? 84 : 78} ancho={SIN_PERSONAJES ? (icono ? 640 : 820) - (paso ? 90 : 0) : paso ? 520 : 640} />
                 {paso && <Paso n={paso} tam={74} />}
               </Layout>
               <Rect ref={subrayado} width={0} height={10} radius={5} fill={C.acento} />
@@ -801,7 +836,7 @@ export default makeScene2D("personajes", function* (view) {
         const n = (
           <Node ref={raiz}>
             <Fondo />
-            <Layout layout direction="column" gap={36} width={960} y={-100} alignItems="center">
+            <Layout layout direction="column" gap={56} width={960} y={SIN_PERSONAJES ? 40 : -100} alignItems="center">
               <Etiqueta t="// para recordar" tam={32} color={C.acento} />
               {plano.items.map((f, i) => (
                 <Txt ref={frases[i]} text={f.toUpperCase()} fontFamily={TITULO} fontSize={76} fill={i % 2 ? C.acento : C.tinta} opacity={0} textAlign="center" width={960} textWrap lineHeight="108%" />
@@ -811,9 +846,9 @@ export default makeScene2D("personajes", function* (view) {
                 <Txt text="Ahora probá vos" fontFamily={SERIF} fontStyle="italic" fontSize={60} fill={C.tinta} />
               </Layout>
             </Layout>
-            <Circle size={280} x={-330} y={500} fill={GENTE.estudiante.fondo} />
-            <Circle size={280} x={0} y={520} fill={GENTE.narradora.fondo} />
-            <Circle size={280} x={330} y={500} fill={GENTE.martin.fondo} />
+            {!SIN_PERSONAJES && <Circle size={280} x={-330} y={500} fill={GENTE.estudiante.fondo} />}
+            {!SIN_PERSONAJES && <Circle size={280} x={0} y={520} fill={GENTE.narradora.fondo} />}
+            {!SIN_PERSONAJES && <Circle size={280} x={330} y={500} fill={GENTE.martin.fondo} />}
             <Dibujo q="estudiante" alto={360} m={ms[0]} x={-330} y={690} cara="contenta" />
             <Dibujo q="narradora" alto={360} m={ms[1]} x={0} y={700} cara="contenta" />
             <Dibujo q="martin" alto={360} m={ms[2]} x={330} y={690} cara="contenta" />
