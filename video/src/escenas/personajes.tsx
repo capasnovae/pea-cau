@@ -611,7 +611,7 @@ export default makeScene2D("personajes", function* (view) {
         const items = tarjetas.map((t) => ({ t, nodo: createRef<Rect>(), signo: createRef<Circle>(), signoTxt: createRef<Txt>() }));
         const columnas = plano.tipo === "tablero" ? plano.columnas : undefined;
         const numeradas = plano.tipo === "tablero" && plano.numeradas;
-        const ancho = columnas ? 320 : 640;
+        const ancho = columnas ? 330 : 640;
         // en la lista todo se ve de entrada, gris, y se tilda cuando se nombra
         const oculta = (t: Tarjeta) => !esLista && t.marca !== undefined;
         const tarjeta = (it: (typeof items)[number], i: number) => (
@@ -635,15 +635,15 @@ export default makeScene2D("personajes", function* (view) {
               <Txt ref={it.signoTxt} text={numeradas ? String(i + 1) : esLista ? "" : SIGNO[it.t.tono]} fontFamily={LETRA} fontSize={30} fontWeight={800} fill={C.blanco} />
             </Circle>
             <Layout direction="column" gap={4}>
-              <T t={it.t.texto} tam={columnas ? 32 : 36} peso={800} ancho={ancho - 124} />
-              {it.t.detalle && <T t={it.t.detalle} tam={columnas ? 25 : 28} peso={500} color={C.gris} ancho={ancho - 124} />}
+              <T t={it.t.texto} tam={columnas ? 29 : 36} peso={800} ancho={ancho - (columnas ? 104 : 124)} />
+              {it.t.detalle && <T t={it.t.detalle} tam={columnas ? 24 : 28} peso={500} color={C.gris} ancho={ancho - (columnas ? 104 : 124)} />}
             </Layout>
           </Rect>
         );
         const cuerpo = columnas ? (
           <Layout direction="row" gap={20} alignItems="start">
             {[0, 1].map((col) => (
-              <Layout direction="column" gap={16} width={320}>
+              <Layout direction="column" gap={16} width={330}>
                 <Rect layout padding={[12, 22]} radius={20} fill={col === 0 ? C.ok : C.mal}>
                   <T t={columnas[col]} tam={30} peso={800} color={C.blanco} />
                 </Rect>
