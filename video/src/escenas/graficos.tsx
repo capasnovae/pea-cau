@@ -20,11 +20,11 @@ export function IconoAnimado({ tipo, x = 0, y = 0, tam = 250 }: { tipo: IconoTip
   const lineas = [createRef<Rect>(), createRef<Rect>(), createRef<Rect>()];
   const anillo = createRef<Circle>();
   const dia = createRef<Circle>();
-  const fondo = tipo === "alerta" ? "#fef3c7" : tipo === "check" ? "#d1fae5" : "#e0e7ff";
+  const fondo = "#ffffff";
   const n = (
     <Node ref={caja} x={x} y={y} scale={0}>
-      <Circle size={tam} fill={fondo} shadowColor="rgba(30,27,75,0.18)" shadowBlur={30} shadowOffsetY={10} />
-      <Circle ref={anillo} size={tam + 30} stroke={tipo === "alerta" ? AVISO : PRIMARIO} lineWidth={6} endAngle={0} opacity={0.6} />
+      <Circle size={tam} fill={fondo} stroke={TINTA} lineWidth={4} shadowColor="rgba(28,25,23,0.95)" shadowBlur={0} shadowOffset={[6, 6]} />
+      <Circle ref={anillo} size={tam + 34} stroke="#e0452f" lineWidth={6} endAngle={0} lineDash={[14, 10]} />
       <Node scale={tam / 250}>
         {tipo === "correo" && (
           <Node ref={a}>

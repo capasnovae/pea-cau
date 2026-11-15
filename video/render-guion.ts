@@ -8,10 +8,21 @@ import { join } from "node:path";
 import { renderVideo } from "@revideo/renderer";
 import type { Guion, LineaConTiempo, Palabra, PlanoConTiempo, Quien } from "./guiones/tipos.ts";
 
-const VOZ: Record<Exclude<Quien, "nadie">, { voz: string; velocidad: string }> = {
-  narradora: { voz: "es-UY-ValentinaNeural", velocidad: "+0%" },
-  estudiante: { voz: "es-AR-ElenaNeural", velocidad: "+5%" },
-  martin: { voz: "es-AR-TomasNeural", velocidad: "+0%" },
+// Voces de Gemini TTS (las eligió la dueña) y cómo tiene que sonar cada personaje
+const ACENTO = "Acento: español rioplatense de Argentina, porteño, con voseo y la 'y/ll' sonando como 'sh'.";
+const VOZ: Record<Exclude<Quien, "nadie">, { voz: string; notas: string }> = {
+  narradora: {
+    voz: "Kore",
+    notas: `${ACENTO} Tono: compañera con experiencia que le explica a un colega nuevo; cálida, cercana, con energía y naturalidad; nada de locutora. Ritmo ágil, conversacional.`,
+  },
+  estudiante: {
+    voz: "Leda",
+    notas: `${ACENTO} Tono: estudiante joven mandando un audio de WhatsApp a la universidad; natural, informal, un poco apurada.`,
+  },
+  martin: {
+    voz: "Puck",
+    notas: `${ACENTO} Tono: asesor joven y amable de un centro de atención universitario; tranquilo, claro, cercano.`,
+  },
 };
 const ENTRADA = 0.6; // segundos entre que aparece un plano y empieza la primera línea
 const PAUSA = 0.45; // silencio entre líneas
@@ -23,23 +34,25 @@ export async function renderGuion(slug: string) {
   const dir = import.meta.dirname;
   const guion: Guion = (await import(join(dir, "guiones", `${slug}.ts`))).default;
   const audios = join(dir, "salida", "voces");
-  VOZ.estudiante = { voz: guion.estudiante.voz ?? VOZ.estudiante.voz, velocidad: guion.estudiante.velocidad ?? VOZ.estudiante.velocidad };
+  if (guion.estudiante.voz) VOZ.estudiante = { ...VOZ.estudiante, voz: guion.estudiante.voz };
   mkdirSync(audios, { recursive: true });
 
   const id = (q: Exclude<Quien, "nadie">, texto: string) =>
-    createHash("sha1").update(`${VOZ[q].voz}|${VOZ[q].velocidad}|${texto}`).digest("hex").slice(0, 16);
+    createHash("sha1").update(`gemini|${VOZ[q].voz}|${VOZ[q].notas}|${texto}`).digest("hex").slice(0, 16);
 
   // 1) voces
   const pedido = guion.planos.flatMap((p) =>
     (p.lineas ?? []).filter((l) => l.quien !== "nadie").map((l) => {
       const q = l.quien as Exclude<Quien, "nadie">;
-      return { id: id(q, l.texto), voz: VOZ[q].voz, velocidad: VOZ[q].velocidad, texto: l.texto };
+      return { id: id(q, l.texto), voz: VOZ[q].voz, notas: VOZ[q].notas, texto: l.texto };
     }),
   );
   writeFileSync(join(audios, "pedido.json"), JSON.stringify(pedido));
   execFileSync(process.env.PEA_PYTHON ?? "python3", [join(dir, "voces.py"), join(audios, "pedido.json"), audios], {
     stdio: "inherit",
   });
+
+  if (process.env.PEA_SOLO_VOCES) return console.log("Voces listas");
 
   const duracion = (archivo: string) =>
     Number(
@@ -64,9 +77,9 @@ export async function renderGuion(slug: string) {
       let palabras: Palabra[] = [];
       if (l.quien !== "nadie") {
         const base = join(audios, id(l.quien, l.texto));
-        dur = duracion(`${base}.mp3`);
+        dur = duracion(`${base}.wav`);
         palabras = JSON.parse(readFileSync(`${base}.json`, "utf8"));
-        clips.push({ archivo: `${base}.mp3`, inicio: t });
+        clips.push({ archivo: `${base}.wav`, inicio: t });
       }
       const linea = { ...l, inicio: t, dur, palabras };
       t += dur + (l.pausa ?? PAUSA);

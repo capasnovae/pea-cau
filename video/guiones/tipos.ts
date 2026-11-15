@@ -17,7 +17,8 @@ export type Linea = {
 
 export type Tono = "ok" | "aviso" | "mal" | "neutro";
 export type Icono = "lupa" | "calendario" | "estrella" | "alerta" | "correo" | "notebook" | "wifi" | "check";
-export type Tarjeta = { texto: string; detalle?: string; tono: Tono; columna?: 0 | 1; marca?: number };
+/** sello: palabra corta que cae torcida sobre la tarjeta ("NO SIRVE", "SE CONSERVA"). */
+export type Tarjeta = { texto: string; detalle?: string; tono: Tono; columna?: 0 | 1; marca?: number; sello?: string };
 
 type Base = { lineas?: Linea[] };
 export type Plano = Base &
@@ -41,7 +42,8 @@ export type Plano = Base &
 
 /** musica: "lofi" (por defecto) o "suave" (piano y cuerdas, la de Cambio de modalidad). */
 /** El estudiante del caso: id del dibujo (public/peeps/<id>-*.svg), nombre, lo que se ve debajo del nombre en el chat y su voz. */
-export type Estudiante = { id: string; nombre: string; detalle: string; voz?: string; velocidad?: string };
+/** voz: nombre de una voz de Gemini TTS (por defecto Leda). */
+export type Estudiante = { id: string; nombre: string; detalle: string; voz?: string };
 export type Guion = { titulo: string; bajada: string; musica?: "lofi" | "suave"; estudiante: Estudiante; planos: Plano[] };
 
 /** Palabra dicha: inicio y duración en segundos desde que empieza la línea. */

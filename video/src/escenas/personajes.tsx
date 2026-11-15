@@ -1,4 +1,5 @@
-// Video con personajes dibujados (Open Peeps, CC0): el estudiante del caso, Martín y la narradora, un chat del CAU y tableros animados.
+// Video explicativo con personajes (Open Peeps, CC0), estilo "cuaderno": fondo de papel, subtítulos karaoke arriba,
+// títulos grandes con número de paso, pantallas de ejemplo que cambian, sellos y la narradora que señala.
 // La línea de tiempo viene armada desde render-guion.ts (cada línea con su audio medido): la escena espera a cada momento.
 import { Circle, Gradient, Img, Layout, Line, Node, Rect, Txt, makeScene2D } from "@revideo/2d";
 import type { Reference, ThreadGenerator } from "@revideo/core";
@@ -15,35 +16,42 @@ import {
   useThread,
   waitFor,
 } from "@revideo/core";
-import { Capitulo, IconoAnimado, Particulas, confeti } from "./graficos.tsx";
+import { IconoAnimado, Particulas, confeti } from "./graficos.tsx";
 import type { Estudiante, LineaConTiempo, Palabra, PlanoConTiempo, Quien, Tarjeta, Tono } from "../../guiones/tipos.ts";
 
 type Persona = Exclude<Quien, "nadie">;
 type Cara = "cerrada" | "abierta" | "preocupada" | "contenta" | "apurada";
 
 const C = {
-  nav: "#1e1b4b",
+  papel: "#f4efe6",
+  tinta: "#1c1917",
+  acento: "#e0452f",
+  azul: "#2b59c3",
   primario: "#4f46e5",
   suave: "#c7d2fe",
-  crema: "#fdf6ec",
   blanco: "#ffffff",
-  tinta: "#1f1d2b",
-  gris: "#6b7280",
-  aviso: "#f59e0b",
-  ok: "#10b981",
-  mal: "#ef4444",
+  gris: "#78716c",
+  apagado: "#b9b1a6",
+  aviso: "#f2a705",
+  ok: "#1f9d55",
+  mal: "#e0452f",
   chat: "#0f766e",
   fondoChat: "#ece5dd",
   enviado: "#d9fdd3",
+  nav: "#1e1b4b",
 };
 const LETRA = "Plus Jakarta Sans";
-const TONO: Record<Tono, string> = { ok: C.ok, aviso: C.aviso, mal: C.mal, neutro: C.primario };
+const TITULO = "Anton";
+const MONO = "JetBrains Mono";
+const SERIF = "Instrument Serif";
+const TONO: Record<Tono, string> = { ok: C.ok, aviso: C.aviso, mal: C.mal, neutro: C.azul };
 const SIGNO: Record<Tono, string> = { ok: "✓", aviso: "!", mal: "✕", neutro: "•" };
 const GENTE: Record<Persona, { nombre: string; color: string; fondo: string }> = {
   estudiante: { nombre: "Lucía", color: "#ea580c", fondo: "#fed7aa" },
-  martin: { nombre: "Martín · asesor del CAU", color: "#2563eb", fondo: "#bfdbfe" },
+  martin: { nombre: "Martín", color: "#2563eb", fondo: "#bfdbfe" },
   narradora: { nombre: "Narradora", color: "#0f766e", fondo: "#a7f3d0" },
 };
+const SOMBRA = { shadowColor: "rgba(28,25,23,0.95)", shadowBlur: 0, shadowOffset: [6, 6] as [number, number] };
 // Los dibujos miden 850 × 1200; la cabeza ocupa más o menos el 40 % de arriba
 const PROP = 850 / 1200;
 let EST: Estudiante = { id: "lucia", nombre: "Lucía", detalle: "Estudiante" };
@@ -88,45 +96,74 @@ function Dibujo({ q, alto, m, cara = "cerrada", x = 0, y = 0, espejo = false }: 
   );
 }
 
+/** La narradora abajo a la derecha, señalando hacia arriba (su dibujo ya tiene el dedo en alto). */
+function Presentadora({ m, x = 330, alto = 780 }: { m: Muñeco; x?: number; alto?: number }) {
+  return (
+    <Node>
+      <Circle size={alto * 0.62} x={x + 20} y={675 - alto * 0.42} fill={GENTE.narradora.fondo} />
+      <Dibujo q="narradora" alto={alto} m={m} x={x} y={690} espejo />
+    </Node>
+  );
+}
+
 // ---------- piezas ----------
-const T = (p: { t: string; tam: number; color?: string; peso?: number; ancho?: number; alinea?: CanvasTextAlign }) => (
+const T = (p: { t: string; tam: number; color?: string; peso?: number; ancho?: number; alinea?: CanvasTextAlign; letra?: string }) => (
   <Txt
     text={p.t}
-    fontFamily={LETRA}
+    fontFamily={p.letra ?? LETRA}
     fontSize={p.tam}
     fontWeight={p.peso ?? 600}
     fill={p.color ?? C.tinta}
     textWrap={p.ancho ? true : false}
     width={p.ancho}
     textAlign={p.alinea ?? "left"}
-    lineHeight="128%"
+    lineHeight="125%"
   />
 );
 
-const degradado = (a: string, b: string) =>
-  new Gradient({ type: "linear", from: [0, -675], to: [0, 675], stops: [{ offset: 0, color: a }, { offset: 1, color: b }] });
+/** Título grande en mayúsculas, con la última palabra en color. */
+function Titulo({ texto, tam = 92, ancho = 600, alinea = "start" }: { texto: string; tam?: number; ancho?: number; alinea?: "start" | "center" }) {
+  const pal = texto.toUpperCase().split(/\s+/);
+  return (
+    <Layout direction="row" wrap="wrap" gap={tam * 0.22} width={ancho} justifyContent={alinea}>
+      {pal.map((p, i) => (
+        <Txt text={p} fontFamily={TITULO} fontSize={tam} fill={i === pal.length - 1 ? C.acento : C.tinta} lineHeight="105%" />
+      ))}
+    </Layout>
+  );
+}
 
-/** Fondo con manchas suaves que flotan despacio. */
-function Fondo({ a, b, manchas }: { a: string; b: string; manchas: string }) {
-  const refs = [createRef<Circle>(), createRef<Circle>(), createRef<Circle>()];
-  const n = (
+const Etiqueta = ({ t, color = C.gris, tam = 26 }: { t: string; color?: string; tam?: number }) => (
+  <Txt text={t} fontFamily={MONO} fontSize={tam} fontWeight={500} fill={color} />
+);
+
+/** Número de paso en un cuadrado negro. */
+const Paso = ({ n, tam = 84 }: { n: string; tam?: number }) => (
+  <Rect width={tam} height={tam} radius={14} fill={C.tinta} layout alignItems="center" justifyContent="center" {...SOMBRA} shadowColor={C.acento}>
+    <Txt text={n} fontFamily={TITULO} fontSize={tam * 0.72} fill={C.blanco} />
+  </Rect>
+);
+
+/** Sello torcido que "cae" sobre una tarjeta. */
+function Sello({ t, r, x = 0, y = 0, rot = -8 }: { t: string; r: Reference<Rect>; x?: number; y?: number; rot?: number }) {
+  return (
+    <Rect ref={r} layout={false} x={x} y={y} rotation={rot} padding={[8, 16]} radius={10} stroke={C.acento} lineWidth={5} fill="rgba(244,239,230,0.85)" opacity={0} scale={1.8}>
+      <Txt text={t.toUpperCase()} fontFamily={TITULO} fontSize={38} fill={C.acento} layout={false} />
+    </Rect>
+  );
+}
+function* golpe(r: Reference<Rect>) {
+  yield* all(r().opacity(1, 0.12), r().scale(1, 0.22, easeOutBack));
+}
+
+/** Fondo de papel con puntitos y algunas formas que suben despacio. */
+function Fondo() {
+  return (
     <Node>
-      <Rect width={1080} height={1350} fill={degradado(a, b)} />
-      <Circle ref={refs[0]} size={620} x={-380} y={-460} fill={manchas} opacity={0.35} />
-      <Circle ref={refs[1]} size={420} x={420} y={-120} fill={manchas} opacity={0.25} />
-      <Circle ref={refs[2]} size={520} x={-300} y={420} fill={manchas} opacity={0.2} />
-      <Particulas color={manchas} />
+      <Img src="/fondos/papel.svg" width={1080} height={1350} />
+      <Particulas color="#d6cfc4" cantidad={10} />
     </Node>
   );
-  refs.forEach((r, i) =>
-    spawn(
-      loop(Infinity, function* () {
-        yield* r().position([r().x() + (i % 2 ? -40 : 40), r().y() + 30], 6 + i, easeInOutSine);
-        yield* r().position([r().x() - (i % 2 ? -40 : 40), r().y() - 30], 6 + i, easeInOutSine);
-      }),
-    ),
-  );
-  return n;
 }
 
 function Sendero({ escala = 1 }: { escala?: number }) {
@@ -145,13 +182,16 @@ function Sendero({ escala = 1 }: { escala?: number }) {
   );
 }
 
-/** Texto de los subtítulos en partes cortas, cada una con el momento en que empieza. */
-function partes(l: LineaConTiempo): { t: number; texto: string }[] {
+const degradado = (a: string, b: string) =>
+  new Gradient({ type: "linear", from: [0, -675], to: [0, 675], stops: [{ offset: 0, color: a }, { offset: 1, color: b }] });
+
+/** Texto de los subtítulos en partes cortas; cada parte sabe en qué palabra de la línea empieza. */
+function partes(l: LineaConTiempo): { n: number; texto: string }[] {
   const frases = l.texto.match(/[^.:;?!]+[.:;?!…»]*\s*/g) ?? [l.texto];
   const trozos: string[] = [];
   for (const f of frases) {
     const pal = f.trim().split(/\s+/);
-    if (f.length <= 80) trozos.push(f.trim());
+    if (f.length <= 70) trozos.push(f.trim());
     else {
       const comas = [...f.matchAll(/,\s/g)].map((m) => m.index ?? 0);
       const mitad = f.length / 2;
@@ -162,9 +202,9 @@ function partes(l: LineaConTiempo): { t: number; texto: string }[] {
   }
   let n = 0;
   return trozos.filter(Boolean).map((texto) => {
-    const w = l.palabras[Math.min(n, l.palabras.length - 1)];
+    const r = { n, texto };
     n += texto.split(/\s+/).filter((p) => /[\p{L}\p{N}]/u.test(p)).length;
-    return { t: l.inicio + (w ? w.t : 0), texto };
+    return r;
   });
 }
 
@@ -185,90 +225,90 @@ export default makeScene2D("personajes", function* (view) {
   const total = useScene().variables.get("total", 1)();
   EST = useScene().variables.get("estudiante", EST)();
   GENTE.estudiante.nombre = EST.nombre;
-  // lo primero que escribe el estudiante, para la notificación que le llega al asesor
   const primerMensaje = planos.flatMap((p) => p.lineas).find((l) => l.quien === "estudiante" && l.modo === "escribe")?.texto ?? "";
   const avisoTexto = primerMensaje.length > 24 ? primerMensaje.slice(0, 22).trimEnd() + "…" : primerMensaje;
 
-  const fuente = new FontFace(LETRA, "url(/plus-jakarta-sans.woff2)", { weight: "400 800" });
-  yield fuente.load().then((f) => document.fonts.add(f));
+  const fuentes = [
+    new FontFace(LETRA, "url(/plus-jakarta-sans.woff2)", { weight: "400 800" }),
+    new FontFace(TITULO, "url(/fuentes/anton.woff2)"),
+    new FontFace(MONO, "url(/fuentes/mono.woff2)", { weight: "500" }),
+    new FontFace(SERIF, "url(/fuentes/serif-italica.woff2)", { style: "italic" }),
+  ];
+  yield Promise.all(fuentes.map((f) => f.load().then((x) => document.fonts.add(x))));
 
-  // ---- subtítulo: tarjeta blanca abajo, con la cara de quien habla ----
+  // ---- karaoke arriba: quién habla y la frase, con la palabra del momento en color ----
   const escenario = createRef<Node>();
-  const banda = createRef<Rect>();
-  const chip = createRef<Rect>();
-  const nombre = createRef<Txt>();
-  const dicho = createRef<Txt>();
-  const retratos = {} as Record<Persona, Muñeco & { marco: Reference<Circle> }>;
-  for (const q of ["estudiante", "martin", "narradora"] as const) retratos[q] = { ...nuevoMuñeco(), marco: createRef() };
-
+  const karaoke = createRef<Node>();
+  const quienTxt = createRef<Txt>();
+  const renglones = createRef<Layout>();
   const cortina = createRef<Circle>();
   const progreso = createRef<Rect>();
   view.add(<Node ref={escenario} />);
-  view.add(<Circle ref={cortina} size={0} fill={C.primario} />);
   view.add(
-    <Rect ref={banda} width={1000} height={230} y={530} radius={36} fill={C.blanco} opacity={0} shadowColor="rgba(15,23,42,0.25)" shadowBlur={40} shadowOffsetY={12}>
-      {(["estudiante", "martin", "narradora"] as const).map((q) => (
-        <Circle ref={retratos[q].marco} size={160} x={-390} fill={GENTE[q].fondo} clip opacity={0}>
-          <Dibujo q={q} alto={400} m={retratos[q]} y={292} />
-        </Circle>
-      ))}
-      <Rect ref={chip} x={-285} y={-72} offset={[-1, 0]} layout padding={[6, 18]} radius={20} fill={C.primario}>
-        <Txt ref={nombre} fontFamily={LETRA} fontSize={26} fontWeight={700} fill={C.blanco} text="" />
-      </Rect>
-      <Txt ref={dicho} x={-285} y={18} offset={[-1, 0]} width={740} textWrap fontFamily={LETRA} fontSize={38} fontWeight={600} lineHeight="130%" fill={C.tinta} text="" />
-    </Rect>,
+    <Node ref={karaoke} opacity={0}>
+      <Rect width={1080} height={300} y={-525} fill={degradado("rgba(244,239,230,0.97)", "rgba(244,239,230,0)")} />
+      <Txt ref={quienTxt} x={-490} y={-612} offset={[-1, 0]} fontFamily={MONO} fontSize={26} fontWeight={500} fill={C.gris} text="" />
+      <Layout ref={renglones} layout direction="row" wrap="wrap" columnGap={13} rowGap={2} width={980} x={-490} y={-585} offset={[-1, -1]} />
+    </Node>,
   );
-
-  view.add(<Rect width={1080} height={10} y={-670} fill="rgba(255,255,255,0.35)" />);
-  view.add(<Rect ref={progreso} width={0} height={10} x={-540} y={-670} offset={[-1, 0]} fill={C.aviso} />);
+  view.add(<Circle ref={cortina} size={0} fill={C.acento} />);
+  view.add(<Rect width={1080} height={8} y={-671} fill="rgba(28,25,23,0.08)" />);
+  view.add(<Rect ref={progreso} width={0} height={8} x={-540} y={-671} offset={[-1, 0]} fill={C.acento} />);
   spawn(progreso().width(1080, total, (v) => v));
 
-  let enBanda: Persona | null = null;
-  function* mostrarBanda(l: LineaConTiempo) {
+  let etiqueta = "// el caso";
+  let pasoActual: string | undefined;
+  function* mostrarKaraoke(l: LineaConTiempo) {
     if (l.quien === "nadie") {
-      if (banda().opacity() > 0) yield* all(banda().opacity(0, 0.3), banda().y(560, 0.3));
-      enBanda = null;
+      yield* karaoke().opacity(0, 0.25);
       return;
     }
-    const q = l.quien;
-    if (enBanda !== q) {
-      for (const p of ["estudiante", "martin", "narradora"] as const) retratos[p].marco().opacity(p === q ? 1 : 0);
-      chip().fill(GENTE[q].color);
-      enBanda = q;
-    }
-    if (l.modo === "escribe") {
-      nombre().text(`${GENTE[q].nombre} · escribe`);
-      dicho().fill(C.gris);
-      dicho().text("Lo que escribe aparece en el chat…");
-    } else {
-      nombre().text(l.modo === "audio" ? `${GENTE[q].nombre} · mensaje de voz` : GENTE[q].nombre);
-      dicho().fill(C.tinta);
-      const ps = partes(l);
-      dicho().text(ps[0]?.texto ?? "");
-      spawn(function* () {
-        for (const p of ps.slice(1)) {
-          yield* hasta(p.t);
-          dicho().text(p.texto);
+    const nombre = GENTE[l.quien].nombre.toLowerCase();
+    if (l.quien === "narradora") quienTxt().text(etiqueta);
+    else if (l.modo === "escribe") quienTxt().text(`// ${nombre} escribe…`);
+    else if (l.modo === "audio") quienTxt().text(`// ${nombre} · mensaje de voz`);
+    else quienTxt().text(`// ${nombre}`);
+    quienTxt().fill(l.quien === "narradora" ? C.gris : GENTE[l.quien].color);
+    renglones().removeChildren();
+    if (karaoke().opacity() < 1) spawn(karaoke().opacity(1, 0.25));
+    if (l.modo === "escribe") return; // lo que se escribe ya se lee en el chat
+    const ps = partes(l);
+    spawn(function* () {
+      for (const p of ps) {
+        const w0 = l.palabras[Math.min(p.n, l.palabras.length - 1)];
+        yield* hasta(l.inicio + (w0 ? w0.t : 0) - 0.05);
+        renglones().removeChildren();
+        const pal = p.texto.split(/\s+/);
+        const txts = pal.map((x) => (<Txt text={x} fontFamily={LETRA} fontSize={46} fontWeight={700} fill={C.apagado} lineHeight="128%" />) as Txt);
+        for (const t of txts) renglones().add(t);
+        let k = p.n;
+        for (let i = 0; i < txts.length; i++) {
+          if (!/[\p{L}\p{N}]/u.test(pal[i])) continue;
+          const w = l.palabras[Math.min(k, l.palabras.length - 1)];
+          k++;
+          if (w) yield* hasta(l.inicio + w.t);
+          if (i > 0) for (let j = 0; j < i; j++) txts[j].fill(C.tinta);
+          txts[i].fill(C.acento);
         }
-      });
-    }
-    if (banda().opacity() < 1) {
-      banda().y(560);
-      yield* all(banda().opacity(1, 0.3), banda().y(530, 0.35, easeOutCubic));
-    }
+        yield* hasta(l.inicio + l.dur);
+        txts.forEach((t) => t.fill(C.tinta));
+      }
+    });
   }
 
   const historial: Mensaje[] = [];
 
   for (const plano of planos) {
     yield* hasta(plano.inicio);
+    if (plano.tipo === "capitulo") pasoActual = plano.numero;
+    if (plano.tipo === "capitulo" && plano.numero) etiqueta = `// paso ${plano.numero} · ${plano.texto.toLowerCase()}`;
+    if (plano.tipo === "capitulo" && !plano.numero) etiqueta = `// ${plano.texto.toLowerCase()}`;
     const raiz = createRef<Node>();
     const a = armar(plano, historial, raiz);
     escenario().add(a.nodo);
     const conCortina = cortina().width() > 0;
-    if (!plano.lineas.some((l) => l.quien !== "nadie") && banda().opacity() > 0) spawn(banda().opacity(0, 0.25));
+    if (!plano.lineas.some((l) => l.quien !== "nadie") && karaoke().opacity() > 0) spawn(karaoke().opacity(0, 0.25));
     if (conCortina) {
-      // la cortina de color se va achicando hacia una esquina y deja ver el plano nuevo
       if (a.alEntrar) spawn(a.alEntrar());
       yield* all(cortina().size(0, 0.5, easeInOutCubic), cortina().position([480, -620], 0.5, easeInOutCubic));
     } else {
@@ -282,10 +322,9 @@ export default makeScene2D("personajes", function* (view) {
       yield* hasta(l.inicio - (l.modo === "congela" ? 0.8 : 0));
       if (l.modo === "congela" && a.congelar) yield* a.congelar();
       yield* hasta(l.inicio);
-      yield* mostrarBanda(l);
+      yield* mostrarKaraoke(l);
       const bocas: Reference<Img>[] = [];
       if (l.quien !== "nadie") {
-        bocas.push(retratos[l.quien].boca);
         const propia = a.bocas?.[l.quien];
         if (propia) bocas.push(propia);
       }
@@ -300,13 +339,12 @@ export default makeScene2D("personajes", function* (view) {
       const suave = sig.tipo === "chat" && sig.sigue && plano.tipo === "chat";
       if (suave) yield* all(raiz().opacity(0, 0.4, easeInOutCubic), raiz().scale(0.97, 0.4));
       else {
-        // cortina de color que crece desde una esquina y tapa el plano
         const esquinas: [number, number][] = [[-540, 675], [540, 675], [-540, -675], [540, -675]];
-        const e = esquinas[planos.indexOf(plano) % 4];
-        cortina().position(e);
-        cortina().fill(sig.tipo === "capitulo" || plano.tipo === "capitulo" ? C.primario : ["#4f46e5", "#0f766e", "#f59e0b", "#ec4899"][planos.indexOf(plano) % 4]);
+        const i = planos.indexOf(plano);
+        cortina().position(esquinas[i % 4]);
+        cortina().fill([C.acento, C.tinta, C.azul, C.aviso][i % 4]);
         const sinVoz = !sig.lineas?.some((l) => l.quien !== "nadie");
-        yield* all(cortina().size(3600, 0.4, easeInOutCubic), raiz().scale(0.97, 0.4), ...(sinVoz ? [banda().opacity(0, 0.3)] : []));
+        yield* all(cortina().size(3600, 0.4, easeInOutCubic), raiz().scale(0.97, 0.4), ...(sinVoz ? [karaoke().opacity(0, 0.3)] : []));
       }
       a.nodo.remove();
     }
@@ -318,22 +356,25 @@ export default makeScene2D("personajes", function* (view) {
     switch (plano.tipo) {
       case "portada": {
         const ms = [nuevoMuñeco(), nuevoMuñeco(), nuevoMuñeco()];
-        const titulo1 = createRef<Layout>();
+        const subrayado = createRef<Rect>();
         const n = (
           <Node ref={raiz}>
-            <Fondo a="#312e81" b={C.nav} manchas="#6366f1" />
-            <Layout ref={titulo1} layout direction="column" alignItems="center" gap={30} y={-300}>
-              <Sendero escala={0.75} />
-              <T t="PEA · Lección" tam={38} color={C.suave} />
-              <T t={titulo} tam={96} peso={800} color={C.blanco} ancho={960} alinea="center" />
-              <T t={bajada} tam={40} color={C.suave} peso={500} />
+            <Fondo />
+            <Layout layout direction="column" alignItems="start" gap={18} x={-470} y={-560} offset={[-1, -1]} width={940}>
+              <Layout direction="row" gap={18} alignItems="center">
+                <Sendero escala={0.4} />
+                <Etiqueta t="// PEA · lección" tam={30} />
+              </Layout>
+              <Titulo texto={titulo} tam={150} ancho={940} />
+              <Rect ref={subrayado} width={0} height={14} radius={7} fill={C.acento} />
+              <Txt text={bajada} fontFamily={SERIF} fontStyle="italic" fontSize={58} fill={C.tinta} />
             </Layout>
-            <Circle size={420} x={-300} y={560} fill={GENTE.estudiante.fondo} />
-            <Circle size={420} x={0} y={600} fill={GENTE.narradora.fondo} />
-            <Circle size={420} x={300} y={560} fill={GENTE.martin.fondo} />
-            <Dibujo q="estudiante" alto={560} m={ms[0]} x={-300} y={720} cara="contenta" />
-            <Dibujo q="narradora" alto={560} m={ms[1]} x={0} y={740} cara="contenta" />
-            <Dibujo q="martin" alto={560} m={ms[2]} x={300} y={720} cara="contenta" />
+            <Circle size={400} x={-310} y={560} fill={GENTE.estudiante.fondo} />
+            <Circle size={400} x={0} y={600} fill={GENTE.narradora.fondo} />
+            <Circle size={400} x={310} y={560} fill={GENTE.martin.fondo} />
+            <Dibujo q="estudiante" alto={540} m={ms[0]} x={-310} y={720} cara="contenta" />
+            <Dibujo q="narradora" alto={540} m={ms[1]} x={0} y={740} cara="contenta" />
+            <Dibujo q="martin" alto={540} m={ms[2]} x={310} y={720} cara="contenta" />
           </Node>
         ) as Node;
         ms.forEach((m, i) => respirar(m.nodo, i * 0.2));
@@ -341,7 +382,7 @@ export default makeScene2D("personajes", function* (view) {
           nodo: n,
           alEntrar: function* () {
             ms.forEach((m) => m.nodo().y(m.nodo().y() + 400));
-            yield* all(...ms.map((m, i) => m.nodo().y(m.nodo().y() - 400, 0.8 + i * 0.12, easeOutBack)));
+            yield* all(subrayado().width(320, 0.7, easeOutCubic), ...ms.map((m, i) => m.nodo().y(m.nodo().y() - 400, 0.8 + i * 0.12, easeOutBack)));
           },
         };
       }
@@ -465,13 +506,11 @@ export default makeScene2D("personajes", function* (view) {
       case "nota": {
         const n = (
           <Node ref={raiz}>
-            <Fondo a="#312e81" b={C.nav} manchas="#6366f1" />
-            <Rect layout direction="column" gap={24} width={840} padding={64} y={-160} radius={36} fill="#fef3c7" rotation={-2} shadowColor="rgba(0,0,0,0.35)" shadowBlur={50} shadowOffsetY={20}>
-              <Rect layout padding={[8, 18]} radius={16} fill="#f59e0b">
-                <T t="Lo que Martín todavía no sabe" tam={28} color={C.blanco} peso={800} />
-              </Rect>
-              <T t={plano.texto} tam={60} color={C.tinta} peso={800} ancho={712} />
-              {plano.detalle && <T t={plano.detalle} tam={38} color="#92400e" peso={600} ancho={712} />}
+            <Fondo />
+            <Rect layout direction="column" gap={24} width={840} padding={60} y={-80} radius={24} fill="#fff3c4" rotation={-2} stroke={C.tinta} lineWidth={4} {...SOMBRA}>
+              <Etiqueta t="// lo que Martín todavía no sabe" color="#92400e" tam={28} />
+              <T t={plano.texto} tam={62} color={C.tinta} peso={800} ancho={716} />
+              {plano.detalle && <Txt text={plano.detalle} fontFamily={SERIF} fontStyle="italic" fontSize={50} fill={C.acento} />}
             </Rect>
           </Node>
         ) as Node;
@@ -489,31 +528,29 @@ export default makeScene2D("personajes", function* (view) {
         const n = (
           <Node ref={raiz}>
             <Node ref={telefono}>
-              <Fondo a="#e0e7ff" b="#c7d2fe" manchas="#a5b4fc" />
-              {/* quien escribe o habla, al costado del teléfono */}
-              <Circle ref={circulo} size={440} x={-320} y={120} fill={GENTE.estudiante.fondo} opacity={0.9} />
-              <Dibujo q="estudiante" alto={680} m={gente.estudiante} x={-320} y={440} />
-              <Dibujo q="martin" alto={680} m={gente.martin} x={-320} y={440} />
-              {/* teléfono */}
-              <Rect width={620} height={1000} x={200} y={-160} radius={70} fill="#111827" shadowColor="rgba(15,23,42,0.4)" shadowBlur={60} shadowOffsetY={24}>
-                <Rect width={580} height={960} radius={52} fill={C.fondoChat} clip>
-                  <Layout ref={columna} layout direction="column" justifyContent="end" gap={14} width={540} height={790} y={65} />
-                  <Rect width={580} height={150} y={-405} fill={C.chat} />
-                  <Circle size={70} x={-205} y={-380} fill={GENTE.estudiante.fondo} clip>
-                    <Img src={src("estudiante", "cerrada")} height={200} width={200 * PROP} y={60} />
+              <Fondo />
+              <Circle ref={circulo} size={460} x={-330} y={330} fill={GENTE.estudiante.fondo} />
+              <Dibujo q="estudiante" alto={760} m={gente.estudiante} x={-330} y={690} />
+              <Dibujo q="martin" alto={760} m={gente.martin} x={-330} y={690} />
+              <Rect width={600} height={900} x={200} y={60} radius={64} fill="#111827" {...SOMBRA}>
+                <Rect width={562} height={862} radius={48} fill={C.fondoChat} clip>
+                  <Layout ref={columna} layout direction="column" justifyContent="end" gap={12} width={524} height={700} y={65} />
+                  <Rect width={562} height={140} y={-361} fill={C.chat} />
+                  <Circle size={66} x={-195} y={-340} fill={GENTE.estudiante.fondo} clip>
+                    <Img src={src("estudiante", "cerrada")} height={190} width={190 * PROP} y={56} />
                   </Circle>
-                  <Txt x={-155} y={-396} offset={[-1, 0]} text={EST.nombre} fontFamily={LETRA} fontSize={34} fontWeight={700} fill={C.blanco} />
-                  <Txt x={-155} y={-360} offset={[-1, 0]} text={EST.detalle} fontFamily={LETRA} fontSize={22} fontWeight={500} fill="#ccfbf1" />
-                  <Rect width={170} height={32} y={-462} radius={16} fill="#111827" />
+                  <Txt x={-148} y={-354} offset={[-1, 0]} text={EST.nombre} fontFamily={LETRA} fontSize={32} fontWeight={700} fill={C.blanco} />
+                  <Txt x={-148} y={-320} offset={[-1, 0]} text={EST.detalle} fontFamily={LETRA} fontSize={21} fontWeight={500} fill="#ccfbf1" />
+                  <Rect width={160} height={30} y={-414} radius={15} fill="#111827" />
                 </Rect>
               </Rect>
             </Node>
-            <Rect ref={tapa} width={1080} height={1350} fill="rgba(15,23,42,0.55)" opacity={0} />
+            <Rect ref={tapa} width={1080} height={1350} fill="rgba(28,25,23,0.55)" opacity={0} />
             <Node ref={narrCaja} x={1300}>
-              <Circle size={560} x={250} y={120} fill={GENTE.narradora.fondo} />
-              <Dibujo q="narradora" alto={980} m={narr} x={250} y={560} espejo />
-              <Rect layout padding={[22, 40]} radius={40} x={40} y={-380} fill={C.aviso} rotation={-4} shadowColor="rgba(0,0,0,0.3)" shadowBlur={30}>
-                <T t="¡Pará, Martín!" tam={60} peso={800} color={C.tinta} />
+              <Circle size={540} x={250} y={260} fill={GENTE.narradora.fondo} />
+              <Dibujo q="narradora" alto={960} m={narr} x={250} y={690} espejo />
+              <Rect layout padding={[20, 36]} radius={16} x={10} y={-250} fill={C.acento} rotation={-5} {...SOMBRA}>
+                <Txt text="¡PARÁ, MARTÍN!" fontFamily={TITULO} fontSize={74} fill={C.blanco} />
               </Rect>
             </Node>
           </Node>
@@ -521,7 +558,6 @@ export default makeScene2D("personajes", function* (view) {
         respirar(gente.estudiante.nodo);
         respirar(gente.martin.nodo, 0.3);
         respirar(narr.nodo);
-        // empieza mostrando a quien habla primero en este plano
         const primero = plano.lineas.find((l) => l.quien === "estudiante" || l.quien === "martin")?.quien ?? "estudiante";
         let visible: "estudiante" | "martin" = primero as "estudiante" | "martin";
         circulo().fill(GENTE[visible].fondo);
@@ -534,9 +570,9 @@ export default makeScene2D("personajes", function* (view) {
           const sale = gente[visible].nodo();
           const entra = gente[q].nodo();
           visible = q;
-          yield* all(sale.opacity(0, 0.3), sale.x(-380, 0.3), circulo().fill(GENTE[q].fondo, 0.5));
-          entra.x(-260);
-          yield* all(entra.opacity(1, 0.35), entra.x(-320, 0.35, easeOutCubic));
+          yield* all(sale.opacity(0, 0.3), sale.x(-390, 0.3), circulo().fill(GENTE[q].fondo, 0.5));
+          entra.x(-270);
+          yield* all(entra.opacity(1, 0.35), entra.x(-330, 0.35, easeOutCubic));
         }
         return {
           nodo: n,
@@ -558,20 +594,23 @@ export default makeScene2D("personajes", function* (view) {
             yield* cambiar(l.quien);
             const m: Mensaje = { de: l.quien, tipo: l.modo === "audio" ? "audio" : "texto", texto: l.texto, dur: l.dur, borrador: l.corta };
             if (m.de === "estudiante" && m.tipo === "texto") {
-              // "escribiendo…": tres puntitos que saltan antes de que llegue el mensaje
               const puntos = [createRef<Circle>(), createRef<Circle>(), createRef<Circle>()];
               const fila = (
-                <Layout direction="row" width={540} justifyContent="start">
+                <Layout direction="row" width={524} justifyContent="start">
                   <Rect layout direction="row" gap={10} padding={[22, 26]} radius={[6, 24, 24, 24]} fill={C.blanco} alignItems="center">
                     {puntos.map((r) => <Circle ref={r} size={14} fill="#9ca3af" />)}
                   </Rect>
                 </Layout>
               ) as Layout;
               columna().add(fila);
-              yield* all(...puntos.map((r, i) => (function* () {
-                yield* waitFor(i * 0.1);
-                yield* r().scale(1.5, 0.15).to(1, 0.15);
-              })()));
+              yield* all(
+                ...puntos.map((r, i) =>
+                  (function* () {
+                    yield* waitFor(i * 0.1);
+                    yield* r().scale(1.5, 0.15).to(1, 0.15);
+                  })(),
+                ),
+              );
               fila.remove();
             }
             const b = burbuja(m, true);
@@ -608,76 +647,71 @@ export default makeScene2D("personajes", function* (view) {
         const tarjetas: Tarjeta[] = esLista
           ? plano.items.map((texto, i) => ({ texto: `${i + 1}. ${texto}`, tono: "neutro", marca: i }))
           : plano.tarjetas;
-        const items = tarjetas.map((t) => ({ t, nodo: createRef<Rect>(), signo: createRef<Circle>(), signoTxt: createRef<Txt>() }));
+        const items = tarjetas.map((t) => ({ t, nodo: createRef<Rect>(), signo: createRef<Circle>(), signoTxt: createRef<Txt>(), sello: createRef<Rect>() }));
         const columnas = plano.tipo === "tablero" ? plano.columnas : undefined;
         const numeradas = plano.tipo === "tablero" && plano.numeradas;
-        const ancho = columnas ? 330 : 640;
-        // en la lista todo se ve de entrada, gris, y se tilda cuando se nombra
+        const ancho = columnas ? 300 : 610;
         const oculta = (t: Tarjeta) => !esLista && t.marca !== undefined;
         const tarjeta = (it: (typeof items)[number], i: number) => (
           <Rect
             ref={it.nodo}
             layout
             direction="row"
-            gap={20}
+            gap={18}
             alignItems="center"
             width={ancho}
-            padding={[22, 24]}
-            radius={26}
+            padding={[20, 22]}
+            radius={18}
             fill={C.blanco}
-            shadowColor="rgba(30,27,75,0.18)"
-            shadowBlur={24}
-            shadowOffsetY={8}
-            opacity={oculta(it.t) ? 0 : esLista ? 0.55 : 1}
+            stroke={C.tinta}
+            lineWidth={3}
+            {...SOMBRA}
+            opacity={oculta(it.t) ? 0 : esLista ? 0.5 : 1}
             x={oculta(it.t) ? 60 : 0}
           >
-            <Circle ref={it.signo} size={56} fill={esLista ? "#e5e7eb" : TONO[it.t.tono]} layout alignItems="center" justifyContent="center">
-              <Txt ref={it.signoTxt} text={numeradas ? String(i + 1) : esLista ? "" : SIGNO[it.t.tono]} fontFamily={LETRA} fontSize={30} fontWeight={800} fill={C.blanco} />
+            <Circle ref={it.signo} size={52} fill={esLista ? "#e7e2d9" : TONO[it.t.tono]} layout alignItems="center" justifyContent="center">
+              <Txt ref={it.signoTxt} text={numeradas ? String(i + 1) : esLista ? "" : SIGNO[it.t.tono]} fontFamily={LETRA} fontSize={28} fontWeight={800} fill={C.blanco} />
             </Circle>
             <Layout direction="column" gap={4}>
-              <T t={it.t.texto} tam={columnas ? 29 : 36} peso={800} ancho={ancho - (columnas ? 104 : 124)} />
-              {it.t.detalle && <T t={it.t.detalle} tam={columnas ? 24 : 28} peso={500} color={C.gris} ancho={ancho - (columnas ? 104 : 124)} />}
+              <T t={it.t.texto} tam={columnas ? 28 : 34} peso={800} ancho={ancho - (columnas ? 100 : 116)} />
+              {it.t.detalle && <T t={it.t.detalle} tam={columnas ? 23 : 27} peso={500} color={C.gris} ancho={ancho - (columnas ? 100 : 116)} />}
             </Layout>
+            {it.t.sello && <Sello t={it.t.sello} r={it.sello} x={ancho / 2 - 110} y={-34} rot={-9 + (i % 2) * 5} />}
           </Rect>
         );
         const cuerpo = columnas ? (
-          <Layout direction="row" gap={20} alignItems="start">
+          <Layout direction="row" gap={14} alignItems="start">
             {[0, 1].map((col) => (
-              <Layout direction="column" gap={16} width={330}>
-                <Rect layout padding={[12, 22]} radius={20} fill={col === 0 ? C.ok : C.mal}>
-                  <T t={columnas[col]} tam={30} peso={800} color={C.blanco} />
+              <Layout direction="column" gap={18} width={300}>
+                <Rect layout padding={[10, 18]} radius={12} fill={col === 0 ? C.ok : C.mal}>
+                  <Txt text={columnas[col].toUpperCase()} fontFamily={TITULO} fontSize={36} fill={C.blanco} />
                 </Rect>
                 {items.map((it, i) => (it.t.columna === col ? tarjeta(it, i) : null))}
               </Layout>
             ))}
           </Layout>
         ) : (
-          <Layout direction="column" gap={16}>
+          <Layout direction="column" gap={18}>
             {items.map((it, i) => tarjeta(it, i))}
           </Layout>
         );
-        const tituloTxt = plano.titulo;
         const icono = plano.icono;
-        const animado = icono ? IconoAnimado({ tipo: icono, x: 350, y: -440, tam: 230 }) : undefined;
+        const animado = icono ? IconoAnimado({ tipo: icono, x: 390, y: -300, tam: 210 }) : undefined;
         const subrayado = createRef<Rect>();
+        const paso = pasoActual;
         const n = (
           <Node ref={raiz}>
-            <Fondo a="#eef2ff" b="#e0e7ff" manchas="#c7d2fe" />
-            <Layout layout direction="column" gap={30} width={660} x={-170} y={-230} alignItems="start">
-              <Layout direction="column" gap={12} alignItems="start">
-                {icono && (
-                  <Rect layout padding={[6, 16]} radius={16} fill={icono === "alerta" ? C.aviso : C.primario}>
-                    <T t={{ lupa: "Chequeo", calendario: "Paso a paso", estrella: "Excepción", alerta: "Ojo", correo: "Comunicación", notebook: "Equipo", wifi: "Conexión", check: "Listo" }[icono]} tam={24} peso={800} color={C.blanco} />
-                  </Rect>
-                )}
-                <T t={tituloTxt} tam={52} peso={800} color={C.nav} ancho={660} />
-                <Rect ref={subrayado} width={0} height={10} radius={5} fill={C.primario} />
+            <Fondo />
+            <Layout layout direction="column" gap={26} width={640} x={-500} y={-410} offset={[-1, -1]} alignItems="start">
+              <Layout direction="row" gap={18} alignItems="end">
+                <Titulo texto={plano.titulo} tam={78} ancho={paso ? 520 : 640} />
+                {paso && <Paso n={paso} tam={74} />}
               </Layout>
+              <Rect ref={subrayado} width={0} height={10} radius={5} fill={C.acento} />
               {cuerpo}
             </Layout>
             {animado?.nodo}
-            <Circle size={360} x={400} y={230} fill={GENTE.narradora.fondo} opacity={0.9} />
-            <Dibujo q="narradora" alto={620} m={narr} x={410} y={480} espejo />
+            <Presentadora m={narr} x={360} alto={700} />
           </Node>
         ) as Node;
         respirar(narr.nodo);
@@ -685,8 +719,17 @@ export default makeScene2D("personajes", function* (view) {
           nodo: n,
           bocas: { narradora: narr.boca },
           alEntrar: function* () {
-            // todo con yield*: lo que se lanza con spawn dentro de este hilo se corta cuando termina
-            yield* all(subrayado().width(140, 0.6, easeOutCubic), ...(animado ? [animado.animar()] : []));
+            const sinMarca = items.filter((it) => it.t.sello && !oculta(it.t));
+            yield* all(
+              subrayado().width(150, 0.6, easeOutCubic),
+              ...(animado ? [animado.animar()] : []),
+              ...sinMarca.map((it, k) =>
+                (function* () {
+                  yield* waitFor(0.6 + k * 0.3);
+                  yield* golpe(it.sello);
+                })(),
+              ),
+            );
           },
           linea: function* (l) {
             if (l.marca === undefined) return;
@@ -694,10 +737,13 @@ export default makeScene2D("personajes", function* (view) {
             yield* all(
               ...nuevas.map((it) =>
                 esLista
-                  ? all(it.nodo().opacity(1, 0.3), it.signo().fill(C.ok, 0.3), it.signo().scale(1.25, 0.15).to(1, 0.2), function* () {
+                  ? all(it.nodo().opacity(1, 0.3), it.signo().fill(C.ok, 0.3), it.signo().scale(1.25, 0.15).to(1, 0.2), (function* () {
                       it.signoTxt().text("✓");
-                    }())
-                  : all(it.nodo().opacity(1, 0.35), it.nodo().x(0, 0.5, easeOutBack)),
+                    })())
+                  : (function* () {
+                      yield* all(it.nodo().opacity(1, 0.35), it.nodo().x(0, 0.5, easeOutBack));
+                      if (it.t.sello) yield* golpe(it.sello);
+                    })(),
               ),
             );
           },
@@ -705,8 +751,44 @@ export default makeScene2D("personajes", function* (view) {
       }
 
       case "capitulo": {
-        const cap = Capitulo({ numero: plano.numero, texto: plano.texto, raiz });
-        return { nodo: cap.nodo, alEntrar: cap.animar };
+        const narr = nuevoMuñeco();
+        const num = createRef<Txt>();
+        const barra = createRef<Rect>();
+        const palabras = plano.texto.toUpperCase().split(/\s+/);
+        const refs = palabras.map(() => createRef<Txt>());
+        const n = (
+          <Node ref={raiz}>
+            <Fondo />
+            <Layout layout direction="column" gap={10} x={-490} y={-520} offset={[-1, -1]} width={700} alignItems="start">
+              <Etiqueta t={plano.numero ? `// paso ${plano.numero}` : "// y ahora"} tam={30} color={C.acento} />
+              {plano.numero && <Txt ref={num} text={plano.numero} fontFamily={TITULO} fontSize={300} fill={C.acento} lineHeight="100%" scale={0} />}
+              <Layout direction="row" wrap="wrap" gap={24} width={700}>
+                {palabras.map((p, i) => (
+                  <Txt ref={refs[i]} text={p} fontFamily={TITULO} fontSize={plano.numero ? 112 : 140} fill={i === palabras.length - 1 ? C.acento : C.tinta} opacity={0} lineHeight="105%" />
+                ))}
+              </Layout>
+              <Rect ref={barra} width={0} height={14} radius={7} fill={C.tinta} />
+            </Layout>
+            <Presentadora m={narr} x={360} alto={760} />
+          </Node>
+        ) as Node;
+        respirar(narr.nodo);
+        return {
+          nodo: n,
+          alEntrar: function* () {
+            if (plano.numero) yield* num().scale(1, 0.5, easeOutBack);
+            yield* all(
+              barra().width(260, 0.7, easeOutCubic),
+              ...refs.map((r, i) =>
+                (function* () {
+                  yield* waitFor(i * 0.09);
+                  r().y(40);
+                  yield* all(r().opacity(1, 0.25), r().y(0, 0.4, easeOutCubic));
+                })(),
+              ),
+            );
+          },
+        };
       }
 
       case "cierre": {
@@ -715,35 +797,36 @@ export default makeScene2D("personajes", function* (view) {
         const ms = [nuevoMuñeco(), nuevoMuñeco(), nuevoMuñeco()];
         const n = (
           <Node ref={raiz}>
-            <Fondo a="#312e81" b={C.nav} manchas="#6366f1" />
-            <Layout layout direction="column" gap={22} width={960} y={-300} alignItems="center">
-              <Rect layout padding={[8, 20]} radius={18} fill={C.ok}>
-                <T t="Para recordar" tam={32} color={C.blanco} peso={800} />
-              </Rect>
+            <Fondo />
+            <Layout layout direction="column" gap={26} width={960} y={-380} alignItems="center">
+              <Etiqueta t="// para recordar" tam={32} color={C.acento} />
               {plano.items.map((f, i) => (
-                <Txt ref={frases[i]} text={f} fontFamily={LETRA} fontSize={70} fontWeight={800} fill={C.blanco} opacity={0} textAlign="center" width={960} textWrap />
+                <Txt ref={frases[i]} text={f.toUpperCase()} fontFamily={TITULO} fontSize={84} fill={i % 2 ? C.acento : C.tinta} opacity={0} textAlign="center" width={960} textWrap lineHeight="108%" />
               ))}
               <Layout ref={final} direction="row" gap={20} alignItems="center" opacity={0}>
                 <Sendero escala={0.35} />
-                <T t="Ahora probá vos" tam={44} color={C.suave} peso={700} />
+                <Txt text="Ahora probá vos" fontFamily={SERIF} fontStyle="italic" fontSize={60} fill={C.tinta} />
               </Layout>
             </Layout>
-            <Circle size={300} x={-330} y={290} fill={GENTE.estudiante.fondo} />
-            <Circle size={300} x={330} y={290} fill={GENTE.martin.fondo} />
-            <Dibujo q="estudiante" alto={380} m={ms[0]} x={-330} y={410} cara="contenta" />
-            <Dibujo q="martin" alto={380} m={ms[2]} x={330} y={410} cara="contenta" />
+            <Circle size={330} x={-330} y={430} fill={GENTE.estudiante.fondo} />
+            <Circle size={330} x={0} y={460} fill={GENTE.narradora.fondo} />
+            <Circle size={330} x={330} y={430} fill={GENTE.martin.fondo} />
+            <Dibujo q="estudiante" alto={440} m={ms[0]} x={-330} y={690} cara="contenta" />
+            <Dibujo q="narradora" alto={440} m={ms[1]} x={0} y={700} cara="contenta" />
+            <Dibujo q="martin" alto={440} m={ms[2]} x={330} y={690} cara="contenta" />
           </Node>
         ) as Node;
-        ms.forEach((m, i) => m.nodo() && respirar(m.nodo, i * 0.2));
+        ms.forEach((m, i) => respirar(m.nodo, i * 0.2));
         return {
           nodo: n,
+          bocas: { narradora: ms[1].boca },
           linea: function* (l) {
             if (l.marca === undefined) return;
             if (l.marca === 0) spawn(confeti(raiz()));
             if (l.marca < frases.length) {
               const f = frases[l.marca]();
-              f.y(30);
-              yield* all(f.opacity(1, 0.4), f.y(0, 0.5, easeOutCubic));
+              f.scale(1.3);
+              yield* all(f.opacity(1, 0.25), f.scale(1, 0.4, easeOutBack));
             } else yield* final().opacity(1, 0.4);
           },
         };

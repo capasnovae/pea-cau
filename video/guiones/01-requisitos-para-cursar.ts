@@ -63,8 +63,8 @@ const guion: Guion = {
       titulo: "Lo que ya sabés de Sofía",
       icono: "lupa",
       tarjetas: [
-        { texto: "Cambió de mail y no lo actualizó", detalle: "los avisos van a una casilla que no usa", tono: "mal" },
-        { texto: "Quiere rendir desde la tablet", detalle: "no tiene notebook", tono: "mal" },
+        { texto: "Cambió de mail y no lo actualizó", detalle: "los avisos van a una casilla que no usa", tono: "mal", sello: "Ojo" },
+        { texto: "Quiere rendir desde la tablet", detalle: "no tiene notebook", tono: "mal", sello: "No sirve" },
       ],
       lineas: [{ quien: "narradora", texto: "Con dos preguntas ya sabés dónde está el problema." }],
     },
@@ -75,7 +75,7 @@ const guion: Guion = {
       icono: "correo",
       tarjetas: [
         { texto: "Todos los avisos van al correo registrado", tono: "neutro", marca: 0 },
-        { texto: "Mantenerlo actualizado le toca al estudiante", tono: "aviso", marca: 1 },
+        { texto: "Mantenerlo actualizado le toca al estudiante", tono: "aviso", marca: 1, sello: "Responsabilidad suya" },
         { texto: "Si cambió de mail: que lo actualice en sus datos", detalle: "y que revise la casilla registrada", tono: "ok", marca: 2 },
       ],
       lineas: [
@@ -118,7 +118,7 @@ const guion: Guion = {
       tarjetas: [
         { texto: "La conexión a Internet es requisito para cursar", tono: "neutro" },
         { texto: "Si no la tiene, lo informa a la Universidad", tono: "aviso", marca: 0 },
-        { texto: "La Universidad evalúa si puede admitirlo o seguir cursando", detalle: "el CAU no lo da por resuelto", tono: "ok", marca: 1 },
+        { texto: "La Universidad evalúa si puede admitirlo o seguir cursando", detalle: "el CAU no lo da por resuelto", tono: "ok", marca: 1, sello: "Decide la Universidad" },
       ],
       lineas: [
         { quien: "narradora", texto: "La conexión a Internet es requisito para cursar." },
@@ -136,8 +136,8 @@ const guion: Guion = {
       icono: "alerta",
       tarjetas: [
         { texto: "Sin sanciones académicas o administrativas", detalle: "para seguir cursando", tono: "aviso", marca: 0 },
-        { texto: "Expulsión en otra universidad o instituto oficial", detalle: "inhabilita para cursar, salvo resolución del Rectorado", tono: "mal", marca: 1 },
-        { texto: "Ambo o chaquetilla", detalle: "obligatorio en las carreras que lo piden; lo compra cada estudiante", tono: "neutro", marca: 2 },
+        { texto: "Expulsión en otra universidad o instituto oficial", detalle: "inhabilita para cursar, salvo resolución del Rectorado", tono: "mal", marca: 1, sello: "Inhabilita" },
+        { texto: "Ambo o chaquetilla", detalle: "obligatorio en las carreras que lo piden; lo compra cada estudiante", tono: "neutro", marca: 2, sello: "Obligatorio" },
       ],
       lineas: [
         { quien: "narradora", marca: 0, texto: "Seguir cursando depende de no tener sanciones académicas o administrativas." },
