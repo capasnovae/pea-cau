@@ -1,7 +1,7 @@
 // Muñeco articulado para los videos: cuerpo entero con hombros, codos, caderas, rodillas y cabeza que se mueven con
 // curvas suaves. Dos estilos con el mismo esqueleto: "palitos" (trazo de tinta) y "plano" (ropa, pelo y colores).
 import { Circle, Line, Node, Rect } from "@revideo/2d";
-import type { ThreadGenerator } from "@revideo/core";
+import type { Reference, ThreadGenerator } from "@revideo/core";
 import { all, createRef, easeInOutCubic, easeInOutSine, loop, spawn, waitFor } from "@revideo/core";
 
 export type Estilo = "palitos" | "plano";
@@ -262,3 +262,194 @@ export function crearMuneco({ estilo, look, x = 0, y = 0, escala = 1, espejo = f
 }
 
 export type Muneco = ReturnType<typeof crearMuneco>;
+
+// ---------- estilo propio "frijol": cuerpo y cabeza en una sola forma, trazo grueso y caras de meme ----------
+export type Expresion = "normal" | "sorpresa" | "seria" | "contenta" | "duda";
+export type LookFrijol = { detalle: string; accesorio: "rodete" | "corbata" | "colita"; anteojos?: boolean };
+
+export function crearFrijol({ look, x = 0, y = 0, escala = 1 }: { look: LookFrijol; x?: number; y?: number; escala?: number }) {
+  const raiz = createRef<Node>();
+  const cuerpo = createRef<Node>();
+  const cara = createRef<Node>();
+  const boca = createRef<Node>();
+  const parpados = createRef<Node>();
+  const expr: Record<Expresion, Reference<Node>> = {
+    normal: createRef(),
+    sorpresa: createRef(),
+    seria: createRef(),
+    contenta: createRef(),
+    duda: createRef(),
+  };
+  const j = {
+    hombroI: createRef<Node>(),
+    codoI: createRef<Node>(),
+    hombroD: createRef<Node>(),
+    codoD: createRef<Node>(),
+    piernaI: createRef<Node>(),
+    rodillaI: createRef<Node>(),
+    piernaD: createRef<Node>(),
+    rodillaD: createRef<Node>(),
+  };
+  const L = 9; // grosor del trazo
+  const ojo = (dx: number) => <Circle x={dx} size={18} fill={TINTA} />;
+  const brazo = (lado: "I" | "D") => (
+    <Node ref={lado === "I" ? j.hombroI : j.hombroD} x={lado === "I" ? -98 : 98} y={-170}>
+      <Line points={[[0, 0], [0, 72]]} stroke={TINTA} lineWidth={L} lineCap="round" />
+      <Node ref={lado === "I" ? j.codoI : j.codoD} y={72}>
+        <Line points={[[0, 0], [0, 64]]} stroke={TINTA} lineWidth={L} lineCap="round" />
+        <Circle y={68} size={26} fill="#ffffff" stroke={TINTA} lineWidth={L - 2} />
+      </Node>
+    </Node>
+  );
+  const pierna = (lado: "I" | "D") => (
+    <Node ref={lado === "I" ? j.piernaI : j.piernaD} x={lado === "I" ? -40 : 40} y={-34}>
+      <Line points={[[0, 0], [0, 40]]} stroke={TINTA} lineWidth={L} lineCap="round" />
+      <Node ref={lado === "I" ? j.rodillaI : j.rodillaD} y={40}>
+        <Line points={[[0, 0], [0, 38]]} stroke={TINTA} lineWidth={L} lineCap="round" />
+        <Rect y={42} x={lado === "I" ? -9 : 9} width={40} height={16} radius={8} fill={TINTA} />
+      </Node>
+    </Node>
+  );
+  const n = (
+    <Node ref={raiz} x={x} y={y} scale={escala}>
+      <Circle size={[220, 30]} y={8} fill="rgba(28,25,23,0.12)" />
+      <Node ref={cuerpo}>
+        {pierna("I")}
+        {pierna("D")}
+        {look.accesorio === "rodete" && <Circle y={-372} size={70} fill="#ffffff" stroke={TINTA} lineWidth={L} />}
+        {look.accesorio === "colita" && (
+          <Line points={[[70, -330], [130, -350], [140, -290]]} stroke={TINTA} lineWidth={L} lineCap="round" lineJoin="round" fill={look.detalle} closed />
+        )}
+        {brazo("I")}
+        {/* el cuerpo-cabeza: una sola forma de frijol */}
+        <Rect width={210} height={330} y={-190} radius={[105, 105, 80, 80]} fill="#ffffff" stroke={TINTA} lineWidth={L} />
+        {look.accesorio === "corbata" && <Line points={[[0, -150], [16, -110], [0, -70], [-16, -110]]} closed fill={look.detalle} stroke={TINTA} lineWidth={5} />}
+        {look.accesorio === "rodete" && <Line points={[[-70, -140], [70, -140]]} stroke={look.detalle} lineWidth={14} lineCap="round" />}
+        {look.accesorio === "colita" && <Line points={[[-62, -150], [-30, -60]]} stroke={look.detalle} lineWidth={12} lineCap="round" />}
+        {brazo("D")}
+        <Node ref={cara} y={-262}>
+          <Circle x={-58} y={22} size={28} fill="#fb7185" opacity={0.35} />
+          <Circle x={58} y={22} size={28} fill="#fb7185" opacity={0.35} />
+          <Node ref={parpados}>
+            <Node ref={expr.normal}>
+              {ojo(-32)}
+              {ojo(32)}
+              <Node ref={boca} y={34}>
+                <Circle size={34} startAngle={20} endAngle={160} stroke={TINTA} lineWidth={7} lineCap="round" />
+              </Node>
+            </Node>
+            <Node ref={expr.sorpresa} opacity={0}>
+              <Circle x={-32} size={34} stroke={TINTA} lineWidth={6} fill="#ffffff" />
+              <Circle x={32} size={34} stroke={TINTA} lineWidth={6} fill="#ffffff" />
+              <Circle x={-32} size={12} fill={TINTA} />
+              <Circle x={32} size={12} fill={TINTA} />
+              <Circle y={44} size={[26, 34]} stroke={TINTA} lineWidth={7} />
+            </Node>
+            <Node ref={expr.seria} opacity={0}>
+              <Line points={[[-48, -22], [-18, -14]]} stroke={TINTA} lineWidth={7} lineCap="round" />
+              <Line points={[[48, -22], [18, -14]]} stroke={TINTA} lineWidth={7} lineCap="round" />
+              {ojo(-32)}
+              {ojo(32)}
+              <Line points={[[-16, 40], [16, 40]]} stroke={TINTA} lineWidth={7} lineCap="round" />
+            </Node>
+            <Node ref={expr.contenta} opacity={0}>
+              <Circle x={-32} y={4} size={26} startAngle={200} endAngle={340} stroke={TINTA} lineWidth={7} lineCap="round" />
+              <Circle x={32} y={4} size={26} startAngle={200} endAngle={340} stroke={TINTA} lineWidth={7} lineCap="round" />
+              <Circle y={26} size={50} startAngle={0} endAngle={180} closed fill={TINTA} />
+            </Node>
+            <Node ref={expr.duda} opacity={0}>
+              <Line points={[[-46, -26], [-18, -22]]} stroke={TINTA} lineWidth={7} lineCap="round" />
+              <Line points={[[18, -30], [46, -38]]} stroke={TINTA} lineWidth={7} lineCap="round" />
+              {ojo(-32)}
+              {ojo(32)}
+              <Line points={[[-18, 42], [-4, 36], [10, 42], [22, 36]]} stroke={TINTA} lineWidth={7} lineCap="round" lineJoin="round" />
+            </Node>
+          </Node>
+          {look.anteojos && (
+            <Node>
+              <Circle x={-32} size={52} stroke={TINTA} lineWidth={6} />
+              <Circle x={32} size={52} stroke={TINTA} lineWidth={6} />
+              <Line points={[[-6, 0], [6, 0]]} stroke={TINTA} lineWidth={6} />
+            </Node>
+          )}
+        </Node>
+      </Node>
+    </Node>
+  ) as Node;
+
+  let actual: Expresion = "normal";
+  function* gesto_cara(e: Expresion): ThreadGenerator {
+    if (e === actual) return;
+    const sale = expr[actual]();
+    const entra = expr[e]();
+    actual = e;
+    yield* all(sale.opacity(0, 0.12), cara().scale(1.12, 0.12));
+    yield* all(entra.opacity(1, 0.12), cara().scale(1, 0.25, easeInOutCubic));
+  }
+
+  function aplicar(p: Pose) {
+    for (const k of Object.keys(j) as (keyof typeof j)[]) j[k]().rotation(p[k]);
+  }
+  aplicar(POSES.reposo);
+  function* pose(nombre: keyof typeof POSES | Pose, dur = 0.5): ThreadGenerator {
+    const p = typeof nombre === "string" ? POSES[nombre] : nombre;
+    yield* all(...(Object.keys(j) as (keyof typeof j)[]).map((k) => j[k]().rotation(p[k], dur, easeInOutCubic)), cuerpo().rotation(p.torso * 1.5, dur, easeInOutCubic));
+  }
+  function vivir() {
+    spawn(
+      loop(Infinity, function* () {
+        yield* all(cuerpo().scale.y(1.025, 1.3, easeInOutSine), cuerpo().scale.x(0.985, 1.3, easeInOutSine));
+        yield* all(cuerpo().scale.y(1, 1.3, easeInOutSine), cuerpo().scale.x(1, 1.3, easeInOutSine));
+      }),
+    );
+    spawn(
+      loop(Infinity, function* () {
+        yield* waitFor(2.2 + Math.random() * 2);
+        yield* parpados().scale.y(0.1, 0.06);
+        yield* parpados().scale.y(1, 0.08);
+      }),
+    );
+  }
+  function* hablar(dur: number): ThreadGenerator {
+    let t = 0;
+    let k = 0;
+    while (t < dur) {
+      const a = 0.09 + ((k * 37) % 7) * 0.012;
+      yield* all(boca().scale.y(2.2 + ((k * 13) % 5) * 0.3, a), cara().rotation(k % 2 ? 3 : -3, a * 2));
+      yield* boca().scale.y(1, a);
+      t += a * 2;
+      k++;
+    }
+    yield* cara().rotation(0, 0.15);
+  }
+  function* caminar(hastaX: number, dur: number): ThreadGenerator {
+    const pasos = Math.max(2, Math.round(dur / 0.4));
+    const d = dur / pasos;
+    spawn(raiz().x(hastaX, dur, (v) => v));
+    for (let i = 0; i < pasos; i++) {
+      const s = i % 2 ? 1 : -1;
+      yield* all(
+        j.piernaI().rotation(28 * s, d, easeInOutSine),
+        j.piernaD().rotation(-28 * s, d, easeInOutSine),
+        j.hombroI().rotation(-25 * s + 10, d, easeInOutSine),
+        j.hombroD().rotation(25 * s - 10, d, easeInOutSine),
+        cuerpo().rotation(4 * s, d, easeInOutSine),
+        cuerpo().y(-14, d / 2, easeInOutSine).to(0, d / 2, easeInOutSine),
+      );
+    }
+    yield* all(pose("reposo", 0.3), cuerpo().rotation(0, 0.3));
+  }
+  function* gesto(nombre: "saludar" | "explicar" | "señalarArriba" | "pensar" | "festejar" | "celular", dur: number): ThreadGenerator {
+    yield* pose(nombre, 0.4);
+    const reps = Math.max(1, Math.floor((dur - 0.8) / 0.5));
+    for (let i = 0; i < reps; i++) {
+      if (nombre === "saludar") yield* j.codoD().rotation(i % 2 ? -60 : -20, 0.25, easeInOutSine).to(i % 2 ? -20 : -60, 0.25, easeInOutSine);
+      else if (nombre === "explicar") yield* all(j.codoI().rotation(i % 2 ? 60 : 100, 0.5, easeInOutSine), j.codoD().rotation(i % 2 ? -100 : -60, 0.5, easeInOutSine));
+      else if (nombre === "festejar") yield* all(j.codoI().rotation(i % 2 ? 10 : 50, 0.25), j.codoD().rotation(i % 2 ? -10 : -50, 0.25), cuerpo().y(-40, 0.12).to(0, 0.13));
+      else if (nombre === "señalarArriba") yield* j.codoD().rotation(i % 2 ? -18 : -34, 0.5, easeInOutSine);
+      else yield* waitFor(0.5);
+    }
+    yield* pose("reposo", 0.4);
+  }
+  return { nodo: n, pose, vivir, hablar, caminar, gesto, cara: gesto_cara, raiz };
+}
