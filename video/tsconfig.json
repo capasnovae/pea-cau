@@ -11,5 +11,5 @@
     "allowImportingTsExtensions": true,
     "noEmit": true
   },
-  "include": ["src", "guiones", "render.ts", "render-guion.ts"]
+  "include": ["src", "guiones", "render.ts", "render-guion.ts", "render-muestra.ts"]
 }
