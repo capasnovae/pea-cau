@@ -17,6 +17,7 @@ const ENTRADA = 0.6; // segundos entre que aparece un plano y empieza la primera
 const PAUSA = 0.45; // silencio entre líneas
 const ANTES_DE_CONGELAR = 0.8;
 const PORTADA = 3;
+const CAPITULO = 2.2;
 
 export async function renderGuion(slug: string) {
   const dir = import.meta.dirname;
@@ -53,7 +54,7 @@ export async function renderGuion(slug: string) {
   const planos: PlanoConTiempo[] = guion.planos.map((p) => {
     const inicio = t;
     if (!p.lineas?.length) {
-      t += PORTADA;
+      t += p.tipo === "capitulo" ? CAPITULO : PORTADA;
       return { ...p, inicio, fin: t, lineas: [] };
     }
     t += ENTRADA;
@@ -85,7 +86,9 @@ export async function renderGuion(slug: string) {
   const sfx: { archivo: string; inicio: number }[] = [];
   const efecto = (nombre: string, inicio: number) => sfx.push({ archivo: join(efectos, `${nombre}.wav`), inicio: Math.max(0, inicio) });
   for (const p of planos) {
-    if (p.inicio > 0) efecto("transicion", p.inicio - 0.15);
+    if (p.inicio > 0 && !(p.tipo === "chat" && p.sigue)) efecto("transicion", p.inicio - 0.3);
+    if (p.tipo === "capitulo") efecto("tilde", p.inicio + 0.5);
+    if (p.tipo === "cierre") efecto("notificacion", (p.lineas[0]?.inicio ?? p.inicio) + 0.1);
     if (p.tipo === "escena" && p.lugar === "cau") efecto("notificacion", p.inicio + 0.6 + 0.5);
     for (const l of p.lineas) {
       if (l.modo === "escribe" || l.modo === "audio") efecto("mensaje", l.inicio);

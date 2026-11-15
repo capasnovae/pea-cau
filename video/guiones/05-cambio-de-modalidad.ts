@@ -79,9 +79,11 @@ const guion: Guion = {
       ],
       lineas: [{ quien: "narradora", texto: "Con solo un chequeo académico ya sabés casi todo." }],
     },
+    { tipo: "capitulo", numero: "1", texto: "Antes de pedirlo, que esté en regla" },
     {
       tipo: "lista",
       titulo: "Antes de pedirlo, que esté en regla",
+      icono: "check",
       items: [
         "En las fechas del calendario de trámites",
         "Condiciones de ingreso de la nueva modalidad",
@@ -127,6 +129,7 @@ const guion: Guion = {
         { quien: "narradora", marca: 1, texto: "Ah, y no hace falta tener materias aprobadas." },
       ],
     },
+    { tipo: "capitulo", numero: "2", texto: "Qué pasa con cada materia" },
     {
       tipo: "tablero",
       titulo: "Qué pasa con cada materia",
@@ -154,6 +157,7 @@ const guion: Guion = {
         { quien: "narradora", texto: "Por eso conviene que, antes de pedir el pase, Lucía sepa cómo le quedarían sus materias." },
       ],
     },
+    { tipo: "capitulo", numero: "3", texto: "La excepción del Seminario" },
     {
       tipo: "tablero",
       titulo: "La excepción",
@@ -191,6 +195,7 @@ const guion: Guion = {
         },
       ],
     },
+    { tipo: "capitulo", texto: "Ahora sí, la respuesta" },
     {
       tipo: "chat",
       sigue: true,

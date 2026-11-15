@@ -68,9 +68,11 @@ const guion: Guion = {
       ],
       lineas: [{ quien: "narradora", texto: "Con dos preguntas ya sabés dónde está el problema." }],
     },
+    { tipo: "capitulo", numero: "1", texto: "El correo registrado" },
     {
       tipo: "tablero",
       titulo: "El correo registrado es el canal oficial",
+      icono: "correo",
       tarjetas: [
         { texto: "Todos los avisos van al correo registrado", tono: "neutro", marca: 0 },
         { texto: "Mantenerlo actualizado le toca al estudiante", tono: "aviso", marca: 1 },
@@ -86,9 +88,11 @@ const guion: Guion = {
         },
       ],
     },
+    { tipo: "capitulo", numero: "2", texto: "El equipo para rendir" },
     {
       tipo: "lista",
       titulo: "El equipo para rendir virtual",
+      icono: "notebook",
       items: [
         "Una notebook",
         "Con cámara y micrófono",
@@ -105,10 +109,11 @@ const guion: Guion = {
         { quien: "narradora", texto: "Tiene que cumplir todo, no solo una parte: la tablet o el celular no sirven." },
       ],
     },
+    { tipo: "capitulo", numero: "3", texto: "Sin Internet, se informa" },
     {
       tipo: "tablero",
       titulo: "Sin Internet, se informa",
-      icono: "calendario",
+      icono: "wifi",
       numeradas: true,
       tarjetas: [
         { texto: "La conexión a Internet es requisito para cursar", tono: "neutro" },
@@ -148,6 +153,7 @@ const guion: Guion = {
         },
       ],
     },
+    { tipo: "capitulo", texto: "Ahora sí, la respuesta" },
     {
       tipo: "chat",
       sigue: true,

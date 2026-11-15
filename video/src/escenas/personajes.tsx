@@ -15,6 +15,7 @@ import {
   useThread,
   waitFor,
 } from "@revideo/core";
+import { Capitulo, IconoAnimado, Particulas, confeti } from "./graficos.tsx";
 import type { Estudiante, LineaConTiempo, Palabra, PlanoConTiempo, Quien, Tarjeta, Tono } from "../../guiones/tipos.ts";
 
 type Persona = Exclude<Quien, "nadie">;
@@ -114,6 +115,7 @@ function Fondo({ a, b, manchas }: { a: string; b: string; manchas: string }) {
       <Circle ref={refs[0]} size={620} x={-380} y={-460} fill={manchas} opacity={0.35} />
       <Circle ref={refs[1]} size={420} x={420} y={-120} fill={manchas} opacity={0.25} />
       <Circle ref={refs[2]} size={520} x={-300} y={420} fill={manchas} opacity={0.2} />
+      <Particulas color={manchas} />
     </Node>
   );
   refs.forEach((r, i) =>
@@ -199,7 +201,10 @@ export default makeScene2D("personajes", function* (view) {
   const retratos = {} as Record<Persona, Muñeco & { marco: Reference<Circle> }>;
   for (const q of ["estudiante", "martin", "narradora"] as const) retratos[q] = { ...nuevoMuñeco(), marco: createRef() };
 
+  const cortina = createRef<Circle>();
+  const progreso = createRef<Rect>();
   view.add(<Node ref={escenario} />);
+  view.add(<Circle ref={cortina} size={0} fill={C.primario} />);
   view.add(
     <Rect ref={banda} width={1000} height={230} y={530} radius={36} fill={C.blanco} opacity={0} shadowColor="rgba(15,23,42,0.25)" shadowBlur={40} shadowOffsetY={12}>
       {(["estudiante", "martin", "narradora"] as const).map((q) => (
@@ -213,6 +218,10 @@ export default makeScene2D("personajes", function* (view) {
       <Txt ref={dicho} x={-285} y={18} offset={[-1, 0]} width={740} textWrap fontFamily={LETRA} fontSize={38} fontWeight={600} lineHeight="130%" fill={C.tinta} text="" />
     </Rect>,
   );
+
+  view.add(<Rect width={1080} height={10} y={-670} fill="rgba(255,255,255,0.35)" />);
+  view.add(<Rect ref={progreso} width={0} height={10} x={-540} y={-670} offset={[-1, 0]} fill={C.aviso} />);
+  spawn(progreso().width(1080, total, (v) => v));
 
   let enBanda: Persona | null = null;
   function* mostrarBanda(l: LineaConTiempo) {
@@ -256,10 +265,18 @@ export default makeScene2D("personajes", function* (view) {
     const raiz = createRef<Node>();
     const a = armar(plano, historial, raiz);
     escenario().add(a.nodo);
-    raiz().opacity(0);
-    raiz().scale(1.04);
-    yield* all(raiz().opacity(1, 0.45, easeOutCubic), raiz().scale(1, 0.6, easeOutCubic));
-    if (a.alEntrar) spawn(a.alEntrar());
+    const conCortina = cortina().width() > 0;
+    if (!plano.lineas.some((l) => l.quien !== "nadie") && banda().opacity() > 0) spawn(banda().opacity(0, 0.25));
+    if (conCortina) {
+      // la cortina de color se va achicando hacia una esquina y deja ver el plano nuevo
+      if (a.alEntrar) spawn(a.alEntrar());
+      yield* all(cortina().size(0, 0.5, easeInOutCubic), cortina().position([480, -620], 0.5, easeInOutCubic));
+    } else {
+      raiz().opacity(0);
+      raiz().scale(1.04);
+      yield* all(raiz().opacity(1, 0.45, easeOutCubic), raiz().scale(1, 0.6, easeOutCubic));
+      if (a.alEntrar) spawn(a.alEntrar());
+    }
 
     for (const l of plano.lineas) {
       yield* hasta(l.inicio - (l.modo === "congela" ? 0.8 : 0));
@@ -278,8 +295,19 @@ export default makeScene2D("personajes", function* (view) {
     }
 
     yield* hasta(plano.fin - 0.4);
-    if (plano !== planos[planos.length - 1]) {
-      yield* all(raiz().opacity(0, 0.4, easeInOutCubic), raiz().scale(0.97, 0.4), ...(plano.lineas.some((l) => l.quien !== "nadie") ? [] : [banda().opacity(0, 0.3)]));
+    const sig = planos[planos.indexOf(plano) + 1];
+    if (sig) {
+      const suave = sig.tipo === "chat" && sig.sigue && plano.tipo === "chat";
+      if (suave) yield* all(raiz().opacity(0, 0.4, easeInOutCubic), raiz().scale(0.97, 0.4));
+      else {
+        // cortina de color que crece desde una esquina y tapa el plano
+        const esquinas: [number, number][] = [[-540, 675], [540, 675], [-540, -675], [540, -675]];
+        const e = esquinas[planos.indexOf(plano) % 4];
+        cortina().position(e);
+        cortina().fill(sig.tipo === "capitulo" || plano.tipo === "capitulo" ? C.primario : ["#4f46e5", "#0f766e", "#f59e0b", "#ec4899"][planos.indexOf(plano) % 4]);
+        const sinVoz = !sig.lineas?.some((l) => l.quien !== "nadie");
+        yield* all(cortina().size(3600, 0.4, easeInOutCubic), raiz().scale(0.97, 0.4), ...(sinVoz ? [banda().opacity(0, 0.3)] : []));
+      }
       a.nodo.remove();
     }
   }
@@ -420,12 +448,16 @@ export default makeScene2D("personajes", function* (view) {
         return {
           nodo: n,
           alEntrar: function* () {
-            spawn(camara().scale(1.07, dur, (v) => v));
-            if (colectivo) yield* ciudad().x(-900, dur, (v) => v);
-            else if (plano.lugar === "cau") {
-              yield* waitFor(0.5);
-              yield* aviso().scale(1, 0.5, easeOutBack);
-            }
+            yield* all(
+              camara().scale(1.07, dur, (v) => v),
+              colectivo ? ciudad().x(-900, dur, (v) => v) : waitFor(0),
+              plano.lugar === "cau"
+                ? (function* () {
+                    yield* waitFor(0.5);
+                    yield* aviso().scale(1, 0.5, easeOutBack);
+                  })()
+                : waitFor(0),
+            );
           },
         };
       }
@@ -525,6 +557,23 @@ export default makeScene2D("personajes", function* (view) {
             if (l.modo !== "escribe" && l.modo !== "audio") return;
             yield* cambiar(l.quien);
             const m: Mensaje = { de: l.quien, tipo: l.modo === "audio" ? "audio" : "texto", texto: l.texto, dur: l.dur, borrador: l.corta };
+            if (m.de === "estudiante" && m.tipo === "texto") {
+              // "escribiendo…": tres puntitos que saltan antes de que llegue el mensaje
+              const puntos = [createRef<Circle>(), createRef<Circle>(), createRef<Circle>()];
+              const fila = (
+                <Layout direction="row" width={540} justifyContent="start">
+                  <Rect layout direction="row" gap={10} padding={[22, 26]} radius={[6, 24, 24, 24]} fill={C.blanco} alignItems="center">
+                    {puntos.map((r) => <Circle ref={r} size={14} fill="#9ca3af" />)}
+                  </Rect>
+                </Layout>
+              ) as Layout;
+              columna().add(fila);
+              yield* all(...puntos.map((r, i) => (function* () {
+                yield* waitFor(i * 0.1);
+                yield* r().scale(1.5, 0.15).to(1, 0.15);
+              })()));
+              fila.remove();
+            }
             const b = burbuja(m, true);
             columna().add(b.fila);
             b.fila.scale(0.85);
@@ -608,7 +657,8 @@ export default makeScene2D("personajes", function* (view) {
           </Layout>
         );
         const tituloTxt = plano.titulo;
-        const icono = plano.tipo === "tablero" ? plano.icono : undefined;
+        const icono = plano.icono;
+        const animado = icono ? IconoAnimado({ tipo: icono, x: 350, y: -440, tam: 230 }) : undefined;
         const subrayado = createRef<Rect>();
         const n = (
           <Node ref={raiz}>
@@ -617,7 +667,7 @@ export default makeScene2D("personajes", function* (view) {
               <Layout direction="column" gap={12} alignItems="start">
                 {icono && (
                   <Rect layout padding={[6, 16]} radius={16} fill={icono === "alerta" ? C.aviso : C.primario}>
-                    <T t={{ lupa: "Chequeo", calendario: "Paso a paso", estrella: "Excepción", alerta: "Ojo" }[icono]} tam={24} peso={800} color={C.blanco} />
+                    <T t={{ lupa: "Chequeo", calendario: "Paso a paso", estrella: "Excepción", alerta: "Ojo", correo: "Comunicación", notebook: "Equipo", wifi: "Conexión", check: "Listo" }[icono]} tam={24} peso={800} color={C.blanco} />
                   </Rect>
                 )}
                 <T t={tituloTxt} tam={52} peso={800} color={C.nav} ancho={660} />
@@ -625,6 +675,7 @@ export default makeScene2D("personajes", function* (view) {
               </Layout>
               {cuerpo}
             </Layout>
+            {animado?.nodo}
             <Circle size={360} x={400} y={230} fill={GENTE.narradora.fondo} opacity={0.9} />
             <Dibujo q="narradora" alto={620} m={narr} x={410} y={480} espejo />
           </Node>
@@ -634,7 +685,8 @@ export default makeScene2D("personajes", function* (view) {
           nodo: n,
           bocas: { narradora: narr.boca },
           alEntrar: function* () {
-            yield* subrayado().width(140, 0.6, easeOutCubic);
+            // todo con yield*: lo que se lanza con spawn dentro de este hilo se corta cuando termina
+            yield* all(subrayado().width(140, 0.6, easeOutCubic), ...(animado ? [animado.animar()] : []));
           },
           linea: function* (l) {
             if (l.marca === undefined) return;
@@ -650,6 +702,11 @@ export default makeScene2D("personajes", function* (view) {
             );
           },
         };
+      }
+
+      case "capitulo": {
+        const cap = Capitulo({ numero: plano.numero, texto: plano.texto, raiz });
+        return { nodo: cap.nodo, alEntrar: cap.animar };
       }
 
       case "cierre": {
@@ -682,6 +739,7 @@ export default makeScene2D("personajes", function* (view) {
           nodo: n,
           linea: function* (l) {
             if (l.marca === undefined) return;
+            if (l.marca === 0) spawn(confeti(raiz()));
             if (l.marca < frases.length) {
               const f = frases[l.marca]();
               f.y(30);

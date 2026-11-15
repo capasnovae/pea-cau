@@ -16,6 +16,7 @@ export type Linea = {
 };
 
 export type Tono = "ok" | "aviso" | "mal" | "neutro";
+export type Icono = "lupa" | "calendario" | "estrella" | "alerta" | "correo" | "notebook" | "wifi" | "check";
 export type Tarjeta = { texto: string; detalle?: string; tono: Tono; columna?: 0 | 1; marca?: number };
 
 type Base = { lineas?: Linea[] };
@@ -28,12 +29,13 @@ export type Plano = Base &
     | {
         tipo: "tablero";
         titulo: string;
-        icono?: "lupa" | "calendario" | "estrella" | "alerta";
+        icono?: Icono;
         numeradas?: boolean;
         columnas?: [string, string];
         tarjetas: Tarjeta[];
       }
-    | { tipo: "lista"; titulo: string; items: string[] }
+    | { tipo: "lista"; titulo: string; items: string[]; icono?: Icono }
+    | { tipo: "capitulo"; numero?: string; texto: string }
     | { tipo: "cierre"; items: string[] }
   );
 
