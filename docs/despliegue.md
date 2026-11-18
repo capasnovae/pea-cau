@@ -8,7 +8,7 @@ Reglas:
 - `supabase/seed.sql` **no** va a producción: crea usuarios de ejemplo con una contraseña conocida.
 - No uses ni toques el proyecto `amapola-tienda`.
 
-> **Estado (2026-11-12):** PEA ya está en producción en **Netlify** (`https://peacapa.netlify.app`) con el proyecto de Supabase `gjmmykkrvtlbsebnhdzr` (São Paulo). Las invitaciones no dependen del mail: el admin genera un link y lo comparte (copiar o WhatsApp). Esta guía queda como referencia para rehacer el despliegue; donde dice Vercel, en Netlify las mismas tres variables van en _Site configuration → Environment variables_.
+> **Estado (2026-11-18):** PEA está en producción en **Vercel** (`https://pea-cau.vercel.app`, proyecto `pea-cau`) con el proyecto de Supabase `tveckebyusggfakohfvg` (São Paulo) y el código en GitHub `capasnovae/pea-cau`, todo con la cuenta `capasnova@gmail.com`. El despliegue anterior (Netlify, `gjmmykkrvtlbsebnhdzr`, `capacitacion-nova/PEA`) quedó sin acceso al bloquearse el mail viejo. Las invitaciones no dependen del mail: el admin genera un link y lo comparte (copiar o WhatsApp). Los textos de los mails de Supabase solo se pueden cambiar con un servidor de correo propio (SMTP) o con plan pago.
 
 ## 0. Antes de empezar
 
@@ -33,7 +33,7 @@ Reglas:
 En una terminal, dentro de la carpeta del proyecto:
 
 ```bash
-git clone https://github.com/capacitacion-nova/PEA.git pea && cd pea
+git clone https://github.com/capasnovae/pea-cau.git pea && cd pea
 ```
 
 ```bash
@@ -97,8 +97,8 @@ En el panel de Supabase:
 
 ## 5. Publicar en Vercel
 
-1. Entrá a vercel.com con la cuenta de GitHub `capacitacion-nova`. Para una herramienta de trabajo del equipo, Vercel pide el plan **Pro**; el Hobby es para uso personal.
-2. **Add New → Project** → importá `capacitacion-nova/PEA`. Vercel detecta Next.js solo.
+1. Entrá a vercel.com con la cuenta de GitHub `capasnovae`. Para una herramienta de trabajo del equipo, Vercel pide el plan **Pro**; el Hobby es para uso personal.
+2. **Add New → Project** → importá `capasnovae/pea-cau`. Vercel detecta Next.js solo.
 3. En **Environment Variables**, cargá las tres (para _Production_):
 
    | Nombre                                 | Valor              | Notas                                                                          |
