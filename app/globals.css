@@ -717,48 +717,22 @@ time {
 
 /* ---------- Estilo "cuaderno" de las lecciones por tarjetas (el mismo de los videos) ---------- */
 .cuaderno {
-  --papel: #f4efe6;
-  --papel-punto: rgb(28 25 23 / 0.09);
-  --tinta: #1c1917;
-  --tinta-suave: #57534e;
-  --acento: #c2361f; /* rojo con contraste AA sobre el papel */
-  --acento-fuerte: #e0452f;
-  --verde: #15803d;
-  --amarillo: #b45309;
-  --hoja: #ffffff;
-}
-:root[data-theme="dark"] .cuaderno {
-  --papel: #1f1d1a;
-  --papel-punto: rgb(244 239 230 / 0.07);
-  --tinta: #f4efe6;
-  --tinta-suave: #c8c0b4;
-  --acento: #ff7a62;
-  --acento-fuerte: #ff7a62;
-  --verde: #4ade80;
-  --amarillo: #fbbf24;
-  --hoja: #2a2724;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .cuaderno {
-    --papel: #1f1d1a;
-    --papel-punto: rgb(244 239 230 / 0.07);
-    --tinta: #f4efe6;
-    --tinta-suave: #c8c0b4;
-    --acento: #ff7a62;
-    --acento-fuerte: #ff7a62;
-    --verde: #4ade80;
-    --amarillo: #fbbf24;
-    --hoja: #2a2724;
-  }
+  /* Colores básicos de PEA (blanco, tinta y violeta de la marca); se adaptan solos al modo oscuro */
+  --papel: var(--card);
+  --tinta: var(--ink);
+  --tinta-suave: var(--muted);
+  --acento: var(--primary-strong);
+  --acento-fuerte: var(--primary);
+  --verde: var(--success);
+  --amarillo: var(--ink);
+  --hoja: var(--card);
 }
 .cuaderno-tarjeta {
   color: var(--tinta);
   background-color: var(--papel);
-  background-image: radial-gradient(var(--papel-punto) 1.4px, transparent 1.6px);
-  background-size: 22px 22px;
-  border: 2.5px solid var(--tinta);
+  border: 2px solid var(--tinta);
   border-radius: 18px;
-  box-shadow: 5px 5px 0 var(--tinta);
+  box-shadow: 5px 5px 0 var(--acento-fuerte);
 }
 .cuaderno-rotulo {
   font-family: var(--fuente-mono), ui-monospace, monospace;
@@ -786,10 +760,9 @@ time {
   background: var(--acento-fuerte);
 }
 .cuaderno-hoja {
-  background: var(--hoja);
+  background: var(--primary-soft);
   border: 2px solid var(--tinta);
   border-radius: 14px;
-  box-shadow: 3px 3px 0 var(--tinta);
 }
 .cuaderno-serif {
   font-family: var(--fuente-serif), Georgia, serif;
