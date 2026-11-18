@@ -43,7 +43,7 @@ export function Preguntar({ opciones }: { opciones: Opcion[] }) {
         <button
           type="button"
           onClick={() => setVisto(true)}
-          className="min-h-12 rounded-boton bg-primary font-bold text-primary-foreground transition hover:bg-primary-strong active:scale-[0.98]"
+          className="cuaderno-boton cuaderno-boton-principal"
         >
           Ver qué importa
         </button>

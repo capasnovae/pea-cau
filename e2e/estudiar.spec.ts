@@ -187,6 +187,9 @@ test("lección por tarjetas: caso, qué preguntar, Probalo intercalado y caso re
 
   await expect(adm.getByRole("region", { name: "Caso" })).toContainText("Lucía");
   await expect(adm.getByRole("progressbar", { name: /Tarjeta 1 de \d+/ })).toBeVisible();
+  // Estilo cuaderno, igual que los videos: etiqueta tipo código y tarjeta de papel con borde marcado
+  await expect(adm.getByRole("region", { name: "Caso" }).getByText("// el caso")).toBeVisible();
+  await expect(adm.locator(".cuaderno-tarjeta:visible")).toHaveCount(1);
   // Un solo "Siguiente" por tarjeta: el paso siguiente del curso aparece recién en la última
   await expect(adm.getByRole("link", { name: /Siguiente/ })).toHaveCount(0);
   await siguiente();
@@ -221,6 +224,7 @@ test("lección por tarjetas: caso, qué preguntar, Probalo intercalado y caso re
   for (let i = 0; i < 8 && !(await adm.getByRole("region", { name: "Caso resuelto" }).isVisible()); i++)
     await siguiente();
   await expect(adm.getByRole("region", { name: "Caso resuelto" })).toContainText("Lucía");
+  await expect(adm.getByRole("region", { name: "Caso resuelto" }).getByText("Resuelto", { exact: true })).toBeVisible();
   await expect(adm.getByRole("button", { name: "Siguiente" })).toHaveCount(0);
   await expect(adm.getByRole("link", { name: /Siguiente/ })).toBeVisible();
   expect(

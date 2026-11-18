@@ -714,3 +714,149 @@ time {
   max-width: 100%;
   border-radius: 10px;
 }
+
+/* ---------- Estilo "cuaderno" de las lecciones por tarjetas (el mismo de los videos) ---------- */
+.cuaderno {
+  --papel: #f4efe6;
+  --papel-punto: rgb(28 25 23 / 0.09);
+  --tinta: #1c1917;
+  --tinta-suave: #57534e;
+  --acento: #c2361f; /* rojo con contraste AA sobre el papel */
+  --acento-fuerte: #e0452f;
+  --verde: #15803d;
+  --amarillo: #b45309;
+  --hoja: #ffffff;
+}
+:root[data-theme="dark"] .cuaderno {
+  --papel: #1f1d1a;
+  --papel-punto: rgb(244 239 230 / 0.07);
+  --tinta: #f4efe6;
+  --tinta-suave: #c8c0b4;
+  --acento: #ff7a62;
+  --acento-fuerte: #ff7a62;
+  --verde: #4ade80;
+  --amarillo: #fbbf24;
+  --hoja: #2a2724;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .cuaderno {
+    --papel: #1f1d1a;
+    --papel-punto: rgb(244 239 230 / 0.07);
+    --tinta: #f4efe6;
+    --tinta-suave: #c8c0b4;
+    --acento: #ff7a62;
+    --acento-fuerte: #ff7a62;
+    --verde: #4ade80;
+    --amarillo: #fbbf24;
+    --hoja: #2a2724;
+  }
+}
+.cuaderno-tarjeta {
+  color: var(--tinta);
+  background-color: var(--papel);
+  background-image: radial-gradient(var(--papel-punto) 1.4px, transparent 1.6px);
+  background-size: 22px 22px;
+  border: 2.5px solid var(--tinta);
+  border-radius: 18px;
+  box-shadow: 5px 5px 0 var(--tinta);
+}
+.cuaderno-rotulo {
+  font-family: var(--fuente-mono), ui-monospace, monospace;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: var(--acento);
+}
+.cuaderno-titulo {
+  font-family: var(--fuente-titulo), Impact, "Arial Narrow", sans-serif;
+  font-size: clamp(1.75rem, 7.5vw, 2.25rem);
+  line-height: 1.05;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  overflow-wrap: anywhere;
+}
+.cuaderno-titulo .ultima {
+  color: var(--acento);
+}
+.cuaderno-subrayado {
+  display: block;
+  width: 4.5rem;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--acento-fuerte);
+}
+.cuaderno-hoja {
+  background: var(--hoja);
+  border: 2px solid var(--tinta);
+  border-radius: 14px;
+  box-shadow: 3px 3px 0 var(--tinta);
+}
+.cuaderno-serif {
+  font-family: var(--fuente-serif), Georgia, serif;
+  font-style: italic;
+  font-size: 1.25em;
+}
+.cuaderno-sello {
+  display: inline-block;
+  font-family: var(--fuente-titulo), Impact, sans-serif;
+  text-transform: uppercase;
+  font-size: 1.125rem;
+  line-height: 1;
+  padding: 0.35rem 0.7rem;
+  border: 3px solid currentColor;
+  border-radius: 8px;
+  transform: rotate(-6deg);
+  animation: sello-cae 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+@keyframes sello-cae {
+  from {
+    transform: rotate(-6deg) scale(1.8);
+    opacity: 0;
+  }
+  to {
+    transform: rotate(-6deg) scale(1);
+    opacity: 1;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cuaderno-sello {
+    animation: none;
+  }
+}
+.cuaderno-boton {
+  min-height: 3rem;
+  border-radius: 12px;
+  font-weight: 800;
+  border: 2.5px solid var(--tinta);
+  box-shadow: 3px 3px 0 var(--tinta);
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+.cuaderno-boton:active:not(:disabled) {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 var(--tinta);
+}
+.cuaderno-boton-principal {
+  background: var(--tinta);
+  color: var(--papel);
+}
+.cuaderno-boton-secundario {
+  background: var(--papel);
+  color: var(--tinta);
+}
+/* Dentro de una tarjeta de lección, los controles compartidos (Probalo, opciones) toman el estilo cuaderno */
+.cuaderno-tarjeta button.bg-primary {
+  background: var(--tinta);
+  color: var(--papel);
+  border: 2.5px solid var(--tinta);
+  box-shadow: 3px 3px 0 var(--tinta);
+}
+.cuaderno-tarjeta button.bg-primary:disabled {
+  opacity: 0.45;
+}
+.cuaderno-tarjeta .border-primary {
+  border-color: var(--tinta);
+  border-width: 2px;
+}
+.cuaderno-tarjeta .bg-primary-soft {
+  background: var(--hoja);
+}

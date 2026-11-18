@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { cookies } from "next/headers";
 import { Plus_Jakarta_Sans } from "next/font/google";
+import localFont from "next/font/local";
 import { COOKIE_TEMA, temaDesdeCookie } from "@/lib/dominio/tema";
 import "./globals.css";
 
@@ -9,6 +10,16 @@ const fuente = Plus_Jakarta_Sans({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800"],
   variable: "--fuente",
+  display: "swap",
+});
+
+// Letras del estilo "cuaderno" de las lecciones (las mismas de los videos), todas con licencia OFL
+const fuenteTitulo = localFont({ src: "./fuentes/anton.woff2", variable: "--fuente-titulo", display: "swap" });
+const fuenteMono = localFont({ src: "./fuentes/jetbrains-mono-500.woff2", weight: "500", variable: "--fuente-mono", display: "swap" });
+const fuenteSerif = localFont({
+  src: "./fuentes/instrument-serif-italica.woff2",
+  style: "italic",
+  variable: "--fuente-serif",
   display: "swap",
 });
 
@@ -32,7 +43,7 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="es-AR"
-      className={`${fuente.variable} h-full antialiased`}
+      className={`${fuente.variable} ${fuenteTitulo.variable} ${fuenteMono.variable} ${fuenteSerif.variable} h-full antialiased`}
       data-theme={tema === "oscuro" ? "dark" : tema === "claro" ? "light" : undefined}
     >
       <body className="flex min-h-full flex-col">{children}</body>

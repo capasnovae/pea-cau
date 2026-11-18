@@ -72,7 +72,7 @@ export function VistaTarjetas({
 
   return (
     <div
-      className="flex flex-col gap-4"
+      className="cuaderno flex flex-col gap-4"
       onPointerDown={(e) => (e.pointerType === "touch" ? (inicio.current = e.clientX) : null)}
       onPointerUp={(e) => {
         if (inicio.current === null) return;
@@ -106,7 +106,7 @@ export function VistaTarjetas({
           key={i}
           hidden={i !== actual}
           className={cn(
-            "rounded-tarjeta bg-card p-5 shadow-1",
+            "cuaderno-tarjeta p-5",
             i === actual && (sentido === "der" ? "entra-der" : "entra-izq"),
           )}
         >
@@ -126,7 +126,7 @@ export function VistaTarjetas({
           type="button"
           onClick={() => ir(actual - 1)}
           disabled={actual === 0}
-          className="min-h-12 flex-1 rounded-boton border border-border-control bg-card font-bold transition active:scale-[0.98] disabled:opacity-40"
+          className="cuaderno-boton cuaderno-boton-secundario flex-1 disabled:opacity-40"
         >
           Anterior
         </button>
@@ -134,7 +134,7 @@ export function VistaTarjetas({
           <button
             type="button"
             onClick={() => ir(actual + 1)}
-            className="min-h-12 flex-1 rounded-boton bg-primary font-bold text-primary-foreground transition hover:bg-primary-strong active:scale-[0.98]"
+            className="cuaderno-boton cuaderno-boton-principal flex-1"
           >
             Siguiente
           </button>
