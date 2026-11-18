@@ -1,6 +1,6 @@
 # Despliegue de PEA: Supabase y Vercel
 
-Guía para poner PEA en producción con la cuenta `capacitacionnovas@gmail.com`. Se hace una sola vez y lleva alrededor de una hora.
+Guía para poner PEA en producción con la cuenta `capasnova@gmail.com`. Se hace una sola vez y lleva alrededor de una hora.
 
 Reglas:
 
@@ -17,7 +17,7 @@ Reglas:
 
 ## 1. Crear el proyecto en Supabase
 
-1. Entrá a supabase.com con `capacitacionnovas@gmail.com` y creá una organización.
+1. Entrá a supabase.com con `capasnova@gmail.com` y creá una organización.
 2. **New project**:
    - Nombre: `pea`.
    - Región: **South America (São Paulo)**.
