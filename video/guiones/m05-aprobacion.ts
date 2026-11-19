@@ -15,7 +15,7 @@ const guion: Guion = {
       "Una materia puede terminar promocionada, regular o libre por nota. Cada condición cambia cómo y cuándo se rinde el final."),
     cap("Promoción", "1"),
     tab("Promoción", "estrella", [
-      t("Directa: todo con 7", "ok", 0, "", "Sin final"),
+      t("Directa: todo con 7", "ok", 0, "sin final"),
       t("Indirecta: 4 TP con 7", "neutro", 1, "y parciales con 5 o 6: va al integrador"),
     ], [
       n("Promoción directa: todo con siete o más.", 0),

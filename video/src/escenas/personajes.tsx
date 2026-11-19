@@ -193,17 +193,23 @@ const degradado = (a: string, b: string) =>
 function partes(l: LineaConTiempo): { n: number; texto: string }[] {
   const frases = l.texto.match(/[^.:;?!]+[.:;?!…»]*\s*/g) ?? [l.texto];
   const trozos: string[] = [];
-  for (const f of frases) {
-    const pal = f.trim().split(/\s+/);
-    if (f.length <= 70) trozos.push(f.trim());
-    else {
-      const comas = [...f.matchAll(/,\s/g)].map((m) => m.index ?? 0);
-      const mitad = f.length / 2;
-      const corte = comas.sort((a, b) => Math.abs(a - mitad) - Math.abs(b - mitad))[0];
-      if (corte && Math.abs(corte - mitad) < f.length * 0.3) trozos.push(f.slice(0, corte + 1).trim(), f.slice(corte + 1).trim());
-      else trozos.push(pal.slice(0, Math.ceil(pal.length / 2)).join(" "), pal.slice(Math.ceil(pal.length / 2)).join(" "));
+  // Corta en la coma más cercana a la mitad (o a la mitad de las palabras) hasta que cada parte entre en dos renglones
+  const cortar = (f: string) => {
+    f = f.trim();
+    const pal = f.split(/\s+/);
+    if (f.length <= 70 || pal.length < 4) return trozos.push(f);
+    const comas = [...f.matchAll(/,\s/g)].map((m) => m.index ?? 0);
+    const mitad = f.length / 2;
+    const corte = comas.sort((a, b) => Math.abs(a - mitad) - Math.abs(b - mitad))[0];
+    if (corte && Math.abs(corte - mitad) < f.length * 0.3) {
+      cortar(f.slice(0, corte + 1));
+      cortar(f.slice(corte + 1));
+    } else {
+      cortar(pal.slice(0, Math.ceil(pal.length / 2)).join(" "));
+      cortar(pal.slice(Math.ceil(pal.length / 2)).join(" "));
     }
-  }
+  };
+  for (const f of frases) cortar(f);
   let n = 0;
   return trozos.filter(Boolean).map((texto) => {
     const r = { n, texto };
