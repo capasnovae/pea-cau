@@ -58,12 +58,13 @@ clave: Entre ED y EDH, el Seminario de Práctica regular se conserva.
 ## ojo
 
 Si el pase es al revés, a ED (o cambia de CAU), que no se vaya sin confirmar su lugar: en esos casos es responsabilidad del estudiante contactar al CAU de destino, porque no todos los CAU ofrecen todas las carreras ni todas las materias.
+Para el CAU, el pase entre ED y EDH es un cambio de submodalidad: va por HubSpot a Gestiones N2 con DNI, legajo, carrera, submodalidad de origen y de destino, CAU de destino y si tiene materias Cursando o Libre por Nota. Tarda hasta 5 días hábiles.
 
 ## probalo 3
 
 ## cierre
 
-A Lucía le respondés que sí se puede, pero no todavía: primero rinde el final del jueves (o se da de baja de esa mesa) y espera que carguen la nota. Le avisás que las 2 materias que cursa quedarían Libre por Pase, y que conserva sus aprobadas, sus regulares (que rinde con las reglas de EDH) y, si lo tiene regular, el Seminario de Práctica. Cuando tenga la nota cargada, te avisa y el CAU lo pide por interno, dentro de las fechas del calendario de trámites.
+A Lucía le respondés que sí se puede, pero no todavía: primero rinde el final del jueves (o se da de baja de esa mesa) y espera que carguen la nota. Le avisás que las 2 materias que cursa quedarían Libre por Pase, y que conserva sus aprobadas, sus regulares (que rinde con las reglas de EDH) y, si lo tiene regular, el Seminario de Práctica. Cuando tenga la nota cargada, te avisa y el CAU lo pide por interno (a Gestiones N2), dentro de las fechas del calendario de trámites.
 
 recordar: Primero sin finales pendientes, después el pase, en fecha.
 
