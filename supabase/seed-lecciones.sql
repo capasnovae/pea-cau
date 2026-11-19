@@ -3704,3 +3704,232 @@ select x.id, 'b48587eb-f650-4efc-8259-75dd2d48e2f6'::uuid, x.texto, x.correcta, 
 ) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
 where exists (select 1 from public.preguntas where id = 'b48587eb-f650-4efc-8259-75dd2d48e2f6'::uuid)
 on conflict do nothing;
+
+insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
+select '361dc458-3d82-45d4-803b-d1552cb0ca8d'::uuid, '4b76d45b-9828-41e8-8e9f-c2cd2148e1b0'::uuid, 49, $pea0$Cambio de CAU$pea0$, 'leccion', a.id,
+       $pea0${"version":2,"tarjetas":[{"tipo":"caso","persona":"Celeste","canal":"mostrador","consulta":"Me mudo a otra ciudad el mes que viene. ¿Puedo seguir cursando en el CAU de allá sin perder nada?"},{"tipo":"preguntar","opciones":[{"texto":"¿Tiene deuda administrativa?","clave":true,"porque":"Con deuda no se puede gestionar el cambio."},{"texto":"¿Está anotada a una mesa de examen final?","clave":true,"porque":"Con un final solicitado, el cambio no se gestiona."},{"texto":"¿Su carrera se dicta en el CAU al que quiere ir?","clave":true,"porque":"Si no se dicta, la solicitud se puede rechazar."},{"texto":"¿Cuántas materias aprobó?","clave":false,"porque":"No cambia el cambio de CAU."}]},{"tipo":"idea","titulo":"Qué tiene que cumplir","texto":"Para cambiar de CAU no tiene que tener deuda administrativa ni una mesa de final solicitada, y su carrera tiene que dictarse en el CAU de destino. Verificar eso es responsabilidad del estudiante: revisá con él la oferta académica vigente. Se pide dentro de las fechas del calendario de trámites.","clave":"Sin deuda, sin final anotado y con su carrera en el CAU de destino.","ejemplo":"Celeste revisa que su carrera esté en el CAU de su nueva ciudad y que no tenga un final anotado."},{"tipo":"probalo","n":1},{"tipo":"idea","titulo":"Cómo se pide","texto":"El estudiante completa el formulario de cambio de CAU (el enlace está en la fuente). El ticket va por HubSpot a Gestiones N2, tipificación \"Cambio de CAU\", con DNI, nombre y apellido, legajo, CAU de origen, CAU de destino y motivo. Tarda 3 días hábiles. También va a Gestiones N2 si pregunta por el estado, si se lo rechazaron o si tuvo problemas después del cambio.","clave":"Formulario del estudiante y ticket a Gestiones N2: 3 días hábiles."},{"tipo":"probalo","n":2},{"tipo":"ojo","texto":"No se puede pasar a un CAU Social: Maldonado, Asunción y Warmi (Abra Pampa) están excluidos. Tampoco a un CAU con restricciones operativas vigentes.\nLa disponibilidad de carreras y servicios cambia de un CAU a otro."},{"tipo":"cierre","resolucion":"A Celeste le revisás que no tenga deuda administrativa ni un final anotado, y que su carrera se dicte en el CAU de su nueva ciudad. Le pasás el formulario de cambio de CAU y generás el ticket a Gestiones N2 con sus datos, los dos CAU y el motivo. Tarda 3 días hábiles.","recordar":"Cambio de CAU: sin deuda, sin final anotado, con la carrera en destino; formulario y Gestiones N2."}]}$pea0$::jsonb, 'marcar_hecho'
+from public.articulos a where a.slug = $pea0$kb-12-modificaciones-en-el-legajo-modalidad-carrera-cau-plan-y-tur$pea0$ and a.alcance = 'global'
+on conflict (id) do update set orden = excluded.orden, titulo = excluded.titulo, leccion = excluded.leccion,
+  articulo_id = excluded.articulo_id
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '4b76d45b-9828-41e8-8e9f-c2cd2148e1b0'::uuid and c.estado = 'borrador');
+
+delete from public.preguntas
+where item_id = '361dc458-3d82-45d4-803b-d1552cb0ca8d'::uuid and id not in ('3ee5af87-6d32-497e-8494-e785993184d0'::uuid, 'ccfec50d-a2b4-40b4-87e4-8bf236401975'::uuid, 'd80d738c-2855-463b-81f1-5edd45eec62a'::uuid)
+  and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '4b76d45b-9828-41e8-8e9f-c2cd2148e1b0'::uuid and c.estado = 'borrador');
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select '3ee5af87-6d32-497e-8494-e785993184d0'::uuid, 'opcion_multiple', $pea0$Ignacio quiere cambiar de CAU y tiene un final solicitado para la semana próxima. ¿Qué le decís?$pea0$, $pea0$Una mesa de examen final solicitada, igual que la deuda administrativa, impide gestionar el cambio de CAU.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', '361dc458-3d82-45d4-803b-d1552cb0ca8d'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 1
+where exists (select 1 from public.items where id = '361dc458-3d82-45d4-803b-d1552cb0ca8d'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '4b76d45b-9828-41e8-8e9f-c2cd2148e1b0'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = '3ee5af87-6d32-497e-8494-e785993184d0'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '4b76d45b-9828-41e8-8e9f-c2cd2148e1b0'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, '3ee5af87-6d32-497e-8494-e785993184d0'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('a0325c3c-f9f9-4f9c-8e7d-acf323232b32'::uuid, $pea0$Que generás el ticket igual y el final se pasa al CAU nuevo.$pea0$, false, 1, $pea0$Con una mesa de final solicitada, el cambio no se puede gestionar.$pea0$, null::int, null),
+  ('5594518a-7867-4387-8229-03967dced5b7'::uuid, $pea0$Que primero rinda (o se dé de baja de esa mesa) y después se gestiona el cambio de CAU.$pea0$, true, 2, $pea0$Tener un final solicitado impide el cambio.$pea0$, null::int, null),
+  ('81673297-fa65-4b52-8d9d-8ce5fe2ed642'::uuid, $pea0$Que lo cambiás ahora y anulás el final.$pea0$, false, 3, $pea0$El asesor no anula la mesa para hacer el cambio.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = '3ee5af87-6d32-497e-8494-e785993184d0'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select 'ccfec50d-a2b4-40b4-87e4-8bf236401975'::uuid, 'opcion_multiple', $pea0$Una estudiante pide pasarse al CAU Asunción. ¿Qué le respondés?$pea0$, $pea0$No se puede solicitar cambio de CAU hacia los CAU Sociales: Maldonado, Asunción y Warmi.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', '361dc458-3d82-45d4-803b-d1552cb0ca8d'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 2
+where exists (select 1 from public.items where id = '361dc458-3d82-45d4-803b-d1552cb0ca8d'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '4b76d45b-9828-41e8-8e9f-c2cd2148e1b0'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = 'ccfec50d-a2b4-40b4-87e4-8bf236401975'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '4b76d45b-9828-41e8-8e9f-c2cd2148e1b0'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, 'ccfec50d-a2b4-40b4-87e4-8bf236401975'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('264856fc-80f5-4d6c-8bb6-82faa96a2ae8'::uuid, $pea0$Que completa el formulario y lo derivás a Gestiones N2.$pea0$, false, 1, $pea0$Asunción es un CAU Social: está excluido.$pea0$, null::int, null),
+  ('765514f8-60f6-483c-8548-3ac97ea8c151'::uuid, $pea0$Que no se puede pedir el cambio a ese CAU: los CAU Sociales están excluidos.$pea0$, true, 2, $pea0$No es posible solicitar cambio hacia CAU Sociales.$pea0$, null::int, null),
+  ('0d32d6b0-17df-440d-8e4d-6e0ba20bfadc'::uuid, $pea0$Que lo pida a Trámites.$pea0$, false, 3, $pea0$No es un problema de área: ese destino está excluido.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = 'ccfec50d-a2b4-40b4-87e4-8bf236401975'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select 'd80d738c-2855-463b-81f1-5edd45eec62a'::uuid, 'verdadero_falso', $pea0$Verificar que la carrera se dicte en el CAU de destino es responsabilidad del estudiante.$pea0$, $pea0$Es responsabilidad del estudiante verificarlo; si la carrera no se ofrece en destino, la solicitud puede rechazarse.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', '361dc458-3d82-45d4-803b-d1552cb0ca8d'::uuid, null, now() + interval '1 millisecond' * 3
+where exists (select 1 from public.items where id = '361dc458-3d82-45d4-803b-d1552cb0ca8d'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '4b76d45b-9828-41e8-8e9f-c2cd2148e1b0'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = 'd80d738c-2855-463b-81f1-5edd45eec62a'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '4b76d45b-9828-41e8-8e9f-c2cd2148e1b0'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, 'd80d738c-2855-463b-81f1-5edd45eec62a'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('d7c331aa-ff9d-4b5d-800e-afaab2fd9bb6'::uuid, $pea0$Verdadero$pea0$, true, 1, null, null::int, null),
+  ('48ea6a64-5608-4f44-802f-5a6ddb32d65b'::uuid, $pea0$Falso$pea0$, false, 2, null, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = 'd80d738c-2855-463b-81f1-5edd45eec62a'::uuid)
+on conflict do nothing;
+
+insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
+select 'e9f8c14a-27dd-4f8f-810e-9598b1f869c5'::uuid, '4b76d45b-9828-41e8-8e9f-c2cd2148e1b0'::uuid, 50, $pea0$Cambio de carrera y actualización de plan$pea0$, 'leccion', a.id,
+       $pea0${"version":2,"tarjetas":[{"tipo":"caso","persona":"Nicolás","canal":"whatsapp","consulta":"Hola, estoy en Marketing pero me di cuenta de que lo mío es Administración. ¿Me puedo cambiar? Tengo dos materias cursando ahora."},{"tipo":"preguntar","opciones":[{"texto":"¿Tiene deuda administrativa, un final anotado o notas finales pendientes de carga?","clave":true,"porque":"Cualquiera de esas situaciones impide el cambio."},{"texto":"¿Tiene la documentación obligatoria del legajo presentada?","clave":true,"porque":"Sin la documentación completa, el cambio no se hace."},{"texto":"¿Sabe qué pasa con las materias que está cursando?","clave":true,"porque":"Las materias Cursando y Libre por Nota se pierden; tiene que aceptarlo."},{"texto":"¿Qué promedio tiene?","clave":false,"porque":"No cambia la gestión."}]},{"tipo":"idea","titulo":"Qué tiene que cumplir","texto":"Para cambiar de carrera tiene que cumplir las condiciones de ingreso de la carrera y modalidad de destino, no tener deuda administrativa, no estar anotado a una mesa de final ni tener notas pendientes de carga, y tener presentada la documentación obligatoria del legajo. Se pide dentro de las fechas del calendario de trámites.","clave":"Sin deuda, sin final anotado ni notas pendientes, y con el legajo completo.","ejemplo":"Nicolás puede pedir el cambio si cumple eso y acepta perder las 2 materias que cursa."},{"tipo":"probalo","n":1},{"tipo":"idea","titulo":"El ticket a Trámites","texto":"Va por HubSpot a Trámites, tipificación \"Cambio de carrera\", con DNI, legajo de origen, carrera, modalidad y CAU de destino, y turno si corresponde. Tiene que quedar registrado que acepta perder las materias Cursando y Libre por Nota, qué pasa con las Regulares y las condiciones de EFIP si corresponden. Tarda hasta 5 días hábiles.","clave":"Ticket a Trámites con la aceptación del estudiante: hasta 5 días hábiles."},{"tipo":"probalo","n":2},{"tipo":"idea","titulo":"Actualizar el plan de estudios","texto":"Si pide pasar a un plan más nuevo, el ticket va a Trámites como \"Cambio de plan de estudio\". Antes, explicale cómo pueden quedar sus materias Regulares o Libre por Nota, y que incorpora las materias del plan nuevo (y las de Universitario 21 cuando corresponda). Su aceptación queda en el ticket. Un cambio de modalidad puede pasarlo solo al plan vigente.","clave":"Plan nuevo: explicá el impacto en sus materias y dejá su aceptación en el ticket."},{"tipo":"probalo","n":3},{"tipo":"ojo","texto":"Para pasar a un Ciclo de Complementación, la documentación requerida tiene que estar adjunta en el mismo ticket de HubSpot: sin eso, no se hace el pase.\nSi después de un pase una materia quedó con una condición incorrecta, va a Trámites como \"Revisión de condición de materias tras el pase\". El Seminario Final mantiene la regularidad siempre: verificalo antes de reportar."},{"tipo":"cierre","resolucion":"A Nicolás le revisás que no tenga deuda, finales anotados ni notas pendientes, y que tenga el legajo completo. Le explicás que las 2 materias que cursa quedan Libre por Pase. Si acepta, generás el ticket a Trámites con sus datos y su aceptación, dentro del calendario de trámites.","recordar":"Cambio de carrera: requisitos, aceptación de lo que se pierde y ticket a Trámites."}]}$pea0$::jsonb, 'marcar_hecho'
+from public.articulos a where a.slug = $pea0$kb-12-modificaciones-en-el-legajo-modalidad-carrera-cau-plan-y-tur$pea0$ and a.alcance = 'global'
+on conflict (id) do update set orden = excluded.orden, titulo = excluded.titulo, leccion = excluded.leccion,
+  articulo_id = excluded.articulo_id
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '4b76d45b-9828-41e8-8e9f-c2cd2148e1b0'::uuid and c.estado = 'borrador');
+
+delete from public.preguntas
+where item_id = 'e9f8c14a-27dd-4f8f-810e-9598b1f869c5'::uuid and id not in ('1e400496-95ea-42d6-8e97-8752a275a05a'::uuid, '57c86c22-4e33-45bc-891f-63662f763ce2'::uuid, '89bae315-ffbf-4c52-8167-ea83a6b450a0'::uuid)
+  and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '4b76d45b-9828-41e8-8e9f-c2cd2148e1b0'::uuid and c.estado = 'borrador');
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select '1e400496-95ea-42d6-8e97-8752a275a05a'::uuid, 'opcion_multiple', $pea0$Lucila quiere cambiarse de carrera, pero le falta presentar documentación obligatoria del legajo. ¿Qué le decís?$pea0$, $pea0$Sin la documentación obligatoria del legajo presentada, el cambio de carrera no se puede hacer.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', 'e9f8c14a-27dd-4f8f-810e-9598b1f869c5'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 1
+where exists (select 1 from public.items where id = 'e9f8c14a-27dd-4f8f-810e-9598b1f869c5'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '4b76d45b-9828-41e8-8e9f-c2cd2148e1b0'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = '1e400496-95ea-42d6-8e97-8752a275a05a'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '4b76d45b-9828-41e8-8e9f-c2cd2148e1b0'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, '1e400496-95ea-42d6-8e97-8752a275a05a'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('850e10af-0c1b-4452-86ed-8e35d2e90d46'::uuid, $pea0$Que generás el ticket y la documentación la presenta después.$pea0$, false, 1, $pea0$Sin la documentación obligatoria completa, el cambio no se realiza.$pea0$, null::int, null),
+  ('5ef6891e-7812-4180-8a05-da1e8e760970'::uuid, $pea0$Que primero tiene que completar la documentación del legajo y después se gestiona el cambio.$pea0$, true, 2, $pea0$Es una de las validaciones previas.$pea0$, null::int, null),
+  ('6010bb6b-a25e-4189-81eb-00fbb50dbb09'::uuid, $pea0$Que el cambio de carrera no pide documentación.$pea0$, false, 3, $pea0$La documentación obligatoria del legajo es requisito.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = '1e400496-95ea-42d6-8e97-8752a275a05a'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select '57c86c22-4e33-45bc-891f-63662f763ce2'::uuid, 'opcion_multiple', $pea0$Un estudiante cambia de carrera y tiene una materia en estado Cursando. ¿Qué pasa con ella?$pea0$, $pea0$En el cambio de carrera se pierden las materias Cursando y Libre por Nota, y el estudiante tiene que aceptarlo.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', 'e9f8c14a-27dd-4f8f-810e-9598b1f869c5'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 2
+where exists (select 1 from public.items where id = 'e9f8c14a-27dd-4f8f-810e-9598b1f869c5'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '4b76d45b-9828-41e8-8e9f-c2cd2148e1b0'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = '57c86c22-4e33-45bc-891f-63662f763ce2'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '4b76d45b-9828-41e8-8e9f-c2cd2148e1b0'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, '57c86c22-4e33-45bc-891f-63662f763ce2'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('5da1bf6a-d0fe-4147-8f66-3dc1d226a45e'::uuid, $pea0$La conserva en la carrera nueva.$pea0$, false, 1, $pea0$Las materias Cursando se pierden con el pase.$pea0$, null::int, null),
+  ('a6a7a2d7-9cd4-425b-880c-c042f1a5a5e7'::uuid, $pea0$La pierde: tiene que aceptarlo y queda registrado en el ticket.$pea0$, true, 2, $pea0$Las materias Cursando y Libre por Nota se pierden en el pase.$pea0$, null::int, null),
+  ('2968cbad-89ea-4a13-814b-927f484ddb38'::uuid, $pea0$Queda Regular.$pea0$, false, 3, $pea0$Las Regulares conservan su condición; las Cursando, no.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = '57c86c22-4e33-45bc-891f-63662f763ce2'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select '89bae315-ffbf-4c52-8167-ea83a6b450a0'::uuid, 'opcion_multiple', $pea0$Después de cambiarse de carrera, Marcos ve que el Seminario Final ya no figura como regular. ¿Qué tenés en cuenta?$pea0$, $pea0$El Seminario Final conserva su regularidad en todos los pases; si no figura así, se pide la revisión a Trámites.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', 'e9f8c14a-27dd-4f8f-810e-9598b1f869c5'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 3
+where exists (select 1 from public.items where id = 'e9f8c14a-27dd-4f8f-810e-9598b1f869c5'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '4b76d45b-9828-41e8-8e9f-c2cd2148e1b0'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = '89bae315-ffbf-4c52-8167-ea83a6b450a0'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '4b76d45b-9828-41e8-8e9f-c2cd2148e1b0'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, '89bae315-ffbf-4c52-8167-ea83a6b450a0'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('8a3aeb53-6c65-448f-854d-44f8035ddfd7'::uuid, $pea0$Que es normal: el Seminario Final se pierde con el pase.$pea0$, false, 1, $pea0$El Seminario Final regular se mantiene en todos los casos.$pea0$, null::int, null),
+  ('7889317d-98c1-4582-8439-5b479de1498f'::uuid, $pea0$Que el Seminario Final mantiene la regularidad siempre: si no figura, se reporta a Trámites como revisión de condición tras el pase.$pea0$, true, 2, $pea0$Es la verificación previa antes de reportar.$pea0$, null::int, null),
+  ('5fb4da34-5581-4bb3-8855-ad303c2084b6'::uuid, $pea0$Que tiene que volver a cursarlo.$pea0$, false, 3, $pea0$No corresponde: la regularidad se mantiene.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = '89bae315-ffbf-4c52-8167-ea83a6b450a0'::uuid)
+on conflict do nothing;
+
+insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
+select 'a30db4f8-2196-40c2-8467-e77bdfbfd87a'::uuid, '4b76d45b-9828-41e8-8e9f-c2cd2148e1b0'::uuid, 51, $pea0$Datos y estado del legajo$pea0$, 'leccion', a.id,
+       $pea0${"version":2,"tarjetas":[{"tipo":"caso","persona":"Rocío","canal":"mostrador","consulta":"En el sistema tengo mal el apellido y además me aparece el legajo dado de baja, pero yo quiero seguir estudiando."},{"tipo":"preguntar","opciones":[{"texto":"¿Ya mandó una copia de su DNI, frente y dorso?","clave":true,"porque":"Sin la copia del DNI no se puede derivar la corrección."},{"texto":"¿Qué estado tiene el legajo y por qué?","clave":true,"porque":"Una baja administrativa por anulación de pago no se resuelve igual que otras bajas."},{"texto":"¿Tiene alguna deuda pendiente?","clave":true,"porque":"En la baja administrativa, el legajo se reactiva cuando paga la deuda."},{"texto":"¿En qué turno cursa?","clave":false,"porque":"No cambia la gestión."}]},{"tipo":"idea","titulo":"Corregir datos personales","texto":"Primero verificá si ya mandó la copia del DNI físico, frente y dorso (no sirve el de Mi Argentina); si no, pedísela. Con la copia, el ticket va a Gestiones N2 como \"Modificación de datos en el legajo\", con legajo, nombre, apellido y DNI correctos. Se corrigen todos los datos que figuran en el DNI, no solo el que pidió.","clave":"Con la copia del DNI físico, a Gestiones N2: se corrige todo el registro de una vez.","ejemplo":"A Rocío le pedís foto del DNI de frente y dorso y derivás la corrección del apellido."},{"tipo":"probalo","n":1},{"tipo":"idea","titulo":"Baja administrativa y reapertura","texto":"La baja administrativa la aplica Administración cuando se anula un pago: queda deuda y el legajo inactivo hasta que la pague; después se reactiva. Si la baja fue por anulación de pago, la reapertura no se pide directo: primero Cobranzas valida el pago y la autoriza. En otros casos, la reapertura va a Gestiones N2.","clave":"Baja administrativa: se reactiva al pagar la deuda; si hubo anulación de pago, primero Cobranzas."},{"tipo":"probalo","n":2},{"tipo":"idea","titulo":"Cuándo se pide una baja de legajo","texto":"La baja de legajo a Gestiones N2 es solo para un legajo duplicado, una preinscripción vencida de un período anterior o un legajo inactivo. Si el estudiante quiere dejar de estudiar, no es esta gestión: sigue el circuito de Riesgo de Baja.","clave":"Baja de legajo: duplicado, preinscripción vencida o inactivo; si quiere dejar, Riesgo de Baja."},{"tipo":"probalo","n":3},{"tipo":"ojo","texto":"Si a un campo no le corresponde cambio, va \"S/D\" (sin dato) y no se modifica. Si dos estudiantes tienen el mismo número de DNI, la segunda línea lo revisa con SITA.\nAvisale que la corrección puede requerir un usuario nuevo o cambios en Canvas: hay campos en el ticket para eso."},{"tipo":"cierre","resolucion":"A Rocío le pedís la foto del DNI físico, frente y dorso, para corregir el apellido por Gestiones N2. Revisás por qué está dado de baja el legajo: si es una baja administrativa por una anulación de pago, se reactiva cuando paga la deuda; si hace falta reabrirlo, primero lo valida Cobranzas.","recordar":"Datos: con el DNI físico a Gestiones N2; baja por anulación de pago: primero Cobranzas."}]}$pea0$::jsonb, 'marcar_hecho'
+from public.articulos a where a.slug = $pea0$kb-12-modificaciones-en-el-legajo-modalidad-carrera-cau-plan-y-tur$pea0$ and a.alcance = 'global'
+on conflict (id) do update set orden = excluded.orden, titulo = excluded.titulo, leccion = excluded.leccion,
+  articulo_id = excluded.articulo_id
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '4b76d45b-9828-41e8-8e9f-c2cd2148e1b0'::uuid and c.estado = 'borrador');
+
+delete from public.preguntas
+where item_id = 'a30db4f8-2196-40c2-8467-e77bdfbfd87a'::uuid and id not in ('e8081c15-bb94-4216-80cd-e4851df4487e'::uuid, 'f331ff58-1247-4389-8fde-291bda05305f'::uuid, '5ff81262-356b-414e-8677-4faee1ba84b4'::uuid)
+  and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '4b76d45b-9828-41e8-8e9f-c2cd2148e1b0'::uuid and c.estado = 'borrador');
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select 'e8081c15-bb94-4216-80cd-e4851df4487e'::uuid, 'opcion_multiple', $pea0$Un estudiante pide corregir su fecha de nacimiento y te manda una captura del DNI de Mi Argentina. ¿Qué hacés?$pea0$, $pea0$La modificación de datos requiere la copia del DNI físico, frente y dorso; no se acepta el de Mi Argentina.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', 'a30db4f8-2196-40c2-8467-e77bdfbfd87a'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 1
+where exists (select 1 from public.items where id = 'a30db4f8-2196-40c2-8467-e77bdfbfd87a'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '4b76d45b-9828-41e8-8e9f-c2cd2148e1b0'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = 'e8081c15-bb94-4216-80cd-e4851df4487e'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '4b76d45b-9828-41e8-8e9f-c2cd2148e1b0'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, 'e8081c15-bb94-4216-80cd-e4851df4487e'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('f236d342-f5ad-434f-8409-fb7e7c363a35'::uuid, $pea0$Derivás la corrección con esa captura.$pea0$, false, 1, $pea0$No se acepta el DNI de Mi Argentina.$pea0$, null::int, null),
+  ('8eec3e9b-cd12-4779-8544-0ee7ce451e22'::uuid, $pea0$Le pedís una foto del DNI físico, frente y dorso, antes de derivar.$pea0$, true, 2, $pea0$Toda validación documental requiere el DNI físico.$pea0$, null::int, null),
+  ('d6d0aca4-031a-4ded-8338-8ac4455d1f2d'::uuid, $pea0$Corregís solo la fecha de nacimiento en el momento.$pea0$, false, 3, $pea0$La corrección la hace la segunda línea con el DNI válido.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = 'e8081c15-bb94-4216-80cd-e4851df4487e'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select 'f331ff58-1247-4389-8fde-291bda05305f'::uuid, 'opcion_multiple', $pea0$Daniela tiene el legajo en baja administrativa por una anulación de pago y pide que se lo reabran. ¿Qué hacés?$pea0$, $pea0$Si la baja es por anulación de pago, Cobranzas valida el pago y autoriza; recién después Gestiones N2 reabre el legajo.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', 'a30db4f8-2196-40c2-8467-e77bdfbfd87a'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 2
+where exists (select 1 from public.items where id = 'a30db4f8-2196-40c2-8467-e77bdfbfd87a'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '4b76d45b-9828-41e8-8e9f-c2cd2148e1b0'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = 'f331ff58-1247-4389-8fde-291bda05305f'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '4b76d45b-9828-41e8-8e9f-c2cd2148e1b0'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, 'f331ff58-1247-4389-8fde-291bda05305f'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('8a69eabb-e264-49b5-8901-9bc5e8f3d1fb'::uuid, $pea0$Pedís la reapertura directo a Gestiones N2.$pea0$, false, 1, $pea0$Con baja por anulación de pago, primero tiene que intervenir Cobranzas.$pea0$, null::int, null),
+  ('5e2c78e6-d36f-459b-8772-a0f807fe7386'::uuid, $pea0$Derivás primero a Cobranzas para que valide el pago y autorice la reapertura.$pea0$, true, 2, $pea0$Es el paso previo obligatorio en esa situación.$pea0$, null::int, null),
+  ('ebb3f1bc-2eea-4393-8eff-9ab47228792a'::uuid, $pea0$Le decís que no se puede reabrir nunca.$pea0$, false, 3, $pea0$Se puede, una vez regularizado y autorizado.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = 'f331ff58-1247-4389-8fde-291bda05305f'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select '5ff81262-356b-414e-8677-4faee1ba84b4'::uuid, 'verdadero_falso', $pea0$Si un estudiante dice que quiere abandonar sus estudios, el asesor pide una baja de legajo a Gestiones N2.$pea0$, $pea0$Si quiere abandonar, corresponde el circuito de Riesgo de Baja; la baja de legajo es para duplicados, preinscripciones vencidas o legajos inactivos.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', 'a30db4f8-2196-40c2-8467-e77bdfbfd87a'::uuid, null, now() + interval '1 millisecond' * 3
+where exists (select 1 from public.items where id = 'a30db4f8-2196-40c2-8467-e77bdfbfd87a'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '4b76d45b-9828-41e8-8e9f-c2cd2148e1b0'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = '5ff81262-356b-414e-8677-4faee1ba84b4'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '4b76d45b-9828-41e8-8e9f-c2cd2148e1b0'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, '5ff81262-356b-414e-8677-4faee1ba84b4'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('fb2a36fc-68c9-49ba-826a-344e7331e5c5'::uuid, $pea0$Verdadero$pea0$, false, 1, null, null::int, null),
+  ('2f42af3b-6ebc-4584-84d9-b799c805a1c4'::uuid, $pea0$Falso$pea0$, true, 2, null, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = '5ff81262-356b-414e-8677-4faee1ba84b4'::uuid)
+on conflict do nothing;
