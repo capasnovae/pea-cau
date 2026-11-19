@@ -3,8 +3,6 @@
 import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { renderVideo } from "@revideo/renderer";
-import { guionDeLeccion } from "../lib/lecciones/guion.ts";
-import { leerLeccion } from "../lib/lecciones/importar.ts";
 import type { LeccionV2 } from "../lib/dominio/lecciones.ts";
 
 process.env.DISABLE_TELEMETRY = "true";
@@ -16,6 +14,9 @@ if (existsSync(join(import.meta.dirname, "guiones", `${slug}.ts`))) {
   await renderGuion(slug);
   process.exit(0);
 }
+// Se importan acá para que los videos con guion propio no dependan del armado automático
+const { guionDeLeccion } = await import("../lib/lecciones/guion.ts");
+const { leerLeccion } = await import("../lib/lecciones/importar.ts");
 const ruta = join(import.meta.dirname, "..", "contenido", "lecciones", `${slug}.md`);
 const leccion = leerLeccion(`contenido/lecciones/${slug}.md`, readFileSync(ruta, "utf8"));
 if ((leccion.leccion as { version?: number }).version !== 2)
