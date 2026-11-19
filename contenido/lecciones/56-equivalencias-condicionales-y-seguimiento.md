@@ -26,10 +26,10 @@ Me dieron materias por equivalencia pero figuran como "Regular condicional". ¿Q
 
 ## idea: Qué es una equivalencia condicional
 
-Si hay predictamen pero todavía no presentó la documentación completa y definitiva, las materias se otorgan como "Regular condicional" desde el primer día del período que pidió. Si no completa la documentación en el plazo, esas materias, y las correlativas que haya cursado, quedan Libre. En las materias sin regla quedan "Regular condicional por sugerencia" hasta que se resuelva.
+Si hay predictamen pero todavía no presentó la documentación completa y definitiva, las materias se otorgan como "Regular condicional" desde el primer día del período que pidió. Tiene hasta la 5.ª semana de cursado de ese período para completarla: si no, esas materias, y las que esté cursando, quedan Libre. En las materias sin regla quedan "Regular condicional por sugerencia" hasta que se resuelva.
 
-clave: Condicional: tiene que completar la documentación en plazo o quedan Libre, con sus correlativas.
-ejemplo: Santiago tiene que presentar el analítico y el plan legalizados antes del plazo para conservarlas.
+clave: Condicional: documentación completa hasta la 5.ª semana de cursado o quedan Libre.
+ejemplo: Santiago tiene que presentar el analítico y el plan legalizados antes de la 5.ª semana.
 
 ## probalo 1
 
@@ -52,17 +52,16 @@ clave: La revisión se pide en el Portal, sin generar un formulario nuevo.
 ## ojo
 
 Si una materia sugerida se rechaza y queda Libre, también quedan Libre las correlativas que dependen de ella.
-El plazo exacto para completar la documentación figura en el formulario y se avisa por mail: confirmalo en el trámite del estudiante, porque la base menciona más de un plazo.
 
 ## cierre
 
-A Santiago le explicás que "Regular condicional" significa que le otorgaron las materias, pero que tiene que presentar la documentación definitiva en el plazo que figura en su trámite. Si no la presenta, esas materias y las correlativas que haya cursado quedan Libre. Puede seguir el estado en el Portal con su número de solicitud y su DNI.
+A Santiago le explicás que "Regular condicional" significa que le otorgaron las materias, pero que tiene que presentar la documentación definitiva antes de la 5.ª semana de cursado. Si no la presenta, esas materias y las correlativas que haya cursado quedan Libre. Puede seguir el estado en el Portal con su número de solicitud y su DNI.
 
-recordar: Condicional: documentación en plazo o quedan Libre; el estado, en el Portal.
+recordar: Condicional: documentación hasta la 5.ª semana o quedan Libre; el estado, en el Portal.
 
 ## Probalo
 
-### unica: Una estudiante tiene materias en "Regular condicional" y no presentó la documentación en el plazo. ¿Qué pasa?
+### unica: Una estudiante tiene materias en "Regular condicional" y llegó a la 5.ª semana de cursado sin presentar la documentación. ¿Qué pasa?
 
 - [ ] Se quedan regulares igual.
   > Sin la documentación en plazo, pierden la condición.
@@ -71,7 +70,7 @@ recordar: Condicional: documentación en plazo o quedan Libre; el estado, en el 
 - [ ] Se extiende el plazo automáticamente.
   > No hay extensión automática.
 
-> Si no completa la documentación en plazo, las materias condicionales y sus correlativas cursadas quedan Libre.
+> Si no completa la documentación antes de la 5.ª semana de cursado, las materias condicionales y sus correlativas cursadas quedan Libre.
 
 ### unica: Un estudiante pregunta cómo va su trámite de equivalencias. ¿Qué hacés primero?
 
