@@ -70,11 +70,11 @@ Tercero, Universitarios 21: sus dos materias tienen que estar aprobadas para ano
 
 ## 7. Caso: «tengo cuarenta y dos y no terminé el secundario»
 
-*Etiqueta: `// ramón · mensaje de voz`.*
+*Etiqueta: `// rosa · mensaje de voz`.*
 
 **ESTUDIANTE (audio):** Tengo cuarenta y dos años, hice hasta tercer año del secundario y trabajo hace quince años en una contaduría. ¿Puedo estudiar Contador?
 
-**ASESOR (escribe):** «Sí, Ramón, podés pedir el ingreso por el régimen de mayores de 25. Presentás una carta a la Rectora, tu DNI, un CV con los certificados de tu trabajo y el analítico incompleto legalizado. La Universidad evalúa tu caso y puede aprobarlo o no.»
+**ASESOR (escribe):** «Sí, Rosa, podés pedir el ingreso por el régimen de mayores de 25. Presentás una carta a la Rectora, tu DNI, un CV con los certificados de tu trabajo y el analítico incompleto legalizado. La Universidad evalúa tu caso y puede aprobarlo o no.»
 
 **NARRADORA:** Si el trámite queda más de treinta días hábiles «Pendiente en Tutor», se deriva.
 

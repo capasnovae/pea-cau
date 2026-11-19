@@ -304,6 +304,12 @@ export default makeScene2D("personajes", function* (view) {
 
   for (const plano of planos) {
     yield* hasta(plano.inicio);
+    // Un video de módulo puede tener varios casos, cada uno con su estudiante
+    if ((plano.tipo === "chat" || plano.tipo === "escena") && plano.estudiante) {
+      EST = plano.estudiante;
+      GENTE.estudiante.nombre = EST.nombre;
+      historial.length = 0; // chat nuevo para el caso nuevo
+    }
     if (plano.tipo === "capitulo") pasoActual = plano.numero;
     if (plano.tipo === "cierre") etiqueta = "// para recordar";
     if (plano.tipo === "capitulo" && plano.numero) etiqueta = `// paso ${plano.numero} · ${plano.texto.toLowerCase()}`;

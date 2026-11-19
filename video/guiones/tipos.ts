@@ -24,8 +24,8 @@ type Base = { lineas?: Linea[] };
 export type Plano = Base &
   (
     | { tipo: "portada" }
-    | { tipo: "escena"; lugar: "colectivo" | "casa" | "cau"; rotulo: string }
-    | { tipo: "chat"; sigue?: boolean; borra?: boolean }
+    | { tipo: "escena"; lugar: "colectivo" | "casa" | "cau"; rotulo: string; estudiante?: Estudiante }
+    | { tipo: "chat"; sigue?: boolean; borra?: boolean; estudiante?: Estudiante }
     | { tipo: "nota"; texto: string; detalle?: string }
     | {
         tipo: "tablero";
