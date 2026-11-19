@@ -5378,3 +5378,307 @@ select x.id, '20a46dcc-8720-4aa4-8743-35ba7ee5a786'::uuid, x.texto, x.correcta, 
 ) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
 where exists (select 1 from public.preguntas where id = '20a46dcc-8720-4aa4-8743-35ba7ee5a786'::uuid)
 on conflict do nothing;
+
+insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
+select '79f5f264-3b0b-4228-8b2c-7c7fc9025f00'::uuid, 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid, 71, $pea0$Idioma Inglés: cómo se cursa y se aprueba$pea0$, 'leccion', a.id,
+       $pea0${"version":2,"tarjetas":[{"tipo":"caso","persona":"Sofía","canal":"whatsapp","consulta":"Me anoté a Inglés y no entiendo cómo funciona: ¿tengo clases? ¿Cuándo quedo regular? Me dijeron que hay un test al principio."},{"tipo":"preguntar","opciones":[{"texto":"¿Ya hizo el Placement Test?","clave":true,"porque":"Define desde qué nivel empieza y se hace una sola vez por licencia."},{"texto":"¿Su carrera tiene Inglés en el plan?","clave":true,"porque":"Abogacía, Contador, Diseño Gráfico y los Ciclos de Complementación no lo tienen."},{"texto":"¿Ya pagó su segunda matrícula?","clave":true,"porque":"Recién ahí puede inscribirse a Inglés."},{"texto":"¿Qué nivel de inglés cree que tiene?","clave":false,"porque":"Lo define el Placement Test, no lo que cree."}]},{"tipo":"idea","titulo":"Inscripción y plataforma","texto":"Lo cursan todas las carreras de grado salvo Abogacía, Contador Público, Diseño Gráfico y los Ciclos de Complementación. Se inscribe solo desde el Portal, después de pagar su segunda matrícula; se paga como una materia y ocupa un lugar en el paquete. Se cursa en English Discoveries (Edusoft), desde Canvas, y la plataforma dura un año. La inscripción se anula hasta un día antes del inicio de clases, sin excepción.","clave":"Desde la segunda matrícula; English Discoveries por un año; se anula hasta un día antes.","ejemplo":"Sofía entra a English Discoveries desde Canvas y arranca con el Placement Test."},{"tipo":"probalo","n":1},{"tipo":"idea","titulo":"Placement Test, niveles y regularidad","texto":"El Placement Test (100 preguntas, 1 hora, en Chrome con la extensión de Klarway) define el nivel de inicio y se hace una sola vez por licencia. Hay 10 niveles de 10 unidades: para pasar de nivel necesita 70 % de avance y 70 % en el Final Test. Queda regular al aprobar con 70 % o más el final del último nivel que le corresponde; se ve como nota en el TP1 de Canvas.","clave":"Placement una vez; 70 % para avanzar; regular con el último nivel aprobado."},{"tipo":"probalo","n":2},{"tipo":"idea","titulo":"El examen final y el recursado","texto":"El examen final integrador es por Klarway, con 50 preguntas, y se aprueba con 4. Tiene 18 meses y 3 oportunidades. El progreso no se conserva: si se termina el año de plataforma, vencen los 18 meses o desaprueba las 3 oportunidades, empieza de cero. A distancia, tiene que aprobar Inglés antes de rendir el EFIP I; y Portugués es correlativa de Inglés.","clave":"Final con 4, 18 meses y 3 oportunidades; si vence, empieza de cero."},{"tipo":"probalo","n":3},{"tipo":"ojo","texto":"Para que se guarde el progreso, tiene que salir con \"log out\" de English Discoveries, no cerrando la ventana. Si no puede entrar, primero que borre las cookies."},{"tipo":"cierre","resolucion":"A Sofía le explicás que primero hace el Placement Test, una sola vez, que define su nivel de inicio. Avanza nivel por nivel con 70 % de avance y 70 % en cada Final Test, y queda regular al aprobar el último nivel que le corresponde. Después rinde el final integrador por Klarway, que se aprueba con 4.","recordar":"Placement, niveles con 70 %, regularidad y final con 4."}]}$pea0$::jsonb, 'marcar_hecho'
+from public.articulos a where a.slug = $pea0$kb-31-idioma$pea0$ and a.alcance = 'global'
+on conflict (id) do update set orden = excluded.orden, titulo = excluded.titulo, leccion = excluded.leccion,
+  articulo_id = excluded.articulo_id
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
+
+delete from public.preguntas
+where item_id = '79f5f264-3b0b-4228-8b2c-7c7fc9025f00'::uuid and id not in ('26e97514-e798-4b3b-842a-eaeb860be847'::uuid, '5e4d1802-3b27-4b41-8d68-935ad093c135'::uuid, '7a7e97fd-a897-4a8f-87dc-ab794b98fcc7'::uuid)
+  and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select '26e97514-e798-4b3b-842a-eaeb860be847'::uuid, 'opcion_multiple', $pea0$Un estudiante de Abogacía pregunta cuándo tiene que cursar Inglés. ¿Qué le decís?$pea0$, $pea0$Inglés lo cursan todas las carreras de grado salvo Abogacía, Contador Público, Diseño Gráfico y los Ciclos de Complementación.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', '79f5f264-3b0b-4228-8b2c-7c7fc9025f00'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 1
+where exists (select 1 from public.items where id = '79f5f264-3b0b-4228-8b2c-7c7fc9025f00'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = '26e97514-e798-4b3b-842a-eaeb860be847'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, '26e97514-e798-4b3b-842a-eaeb860be847'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('6aab6179-8495-4c6e-8c20-317364fa458b'::uuid, $pea0$Después de la segunda matrícula, como todos.$pea0$, false, 1, $pea0$Abogacía no tiene Inglés en el plan.$pea0$, null::int, null),
+  ('2e2ab9df-e8f2-4f1e-8612-04bbd1d91f12'::uuid, $pea0$Que Abogacía no tiene Idioma Inglés en su plan.$pea0$, true, 2, $pea0$Tampoco Contador, Diseño Gráfico ni los Ciclos de Complementación.$pea0$, null::int, null),
+  ('a9a11590-b7b6-4611-86ea-f462f3decfea'::uuid, $pea0$Que lo cursa en el último año.$pea0$, false, 3, $pea0$No está en su plan.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = '26e97514-e798-4b3b-842a-eaeb860be847'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select '5e4d1802-3b27-4b41-8d68-935ad093c135'::uuid, 'opcion_multiple', $pea0$Una estudiante dejó vencer la plataforma de Inglés sin terminar. ¿Qué pasa con su progreso?$pea0$, $pea0$Al recursar, el progreso no se conserva: empieza de cero.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', '79f5f264-3b0b-4228-8b2c-7c7fc9025f00'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 2
+where exists (select 1 from public.items where id = '79f5f264-3b0b-4228-8b2c-7c7fc9025f00'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = '5e4d1802-3b27-4b41-8d68-935ad093c135'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, '5e4d1802-3b27-4b41-8d68-935ad093c135'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('eac04ce0-94fd-47ef-82a7-94e57352564e'::uuid, $pea0$Lo conserva para el próximo cursado.$pea0$, false, 1, $pea0$El progreso no se conserva al recursar.$pea0$, null::int, null),
+  ('6d0e496c-5aa6-4c6a-8f75-5ed70e4f64de'::uuid, $pea0$Empieza de cero al volver a cursar.$pea0$, true, 2, $pea0$Pasa si vence el año, los 18 meses o las 3 oportunidades.$pea0$, null::int, null),
+  ('a49656ac-eb62-4132-883c-4c1b60bb852f'::uuid, $pea0$Rinde directamente el final.$pea0$, false, 3, $pea0$Sin regularidad no puede rendir el final.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = '5e4d1802-3b27-4b41-8d68-935ad093c135'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select '7a7e97fd-a897-4a8f-87dc-ab794b98fcc7'::uuid, 'verdadero_falso', $pea0$Un estudiante puede hacer el Placement Test de nuevo si no le gustó el nivel que le tocó.$pea0$, $pea0$Se hace una sola vez por licencia; estar disconforme con el nivel no es motivo para rehabilitarlo.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', '79f5f264-3b0b-4228-8b2c-7c7fc9025f00'::uuid, null, now() + interval '1 millisecond' * 3
+where exists (select 1 from public.items where id = '79f5f264-3b0b-4228-8b2c-7c7fc9025f00'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = '7a7e97fd-a897-4a8f-87dc-ab794b98fcc7'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, '7a7e97fd-a897-4a8f-87dc-ab794b98fcc7'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('f735ae72-8f75-481c-8065-f9cb11c08630'::uuid, $pea0$Verdadero$pea0$, false, 1, null, null::int, null),
+  ('fd9c2062-7daf-475b-8a19-ad54abf837d6'::uuid, $pea0$Falso$pea0$, true, 2, null, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = '7a7e97fd-a897-4a8f-87dc-ab794b98fcc7'::uuid)
+on conflict do nothing;
+
+insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
+select '5cabd85f-40e5-4031-8ed1-dbff65b0fad8'::uuid, 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid, 72, $pea0$Gestiones de Idioma: errores, condición y Placement Test$pea0$, 'leccion', a.id,
+       $pea0${"version":2,"tarjetas":[{"tipo":"caso","persona":"Bruno","canal":"mostrador","consulta":"En el Placement Test se me cortó internet y quedó terminado con un nivel bajísimo. Y en Hotelería me toca Portugués: ¿lo puedo cursar ya?"},{"tipo":"preguntar","opciones":[{"texto":"¿Hizo alguna actividad del cursado después del corte?","clave":true,"porque":"Si avanzó con el cursado, ya no se puede rehabilitar el test."},{"texto":"¿Puede acreditar el corte?","clave":true,"porque":"Solo se rehabilita por un problema técnico acreditable."},{"texto":"¿Tiene Inglés aprobado?","clave":true,"porque":"Portugués es correlativa de Inglés."},{"texto":"¿Qué nivel esperaba sacar?","clave":false,"porque":"Estar disconforme con el nivel no es motivo."}]},{"tipo":"idea","titulo":"Rehabilitar el Placement Test","texto":"Se pide a SGEA como \"Rehabilitación del test de nivelación idioma\" cuando hubo un problema técnico acreditable (un error de Klarway, un corte de luz o de internet) o cuando ve progreso de una licencia anterior. Lleva la situación, si hizo el test, la fecha aproximada y la captura; 3 días hábiles. No se le promete que se va a rehabilitar.","clave":"Solo por un problema técnico acreditable; a SGEA, sin prometer.","ejemplo":"Bruno no tiene que hacer actividades del cursado hasta que se resuelva."},{"tipo":"probalo","n":1},{"tipo":"idea","titulo":"Inscripción, condición y errores","texto":"Si no puede inscribirse a Inglés o Portugués desde el Portal, va a Operativo SOA (\"Inscripción a Idioma inglés\" o \"portugués\"), con el error y la captura. Si cumplió la regularidad y sigue \"Cursando\", va a Operativo SOA como \"Condición de materia idiomas\", con la captura de SGU y la de los niveles aprobados o la nota del TP1. Si falla la plataforma, a Gestiones N2 como \"Error en plataforma de idioma\". Todas, 72 horas hábiles.","clave":"Inscripción y condición, a Operativo SOA; error de plataforma, a Gestiones N2."},{"tipo":"probalo","n":2},{"tipo":"idea","titulo":"Portugués","texto":"Lo tienen Gestión Turística, Administración Hotelera y Comercio Internacional, como Portugués Avanzado I y II. Necesita Inglés aprobado, y I y II no se cursan a la vez porque son correlativas. Es virtual en cualquier modalidad, con TP y parciales; se paga como una materia más. Regulariza con un examen de 30 preguntas (18 meses, 3 oportunidades) y aprueba con 4.","clave":"Portugués: con Inglés aprobado, y I antes que II."},{"tipo":"probalo","n":3},{"tipo":"ojo","texto":"Sin las capturas pedidas no se reciben las derivaciones de condición ni de error de plataforma. Para un error, la captura tiene que ser de la pantalla completa, no un recorte.\nAntes de derivar un error, preguntale si revisó el manual de la plataforma en La Nube."},{"tipo":"cierre","resolucion":"A Bruno le pedís que no haga actividades del cursado y derivás a SGEA la rehabilitación del Placement Test, con la captura y la fecha, sin prometerle el resultado. Sobre Portugués, le explicás que primero tiene que aprobar Inglés y que Portugués Avanzado I y II van en orden.","recordar":"Placement: SGEA, sin prometer; Portugués, después de Inglés."}]}$pea0$::jsonb, 'marcar_hecho'
+from public.articulos a where a.slug = $pea0$kb-31-idioma$pea0$ and a.alcance = 'global'
+on conflict (id) do update set orden = excluded.orden, titulo = excluded.titulo, leccion = excluded.leccion,
+  articulo_id = excluded.articulo_id
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
+
+delete from public.preguntas
+where item_id = '5cabd85f-40e5-4031-8ed1-dbff65b0fad8'::uuid and id not in ('8a372d72-4e42-4670-8af0-9a1bb00aad91'::uuid, '05f95acb-da80-4390-81dc-47a4c8be5c6c'::uuid, '28a5cab8-4d41-4020-83eb-98d36a985709'::uuid)
+  and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select '8a372d72-4e42-4670-8af0-9a1bb00aad91'::uuid, 'opcion_multiple', $pea0$Un estudiante quiere rehabilitar el Placement Test porque el nivel le pareció bajo. ¿Qué hacés?$pea0$, $pea0$El Placement Test solo se rehabilita por un problema técnico acreditable o progreso de una licencia anterior.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', '5cabd85f-40e5-4031-8ed1-dbff65b0fad8'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 1
+where exists (select 1 from public.items where id = '5cabd85f-40e5-4031-8ed1-dbff65b0fad8'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = '8a372d72-4e42-4670-8af0-9a1bb00aad91'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, '8a372d72-4e42-4670-8af0-9a1bb00aad91'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('23ee1c10-9800-4ac1-8554-383e271e6a29'::uuid, $pea0$Derivás a SGEA la rehabilitación.$pea0$, false, 1, $pea0$Estar disconforme con el nivel no es motivo.$pea0$, null::int, null),
+  ('436d347d-c952-4d2b-80a0-7bc814842ee3'::uuid, $pea0$Le explicás que solo se rehabilita por un problema técnico acreditable.$pea0$, true, 2, $pea0$Por otras causas no corresponde.$pea0$, null::int, null),
+  ('7b254ece-d36d-4ce5-8f0d-656d52632542'::uuid, $pea0$Le decís que lo vuelva a hacer él solo.$pea0$, false, 3, $pea0$Se hace una sola vez por licencia.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = '8a372d72-4e42-4670-8af0-9a1bb00aad91'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select '05f95acb-da80-4390-81dc-47a4c8be5c6c'::uuid, 'opcion_multiple', $pea0$Una estudiante aprobó todos los niveles de Inglés y sigue "Cursando" en SGU. ¿Cómo lo derivás?$pea0$, $pea0$La condición de Idioma va a Operativo SOA, siempre con las capturas de SGU y de los niveles aprobados o la nota del TP1.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', '5cabd85f-40e5-4031-8ed1-dbff65b0fad8'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 2
+where exists (select 1 from public.items where id = '5cabd85f-40e5-4031-8ed1-dbff65b0fad8'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = '05f95acb-da80-4390-81dc-47a4c8be5c6c'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, '05f95acb-da80-4390-81dc-47a4c8be5c6c'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('ce7ae416-8eb7-4073-853c-aa1db25f6724'::uuid, $pea0$A Gestiones N2 como error de plataforma.$pea0$, false, 1, $pea0$No es un error de la plataforma.$pea0$, null::int, null),
+  ('6592de80-1244-4a2d-8661-7aceb2db9a0f'::uuid, $pea0$A Operativo SOA como "Condición de materia idiomas", con las capturas de SGU y de los niveles o del TP1.$pea0$, true, 2, $pea0$Es la gestión de condición, y sin capturas no se recibe.$pea0$, null::int, null),
+  ('4a5585de-a691-4b29-8107-0acbc275fb83'::uuid, $pea0$A SGEA como rehabilitación.$pea0$, false, 3, $pea0$No tiene que ver con el Placement Test.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = '05f95acb-da80-4390-81dc-47a4c8be5c6c'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select '28a5cab8-4d41-4020-83eb-98d36a985709'::uuid, 'verdadero_falso', $pea0$Portugués Avanzado I y II se pueden cursar en el mismo período.$pea0$, $pea0$Son correlativas: no pueden cursarse en simultáneo.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', '5cabd85f-40e5-4031-8ed1-dbff65b0fad8'::uuid, null, now() + interval '1 millisecond' * 3
+where exists (select 1 from public.items where id = '5cabd85f-40e5-4031-8ed1-dbff65b0fad8'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = '28a5cab8-4d41-4020-83eb-98d36a985709'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, '28a5cab8-4d41-4020-83eb-98d36a985709'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('b35ff0d7-7a3d-426a-839a-3e162991d43f'::uuid, $pea0$Verdadero$pea0$, false, 1, null, null::int, null),
+  ('ab3ddb7d-69a0-4502-87be-b4f0543e6a81'::uuid, $pea0$Falso$pea0$, true, 2, null, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = '28a5cab8-4d41-4020-83eb-98d36a985709'::uuid)
+on conflict do nothing;
+
+insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
+select 'd4ad49de-2e52-4c4c-868f-3827ee2d72d1'::uuid, 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid, 73, $pea0$Medicina: ingreso y cursado$pea0$, 'leccion', a.id,
+       $pea0${"version":2,"tarjetas":[{"tipo":"caso","persona":"Camila","canal":"telefono","consulta":"Mi hijo quiere estudiar Medicina en Siglo 21. ¿Tiene que rendir un ingreso? ¿Se puede hacer a distancia?"},{"tipo":"preguntar","opciones":[{"texto":"¿Puede cursar presencial en el Campus de Córdoba?","clave":true,"porque":"Medicina es presencial, de lunes a viernes de 8 a 17."},{"texto":"¿Ya está haciendo el Ciclo de Nivelación?","clave":true,"porque":"Es el camino de ingreso a la carrera."},{"texto":"¿Puede sostener el 75 % de asistencia?","clave":true,"porque":"Es condición para mantener la regularidad."},{"texto":"¿En qué colegio terminó el secundario?","clave":false,"porque":"No cambia el ingreso."}]},{"tipo":"idea","titulo":"La carrera","texto":"Título de Médico/a, 6 años, presencial en el Campus Universitario (frente al aeropuerto), de lunes a viernes de 8 a 17. Las materias son cuatrimestrales, puede cursar hasta 6 por cuatrimestre y no paga derecho de examen. Incluye electivas, Práctica Solidaria y una Práctica Final Obligatoria en hospitales y clínicas con convenio.","clave":"Presencial en el Campus, lunes a viernes de 8 a 17; no se cursa a distancia.","ejemplo":"El hijo de Camila tiene que cursar en el Campus: no hay opción a distancia."},{"tipo":"probalo","n":1},{"tipo":"idea","titulo":"El Ciclo de Nivelación","texto":"Dura 9 semanas: onboarding, Ciencias Básicas I y II (Física, Química y Biología), un espacio de vocación médica, una jornada presencial, coaching con simulacros y, al final, las evaluaciones por Klarway. Rinde Física, Biología y Química, una por día, de 30 preguntas y 60 minutos, en una franja horaria amplia. Para ingresar tiene que aprobar las 3.","clave":"9 semanas; Física, Biología y Química por Klarway; aprobar las 3."},{"tipo":"probalo","n":2},{"tipo":"idea","titulo":"Para mantener la regularidad","texto":"Necesita al menos 75 % de asistencia, aprobar las evaluaciones de cada materia, aprobar al menos 3 de los 4 trabajos prácticos y cumplir lo que pide la planificación de cada materia. Los parciales se rinden durante el cursado.","clave":"75 % de asistencia y 3 de 4 trabajos prácticos aprobados."},{"tipo":"probalo","n":3},{"tipo":"ojo","texto":"Las fechas de los exámenes de ingreso y si hay recuperatorios cambian con cada cohorte: confirmalos en la información vigente."},{"tipo":"cierre","resolucion":"A Camila le explicás que Medicina es presencial en el Campus de Córdoba, de lunes a viernes de 8 a 17, y que no se cursa a distancia. Para ingresar, su hijo hace el Ciclo de Nivelación de 9 semanas y tiene que aprobar los tres exámenes: Física, Biología y Química.","recordar":"Medicina: presencial, nivelación de 9 semanas y aprobar los 3 exámenes."}]}$pea0$::jsonb, 'marcar_hecho'
+from public.articulos a where a.slug = $pea0$kb-11-carreras-especiales$pea0$ and a.alcance = 'global'
+on conflict (id) do update set orden = excluded.orden, titulo = excluded.titulo, leccion = excluded.leccion,
+  articulo_id = excluded.articulo_id
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
+
+delete from public.preguntas
+where item_id = 'd4ad49de-2e52-4c4c-868f-3827ee2d72d1'::uuid and id not in ('a89cd20d-77fc-4e4c-8098-e82a33c0859b'::uuid, '191fd6c6-8fc3-4d34-8299-69714da36d36'::uuid, '11470fd3-bc55-4133-8e99-e417365b61a8'::uuid)
+  and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select 'a89cd20d-77fc-4e4c-8098-e82a33c0859b'::uuid, 'opcion_multiple', $pea0$Un aspirante a Medicina aprobó Física y Química pero no Biología. ¿Ingresa?$pea0$, $pea0$Para ingresar a Medicina hay que aprobar las 3 evaluaciones: Física, Biología y Química.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', 'd4ad49de-2e52-4c4c-868f-3827ee2d72d1'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 1
+where exists (select 1 from public.items where id = 'd4ad49de-2e52-4c4c-868f-3827ee2d72d1'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = 'a89cd20d-77fc-4e4c-8098-e82a33c0859b'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, 'a89cd20d-77fc-4e4c-8098-e82a33c0859b'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('4c05d06b-013c-4713-8027-4fe75171e951'::uuid, $pea0$Sí: aprobó la mayoría.$pea0$, false, 1, $pea0$Tiene que aprobar las 3.$pea0$, null::int, null),
+  ('adde2f90-5004-456d-8ba8-7c22a3f439a9'::uuid, $pea0$No: para ingresar tiene que aprobar las 3 materias.$pea0$, true, 2, $pea0$Es el requisito del ingreso.$pea0$, null::int, null),
+  ('f12a28c4-21da-4a6c-8fbd-6d50a926dcb9'::uuid, $pea0$Sí, pero con Biología pendiente.$pea0$, false, 3, $pea0$No ingresa con materias del ingreso pendientes.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = 'a89cd20d-77fc-4e4c-8098-e82a33c0859b'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select '191fd6c6-8fc3-4d34-8299-69714da36d36'::uuid, 'opcion_multiple', $pea0$Un estudiante de Medicina aprobó 2 de los 4 trabajos prácticos de una materia. ¿Qué le decís?$pea0$, $pea0$En Medicina, la regularidad pide 75 % de asistencia y al menos 3 de los 4 trabajos prácticos aprobados.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', 'd4ad49de-2e52-4c4c-868f-3827ee2d72d1'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 2
+where exists (select 1 from public.items where id = 'd4ad49de-2e52-4c4c-868f-3827ee2d72d1'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = '191fd6c6-8fc3-4d34-8299-69714da36d36'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, '191fd6c6-8fc3-4d34-8299-69714da36d36'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('ea16aa25-7f45-4a48-8a1f-4ec78e544393'::uuid, $pea0$Que alcanza con la asistencia.$pea0$, false, 1, $pea0$También hacen falta los TP.$pea0$, null::int, null),
+  ('0cdaac2e-e8a8-461b-8d31-b5658f8730ef'::uuid, $pea0$Que para mantener la regularidad necesita aprobar al menos 3 de los 4.$pea0$, true, 2, $pea0$Es una de las condiciones de cursado.$pea0$, null::int, null),
+  ('c3286a27-6d3b-4b9a-8a2d-e174e0f99df2'::uuid, $pea0$Que los TP no cuentan.$pea0$, false, 3, $pea0$Son condición de regularidad.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = '191fd6c6-8fc3-4d34-8299-69714da36d36'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select '11470fd3-bc55-4133-8e99-e417365b61a8'::uuid, 'verdadero_falso', $pea0$En Medicina se paga derecho de examen en cada final.$pea0$, $pea0$En Medicina no se abona derecho de examen.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', 'd4ad49de-2e52-4c4c-868f-3827ee2d72d1'::uuid, null, now() + interval '1 millisecond' * 3
+where exists (select 1 from public.items where id = 'd4ad49de-2e52-4c4c-868f-3827ee2d72d1'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = '11470fd3-bc55-4133-8e99-e417365b61a8'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, '11470fd3-bc55-4133-8e99-e417365b61a8'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('e92cd651-0be4-4566-8199-4baca2008cb1'::uuid, $pea0$Verdadero$pea0$, false, 1, null, null::int, null),
+  ('3ab0df70-2539-479d-823b-0aebcbb48780'::uuid, $pea0$Falso$pea0$, true, 2, null, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = '11470fd3-bc55-4133-8e99-e417365b61a8'::uuid)
+on conflict do nothing;
+
+insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
+select 'c6d29b2a-2469-4405-8b75-064ab258d8a7'::uuid, 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid, 74, $pea0$Articulación Cervantes: Martillero con una materia$pea0$, 'leccion', a.id,
+       $pea0${"version":2,"tarjetas":[{"tipo":"caso","persona":"Raúl","canal":"mostrador","consulta":"Terminé Martillero en el Instituto Cervantes y me dijeron que con una sola materia en Siglo 21 tengo el título. ¿Es así? Todavía no tengo el analítico."},{"tipo":"preguntar","opciones":[{"texto":"¿Terminó el cursado en Cervantes, o solo le queda aprobar el 4.° cuatrimestre?","clave":true,"porque":"Son las condiciones para articular."},{"texto":"¿De qué plan de estudios viene?","clave":true,"porque":"Algunos planes no están habilitados."},{"texto":"¿Tiene la tirilla de Cervantes y el analítico o la constancia en trámite?","clave":true,"porque":"Es lo que presenta para inscribirse."},{"texto":"¿Quiere cursar a distancia?","clave":false,"porque":"La materia es presencial."}]},{"tipo":"idea","titulo":"Qué es y quién puede","texto":"Permite a quien cursó Martillero y Corredor Público en el Instituto Cervantes obtener el título de Martillero y Corredor Público e Inmobiliario cursando una sola materia: Principios Fundamentales de los Derechos Reales. Pueden hacerla los egresados de Cervantes, quien cursó todo y solo debe materias del 4.° cuatrimestre, o quien aprobó los tres primeros y está inscripto al 4.°. Hay planes de Cervantes no habilitados: revisalo antes.","clave":"Una materia: Principios Fundamentales de los Derechos Reales; revisá el plan de origen.","ejemplo":"Raúl egresó de Cervantes: puede articular si su plan está habilitado."},{"tipo":"probalo","n":1},{"tipo":"idea","titulo":"Inscripción y cursado","texto":"Se inscribe solo en los períodos A (marzo y agosto), con la tirilla de Cervantes y el analítico definitivo o la constancia en trámite. Es presencial, los sábados de 9 a 14 en la sede Nueva Córdoba, cuatrimestral, sin parciales. No entrega documentación de legajo: la Universidad la gestiona con Cervantes. Paga el arancel de una materia (se pide por HubSpot a Cobranzas); el título no se paga.","clave":"Períodos A, sábados en Nueva Córdoba; paga una materia y no el título."},{"tipo":"probalo","n":2},{"tipo":"idea","titulo":"Final y título","texto":"El final es presencial en Nueva Córdoba: con 60 % o más de asistencia es oral; con menos, oral y escrito. Se inscribe con un caso en Sistema Q, sin derecho de examen. Puede cursar sin el analítico definitivo, pero para iniciar el título tiene que presentar el analítico oficial y definitivo de Cervantes: no sirve una copia ni la constancia en trámite.","clave":"Cursa con constancia; el título, solo con el analítico definitivo."},{"tipo":"probalo","n":3},{"tipo":"ojo","texto":"La materia no se abre en períodos B."},{"tipo":"cierre","resolucion":"A Raúl le confirmás que, como egresado de Cervantes, puede obtener el título cursando Principios Fundamentales de los Derechos Reales, si su plan está habilitado. Se inscribe en marzo o agosto con la tirilla y la constancia del analítico, y cursa los sábados en Nueva Córdoba. Le avisás que para iniciar el título va a necesitar el analítico definitivo.","recordar":"Una materia, períodos A, y el título con el analítico definitivo."}]}$pea0$::jsonb, 'marcar_hecho'
+from public.articulos a where a.slug = $pea0$kb-11-carreras-especiales$pea0$ and a.alcance = 'global'
+on conflict (id) do update set orden = excluded.orden, titulo = excluded.titulo, leccion = excluded.leccion,
+  articulo_id = excluded.articulo_id
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
+
+delete from public.preguntas
+where item_id = 'c6d29b2a-2469-4405-8b75-064ab258d8a7'::uuid and id not in ('7c5b529f-29e6-460d-8b7f-40f38c169083'::uuid, 'f098ef9e-173a-400c-869f-ad53d86f8bfa'::uuid, 'fce1c03a-551a-4606-84f2-b9d53698261b'::uuid)
+  and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select '7c5b529f-29e6-460d-8b7f-40f38c169083'::uuid, 'opcion_multiple', $pea0$Un estudiante de la articulación Cervantes quiere empezar en un período B. ¿Qué le decís?$pea0$, $pea0$La articulación Cervantes solo se inscribe en los períodos A (marzo y agosto); no se abre en períodos B.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', 'c6d29b2a-2469-4405-8b75-064ab258d8a7'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 1
+where exists (select 1 from public.items where id = 'c6d29b2a-2469-4405-8b75-064ab258d8a7'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = '7c5b529f-29e6-460d-8b7f-40f38c169083'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, '7c5b529f-29e6-460d-8b7f-40f38c169083'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('7ee6111d-0446-4edc-84e3-a7b35be12969'::uuid, $pea0$Que se inscribe por excepción.$pea0$, false, 1, $pea0$La materia no se habilita en períodos B.$pea0$, null::int, null),
+  ('85786f8f-2cc7-4bae-842d-72dcb0d4e309'::uuid, $pea0$Que solo puede inscribirse en los períodos A, de marzo o agosto.$pea0$, true, 2, $pea0$Es la única ventana de inscripción.$pea0$, null::int, null),
+  ('34be39bf-b089-475a-8ce3-a53a3d35279c'::uuid, $pea0$Que la cursa a distancia.$pea0$, false, 3, $pea0$Es presencial.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = '7c5b529f-29e6-460d-8b7f-40f38c169083'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select 'f098ef9e-173a-400c-869f-ad53d86f8bfa'::uuid, 'opcion_multiple', $pea0$Un estudiante aprobó la materia de la articulación con la constancia de analítico en trámite. ¿Puede iniciar el título?$pea0$, $pea0$Puede cursar con la constancia, pero el título solo se inicia con el analítico oficial y definitivo de Cervantes.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', 'c6d29b2a-2469-4405-8b75-064ab258d8a7'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 2
+where exists (select 1 from public.items where id = 'c6d29b2a-2469-4405-8b75-064ab258d8a7'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = 'f098ef9e-173a-400c-869f-ad53d86f8bfa'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, 'f098ef9e-173a-400c-869f-ad53d86f8bfa'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('82fe0af5-9930-45cb-8415-90af020e8e12'::uuid, $pea0$Sí, con la constancia alcanza.$pea0$, false, 1, $pea0$Para el título no se acepta la constancia.$pea0$, null::int, null),
+  ('aedf0f77-ed35-42f3-8aac-bd8522312a25'::uuid, $pea0$No: necesita presentar el analítico oficial y definitivo de Cervantes.$pea0$, true, 2, $pea0$Sin el analítico definitivo no se inicia el título.$pea0$, null::int, null),
+  ('d0b81469-09b4-4568-8e2c-dd48fb66edd2'::uuid, $pea0$Sí, si paga una tasa.$pea0$, false, 3, $pea0$El título no se abona; falta el analítico.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = 'f098ef9e-173a-400c-869f-ad53d86f8bfa'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select 'fce1c03a-551a-4606-84f2-b9d53698261b'::uuid, 'verdadero_falso', $pea0$En la articulación Cervantes, el egresado paga el título además del arancel de la materia.$pea0$, $pea0$El título no se abona: solo paga el arancel de una materia.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', 'c6d29b2a-2469-4405-8b75-064ab258d8a7'::uuid, null, now() + interval '1 millisecond' * 3
+where exists (select 1 from public.items where id = 'c6d29b2a-2469-4405-8b75-064ab258d8a7'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = 'fce1c03a-551a-4606-84f2-b9d53698261b'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, 'fce1c03a-551a-4606-84f2-b9d53698261b'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('ae293df2-ffbf-44e5-816d-325abb8f297a'::uuid, $pea0$Verdadero$pea0$, false, 1, null, null::int, null),
+  ('877db668-1663-4291-8545-a5f4d9e20cd1'::uuid, $pea0$Falso$pea0$, true, 2, null, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = 'fce1c03a-551a-4606-84f2-b9d53698261b'::uuid)
+on conflict do nothing;
