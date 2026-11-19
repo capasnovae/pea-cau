@@ -536,8 +536,8 @@ Tres: el EFIP es solo para grado a distancia.
 
 # Video del módulo 7 · Aranceles y pagos (borrador, a validar)
 
-Curso: Aranceles, becas y pagos. Lecciones: 10, 11, 44, 45, 46, 47, 48, 91, 92.
-Duración estimada: unos 5 minutos 15 segundos (la final la marca el audio).
+Curso: Aranceles, becas y pagos. Lecciones: 10, 11, 44, 45, 46, 47, 48, 91, 92, 109, 110.
+Duración estimada: unos 8 minutos 09 segundos (la final la marca el audio).
 Voces: Narradora (Kore), Asesor (Puck), Estudiantes (Leda).
 
 ---
@@ -546,7 +546,7 @@ Voces: Narradora (Kore), Asesor (Puck), Estudiantes (Leda).
 
 *Placa: «07 · ARANCELES Y PAGOS». Un ticket que se imprime sobre el papel.*
 
-**NARRADORA:** Matrícula, tickets, pagos rechazados, deuda y bajas. Son consultas delicadas: un dato mal dado le cuesta plata al estudiante.
+**NARRADORA:** Matrícula, tickets, pagos rechazados, deuda, bajas, reintegros y la Garantía de Adaptación. Son consultas delicadas: un dato mal dado le cuesta plata al estudiante.
 
 ## 2. Matrícula y paquetes
 
@@ -588,7 +588,28 @@ Ojo: salvo que sea un duplicado, anular un pago genera deuda y baja administrati
 **NARRADORA:** Escuchá el motivo, revisá su situación y ofrecé alternativas, sin insistir. No prometas reintegros ni excepciones: se deriva a Grupo de Riesgo con el teléfono y las alternativas que ofreciste, y lo contactan en setenta y dos horas.
 Si debe dos o más matrículas en ED o EDH, podés ofrecerle el recupero: todo el semestre en un solo pago.
 
-## 7. Caso: «¿qué tengo que pagar?»
+## 7. Reintegros
+
+*Una alcancía con un candado. Sello: «LA MATRÍCULA NO SE DEVUELVE».*
+
+**NARRADORA:** La Universidad no hace reintegros como gestión habitual: solo se evalúan en forma excepcional, con autorización. La matrícula no se devuelve, porque cubre el alta del estudiante: el usuario, el legajo y los accesos.
+«No me gustó», «cambié de opinión» o «me voy a otra universidad» no justifican un reintegro. Escuchás, preguntás y ofrecés alternativas.
+Si el pedido viene con una baja, lo analiza solo Grupo de Riesgo, y vos no adelantás si va a salir.
+
+*Dos tarjetas más chicas.*
+
+**NARRADORA:** Si un familiar informa que un estudiante falleció, das tus condolencias, tomás sus datos de contacto y derivás a Grupo de Riesgo. Y si un egresado tiene saldo a favor, el reintegro va a SOPER.
+
+## 8. Garantía de Adaptación
+
+*Una flecha que vuelve al punto de partida. Sello: «UNA SOLA VEZ».*
+
+**NARRADORA:** Para el ingresante al que le costó arrancar existe la Garantía de Adaptación: reinicia la carrera con el cien por ciento de la matrícula y los aranceles pagados a su favor.
+Tiene que haber pagado al menos una matrícula y un ticket, no tener materias aprobadas del primer semestre y no haber pasado dos años desde el ingreso. Se usa una sola vez por legajo.
+La pide el estudiante en el Portal, en Gestiones; vos no podés hacerla por él. Las materias regulares o libres vuelven a Cursando, así que avisale antes.
+Si además quiere cambiar de carrera o de modalidad, va por ticket a N2: primero la garantía y después el pase.
+
+## 9. Caso: «¿qué tengo que pagar?»
 
 *Chat. Etiqueta: `// gonzalo escribe`.*
 
@@ -598,7 +619,7 @@ Si debe dos o más matrículas en ED o EDH, podés ofrecerle el recupero: todo e
 
 **NARRADORA:** De cuatro a seis materias, semestre completo.
 
-## 8. Caso: «quiero anular el pago»
+## 10. Caso: «quiero anular el pago»
 
 *Etiqueta: `// estudiante · mensaje de voz`.*
 
@@ -608,13 +629,24 @@ Si debe dos o más matrículas en ED o EDH, podés ofrecerle el recupero: todo e
 
 **NARRADORA:** Primero la consecuencia, después la decisión.
 
-## 9. Para recordar
+## 11. Caso: «no me pude adaptar»
+
+*Chat. Etiqueta: `// brenda escribe`.*
+
+**ESTUDIANTE (escribe):** «Empecé este año y no me pude adaptar, casi no cursé. Pagué la matrícula y el ticket A. ¿Pierdo todo?»
+
+**ASESOR (escribe):** «No lo perdés, Brenda. Como sos ingresante y no aprobaste materias, podés pedir la Garantía de Adaptación desde el Portal, en Gestiones. Reiniciás la carrera con lo que pagaste a favor. Se usa una sola vez.»
+
+**NARRADORA:** Antes de hablar de reintegros, fijate si es ingresante: la garantía puede ser la respuesta.
+
+## 12. Para recordar
 
 *«PARA RECORDAR».*
 
 **NARRADORA:** Uno: el pago va primero a la deuda y tarda setenta y dos horas hábiles.
 Dos: validá clase de estudio, modalidad, materias y subperíodo antes del ticket.
-Tres: en una baja, escuchá, ofrecé alternativas y derivá sin prometer reintegros.
+Tres: no hay reintegro habitual y la matrícula no se devuelve; en una baja, derivá sin prometer.
+Cuatro: el ingresante que no pudo arrancar tiene la Garantía de Adaptación, una sola vez, desde el Portal.
 
 
 ---
