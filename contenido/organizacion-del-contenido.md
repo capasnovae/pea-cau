@@ -78,8 +78,95 @@ Todo lo que junté hasta ahora, ordenado como está hoy. Decime en qué curso y 
 
 - **Gestión de exámenes (CEO)** › Klarway: fallas y soluciones (diseñado, falta el contenido).
 - **HubSpot** › a definir: ¿qué se usa en el CAU (contactos, tickets, seguimiento)? Necesito tu material o acceso a la guía interna.
-- **Base de conocimiento** › a definir: ¿es una herramienta interna o el repositorio de PEA? Necesito saber qué es y dónde está.
+- **Base de conocimiento del CAU** › ya está: ver la sección 4.
 
+## 4. Base de conocimiento del CAU (51 páginas relevantes)
+
+Dónde propongo que entre cada página de la base (el número es el de la página; están en `contenido/kb-cau/`). Movelas a gusto igual que las lecciones. Quedaron afuera: Posgrado, APLV, Centro de Profesores Virtuales, Reserva de quincho/SUM, las portadas de sección y el índice de derivaciones (se exportó vacío).
+
+### Cursado y modalidades › Ingreso
+- 21 Documentación de legajo
+- 23 Cambio de género
+
+### Cursado y modalidades › Modalidades
+- 15 Modalidades de cursado
+- 12 Modificaciones en el legajo (modalidad, carrera, CAU, plan y turno)
+- 50 Gestión CAU Virtual
+
+### Cursado y modalidades › Cursado
+- 47 Secretaría de Gestión Académica (SGEA): inscripción a materias
+- 41 Inscripciones a materias: gestiones y derivaciones
+- 37 Planificación académica
+- 27 Modelo académico
+- 22 Sistema de créditos académicos (Free Flow)
+- 11 Carreras especiales (Medicina, Martillero, etc.)
+- 31 Idioma
+
+### Evaluación › Trabajos y exámenes
+- 29 Inscripción a exámenes
+- 38 Gestión de exámenes (SAI): mesas, reprogramaciones, notas, Klarway
+- 40 EFIP: información general y académica
+- 24 Gestiones EFIP
+
+### Evaluación › Materias especiales
+- 35 Práctica profesional
+- 43 Práctica solidaria
+
+### Aranceles › Aranceles y pagos
+- 39 Formas de pago y financiación
+- 58 Normas arancelarias generales
+- 36 Gestiones administrativas (SOPER): deuda, notas de crédito, saldos
+- 49 Gestiones de cobranzas
+- 60 Grupo Recupero
+- 42 Reintegros y riesgo de baja
+- 53 Administración
+
+### Aranceles › Becas y beneficios
+- 55 Becas y beneficios
+
+### Egreso › Trabajo final
+- 25 Trabajo Final de Grado
+
+### Egreso › Título y colación
+- 32 Proceso de títulos
+- 01 Colaciones 2026
+- 33 Visado y validación académica
+- 26 Certificados, constancias y analíticos
+- 16 Documentos con firma digital
+
+### Plataformas › Portal y aula
+- 13 Portal Estudiantes
+- 44 Contenido (materias sin contenido en Canvas)
+- 62 LearnWise AI, tutor 24x7
+- 03 Servicios de biblioteca
+
+### Plataformas › Exámenes online
+- 07 Incidencias en plataformas
+
+### Normas y acompañamiento › Normas
+- 34 Régimen de sanciones
+
+### Normas y acompañamiento › Acompañamiento
+- 46 Tutores de carrera
+- 48 Iniciativas de acompañamiento académico
+- 45 Acciones especiales (persistencia)
+- 52 Gabinete de bienestar
+- 54 Accesibilidad (estudiantes con discapacidad)
+
+### Trámites › Trámites
+- 19 Portal de equivalencias
+- 28 Equivalencias internas
+- 30 Equivalencias externas
+
+### NUEVO › Herramientas del asesor (propuesto)
+- 10 Soy Siglo (ex Talent 21), instructivo para asesores
+- 57 Matriz general: calendarios, oferta activa, horarios, listado de CAU
+- Cómo usar la Base de conocimiento para responder (a armar)
+
+### SECUNDARIO › Programas para estudiantes (¿va?)
+- 05 Destacados 21
+- 18 Experiencias 21
+- 20 Ayudantía docente
 ## 3. Material del repositorio (artículos relevados, en borrador y «A validar»)
 
 Son la fuente de las lecciones. No hace falta ordenarlos uno por uno; si algún tema merece lección propia, decímelo.
