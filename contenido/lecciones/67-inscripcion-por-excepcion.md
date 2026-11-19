@@ -43,9 +43,9 @@ clave: Sin equivalencias pendientes, sin ingresantes y con Universitario 21 apro
 
 ## idea: A quién va
 
-A distancia: por HubSpot a Gestiones N2, como "Inscripción por excepción a materias" por motivos académicos o administrativos, con DNI, legajo y código de materia; 3 días hábiles. Presencial (P y PH): si no hay cátedras disponibles o la materia figura no habilitada, pero tiene apertura, va a Planificación Académica como "Ampliación de cupos de materias P y PH", con carrera, plan y materia; 72 horas hábiles.
+A distancia (ED y EDH): por HubSpot a Gestiones N2, como "Inscripción por excepción a materias" por motivos académicos o administrativos, con DNI, legajo y código de materia; 3 días hábiles.
 
-clave: Distancia, Gestiones N2; presencial, ampliación de cupos a Planificación Académica.
+clave: Gestiones N2, con DNI, legajo y código de materia; 3 días hábiles.
 
 ## probalo 3
 
@@ -72,16 +72,16 @@ recordar: Pago, correlativas y apertura; después, Gestiones N2.
 
 > Con equivalencias pendientes no hay inscripción por excepción: el trámite tiene que estar finalizado.
 
-### unica: Una estudiante de modalidad presencial no encuentra cátedras disponibles para una materia que tiene apertura. ¿Qué hacés?
+### unica: Un estudiante de EDH cumple todo, la materia tiene apertura y el Portal igual no lo deja inscribirse. ¿Qué hacés?
 
-- [ ] La derivás a Gestiones N2 como inscripción por excepción.
-  > En presencial corresponde ampliación de cupos.
-- [x] Validás las correlativas y pedís a Planificación Académica la ampliación de cupos.
-  > Es la gestión para P y PH con apertura vigente.
 - [ ] Le decís que espere al próximo período.
-  > Si tiene apertura, se puede pedir la ampliación.
+  > Si cumple todo y hay apertura, se puede gestionar.
+- [x] Derivás a Gestiones N2 como "Inscripción por excepción a materias", con DNI, legajo y código de materia.
+  > Tarda 3 días hábiles.
+- [ ] Le pedís que pague otro ticket.
+  > El pago ya está validado.
 
-> En P y PH, si no hay cátedras y la materia tiene apertura, se pide ampliación de cupos a Planificación Académica.
+> Con pago, correlativas y apertura validados, se deriva a Gestiones N2.
 
 ### vf: Un estudiante sin las materias de Universitario 21 aprobadas puede inscribirse por excepción a una materia de 5.° cuatrimestre.
 

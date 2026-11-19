@@ -17,8 +17,8 @@ Me toca Práctica Profesional este semestre. ¿Qué tengo que hacer para aprobar
 
 - [x] ¿Ya está inscripto en la materia?
   > Sin inscripción no accede a los formularios de Soy Siglo.
-- [x] ¿En qué modalidad cursa?
-  > En Presencial y Presencial Home se suma el 75 % de asistencia.
+- [x] ¿Ya hizo el taller preparatorio?
+  > Es obligatorio antes de cargar los formularios en Soy Siglo.
 - [x] ¿Tiene las correlativas aprobadas?
   > Sin ellas, la materia queda regular por 18 meses.
 - [ ] ¿En qué empresa le gustaría hacerla?
@@ -35,7 +35,7 @@ ejemplo: Lucas entrega los TP en Canvas y además cumple sus horas en una organi
 
 ## idea: Requisitos de aprobación
 
-Necesita 3 TP aprobados con 5 o más, y el TP4 es obligatorio. La nota final es el promedio de los 4 TP. En Presencial y Presencial Home suma el 75 % de asistencia. Con el TP4 entrega por Canvas la evaluación de desempeño firmada por la organización, con 7 o más, y la planilla de asistencia que valida las horas. Si al terminar no tiene las correlativas, queda regular 18 meses; si no las aprueba en ese plazo, queda libre y recursa.
+Necesita 3 TP aprobados con 5 o más, y el TP4 es obligatorio. La nota final es el promedio de los 4 TP. Con el TP4 entrega por Canvas la evaluación de desempeño firmada por la organización, con 7 o más, y la planilla de asistencia que valida las horas. Si al terminar no tiene las correlativas, queda regular 18 meses; si no las aprueba en ese plazo, queda libre y recursa.
 
 clave: 3 TP con 5 (TP4 obligatorio) + evaluación de desempeño con 7 y planilla, con el TP4.
 

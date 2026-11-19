@@ -86,7 +86,7 @@ recordar: Primero sin finales pendientes, después el pase, en fecha.
 - [ ] Que lo pierde: el Seminario de Práctica se pierde en cualquier pase.
   > Hay una excepción justamente para ED↔EDH.
 - [ ] Que antes del pase tiene que rendir EFIP I o lo pierde.
-  > Esa exigencia es para quien pasa de distancia a presencial (P o PH).
+  > En el pase entre ED y EDH no se exige rendir el EFIP I antes.
 - [x] Que conserva la regularidad: en el pase ED↔EDH el Seminario de Práctica regular se mantiene.
   > Es la única situación en la que el reglamento conserva esa regularidad.
 

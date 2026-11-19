@@ -11,7 +11,7 @@ formato: "tarjetas"
 
 persona: Julieta
 canal: mostrador
-Estoy en Presencial Home y una amiga en EDH me dijo que tengo que inscribirme a los parciales y que después rindo el EFIP. ¿Es así para mí también?
+Estoy en PD y una amiga en EDH me dijo que tengo que inscribirme a los parciales y que después rindo el EFIP. ¿Es así para mí también?
 
 ## preguntar
 
@@ -22,34 +22,34 @@ Estoy en Presencial Home y una amiga en EDH me dijo que tengo que inscribirme a 
 - [ ] ¿En qué modalidad está su amiga?
   > Sirve para entender la confusión, pero lo que importa es la suya.
 
-## idea: Distancia y presencial
+## idea: ED, EDH y PD
 
-A distancia: ED combina Canvas con 4 encuentros obligatorios en el CAU por materia, cada 15 días aproximadamente; EDH es todo virtual, sin asistencia. Presenciales: P (clases presenciales, cuatrimestral), PH (programáticas bimestrales y de proceso cuatrimestrales) y PD (presencial con telepresencia y tutores dinamizadores). En ED, P, PH y PD se exige 75 % de asistencia; en P, PH y PD se registra con la App Siglo 21.
+A distancia: ED combina Canvas con 4 encuentros obligatorios en el CAU por materia, cada 15 días aproximadamente; EDH es todo virtual, sin asistencia. PD es presencial, con telepresencia y tutores dinamizadores en el CAU. ED y PD exigen 75 % de asistencia; en PD se registra con la App Siglo 21.
 
-clave: ED y EDH a distancia; P, PH y PD presenciales; 75 % en todas menos EDH.
+clave: ED y EDH a distancia; PD presencial; 75 % en ED y PD, sin asistencia en EDH.
 ejemplo: Julieta registra su asistencia con la App Siglo 21.
 
 ## probalo 1
 
 ## idea: Exámenes por modalidad
 
-En ED y EDH los parciales requieren inscripción, en la primera semana de cursado; en P, PH y PD son automáticos. Recuperatorio e integrador piden inscripción en todas, hasta 24 horas antes, y se desinscriben hasta 48 horas hábiles antes. El final se pide con 4 días corridos de anticipación: en ED y EDH es solo escrito; en P, PH y PD, escrito online más instancia oral.
+En ED y EDH los parciales requieren inscripción, en la primera semana de cursado; en PD son automáticos. Recuperatorio e integrador piden inscripción en las tres, hasta 24 horas antes, y se desinscriben hasta 48 horas hábiles antes. El final se pide con 4 días corridos de anticipación: en ED y EDH es solo escrito; en PD, escrito online más instancia oral.
 
-clave: Parciales con inscripción solo en ED y EDH; final oral solo en P, PH y PD.
+clave: Parciales con inscripción solo en ED y EDH; final oral solo en PD.
 
 ## probalo 2
 
 ## idea: EFIP o Defensa Oral
 
-El EFIP es solo para ED y EDH. En P, PH y PD no hay EFIP: después de aprobar el Seminario Final sigue la Defensa Oral del Trabajo Final de Graduación.
+El EFIP es solo para ED y EDH. En PD no hay EFIP: después de aprobar el Seminario Final sigue la Defensa Oral del Trabajo Final de Graduación.
 
-clave: EFIP en ED y EDH; Defensa Oral en las presenciales.
+clave: EFIP en ED y EDH; Defensa Oral en PD.
 
 ## cierre
 
-A Julieta le explicás que en Presencial Home los parciales son automáticos, sin inscripción, y que no rinde EFIP: después del Seminario Final va a la Defensa Oral. Sí tiene que inscribirse a los recuperatorios, los integradores y los finales, que además tienen una instancia oral.
+A Julieta le explicás que en PD los parciales son automáticos, sin inscripción, y que no rinde EFIP: después del Seminario Final va a la Defensa Oral. Sí tiene que inscribirse a los recuperatorios, los integradores y los finales, que además tienen una instancia oral.
 
-recordar: Presenciales: parciales automáticos, final con oral y Defensa Oral en vez de EFIP.
+recordar: PD: parciales automáticos, final con oral y Defensa Oral en vez de EFIP.
 
 ## Probalo
 
@@ -62,7 +62,7 @@ recordar: Presenciales: parciales automáticos, final con oral y Defensa Oral en
 - [ ] Hasta 24 horas antes.
   > Ese plazo es para recuperatorios e integradores.
 
-> En P, PH y PD la inscripción a parciales es automática.
+> En PD la inscripción a parciales es automática.
 
 ### unica: ¿En qué modalidad no se exige asistencia?
 
@@ -70,14 +70,14 @@ recordar: Presenciales: parciales automáticos, final con oral y Defensa Oral en
   > Exige 4 encuentros con 75 % de asistencia.
 - [x] EDH
   > Es completamente virtual.
-- [ ] PH
+- [ ] PD
   > Exige 75 % de asistencia.
 
 > EDH es la única modalidad sin control de asistencia.
 
-### vf: Un estudiante de Presencial rinde EFIP después del Seminario Final.
+### vf: Un estudiante de PD rinde EFIP después del Seminario Final.
 
 - [ ] Verdadero
 - [x] Falso
 
-> En las modalidades presenciales sigue la Defensa Oral, no el EFIP.
+> En PD sigue la Defensa Oral, no el EFIP.

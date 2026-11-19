@@ -35,7 +35,7 @@ ejemplo: Pablo sigue con su temática y rehace lo que le observaron.
 
 ## idea: Regularidad y derivaciones
 
-Regulariza con al menos 2 de las 3 primeras entregas aprobadas con 50 % o más y la Entrega 4 aprobada obligatoriamente con 50 %. En P y PH, además, el 75 % de asistencia. Mientras la materia está "Cursando", los problemas con notas se derivan a "Trabajo Final de Grado - TFG" con "Corrección Seminario final" (DNI, legajo y captura de Canvas o del Portal).
+Regulariza con al menos 2 de las 3 primeras entregas aprobadas con 50 % o más y la Entrega 4 aprobada obligatoriamente con 50 %. Mientras la materia está "Cursando", los problemas con notas se derivan a "Trabajo Final de Grado - TFG" con "Corrección Seminario final" (DNI, legajo y captura de Canvas o del Portal).
 
 clave: 2 de 3 entregas + la 4, con 50 %; consultas en "Cursando" a TFG.
 

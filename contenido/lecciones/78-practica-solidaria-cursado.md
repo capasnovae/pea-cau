@@ -19,14 +19,14 @@ Quiero hacer la Práctica Solidaria en un refugio de animales donde ya colaboro.
   > Se puede cursar desde el tercer cuatrimestre.
 - [x] ¿La organización trabaja directamente con personas?
   > Tiene que tener un proyecto de acción directa en derechos humanos.
-- [x] ¿En qué modalidad cursa?
-  > Define si los 4 encuentros son presenciales o virtuales.
+- [x] ¿Tiene la mensajería de Canvas al día?
+  > Por ahí el docente manda las fechas y los accesos de los encuentros.
 - [ ] ¿Cuántas horas puede dedicarle?
   > Primero importa si la organización cumple los requisitos.
 
 ## idea: Dos instancias, sin costo
 
-Práctica Solidaria es obligatoria y cuatrimestral en todas las carreras de grado, se cursa desde el tercer cuatrimestre y no tiene costo. Tiene una instancia académica y una organizacional, en una organización social. Hay 4 encuentros por semestre, en las semanas 3, 6, 10 y 13: presenciales en P y PH, y virtuales sincrónicos por Teams en PD, ED y EDH. El docente manda fechas y accesos por la mensajería de Canvas. La inscripción cierra el viernes anterior al inicio de clases.
+Práctica Solidaria es obligatoria y cuatrimestral en todas las carreras de grado, se cursa desde el tercer cuatrimestre y no tiene costo. Tiene una instancia académica y una organizacional, en una organización social. Hay 4 encuentros por semestre, en las semanas 3, 6, 10 y 13: virtuales y sincrónicos por Teams, en ED, EDH y PD. El docente manda fechas y accesos por la mensajería de Canvas. La inscripción cierra el viernes anterior al inicio de clases.
 
 clave: Desde el tercer cuatrimestre, sin costo; 4 encuentros en las semanas 3, 6, 10 y 13.
 ejemplo: Valentina cursa a distancia: sus 4 encuentros son por Teams.

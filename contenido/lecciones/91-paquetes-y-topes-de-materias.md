@@ -26,7 +26,7 @@ Soy de EDH, grado. Quiero cursar 5 materias este semestre y una de verano. ¿Qu�
 
 ## idea: Paquetes de grado
 
-Siempre paga la matrícula semestral y después el paquete. En ED, EDH y PH: de 1 a 3 materias, el paquete de hasta 3; de 4 a 6, el semestre completo (Ticket A + Ticket B). Si empieza recién en el Subperíodo B, paga solo el Ticket B y cursa hasta 3. En P y PD hay paquetes de 1, 3, 4 o 6 materias. Si paga un paquete y cursa menos, no corresponde nota de crédito.
+Siempre paga la matrícula semestral y después el paquete. En ED y EDH: de 1 a 3 materias, el paquete de hasta 3; de 4 a 6, el semestre completo (Ticket A + Ticket B). Si empieza recién en el Subperíodo B, paga solo el Ticket B y cursa hasta 3. En PD hay paquetes de 1, 3, 4 o 6 materias. Si paga un paquete y cursa menos, no corresponde nota de crédito.
 
 clave: Grado distancia: hasta 3 = un ticket; de 4 a 6 = A + B; solo B = hasta 3.
 ejemplo: Gonzalo, con 5 materias, paga matrícula + Ticket A + Ticket B.

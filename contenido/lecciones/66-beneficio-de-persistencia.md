@@ -43,7 +43,7 @@ clave: Autogestión en el Portal; derivás solo si cumple y el Portal falla.
 
 ## idea: Sobre la matrícula: 50 %
 
-Es un 50 % de la matrícula, automático, cuando tiene el check de validación académica en SGU: en ED y EDH, si solo adeuda el EFIP II y la defensa oral; en MP y PH, solo la defensa oral. Buscás por legajo en el reporte de alumnos: con la tilde verde, generás la matrícula y le pedís que espere 24 horas para pagarla. Sin la tilde, seguís el proceso de visado analítico.
+Es un 50 % de la matrícula, automático, cuando tiene el check de validación académica en SGU: en ED y EDH, si solo adeuda el EFIP II y la defensa oral; en PD, solo la defensa oral. Buscás por legajo en el reporte de alumnos: con la tilde verde, generás la matrícula y le pedís que espere 24 horas para pagarla. Sin la tilde, seguís el proceso de visado analítico.
 
 clave: 50 % de la matrícula con el check de validación académica.
 
