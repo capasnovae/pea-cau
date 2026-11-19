@@ -4162,3 +4162,231 @@ select x.id, '90df7bb3-0bcd-4280-811a-459cef821820'::uuid, x.texto, x.correcta, 
 ) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
 where exists (select 1 from public.preguntas where id = '90df7bb3-0bcd-4280-811a-459cef821820'::uuid)
 on conflict do nothing;
+
+insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
+select 'a874beba-a5ae-41bc-8344-5d9150ed4be6'::uuid, '6e4190d9-c64f-44b2-86d1-aefc20de8215'::uuid, 55, $pea0$Equivalencias externas: con regla y sin regla$pea0$, 'leccion', a.id,
+       $pea0${"version":2,"tarjetas":[{"tipo":"caso","persona":"Lorena","canal":"whatsapp","consulta":"Hice tres años de Contador en otra universidad. ¿Cómo pido que me reconozcan las materias? ¿Cuánto tarda?"},{"tipo":"preguntar","opciones":[{"texto":"¿Su carrera y plan de origen tienen predictamen con la carrera de Siglo 21?","clave":true,"porque":"Con predictamen (con regla) tarda 3 días hábiles; sin regla, 30."},{"texto":"¿Tiene el analítico y el plan de estudios legalizados por la institución de origen?","clave":true,"porque":"Son la documentación básica de cualquier trámite."},{"texto":"¿Tiene los programas de las materias, si hace falta análisis?","clave":true,"porque":"Las materias sin regla necesitan los programas legalizados."},{"texto":"¿Qué promedio tenía en la otra universidad?","clave":false,"porque":"No define el tipo de trámite."}]},{"tipo":"idea","titulo":"Se pide en el Portal de Equivalencias","texto":"El estudiante inicia el trámite en tusestudiosprevios.21.edu.ar: elige equivalencias externas, carga sus datos, la institución, la carrera y el plan de origen, y el portal le sugiere las carreras con predictamen y las materias equivalentes. Al final adjunta la documentación y recibe un número de solicitud por mail. El asesor puede probar antes el simulador.","clave":"El trámite lo hace el estudiante en el Portal de Equivalencias; el asesor tiene el simulador.","ejemplo":"Lorena carga su carrera de Contador y su plan: el portal le muestra qué materias tienen regla."},{"tipo":"probalo","n":1},{"tipo":"idea","titulo":"Con regla o sin regla","texto":"Con regla (con predictamen) no hace falta análisis de un tutor ni programas: alcanzan el analítico y el plan legalizados, y tarda 3 días hábiles. Sin regla, el estudiante elige la materia de Siglo 21 que considera equivalente por los contenidos mínimos, adjunta los programas legalizados y lo analiza un tutor: 30 días hábiles. Si mezcla las dos, es mixta y se resuelve en partes.","clave":"Con regla: 3 días hábiles, sin programas. Sin regla: 30 días hábiles, con programas y tutor."},{"tipo":"probalo","n":2},{"tipo":"idea","titulo":"Si el tutor rechaza una sugerencia","texto":"El tutor puede rechazar la materia que sugirió el estudiante y reconocer la de origen por otra materia de Siglo 21 que sí considera equivalente. En el portal, el estudiante ve el motivo del rechazo de cada materia y cuál se le otorgó.","clave":"Una sugerencia rechazada puede reconocerse por otra materia de Siglo 21."},{"tipo":"probalo","n":3},{"tipo":"ojo","texto":"Si el estudiante tiene dudas sobre qué documentación le falta o le observaron, va por HubSpot a Equivalencias como \"Consulta documentación de equivalencias\", aclarando el tipo de trámite y qué documentación se consulta."},{"tipo":"cierre","resolucion":"A Lorena le explicás que inicia el trámite en el Portal de Equivalencias con su carrera y plan de origen. Si hay predictamen, alcanza con el analítico y el plan legalizados, y tarda 3 días hábiles. Las materias sin regla necesitan los programas legalizados y las analiza un tutor en 30 días hábiles.","recordar":"Con regla, 3 días hábiles; sin regla, programas, tutor y 30 días hábiles."}]}$pea0$::jsonb, 'marcar_hecho'
+from public.articulos a where a.slug = $pea0$kb-30-equivalencias-externas$pea0$ and a.alcance = 'global'
+on conflict (id) do update set orden = excluded.orden, titulo = excluded.titulo, leccion = excluded.leccion,
+  articulo_id = excluded.articulo_id
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '6e4190d9-c64f-44b2-86d1-aefc20de8215'::uuid and c.estado = 'borrador');
+
+delete from public.preguntas
+where item_id = 'a874beba-a5ae-41bc-8344-5d9150ed4be6'::uuid and id not in ('2a232620-46fc-48e4-83dd-22ad441701f5'::uuid, 'c2eccfc4-443c-464f-827c-132193098017'::uuid, '50539a92-9185-4616-81ad-ff8626998dbf'::uuid)
+  and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '6e4190d9-c64f-44b2-86d1-aefc20de8215'::uuid and c.estado = 'borrador');
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select '2a232620-46fc-48e4-83dd-22ad441701f5'::uuid, 'opcion_multiple', $pea0$La carrera de origen de un estudiante tiene predictamen con su carrera de Siglo 21. ¿Qué documentación necesita y cuánto tarda?$pea0$, $pea0$Con regla (predictamen), alcanza con el analítico y el plan legalizados, sin análisis del tutor: 3 días hábiles.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', 'a874beba-a5ae-41bc-8344-5d9150ed4be6'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 1
+where exists (select 1 from public.items where id = 'a874beba-a5ae-41bc-8344-5d9150ed4be6'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '6e4190d9-c64f-44b2-86d1-aefc20de8215'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = '2a232620-46fc-48e4-83dd-22ad441701f5'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '6e4190d9-c64f-44b2-86d1-aefc20de8215'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, '2a232620-46fc-48e4-83dd-22ad441701f5'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('22869b19-5a68-4569-8d7b-6d573df0620c'::uuid, $pea0$Analítico, plan y programas de todas las materias; 30 días hábiles.$pea0$, false, 1, $pea0$Con regla no hacen falta programas ni análisis del tutor.$pea0$, null::int, null),
+  ('0f974ef7-d556-4349-8cdf-655e4fb8df7c'::uuid, $pea0$El analítico y el plan de estudios legalizados; 3 días hábiles.$pea0$, true, 2, $pea0$Es el trámite con regla, con predictamen automático.$pea0$, null::int, null),
+  ('ed4ccfc1-4763-40f4-8881-7b6013261049'::uuid, $pea0$Solo el DNI; se resuelve en el día.$pea0$, false, 3, $pea0$Hace falta el analítico y el plan legalizados.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = '2a232620-46fc-48e4-83dd-22ad441701f5'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select 'c2eccfc4-443c-464f-827c-132193098017'::uuid, 'opcion_multiple', $pea0$Un estudiante pide equivalencias de materias sin regla. ¿Qué tiene que hacer?$pea0$, $pea0$En las materias sin regla, el estudiante sugiere la equivalente por contenidos mínimos, adjunta programas y un tutor lo analiza en 30 días hábiles.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', 'a874beba-a5ae-41bc-8344-5d9150ed4be6'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 2
+where exists (select 1 from public.items where id = 'a874beba-a5ae-41bc-8344-5d9150ed4be6'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '6e4190d9-c64f-44b2-86d1-aefc20de8215'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = 'c2eccfc4-443c-464f-827c-132193098017'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '6e4190d9-c64f-44b2-86d1-aefc20de8215'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, 'c2eccfc4-443c-464f-827c-132193098017'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('7da68381-5cd3-4d8c-8258-607c2e4329b9'::uuid, $pea0$Nada: el sistema le asigna las materias solo.$pea0$, false, 1, $pea0$Sin regla, el estudiante sugiere las materias equivalentes.$pea0$, null::int, null),
+  ('06adc194-5efe-45f6-8225-9112ee782eb3'::uuid, $pea0$Elegir la materia de Siglo 21 que considera equivalente por los contenidos mínimos y adjuntar los programas legalizados; lo analiza un tutor.$pea0$, true, 2, $pea0$Es el proceso sin predictamen.$pea0$, null::int, null),
+  ('5084ed89-2fc3-42e9-8c7c-ec6e91bbe3f1'::uuid, $pea0$Pedirle al asesor que cargue las equivalencias.$pea0$, false, 3, $pea0$El trámite lo inicia el estudiante en el Portal.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = 'c2eccfc4-443c-464f-827c-132193098017'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select '50539a92-9185-4616-81ad-ff8626998dbf'::uuid, 'verdadero_falso', $pea0$Si el tutor rechaza la materia que sugirió el estudiante, la de origen no puede reconocerse por ninguna otra.$pea0$, $pea0$El tutor puede reconocerla por otra materia de Siglo 21 que considere equivalente.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', 'a874beba-a5ae-41bc-8344-5d9150ed4be6'::uuid, null, now() + interval '1 millisecond' * 3
+where exists (select 1 from public.items where id = 'a874beba-a5ae-41bc-8344-5d9150ed4be6'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '6e4190d9-c64f-44b2-86d1-aefc20de8215'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = '50539a92-9185-4616-81ad-ff8626998dbf'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '6e4190d9-c64f-44b2-86d1-aefc20de8215'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, '50539a92-9185-4616-81ad-ff8626998dbf'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('3434f94e-7f21-464f-8bc6-ddfe7e84917e'::uuid, $pea0$Verdadero$pea0$, false, 1, null, null::int, null),
+  ('ddd89504-5d6b-4efb-8dd7-5efc298f242f'::uuid, $pea0$Falso$pea0$, true, 2, null, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = '50539a92-9185-4616-81ad-ff8626998dbf'::uuid)
+on conflict do nothing;
+
+insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
+select '0e756ed5-47e2-4313-8b5f-9bffd743d8f2'::uuid, '6e4190d9-c64f-44b2-86d1-aefc20de8215'::uuid, 56, $pea0$Equivalencias condicionales y seguimiento$pea0$, 'leccion', a.id,
+       $pea0${"version":2,"tarjetas":[{"tipo":"caso","persona":"Santiago","canal":"mostrador","consulta":"Me dieron materias por equivalencia pero figuran como \"Regular condicional\". ¿Qué significa? ¿Las puedo perder?"},{"tipo":"preguntar","opciones":[{"texto":"¿Ya presentó la documentación definitiva y completa?","clave":true,"porque":"Las condicionales se confirman cuando la presenta en plazo."},{"texto":"¿Su trámite era con regla o sin regla?","clave":true,"porque":"Con regla queda \"Regular condicional\"; sin regla, \"Regular condicional por sugerencia\"."},{"texto":"¿Tiene el número de solicitud?","clave":true,"porque":"Con el número y su DNI ve el estado en el Portal."},{"texto":"¿En qué CAU se inscribió?","clave":false,"porque":"No cambia el estado del trámite."}]},{"tipo":"idea","titulo":"Qué es una equivalencia condicional","texto":"Si hay predictamen pero todavía no presentó la documentación completa y definitiva, las materias se otorgan como \"Regular condicional\" desde el primer día del período que pidió. Si no completa la documentación en el plazo, esas materias, y las correlativas que haya cursado, quedan Libre. En las materias sin regla quedan \"Regular condicional por sugerencia\" hasta que se resuelva.","clave":"Condicional: tiene que completar la documentación en plazo o quedan Libre, con sus correlativas.","ejemplo":"Santiago tiene que presentar el analítico y el plan legalizados antes del plazo para conservarlas."},{"tipo":"probalo","n":1},{"tipo":"idea","titulo":"Cómo se sigue el trámite","texto":"El estudiante ve el estado en el Portal de Equivalencias con su número de solicitud y su DNI, incluido el motivo de rechazo de cada materia. El asesor lo consulta en el seguimiento de equivalencias, entrando con su usuario del Campus Virtual y buscando por DNI. Recién si hace falta, va por HubSpot a Equivalencias como \"Estado de trámites de equivalencias\", con el número de solicitud.","clave":"El estudiante, en el Portal; el asesor, en el seguimiento por DNI; derivás solo si hace falta."},{"tipo":"probalo","n":2},{"tipo":"idea","titulo":"Revisión, sin un formulario nuevo","texto":"Si no está conforme con el resultado, pide la revisión desde el Portal de Equivalencias, siguiendo el paso a paso de revisión (carga sus datos, la institución, la carrera y el plan), sin generar un formulario nuevo.","clave":"La revisión se pide en el Portal, sin generar un formulario nuevo."},{"tipo":"probalo","n":3},{"tipo":"ojo","texto":"Si una materia sugerida se rechaza y queda Libre, también quedan Libre las correlativas que dependen de ella.\nEl plazo exacto para completar la documentación figura en el formulario y se avisa por mail: confirmalo en el trámite del estudiante, porque la base menciona más de un plazo."},{"tipo":"cierre","resolucion":"A Santiago le explicás que \"Regular condicional\" significa que le otorgaron las materias, pero que tiene que presentar la documentación definitiva en el plazo que figura en su trámite. Si no la presenta, esas materias y las correlativas que haya cursado quedan Libre. Puede seguir el estado en el Portal con su número de solicitud y su DNI.","recordar":"Condicional: documentación en plazo o quedan Libre; el estado, en el Portal."}]}$pea0$::jsonb, 'marcar_hecho'
+from public.articulos a where a.slug = $pea0$kb-30-equivalencias-externas$pea0$ and a.alcance = 'global'
+on conflict (id) do update set orden = excluded.orden, titulo = excluded.titulo, leccion = excluded.leccion,
+  articulo_id = excluded.articulo_id
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '6e4190d9-c64f-44b2-86d1-aefc20de8215'::uuid and c.estado = 'borrador');
+
+delete from public.preguntas
+where item_id = '0e756ed5-47e2-4313-8b5f-9bffd743d8f2'::uuid and id not in ('149598c2-2599-4dc2-87c4-affb6a24f623'::uuid, '57a546cd-262b-4726-8802-60c71456fad7'::uuid, '86cbc9dc-3418-475e-8345-a8379ed148bc'::uuid)
+  and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '6e4190d9-c64f-44b2-86d1-aefc20de8215'::uuid and c.estado = 'borrador');
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select '149598c2-2599-4dc2-87c4-affb6a24f623'::uuid, 'opcion_multiple', $pea0$Una estudiante tiene materias en "Regular condicional" y no presentó la documentación en el plazo. ¿Qué pasa?$pea0$, $pea0$Si no completa la documentación en plazo, las materias condicionales y sus correlativas cursadas quedan Libre.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', '0e756ed5-47e2-4313-8b5f-9bffd743d8f2'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 1
+where exists (select 1 from public.items where id = '0e756ed5-47e2-4313-8b5f-9bffd743d8f2'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '6e4190d9-c64f-44b2-86d1-aefc20de8215'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = '149598c2-2599-4dc2-87c4-affb6a24f623'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '6e4190d9-c64f-44b2-86d1-aefc20de8215'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, '149598c2-2599-4dc2-87c4-affb6a24f623'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('8ba0f201-27ae-40f2-899e-85aba2ebad81'::uuid, $pea0$Se quedan regulares igual.$pea0$, false, 1, $pea0$Sin la documentación en plazo, pierden la condición.$pea0$, null::int, null),
+  ('064868c8-d662-45cc-8e68-2b97dea460a5'::uuid, $pea0$Las materias, y las correlativas que haya cursado, quedan Libre.$pea0$, true, 2, $pea0$Es la consecuencia de no completar la documentación.$pea0$, null::int, null),
+  ('8345d102-8069-42d9-8221-b8b8a786241b'::uuid, $pea0$Se extiende el plazo automáticamente.$pea0$, false, 3, $pea0$No hay extensión automática.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = '149598c2-2599-4dc2-87c4-affb6a24f623'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select '57a546cd-262b-4726-8802-60c71456fad7'::uuid, 'opcion_multiple', $pea0$Un estudiante pregunta cómo va su trámite de equivalencias. ¿Qué hacés primero?$pea0$, $pea0$Primero se revisa el estado en el seguimiento (por DNI) o en el Portal; recién después, si hace falta, se deriva con el número de solicitud.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', '0e756ed5-47e2-4313-8b5f-9bffd743d8f2'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 2
+where exists (select 1 from public.items where id = '0e756ed5-47e2-4313-8b5f-9bffd743d8f2'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '6e4190d9-c64f-44b2-86d1-aefc20de8215'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = '57a546cd-262b-4726-8802-60c71456fad7'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '6e4190d9-c64f-44b2-86d1-aefc20de8215'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, '57a546cd-262b-4726-8802-60c71456fad7'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('4890e8cc-8829-4293-81bb-92725c8af0a2'::uuid, $pea0$Derivás a Equivalencias sin revisar nada.$pea0$, false, 1, $pea0$Antes de derivar se verifica el estado en las herramientas de seguimiento.$pea0$, null::int, null),
+  ('fa064015-e028-4ad6-855a-e673596fa583'::uuid, $pea0$Consultás el seguimiento por su DNI y le explicás que también lo ve en el Portal con su número de solicitud.$pea0$, true, 2, $pea0$Es la validación previa; solo después, si hace falta, se deriva.$pea0$, null::int, null),
+  ('3472d36e-390a-49d5-84a1-7b40069bbd2d'::uuid, $pea0$Le pedís que cargue un formulario nuevo.$pea0$, false, 3, $pea0$No hace falta un formulario nuevo para saber el estado.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = '57a546cd-262b-4726-8802-60c71456fad7'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select '86cbc9dc-3418-475e-8345-a8379ed148bc'::uuid, 'verdadero_falso', $pea0$Para pedir una revisión del resultado de equivalencias, el estudiante tiene que cargar un formulario nuevo.$pea0$, $pea0$La revisión se pide sin generar un formulario nuevo.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', '0e756ed5-47e2-4313-8b5f-9bffd743d8f2'::uuid, null, now() + interval '1 millisecond' * 3
+where exists (select 1 from public.items where id = '0e756ed5-47e2-4313-8b5f-9bffd743d8f2'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '6e4190d9-c64f-44b2-86d1-aefc20de8215'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = '86cbc9dc-3418-475e-8345-a8379ed148bc'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '6e4190d9-c64f-44b2-86d1-aefc20de8215'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, '86cbc9dc-3418-475e-8345-a8379ed148bc'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('0916f2f2-a8c5-4acf-81d1-99026bca6169'::uuid, $pea0$Verdadero$pea0$, false, 1, null, null::int, null),
+  ('93d43a0a-daeb-4d42-837c-3af4f623afd5'::uuid, $pea0$Falso$pea0$, true, 2, null, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = '86cbc9dc-3418-475e-8345-a8379ed148bc'::uuid)
+on conflict do nothing;
+
+insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
+select 'e1275742-2eff-42c9-8ead-b75247dcfc58'::uuid, '6e4190d9-c64f-44b2-86d1-aefc20de8215'::uuid, 57, $pea0$Segunda carrera y doble titulación$pea0$, 'leccion', a.id,
+       $pea0${"version":2,"tarjetas":[{"tipo":"caso","persona":"Pilar","canal":"telefono","consulta":"Estoy terminando Administración y quiero hacer también Recursos Humanos. ¿Me reconocen las materias que ya tengo?"},{"tipo":"preguntar","opciones":[{"texto":"¿Ya tiene creado el legajo de la carrera de destino?","clave":true,"porque":"Tiene que existir antes; en el CAU lo podés generar vos."},{"texto":"¿Tiene otro legajo de esa carrera con materias cargadas?","clave":true,"porque":"No hay que crear uno nuevo: impediría trasladar las materias."},{"texto":"¿Esas dos carreras tienen doble titulación entre sí?","clave":true,"porque":"Si la tienen, no se puede gestionar como segunda carrera."},{"texto":"¿En qué año empezó la primera carrera?","clave":false,"porque":"No define el reconocimiento."}]},{"tipo":"idea","titulo":"Segunda carrera: legajo y matriz","texto":"Antes de nada, revisá que el legajo de destino esté creado y que no haya legajos duplicados. Para saber qué materias se reconocen, consultá la Matriz de Equivalencias Internas: carrera de origen, carrera de destino, plan operativo (el de SGU) y resolución. Las materias con el mismo código y nombre se reconocen solas y no aparecen en la matriz.","clave":"Legajo de destino creado, sin duplicados, y la Matriz de Equivalencias Internas.","ejemplo":"Para Pilar buscás en la matriz Administración a Recursos Humanos con su plan y su resolución."},{"tipo":"probalo","n":1},{"tipo":"idea","titulo":"El ticket a Equivalencias","texto":"La segunda carrera va por HubSpot a Equivalencias, tipificación \"Equivalencias internas por segunda carrera\", con DNI, legajos de origen y de destino, carreras de origen y de destino, y el detalle del pedido. Mostrale al estudiante cómo identificar su carrera, su plan operativo y la resolución en la matriz.","clave":"A Equivalencias con los dos legajos y las dos carreras."},{"tipo":"probalo","n":2},{"tipo":"idea","titulo":"Doble titulación","texto":"Si las carreras tienen doble titulación, no va como segunda carrera. Si todavía no egresó de la primera, las materias por competencia se otorgan como aprobadas condicionales y pasan a definitivas cuando egresa. Si ya egresó, se otorgan definitivas. El Seminario Final se pide recién después de aprobar el EFIP II. Va a Equivalencias como \"Equivalencias internas por doble titulación\".","clave":"Doble titulación: condicionales hasta egresar; el Seminario Final, después del EFIP II."},{"tipo":"probalo","n":3},{"tipo":"ojo","texto":"Que una materia no figure en la matriz no quiere decir que no se reconozca: primero mirá si tiene el mismo código y nombre en las dos carreras.\nSi las carreras tienen doble titulación pero todavía no cumple los requisitos, puede esperar a cumplirlos o pedir un cambio de carrera."},{"tipo":"cierre","resolucion":"A Pilar le revisás que tenga creado el legajo de Recursos Humanos, sin duplicados, y si esas carreras tienen doble titulación. Consultás la matriz con su plan y resolución para contarle qué materias se le reconocen, y derivás a Equivalencias con los dos legajos y las dos carreras.","recordar":"Segunda carrera: legajo correcto, matriz y ticket a Equivalencias."}]}$pea0$::jsonb, 'marcar_hecho'
+from public.articulos a where a.slug = $pea0$kb-28-equivalencias-internas$pea0$ and a.alcance = 'global'
+on conflict (id) do update set orden = excluded.orden, titulo = excluded.titulo, leccion = excluded.leccion,
+  articulo_id = excluded.articulo_id
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '6e4190d9-c64f-44b2-86d1-aefc20de8215'::uuid and c.estado = 'borrador');
+
+delete from public.preguntas
+where item_id = 'e1275742-2eff-42c9-8ead-b75247dcfc58'::uuid and id not in ('5693d69d-9af3-4a20-8170-b6bdd3b949fc'::uuid, '29c09d34-fef0-41af-879a-a63e07a1ad1e'::uuid, 'df17e043-09c5-45c9-895f-a3b47c5aa056'::uuid)
+  and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '6e4190d9-c64f-44b2-86d1-aefc20de8215'::uuid and c.estado = 'borrador');
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select '5693d69d-9af3-4a20-8170-b6bdd3b949fc'::uuid, 'opcion_multiple', $pea0$Un estudiante quiere empezar una segunda carrera y ya tiene un legajo de esa carrera con materias cargadas. ¿Qué hacés?$pea0$, $pea0$Antes de gestionar una segunda carrera, se verifica que no haya legajos duplicados; si ya existe uno con materias, se usa ese.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', 'e1275742-2eff-42c9-8ead-b75247dcfc58'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 1
+where exists (select 1 from public.items where id = 'e1275742-2eff-42c9-8ead-b75247dcfc58'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '6e4190d9-c64f-44b2-86d1-aefc20de8215'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = '5693d69d-9af3-4a20-8170-b6bdd3b949fc'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '6e4190d9-c64f-44b2-86d1-aefc20de8215'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, '5693d69d-9af3-4a20-8170-b6bdd3b949fc'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('f25f52fe-063b-4aa9-86c0-063e5561dea2'::uuid, $pea0$Le creás un legajo nuevo para empezar de cero.$pea0$, false, 1, $pea0$Un legajo adicional puede impedir el traslado de las materias.$pea0$, null::int, null),
+  ('5363c4b4-b611-4ff8-8bf5-bcd89bea9bd0'::uuid, $pea0$Usás el legajo que ya existe: no hay que crear uno nuevo.$pea0$, true, 2, $pea0$Hay que evitar legajos duplicados.$pea0$, null::int, null),
+  ('cd97c7c9-2bcd-49d5-8c3a-48fb7cac3da3'::uuid, $pea0$Derivás a Admisión para que lo dupliquen.$pea0$, false, 3, $pea0$No corresponde duplicar el legajo.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = '5693d69d-9af3-4a20-8170-b6bdd3b949fc'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select '29c09d34-fef0-41af-879a-a63e07a1ad1e'::uuid, 'opcion_multiple', $pea0$Una materia de la carrera de origen no aparece en la Matriz de Equivalencias Internas. ¿Qué tenés en cuenta?$pea0$, $pea0$Las materias con el mismo código y nombre se reconocen automáticamente y por eso no aparecen en la matriz.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', 'e1275742-2eff-42c9-8ead-b75247dcfc58'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 2
+where exists (select 1 from public.items where id = 'e1275742-2eff-42c9-8ead-b75247dcfc58'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '6e4190d9-c64f-44b2-86d1-aefc20de8215'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = '29c09d34-fef0-41af-879a-a63e07a1ad1e'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '6e4190d9-c64f-44b2-86d1-aefc20de8215'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, '29c09d34-fef0-41af-879a-a63e07a1ad1e'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('f5747e0e-e6ce-4d49-8d53-5a9299ecf992'::uuid, $pea0$Que no se reconoce.$pea0$, false, 1, $pea0$La ausencia en la matriz no significa que no se reconozca.$pea0$, null::int, null),
+  ('fe0c024d-fcc6-49ff-833d-184cbe1dcdcf'::uuid, $pea0$Que puede reconocerse sola si tiene el mismo código y nombre en las dos carreras: eso no figura en la matriz.$pea0$, true, 2, $pea0$Las materias de igual código y nombre se reconocen al crear el legajo de destino.$pea0$, null::int, null),
+  ('caac6199-661b-4c56-8562-7e2eb30215ce'::uuid, $pea0$Que hay que pedir un análisis de tutor.$pea0$, false, 3, $pea0$Primero se verifica si coincide el código y el nombre.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = '29c09d34-fef0-41af-879a-a63e07a1ad1e'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select 'df17e043-09c5-45c9-895f-a3b47c5aa056'::uuid, 'verdadero_falso', $pea0$Si dos carreras tienen doble titulación entre sí, el estudiante puede gestionarlas como segunda carrera.$pea0$, $pea0$Las carreras con doble titulación entre sí no pueden gestionarse como segunda carrera.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', 'e1275742-2eff-42c9-8ead-b75247dcfc58'::uuid, null, now() + interval '1 millisecond' * 3
+where exists (select 1 from public.items where id = 'e1275742-2eff-42c9-8ead-b75247dcfc58'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '6e4190d9-c64f-44b2-86d1-aefc20de8215'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = 'df17e043-09c5-45c9-895f-a3b47c5aa056'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '6e4190d9-c64f-44b2-86d1-aefc20de8215'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, 'df17e043-09c5-45c9-895f-a3b47c5aa056'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('3ddd8f80-f6a3-4c52-8b08-b4aa23781324'::uuid, $pea0$Verdadero$pea0$, false, 1, null, null::int, null),
+  ('f476735a-be36-4ccd-821a-efe7a7bbf0c5'::uuid, $pea0$Falso$pea0$, true, 2, null, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = 'df17e043-09c5-45c9-895f-a3b47c5aa056'::uuid)
+on conflict do nothing;
