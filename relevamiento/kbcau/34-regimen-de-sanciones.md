@@ -307,9 +307,9 @@ Acceso: Tu Carpeta
 
 Para acceder, utilizar las siguientes credenciales:
 
-- Usuario: consultatramitesdigitales
+- Usuario: [dato interno retirado]
 
-- Contraseña: 123456
+- Contraseña: [dato interno retirado]
 
 Consulta y envío de documentación de sanciones
 

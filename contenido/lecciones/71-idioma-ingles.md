@@ -43,7 +43,7 @@ clave: Placement una vez; 70 % para avanzar; regular con el último nivel aproba
 
 ## idea: El examen final y el recursado
 
-El examen final integrador es por Klarway, con 50 preguntas, y se aprueba con 4. Tiene 18 meses y 3 oportunidades. El progreso no se conserva: si se termina el año de plataforma, vencen los 18 meses o desaprueba las 3 oportunidades, empieza de cero. A distancia, tiene que aprobar Inglés antes de rendir el EFIP I; y Portugués es correlativa de Inglés.
+El examen final integrador es por Klarway, con 50 preguntas, y se aprueba con 4. Tiene 18 meses y 3 oportunidades. El progreso no se conserva: si se termina el año de plataforma, vencen los 18 meses o desaprueba las 3 oportunidades, empieza de cero. Portugués es correlativa de Inglés.
 
 clave: Final con 4, 18 meses y 3 oportunidades; si vence, empieza de cero.
 

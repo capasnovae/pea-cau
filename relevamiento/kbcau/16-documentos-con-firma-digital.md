@@ -38,9 +38,9 @@ Para poder acceder, debemos:
 
 1. Seleccione la opción “OTROS” e ingrese los siguientes datos de acceso:
 
-Usuario : consultatramitesdigitales
+Usuario : [dato interno retirado]
 
-Contraseña: 123456
+Contraseña: [dato interno retirado]
 
 2. Una vez que ingresemos, podremos consultar el envío de los siguientes trámites:
 
