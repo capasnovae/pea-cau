@@ -129,7 +129,7 @@ export async function renderGuion(slug: string) {
   // 4) imagen
   const mudo = await renderVideo({
     projectFile: "./src/personajes.ts",
-    variables: { planos, titulo: guion.titulo, bajada: guion.bajada, estudiante: guion.estudiante, total },
+    variables: { planos, titulo: guion.titulo, bajada: guion.bajada, tipo: guion.tipo ?? "lección", estudiante: guion.estudiante, total },
     settings: {
       outFile: `${slug}.mudo.mp4`,
       outDir: "./salida",

@@ -227,6 +227,7 @@ export default makeScene2D("personajes", function* (view) {
   const titulo = useScene().variables.get("titulo", "Lección")();
   const bajada = useScene().variables.get("bajada", "")();
   const total = useScene().variables.get("total", 1)();
+  const tipo = useScene().variables.get("tipo", "lección")();
   EST = useScene().variables.get("estudiante", EST)();
   GENTE.estudiante.nombre = EST.nombre;
   const primerMensaje = planos.flatMap((p) => p.lineas).find((l) => l.quien === "estudiante" && l.modo === "escribe")?.texto ?? "";
@@ -379,7 +380,7 @@ export default makeScene2D("personajes", function* (view) {
             <Layout layout direction="column" alignItems="start" gap={18} x={-470} y={-560} offset={[-1, -1]} width={940}>
               <Layout direction="row" gap={18} alignItems="center">
                 <Sendero escala={0.4} />
-                <Etiqueta t="// PEA · lección" tam={30} />
+                <Etiqueta t={`// PEA · ${tipo}`} tam={30} />
               </Layout>
               <Titulo texto={titulo} tam={150} ancho={940} />
               <Rect ref={subrayado} width={0} height={14} radius={7} fill={C.acento} />

@@ -44,7 +44,8 @@ export type Plano = Base &
 /** El estudiante del caso: id del dibujo (public/peeps/<id>-*.svg), nombre, lo que se ve debajo del nombre en el chat y su voz. */
 /** voz: nombre de una voz de Gemini TTS (por defecto Leda). */
 export type Estudiante = { id: string; nombre: string; detalle: string; voz?: string };
-export type Guion = { titulo: string; bajada: string; musica?: "lofi" | "suave"; estudiante: Estudiante; planos: Plano[] };
+/** tipo: lo que dice la portada después de «PEA ·» (por defecto, «lección»). */
+export type Guion = { titulo: string; bajada: string; tipo?: string; musica?: "lofi" | "suave"; estudiante: Estudiante; planos: Plano[] };
 
 /** Palabra dicha: inicio y duración en segundos desde que empieza la línea. */
 export type Palabra = { t: number; d: number; p: string };

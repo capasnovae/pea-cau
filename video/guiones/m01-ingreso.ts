@@ -8,16 +8,25 @@ const rosa = { id: "sofia", nombre: "Rosa", detalle: "Aspirante, 42 años" };
 const guion: Guion = {
   titulo: "Ingreso",
   bajada: "Módulo 1 · Cursado y modalidades",
+  tipo: "módulo",
   estudiante: noelia,
   planos: [
     { tipo: "portada" },
+    { tipo: "capitulo", texto: "Qué vas a ver" },
     {
-      tipo: "nota",
-      texto: "Antes de cursar, el legajo en regla",
-      detalle: "Qué se presenta, dónde se carga y los casos especiales",
+      tipo: "tablero",
+      titulo: "Antes de cursar, el legajo en regla",
+      icono: "check",
+      numeradas: true,
+      tarjetas: [
+        { texto: "Qué se presenta", tono: "neutro", marca: 0 },
+        { texto: "Dónde se carga", tono: "neutro", marca: 0 },
+        { texto: "Los casos especiales", tono: "neutro", marca: 0 },
+      ],
       lineas: [
         {
           quien: "narradora",
+          marca: 0,
           texto: "Antes de cursar, cada estudiante tiene que tener su legajo en regla y lo básico para estudiar. En este módulo vemos qué se presenta, dónde se carga y qué pasa en los casos especiales.",
         },
       ],
@@ -161,9 +170,9 @@ const guion: Guion = {
     {
       tipo: "cierre",
       items: [
-        "Avisos al correo registrado; virtual, con notebook.",
-        "Se carga en Digital Admin: nada de Mi Argentina ni de buena salud.",
-        "Casos especiales: se presenta lo que corresponde y la Universidad evalúa.",
+        "Avisos al correo registrado.",
+        "Todo en Digital Admin.",
+        "Casos especiales: decide la Universidad.",
       ],
       lineas: [
         { quien: "narradora", marca: 0, texto: "Uno: los avisos llegan al correo registrado, y para rendir virtual hace falta una notebook." },
