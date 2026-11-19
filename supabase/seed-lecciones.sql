@@ -4770,3 +4770,307 @@ select x.id, '4f5cc032-e5d6-43db-80e5-88dba4de86da'::uuid, x.texto, x.correcta, 
 ) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
 where exists (select 1 from public.preguntas where id = '4f5cc032-e5d6-43db-80e5-88dba4de86da'::uuid)
 on conflict do nothing;
+
+insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
+select '2779c63a-4b01-4d0c-8d14-2d3fa97d8f9c'::uuid, '7dd9fd98-5e03-4d1b-8cea-6b5288e2a78b'::uuid, 63, $pea0$Postulación a becas: el formulario y el ticket$pea0$, 'leccion', a.id,
+       $pea0${"version":2,"tarjetas":[{"tipo":"caso","persona":"Lucía","canal":"whatsapp","consulta":"Me quiero postular a una beca para el semestre que viene. ¿Dónde lo pido? ¿Me la descuentan del ticket que ya pagué?"},{"tipo":"preguntar","opciones":[{"texto":"¿Ya tiene alguna beca o beneficio aplicado?","clave":true,"porque":"Se revisa en el listado de becas de SGU antes de nada."},{"texto":"¿Tiene el legajo completo?","clave":true,"porque":"Sin la documentación del legajo no se le da curso."},{"texto":"¿Para qué beca cumple los requisitos?","clave":true,"porque":"Cada beca tiene sus condiciones y su documentación."},{"texto":"¿En qué turno cursa?","clave":false,"porque":"No cambia la postulación."}]},{"tipo":"idea","titulo":"Lo que vale para todas las becas","texto":"Valen por un semestre y se renuevan a pedido del estudiante. No son retroactivas: aplican desde que se verifica la documentación completa. Son personales, pueden ser parciales o totales, y no se suman con otro beneficio (se aplica el que más conviene); sí se suman con una promoción, primero la beca y después la promoción.","clave":"Un semestre, no retroactivas, no se suman con beneficios; sí con promociones.","ejemplo":"Lucía no recupera lo que ya pagó: la beca aplica desde que se otorga."},{"tipo":"probalo","n":1},{"tipo":"idea","titulo":"Cómo se postula","texto":"El estudiante completa el formulario de postulación de La Nube con la documentación. Eso genera solo un ticket de HubSpot, en la vista \"Postulaciones de Becas Servicios\", con el asunto \"Solicitud de beca\". Si el formulario sigue abierto pasada la fecha de cierre, puede completarlo igual: el plazo puede extenderse. El resultado llega al correo institucional dentro de los 20 días corridos del cierre.","clave":"Formulario de La Nube; el ticket se crea solo."},{"tipo":"probalo","n":2},{"tipo":"idea","titulo":"Qué hacés con el ticket","texto":"Revisás la documentación y los requisitos académicos. Si la documentación está incompleta o no cumple los requisitos, cerrás el ticket con el comentario público que indica qué tiene que corregir y que vuelva a postularse. Si está todo bien, lo derivás a Becas completando solo la nota interna: los datos del formulario se cargan solos y no se modifican. La respuesta final la da Becas.","clave":"Incompleta, cerrás y pide de nuevo; completa, derivás a Becas sin tocar el formulario."},{"tipo":"probalo","n":3},{"tipo":"ojo","texto":"Antes de derivar, mirá en el listado de becas de SGU si ya está aplicada: si lo está, lo resolvés en el momento.\nLa Beca Santander y la Beca Empresa de Negocio no son becas de Siglo 21: no se derivan a Becas."},{"tipo":"cierre","resolucion":"A Lucía le contás que se postula con el formulario de La Nube, con su legajo completo y la documentación de la beca que elija. Le explicás que la beca vale por un semestre, que no es retroactiva y que el resultado le llega al correo institucional dentro de los 20 días corridos del cierre.","recordar":"Formulario, legajo completo, y la beca no es retroactiva."}]}$pea0$::jsonb, 'marcar_hecho'
+from public.articulos a where a.slug = $pea0$kb-55-becas-y-beneficios$pea0$ and a.alcance = 'global'
+on conflict (id) do update set orden = excluded.orden, titulo = excluded.titulo, leccion = excluded.leccion,
+  articulo_id = excluded.articulo_id
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '7dd9fd98-5e03-4d1b-8cea-6b5288e2a78b'::uuid and c.estado = 'borrador');
+
+delete from public.preguntas
+where item_id = '2779c63a-4b01-4d0c-8d14-2d3fa97d8f9c'::uuid and id not in ('2f4c1aa9-95dd-464f-8109-9c87b6c0fe5d'::uuid, 'f7e2ffac-599c-4ffc-85b1-5bc1d8d88b03'::uuid, '09b36bbe-d55a-44e4-8c09-575c49775fc5'::uuid)
+  and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '7dd9fd98-5e03-4d1b-8cea-6b5288e2a78b'::uuid and c.estado = 'borrador');
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select '2f4c1aa9-95dd-464f-8109-9c87b6c0fe5d'::uuid, 'opcion_multiple', $pea0$Llega un ticket de "Solicitud de beca" con la documentación incompleta. ¿Qué hacés?$pea0$, $pea0$Con documentación incompleta o sin requisitos académicos, se cierra el ticket indicando qué corregir y que vuelva a postularse.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', '2779c63a-4b01-4d0c-8d14-2d3fa97d8f9c'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 1
+where exists (select 1 from public.items where id = '2779c63a-4b01-4d0c-8d14-2d3fa97d8f9c'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '7dd9fd98-5e03-4d1b-8cea-6b5288e2a78b'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = '2f4c1aa9-95dd-464f-8109-9c87b6c0fe5d'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '7dd9fd98-5e03-4d1b-8cea-6b5288e2a78b'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, '2f4c1aa9-95dd-464f-8109-9c87b6c0fe5d'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('d8bc215b-ce9c-4826-8cd4-59515687e2b6'::uuid, $pea0$Lo derivás igual a Becas para que lo completen ellos.$pea0$, false, 1, $pea0$Becas recibe solo las postulaciones completas.$pea0$, null::int, null),
+  ('9999c450-b16c-4e39-8c78-003ca084092e'::uuid, $pea0$Cerrás el ticket con un comentario público que le dice qué corregir y que vuelva a postularse.$pea0$, true, 2, $pea0$Es la respuesta para documentación incompleta.$pea0$, null::int, null),
+  ('3ed1d63a-08fc-4797-88e1-41a223e8510a'::uuid, $pea0$Le completás vos los datos que faltan en el formulario.$pea0$, false, 3, $pea0$El formulario no se modifica.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = '2f4c1aa9-95dd-464f-8109-9c87b6c0fe5d'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select 'f7e2ffac-599c-4ffc-85b1-5bc1d8d88b03'::uuid, 'opcion_multiple', $pea0$Un estudiante tiene una beca y aparece una promoción para el mismo concepto. ¿Qué pasa?$pea0$, $pea0$Las promociones se acumulan con una beca: primero se descuenta la beca y luego la promoción.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', '2779c63a-4b01-4d0c-8d14-2d3fa97d8f9c'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 2
+where exists (select 1 from public.items where id = '2779c63a-4b01-4d0c-8d14-2d3fa97d8f9c'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '7dd9fd98-5e03-4d1b-8cea-6b5288e2a78b'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = 'f7e2ffac-599c-4ffc-85b1-5bc1d8d88b03'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '7dd9fd98-5e03-4d1b-8cea-6b5288e2a78b'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, 'f7e2ffac-599c-4ffc-85b1-5bc1d8d88b03'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('80fa5c4b-11c2-4952-8a3a-e6b9bec8a374'::uuid, $pea0$No se pueden sumar: elige una.$pea0$, false, 1, $pea0$Lo que no se suma es una beca con un beneficio.$pea0$, null::int, null),
+  ('6ef7c693-a72a-4a6d-8e2e-f88c76c91c3b'::uuid, $pea0$Se suman: se aplica primero la beca y después la promoción.$pea0$, true, 2, $pea0$Las promociones sí son acumulables con una beca.$pea0$, null::int, null),
+  ('c1a1903c-02ff-4b50-899b-b83545254c8b'::uuid, $pea0$Se aplica primero la promoción y después la beca.$pea0$, false, 3, $pea0$El orden es al revés.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = 'f7e2ffac-599c-4ffc-85b1-5bc1d8d88b03'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select '09b36bbe-d55a-44e4-8c09-575c49775fc5'::uuid, 'verdadero_falso', $pea0$Si le otorgan la beca a mitad de semestre, se le devuelve lo que ya pagó desde el inicio.$pea0$, $pea0$Las becas no son retroactivas: aplican desde que se verifica la documentación completa.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', '2779c63a-4b01-4d0c-8d14-2d3fa97d8f9c'::uuid, null, now() + interval '1 millisecond' * 3
+where exists (select 1 from public.items where id = '2779c63a-4b01-4d0c-8d14-2d3fa97d8f9c'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '7dd9fd98-5e03-4d1b-8cea-6b5288e2a78b'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = '09b36bbe-d55a-44e4-8c09-575c49775fc5'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '7dd9fd98-5e03-4d1b-8cea-6b5288e2a78b'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, '09b36bbe-d55a-44e4-8c09-575c49775fc5'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('988801ed-77ce-4b09-84a9-ab99ed0ab1ac'::uuid, $pea0$Verdadero$pea0$, false, 1, null, null::int, null),
+  ('1af5b468-aad9-442d-85df-6876716f214a'::uuid, $pea0$Falso$pea0$, true, 2, null, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = '09b36bbe-d55a-44e4-8c09-575c49775fc5'::uuid)
+on conflict do nothing;
+
+insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
+select '1f2970f7-c4a3-4d70-8e47-137948bf1d28'::uuid, '7dd9fd98-5e03-4d1b-8cea-6b5288e2a78b'::uuid, 64, $pea0$Becas académicas y de ayuda económica$pea0$, 'leccion', a.id,
+       $pea0${"version":2,"tarjetas":[{"tipo":"caso","persona":"Matías","canal":"mostrador","consulta":"Tengo 8,5 de promedio y aprobé tres materias el semestre pasado. En casa la situación está complicada. ¿A qué beca me puedo postular?"},{"tipo":"preguntar","opciones":[{"texto":"¿Su promedio general, con aplazos, es de 8 o más?","clave":true,"porque":"Es el piso de las becas académicas y de ayuda económica."},{"texto":"¿Aprobó al menos 2 materias en el período anterior?","clave":true,"porque":"Es la regularidad mínima para reinscriptos."},{"texto":"¿Puede comprobar la situación de vulnerabilidad?","clave":true,"porque":"La beca para talentos en situación vulnerable la exige."},{"texto":"¿Ya hizo la Práctica Solidaria?","clave":false,"porque":"No es requisito de estas becas."}]},{"tipo":"idea","titulo":"Talentos en situación vulnerable","texto":"Es del 50 % o el 70 % sobre matrícula y aranceles. Para reinscriptos: promedio de 8 o más, al menos 2 materias aprobadas en el período anterior, vulnerabilidad comprobable y sin sanciones graves. Presenta la situación del grupo familiar (ingresos, egresos, vivienda, cobertura de salud), CV, una carta manuscrita y una carta de recomendación de alguien que no sea familiar.","clave":"50 % o 70 %: promedio 8, 2 materias aprobadas y vulnerabilidad comprobable.","ejemplo":"Matías cumple el promedio y las materias: falta comprobar la situación familiar."},{"tipo":"probalo","n":1},{"tipo":"idea","titulo":"Las becas académicas","texto":"Mejor promedio del colegio: 50 % de los aranceles, para quien termina o terminó el secundario con 8 o más y la recomendación del director. Alto rendimiento: 30 % de los aranceles; los reinscriptos necesitan 8 o más, con aplazos, en el último semestre y al menos 2 materias aprobadas. Se renuevan si mantienen esas condiciones y no tienen sanciones.","clave":"Mejor promedio, 50 %; alto rendimiento, 30 %; las dos con 8 o más."},{"tipo":"probalo","n":2},{"tipo":"idea","titulo":"Horas de retribución","texto":"Quien recibe estas becas colabora con horas semanales en la Universidad, sin relación laboral: 10 horas con el 70 %, 8 horas con el 50 % y 4 horas con el 30 %. Un área de la Universidad lo contacta para coordinar las tareas.","clave":"70 %: 10 horas; 50 %: 8 horas; 30 %: 4 horas por semana."},{"tipo":"probalo","n":3},{"tipo":"ojo","texto":"Beca Discapacidad y Beca Alumno Regular (25 %) solo se renuevan a quien ya las tenía: no son para ingresantes.\nLas becas de CAU Social (Maldonado, Asunción, Abra Pampa) se gestionan en esos CAU: no se derivan a Becas."},{"tipo":"cierre","resolucion":"A Matías le contás que, si su promedio del último semestre también es de 8 o más, con tres materias aprobadas puede postularse a la beca de alto rendimiento (30 %) o, si puede comprobar la situación familiar, a la de talentos en situación vulnerable (50 % o 70 %). Le explicás qué documentación lleva y que la beca implica horas semanales de colaboración.","recordar":"Promedio 8, 2 materias aprobadas; y horas de retribución."}]}$pea0$::jsonb, 'marcar_hecho'
+from public.articulos a where a.slug = $pea0$kb-55-becas-y-beneficios$pea0$ and a.alcance = 'global'
+on conflict (id) do update set orden = excluded.orden, titulo = excluded.titulo, leccion = excluded.leccion,
+  articulo_id = excluded.articulo_id
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '7dd9fd98-5e03-4d1b-8cea-6b5288e2a78b'::uuid and c.estado = 'borrador');
+
+delete from public.preguntas
+where item_id = '1f2970f7-c4a3-4d70-8e47-137948bf1d28'::uuid and id not in ('680fd940-8437-47c7-8368-df167758f62a'::uuid, '478f0f6f-e34b-49c1-8822-ed019bfcdea4'::uuid, 'f48fb01a-6f09-4980-89dd-750413d87d3c'::uuid)
+  and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '7dd9fd98-5e03-4d1b-8cea-6b5288e2a78b'::uuid and c.estado = 'borrador');
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select '680fd940-8437-47c7-8368-df167758f62a'::uuid, 'opcion_multiple', $pea0$Un reinscripto tiene 8,2 de promedio pero aprobó una sola materia en el período anterior. ¿Puede pedir la beca de alto rendimiento?$pea0$, $pea0$Para reinscriptos, las becas académicas piden promedio de 8 o más y al menos 2 materias aprobadas en el período anterior.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', '1f2970f7-c4a3-4d70-8e47-137948bf1d28'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 1
+where exists (select 1 from public.items where id = '1f2970f7-c4a3-4d70-8e47-137948bf1d28'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '7dd9fd98-5e03-4d1b-8cea-6b5288e2a78b'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = '680fd940-8437-47c7-8368-df167758f62a'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '7dd9fd98-5e03-4d1b-8cea-6b5288e2a78b'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, '680fd940-8437-47c7-8368-df167758f62a'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('591354d9-2a61-48e9-8dda-0cce2991a72c'::uuid, $pea0$Sí: alcanza con el promedio.$pea0$, false, 1, $pea0$También hace falta la regularidad mínima.$pea0$, null::int, null),
+  ('1d9eb0a7-3af8-4ace-8ab7-50552176b38a'::uuid, $pea0$No: necesita al menos 2 materias aprobadas en el período anterior.$pea0$, true, 2, $pea0$Es la regularidad mínima de la beca.$pea0$, null::int, null),
+  ('4746fcfa-431b-480a-8cba-be35f8d4856f'::uuid, $pea0$Sí, si paga la diferencia.$pea0$, false, 3, $pea0$No es una cuestión de pago.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = '680fd940-8437-47c7-8368-df167758f62a'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select '478f0f6f-e34b-49c1-8822-ed019bfcdea4'::uuid, 'opcion_multiple', $pea0$Una estudiante con beca del 50 % pregunta cuántas horas tiene que colaborar. ¿Qué le decís?$pea0$, $pea0$La beca del 50 % lleva 8 horas semanales de apoyo; la del 70 %, 10, y la del 30 %, 4.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', '1f2970f7-c4a3-4d70-8e47-137948bf1d28'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 2
+where exists (select 1 from public.items where id = '1f2970f7-c4a3-4d70-8e47-137948bf1d28'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '7dd9fd98-5e03-4d1b-8cea-6b5288e2a78b'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = '478f0f6f-e34b-49c1-8822-ed019bfcdea4'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '7dd9fd98-5e03-4d1b-8cea-6b5288e2a78b'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, '478f0f6f-e34b-49c1-8822-ed019bfcdea4'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('7bcbb271-8f53-40e2-86fa-516ea10c6edf'::uuid, $pea0$4 horas por semana.$pea0$, false, 1, $pea0$Eso corresponde a la beca del 30 %.$pea0$, null::int, null),
+  ('c80d20c1-e8c0-487c-8b73-e97e55239d16'::uuid, $pea0$8 horas por semana, sin relación laboral.$pea0$, true, 2, $pea0$Es lo que corresponde al 50 %.$pea0$, null::int, null),
+  ('060ff8dc-a94e-4358-8eac-559be3b44051'::uuid, $pea0$Ninguna: es solo un descuento.$pea0$, false, 3, $pea0$Las becas académicas y económicas tienen horas de retribución.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = '478f0f6f-e34b-49c1-8822-ed019bfcdea4'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select 'f48fb01a-6f09-4980-89dd-750413d87d3c'::uuid, 'verdadero_falso', $pea0$Un ingresante puede pedir la Beca Alumno Regular del 25 %.$pea0$, $pea0$La Beca Alumno Regular solo se renueva a reinscriptos que ya la tenían.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', '1f2970f7-c4a3-4d70-8e47-137948bf1d28'::uuid, null, now() + interval '1 millisecond' * 3
+where exists (select 1 from public.items where id = '1f2970f7-c4a3-4d70-8e47-137948bf1d28'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '7dd9fd98-5e03-4d1b-8cea-6b5288e2a78b'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = 'f48fb01a-6f09-4980-89dd-750413d87d3c'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '7dd9fd98-5e03-4d1b-8cea-6b5288e2a78b'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, 'f48fb01a-6f09-4980-89dd-750413d87d3c'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('3d4da75e-e8b2-4fb0-82ea-7c50f6ec03e9'::uuid, $pea0$Verdadero$pea0$, false, 1, null, null::int, null),
+  ('189406d9-6077-45a0-8618-3f609ca02180'::uuid, $pea0$Falso$pea0$, true, 2, null, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = 'f48fb01a-6f09-4980-89dd-750413d87d3c'::uuid)
+on conflict do nothing;
+
+insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
+select '4208f0d0-27a5-4839-8130-561a26e025ac'::uuid, '7dd9fd98-5e03-4d1b-8cea-6b5288e2a78b'::uuid, 65, $pea0$Beneficios: familiar, segunda carrera y empresa amiga$pea0$, 'leccion', a.id,
+       $pea0${"version":2,"tarjetas":[{"tipo":"caso","persona":"Hernán","canal":"telefono","consulta":"Me recibí de Contador acá y ahora quiero hacer Abogacía. Además mi hermana empieza a estudiar este semestre. ¿Tenemos algún descuento?"},{"tipo":"preguntar","opciones":[{"texto":"¿Ya tiene aplicado algún beneficio o beca?","clave":true,"porque":"Se revisa en el listado de becas de SGU antes de derivar."},{"texto":"¿Su primera carrera es de Siglo 21?","clave":true,"porque":"Segunda carrera solo aplica a legajos de Siglo 21."},{"texto":"¿Puede acreditar el parentesco con su hermana?","clave":true,"porque":"Familiar directo se acredita con partida, libreta de familia o similar."},{"texto":"¿Por qué eligió Abogacía?","clave":false,"porque":"No cambia el beneficio."}]},{"tipo":"idea","titulo":"Lo que vale para los beneficios","texto":"Se dan por una situación o cualidad del estudiante, sin mirar lo académico. Valen por un semestre, no son retroactivos, se renuevan a pedido mientras se mantengan las condiciones y no se suman con otra beca o beneficio: se aplica el que más conviene. Todos estos van por HubSpot a Becas y tardan 3 días hábiles.","clave":"Un semestre, no retroactivos, uno solo; a Becas, 3 días hábiles.","ejemplo":"Hernán y su hermana pueden tener cada uno el beneficio que más les convenga."},{"tipo":"probalo","n":1},{"tipo":"idea","titulo":"Familiar directo y segunda carrera","texto":"Familiar directo: cuando cursan a la vez esposos, padres, hijos o hermanos, o si un familiar directo egresó de grado de Siglo 21. Va como \"Beca familiar directo\", con DNI, legajo, la documentación del parentesco y el DNI del familiar. Segunda carrera: para quien cursa dos carreras a la vez o egresó de Siglo 21; va como \"Beneficio segunda carrera\", con DNI y el legajo donde se aplica.","clave":"Familiar, con la documentación del vínculo; segunda carrera, solo legajos de Siglo 21."},{"tipo":"probalo","n":2},{"tipo":"idea","titulo":"Doble titulación y empresa amiga","texto":"Doble titulación: quien cursa a la vez dos carreras que articulan paga una sola matrícula; antes, verificás que haya iniciado las equivalencias de doble titulación. Va como \"Beneficio de doble titulación\", con los dos legajos y el DNI. Empresa amiga: para quien trabaja en una empresa con convenio, o su familiar directo; adjunta el último recibo de sueldo o un certificado de trabajo y el DNI. Va como \"Beca empresa amiga\".","clave":"Doble titulación, una sola matrícula; empresa amiga, con recibo de sueldo."},{"tipo":"probalo","n":3},{"tipo":"ojo","texto":"Segunda carrera nunca aplica a egresados de otras instituciones.\nEl porcentaje del beneficio por familiar directo figura de dos formas en la base: confirmalo con Becas antes de prometer un número."},{"tipo":"cierre","resolucion":"A Hernán le contás que, como egresado de Siglo 21, puede pedir el beneficio por segunda carrera, y que su hermana puede pedir el de familiar directo, acreditando el parentesco. Revisás en SGU que no tengan otro aplicado y derivás cada pedido a Becas. Tardan 3 días hábiles.","recordar":"Revisás SGU, juntás la documentación y derivás a Becas."}]}$pea0$::jsonb, 'marcar_hecho'
+from public.articulos a where a.slug = $pea0$kb-55-becas-y-beneficios$pea0$ and a.alcance = 'global'
+on conflict (id) do update set orden = excluded.orden, titulo = excluded.titulo, leccion = excluded.leccion,
+  articulo_id = excluded.articulo_id
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '7dd9fd98-5e03-4d1b-8cea-6b5288e2a78b'::uuid and c.estado = 'borrador');
+
+delete from public.preguntas
+where item_id = '4208f0d0-27a5-4839-8130-561a26e025ac'::uuid and id not in ('1619531a-8343-4685-892b-d5c9aafe56cb'::uuid, 'b764285c-b4d2-4b2a-8ea5-759ddbd510d1'::uuid, '03409475-bfe3-444b-8491-d3bb5cc80a44'::uuid)
+  and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '7dd9fd98-5e03-4d1b-8cea-6b5288e2a78b'::uuid and c.estado = 'borrador');
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select '1619531a-8343-4685-892b-d5c9aafe56cb'::uuid, 'opcion_multiple', $pea0$Un egresado de otra universidad quiere el beneficio por segunda carrera. ¿Qué le decís?$pea0$, $pea0$El beneficio por segunda carrera aplica solo a legajos de Siglo 21.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', '4208f0d0-27a5-4839-8130-561a26e025ac'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 1
+where exists (select 1 from public.items where id = '4208f0d0-27a5-4839-8130-561a26e025ac'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '7dd9fd98-5e03-4d1b-8cea-6b5288e2a78b'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = '1619531a-8343-4685-892b-d5c9aafe56cb'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '7dd9fd98-5e03-4d1b-8cea-6b5288e2a78b'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, '1619531a-8343-4685-892b-d5c9aafe56cb'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('1ec4f70e-b284-455d-87bd-0128199470c7'::uuid, $pea0$Que le corresponde el 30 %.$pea0$, false, 1, $pea0$Solo aplica a egresados de Siglo 21.$pea0$, null::int, null),
+  ('a34b7c46-b6a2-4692-828b-23b454f0b042'::uuid, $pea0$Que no le corresponde: el beneficio es solo para legajos de Siglo 21.$pea0$, true, 2, $pea0$No se aplica a egresados de otras instituciones.$pea0$, null::int, null),
+  ('01d5c2b1-9d51-4410-8e4b-b5698062839d'::uuid, $pea0$Que lo pida con el analítico de su universidad.$pea0$, false, 3, $pea0$No cambia que sea de otra institución.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = '1619531a-8343-4685-892b-d5c9aafe56cb'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select 'b764285c-b4d2-4b2a-8ea5-759ddbd510d1'::uuid, 'opcion_multiple', $pea0$Un estudiante cursa a la vez dos carreras con doble titulación y pide el beneficio. ¿Qué verificás antes de derivar?$pea0$, $pea0$Para el beneficio de doble titulación se verifica que estén iniciadas las equivalencias de doble titulación.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', '4208f0d0-27a5-4839-8130-561a26e025ac'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 2
+where exists (select 1 from public.items where id = '4208f0d0-27a5-4839-8130-561a26e025ac'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '7dd9fd98-5e03-4d1b-8cea-6b5288e2a78b'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = 'b764285c-b4d2-4b2a-8ea5-759ddbd510d1'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '7dd9fd98-5e03-4d1b-8cea-6b5288e2a78b'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, 'b764285c-b4d2-4b2a-8ea5-759ddbd510d1'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('65fe8768-8162-44dd-8c91-0d0b9a5be825'::uuid, $pea0$Que ya tenga todas las materias cargadas en el nuevo legajo.$pea0$, false, 1, $pea0$No hace falta que estén impactadas todavía.$pea0$, null::int, null),
+  ('b5904723-146b-4825-8686-248a67ba379a'::uuid, $pea0$Que haya iniciado las equivalencias de doble titulación.$pea0$, true, 2, $pea0$Sin ese trámite iniciado no corresponde.$pea0$, null::int, null),
+  ('416a2136-7315-4dc0-8e22-7fb0950e87b9'::uuid, $pea0$Que haya egresado de la primera carrera.$pea0$, false, 3, $pea0$Si ya egresó, corresponde el de segunda carrera.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = 'b764285c-b4d2-4b2a-8ea5-759ddbd510d1'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select '03409475-bfe3-444b-8491-d3bb5cc80a44'::uuid, 'verdadero_falso', $pea0$Un estudiante puede tener a la vez el beneficio por familiar directo y la beca de alto rendimiento.$pea0$, $pea0$Becas y beneficios no se suman: se aplica el que más le convenga.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', '4208f0d0-27a5-4839-8130-561a26e025ac'::uuid, null, now() + interval '1 millisecond' * 3
+where exists (select 1 from public.items where id = '4208f0d0-27a5-4839-8130-561a26e025ac'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '7dd9fd98-5e03-4d1b-8cea-6b5288e2a78b'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = '03409475-bfe3-444b-8491-d3bb5cc80a44'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '7dd9fd98-5e03-4d1b-8cea-6b5288e2a78b'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, '03409475-bfe3-444b-8491-d3bb5cc80a44'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('34cbfc6a-0615-45f1-8e1b-b5ebb1c22fe7'::uuid, $pea0$Verdadero$pea0$, false, 1, null, null::int, null),
+  ('ab4ff322-ee6c-42c0-88c6-c5b1022c04b6'::uuid, $pea0$Falso$pea0$, true, 2, null, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = '03409475-bfe3-444b-8491-d3bb5cc80a44'::uuid)
+on conflict do nothing;
+
+insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
+select 'eae2377a-934c-4c1a-8772-79b9a2f9cfc6'::uuid, '7dd9fd98-5e03-4d1b-8cea-6b5288e2a78b'::uuid, 66, $pea0$Beneficio de persistencia a la graduación$pea0$, 'leccion', a.id,
+       $pea0${"version":2,"tarjetas":[{"tipo":"caso","persona":"Carla","canal":"whatsapp","consulta":"Me quedan dos materias para terminar y tengo 8,3 de promedio. Una compañera me dijo que hay un descuento para los que estamos por recibirnos. ¿Cómo lo pido?"},{"tipo":"preguntar","opciones":[{"texto":"¿Le quedan 1 o 2 materias por cursar?","clave":true,"porque":"Es el límite para el descuento en aranceles."},{"texto":"¿Su promedio general es de 8 o más?","clave":true,"porque":"Es el otro requisito."},{"texto":"¿Ya lo usó alguna vez?","clave":true,"porque":"El de aranceles se aplica una sola vez en la carrera."},{"texto":"¿En qué CAU rinde?","clave":false,"porque":"No cambia el beneficio."}]},{"tipo":"idea","titulo":"Sobre los aranceles: 30 %, una sola vez","texto":"Es un 30 % sobre el arancel, para grado y pregrado de todas las modalidades. Pide promedio general de 8 o más, con aplazos, y que le queden 1 o 2 materias por cursar. Se aplica una sola vez en toda la carrera y no se suma con otras becas o beneficios, aunque sí con promociones.","clave":"30 % del arancel, promedio 8 y 1 o 2 materias por cursar; una sola vez.","ejemplo":"Carla tiene 8,3 y dos materias: cumple los requisitos."},{"tipo":"probalo","n":1},{"tipo":"idea","titulo":"Lo pide el estudiante en el Portal","texto":"Lo pide el propio estudiante desde su Portal: el sistema valida los requisitos y lo asigna solo. El asesor no puede pedirlo con el botón de imitar. Si lo rechaza, el motivo dice si fue por promedio, por adeudar más de dos materias o porque ya se aplicó. Solo si cumple todo y el Portal no lo deja, va a Becas como \"Beneficio Persistencia a la Graduación\", con DNI, legajo y la captura del error.","clave":"Autogestión en el Portal; derivás solo si cumple y el Portal falla."},{"tipo":"probalo","n":2},{"tipo":"idea","titulo":"Sobre la matrícula: 50 %","texto":"Es un 50 % de la matrícula, automático, cuando tiene el check de validación académica en SGU: en ED y EDH, si solo adeuda el EFIP II y la defensa oral; en MP y PH, solo la defensa oral. Buscás por legajo en el reporte de alumnos: con la tilde verde, generás la matrícula y le pedís que espere 24 horas para pagarla. Sin la tilde, seguís el proceso de visado analítico.","clave":"50 % de la matrícula con el check de validación académica."},{"tipo":"probalo","n":3},{"tipo":"ojo","texto":"Si tiene el check en SGU y no ve el beneficio de matrícula, va a Becas; si no tiene el check, a Operación Títulos como \"Carga de validación académica\"."},{"tipo":"cierre","resolucion":"A Carla le explicás que, con 8,3 de promedio y dos materias por cursar, puede pedir el beneficio de persistencia, un 30 % del arancel. Lo pide ella desde su Portal y el sistema lo valida solo. Le aclarás que se usa una sola vez en la carrera y que, si el Portal falla, te manda la captura para derivarlo.","recordar":"Persistencia: lo pide en el Portal, 30 %, una sola vez."}]}$pea0$::jsonb, 'marcar_hecho'
+from public.articulos a where a.slug = $pea0$kb-55-becas-y-beneficios$pea0$ and a.alcance = 'global'
+on conflict (id) do update set orden = excluded.orden, titulo = excluded.titulo, leccion = excluded.leccion,
+  articulo_id = excluded.articulo_id
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '7dd9fd98-5e03-4d1b-8cea-6b5288e2a78b'::uuid and c.estado = 'borrador');
+
+delete from public.preguntas
+where item_id = 'eae2377a-934c-4c1a-8772-79b9a2f9cfc6'::uuid and id not in ('a99d20e9-f9b2-4947-8013-35666893a49f'::uuid, 'ac0ed75d-22d2-4b3e-8fdc-3de84e3ebbad'::uuid, 'edee0266-0091-4de4-88be-59791e264a49'::uuid)
+  and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '7dd9fd98-5e03-4d1b-8cea-6b5288e2a78b'::uuid and c.estado = 'borrador');
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select 'a99d20e9-f9b2-4947-8013-35666893a49f'::uuid, 'opcion_multiple', $pea0$Un estudiante cumple los requisitos del beneficio de persistencia y te pide que se lo cargues. ¿Qué hacés?$pea0$, $pea0$El beneficio de persistencia en aranceles lo solicita el estudiante desde su Portal; se deriva solo si cumple y el Portal no lo permite.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', 'eae2377a-934c-4c1a-8772-79b9a2f9cfc6'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 1
+where exists (select 1 from public.items where id = 'eae2377a-934c-4c1a-8772-79b9a2f9cfc6'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '7dd9fd98-5e03-4d1b-8cea-6b5288e2a78b'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = 'a99d20e9-f9b2-4947-8013-35666893a49f'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '7dd9fd98-5e03-4d1b-8cea-6b5288e2a78b'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, 'a99d20e9-f9b2-4947-8013-35666893a49f'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('37923e53-5432-4fff-8a45-3fa688ae2796'::uuid, $pea0$Lo cargás desde el botón de imitar.$pea0$, false, 1, $pea0$El asesor no puede gestionarlo por imitar.$pea0$, null::int, null),
+  ('ada97c8d-3c7b-4ac4-8ae7-2cf89f2e7401'::uuid, $pea0$Le explicás que lo pide él desde su Portal, y que si falla te mande la captura del error.$pea0$, true, 2, $pea0$Es autogestivo; solo se deriva si el Portal falla.$pea0$, null::int, null),
+  ('3f807366-cdac-4601-8ac8-75c5f3da1f0d'::uuid, $pea0$Derivás enseguida a Becas.$pea0$, false, 3, $pea0$Primero lo intenta el estudiante en el Portal.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = 'a99d20e9-f9b2-4947-8013-35666893a49f'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select 'ac0ed75d-22d2-4b3e-8fdc-3de84e3ebbad'::uuid, 'opcion_multiple', $pea0$Una estudiante con promedio 8,4 tiene tres materias por cursar. ¿Le corresponde el 30 % de persistencia?$pea0$, $pea0$El beneficio pide promedio de 8 o más y que le queden 1 o 2 materias por cursar.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', 'eae2377a-934c-4c1a-8772-79b9a2f9cfc6'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 2
+where exists (select 1 from public.items where id = 'eae2377a-934c-4c1a-8772-79b9a2f9cfc6'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '7dd9fd98-5e03-4d1b-8cea-6b5288e2a78b'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = 'ac0ed75d-22d2-4b3e-8fdc-3de84e3ebbad'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '7dd9fd98-5e03-4d1b-8cea-6b5288e2a78b'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, 'ac0ed75d-22d2-4b3e-8fdc-3de84e3ebbad'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('9d64875f-644c-4894-8990-207decb7ceff'::uuid, $pea0$Sí: tiene el promedio.$pea0$, false, 1, $pea0$También cuenta la cantidad de materias.$pea0$, null::int, null),
+  ('4cbb8a57-d089-44df-87d2-cfc2c59ad6c8'::uuid, $pea0$No: tienen que quedarle como máximo 2 materias por cursar.$pea0$, true, 2, $pea0$Es el motivo "adeudar más de dos materias".$pea0$, null::int, null),
+  ('c76af129-4e20-4465-88c8-d9a2f99e4457'::uuid, $pea0$Sí, pero solo el 15 %.$pea0$, false, 3, $pea0$No hay un porcentaje reducido.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = 'ac0ed75d-22d2-4b3e-8fdc-3de84e3ebbad'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select 'edee0266-0091-4de4-88be-59791e264a49'::uuid, 'verdadero_falso', $pea0$El beneficio de persistencia sobre aranceles se puede usar en dos semestres distintos.$pea0$, $pea0$Se aplica una sola vez en toda la trayectoria y no se renueva.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', 'eae2377a-934c-4c1a-8772-79b9a2f9cfc6'::uuid, null, now() + interval '1 millisecond' * 3
+where exists (select 1 from public.items where id = 'eae2377a-934c-4c1a-8772-79b9a2f9cfc6'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '7dd9fd98-5e03-4d1b-8cea-6b5288e2a78b'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = 'edee0266-0091-4de4-88be-59791e264a49'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '7dd9fd98-5e03-4d1b-8cea-6b5288e2a78b'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, 'edee0266-0091-4de4-88be-59791e264a49'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('89a51221-38f4-415c-8f62-a459ff137180'::uuid, $pea0$Verdadero$pea0$, false, 1, null, null::int, null),
+  ('2f34103c-8474-479a-87fa-f3600ec05b58'::uuid, $pea0$Falso$pea0$, true, 2, null, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = 'edee0266-0091-4de4-88be-59791e264a49'::uuid)
+on conflict do nothing;
