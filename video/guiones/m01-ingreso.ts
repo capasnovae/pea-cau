@@ -1,8 +1,9 @@
 // Guion del video del módulo 1 · Ingreso (contenido/videos/modulos/01-ingreso.guion.md). Sin personajes dibujados.
+// El id elige un dibujo de public/peeps; en los videos sin personajes no se ve, pero tiene que existir.
 import type { Guion } from "./tipos.ts";
 
-const noelia = { id: "noelia", nombre: "Noelia", detalle: "Ingresante" };
-const rosa = { id: "rosa", nombre: "Rosa", detalle: "Aspirante, 42 años" };
+const noelia = { id: "lucia", nombre: "Noelia", detalle: "Ingresante" };
+const rosa = { id: "sofia", nombre: "Rosa", detalle: "Aspirante, 42 años" };
 
 const guion: Guion = {
   titulo: "Ingreso",
