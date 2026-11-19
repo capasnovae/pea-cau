@@ -3933,3 +3933,232 @@ select x.id, '5ff81262-356b-414e-8677-4faee1ba84b4'::uuid, x.texto, x.correcta, 
 ) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
 where exists (select 1 from public.preguntas where id = '5ff81262-356b-414e-8677-4faee1ba84b4'::uuid)
 on conflict do nothing;
+
+insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
+select '3616f97d-e77d-4e1d-8bbd-d6cb2b505797'::uuid, '6e4190d9-c64f-44b2-86d1-aefc20de8215'::uuid, 52, $pea0$Certificados para estudiantes$pea0$, 'leccion', a.id,
+       $pea0${"version":2,"tarjetas":[{"tipo":"caso","persona":"Matías","canal":"whatsapp","consulta":"Necesito un certificado de alumno regular para la obra social. ¿Cómo lo pido? ¿Tarda mucho?"},{"tipo":"preguntar","opciones":[{"texto":"¿Ya intentó descargarlo del Portal de Estudiantes?","clave":true,"porque":"El de alumno regular se descarga ahí y tiene plena validez."},{"texto":"¿La entidad le pide expresamente firma digital?","clave":true,"porque":"Solo en ese caso se pide la versión firmada."},{"texto":"¿Para qué trámite y ante qué institución lo presenta?","clave":true,"porque":"Define qué certificado corresponde y es obligatorio en el pedido con firma digital."},{"texto":"¿Cuántas materias cursa?","clave":false,"porque":"No cambia el pedido."}]},{"tipo":"idea","titulo":"Alumno regular: del Portal, y con firma digital si se la piden","texto":"El certificado de alumno regular se descarga del Portal de Estudiantes y tiene plena validez. Solo si la entidad pide expresamente firma digital (por ejemplo, una obra social u organismo público), se pide por HubSpot a Trámites, \"Certificado de Alumno Regular con Firma Digital\", con DNI, legajo, carrera y el motivo, que es obligatorio. Tarda 3 días hábiles.","clave":"Del Portal tiene plena validez; con firma digital, solo si la entidad la exige.","ejemplo":"Matías lo descarga del Portal; si la obra social pide firma digital, lo pedís a Trámites con ese motivo."},{"tipo":"probalo","n":1},{"tipo":"idea","titulo":"Otros certificados por Trámites","texto":"Se piden por HubSpot a Trámites, con DNI, legajo y carrera, y tardan 10 días hábiles: el certificado de no sanción, el de porcentaje de avance y el de baja. El de baja se pide solo si el legajo ya está dado de baja; si no, primero se gestiona la baja (por Grupo de Riesgo).","clave":"No sanción, porcentaje de avance y baja: a Trámites, 10 días hábiles."},{"tipo":"probalo","n":2},{"tipo":"idea","titulo":"Extranjeros ante Migraciones","texto":"El certificado de alumno regular con legalización ministerial es solo para estudiantes extranjeros que lo presentan en la Dirección Nacional de Migraciones. Se pide junto con el analítico con legalización ministerial, porque el Ministerio no lo acepta por separado. Va a Secretaría Académica y tarda unos 90 días hábiles.","clave":"Legalización ministerial: extranjeros ante Migraciones, y siempre junto con el analítico."},{"tipo":"probalo","n":3},{"tipo":"ojo","texto":"Antes de derivar, revisá que los datos del estudiante estén bien: un error demora la gestión.\nPara el certificado de baja, verificá el estado del legajo antes de derivar, así no lo rechazan."},{"tipo":"cierre","resolucion":"A Matías le explicás que el certificado de alumno regular lo descarga del Portal de Estudiantes y tiene plena validez. Si la obra social le exige firma digital, lo pedís por HubSpot a Trámites con sus datos y ese motivo, y tarda 3 días hábiles.","recordar":"Alumno regular: del Portal; con firma digital solo si la entidad la pide."}]}$pea0$::jsonb, 'marcar_hecho'
+from public.articulos a where a.slug = $pea0$kb-26-certificados-constancias-y-analiticos$pea0$ and a.alcance = 'global'
+on conflict (id) do update set orden = excluded.orden, titulo = excluded.titulo, leccion = excluded.leccion,
+  articulo_id = excluded.articulo_id
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '6e4190d9-c64f-44b2-86d1-aefc20de8215'::uuid and c.estado = 'borrador');
+
+delete from public.preguntas
+where item_id = '3616f97d-e77d-4e1d-8bbd-d6cb2b505797'::uuid and id not in ('775af5b6-21a0-4446-8a9a-c6e07a72156c'::uuid, 'a6c206cf-624d-4791-859c-321bbda0841a'::uuid, '527e49ae-2e54-4cd3-8c93-b5f21cab8d6d'::uuid)
+  and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '6e4190d9-c64f-44b2-86d1-aefc20de8215'::uuid and c.estado = 'borrador');
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select '775af5b6-21a0-4446-8a9a-c6e07a72156c'::uuid, 'opcion_multiple', $pea0$Una estudiante pide el certificado de alumno regular para presentar en el trabajo, y no le pidieron firma digital. ¿Qué hacés?$pea0$, $pea0$El certificado de alumno regular se descarga del Portal y tiene plena validez; con firma digital, solo si la entidad lo pide.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', '3616f97d-e77d-4e1d-8bbd-d6cb2b505797'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 1
+where exists (select 1 from public.items where id = '3616f97d-e77d-4e1d-8bbd-d6cb2b505797'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '6e4190d9-c64f-44b2-86d1-aefc20de8215'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = '775af5b6-21a0-4446-8a9a-c6e07a72156c'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '6e4190d9-c64f-44b2-86d1-aefc20de8215'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, '775af5b6-21a0-4446-8a9a-c6e07a72156c'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('d8cf0328-a238-4fff-8deb-3a6baab433a3'::uuid, $pea0$Lo pedís a Trámites con firma digital, por las dudas.$pea0$, false, 1, $pea0$Solo se deriva si la entidad exige expresamente firma digital.$pea0$, null::int, null),
+  ('e6477b51-64a7-4ef5-8517-8f6793e3d0df'::uuid, $pea0$Le indicás que lo descargue del Portal de Estudiantes: tiene plena validez.$pea0$, true, 2, $pea0$Es lo que corresponde si no le exigen firma digital.$pea0$, null::int, null),
+  ('c3df91af-0263-4701-85e4-661335a660b1'::uuid, $pea0$Le pedís que espere 10 días hábiles.$pea0$, false, 3, $pea0$Lo puede descargar en el momento.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = '775af5b6-21a0-4446-8a9a-c6e07a72156c'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select 'a6c206cf-624d-4791-859c-321bbda0841a'::uuid, 'opcion_multiple', $pea0$Un estudiante pide el certificado de baja, pero su legajo sigue activo. ¿Qué hacés?$pea0$, $pea0$El certificado de baja se pide solo cuando el legajo ya está dado de baja; si no, primero se gestiona la baja.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', '3616f97d-e77d-4e1d-8bbd-d6cb2b505797'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 2
+where exists (select 1 from public.items where id = '3616f97d-e77d-4e1d-8bbd-d6cb2b505797'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '6e4190d9-c64f-44b2-86d1-aefc20de8215'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = 'a6c206cf-624d-4791-859c-321bbda0841a'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '6e4190d9-c64f-44b2-86d1-aefc20de8215'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, 'a6c206cf-624d-4791-859c-321bbda0841a'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('59c26f80-4b3a-416b-8db8-bdb49ab874f5'::uuid, $pea0$Derivás el certificado a Trámites igual.$pea0$, false, 1, $pea0$El legajo tiene que estar dado de baja antes de pedir el certificado.$pea0$, null::int, null),
+  ('22c31da0-7b53-4947-8a27-5660ec9dd919'::uuid, $pea0$Primero se gestiona la baja (circuito de Grupo de Riesgo) y después se pide el certificado.$pea0$, true, 2, $pea0$El estudiante debe estar dado de baja al momento de solicitarlo.$pea0$, null::int, null),
+  ('c5eb270a-fa54-4693-83a5-e21218a99f92'::uuid, $pea0$Le hacés un certificado de no sanción en su lugar.$pea0$, false, 3, $pea0$Son certificados distintos.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = 'a6c206cf-624d-4791-859c-321bbda0841a'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select '527e49ae-2e54-4cd3-8c93-b5f21cab8d6d'::uuid, 'opcion_multiple', $pea0$Un estudiante extranjero necesita el certificado de alumno regular legalizado para Migraciones. ¿Qué tenés en cuenta?$pea0$, $pea0$El alumno regular con legalización ministerial es para extranjeros ante Migraciones y se pide junto con el analítico legalizado.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', '3616f97d-e77d-4e1d-8bbd-d6cb2b505797'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 3
+where exists (select 1 from public.items where id = '3616f97d-e77d-4e1d-8bbd-d6cb2b505797'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '6e4190d9-c64f-44b2-86d1-aefc20de8215'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = '527e49ae-2e54-4cd3-8c93-b5f21cab8d6d'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '6e4190d9-c64f-44b2-86d1-aefc20de8215'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, '527e49ae-2e54-4cd3-8c93-b5f21cab8d6d'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('1b2f6ea3-2de2-437c-8b5d-d7fef6028442'::uuid, $pea0$Que lo descarga del Portal.$pea0$, false, 1, $pea0$El del Portal no tiene legalización ministerial.$pea0$, null::int, null),
+  ('104b50e7-f0a5-4834-8b25-5f99a2304e84'::uuid, $pea0$Que se pide junto con el analítico con legalización ministerial, a Secretaría Académica, y tarda unos 90 días hábiles.$pea0$, true, 2, $pea0$El Ministerio no admite gestionarlo por separado.$pea0$, null::int, null),
+  ('c6c97d65-fbda-426f-8c09-89c08cf8f469'::uuid, $pea0$Que se pide a Trámites con firma digital y tarda 3 días.$pea0$, false, 3, $pea0$La firma digital no reemplaza la legalización ministerial.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = '527e49ae-2e54-4cd3-8c93-b5f21cab8d6d'::uuid)
+on conflict do nothing;
+
+insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
+select 'f7f2fbd2-c2f2-4b56-85c0-bd1096fef140'::uuid, '6e4190d9-c64f-44b2-86d1-aefc20de8215'::uuid, 53, $pea0$Analíticos parciales$pea0$, 'leccion', a.id,
+       $pea0${"version":2,"tarjetas":[{"tipo":"caso","persona":"Gabriela","canal":"mostrador","consulta":"Me voy a cambiar de universidad y me piden el analítico con los programas de las materias. Pagué la tasa hace como cuatro meses. ¿Me lo hacen?"},{"tipo":"preguntar","opciones":[{"texto":"¿Necesita el analítico con programas o sin programas?","clave":true,"porque":"Son trámites distintos, con tasas distintas."},{"texto":"¿Cuándo pagó la tasa y para qué trámite?","clave":true,"porque":"El comprobante vale 3 meses y tiene que corresponder a ese analítico."},{"texto":"¿Tiene cargados el DNI frente y dorso, el analítico secundario y la documentación obligatoria de su carrera?","clave":true,"porque":"Sin la documentación completa y legible, no se deriva."},{"texto":"¿En qué turno cursaba?","clave":false,"porque":"No cambia el trámite."}]},{"tipo":"idea","titulo":"Qué necesita para pedirlo","texto":"Para cualquier analítico parcial tiene que tener el DNI frente y dorso digitalizado, el analítico secundario digitalizado, la documentación obligatoria de su carrera completa y la tasa abonada y facturada. El comprobante de pago vale 3 meses: si pagó antes y el arancel aumentó, primero paga la diferencia.","clave":"DNI, analítico secundario, legajo completo y tasa pagada (vale 3 meses).","ejemplo":"Gabriela pagó hace cuatro meses: si el arancel aumentó, primero paga la diferencia."},{"tipo":"probalo","n":1},{"tipo":"idea","titulo":"Sin programas, con programas o legalizado","texto":"Todos van por HubSpot a Secretaría Académica con DNI y legajo, y tardan 5 días hábiles: el analítico sin programas, el analítico con programas (la tasa tiene que ser específica de ese trámite) y el analítico con programas y legalización ministerial. Este último, además, tarda unos 90 días hábiles en el Ministerio y lleva el país y la institución donde lo presenta.","clave":"A Secretaría Académica, 5 días hábiles; con legalización ministerial, unos 90 más."},{"tipo":"probalo","n":2},{"tipo":"idea","titulo":"En papel, solo si la entidad no acepta digital","texto":"El analítico se emite en formato digital. Solo de forma excepcional se pide en papel, si la entidad externa no acepta documentación digital: tiene que mandar una nota que lo diga, firmada por la propia entidad, y en el ticket se indica el CAU de envío.","clave":"Papel, solo con nota de la entidad que no acepta digital, y el CAU de envío."},{"tipo":"probalo","n":3},{"tipo":"ojo","texto":"No hace falta un formulario: el analítico se pide solo por ticket de HubSpot.\nSi pide el analítico para cambiarse de universidad, también puede estar por darse de baja: aplicá el circuito de Riesgo de Baja."},{"tipo":"cierre","resolucion":"A Gabriela le revisás que tenga el DNI, el analítico secundario y la documentación de su carrera cargados. Como pagó la tasa hace más de 3 meses, si el arancel cambió, primero paga la diferencia. Después pedís por HubSpot a Secretaría Académica el analítico con programas, que tarda 5 días hábiles.","recordar":"Analítico: documentación completa, tasa vigente y ticket a Secretaría Académica."}]}$pea0$::jsonb, 'marcar_hecho'
+from public.articulos a where a.slug = $pea0$kb-26-certificados-constancias-y-analiticos$pea0$ and a.alcance = 'global'
+on conflict (id) do update set orden = excluded.orden, titulo = excluded.titulo, leccion = excluded.leccion,
+  articulo_id = excluded.articulo_id
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '6e4190d9-c64f-44b2-86d1-aefc20de8215'::uuid and c.estado = 'borrador');
+
+delete from public.preguntas
+where item_id = 'f7f2fbd2-c2f2-4b56-85c0-bd1096fef140'::uuid and id not in ('aa2cf104-58a9-4601-8267-4b2dd7d30065'::uuid, '009bd9ec-d9ee-431f-8050-eaff873d0468'::uuid, '6015e9f4-8060-4766-8231-ae9f9f3e8604'::uuid)
+  and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '6e4190d9-c64f-44b2-86d1-aefc20de8215'::uuid and c.estado = 'borrador');
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select 'aa2cf104-58a9-4601-8267-4b2dd7d30065'::uuid, 'opcion_multiple', $pea0$Un estudiante pagó la tasa del analítico sin programas hace 4 meses y desde entonces aumentó el arancel. ¿Qué le decís?$pea0$, $pea0$El comprobante de pago vale 3 meses: si el arancel aumentó y pagó antes, abona la diferencia antes de iniciar el trámite.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', 'f7f2fbd2-c2f2-4b56-85c0-bd1096fef140'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 1
+where exists (select 1 from public.items where id = 'f7f2fbd2-c2f2-4b56-85c0-bd1096fef140'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '6e4190d9-c64f-44b2-86d1-aefc20de8215'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = 'aa2cf104-58a9-4601-8267-4b2dd7d30065'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '6e4190d9-c64f-44b2-86d1-aefc20de8215'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, 'aa2cf104-58a9-4601-8267-4b2dd7d30065'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('a59f2f5e-9f60-408b-821c-4e60402688d9'::uuid, $pea0$Que lo pedís igual: ya pagó.$pea0$, false, 1, $pea0$El comprobante vale 3 meses.$pea0$, null::int, null),
+  ('6cdb2c91-5516-40ef-8cc0-f2b1f679d984'::uuid, $pea0$Que primero tiene que pagar la diferencia y después se pide el analítico.$pea0$, true, 2, $pea0$Si hubo una actualización y el pago tiene más de 3 meses, abona la diferencia antes.$pea0$, null::int, null),
+  ('b8a68466-0f16-4da4-85e6-11d0fa0a86d6'::uuid, $pea0$Que tiene que pagar la tasa completa de nuevo.$pea0$, false, 3, $pea0$Solo paga la diferencia.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = 'aa2cf104-58a9-4601-8267-4b2dd7d30065'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select '009bd9ec-d9ee-431f-8050-eaff873d0468'::uuid, 'opcion_multiple', $pea0$Una estudiante necesita el analítico con programas para presentar en otro país, con legalización. ¿Cuánto tarda y qué datos agregás?$pea0$, $pea0$El analítico con programas y legalización ministerial lleva el país y la institución, y suma unos 90 días hábiles ante el Ministerio.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', 'f7f2fbd2-c2f2-4b56-85c0-bd1096fef140'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 2
+where exists (select 1 from public.items where id = 'f7f2fbd2-c2f2-4b56-85c0-bd1096fef140'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '6e4190d9-c64f-44b2-86d1-aefc20de8215'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = '009bd9ec-d9ee-431f-8050-eaff873d0468'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '6e4190d9-c64f-44b2-86d1-aefc20de8215'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, '009bd9ec-d9ee-431f-8050-eaff873d0468'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('74df8b71-15ff-42bb-8db3-7f71a96add52'::uuid, $pea0$5 días hábiles, solo con DNI y legajo.$pea0$, false, 1, $pea0$La legalización ministerial suma el trámite ante el Ministerio.$pea0$, null::int, null),
+  ('f21e1688-e1d8-4a6e-8688-962215f179a1'::uuid, $pea0$5 días hábiles del área más unos 90 días hábiles en el Ministerio, e indicás el país y la institución donde lo presenta.$pea0$, true, 2, $pea0$Son los plazos y datos del analítico con legalización ministerial.$pea0$, null::int, null),
+  ('c75d4055-6fac-48de-8fa0-732938f78f35'::uuid, $pea0$3 días hábiles, por Trámites.$pea0$, false, 3, $pea0$Va a Secretaría Académica.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = '009bd9ec-d9ee-431f-8050-eaff873d0468'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select '6015e9f4-8060-4766-8231-ae9f9f3e8604'::uuid, 'verdadero_falso', $pea0$El analítico parcial sin programas se pide completando un formulario aparte, además del ticket.$pea0$, $pea0$No requiere formulario: se gestiona solo con ticket de HubSpot.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', 'f7f2fbd2-c2f2-4b56-85c0-bd1096fef140'::uuid, null, now() + interval '1 millisecond' * 3
+where exists (select 1 from public.items where id = 'f7f2fbd2-c2f2-4b56-85c0-bd1096fef140'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '6e4190d9-c64f-44b2-86d1-aefc20de8215'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = '6015e9f4-8060-4766-8231-ae9f9f3e8604'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '6e4190d9-c64f-44b2-86d1-aefc20de8215'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, '6015e9f4-8060-4766-8231-ae9f9f3e8604'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('5b22504e-1f20-4376-8e62-937a69cb4039'::uuid, $pea0$Verdadero$pea0$, false, 1, null, null::int, null),
+  ('2485c2c1-5c14-4635-84b4-2994c127e11c'::uuid, $pea0$Falso$pea0$, true, 2, null, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = '6015e9f4-8060-4766-8231-ae9f9f3e8604'::uuid)
+on conflict do nothing;
+
+insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
+select 'ad18eb5d-d62f-413e-879b-3ae42fc2e648'::uuid, '6e4190d9-c64f-44b2-86d1-aefc20de8215'::uuid, 54, $pea0$Certificados para egresados$pea0$, 'leccion', a.id,
+       $pea0${"version":2,"tarjetas":[{"tipo":"caso","persona":"Federico","canal":"telefono","consulta":"Terminé la carrera hace dos semanas y para un trabajo me piden algo que diga que el título está en trámite. ¿Qué tengo que pedir?"},{"tipo":"preguntar","opciones":[{"texto":"¿Figura como activo o egresado en SGU?","clave":true,"porque":"Es la primera validación para el certificado de título en trámite."},{"texto":"¿El trámite del título ya figura como \"Trámite Finalizado\" en SIDCer?","clave":true,"porque":"Si ya está finalizado, no corresponde el certificado de título en trámite."},{"texto":"¿Tiene completa la documentación de su carrera, con el DNI físico?","clave":true,"porque":"Sin la documentación completa no se emite."},{"texto":"¿Qué nota sacó en el trabajo final?","clave":false,"porque":"No cambia el pedido."}]},{"tipo":"idea","titulo":"Título en trámite","texto":"Acredita que terminó la carrera y que el título se está emitiendo. Antes de derivar, validá que figure activo o egresado en SGU, que el título no esté \"Trámite Finalizado\" en SIDCer y que la documentación esté completa. Va por HubSpot a Operación Títulos, con DNI y legajo (y si es título intermedio). Tarda 7 días hábiles.","clave":"Activo o egresado en SGU, sin \"Trámite Finalizado\" en SIDCer y documentación completa.","ejemplo":"Federico terminó hace dos semanas: validás SGU y SIDCer y lo pedís a Operación Títulos."},{"tipo":"probalo","n":1},{"tipo":"idea","titulo":"Digital, y vale un año","texto":"El certificado se emite en formato digital: se puede compartir todas las veces que haga falta, pero si se imprime pierde su validez como original. Vence al año de emitido. En papel, solo si la institución que lo pide manda una nota firmada y sellada por ella diciendo que no acepta firma digital.","clave":"Digital, se comparte las veces que quiera; impreso pierde validez; vence al año."},{"tipo":"probalo","n":2},{"tipo":"idea","titulo":"Constancia de egreso y certificado de horas","texto":"La constancia de egreso certifica que aprobó todos los requisitos de la carrera: figura como egresado y va a Operación Títulos con DNI, legajo y el correo de la institución que la pide. El certificado de horas es solo para egresados, va a Trámites y hay que indicar si es de horas cátedra o reloj; tarda 10 días hábiles.","clave":"Constancia de egreso a Operación Títulos; horas, solo egresados y aclarando cátedra o reloj."},{"tipo":"probalo","n":3},{"tipo":"ojo","texto":"No sirve el DNI descargado de Mi Argentina: tiene que ser la imagen del DNI físico vigente.\nEn Enfermería y Psicología, para poder ejercer con matrícula provisoria, se envía además el certificado de matrícula y el analítico parcial sin programas, sin costo."},{"tipo":"cierre","resolucion":"A Federico le corresponde el certificado de título en trámite. Validás que figure en SGU como activo o egresado, que el título no esté finalizado en SIDCer y que su documentación esté completa. Lo pedís a Operación Títulos y le avisás que llega en formato digital, que lo puede compartir sin imprimirlo y que vence al año.","recordar":"Título en trámite: validás SGU y SIDCer; digital, sin imprimir, vale un año."}]}$pea0$::jsonb, 'marcar_hecho'
+from public.articulos a where a.slug = $pea0$kb-26-certificados-constancias-y-analiticos$pea0$ and a.alcance = 'global'
+on conflict (id) do update set orden = excluded.orden, titulo = excluded.titulo, leccion = excluded.leccion,
+  articulo_id = excluded.articulo_id
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '6e4190d9-c64f-44b2-86d1-aefc20de8215'::uuid and c.estado = 'borrador');
+
+delete from public.preguntas
+where item_id = 'ad18eb5d-d62f-413e-879b-3ae42fc2e648'::uuid and id not in ('7c93b768-f8f4-4d5c-8233-7bb4ea8bd976'::uuid, '65680031-86ba-4cbb-8bea-882bff0a2081'::uuid, '90df7bb3-0bcd-4280-811a-459cef821820'::uuid)
+  and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '6e4190d9-c64f-44b2-86d1-aefc20de8215'::uuid and c.estado = 'borrador');
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select '7c93b768-f8f4-4d5c-8233-7bb4ea8bd976'::uuid, 'opcion_multiple', $pea0$En SIDCer el título de una egresada figura como "Trámite Finalizado" y pide el certificado de título en trámite. ¿Qué hacés?$pea0$, $pea0$Si el título figura como "Trámite Finalizado" en SIDCer, no corresponde pedir el certificado de título en trámite.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', 'ad18eb5d-d62f-413e-879b-3ae42fc2e648'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 1
+where exists (select 1 from public.items where id = 'ad18eb5d-d62f-413e-879b-3ae42fc2e648'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '6e4190d9-c64f-44b2-86d1-aefc20de8215'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = '7c93b768-f8f4-4d5c-8233-7bb4ea8bd976'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '6e4190d9-c64f-44b2-86d1-aefc20de8215'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, '7c93b768-f8f4-4d5c-8233-7bb4ea8bd976'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('d2fe536d-0b77-4265-82a8-87f81ecea0a9'::uuid, $pea0$Lo pedís igual a Operación Títulos.$pea0$, false, 1, $pea0$Si el trámite figura finalizado, no corresponde ese certificado.$pea0$, null::int, null),
+  ('d5254579-f5c6-420e-84aa-e4f74b1db48a'::uuid, $pea0$Le explicás que no corresponde: el trámite del título ya está finalizado.$pea0$, true, 2, $pea0$Es la validación previa a la derivación.$pea0$, null::int, null),
+  ('de21bf53-a724-410e-87a1-bcb7bd1d4764'::uuid, $pea0$Le pedís la constancia de egreso en su lugar, sin consultarle.$pea0$, false, 3, $pea0$Primero hay que entender qué necesita; el de título en trámite no corresponde.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = '7c93b768-f8f4-4d5c-8233-7bb4ea8bd976'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select '65680031-86ba-4cbb-8bea-882bff0a2081'::uuid, 'opcion_multiple', $pea0$Un egresado imprimió su certificado de título en trámite y lo presentó en papel. ¿Qué tenés que saber?$pea0$, $pea0$El certificado de título en trámite es digital: se comparte tantas veces como haga falta, pero impreso pierde validez.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', 'ad18eb5d-d62f-413e-879b-3ae42fc2e648'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 2
+where exists (select 1 from public.items where id = 'ad18eb5d-d62f-413e-879b-3ae42fc2e648'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '6e4190d9-c64f-44b2-86d1-aefc20de8215'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = '65680031-86ba-4cbb-8bea-882bff0a2081'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '6e4190d9-c64f-44b2-86d1-aefc20de8215'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, '65680031-86ba-4cbb-8bea-882bff0a2081'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('fd4877a7-dd5b-4073-8a77-e196915fada6'::uuid, $pea0$Que impreso vale igual.$pea0$, false, 1, $pea0$Impreso pierde su validez como original digital.$pea0$, null::int, null),
+  ('52ac6043-95cc-450f-8c09-d2e5d1c6056d'::uuid, $pea0$Que al imprimirlo pierde la validez de original: tiene que compartirlo en formato digital.$pea0$, true, 2, $pea0$El certificado se emite digital y se comparte por medios digitales.$pea0$, null::int, null),
+  ('1936e744-fe23-46ae-8e80-6509af0df97f'::uuid, $pea0$Que tiene que pedir uno nuevo en papel sin ninguna nota.$pea0$, false, 3, $pea0$En papel solo con nota firmada y sellada por la institución.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = '65680031-86ba-4cbb-8bea-882bff0a2081'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select '90df7bb3-0bcd-4280-811a-459cef821820'::uuid, 'verdadero_falso', $pea0$El certificado de horas lo puede pedir un estudiante que todavía está cursando.$pea0$, $pea0$El certificado de horas es solo para egresados, y hay que indicar si es de horas cátedra o reloj.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', 'ad18eb5d-d62f-413e-879b-3ae42fc2e648'::uuid, null, now() + interval '1 millisecond' * 3
+where exists (select 1 from public.items where id = 'ad18eb5d-d62f-413e-879b-3ae42fc2e648'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '6e4190d9-c64f-44b2-86d1-aefc20de8215'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = '90df7bb3-0bcd-4280-811a-459cef821820'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '6e4190d9-c64f-44b2-86d1-aefc20de8215'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, '90df7bb3-0bcd-4280-811a-459cef821820'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('4b213b36-8379-4d59-871d-64a8a3f8a96b'::uuid, $pea0$Verdadero$pea0$, false, 1, null, null::int, null),
+  ('2ff63a3c-ea7b-477e-81fa-ed725e61296b'::uuid, $pea0$Falso$pea0$, true, 2, null, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = '90df7bb3-0bcd-4280-811a-459cef821820'::uuid)
+on conflict do nothing;
