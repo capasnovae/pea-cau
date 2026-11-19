@@ -4390,3 +4390,383 @@ select x.id, 'df17e043-09c5-45c9-895f-a3b47c5aa056'::uuid, x.texto, x.correcta, 
 ) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
 where exists (select 1 from public.preguntas where id = 'df17e043-09c5-45c9-895f-a3b47c5aa056'::uuid)
 on conflict do nothing;
+
+insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
+select 'e47ef609-f913-438c-844f-ddc53f4fabe0'::uuid, '8c20971f-24fa-4481-895a-3d84f2bc0384'::uuid, 58, $pea0$Estado del título: qué decir y dónde mirarlo$pea0$, 'leccion', a.id,
+       $pea0${"version":2,"tarjetas":[{"tipo":"caso","persona":"Julián","canal":"whatsapp","consulta":"Egresé hace dos meses y en el Portal me sigue diciendo \"Tu trámite de titulación está en curso\". ¿Cuándo me dan el título? ¿Está todo bien?"},{"tipo":"preguntar","opciones":[{"texto":"¿Ya revisó el estado en SIDCer con su DNI?","clave":true,"porque":"Si lo revisó y pregunta por el detalle, le explicás ese estado."},{"texto":"¿El Portal le marca \"Tu legajo está incompleto\"?","clave":true,"porque":"Ahí falta documentación y hay que enviarla."},{"texto":"¿Hace cuánto egresó?","clave":true,"porque":"El trámite arranca solo a los 15 días hábiles del egreso."},{"texto":"¿Va a ir a la colación?","clave":false,"porque":"La colación no cambia el trámite del título."}]},{"tipo":"idea","titulo":"Arranca solo y tarda hasta 120 días","texto":"El trámite de titulación empieza automáticamente a los 15 días hábiles del egreso: no se pide por ticket. El título y el analítico definitivo tardan unos 120 días. Si pasaron más de 15 días hábiles y no se ve el inicio en los sistemas, va por HubSpot a Operación Títulos como \"Inicio de trámite de titulación\", con DNI y legajo.","clave":"Empieza solo a los 15 días hábiles del egreso; tarda unos 120 días.","ejemplo":"Julián egresó hace dos meses: el trámite ya está en marcha, dentro de los 120 días."},{"tipo":"probalo","n":1},{"tipo":"idea","titulo":"Qué decís cuando pregunta","texto":"Si pregunta cómo va, le decís que está en proceso: no das detalles por tu cuenta ni comprometés plazos. Si ya miró SIDCer y pregunta qué significa un estado, se lo explicás. Si en SIDCer figura \"Rechazado\", \"Observado\" o \"Anulado\", le contás que la Universidad rectifica los datos que observó el Ministerio.","clave":"\"Está en proceso\", sin comprometer plazos; el detalle, solo si ya miró SIDCer."},{"tipo":"probalo","n":2},{"tipo":"idea","titulo":"Las etapas del Portal","texto":"Validación (unos 75 días): \"Tu trámite de titulación está en curso\". Legalización (unos 40 días): \"Tu título está en proceso de legalización\"; desde acá lo sigue en SIDCer con su DNI, y si SIDCer y el Portal no coinciden, vale SIDCer. Despacho (unos 5 días): \"Título disponible para enviar/retirar\".","clave":"Validación, legalización y despacho; si no coinciden, vale SIDCer."},{"tipo":"probalo","n":3},{"tipo":"ojo","texto":"Si figura \"Tu legajo está incompleto\", el egresado manda lo que falta por HubSpot a Operación Títulos (\"Digitalización de documentación para proceso de titulación\"), no por Digital Admin.\nSi aparece \"Error al recuperar datos de BPM\" o tiene dos títulos en proceso, va a Operación Títulos como \"Estado de Títulos\", con DNI y legajo."},{"tipo":"cierre","resolucion":"A Julián le decís que su trámite está en proceso y que está en la etapa de validación, que es la primera. Le contás que el título tarda unos 120 días desde que arranca, sin comprometer una fecha, y que cuando pase a legalización lo puede seguir en SIDCer con su DNI.","recordar":"En proceso, sin plazos; en legalización, SIDCer con el DNI."}]}$pea0$::jsonb, 'marcar_hecho'
+from public.articulos a where a.slug = $pea0$kb-32-proceso-de-titulos$pea0$ and a.alcance = 'global'
+on conflict (id) do update set orden = excluded.orden, titulo = excluded.titulo, leccion = excluded.leccion,
+  articulo_id = excluded.articulo_id
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '8c20971f-24fa-4481-895a-3d84f2bc0384'::uuid and c.estado = 'borrador');
+
+delete from public.preguntas
+where item_id = 'e47ef609-f913-438c-844f-ddc53f4fabe0'::uuid and id not in ('233daab9-843b-4f74-8a5f-010e2259ccb4'::uuid, '1fa59819-c382-4652-8c98-235379b3caa0'::uuid, 'e007d77b-9cf1-45f4-8f65-262f6f57f3a6'::uuid)
+  and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '8c20971f-24fa-4481-895a-3d84f2bc0384'::uuid and c.estado = 'borrador');
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select '233daab9-843b-4f74-8a5f-010e2259ccb4'::uuid, 'opcion_multiple', $pea0$Un egresado de hace una semana te pide que le inicies el trámite del título. ¿Qué hacés?$pea0$, $pea0$El inicio del trámite es automático a los 15 días hábiles del egreso; el ticket solo corresponde si pasó ese plazo sin inicio.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', 'e47ef609-f913-438c-844f-ddc53f4fabe0'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 1
+where exists (select 1 from public.items where id = 'e47ef609-f913-438c-844f-ddc53f4fabe0'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '8c20971f-24fa-4481-895a-3d84f2bc0384'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = '233daab9-843b-4f74-8a5f-010e2259ccb4'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '8c20971f-24fa-4481-895a-3d84f2bc0384'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, '233daab9-843b-4f74-8a5f-010e2259ccb4'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('0c637dcf-6887-478f-897c-5a3658bb26a6'::uuid, $pea0$Derivás "Inicio de trámite de titulación" a Operación Títulos.$pea0$, false, 1, $pea0$Ese ticket es solo si pasaron más de 15 días hábiles sin inicio.$pea0$, null::int, null),
+  ('0764663c-cf96-4e8e-88cc-a68008336e3a'::uuid, $pea0$Le explicás que el trámite arranca solo a los 15 días hábiles del egreso.$pea0$, true, 2, $pea0$El inicio es automático: no se pide por ticket.$pea0$, null::int, null),
+  ('69630e59-6c62-4b62-824b-af61cc56ebad'::uuid, $pea0$Le pedís que cargue la documentación por Digital Admin.$pea0$, false, 3, $pea0$Los egresados envían documentación por HubSpot, no por Digital Admin.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = '233daab9-843b-4f74-8a5f-010e2259ccb4'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select '1fa59819-c382-4652-8c98-235379b3caa0'::uuid, 'opcion_multiple', $pea0$En SIDCer el título de una egresada figura "Observado". ¿Qué le explicás?$pea0$, $pea0$Si el título figura Rechazado, Observado o Anulado en SIDCer, la Universidad rectifica los datos observados por el Ministerio.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', 'e47ef609-f913-438c-844f-ddc53f4fabe0'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 2
+where exists (select 1 from public.items where id = 'e47ef609-f913-438c-844f-ddc53f4fabe0'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '8c20971f-24fa-4481-895a-3d84f2bc0384'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = '1fa59819-c382-4652-8c98-235379b3caa0'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '8c20971f-24fa-4481-895a-3d84f2bc0384'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, '1fa59819-c382-4652-8c98-235379b3caa0'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('f08978fc-c9c3-49bc-89b4-30e007523dd7'::uuid, $pea0$Que tiene que empezar el trámite de nuevo.$pea0$, false, 1, $pea0$No hace falta reiniciar el trámite.$pea0$, null::int, null),
+  ('e7aaa54c-6384-42c9-893f-8be4f49cc3e6'::uuid, $pea0$Que la Universidad rectifica los datos que observó el Ministerio.$pea0$, true, 2, $pea0$Es la respuesta para Rechazado, Observado o Anulado.$pea0$, null::int, null),
+  ('1544d142-ad72-4417-84e5-bab403ed94ab'::uuid, $pea0$Que el título ya está listo para retirar.$pea0$, false, 3, $pea0$Observado no significa disponible.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = '1fa59819-c382-4652-8c98-235379b3caa0'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select 'e007d77b-9cf1-45f4-8f65-262f6f57f3a6'::uuid, 'verdadero_falso', $pea0$Si el Portal y SIDCer muestran estados distintos, vale lo que dice el Portal.$pea0$, $pea0$Si hay diferencias entre SIDCer y el Portal, siempre prevalece SIDCer.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', 'e47ef609-f913-438c-844f-ddc53f4fabe0'::uuid, null, now() + interval '1 millisecond' * 3
+where exists (select 1 from public.items where id = 'e47ef609-f913-438c-844f-ddc53f4fabe0'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '8c20971f-24fa-4481-895a-3d84f2bc0384'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = 'e007d77b-9cf1-45f4-8f65-262f6f57f3a6'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '8c20971f-24fa-4481-895a-3d84f2bc0384'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, 'e007d77b-9cf1-45f4-8f65-262f6f57f3a6'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('99b3ce91-daf7-4ee1-8ed5-e386428721df'::uuid, $pea0$Verdadero$pea0$, false, 1, null, null::int, null),
+  ('2e05f22e-32da-452c-8c4c-fb0dce37e561'::uuid, $pea0$Falso$pea0$, true, 2, null, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = 'e007d77b-9cf1-45f4-8f65-262f6f57f3a6'::uuid)
+on conflict do nothing;
+
+insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
+select 'dc4eea97-4c3c-40b7-8907-342a7799d95f'::uuid, '8c20971f-24fa-4481-895a-3d84f2bc0384'::uuid, 59, $pea0$Título intermedio$pea0$, 'leccion', a.id,
+       $pea0${"version":2,"tarjetas":[{"tipo":"caso","persona":"Micaela","canal":"mostrador","consulta":"Estoy en cuarto año de Recursos Humanos. Me dijeron que puedo tener un título de técnica antes de terminar. ¿Cómo lo pido?"},{"tipo":"preguntar","opciones":[{"texto":"¿Su carrera tiene título intermedio?","clave":true,"porque":"No todas lo tienen: se revisa en el listado."},{"texto":"¿Tiene aprobadas las materias del 1.° al 6.° semestre, con Inglés, y el EFIP I si es a distancia?","clave":true,"porque":"Son los requisitos académicos."},{"texto":"¿Pagó la tasa de Titulación Intermedia y tiene el legajo completo?","clave":true,"porque":"Sin la tasa y la documentación no se deriva."},{"texto":"¿Ya hizo la Práctica Solidaria?","clave":false,"porque":"No es requisito para el título intermedio."}]},{"tipo":"idea","titulo":"Qué necesita","texto":"La carrera tiene que tener título intermedio (por ejemplo, Recursos Humanos da Técnico Universitario en Gestión de Recursos Humanos). Necesita las materias del 1.° al 6.° semestre aprobadas, incluido Inglés, el EFIP I aprobado si cursa a distancia, la tasa de Titulación Intermedia pagada y la documentación del legajo completa. La Práctica Solidaria no es requisito.","clave":"Materias del 1.° al 6.° semestre con Inglés, EFIP I (a distancia), tasa y legajo completo.","ejemplo":"Micaela tiene que tener aprobado hasta el 6.° semestre, con Inglés, y pagar la tasa."},{"tipo":"probalo","n":1},{"tipo":"idea","titulo":"Validás y derivás","texto":"Antes de derivar, validás los requisitos académicos, el pago de la tasa, el legajo completo y que la carrera tenga título intermedio. Va por HubSpot a Operación Títulos, tipificación \"Título Intermedio\", con DNI y legajo. El visado tarda unos 7 días hábiles y la gestión del título, unos 120 días.","clave":"A Operación Títulos, \"Título Intermedio\": visado de 7 días hábiles y título en unos 120 días."},{"tipo":"probalo","n":2},{"tipo":"idea","titulo":"Si la tasa tiene más de 3 meses","texto":"El pago de la tasa vale 3 meses. Si pagó antes y el arancel cambió, primero tiene que pagar la diferencia para seguir con la gestión.","clave":"Tasa con más de 3 meses: paga la diferencia antes."},{"tipo":"probalo","n":3},{"tipo":"ojo","texto":"El listado de carreras con título intermedio se actualiza: confirmalo en el listado vigente antes de responder."},{"tipo":"cierre","resolucion":"A Micaela le confirmás que Recursos Humanos tiene título intermedio. Le revisás que tenga aprobado hasta el 6.° semestre, con Inglés, la tasa de Titulación Intermedia pagada y el legajo completo. Si cumple, derivás a Operación Títulos como \"Título Intermedio\", con DNI y legajo.","recordar":"Intermedio: requisitos, tasa y legajo; ticket a Operación Títulos."}]}$pea0$::jsonb, 'marcar_hecho'
+from public.articulos a where a.slug = $pea0$kb-32-proceso-de-titulos$pea0$ and a.alcance = 'global'
+on conflict (id) do update set orden = excluded.orden, titulo = excluded.titulo, leccion = excluded.leccion,
+  articulo_id = excluded.articulo_id
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '8c20971f-24fa-4481-895a-3d84f2bc0384'::uuid and c.estado = 'borrador');
+
+delete from public.preguntas
+where item_id = 'dc4eea97-4c3c-40b7-8907-342a7799d95f'::uuid and id not in ('f9bdcbad-d3e7-4a95-8318-c89ab207e7fb'::uuid, 'dfd445f5-5a44-4dd4-8626-f33833b5c451'::uuid, '904d37a8-0b9f-45f1-8769-24eb21e601b5'::uuid)
+  and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '8c20971f-24fa-4481-895a-3d84f2bc0384'::uuid and c.estado = 'borrador');
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select 'f9bdcbad-d3e7-4a95-8318-c89ab207e7fb'::uuid, 'opcion_multiple', $pea0$Un estudiante cumple las materias del 1.° al 6.° semestre, pero no hizo la Práctica Solidaria. ¿Puede pedir el título intermedio?$pea0$, $pea0$La Práctica Solidaria no es requisito para el título intermedio; sí lo son las materias, Inglés, el EFIP I a distancia, la tasa y el legajo.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', 'dc4eea97-4c3c-40b7-8907-342a7799d95f'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 1
+where exists (select 1 from public.items where id = 'dc4eea97-4c3c-40b7-8907-342a7799d95f'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '8c20971f-24fa-4481-895a-3d84f2bc0384'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = 'f9bdcbad-d3e7-4a95-8318-c89ab207e7fb'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '8c20971f-24fa-4481-895a-3d84f2bc0384'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, 'f9bdcbad-d3e7-4a95-8318-c89ab207e7fb'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('8a3ba78c-139a-4416-8327-b0e50735237c'::uuid, $pea0$No: primero tiene que aprobar la Práctica Solidaria.$pea0$, false, 1, $pea0$La Práctica Solidaria no es requisito para el intermedio.$pea0$, null::int, null),
+  ('83e71c3c-c185-4c70-8125-5782e207e3d9'::uuid, $pea0$Sí, si además tiene Inglés, el EFIP I (si es a distancia), la tasa pagada y el legajo completo.$pea0$, true, 2, $pea0$Son los requisitos del título intermedio.$pea0$, null::int, null),
+  ('145bdef4-531c-4753-8d0a-b5941f0808ae'::uuid, $pea0$Sí, sin ningún otro requisito.$pea0$, false, 3, $pea0$También hacen falta la tasa y el legajo completo.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = 'f9bdcbad-d3e7-4a95-8318-c89ab207e7fb'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select 'dfd445f5-5a44-4dd4-8626-f33833b5c451'::uuid, 'opcion_multiple', $pea0$¿A quién derivás el pedido de título intermedio?$pea0$, $pea0$El título intermedio va por HubSpot a Operación Títulos como "Título Intermedio", con DNI y legajo.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', 'dc4eea97-4c3c-40b7-8907-342a7799d95f'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 2
+where exists (select 1 from public.items where id = 'dc4eea97-4c3c-40b7-8907-342a7799d95f'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '8c20971f-24fa-4481-895a-3d84f2bc0384'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = 'dfd445f5-5a44-4dd4-8626-f33833b5c451'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '8c20971f-24fa-4481-895a-3d84f2bc0384'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, 'dfd445f5-5a44-4dd4-8626-f33833b5c451'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('838fc4d8-b12c-430f-8183-19825586476f'::uuid, $pea0$A Trámites, como certificado.$pea0$, false, 1, $pea0$El título intermedio no es un certificado.$pea0$, null::int, null),
+  ('96c3642b-0d5f-4eab-82b1-663f3bf4075c'::uuid, $pea0$A Operación Títulos, tipificación "Título Intermedio", con DNI y legajo.$pea0$, true, 2, $pea0$Es la derivación del título intermedio.$pea0$, null::int, null),
+  ('e41cd0aa-8173-439a-87b3-bcae04a58846'::uuid, $pea0$A Secretaría Académica, como analítico.$pea0$, false, 3, $pea0$Va a Operación Títulos.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = 'dfd445f5-5a44-4dd4-8626-f33833b5c451'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select '904d37a8-0b9f-45f1-8769-24eb21e601b5'::uuid, 'verdadero_falso', $pea0$Si pagó la tasa hace cuatro meses y el arancel aumentó, tiene que pagar la diferencia antes de seguir.$pea0$, $pea0$El pago de la tasa vale 3 meses: pasado ese plazo, abona la diferencia.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', 'dc4eea97-4c3c-40b7-8907-342a7799d95f'::uuid, null, now() + interval '1 millisecond' * 3
+where exists (select 1 from public.items where id = 'dc4eea97-4c3c-40b7-8907-342a7799d95f'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '8c20971f-24fa-4481-895a-3d84f2bc0384'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = '904d37a8-0b9f-45f1-8769-24eb21e601b5'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '8c20971f-24fa-4481-895a-3d84f2bc0384'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, '904d37a8-0b9f-45f1-8769-24eb21e601b5'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('18bcdf0a-d230-422d-84e4-fb15e424ac89'::uuid, $pea0$Verdadero$pea0$, true, 1, null, null::int, null),
+  ('9bbd157d-5329-4057-8fd4-e1bf27273c5b'::uuid, $pea0$Falso$pea0$, false, 2, null, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = '904d37a8-0b9f-45f1-8769-24eb21e601b5'::uuid)
+on conflict do nothing;
+
+insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
+select '58c7fe65-4368-4020-89ab-cf34c1685262'::uuid, '8c20971f-24fa-4481-895a-3d84f2bc0384'::uuid, 60, $pea0$Envío, retiro y duplicado del título$pea0$, 'leccion', a.id,
+       $pea0${"version":2,"tarjetas":[{"tipo":"caso","persona":"Rocío","canal":"telefono","consulta":"En SIDCer ya me dice \"Trámite Finalizado\". Vivo lejos de Córdoba: ¿me mandan el título al CAU o tengo que viajar?"},{"tipo":"preguntar","opciones":[{"texto":"¿Qué estado tiene el título en SGU?","clave":true,"porque":"Para el envío tiene que figurar \"Título Disponible para Retirar/Enviar\"."},{"texto":"¿Hace cuánto figura finalizado?","clave":true,"porque":"Con menos de 72 horas, espera el correo de finalización."},{"texto":"¿Qué CAU tiene asociado el legajo \"Activo - Egresado\"?","clave":true,"porque":"El envío va a ese CAU."},{"texto":"¿Qué promedio tuvo?","clave":false,"porque":"No cambia el envío."}]},{"tipo":"idea","titulo":"Antes de pedir el envío","texto":"No alcanza con que SIDCer diga \"Trámite Finalizado\": en SGU el título tiene que figurar \"Título Disponible para Retirar/Enviar\". Si se finalizó hace menos de 72 horas, espera el correo de finalización. Si pasaron más, se pide por HubSpot a Correo como \"Envío de Título\", con el legajo y el código del CAU asociado en SGU.","clave":"SIDCer finalizado y SGU \"Disponible para Retirar/Enviar\"; a Correo, con legajo y código de CAU.","ejemplo":"Rocío ya figura finalizada: validás SGU y su CAU antes de pedir el envío."},{"tipo":"probalo","n":1},{"tipo":"idea","titulo":"Retirar en Córdoba o recibirlo en el CAU","texto":"En Córdoba y alrededores se retira en Sede Campus, con turno; también puede retirarlo un tercero autorizado, con el DNI de los dos y la autorización certificada ante juez de paz o policía. Desde otros CAU puede retirarlo en Córdoba o pedir el envío al CAU de su legajo; después espera la fecha de envío y coordina el retiro con su CAU.","clave":"Córdoba, con turno o por un tercero autorizado; otros CAU, envío al CAU del legajo."},{"tipo":"probalo","n":2},{"tipo":"idea","titulo":"Duplicado o rectificación","texto":"Si perdió el título, se lo robaron, se destruyó o tiene un error, va a Operación Títulos como \"Duplicado/Reimpresión/Rectificación de Título\", indicando el motivo y si es el título, el analítico o ambos. La rectificación se carga en un formulario con el DNI. El duplicado lleva nota a la Rectora, denuncia policial si fue robo o extravío, el DNI y la tasa. Antes, que verifique el arancel vigente.","clave":"Duplicado o rectificación a Operación Títulos, con motivo, documento y arancel vigente."},{"tipo":"probalo","n":3},{"tipo":"ojo","texto":"Si solo tiene un legajo de CAU Virtual, el envío puede ir a las sedes habilitadas o, si no puede ir a ninguna, se consulta al CAU que pida si puede recibirlo.\nSi necesita las imágenes digitales del título, se piden antes a Operación Títulos como \"Estado de Título\"."},{"tipo":"cierre","resolucion":"A Rocío le revisás en SGU que el título figure \"Disponible para Retirar/Enviar\" y qué CAU tiene asociado su legajo. Si pasaron más de 72 horas desde la finalización, pedís el envío por HubSpot a Correo con su legajo y el código del CAU. Le explicás que espere la fecha de envío y coordine el retiro con su CAU.","recordar":"Envío: SGU disponible, más de 72 horas y ticket a Correo."}]}$pea0$::jsonb, 'marcar_hecho'
+from public.articulos a where a.slug = $pea0$kb-32-proceso-de-titulos$pea0$ and a.alcance = 'global'
+on conflict (id) do update set orden = excluded.orden, titulo = excluded.titulo, leccion = excluded.leccion,
+  articulo_id = excluded.articulo_id
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '8c20971f-24fa-4481-895a-3d84f2bc0384'::uuid and c.estado = 'borrador');
+
+delete from public.preguntas
+where item_id = '58c7fe65-4368-4020-89ab-cf34c1685262'::uuid and id not in ('5a40997c-b8fa-4314-8fde-34d0e21c190b'::uuid, '33195576-09ca-452a-873b-98593529dac4'::uuid, 'a0a88531-5b0c-467e-81a1-057790ba135b'::uuid)
+  and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '8c20971f-24fa-4481-895a-3d84f2bc0384'::uuid and c.estado = 'borrador');
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select '5a40997c-b8fa-4314-8fde-34d0e21c190b'::uuid, 'opcion_multiple', $pea0$En SIDCer el título figura "Trámite Finalizado", pero en SGU todavía no está "Disponible para Retirar/Enviar". ¿Pedís el envío?$pea0$, $pea0$Para gestionar el envío no alcanza con SIDCer: el estado en SGU tiene que ser "Título Disponible para Retirar/Enviar".$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', '58c7fe65-4368-4020-89ab-cf34c1685262'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 1
+where exists (select 1 from public.items where id = '58c7fe65-4368-4020-89ab-cf34c1685262'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '8c20971f-24fa-4481-895a-3d84f2bc0384'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = '5a40997c-b8fa-4314-8fde-34d0e21c190b'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '8c20971f-24fa-4481-895a-3d84f2bc0384'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, '5a40997c-b8fa-4314-8fde-34d0e21c190b'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('c02a1e96-c285-49fc-8e63-07a0168a177d'::uuid, $pea0$Sí: con SIDCer finalizado alcanza.$pea0$, false, 1, $pea0$No es suficiente con SIDCer.$pea0$, null::int, null),
+  ('6f2e9cfe-79b2-4cc8-82f3-67e108c73106'::uuid, $pea0$No: para el envío, SGU tiene que figurar "Título Disponible para Retirar/Enviar".$pea0$, true, 2, $pea0$Es la validación obligatoria previa.$pea0$, null::int, null),
+  ('a4086dd0-1cac-4da8-851c-331532ccce77'::uuid, $pea0$Sí, pero a Operación Títulos.$pea0$, false, 3, $pea0$El envío va a Correo, y solo con SGU disponible.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = '5a40997c-b8fa-4314-8fde-34d0e21c190b'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select '33195576-09ca-452a-873b-98593529dac4'::uuid, 'opcion_multiple', $pea0$Un egresado no puede viajar a Córdoba y quiere que retire el título su hermana. ¿Qué necesita?$pea0$, $pea0$Un tercero autorizado presenta el DNI del egresado, el suyo y la autorización certificada ante juez de paz o policía.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', '58c7fe65-4368-4020-89ab-cf34c1685262'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 2
+where exists (select 1 from public.items where id = '58c7fe65-4368-4020-89ab-cf34c1685262'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '8c20971f-24fa-4481-895a-3d84f2bc0384'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = '33195576-09ca-452a-873b-98593529dac4'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '8c20971f-24fa-4481-895a-3d84f2bc0384'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, '33195576-09ca-452a-873b-98593529dac4'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('f2b28e8f-a30f-4380-8445-2e27405d75fe'::uuid, $pea0$Nada: alcanza con que ella diga su nombre.$pea0$, false, 1, $pea0$Hace falta documentación.$pea0$, null::int, null),
+  ('1fc04ac1-1abe-4a69-889a-c20fe2b960d7'::uuid, $pea0$El DNI de los dos y la autorización del egresado certificada ante juez de paz o policía.$pea0$, true, 2, $pea0$Es lo que presenta un tercero autorizado.$pea0$, null::int, null),
+  ('dbf3d3fe-ba74-4666-8e07-f9d91a6d8d7b'::uuid, $pea0$Una constancia de la Universidad para viajar.$pea0$, false, 3, $pea0$La Universidad no emite constancias para viajar: ofrece el retiro por un tercero.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = '33195576-09ca-452a-873b-98593529dac4'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select 'a0a88531-5b0c-467e-81a1-057790ba135b'::uuid, 'verdadero_falso', $pea0$Para pedir un duplicado por un motivo que no es robo ni extravío, la denuncia policial no es obligatoria.$pea0$, $pea0$La denuncia policial solo es obligatoria por robo o extravío; el resto de la documentación se presenta igual.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', '58c7fe65-4368-4020-89ab-cf34c1685262'::uuid, null, now() + interval '1 millisecond' * 3
+where exists (select 1 from public.items where id = '58c7fe65-4368-4020-89ab-cf34c1685262'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '8c20971f-24fa-4481-895a-3d84f2bc0384'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = 'a0a88531-5b0c-467e-81a1-057790ba135b'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '8c20971f-24fa-4481-895a-3d84f2bc0384'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, 'a0a88531-5b0c-467e-81a1-057790ba135b'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('27919c8f-144a-4176-84c1-4954e8eb0e9d'::uuid, $pea0$Verdadero$pea0$, true, 1, null, null::int, null),
+  ('dc4ef7a0-f301-4be9-8aa6-c9085389404c'::uuid, $pea0$Falso$pea0$, false, 2, null, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = 'a0a88531-5b0c-467e-81a1-057790ba135b'::uuid)
+on conflict do nothing;
+
+insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
+select '16351ec9-ad77-4c76-875c-ba3805a80fc1'::uuid, '8c20971f-24fa-4481-895a-3d84f2bc0384'::uuid, 61, $pea0$Visado y validación académica$pea0$, 'leccion', a.id,
+       $pea0${"version":2,"tarjetas":[{"tipo":"caso","persona":"Tomás","canal":"whatsapp","consulta":"Ya aprobé la última materia y solo me queda el EFIP II, pero no me deja inscribirme. ¿Qué me falta?"},{"tipo":"preguntar","opciones":[{"texto":"¿Tiene todas las materias aprobadas, con el Seminario Final en Regular y las electivas?","clave":true,"porque":"Son las condiciones de la validación académica."},{"texto":"¿Hace cuánto aprobó la última materia?","clave":true,"porque":"Hay que esperar 72 horas antes de reclamar el check."},{"texto":"¿Buscaste el check de validación por legajo?","clave":true,"porque":"Se busca por legajo, no por DNI."},{"texto":"¿En qué CAU rinde?","clave":false,"porque":"No cambia la validación."}]},{"tipo":"idea","titulo":"El check de validación académica","texto":"Es una validación automática del Campus que le permite a un estudiante ED/EDH inscribirse al EFIP II y acceder al beneficio de persistencia en la matrícula. Necesita todas las materias aprobadas, el Seminario Final en Regular, las electivas y adeudar solo el EFIP II. Después de aprobar la última materia, espera 72 horas; recién ahí, si no tiene el check, va a Operación Títulos como \"Carga de validación académica\" (7 días hábiles).","clave":"Check por legajo; esperás 72 horas y, si no aparece, ticket a Operación Títulos.","ejemplo":"Tomás aprobó ayer: espera 72 horas antes de reclamar el check."},{"tipo":"probalo","n":1},{"tipo":"idea","titulo":"El visado analítico","texto":"Empieza solo cuando tiene todas las materias aprobadas, el Seminario Final en Regular y los créditos de electivas. Al iniciarse, se genera la tasa de graduación en Pago Electrónico. El visado no vence: una vez \"Completado\", no pierde validez. Durante el proceso, el estudiante recibe por mail cada paso.","clave":"Arranca solo; genera la tasa de graduación; \"Completado\" no vence."},{"tipo":"probalo","n":2},{"tipo":"idea","titulo":"Los cuatro visados","texto":"Documental: datos personales y documentación; si falta algo, la carga en el pop up del Portal. Administrativo: tasa de graduación pagada y Libre Deuda Administrativo. Biblioteca: sin material pendiente y, si corresponde, la autorización para publicar el trabajo final. Proceso CAE: trabajo final aprobado. A Operación Títulos (\"Visado Analítico\") solo van los reclamos del visado documental; los otros, a su área.","clave":"Solo el visado documental se reclama a Operación Títulos."},{"tipo":"probalo","n":3},{"tipo":"ojo","texto":"Si cursó con Beca CAU Social 100% o participó de \"Presente 21\" o \"La Universidad es Posible\", no paga la tasa de graduación: va a SOPER como \"NC Excepcional\" para facturarla bien.\nLa doble titulación tiene su propio visado: \"Visado de Analítico Doble Titulación\", a Operación Títulos."},{"tipo":"cierre","resolucion":"A Tomás le revisás que tenga todas las materias aprobadas, el Seminario Final en Regular y las electivas, y buscás el check por legajo. Si aprobó la última materia hace menos de 72 horas, le pedís que espere. Si ya pasaron y no tiene el check, derivás a Operación Títulos como \"Carga de validación académica\".","recordar":"Check por legajo, 72 horas de espera y después ticket."}]}$pea0$::jsonb, 'marcar_hecho'
+from public.articulos a where a.slug = $pea0$kb-33-visado-y-validacion-academica$pea0$ and a.alcance = 'global'
+on conflict (id) do update set orden = excluded.orden, titulo = excluded.titulo, leccion = excluded.leccion,
+  articulo_id = excluded.articulo_id
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '8c20971f-24fa-4481-895a-3d84f2bc0384'::uuid and c.estado = 'borrador');
+
+delete from public.preguntas
+where item_id = '16351ec9-ad77-4c76-875c-ba3805a80fc1'::uuid and id not in ('db07f4be-2975-44ab-8284-90467cf2debf'::uuid, 'fa6fbbc9-f121-473f-829b-619d0387521f'::uuid, 'f0f44045-6495-42c2-81d6-53f9d29bf8d7'::uuid)
+  and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '8c20971f-24fa-4481-895a-3d84f2bc0384'::uuid and c.estado = 'borrador');
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select 'db07f4be-2975-44ab-8284-90467cf2debf'::uuid, 'opcion_multiple', $pea0$Un estudiante aprobó su última materia hace un día y no tiene el check de validación académica. ¿Qué hacés?$pea0$, $pea0$Después de aprobar la última materia se esperan 72 horas para reclamar el check de validación académica.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', '16351ec9-ad77-4c76-875c-ba3805a80fc1'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 1
+where exists (select 1 from public.items where id = '16351ec9-ad77-4c76-875c-ba3805a80fc1'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '8c20971f-24fa-4481-895a-3d84f2bc0384'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = 'db07f4be-2975-44ab-8284-90467cf2debf'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '8c20971f-24fa-4481-895a-3d84f2bc0384'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, 'db07f4be-2975-44ab-8284-90467cf2debf'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('bad697a3-7d86-48dc-89da-b67ae38990cf'::uuid, $pea0$Derivás enseguida "Carga de validación académica".$pea0$, false, 1, $pea0$Primero hay que esperar 72 horas.$pea0$, null::int, null),
+  ('a2c4030a-3add-4921-8203-de154cb9261f'::uuid, $pea0$Le explicás que espere 72 horas; si después no aparece, derivás.$pea0$, true, 2, $pea0$Es el plazo antes de reclamar el check.$pea0$, null::int, null),
+  ('bc04055f-3b24-4877-8f34-333d35dcecdc'::uuid, $pea0$Le decís que se inscriba igual al EFIP II.$pea0$, false, 3, $pea0$Sin el check no puede inscribirse.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = 'db07f4be-2975-44ab-8284-90467cf2debf'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select 'fa6fbbc9-f121-473f-829b-619d0387521f'::uuid, 'opcion_multiple', $pea0$Una estudiante reclama porque su visado de biblioteca no avanza. ¿Derivás a Operación Títulos?$pea0$, $pea0$Solo los reclamos del visado documental van a Operación Títulos; los demás visados se ven con su área.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', '16351ec9-ad77-4c76-875c-ba3805a80fc1'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 2
+where exists (select 1 from public.items where id = '16351ec9-ad77-4c76-875c-ba3805a80fc1'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '8c20971f-24fa-4481-895a-3d84f2bc0384'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = 'fa6fbbc9-f121-473f-829b-619d0387521f'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '8c20971f-24fa-4481-895a-3d84f2bc0384'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, 'fa6fbbc9-f121-473f-829b-619d0387521f'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('eaa9b2b2-1d76-448f-8d82-18243a37d63c'::uuid, $pea0$Sí, como "Visado Analítico".$pea0$, false, 1, $pea0$A Operación Títulos solo van los reclamos del visado documental.$pea0$, null::int, null),
+  ('642eae3f-2669-45fb-8a97-487bfcbe96a2'::uuid, $pea0$No: el visado de biblioteca se ve con su área.$pea0$, true, 2, $pea0$Cada visado, salvo el documental, se gestiona con el área correspondiente.$pea0$, null::int, null),
+  ('340238c8-8279-4a12-8ae1-5658a7e0e846'::uuid, $pea0$Sí, como "Estado de Títulos".$pea0$, false, 3, $pea0$Esa tipificación es para el estado del título.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = 'fa6fbbc9-f121-473f-829b-619d0387521f'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select 'f0f44045-6495-42c2-81d6-53f9d29bf8d7'::uuid, 'verdadero_falso', $pea0$Un visado analítico "Completado" vence si el estudiante tarda en rendir.$pea0$, $pea0$El visado no tiene fecha de vencimiento: una vez completado, no pierde validez.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', '16351ec9-ad77-4c76-875c-ba3805a80fc1'::uuid, null, now() + interval '1 millisecond' * 3
+where exists (select 1 from public.items where id = '16351ec9-ad77-4c76-875c-ba3805a80fc1'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '8c20971f-24fa-4481-895a-3d84f2bc0384'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = 'f0f44045-6495-42c2-81d6-53f9d29bf8d7'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '8c20971f-24fa-4481-895a-3d84f2bc0384'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, 'f0f44045-6495-42c2-81d6-53f9d29bf8d7'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('840e2fb3-b253-4646-8298-0fdb328d8ec3'::uuid, $pea0$Verdadero$pea0$, false, 1, null, null::int, null),
+  ('b134faa4-4053-4066-892b-9100c741dbb5'::uuid, $pea0$Falso$pea0$, true, 2, null, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = 'f0f44045-6495-42c2-81d6-53f9d29bf8d7'::uuid)
+on conflict do nothing;
+
+insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
+select '2c27af5d-732c-4175-8d42-1a9bc9c8e940'::uuid, '8c20971f-24fa-4481-895a-3d84f2bc0384'::uuid, 62, $pea0$Colación: inscripción y el día del acto$pea0$, 'leccion', a.id,
+       $pea0${"version":2,"tarjetas":[{"tipo":"caso","persona":"Daniela","canal":"telefono","consulta":"Egresé de Abogacía y no me llegó la invitación a la colación. ¿Puedo ir igual? ¿Cuántas personas puedo llevar?"},{"tipo":"preguntar","opciones":[{"texto":"¿Egresó dentro del período de esa colación?","clave":true,"porque":"Es el primer requisito."},{"texto":"¿Tiene el legajo completo, con la documentación obligatoria?","clave":true,"porque":"Con documentación pendiente no puede participar."},{"texto":"¿Su correo está actualizado en los datos personales?","clave":true,"porque":"La invitación llega por mail."},{"texto":"¿Qué nota tuvo en el trabajo final?","clave":false,"porque":"No es un requisito."}]},{"tipo":"idea","titulo":"Quién participa y cómo se inscribe","texto":"Participan quienes egresaron dentro del período de esa colación y tienen el legajo completo, con toda la documentación obligatoria. La inscripción es obligatoria, para organizar el acto y acreditar a cada egresado. Si no recibió la invitación y cumple los requisitos, va por HubSpot a Títulos como \"Colación\": el área decide si lo cita.","clave":"Egreso en el período, legajo completo e inscripción; sin invitación, ticket \"Colación\".","ejemplo":"Daniela: validás egreso, legajo y correo antes de derivar \"Colación\"."},{"tipo":"probalo","n":1},{"tipo":"idea","titulo":"El día del acto","texto":"Grado se presenta 2 horas antes para acreditarse; pregrado, 1 hora y 30 minutos antes. Lleva el DNI (o la constancia de DNI en trámite). Puede ir con hasta 3 acompañantes. La vestimenta es elegante sport: grado y posgrado reciben toga y birrete en préstamo con el DNI; pregrado va con ropa formal.","clave":"Grado 2 horas antes, pregrado 1:30; DNI y hasta 3 acompañantes."},{"tipo":"probalo","n":2},{"tipo":"idea","titulo":"Título simbólico, asistencia y baja","texto":"En el acto recibe un título simbólico. Si su título ya está finalizado, puede retirarlo esa semana en el Campus, con turno. El certificado de asistencia se pide en la acreditación y llega con firma digital dentro de los 5 días hábiles. Si se inscribió y no puede ir, pide la baja desde el formulario.","clave":"Diploma simbólico; certificado de asistencia en la acreditación; baja por formulario."},{"tipo":"probalo","n":3},{"tipo":"ojo","texto":"Validá los requisitos antes de confirmarle a alguien que puede participar.\nLas fechas, la sede y los plazos de documentación cambian en cada colación: confirmalos en la información vigente."},{"tipo":"cierre","resolucion":"A Daniela le revisás que haya egresado dentro del período, que tenga el legajo completo y el correo actualizado. Si cumple, derivás a Títulos como \"Colación\" para que la citen si corresponde. Le contás que puede ir con hasta 3 acompañantes y que, como es de grado, tiene que llegar 2 horas antes con su DNI.","recordar":"Validás requisitos antes de confirmar; sin invitación, ticket \"Colación\"."}]}$pea0$::jsonb, 'marcar_hecho'
+from public.articulos a where a.slug = $pea0$kb-01-colaciones-2026$pea0$ and a.alcance = 'global'
+on conflict (id) do update set orden = excluded.orden, titulo = excluded.titulo, leccion = excluded.leccion,
+  articulo_id = excluded.articulo_id
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '8c20971f-24fa-4481-895a-3d84f2bc0384'::uuid and c.estado = 'borrador');
+
+delete from public.preguntas
+where item_id = '2c27af5d-732c-4175-8d42-1a9bc9c8e940'::uuid and id not in ('01d850c7-5bbd-498e-85ab-90cb7e9a3010'::uuid, 'f9572b20-e12b-452a-82f5-aa032ff8c69f'::uuid, '4f5cc032-e5d6-43db-80e5-88dba4de86da'::uuid)
+  and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '8c20971f-24fa-4481-895a-3d84f2bc0384'::uuid and c.estado = 'borrador');
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select '01d850c7-5bbd-498e-85ab-90cb7e9a3010'::uuid, 'opcion_multiple', $pea0$Un egresado cumple los requisitos de colación pero no recibió la invitación. ¿Qué hacés?$pea0$, $pea0$Si cumple los requisitos y no recibió la invitación, se deriva a Títulos con la tipificación "Colación".$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', '2c27af5d-732c-4175-8d42-1a9bc9c8e940'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 1
+where exists (select 1 from public.items where id = '2c27af5d-732c-4175-8d42-1a9bc9c8e940'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '8c20971f-24fa-4481-895a-3d84f2bc0384'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = '01d850c7-5bbd-498e-85ab-90cb7e9a3010'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '8c20971f-24fa-4481-895a-3d84f2bc0384'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, '01d850c7-5bbd-498e-85ab-90cb7e9a3010'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('709b96f6-9cab-413d-8e9b-8a5e8176fd41'::uuid, $pea0$Le confirmás que puede ir.$pea0$, false, 1, $pea0$No se confirma la participación sin que Títulos lo cite.$pea0$, null::int, null),
+  ('ff8fac60-2256-40ba-8be1-eb533332a47b'::uuid, $pea0$Verificás su correo y derivás a Títulos como "Colación".$pea0$, true, 2, $pea0$El área lo cita si corresponde.$pea0$, null::int, null),
+  ('8f14ebaf-f3f2-4782-85e8-fabaa7a7dd08'::uuid, $pea0$Le decís que espere a la próxima colación.$pea0$, false, 3, $pea0$Si cumple los requisitos, se deriva.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = '01d850c7-5bbd-498e-85ab-90cb7e9a3010'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select 'f9572b20-e12b-452a-82f5-aa032ff8c69f'::uuid, 'opcion_multiple', $pea0$Una egresada de pregrado pregunta cuándo llegar y qué ponerse. ¿Qué le decís?$pea0$, $pea0$Pregrado se presenta 1 hora y 30 minutos antes y va con ropa formal; toga y birrete son para grado y posgrado.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', '2c27af5d-732c-4175-8d42-1a9bc9c8e940'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 2
+where exists (select 1 from public.items where id = '2c27af5d-732c-4175-8d42-1a9bc9c8e940'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '8c20971f-24fa-4481-895a-3d84f2bc0384'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = 'f9572b20-e12b-452a-82f5-aa032ff8c69f'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '8c20971f-24fa-4481-895a-3d84f2bc0384'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, 'f9572b20-e12b-452a-82f5-aa032ff8c69f'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('2ca22719-8496-4b2e-83f8-c6e2cb43400b'::uuid, $pea0$2 horas antes; le dan toga y birrete.$pea0$, false, 1, $pea0$Eso es para grado.$pea0$, null::int, null),
+  ('ce0bcbe5-9054-4560-86c3-195f46413db5'::uuid, $pea0$1 hora y 30 minutos antes, con ropa formal: en pregrado no se entrega vestimenta de colación.$pea0$, true, 2, $pea0$Es lo que corresponde a pregrado.$pea0$, null::int, null),
+  ('8a8e62a4-c6d3-4028-8499-edeeb646a058'::uuid, $pea0$A la hora del acto, con cualquier ropa.$pea0$, false, 3, $pea0$Hay que acreditarse antes y el código es elegante sport.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = 'f9572b20-e12b-452a-82f5-aa032ff8c69f'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select '4f5cc032-e5d6-43db-80e5-88dba4de86da'::uuid, 'verdadero_falso', $pea0$Un egresado con documentación pendiente en el legajo puede participar de la colación.$pea0$, $pea0$Con documentación pendiente no puede participar hasta regularizar su situación.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', '2c27af5d-732c-4175-8d42-1a9bc9c8e940'::uuid, null, now() + interval '1 millisecond' * 3
+where exists (select 1 from public.items where id = '2c27af5d-732c-4175-8d42-1a9bc9c8e940'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '8c20971f-24fa-4481-895a-3d84f2bc0384'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = '4f5cc032-e5d6-43db-80e5-88dba4de86da'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '8c20971f-24fa-4481-895a-3d84f2bc0384'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, '4f5cc032-e5d6-43db-80e5-88dba4de86da'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('0607f606-08cf-4efc-8aee-b90b4a9d76f1'::uuid, $pea0$Verdadero$pea0$, false, 1, null, null::int, null),
+  ('3b1d03d4-4e7b-42b8-8428-0d75aaa06f33'::uuid, $pea0$Falso$pea0$, true, 2, null, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = '4f5cc032-e5d6-43db-80e5-88dba4de86da'::uuid)
+on conflict do nothing;
