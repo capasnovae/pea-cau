@@ -5074,3 +5074,307 @@ select x.id, 'edee0266-0091-4de4-88be-59791e264a49'::uuid, x.texto, x.correcta, 
 ) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
 where exists (select 1 from public.preguntas where id = 'edee0266-0091-4de4-88be-59791e264a49'::uuid)
 on conflict do nothing;
+
+insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
+select 'b26c4a8d-416d-4ed4-82f6-081d74be8695'::uuid, 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid, 67, $pea0$Inscripción por excepción a materias$pea0$, 'leccion', a.id,
+       $pea0${"version":2,"tarjetas":[{"tipo":"caso","persona":"Agustina","canal":"whatsapp","consulta":"Quiero inscribirme a una materia del período B pero el Portal no me deja. Pagué el ticket A. ¿Me podés anotar vos?"},{"tipo":"preguntar","opciones":[{"texto":"¿Tiene el ticket B pagado y acreditado?","clave":true,"porque":"Para el período B no alcanza con el ticket A."},{"texto":"¿Cumple las correlativas directas e indirectas?","clave":true,"porque":"Se revisan en Campus Virtual, Inscripción a Materias, Correlativas."},{"texto":"¿La materia tiene apertura en la matriz?","clave":true,"porque":"Sin apertura no hay inscripción por excepción."},{"texto":"¿Qué nota sacó en la última materia?","clave":false,"porque":"No cambia la inscripción."}]},{"tipo":"idea","titulo":"Lo que validás siempre","texto":"El pago tiene que estar facturado; para el período B, el ticket B pagado y acreditado. Revisás las correlativas directas e indirectas y la apertura en la matriz. Si tiene apertura y hay un problema del sistema, se gestiona; si no tiene apertura, se pide una apertura por excepción con el formulario de Planificación Académica.","clave":"Pago facturado (ticket B para el período B), correlativas y apertura en la matriz.","ejemplo":"Agustina solo pagó el ticket A: no se gestiona la inscripción al período B."},{"tipo":"probalo","n":1},{"tipo":"idea","titulo":"Lo que no es excepción","texto":"No es excepción si tiene equivalencias pendientes: el trámite tiene que estar terminado. No se derivan pedidos de inscripción de ingresantes a Operativo SOA. Nadie se inscribe a materias de 4.° cuatrimestre en adelante sin las materias de Universitario 21 aprobadas. Y si tiene una materia Regular habilitada en el período, se reinscribe sola desde el Portal.","clave":"Sin equivalencias pendientes, sin ingresantes y con Universitario 21 aprobado desde el 4.° cuatrimestre."},{"tipo":"probalo","n":2},{"tipo":"idea","titulo":"A quién va","texto":"A distancia: por HubSpot a Gestiones N2, como \"Inscripción por excepción a materias\" por motivos académicos o administrativos, con DNI, legajo y código de materia; 3 días hábiles. Presencial (P y PH): si no hay cátedras disponibles o la materia figura no habilitada, pero tiene apertura, va a Planificación Académica como \"Ampliación de cupos de materias P y PH\", con carrera, plan y materia; 72 horas hábiles.","clave":"Distancia, Gestiones N2; presencial, ampliación de cupos a Planificación Académica."},{"tipo":"probalo","n":3},{"tipo":"ojo","texto":"No se inscribe a nadie dando por hecho que le van a otorgar las equivalencias."},{"tipo":"cierre","resolucion":"A Agustina le explicás que para inscribirse a una materia del período B necesita el ticket B pagado y acreditado. Cuando lo tenga, revisás las correlativas y la apertura de la materia. Si el Portal sigue sin dejarla, derivás a Gestiones N2 como inscripción por excepción, con DNI, legajo y código de materia.","recordar":"Pago, correlativas y apertura; después, Gestiones N2."}]}$pea0$::jsonb, 'marcar_hecho'
+from public.articulos a where a.slug = $pea0$kb-41-inscripciones-a-materias-gestiones-y-derivaciones$pea0$ and a.alcance = 'global'
+on conflict (id) do update set orden = excluded.orden, titulo = excluded.titulo, leccion = excluded.leccion,
+  articulo_id = excluded.articulo_id
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
+
+delete from public.preguntas
+where item_id = 'b26c4a8d-416d-4ed4-82f6-081d74be8695'::uuid and id not in ('70d7cdca-3dcc-4ace-8a58-7a0a8f6f811a'::uuid, '5f1517c1-b0c4-4c2c-8188-e83a652136e6'::uuid, '26ad8907-d1d7-4608-8319-abb2f88b4b55'::uuid)
+  and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select '70d7cdca-3dcc-4ace-8a58-7a0a8f6f811a'::uuid, 'opcion_multiple', $pea0$Un estudiante tiene el trámite de equivalencias en curso y pide inscribirse a una materia que depende de esas equivalencias. ¿Qué hacés?$pea0$, $pea0$Con equivalencias pendientes no hay inscripción por excepción: el trámite tiene que estar finalizado.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', 'b26c4a8d-416d-4ed4-82f6-081d74be8695'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 1
+where exists (select 1 from public.items where id = 'b26c4a8d-416d-4ed4-82f6-081d74be8695'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = '70d7cdca-3dcc-4ace-8a58-7a0a8f6f811a'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, '70d7cdca-3dcc-4ace-8a58-7a0a8f6f811a'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('fd32abc6-6b8c-487a-89e3-22fb3fa7133d'::uuid, $pea0$Lo inscribís por excepción: seguro se las otorgan.$pea0$, false, 1, $pea0$No se inscribe asumiendo que se otorgarán.$pea0$, null::int, null),
+  ('e9eafae5-a244-4933-8b43-2a7980040e0e'::uuid, $pea0$Le explicás que primero tiene que terminar el trámite de equivalencias.$pea0$, true, 2, $pea0$Con equivalencias pendientes no hay excepción.$pea0$, null::int, null),
+  ('820d3464-71ce-46f1-8cf7-30a7e1bb8c8b'::uuid, $pea0$Derivás a Operativo SOA.$pea0$, false, 3, $pea0$No corresponde mientras esté pendiente.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = '70d7cdca-3dcc-4ace-8a58-7a0a8f6f811a'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select '5f1517c1-b0c4-4c2c-8188-e83a652136e6'::uuid, 'opcion_multiple', $pea0$Una estudiante de modalidad presencial no encuentra cátedras disponibles para una materia que tiene apertura. ¿Qué hacés?$pea0$, $pea0$En P y PH, si no hay cátedras y la materia tiene apertura, se pide ampliación de cupos a Planificación Académica.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', 'b26c4a8d-416d-4ed4-82f6-081d74be8695'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 2
+where exists (select 1 from public.items where id = 'b26c4a8d-416d-4ed4-82f6-081d74be8695'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = '5f1517c1-b0c4-4c2c-8188-e83a652136e6'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, '5f1517c1-b0c4-4c2c-8188-e83a652136e6'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('5bd5515d-52be-4ab7-832d-6d62a85162b3'::uuid, $pea0$La derivás a Gestiones N2 como inscripción por excepción.$pea0$, false, 1, $pea0$En presencial corresponde ampliación de cupos.$pea0$, null::int, null),
+  ('a18e5490-0a79-4d12-8179-b27323a52216'::uuid, $pea0$Validás las correlativas y pedís a Planificación Académica la ampliación de cupos.$pea0$, true, 2, $pea0$Es la gestión para P y PH con apertura vigente.$pea0$, null::int, null),
+  ('9b32585c-f2eb-4bfa-8b1e-aae9e5374dd4'::uuid, $pea0$Le decís que espere al próximo período.$pea0$, false, 3, $pea0$Si tiene apertura, se puede pedir la ampliación.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = '5f1517c1-b0c4-4c2c-8188-e83a652136e6'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select '26ad8907-d1d7-4608-8319-abb2f88b4b55'::uuid, 'verdadero_falso', $pea0$Un estudiante sin las materias de Universitario 21 aprobadas puede inscribirse por excepción a una materia de 5.° cuatrimestre.$pea0$, $pea0$Es un bloqueo estricto: sin Universitario 21 aprobado, nadie se inscribe a materias del 4.° cuatrimestre en adelante.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', 'b26c4a8d-416d-4ed4-82f6-081d74be8695'::uuid, null, now() + interval '1 millisecond' * 3
+where exists (select 1 from public.items where id = 'b26c4a8d-416d-4ed4-82f6-081d74be8695'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = '26ad8907-d1d7-4608-8319-abb2f88b4b55'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, '26ad8907-d1d7-4608-8319-abb2f88b4b55'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('f01ea870-eda5-4cd6-8f03-96c18f360486'::uuid, $pea0$Verdadero$pea0$, false, 1, null, null::int, null),
+  ('3980c695-9eaa-4d98-83a0-a01a1c94a7f1'::uuid, $pea0$Falso$pea0$, true, 2, null, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = '26ad8907-d1d7-4608-8319-abb2f88b4b55'::uuid)
+on conflict do nothing;
+
+insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
+select 'bdae8b26-2388-4cc3-87d0-786b704de122'::uuid, 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid, 68, $pea0$Anular una inscripción y renunciar a la regularidad$pea0$, 'leccion', a.id,
+       $pea0${"version":2,"tarjetas":[{"tipo":"caso","persona":"Nicolás","canal":"mostrador","consulta":"Me anoté a una materia que no voy a poder cursar y quiero sacarla. Y otra que tengo Regular la quiero volver a cursar de cero. ¿Se puede?"},{"tipo":"preguntar","opciones":[{"texto":"¿Seguimos en el período de inscripción?","clave":true,"porque":"Si es así, la anula él desde el Portal."},{"texto":"¿Tiene actividad académica en esa materia (TP o parciales)?","clave":true,"porque":"Con actividad, la anulación cambia de circuito."},{"texto":"¿Cumple las correlativas para reinscribirse en la materia Regular?","clave":true,"porque":"Sin eso, el sistema no le deja renunciar."},{"texto":"¿Qué profesor tiene?","clave":false,"porque":"No cambia el trámite."}]},{"tipo":"idea","titulo":"Anular una inscripción","texto":"Dentro del período de inscripción, la anula el estudiante desde el Portal. Después, si no tiene actividad académica, va por HubSpot a Gestiones N2 como \"Anulación inscripción de materias\", con legajo y las materias con sus códigos; 3 días hábiles. Un 0 o un ausente en un parcial no cuentan como actividad. Con actividad académica, solo lo pide SOPER y si tiene aplicada la garantía de adaptación.","clave":"En período, desde el Portal; después, sin actividad, a Gestiones N2.","ejemplo":"Nicolás todavía no entregó nada: si ya cerró la inscripción, derivás a Gestiones N2."},{"tipo":"probalo","n":1},{"tipo":"idea","titulo":"Renunciar a la regularidad","texto":"Es 100 % autogestiva y no se deriva: solo creás la tipificación \"Renuncia de Regularidad de Materia\" para dejar registro de que lo asesoraste. En el Portal: Materias, Inscripción a Materias, pestaña Habilitadas, elige la materia Regular, \"Inscribirme\", ingresa el código de conformidad y \"Dar de baja\". El sistema solo lo deja si cumple las condiciones para reinscribirse en ese momento.","clave":"Autogestiva; vos solo registrás la tipificación."},{"tipo":"probalo","n":2},{"tipo":"idea","titulo":"Es irreversible","texto":"La baja se completa recién cuando se confirma la nueva inscripción; si no, la materia sigue en Habilitadas. Una vez hecha, no se puede volver atrás. Si no cumple los requisitos, ve el mensaje \"No puede continuar con el proceso de baja regularidad\".","clave":"Irreversible: avisale antes de que confirme."},{"tipo":"probalo","n":3},{"tipo":"ojo","texto":"Antes de que renuncie, contale que pierde la regularidad para siempre."},{"tipo":"cierre","resolucion":"A Nicolás le explicás que, si el período de inscripción sigue abierto, anula la materia desde su Portal; si ya cerró y no tiene actividad académica, lo derivás a Gestiones N2. Para la materia Regular, le mostrás cómo renunciar desde Habilitadas, le avisás que es irreversible y dejás registro con la tipificación.","recordar":"Anulación por Portal o Gestiones N2; renuncia, autogestiva e irreversible."}]}$pea0$::jsonb, 'marcar_hecho'
+from public.articulos a where a.slug = $pea0$kb-41-inscripciones-a-materias-gestiones-y-derivaciones$pea0$ and a.alcance = 'global'
+on conflict (id) do update set orden = excluded.orden, titulo = excluded.titulo, leccion = excluded.leccion,
+  articulo_id = excluded.articulo_id
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
+
+delete from public.preguntas
+where item_id = 'bdae8b26-2388-4cc3-87d0-786b704de122'::uuid and id not in ('16fb80dc-acd2-41a1-8aaa-60ee070c6513'::uuid, 'e2a0ecff-173c-4925-8488-9c2078cd52d5'::uuid, '65859437-d538-4d0e-8364-56a12ab32e9a'::uuid)
+  and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select '16fb80dc-acd2-41a1-8aaa-60ee070c6513'::uuid, 'opcion_multiple', $pea0$Un estudiante quiere anular una materia fuera del período de inscripción y tiene un 0 en el primer parcial. ¿Qué hacés?$pea0$, $pea0$Un 0 o un ausente en un parcial no se consideran actividad académica: se deriva a Gestiones N2.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', 'bdae8b26-2388-4cc3-87d0-786b704de122'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 1
+where exists (select 1 from public.items where id = 'bdae8b26-2388-4cc3-87d0-786b704de122'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = '16fb80dc-acd2-41a1-8aaa-60ee070c6513'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, '16fb80dc-acd2-41a1-8aaa-60ee070c6513'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('5964bc4e-fb7b-4fe7-86f2-c4a7793b8349'::uuid, $pea0$Le decís que no se puede: ya tiene actividad académica.$pea0$, false, 1, $pea0$Un 0 no cuenta como actividad para este trámite.$pea0$, null::int, null),
+  ('deafb5dd-4c59-4c6e-88b8-9fa9adc3d310'::uuid, $pea0$Derivás a Gestiones N2 como "Anulación inscripción de materias".$pea0$, true, 2, $pea0$Sin actividad académica, se deriva directamente.$pea0$, null::int, null),
+  ('9e2b503c-dfad-46a9-8719-e65db1ef1e65'::uuid, $pea0$Lo derivás a SOPER.$pea0$, false, 3, $pea0$SOPER interviene solo con actividad académica y garantía de adaptación.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = '16fb80dc-acd2-41a1-8aaa-60ee070c6513'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select 'e2a0ecff-173c-4925-8488-9c2078cd52d5'::uuid, 'opcion_multiple', $pea0$Una estudiante quiere renunciar a la regularidad de una materia. ¿Qué hacés?$pea0$, $pea0$La renuncia de regularidad es 100 % autogestiva; el asesor solo registra la tipificación.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', 'bdae8b26-2388-4cc3-87d0-786b704de122'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 2
+where exists (select 1 from public.items where id = 'bdae8b26-2388-4cc3-87d0-786b704de122'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = 'e2a0ecff-173c-4925-8488-9c2078cd52d5'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, 'e2a0ecff-173c-4925-8488-9c2078cd52d5'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('bdccb8ff-2188-4aa3-8d66-f6ec6fd745a3'::uuid, $pea0$Derivás a Operativo SOA.$pea0$, false, 1, $pea0$No corresponde derivar.$pea0$, null::int, null),
+  ('8a8411b6-e99f-4c46-8709-57ec2d6bd955'::uuid, $pea0$Le explicás el paso a paso en el Portal y creás la tipificación solo para dejar registro.$pea0$, true, 2, $pea0$La renuncia es autogestiva.$pea0$, null::int, null),
+  ('cf664723-46a2-44e2-8c7d-58f7140fe74e'::uuid, $pea0$La das de baja vos desde SGU.$pea0$, false, 3, $pea0$La hace el estudiante desde su Portal.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = 'e2a0ecff-173c-4925-8488-9c2078cd52d5'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select '65859437-d538-4d0e-8364-56a12ab32e9a'::uuid, 'verdadero_falso', $pea0$Si un estudiante renuncia a la regularidad y se arrepiente, puede recuperarla.$pea0$, $pea0$La renuncia de regularidad es irreversible.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', 'bdae8b26-2388-4cc3-87d0-786b704de122'::uuid, null, now() + interval '1 millisecond' * 3
+where exists (select 1 from public.items where id = 'bdae8b26-2388-4cc3-87d0-786b704de122'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = '65859437-d538-4d0e-8364-56a12ab32e9a'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, '65859437-d538-4d0e-8364-56a12ab32e9a'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('7c443f6b-74a5-4f72-8095-a9e605043076'::uuid, $pea0$Verdadero$pea0$, false, 1, null, null::int, null),
+  ('06655068-427e-4980-8c92-0ee6fd9b340c'::uuid, $pea0$Falso$pea0$, true, 2, null, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = '65859437-d538-4d0e-8364-56a12ab32e9a'::uuid)
+on conflict do nothing;
+
+insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
+select 'e7ba9bbb-2563-4d0a-8ce4-14b453156b3a'::uuid, 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid, 69, $pea0$Extensión de regularidad y condición de materias$pea0$, 'leccion', a.id,
+       $pea0${"version":2,"tarjetas":[{"tipo":"caso","persona":"Valeria","canal":"telefono","consulta":"Terminó el cursado ayer y la materia me sigue figurando como \"Cursando\". Además se me vence la regularidad de otra porque estuve internada. ¿Qué hago?"},{"tipo":"preguntar","opciones":[{"texto":"¿Cuándo terminó el período de cursado?","clave":true,"porque":"El reproceso automático tarda 72 horas."},{"texto":"¿Tiene un certificado que respalde el motivo?","clave":true,"porque":"La extensión de regularidad lo necesita."},{"texto":"¿Cumple las correlativas, tiene el pago hecho y no tiene sanciones?","clave":true,"porque":"Se validan antes de pedir una revisión de condición."},{"texto":"¿En qué turno cursa?","clave":false,"porque":"No cambia el trámite."}]},{"tipo":"idea","titulo":"El reproceso tarda 72 horas","texto":"La condición de las materias se reprocesa sola a las 72 horas del fin del cursado: no se pide antes. Pasado ese plazo, si no cambió, va a Operativo SOA como \"Condición de materia de proceso\" o como \"Revisión condición de materia\" de su modalidad (virtual, presencial home o presencial), con legajo, materia, semestre y motivo; 3 días hábiles.","clave":"Esperás 72 horas desde el fin del cursado; después, Operativo SOA.","ejemplo":"Valeria terminó ayer: le pedís que espere las 72 horas."},{"tipo":"probalo","n":1},{"tipo":"idea","titulo":"Qué validás antes","texto":"Revisás las correlativas directas e indirectas, que el pago del semestre esté hecho y que no tenga sanciones. A distancia (ED), también la asistencia a las open class; en presencial, el 75 % de asistencia y que no haya cátedras duplicadas. En las materias de proceso, como las prácticas, aprobar depende de las correlativas. El reproceso de Idioma va a SGEA.","clave":"Correlativas, pago y sanciones; Idioma, a SGEA."},{"tipo":"probalo","n":2},{"tipo":"idea","titulo":"Extensión de regularidad","texto":"Si por un motivo de fuerza mayor (una enfermedad crónica, un fallecimiento) se le vence la regularidad, va a Operativo SOA como \"Extensión de regularidad de materia\", con legajo, materia, el motivo y el certificado; 5 días hábiles. Aplica a todas las materias salvo el Trabajo Final de Grado. Para el Seminario Final, además, hace falta la aprobación del director de carrera y el plazo autorizado.","clave":"Con certificado, a Operativo SOA; no se promete, SOA analiza cada caso."},{"tipo":"probalo","n":3},{"tipo":"ojo","texto":"Las inconsistencias en las asistencias no se derivan a SOA."},{"tipo":"cierre","resolucion":"A Valeria le explicás que la condición se reprocesa sola a las 72 horas del fin del cursado: si después sigue igual, lo derivás a Operativo SOA. Para la otra materia, con el certificado de la internación, pedís la extensión de regularidad, aclarándole que SOA analiza cada caso y que no está garantizada.","recordar":"72 horas para el reproceso; extensión con certificado, sin prometer."}]}$pea0$::jsonb, 'marcar_hecho'
+from public.articulos a where a.slug = $pea0$kb-41-inscripciones-a-materias-gestiones-y-derivaciones$pea0$ and a.alcance = 'global'
+on conflict (id) do update set orden = excluded.orden, titulo = excluded.titulo, leccion = excluded.leccion,
+  articulo_id = excluded.articulo_id
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
+
+delete from public.preguntas
+where item_id = 'e7ba9bbb-2563-4d0a-8ce4-14b453156b3a'::uuid and id not in ('74b75f5e-3b85-4424-8314-c3ed9ec1d3d6'::uuid, '3e58d14f-220e-45a4-8d0c-0fd80ba606f2'::uuid, 'f07bbb4b-c37d-4a6b-8c4d-07ddd4fe9deb'::uuid)
+  and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select '74b75f5e-3b85-4424-8314-c3ed9ec1d3d6'::uuid, 'opcion_multiple', $pea0$Un estudiante pide que le reprocesen una materia el mismo día que terminó el cursado. ¿Qué le decís?$pea0$, $pea0$El reproceso automático demora 72 horas desde el fin del cursado; no se pide antes.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', 'e7ba9bbb-2563-4d0a-8ce4-14b453156b3a'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 1
+where exists (select 1 from public.items where id = 'e7ba9bbb-2563-4d0a-8ce4-14b453156b3a'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = '74b75f5e-3b85-4424-8314-c3ed9ec1d3d6'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, '74b75f5e-3b85-4424-8314-c3ed9ec1d3d6'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('b6765c64-9ff8-4df7-86df-2e150bdd0c81'::uuid, $pea0$Derivás enseguida a Operativo SOA.$pea0$, false, 1, $pea0$No corresponde pedir un reproceso anticipado.$pea0$, null::int, null),
+  ('bd101b91-d5af-4de5-80c6-01e378758136'::uuid, $pea0$Que el reproceso automático tarda 72 horas desde el fin del cursado.$pea0$, true, 2, $pea0$Recién después, si no cambió, se deriva.$pea0$, null::int, null),
+  ('ee547269-8b7a-4a28-8f81-8a499beac8b8'::uuid, $pea0$Que lo pida a SGEA.$pea0$, false, 3, $pea0$SGEA solo para el reproceso de Idioma.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = '74b75f5e-3b85-4424-8314-c3ed9ec1d3d6'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select '3e58d14f-220e-45a4-8d0c-0fd80ba606f2'::uuid, 'opcion_multiple', $pea0$Una estudiante pide extensión de regularidad por un problema de salud. ¿Qué le decís?$pea0$, $pea0$La extensión de regularidad va a Operativo SOA con el motivo y el certificado; no se promete el resultado.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', 'e7ba9bbb-2563-4d0a-8ce4-14b453156b3a'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 2
+where exists (select 1 from public.items where id = 'e7ba9bbb-2563-4d0a-8ce4-14b453156b3a'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = '3e58d14f-220e-45a4-8d0c-0fd80ba606f2'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, '3e58d14f-220e-45a4-8d0c-0fd80ba606f2'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('bc2e4980-4632-4269-8512-3469c0e01c2b'::uuid, $pea0$Que se la van a dar seguro.$pea0$, false, 1, $pea0$No se promete: SOA analiza cada situación.$pea0$, null::int, null),
+  ('020020f0-d145-4ce4-8645-6c1870f0d12f'::uuid, $pea0$Que la pedís a Operativo SOA con el certificado, y que SOA analiza cada caso.$pea0$, true, 2, $pea0$Es la derivación de la extensión de regularidad.$pea0$, null::int, null),
+  ('ca2704d4-4295-406e-8492-430a2c8249d2'::uuid, $pea0$Que no existe esa posibilidad.$pea0$, false, 3, $pea0$Existe, con un motivo y su certificado.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = '3e58d14f-220e-45a4-8d0c-0fd80ba606f2'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select 'f07bbb4b-c37d-4a6b-8c4d-07ddd4fe9deb'::uuid, 'verdadero_falso', $pea0$La extensión de regularidad se puede pedir para el Trabajo Final de Grado.$pea0$, $pea0$Aplica a todas las materias excepto el Trabajo Final de Grado.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', 'e7ba9bbb-2563-4d0a-8ce4-14b453156b3a'::uuid, null, now() + interval '1 millisecond' * 3
+where exists (select 1 from public.items where id = 'e7ba9bbb-2563-4d0a-8ce4-14b453156b3a'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = 'f07bbb4b-c37d-4a6b-8c4d-07ddd4fe9deb'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, 'f07bbb4b-c37d-4a6b-8c4d-07ddd4fe9deb'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('a48be85f-dfeb-4320-8a73-6226c0e46714'::uuid, $pea0$Verdadero$pea0$, false, 1, null, null::int, null),
+  ('fc1742f4-0be7-445d-8b64-3bc8a5447c84'::uuid, $pea0$Falso$pea0$, true, 2, null, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = 'f07bbb4b-c37d-4a6b-8c4d-07ddd4fe9deb'::uuid)
+on conflict do nothing;
+
+insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
+select 'aaff678b-01ec-48a1-84e4-489863fbf21b'::uuid, 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid, 70, $pea0$Reclamos por el docente: respuestas, correcciones y notas$pea0$, 'leccion', a.id,
+       $pea0${"version":2,"tarjetas":[{"tipo":"caso","persona":"Ignacio","canal":"whatsapp","consulta":"Le escribí al profesor hace tres días por WhatsApp del grupo y no me contesta. Y el TP 2 lo entregué hace como diez días y sigue sin nota. ¿A quién me quejo?"},{"tipo":"preguntar","opciones":[{"texto":"¿Le escribió por la mensajería del Aula Virtual?","clave":true,"porque":"Es el canal oficial: por otros medios no se gestiona el reclamo."},{"texto":"¿Tiene una captura del mensaje sin respuesta?","clave":true,"porque":"Hace falta para derivar."},{"texto":"¿Cuándo venció el TP y de qué tipología es la materia?","clave":true,"porque":"Solo MIP, MIA y MAP tienen corrección docente."},{"texto":"¿Qué nota espera sacar?","clave":false,"porque":"No cambia el reclamo."}]},{"tipo":"idea","titulo":"El docente no responde","texto":"A distancia, si escribió por la mensajería del Aula Virtual y pasaron más de 48 horas hábiles sin respuesta, va por HubSpot a SGEA como \"Demora en respuesta profesor titular experto\", con DNI, legajo, materia, cátedra, profesor y la captura; 3 días hábiles. En presencial, el estudiante se contacta con su docente en su entorno de clase. En materias de proceso, va como \"Respuesta profesor materias de proceso\".","clave":"Por la mensajería del Aula, más de 48 horas y con captura; a SGEA.","ejemplo":"Ignacio le escribió por WhatsApp: primero tiene que escribirle por el Aula Virtual."},{"tipo":"probalo","n":1},{"tipo":"idea","titulo":"El TP sin corregir","texto":"Si la materia es MIP, MIA o MAP y pasaron más de 7 días corridos desde el vencimiento del TP entregado sin corrección ni nota, va a SGEA como \"Demora en corrección de trabajo práctico\", con el número de TP y el profesor. Si ya tiene nota y no está de acuerdo con la justificación, o no recibió devolución, va como \"Carga de nota TP con corrección docente\", con el motivo del reclamo.","clave":"Sin corregir, más de 7 días corridos del vencimiento; con nota, revisión de calificación."},{"tipo":"probalo","n":2},{"tipo":"idea","titulo":"Materia sin tutor","texto":"Si en el historial académico la columna \"Profesor\" dice \"SIN TUTORÍA\", va a SGEA como \"Materia sin tutor asignado\", con materia, cátedra y período. Mientras las inscripciones siguen abiertas, las cátedras todavía se están organizando: no se deriva hasta que cierre esa etapa.","clave":"\"SIN TUTORÍA\" en el historial, una vez cerradas las inscripciones; a SGEA."},{"tipo":"probalo","n":3},{"tipo":"ojo","texto":"Si se comunicó por otro medio que no es la mensajería del Aula Virtual, no corresponde este reclamo: primero, que escriba por el canal oficial.\nLa fecha hasta la que no se derivan las materias sin tutoría cambia cada período: confirmala en la base."},{"tipo":"cierre","resolucion":"A Ignacio le explicás que el canal oficial con el profesor es la mensajería del Aula Virtual: que le escriba por ahí y, si pasan más de 48 horas hábiles sin respuesta, te mande la captura para derivarlo a SGEA. Por el TP 2, si la materia tiene corrección docente y pasaron más de 7 días del vencimiento, derivás la demora en corrección.","recordar":"Mensajería del Aula, 48 horas hábiles, captura y SGEA."}]}$pea0$::jsonb, 'marcar_hecho'
+from public.articulos a where a.slug = $pea0$kb-47-secretaria-de-gestion-academica-sgea$pea0$ and a.alcance = 'global'
+on conflict (id) do update set orden = excluded.orden, titulo = excluded.titulo, leccion = excluded.leccion,
+  articulo_id = excluded.articulo_id
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
+
+delete from public.preguntas
+where item_id = 'aaff678b-01ec-48a1-84e4-489863fbf21b'::uuid and id not in ('b7477cb2-4e4a-4535-83c8-0028fafe543e'::uuid, '2b56dd48-8d2a-43a5-8348-07862c82508a'::uuid, '20a46dcc-8720-4aa4-8743-35ba7ee5a786'::uuid)
+  and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select 'b7477cb2-4e4a-4535-83c8-0028fafe543e'::uuid, 'opcion_multiple', $pea0$Un estudiante a distancia dice que el docente no le responde un mail que le mandó a su casilla personal. ¿Qué hacés?$pea0$, $pea0$La mensajería del Aula Virtual es el canal oficial: si escribió por otro medio, no se gestiona el reclamo.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', 'aaff678b-01ec-48a1-84e4-489863fbf21b'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 1
+where exists (select 1 from public.items where id = 'aaff678b-01ec-48a1-84e4-489863fbf21b'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = 'b7477cb2-4e4a-4535-83c8-0028fafe543e'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, 'b7477cb2-4e4a-4535-83c8-0028fafe543e'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('3d546362-60c2-4204-8109-01ae5b0d4a53'::uuid, $pea0$Derivás a SGEA como demora en respuesta.$pea0$, false, 1, $pea0$El reclamo se gestiona solo si escribió por la mensajería del Aula.$pea0$, null::int, null),
+  ('e76d92d9-8f3b-414e-8ff6-80b9a63af0c7'::uuid, $pea0$Le explicás que escriba por la mensajería del Aula Virtual, que es el canal oficial.$pea0$, true, 2, $pea0$Por otros medios no corresponde la tipificación.$pea0$, null::int, null),
+  ('07b71a96-4475-4fa3-81ed-67addbf6febe'::uuid, $pea0$Le das el teléfono del docente.$pea0$, false, 3, $pea0$El contacto es por el Aula Virtual.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = 'b7477cb2-4e4a-4535-83c8-0028fafe543e'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select '2b56dd48-8d2a-43a5-8348-07862c82508a'::uuid, 'opcion_multiple', $pea0$Una estudiante tiene nota en el TP pero no recibió ninguna devolución. ¿Cómo lo derivás?$pea0$, $pea0$Con nota pero sin devolución o justificación, corresponde la revisión de calificación ("Carga de nota TP con corrección docente").$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', 'aaff678b-01ec-48a1-84e4-489863fbf21b'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 2
+where exists (select 1 from public.items where id = 'aaff678b-01ec-48a1-84e4-489863fbf21b'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = '2b56dd48-8d2a-43a5-8348-07862c82508a'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, '2b56dd48-8d2a-43a5-8348-07862c82508a'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('7c321de5-bca5-40fb-8e9c-2c36937745d8'::uuid, $pea0$Como "Demora en corrección de trabajo práctico".$pea0$, false, 1, $pea0$Esa es para el TP sin corregir ni calificar.$pea0$, null::int, null),
+  ('af869af2-a40a-4a2e-8bf4-5432e832808c'::uuid, $pea0$Como "Carga de nota TP con corrección docente", explicando que falta la devolución.$pea0$, true, 2, $pea0$Es la revisión de calificación.$pea0$, null::int, null),
+  ('fbd853e8-61c2-494b-833d-b847e408e289'::uuid, $pea0$No se deriva: ya tiene nota.$pea0$, false, 3, $pea0$La falta de devolución se puede reclamar.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = '2b56dd48-8d2a-43a5-8348-07862c82508a'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select '20a46dcc-8720-4aa4-8743-35ba7ee5a786'::uuid, 'verdadero_falso', $pea0$Para reclamar un TP sin corregir alcanza con que hayan pasado 2 días del vencimiento.$pea0$, $pea0$Tienen que haber pasado más de 7 días corridos desde el vencimiento del TP.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', 'aaff678b-01ec-48a1-84e4-489863fbf21b'::uuid, null, now() + interval '1 millisecond' * 3
+where exists (select 1 from public.items where id = 'aaff678b-01ec-48a1-84e4-489863fbf21b'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = '20a46dcc-8720-4aa4-8743-35ba7ee5a786'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = 'e3a09525-da75-41c0-827b-bb9e91335610'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, '20a46dcc-8720-4aa4-8743-35ba7ee5a786'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('9dce37e4-a322-490f-8f76-be05e0954ce6'::uuid, $pea0$Verdadero$pea0$, false, 1, null, null::int, null),
+  ('1a8b5449-a727-4c5d-82fe-17c2a2e01fd4'::uuid, $pea0$Falso$pea0$, true, 2, null, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = '20a46dcc-8720-4aa4-8743-35ba7ee5a786'::uuid)
+on conflict do nothing;
