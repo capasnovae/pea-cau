@@ -3551,3 +3551,156 @@ select x.id, '493c87ce-608b-4231-8cc2-cba0fce569cb'::uuid, x.texto, x.correcta, 
 ) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
 where exists (select 1 from public.preguntas where id = '493c87ce-608b-4231-8cc2-cba0fce569cb'::uuid)
 on conflict do nothing;
+
+insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
+select '86c3de66-c2b7-4f9d-88a5-aaab480e412c'::uuid, '76245ecd-e9fa-4ed3-80a7-b09b0791dd31'::uuid, 47, $pea0$Anulaciones de tickets y de pagos$pea0$, 'leccion', a.id,
+       $pea0${"version":2,"tarjetas":[{"tipo":"caso","persona":"Agustina","canal":"whatsapp","consulta":"Hola! Hoy a la mañana pagué el semestre dos veces sin querer, con la misma tarjeta. ¿Me pueden anular uno de los pagos?"},{"tipo":"preguntar","opciones":[{"texto":"¿Cuándo hizo el pago?","clave":true,"porque":"Antes de las 18 h del mismo día se anula sin impacto; hasta 48 h se devuelve; después, ya no es anulación."},{"texto":"¿Por qué canal pagó?","clave":true,"porque":"Solo se revisan pagos online, por Pago Electrónico o Rapipago telefónico; Posnet va a SOPER."},{"texto":"¿Tiene el ID o el comprobante del pago?","clave":true,"porque":"Es obligatorio para la derivación."},{"texto":"¿Qué materias cursa este semestre?","clave":false,"porque":"No cambia una anulación por pago duplicado."}]},{"tipo":"idea","titulo":"Anular un pago: cuándo y cómo","texto":"Si se pide antes de las 18 h del mismo día, el pago se anula y no aparece en el resumen. Hasta 48 horas después, se devuelve y figura con una nota de crédito por el mismo importe. Pasadas las 48 horas, no es anulación: corresponde un Riesgo de Baja. Va por HubSpot a Cobranzas con DNI, legajo e ID de pago (el de Paypertic empieza con 77) o el comprobante; 3 días hábiles.","clave":"Antes de las 18 h se anula; hasta 48 h se devuelve; después, Riesgo de Baja.","ejemplo":"Agustina pagó dos veces hoy: pedís \"Anulación de pago por pago duplicado\" con el ID de uno de los pagos."},{"tipo":"probalo","n":1},{"tipo":"idea","titulo":"Lo que trae una anulación","texto":"Salvo en el pago duplicado, anular un pago genera deuda, porque el arancel ya está facturado, y Cobranzas da de baja administrativa el legajo: para volver, paga a cuenta el semestre. Si el pago tenía un descuento por medio de pago, como Mobbex en una cuota, se pierde. Si el pago quedó en otro alumno, no se anula: se pide un traspaso.","clave":"Salvo el duplicado, anular genera deuda y baja administrativa; y se pierde el descuento del medio de pago."},{"tipo":"probalo","n":2},{"tipo":"idea","titulo":"Anular un ticket","texto":"Primero se intenta desde la botonera del Portal, SGU o Campus. Se deriva a Cobranzas solo si da error o es una excepción fundamentada, con el número de ticket y una captura; 2 días hábiles. Si cursó y pagó, no se anula: se factura. Si no cursó y las materias quedaron Libre por Nota, primero SOA anula la inscripción.","clave":"El ticket se anula desde la botonera; a Cobranzas, solo por error o excepción."},{"tipo":"probalo","n":3},{"tipo":"ojo","texto":"No se anulan pagos de trámites ya facturados. Si quiere la baja definitiva, primero se gestiona con Trámites.\nSi una promoción no se aplicó por un error del sistema, que no pague a cuenta hasta que se corrija."},{"tipo":"cierre","resolucion":"A Agustina le pedís el ID o el comprobante y derivás a Cobranzas una anulación por pago duplicado. Como es del mismo día, se anula uno de los pagos; mientras tanto puede ver un saldo a favor, que se regulariza cuando el banco confirma el contracargo.","recordar":"Pago: antes de las 18 h se anula, hasta 48 h se devuelve; ticket, desde la botonera."}]}$pea0$::jsonb, 'marcar_hecho'
+from public.articulos a where a.slug = $pea0$kb-49-gestiones-de-cobranzas$pea0$ and a.alcance = 'global'
+on conflict (id) do update set orden = excluded.orden, titulo = excluded.titulo, leccion = excluded.leccion,
+  articulo_id = excluded.articulo_id
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '76245ecd-e9fa-4ed3-80a7-b09b0791dd31'::uuid and c.estado = 'borrador');
+
+delete from public.preguntas
+where item_id = '86c3de66-c2b7-4f9d-88a5-aaab480e412c'::uuid and id not in ('d0a7d0d1-637e-4585-814d-c891bd1e77ca'::uuid, '4f714560-b01c-4dc0-8206-4f14522c88e3'::uuid, '90d3169e-addf-40d3-8fa8-8f1a4be1b0c2'::uuid)
+  and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '76245ecd-e9fa-4ed3-80a7-b09b0791dd31'::uuid and c.estado = 'borrador');
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select 'd0a7d0d1-637e-4585-814d-c891bd1e77ca'::uuid, 'opcion_multiple', $pea0$Gonzalo pagó el semestre hace cuatro días y ahora quiere que le anulen el pago porque no va a cursar. ¿Qué hacés?$pea0$, $pea0$Pasadas las 48 horas desde el pago, no se anula: corresponde gestionar un Riesgo de Baja.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', '86c3de66-c2b7-4f9d-88a5-aaab480e412c'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 1
+where exists (select 1 from public.items where id = '86c3de66-c2b7-4f9d-88a5-aaab480e412c'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '76245ecd-e9fa-4ed3-80a7-b09b0791dd31'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = 'd0a7d0d1-637e-4585-814d-c891bd1e77ca'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '76245ecd-e9fa-4ed3-80a7-b09b0791dd31'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, 'd0a7d0d1-637e-4585-814d-c891bd1e77ca'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('296f00cd-55df-4beb-81d8-b14fa765c78e'::uuid, $pea0$Pedís la anulación de pago a Cobranzas.$pea0$, false, 1, $pea0$Pasaron más de 48 horas: ya no corresponde una anulación.$pea0$, null::int, null),
+  ('bfbd8e87-610c-4756-824c-b36a62b859db'::uuid, $pea0$Gestionás un Riesgo de Baja.$pea0$, true, 2, $pea0$Es lo que corresponde cuando pasaron más de 48 horas desde el pago.$pea0$, null::int, null),
+  ('7364b9df-601f-4bb8-8bcf-0b6bc5e61b70'::uuid, $pea0$Le hacés una nota de crédito por período no cursado.$pea0$, false, 3, $pea0$Primero hay que gestionar su situación como Riesgo de Baja.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = 'd0a7d0d1-637e-4585-814d-c891bd1e77ca'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select '4f714560-b01c-4dc0-8206-4f14522c88e3'::uuid, 'opcion_multiple', $pea0$Una estudiante pagó con Mobbex en una cuota y pide anular el pago por un error en el plan de pagos. ¿Qué tenés que avisarle?$pea0$, $pea0$Anular un pago genera deuda y baja administrativa, y si tenía descuento por medio de pago, se pierde.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', '86c3de66-c2b7-4f9d-88a5-aaab480e412c'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 2
+where exists (select 1 from public.items where id = '86c3de66-c2b7-4f9d-88a5-aaab480e412c'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '76245ecd-e9fa-4ed3-80a7-b09b0791dd31'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = '4f714560-b01c-4dc0-8206-4f14522c88e3'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '76245ecd-e9fa-4ed3-80a7-b09b0791dd31'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, '4f714560-b01c-4dc0-8206-4f14522c88e3'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('5f9e744f-19c0-4b23-8a83-cc85c8381702'::uuid, $pea0$Que conserva el descuento si vuelve a pagar.$pea0$, false, 1, $pea0$Al anular el pago, se pierde el descuento por medio de pago.$pea0$, null::int, null),
+  ('1335cd9c-62e3-4638-8a90-8ac5c75c5ff3'::uuid, $pea0$Que pierde el descuento de Mobbex, que la anulación genera deuda y una baja administrativa hasta que pague a cuenta con el plan correcto.$pea0$, true, 2, $pea0$Son las consecuencias de anular un pago por error en el plan.$pea0$, null::int, null),
+  ('7eb26e63-cb37-470f-83d0-9e7142dab3bc'::uuid, $pea0$Que no se puede anular un pago de Mobbex.$pea0$, false, 3, $pea0$Se puede, con esas consecuencias.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = '4f714560-b01c-4dc0-8206-4f14522c88e3'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select '90d3169e-addf-40d3-8fa8-8f1a4be1b0c2'::uuid, 'opcion_multiple', $pea0$Un estudiante cursó y pagó dos materias extra y ahora pide anular ese ticket. ¿Qué le decís?$pea0$, $pea0$Si el estudiante cursó y abonó, el ticket no se anula: se factura.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', '86c3de66-c2b7-4f9d-88a5-aaab480e412c'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 3
+where exists (select 1 from public.items where id = '86c3de66-c2b7-4f9d-88a5-aaab480e412c'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '76245ecd-e9fa-4ed3-80a7-b09b0791dd31'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = '90d3169e-addf-40d3-8fa8-8f1a4be1b0c2'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '76245ecd-e9fa-4ed3-80a7-b09b0791dd31'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, '90d3169e-addf-40d3-8fa8-8f1a4be1b0c2'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('2aa6edc9-4245-4e50-8851-4c3b1b52918d'::uuid, $pea0$Que lo anulás por excepción en Cobranzas.$pea0$, false, 1, $pea0$Si cursó y pagó, no corresponde anular.$pea0$, null::int, null),
+  ('b85c4c7d-840d-4fc7-8b09-24a8303560df'::uuid, $pea0$Que no corresponde anular el ticket: lo cursó y lo pagó, así que se factura.$pea0$, true, 2, $pea0$Es el criterio de Cobranzas.$pea0$, null::int, null),
+  ('fdf1520e-49ed-4523-8fe9-f58396826208'::uuid, $pea0$Que lo anula SOA.$pea0$, false, 3, $pea0$SOA anula inscripciones, no tickets pagados y cursados.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = '90d3169e-addf-40d3-8fa8-8f1a4be1b0c2'::uuid)
+on conflict do nothing;
+
+insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
+select 'd298b519-3bbe-42f7-810e-52e7dfe7384a'::uuid, '76245ecd-e9fa-4ed3-80a7-b09b0791dd31'::uuid, 48, $pea0$Alumno recupero: volver a estudiar$pea0$, 'leccion', a.id,
+       $pea0${"version":2,"tarjetas":[{"tipo":"caso","persona":"Hernán","canal":"telefono","consulta":"Hace como dos años que dejé de cursar Administración, a distancia. Me gustaría retomar, pero no sé cuánto debo ni si me conviene."},{"tipo":"preguntar","opciones":[{"texto":"¿Cuántas matrículas tiene sin pagar y cuál fue la última que pagó?","clave":true,"porque":"Recupero es para quien tiene dos o más matrículas impagas."},{"texto":"¿En qué modalidad quiere retomar?","clave":true,"porque":"Aplica en ED y EDH; en PD, no."},{"texto":"¿Quiere seguir la misma carrera o cambiar de carrera, modalidad o CAU?","clave":true,"porque":"Recupero permite cambios, y el orden de la gestión importa."},{"texto":"¿Por qué dejó de cursar hace dos años?","clave":false,"porque":"Es bueno escucharlo, pero no cambia si le corresponde."}]},{"tipo":"idea","titulo":"A quién le corresponde","texto":"Recupero es para quien dejó de cursar y tiene dos o más matrículas sin pagar (revisá en la fuente el período de referencia vigente). Aplica en ED y EDH, no en PD. Se anulan las entradas pendientes de años anteriores y se aplica un descuento extraordinario en los aranceles. Hay que ofrecerlo de forma proactiva.","clave":"Dos o más matrículas impagas, en ED o EDH: ofrecé recupero vos.","ejemplo":"Hernán dejó hace dos años y cursa a distancia: revisás sus matrículas y le ofrecés recupero."},{"tipo":"probalo","n":1},{"tipo":"idea","titulo":"Paga todo junto","texto":"El descuento (60 % sobre los aranceles) se aplica solo si paga el semestre completo de una vez: matrícula, Ticket A y Ticket B, o matrícula y ticket diferencial. Si paga primero la matrícula y después los aranceles, pierde el descuento. Al terminar el semestre, lo que pagó vuelve como descuento fijo para el semestre siguiente, mitad en el Arancel A y mitad en el B.","clave":"Todo en un solo pago; después vuelve como descuento del semestre siguiente."},{"tipo":"probalo","n":2},{"tipo":"idea","titulo":"Qué hacés según lo que decida","texto":"Si acepta, tomás el pago y cerrás el ticket en primera línea (Grupo Recupero, \"Alumno recupero\"). Si le interesa pero no puede pagar ahora, derivás a Grupo Recupero con legajo, horario de contacto y motivo. Si rechaza, derivás igual con el motivo de descarte. Si quiere darse de baja, no es recupero: es Riesgo de Baja.","clave":"Acepta: pago y cerrás; le interesa sin pagar o rechaza: derivás a Grupo Recupero."},{"tipo":"probalo","n":3},{"tipo":"ojo","texto":"Recupero permite cambiar de carrera, modalidad o CAU sin tener la matrícula activa. Si cambia de carrera, primero se hace el cambio y después se aplica la promoción en el legajo nuevo. Si tiene plan desactualizado, primero se actualiza.\nValidá también que tenga el usuario institucional y pedí que le activen el aula virtual.\nSi generó los tickets y no le aparece la promoción, va a Cobranzas como \"NC Recupero\"; si tiene deuda de períodos anteriores, a SOPER como \"NC Promoción no aplicada\"."},{"tipo":"cierre","resolucion":"A Hernán le revisás cuántas matrículas debe. Si son dos o más y sigue en ED o EDH, le ofrecés recupero: le explicás que paga el semestre completo de una vez con el descuento y que lo que pague vuelve como descuento el semestre siguiente. Si acepta, tomás el pago y cerrás el ticket.","recordar":"Recupero: dos o más matrículas impagas, en ED o EDH, y todo el semestre en un solo pago."}]}$pea0$::jsonb, 'marcar_hecho'
+from public.articulos a where a.slug = $pea0$kb-60-grupo-recupero$pea0$ and a.alcance = 'global'
+on conflict (id) do update set orden = excluded.orden, titulo = excluded.titulo, leccion = excluded.leccion,
+  articulo_id = excluded.articulo_id
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '76245ecd-e9fa-4ed3-80a7-b09b0791dd31'::uuid and c.estado = 'borrador');
+
+delete from public.preguntas
+where item_id = 'd298b519-3bbe-42f7-810e-52e7dfe7384a'::uuid and id not in ('b33de5c6-cb0d-4a1c-8fc2-6147b5d66a2a'::uuid, 'bf21ab26-4281-4ea1-8100-758bcad45214'::uuid, 'b48587eb-f650-4efc-8259-75dd2d48e2f6'::uuid)
+  and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '76245ecd-e9fa-4ed3-80a7-b09b0791dd31'::uuid and c.estado = 'borrador');
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select 'b33de5c6-cb0d-4a1c-8fc2-6147b5d66a2a'::uuid, 'opcion_multiple', $pea0$Valeria aplica para recupero, pagó la matrícula ayer y hoy quiere pagar los aranceles con el descuento. ¿Qué le decís?$pea0$, $pea0$La promoción recupero aplica solo si abona los conceptos completos de una vez; pagando primero la matrícula, la pierde.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', 'd298b519-3bbe-42f7-810e-52e7dfe7384a'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 1
+where exists (select 1 from public.items where id = 'd298b519-3bbe-42f7-810e-52e7dfe7384a'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '76245ecd-e9fa-4ed3-80a7-b09b0791dd31'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = 'b33de5c6-cb0d-4a1c-8fc2-6147b5d66a2a'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '76245ecd-e9fa-4ed3-80a7-b09b0791dd31'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, 'b33de5c6-cb0d-4a1c-8fc2-6147b5d66a2a'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('17081ec1-1f80-4841-8c3d-e3f012b97910'::uuid, $pea0$Que el descuento se aplica igual sobre los aranceles.$pea0$, false, 1, $pea0$El descuento solo se aplica si paga todo el semestre en un solo pago.$pea0$, null::int, null),
+  ('e380868a-7ac8-40e1-8b8e-110e517eb421'::uuid, $pea0$Que el descuento de recupero se aplica solo si paga todo junto: al haber pagado primero la matrícula, no lo tiene.$pea0$, true, 2, $pea0$Es la condición de la promoción.$pea0$, null::int, null),
+  ('fc2e683b-351b-43cc-8a3b-9b6872fa391f'::uuid, $pea0$Que el descuento se lo devuelven el semestre siguiente.$pea0$, false, 3, $pea0$Lo que vuelve el semestre siguiente es lo pagado con la promoción, no un descuento perdido.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = 'b33de5c6-cb0d-4a1c-8fc2-6147b5d66a2a'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select 'bf21ab26-4281-4ea1-8100-758bcad45214'::uuid, 'opcion_multiple', $pea0$Un estudiante con tres matrículas impagas llama porque quiere darse de baja definitivamente. ¿Qué hacés?$pea0$, $pea0$Si el estudiante habla de dar de baja la carrera, no se deriva a recupero sino a Riesgo de Baja.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', 'd298b519-3bbe-42f7-810e-52e7dfe7384a'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 2
+where exists (select 1 from public.items where id = 'd298b519-3bbe-42f7-810e-52e7dfe7384a'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '76245ecd-e9fa-4ed3-80a7-b09b0791dd31'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = 'bf21ab26-4281-4ea1-8100-758bcad45214'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '76245ecd-e9fa-4ed3-80a7-b09b0791dd31'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, 'bf21ab26-4281-4ea1-8100-758bcad45214'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('0d798fe2-872b-4427-8cef-93e91c38a81b'::uuid, $pea0$Lo derivás a Grupo Recupero.$pea0$, false, 1, $pea0$Si el tema es la baja, no corresponde recupero.$pea0$, null::int, null),
+  ('e2cb865c-c5c0-4d40-81ca-7998fcead69a'::uuid, $pea0$Lo gestionás como Riesgo de Baja, con su tipificación.$pea0$, true, 2, $pea0$Las consultas de baja van a Riesgo de Baja, no a recupero.$pea0$, null::int, null),
+  ('3d2232b7-07f0-4fa9-880a-6e98bd15d0bd'::uuid, $pea0$Le aplicás recupero para que no se vaya.$pea0$, false, 3, $pea0$Si quiere la baja, el circuito es Riesgo de Baja.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = 'bf21ab26-4281-4ea1-8100-758bcad45214'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select 'b48587eb-f650-4efc-8259-75dd2d48e2f6'::uuid, 'verdadero_falso', $pea0$Un estudiante que retoma en PD puede acceder a la promoción recupero.$pea0$, $pea0$La promoción recupero no aplica en PD, ni como modalidad de origen ni de destino.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', 'd298b519-3bbe-42f7-810e-52e7dfe7384a'::uuid, null, now() + interval '1 millisecond' * 3
+where exists (select 1 from public.items where id = 'd298b519-3bbe-42f7-810e-52e7dfe7384a'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '76245ecd-e9fa-4ed3-80a7-b09b0791dd31'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = 'b48587eb-f650-4efc-8259-75dd2d48e2f6'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '76245ecd-e9fa-4ed3-80a7-b09b0791dd31'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, 'b48587eb-f650-4efc-8259-75dd2d48e2f6'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('76ab6993-eba7-4e05-831c-727ebf25077e'::uuid, $pea0$Verdadero$pea0$, false, 1, null, null::int, null),
+  ('9a743495-5224-496d-8cce-0dcda00b4d7b'::uuid, $pea0$Falso$pea0$, true, 2, null, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = 'b48587eb-f650-4efc-8259-75dd2d48e2f6'::uuid)
+on conflict do nothing;
