@@ -37,7 +37,7 @@ const guion: Guion = {
       titulo: "Lo básico para cursar",
       icono: "notebook",
       tarjetas: [
-        { texto: "Los avisos llegan al correo registrado", detalle: "actualizarlo le toca al estudiante", tono: "aviso", marca: 0, sello: "Responsabilidad suya" },
+        { texto: "Avisos al correo registrado", detalle: "actualizarlo le toca al estudiante", tono: "aviso", marca: 0, sello: "Responsabilidad suya" },
         { texto: "Para rendir virtual, una notebook", detalle: "con cámara, micrófono y el sistema mínimo", tono: "ok", marca: 1 },
         { texto: "Tablet o celular", tono: "mal", marca: 2, sello: "No sirve" },
         { texto: "Sin conexión, lo informa", detalle: "la Universidad decide cómo sigue", tono: "neutro", marca: 3 },
