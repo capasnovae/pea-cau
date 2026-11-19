@@ -15023,3 +15023,23102 @@ Es un espacio destinado a cocrear conocimiento, construir ideas, debatir y desar
 
 Up$pea0$, 'global', 'borrador', $pea0$https://www.lanube.21.edu.ar/uso-de-espacios$pea0$)
 on conflict (categoria_id, slug) do nothing;
+
+insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
+values ((select id from public.categorias where slug = $pea0$tramites$pea0$), null, 1, $pea0$kb-01-colaciones-2026$pea0$,
+        $pea0$Colaciones 2026$pea0$, $pea0$Actos de Colaciones y Graduaciones$pea0$, $pea0$> **A validar:** contenido relevado de https://kb-cau.21.edu.ar/servicios-cau/servicios/c el 2026-11-19. Revisalo antes de publicar.
+
+Actos de Colaciones y Graduaciones
+
+Actos de Colación y Graduación correspondientes al período 2025/2026
+
+NUEVAS FECHAS
+
+Los actos se realizarán durante los días:
+
+- Martes 17 de noviembre
+
+- Miércoles 18 de noviembre
+
+- Jueves 19 de noviembre
+
+👉  DISTRIBUCIÓN DE ACTO POR CARRERA
+
+Ver carreras por acto acá.
+
+👉  BASES DE ALUMNOS POR ACTO
+
+Bases por carrera - Google Drive
+
+👉  FORMULARIOS DE INSCRIPCIÓN POR CARRERA
+
+https://www.lanube.21.edu.ar/colaciones-2026
+
+CAMBIO DE FECHA — COLACIONES Y GRADUACIONES 2026
+
+La Universidad reprogramó las Colaciones y Graduaciones 2026 previstas para el 11, 12 y 13 de noviembre.
+
+Los seis actos se realizarán los días 17, 18 y 19 de noviembre, según el grupo de cada estudiante.
+
+Esta decisión responde al contexto extraordinario que vivirá Córdoba durante esa semana con la visita de Su Santidad el Papa, un acontecimiento de gran relevancia que implicará feriados, operativos extraordinarios de seguridad, cortes de tránsito y una gran afluencia de personas en la ciudad. Considerando que estas circunstancias podrían dificultar los traslados y el alojamiento de quienes nos acompañarán, decidimos reorganizar el cronograma para que toda nuestra comunidad pueda vivir este momento de la mejor manera.
+
+🚨 IMPORTANTE: quienes ya estaban inscriptos mantienen su lugar en el acto correspondiente y no deben volver a inscribirse.
+
+Cada estudiante deberá asistir en la fecha correspondiente al acto/grupo en el que se encuentra inscripto/a.
+
+SPEECH DE CONTENCIÓN
+
+Para egresados que llegan enojados, preocupados o confundidos:
+
+“Entendemos que este cambio puede generarte un inconveniente, especialmente si ya habías organizado viajes, alojamiento o la presencia de familiares y personas importantes para vos. Sabemos que la graduación es un momento muy especial y que detrás de esta fecha hay mucha planificación.
+
+La modificación responde a un contexto excepcional que tendrá Córdoba durante la semana originalmente prevista y busca que puedan vivir este momento con mayor tranquilidad.
+
+Si la nueva fecha de tu acto te impide asistir, queremos conocer tu situación para poder orientarte sobre las alternativas disponibles.”
+
+Si el egresado ya estaba inscripto:
+
+“En tu caso, tu inscripción continúa vigente y tu lugar está reservado para la nueva fecha correspondiente a tu acto. No necesitás volver a inscribirte.”
+
+FLUJO OPERATIVO - Contingencia por cambio de fecha:
+
+1. Estudiantes que YA estaban inscriptos
+
+Su inscripción continúa vigente para la nueva fecha correspondiente a su acto.
+
+No tienen que volver a completar el formulario ni realizar una nueva inscripción.
+
+Mensaje clave: “Tu inscripción sigue vigente y tu lugar está reservado para la nueva fecha de tu acto.”
+
+2. Estudiantes que NO estaban inscriptos
+
+Deberán completar el formulario de inscripción correspondiente a la nueva fecha de su acto.
+
+Ante consultas adicionales o situaciones particulares, contactarse con relaciones institucionales a través de este correo consultas.colaciones@gmail.com
+
+PREGUNTAS FRECUENTES Y CÓMO RESPONDERLAS
+
+- Mensaje central a transmitir siempre:
+“Los actos fueron reprogramados para los días 17, 18 y 19 de noviembre, según el grupo al que corresponda cada egresado/a. La modificación busca que puedan vivir su graduación con tranquilidad, teniendo en cuenta el contexto excepcional que tendrá Córdoba durante la semana originalmente prevista. Si ya estabas inscripto/a, tu lugar continúa reservado para la nueva fecha.”
+
+- Yo ya había organizado todo para la fecha anterior.
+
+Entendemos que el cambio puede afectar una planificación que ya tenías organizada, especialmente si habías coordinado viajes, alojamiento o la presencia de familiares. Si la nueva fecha te genera una dificultad para asistir, podemos registrar tu situación y orientarte sobre las alternativas disponibles.
+
+* Solo en los casos que confirmen que ya habían organizado para la fecha anterior elevar si la persona ya sacó el pasaje o gestionó una reserva en hotel. En ningún caso indagar directamente sobre esta necesidad.
+
+- ¿Por qué cambiaron la fecha?
+La modificación responde al contexto excepcional que tendrá Córdoba durante la semana originalmente prevista por la visita del Papa, con feriados, operativos de seguridad, cortes, gran movimiento de personas y dificultades para organizar traslados y alojamiento.
+
+-  ¿Cuándo es ahora mi acto?
+Los actos se realizarán los días 17, 18 y 19 de noviembre. La fecha depende de tu carrera. Consultar el detalle correspondiente.
+
+- Yo ya estaba inscripto/a, ¿tengo que volver a inscribirme?
+No. Tu inscripción continúa vigente y tu lugar está reservado para la nueva fecha correspondiente a tu acto.
+
+- ¿Tengo que hacer algún trámite porque cambiaron la fecha?
+Si ya estabas inscripto/a, no tenés que volver a inscribirte. Tu lugar se mantiene reservado.
+
+- No puedo asistir en la nueva fecha, ¿qué hago?
+Entendemos la situación. Vamos a registrar tu caso y orientarte sobre las alternativas disponibles. No confirmar cambios de fecha o de acto hasta contar con la definición correspondiente.
+
+- ¿Puedo cambiarme a otro acto?
+
+La respuesta deberá ajustarse a las condiciones que defina el área responsable. No confirmar un cambio de acto sin verificar previamente si corresponde.
+
+- ¿Puedo mantener mi inscripción para la fecha anterior?
+La fecha anterior fue reprogramada. La inscripción se mantiene para la nueva fecha correspondiente al acto del estudiante.
+
+- ¿La nueva fecha es definitiva?
+
+SI
+
+- Yo todavía no estaba inscripto/a.
+
+Podés realizar la inscripción para participar del acto correspondiente a tu grupo.
+
+2. ¿Quiénes pueden participar?
+
+[ La inscripción es un requisito necesario por un tema de organización, futuras comunicaciones y acreditaciones durante el acto. ]
+
+Pueden participar quienes hayan obtenido su egreso entre el 1 de septiembre de 2025 y el 31 de agosto de 2026, siempre que tengan el legajo completo, incluyendo toda la documentación obligatoria.
+
+Quienes tengan documentación pendiente en su legajo no podrán participar de la ceremonia hasta regularizar su situación.
+
+3. Anticipación para presentarse al acto
+
+Ante consultas sobre el horario de llegada, informar:
+
+- Carreras de Grado: deben presentarse 2 horas antes del inicio del acto para realizar la acreditación y participar del espacio de networking junto a compañeros y Directores de Carrera.
+
+- Carreras de Pregrado: deben presentarse 1 hora y 30 minutos antes del inicio del acto para realizar la acreditación y participar del espacio de networking.
+
+4. Acompañantes
+
+Podrán asistir con hasta 3 acompañantes
+
+También se encuentra disponible la transmisión en vivo por YouTube [Link Pendiente] .
+
+5. Código de vestimenta
+
+El código de vestimenta general para el evento es elegante sport.
+
+- Carreras de Grado y Posgrado: se entrega toga y birrete. Para recibirlos, deberán presentar su DNI en carácter de préstamo.
+
+- Carreras de Pregrado: no se entrega vestimenta de colación. Se solicita asistir con ropa formal.
+
+6. Retiro del título
+
+Durante la ceremonia, el egresado recibe un título simbólico como parte del acto protocolar.
+
+Si tu título definitivo ya se encuentra disponible (con el trámite finalizado), podrás retirarlo esa misma semana en el Campus de la Universidad, solicitando previamente un turno desde el siguiente enlace.
+
+🔗 Turnero retiro de título
+
+La información necesaria para reservar el turno será comunicada unas semanas antes del acto.
+
+7. Documentación para asistir
+
+El día de la ceremonia, el egresado deberá presentar su DNI.
+
+En caso de no contar con él, podrá presentar la constancia de DNI en trámite u otra documentación oficial que permita acreditar su identidad.
+
+8. Certificado de asistencia
+
+El egresado puede solicitar el certificado de asistencia el mismo día de la ceremonia, durante la acreditación.
+
+El certificado será enviado con firma digital dentro de los 5 días hábiles posteriores al acto.
+
+9. Cancelación de la inscripción
+
+Si el egresado se inscribió a la ceremonia pero finalmente no podrá asistir, puede solicitar la baja de su inscripción desde el siguiente formulario.
+
+🔗 Baja del acto.
+
+10. Lugar de realización
+
+Las ceremonias se realizarán en:
+
+Salón de Convenciones Quorum Córdoba Hotel
+Av. La Voz del Interior 7447, Ciudad de Córdoba.
+
+- Transporte público: líneas 21 y 25.
+
+- Vehículo particular: el salón cuenta con estacionamiento privado para los asistentes.
+
+11. ¿Qué hacer si el egresado no recibió la invitación?
+
+Ante esta consulta, el asesor deberá validar que el egresado cumpla con los requisitos para participar:
+
+- Egreso: verificar que figure como egresado dentro del período correspondiente a la colación.
+
+- Documentación: constatar que tenga el legajo completo, incluyendo la documentación obligatoria en formato digital.
+
+- Documentación pendiente: si cuenta con documentación pendiente, podrá enviarla hasta el 7/9 inclusive a través de Digital Admin.
+
+- Datos de contacto: verificar que el correo electrónico del egresado esté actualizado en sus datos personales.
+
+-  Si el alumno cumple con los requisitos de colación y no recibió la información, se debe derivar un TK a Títulos con la tipificación “Colación”, ellos tomarán y citarán o no al estudiante en caso de corresponder.
+
+Importante: Ante cualquier consulta relacionada con la participación en la colación, es fundamental validar primero el cumplimiento de los requisitos antes de confirmar al egresado que puede participar.$pea0$, 'global', 'borrador', $pea0$https://kb-cau.21.edu.ar/servicios-cau/servicios/c$pea0$)
+on conflict (categoria_id, slug) do nothing;
+
+insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
+values ((select id from public.categorias where slug = $pea0$plataformas$pea0$), null, 3, $pea0$kb-03-servicios-de-biblioteca$pea0$,
+        $pea0$Servicios de Biblioteca$pea0$, $pea0$Este libreto reúne las gestiones relacionadas con los servicios de Biblioteca, detallando las validaciones previas y el circuito de gestión correspondiente para cada caso.$pea0$, $pea0$> **A validar:** contenido relevado de https://kb-cau.21.edu.ar/servicios-cau/servicios/servicios-de-biblioteca el 2026-11-19. Revisalo antes de publicar.
+
+Este libreto reúne las gestiones relacionadas con los servicios de Biblioteca, detallando las validaciones previas y el circuito de gestión correspondiente para cada caso.
+
+Índice
+
+- Información general
+
+- Blanqueo de contraseña E-Book
+
+- Inconvenientes E-Book21
+
+- Solicitud de libro
+
+- Libre deuda biblioteca
+
+Motivo de consulta |  Apartado correspondiente |
+
+¿Cómo ingresar a la Biblioteca Virtual? |  1. Información general |
+
+No puedo iniciar sesión en eBook21. |  2. Blanqueo de contraseña E-Book |
+
+No puedo acceder, visualizar o descargar un libro. |  3. Inconvenientes E-Book21 |
+
+Necesito un libro que no está disponible. |  4. Solicitud de libro |
+
+Necesito el Libre Deuda para mi Trabajo Final. |  5. Libre Deuda Biblioteca |
+
+1- Información general
+
+La Biblioteca Virtual eBook21 permite acceder a libros digitales, revistas electrónicas y otros recursos bibliográficos disponibles para la comunidad universitaria.
+
+¿Cómo acceder a eBook21?
+
+El acceso se realiza desde https://biblio.21.edu.ar/, utilizando el mismo usuario y contraseña institucional que el estudiante emplea para ingresar a las plataformas de la Universidad.
+
+Pasos para ingresar:
+
+- Acceder a https://biblio.21.edu.ar/.
+
+- Realizar una búsqueda del material requerido o seleccionar uno de los proveedores disponibles en la sección «EBOOKS (Libros Digitales)».
+
+- Ingresar el usuario y contraseña institucional cuando se soliciten.
+
+- Acceder al recurso bibliográfico seleccionado.
+
+Validaciones ante inconvenientes de acceso
+
+Antes de generar una derivación, verificar que el estudiante:
+
+- Ingrese desde la dirección correcta.
+
+- Utilice sus credenciales institucionales.
+
+- Pueda acceder a otras plataformas de la Universidad con las mismas credenciales.
+
+- Identifique el mensaje de error, en caso de presentarse.
+
+📩 Contacto de Biblioteca: biblioteca@ues21.edu.ar
+
+2-Blanqueo de contraseña E-Book
+
+Descripción
+
+Cuando el estudiante presenta dificultades para autenticarse en eBook21, aunque puede ingresar a otras plataformas institucionales.
+
+Validaciones previas obligatorias
+
+1. Credenciales utilizadas
+
+Confirmar que el estudiante esté utilizando su usuario y contraseña institucional.
+
+2. Acceso a otras plataformas
+
+Verificar si puede ingresar correctamente al Portal de Estudiantes o a Canvas.
+
+- Si presenta inconvenientes para ingresar a otras plataformas, orientar sobre la recuperación de la contraseña institucional.
+
+- Si puede ingresar a otras plataformas, continuar con las validaciones.
+
+3. Ruta de acceso
+
+Verificar que ingrese a https://biblio.21.edu.ar/ y seleccione un recurso bibliográfico para acceder a la pantalla de autenticación.
+
+4. Identificación del inconveniente
+
+Solicitar el mensaje de error y, cuando sea posible, una captura de pantalla.
+
+¿Cuándo corresponde derivar?
+
+Cuando el estudiante puede ingresar correctamente a las demás plataformas institucionales, pero continúa presentando inconvenientes de autenticación en eBook21.
+
+Circuito de derivación
+
+Circuito de derivación
+
+Tipificación HubSpot: Blanqueo de Contraseña E-Book
+
+Nota de derivación
+
+Completar el campo Motivo indicando:
+
+- DNI del estudiante.
+
+- Número de legajo.
+
+- Confirmación de acceso correcto a otras plataformas institucionales.
+
+- Descripción del inconveniente.
+
+- Mensaje de error o captura de pantalla, cuando corresponda.
+
+- Validaciones realizadas previamente.
+
+3-Inconvenientes E-Book21
+
+Descripción
+
+Cuando puede ingresar a la Biblioteca Virtual, pero presenta problemas para acceder, visualizar, descargar o utilizar un recurso bibliográfico.
+
+Validaciones previas obligatorias
+
+Antes de derivar una solicitud, el asesor debe validar:
+
+1. Acceso a la Biblioteca Virtual
+
+Verificar que el estudiante ingrese desde https://biblio.21.edu.ar/ utilizando su usuario y contraseña institucional.
+
+Confirmar si el inconveniente se presenta al iniciar sesión o al intentar acceder a un recurso bibliográfico específico.
+
+Si el estudiante puede autenticarse correctamente, continuar con las validaciones de disponibilidad del recurso, proveedor y tipo de inconveniente.
+
+2. Disponibilidad del recurso
+
+Confirmar que el recurso bibliográfico:
+
+- se encuentre disponible;
+
+- exista en formato digital;
+
+- corresponda al proveedor consultado.
+
+3. Validar el proveedor
+
+Si el inconveniente se presenta al acceder a un libro, solicitar que intente ingresar directamente desde el proveedor donde se encuentra publicado el recurso.
+
+4. Tipo de inconveniente
+
+Identificar si el problema corresponde a:
+
+- acceso al recurso;
+
+- visualización del contenido;
+
+- descarga del material;
+
+- funcionamiento de la plataforma.
+
+Esta información deberá incorporarse en la derivación.
+
+¿Cuándo corresponde derivar?
+
+Corresponde derivar cuando, luego de realizar las validaciones previas, el estudiante continúa presentando inconvenientes para acceder o utilizar un recurso disponible en la Biblioteca Virtual.
+
+¿Cuándo no corresponde derivar?
+
+No corresponde derivar cuando:
+
+- el recurso únicamente se encuentra disponible en formato físico;
+
+- el estudiante intenta descargar o imprimir un recurso cuya reproducción está restringida por el proveedor o por derechos de autor;
+
+- el préstamo digital venció y el estudiante debe volver a solicitar la descarga del material;
+
+- el inconveniente se resuelve accediendo directamente desde el proveedor del recurso.
+
+Casos particulares
+
+Proveedor Síntesis
+
+Si el proveedor Síntesis solicita un usuario o contraseña propios, informar al estudiante que deberá comunicarse con Biblioteca para recibir las indicaciones correspondientes, ya que este proveedor posee un mecanismo de acceso específico.
+
+Circuito de derivación
+
+Tipificación HubSpot:
+
+Inconvenientes E-Book21
+
+Nota de derivación
+
+Completar el campo Motivo indicando:
+
+- DNI del estudiante.
+
+- Número de legajo.
+
+- Título del recurso bibliográfico.
+
+- Proveedor donde se presenta el inconveniente (si corresponde).
+
+- Descripción detallada del inconveniente.
+
+- Validaciones realizadas previamente.
+
+- Captura de pantalla del error (cuando sea posible).
+
+4-Solicitud de libro
+
+Descripción
+
+Esta gestión contempla las solicitudes de incorporación de material bibliográfico al catálogo de la Biblioteca, cuando el recurso requerido por el estudiante no se encuentra disponible entre los materiales físicos o digitales ofrecidos por la Universidad.
+
+Validaciones previas obligatorias
+
+Antes de derivar una solicitud, el asesor debe validar:
+
+1. Disponibilidad del material
+
+Verificar que el recurso bibliográfico no se encuentre disponible en la Biblioteca Virtual ni en el catálogo de Biblioteca.
+
+2. Formato del recurso
+
+Confirmar si el material solicitado:
+
+- existe en formato digital;
+
+- se encuentra únicamente en formato físico;
+
+- no forma parte del catálogo institucional.
+
+3. Información bibliográfica
+
+Solicitar al estudiante la mayor cantidad de información posible sobre el material requerido, por ejemplo:
+
+- título del libro;
+
+- autor;
+
+- edición (si la conoce);
+
+- ISBN (si dispone de él);
+
+- cualquier otro dato que facilite su identificación.
+
+¿Cuándo corresponde derivar?
+
+Corresponde derivar cuando, luego de realizar las validaciones previas, se confirma que el material solicitado no se encuentra disponible en los recursos bibliográficos de la Universidad y el estudiante solicita que sea evaluada su incorporación.
+
+Importante: La derivación no implica la incorporación automática del material al catálogo. La solicitud será analizada por el equipo de Biblioteca según los criterios institucionales de adquisición y disponibilidad.
+
+¿Cuándo no corresponde derivar?
+
+No corresponde derivar cuando:
+
+- el material ya se encuentra disponible en el catálogo de Biblioteca o en la Biblioteca Virtual;
+
+- el inconveniente corresponde únicamente al acceso al recurso. En estos casos deberá gestionarse mediante Inconvenientes E-Book21.
+
+Circuito de derivación
+
+Tipificación HubSpot: Solicitud de libro
+
+Nota de derivación
+
+Completar el campo Motivo indicando:
+
+- DNI del estudiante.
+
+- Número de legajo.
+
+- Título del material solicitado.
+
+- Autor (si se conoce).
+
+- Edición o ISBN (si corresponde).
+
+- Motivo de la solicitud o necesidad manifestada por el estudiante.
+
+5-Libre Deuda Biblioteca
+
+Descripción
+
+Esta gestión contempla la solicitud del Libre Deuda de Biblioteca, requisito necesario para completar el proceso de visado previo a la solicitud de mesa de defensa del Trabajo Final.
+
+La emisión del Libre Deuda se realiza automáticamente al momento de gestionar la solicitud de visado, por lo que el estudiante no debe contactarse con Biblioteca salvo que el proceso presente inconvenientes.
+
+¿Cómo se solicita?
+
+Gestión automática: el Libre Deuda de Biblioteca se genera automáticamente mediante el proceso de solicitud de visado.
+
+➡️ Ver procedimiento de solicitud de visado.
+
+Si el alumno indica que no se le generó de manera automática o alguna otra inconsistencia
+
+El estudiante podrá solicitarlo mediante los siguientes canales:
+
+-
+Vía correo electrónico: enviar la solicitud a 📩 biblioteca@ues21.edu.ar
+
+La solicitud debe incluir:
+
+* Apellido y nombre.
+* DNI.
+* Legajo.
+* Modalidad de cursado.
+
+-
+Por derivación al área: a través del siguiente circuito de derivación
+
+Circuito de derivación
+
+Tipificación HubSpot: Baja administrativa por deuda en Biblioteca
+
+Completar en Notas la siguiente información:
+
+DNI del alumno:
+
+Legajo:
+
+Modalidad:
+
+Sede:
+
+Mail del alumno:
+
+Detalle de la solicitud:
+
+Tiempo de gestión: Plazo estimado de gestión: 1 semana$pea0$, 'global', 'borrador', $pea0$https://kb-cau.21.edu.ar/servicios-cau/servicios/servicios-de-biblioteca$pea0$)
+on conflict (categoria_id, slug) do nothing;
+
+insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
+values ((select id from public.categorias where slug = $pea0$oferta-academica$pea0$), null, 5, $pea0$kb-05-destacados-21$pea0$,
+        $pea0$Destacados 21$pea0$, $pea0$Información sobre Destacados 21, el programa de reconocimiento académico de Universidad Siglo 21 dirigido a estudiantes de carreras de grado. Incluye requisitos de postulación, documentación requer…$pea0$, $pea0$> **A validar:** contenido relevado de https://kb-cau.21.edu.ar/servicios-cau/servicios/destacados-21 el 2026-11-19. Revisalo antes de publicar.
+
+Información sobre Destacados 21, el programa de reconocimiento académico de Universidad Siglo 21 dirigido a estudiantes de carreras de grado. Incluye requisitos de postulación, documentación requerida, avales, criterios de evaluación, proceso de selección, etapas del certamen, participación de finalistas y consulta de convocatorias vigentes.
+
+¿Qué es Destacados 21?
+
+Destacados 21 es el certamen que reconoce a estudiantes de Siglo 21 que se destacan no solo por su dedicación al estudio, sino también por su capacidad de generar impacto, transformar ideas en acciones y contribuir positivamente a su entorno.
+
+El objetivo es reconocer a estudiantes que representen los valores de nuestra Universidad a través de su trayectoria, sus acciones y su compromiso.
+
+¿Quiénes pueden postularse?
+
+Podrán postularse quienes cumplan con los siguientes requisitos:
+
+- Haber aprobado 20 materias como mínimo, sin contar equivalencias de otras universidades.
+
+- Estudiar una carrera de grado.
+
+- Tener un promedio general igual o mayor a 8, incluyendo aplazos.
+
+- No contar con sanciones académicas.
+
+- Pertenecer a cualquier modalidad de estudio, sede o CAU.
+
+Importante: la postulación es personal. Cada estudiante deberá postularse a sí mismo.
+
+Quienes hayan participado en ediciones anteriores también podrán volver a postularse, incluso si recibieron una mención especial. La única excepción corresponde a quienes ya hayan recibido el premio Estudiante Destacado/a 21.
+
+¿Qué deberá presentar el estudiante?
+
+Para completar la postulación, el estudiante deberá presentar tres elementos:
+
+1. Formulario de postulación
+
+Deberá completar el formulario con la información solicitada sobre su trayectoria y experiencia.
+
+Formulario de postulación Destacados 21
+
+2. Avales
+
+Cada estudiante podrá presentar hasta 6 avales, correspondientes a avales académicos y/o sociales de su comunidad.
+
+Los avales podrán provenir, entre otros, de:
+
+- Dirección de Carrera.
+
+- Coordinación de CAU.
+
+- Tutor dinamizador.
+
+- Docentes, colegas o pares.
+
+- Familiares.
+
+- Organizaciones con las que el estudiante se encuentre vinculado/a.
+
+¿Cómo deberán presentarse?
+
+Los avales deberán estar disponibles mediante un link de Google Drive.
+
+🔎 Importante: el estudiante deberá verificar que el archivo o carpeta tenga configurado el acceso como “Cualquier persona con el enlace puede ver”. Si no es posible acceder al material, este no podrá ser considerado en la postulación.
+
+3. Video de postulación
+
+El estudiante deberá preparar un video de una duración máxima de 1 minuto y 30 segundos, en el que deberá presentarse y explicar por qué considera que debería ser elegido/a como Estudiante Destacado/a 21, incluyendo qué lo/la moviliza y cuáles son las acciones, experiencias o logros que considera representativos de su candidatura.
+
+El video deberá:
+
+- Tener una duración máxima de 1:30 minutos.
+
+- Compartirse mediante un link de Google Drive en el formulario de inscripción.
+
+Importante: el link deberá estar configurado como “Cualquier persona con el enlace puede ver”.
+
+¿Qué se evaluará?
+
+Destacados 21 busca reconocer trayectorias integrales. Por este motivo, el promedio académico será un aspecto importante de la evaluación, pero no será el único criterio considerado.
+
+Las postulaciones serán evaluadas considerando tres dimensiones:
+
+📚 Dedicación al estudio
+
+Se valorará el compromiso del estudiante con su formación, su desempeño académico, su avance en la carrera y la manera en que asume su recorrido como estudiante.
+
+🤝 Compromiso social
+
+Se considerarán las acciones concretas mediante las cuales el estudiante contribuya a su comunidad y genere un impacto positivo en otras personas o en su entorno.
+
+💡 Espíritu emprendedor
+
+Se valorará la capacidad del estudiante para transformar ideas en acciones, crear oportunidades, impulsar proyectos y encontrar nuevas formas de resolver desafíos.
+
+La evaluación contemplará los antecedentes, el rendimiento académico y las acciones concretas que puedan demostrarse en relación con estas dimensiones.
+
+¿Cómo es el proceso?
+
+🚀 Apertura de postulaciones
+
+A partir de la apertura de la convocatoria, los estudiantes que cumplan con los requisitos podrán completar su postulación.
+
+⏰ Cierre de convocatoria: 24 de septiembre
+
+Será la fecha límite para presentar la postulación completa.
+
+🔎 Preselección de los 10 finalistas: 12 al 16 de octubre de 2026
+
+Durante este período se analizarán las postulaciones y se definirán las 10 personas que avanzarán a la instancia final.
+
+🎤 Entrevistas con el jurado: 22 al 27 de octubre de 2026
+
+Las personas finalistas participarán de una entrevista con el jurado del certamen.
+
+🏆 Ceremonia Destacados 21: 26 de noviembre de 2026
+
+Durante la ceremonia se dará a conocer y se reconocerá a las personas distinguidas en esta edición.
+
+¿Qué reconocimientos se entregarán?
+
+Todos los postulados recibirán un reconocimiento por su participación y tendrán presencia en el sitio web de la Universidad y reconocimiento oficial en la ceremonia.
+
+Además, durante el certamen se entregarán diferentes distinciones y premios vinculados con:
+
+- Mérito Académico
+
+- Espíritu Emprendedor
+
+- Compromiso Social
+
+- Menciones Especiales
+
+- Estudiante Destacado/a Siglo 21
+
+- Estudiante Líder Siglo 21, sujeto a decisión del jurado.$pea0$, 'global', 'borrador', $pea0$https://kb-cau.21.edu.ar/servicios-cau/servicios/destacados-21$pea0$)
+on conflict (categoria_id, slug) do nothing;
+
+insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
+values ((select id from public.categorias where slug = $pea0$plataformas$pea0$), null, 7, $pea0$kb-07-incidencias-en-plataformas$pea0$,
+        $pea0$Incidencias en Plataformas$pea0$, $pea0$Este libreto reúne las gestiones relacionadas con incidencias en las plataformas institucionales que requieren validación y, de corresponder, derivación para su resolución.$pea0$, $pea0$> **A validar:** contenido relevado de https://kb-cau.21.edu.ar/servicios-cau/servicios/incidencias-en-plataformas el 2026-11-19. Revisalo antes de publicar.
+
+Este libreto reúne las gestiones relacionadas con incidencias en las plataformas institucionales que requieren validación y, de corresponder, derivación para su resolución.
+
+Índice
+
+- Error en plataformas
+
+- Carga de nota TP con corrección automática
+
+- Descarga de materia en Nuevo SAM
+
+1. Error en plataformas
+
+Descripción
+
+Esta gestión contempla los inconvenientes que impiden al estudiante acceder a las plataformas institucionales.
+
+Con el acceso unificado, el estudiante utiliza el mismo usuario y contraseña para ingresar a todas las plataformas institucionales, como Portal del Estudiante, Canvas y Klarway.
+
+Importante: Los inconvenientes relacionados con Klarway no corresponden a esta gestión y deben derivarse mediante la tipificación correspondiente de Sistema Q, ya que SITA no interviene en dichos casos.
+
+Validaciones previas obligatorias
+
+Antes de derivar una solicitud, el asesor debe validar:
+
+1. Verificar la migración al correo institucional
+
+Ingresar al Portal del Estudiante mediante el botón de IMPERSONAR y verificar que el estudiante haya sido migrado correctamente al nuevo correo institucional.
+
+Ruta: Portal del Estudiante → Más opciones (...) → Perfil.
+
+Si el campo Correo Institucional muestra una dirección con dominio @soysiglo.21.edu.ar, la migración fue realizada correctamente.
+
+Si el campo figura con un "-", realizar la migración manual mediante el botón Migrar.
+
+Importante: No corresponde derivar a SITA solicitudes de migración del correo institucional.
+
+2. Identificar el alcance del inconveniente
+
+Verificar si el problema ocurre:
+
+- únicamente en una plataforma;
+
+- en todas las plataformas institucionales.
+
+Si afecta una sola plataforma, validar previamente con el líder directo si existe una incidencia general.
+
+En caso de una caída masiva, no corresponde derivar. Informar al estudiante que aguarde la normalización del servicio.
+
+3. Validar la recuperación de contraseña
+
+Confirmar que el estudiante haya intentado recuperar su contraseña desde el recupero institucional: https://recupero-azure-auth.21.edu.ar/
+
+Si no recibe el correo:
+
+- verificar que el correo personal registrado sea correcto;
+
+- confirmar que la casilla esté activa;
+
+- revisar posibles filtros o bloqueos.
+
+Con consentimiento del estudiante, puede actualizarse el correo personal por uno alternativo y repetir el recupero.
+
+También recomendar:
+
+- reintentar el proceso;
+
+- utilizar una ventana de incógnito;
+
+- borrar caché y cookies;
+
+- probar desde una computadora si el intento fue realizado desde la App.
+
+Importante: El recupero de contraseña siempre debe realizarlo el estudiante. No corresponde derivar esta gestión a SITA.
+
+Si el inconveniente ocurre desde la App Mobile, confirmar que tenga instalada la versión más reciente.
+
+En caso de duda, solicitar que desinstale e instale nuevamente la aplicación.
+
+4. Validar el mensaje de error
+
+Si el estudiante visualiza el mensaje:
+
+"No tienes permiso para acceder a este recurso."
+
+Este mensaje es generado por Microsoft cuando detecta múltiples inicios de sesión desde distintas ubicaciones (por ejemplo, cuando el estudiante se encuentra de viaje).
+
+Solicitar que restablezca su contraseña mediante el recupero institucional, ya que esta acción suele resolver el inconveniente.
+
+Reglas generales de contraseñas:
+
+Las políticas de contraseña son administradas por Microsoft (Azure AD) y no pueden modificarse desde la Universidad.
+
+La contraseña debe:
+
+- tener entre 8 y 256 caracteres;
+
+- contener al menos tres de las siguientes categorías:
+
+- mayúsculas;
+
+- minúsculas;
+
+- números;
+
+- caracteres especiales;
+
+- no contener el nombre del usuario ni partes del correo institucional.
+
+El acceso se bloquea temporalmente luego de 10 intentos fallidos en menos de 60 segundos. El primer bloqueo dura aproximadamente un minuto y puede extenderse si continúan los intentos.
+
+¿Cuándo corresponde derivar?
+
+Cuando, luego de realizar todas las validaciones previas, el estudiante continúa presentando inconvenientes para acceder a las plataformas institucionales.
+
+¿Cuándo no corresponde derivar?
+
+No corresponde derivar mediante esta gestión cuando el reclamo esté relacionado con:
+
+-
+Empadronamiento en revisión: los reclamos vinculados al estado de empadronamiento no son gestionados por SITA, deben derivarse mediante la tipificación correspondiente de Sistema Q.
+
+-
+Oferta académica: cuando el estudiante informa que una materia aparece inhabilitada; no visualiza un período académico; no puede inscribirse por restricciones de oferta académica.
+
+Estos casos deben analizarse previamente con Planificación Académica, ya que normalmente responden a restricciones de oferta, períodos no habilitados o comisiones completas.
+
+-
+Consultas sobre instructivos: no corresponde derivar consultas sobre instructivos: Instructivo de uso de E-Book, Instructivo de Plataforma de Idiomas, Instructivo de App Mobile.
+
+Circuito de derivación
+
+Tipificación HubSpot: Error Plataformas
+
+Nota de derivación
+
+Completar el campo Motivo indicando:
+
+- Plataforma afectada.
+
+- Descripción del inconveniente.
+
+- Validaciones realizadas previamente.
+
+- DNI.
+
+- Legajo.
+
+- Captura de pantalla donde se visualice el error (obligatoria).
+
+2. Carga de nota TP con corrección automática
+
+Descripción
+
+Esta gestión contempla consultas o reclamos relacionados con la calificación de Trabajos Prácticos autocorregibles de las materias MEC.
+
+En estas materias el estudiante puede realizar el Trabajo Práctico tantas veces como desee; sin embargo, el sistema conserva únicamente la calificación correspondiente al último intento registrado.
+
+Importante: Incluso si el estudiante vuelve a ingresar únicamente para visualizar el Trabajo Práctico, el sistema interpreta ese acceso como un nuevo intento y reemplaza la nota anterior por la última obtenida.
+
+Validaciones previas obligatorias
+
+Antes de derivar, verificar:
+
+- Si el estudiante volvió a ingresar al Trabajo Práctico luego de haber obtenido una calificación.
+
+- Si la diferencia de nota corresponde a una demora de sincronización entre plataformas, validando que hayan transcurrido al menos 24 horas.
+
+¿Cuándo corresponde derivar?
+
+- Cuando el estudiante afirma que no volvió a ingresar al Trabajo Práctico y la nota aparece modificada.
+
+- Cuando la nota continúa sin sincronizarse entre Canvas y Portal del Estudiante luego de 24 horas ( la nota figura en canvas y no en portal o SGU)
+
+¿Cuándo no corresponde derivar?
+
+No corresponde derivar cuando:
+
+- el estudiante volvió a ingresar al Trabajo Práctico;
+
+- la disminución de la nota corresponde a una entrega fuera de término;
+
+- la materia posee múltiples versiones del mismo TP y el estudiante completó más de una;
+
+- el estudiante solicita excepciones para que no se descuenten puntos;
+
+- solicita extender el plazo de entrega;
+
+- solicita modificar la nota por situaciones particulares;
+
+- cargó el archivo como borrador, pero nunca presionó Entregar tarea.
+
+Circuito de derivación
+
+Tipificación HubSpot: Carga de nota TP corrección automática
+
+Nota de derivación
+
+Completar el campo Motivo indicando:
+
+- DNI.
+
+- Legajo.
+
+- Materia.
+
+- Trabajo Práctico afectado.
+
+- Nota visualizada.
+
+- Descripción del reclamo
+
+3. Descarga de materia en Nuevo SAM
+
+Descripción
+
+Esta gestión contempla los casos en que el estudiante informa que una materia no se encuentra disponible en su aula virtual de Canvas.
+
+Validaciones previas obligatorias
+
+Antes de derivar, verificar:
+
+- Que el estudiante se encuentre correctamente inscripto en la materia.
+
+- Que el cursado haya comenzado.
+
+- Que hayan transcurrido más de 72 horas desde la inscripción o desde el inicio del cursado.
+
+¿Cuándo corresponde derivar?
+
+Cuando el estudiante:
+
+- se encuentra correctamente inscripto;
+
+- el cursado ya inició;
+
+- transcurrieron más de 72 horas y la materia continúa sin visualizarse en Canvas.
+
+Circuito de derivación
+
+Tipificación HubSpot:
+
+Descarga de materia en Nuevo SAM
+
+Nota de derivación
+
+Completar el campo Motivo indicando:
+
+- DNI.
+
+- Legajo.
+
+- Materia.
+
+- Comisión (si corresponde).
+
+- Fecha de inscripción.
+
+- Fecha de inicio del cursado.
+
+- Captura de pantalla donde se evidencie que la materia no se visualiza en Canvas.$pea0$, 'global', 'borrador', $pea0$https://kb-cau.21.edu.ar/servicios-cau/servicios/incidencias-en-plataformas$pea0$)
+on conflict (categoria_id, slug) do nothing;
+
+insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
+values ((select id from public.categorias where slug = $pea0$atencion-y-derivaciones$pea0$), null, 10, $pea0$kb-10-soy-siglo-ex-talent-21$pea0$,
+        $pea0$Soy Siglo (ex Talent 21)$pea0$, $pea0$Brindar los lineamientos necesarios para utilizar la plataforma Soy Siglo, permitiendo orientar a los estudiantes sobre el estado de sus procesos de vinculación para Práctica Profesional y Práctica…$pea0$, $pea0$> **A validar:** contenido relevado de https://kb-cau.21.edu.ar/servicios-cau/servicios/instructivo-plataforma-talent-21-para-asesores el 2026-11-19. Revisalo antes de publicar.
+
+Brindar los lineamientos necesarios para utilizar la plataforma Soy Siglo, permitiendo orientar a los estudiantes sobre el estado de sus procesos de vinculación para Práctica Profesional y Práctica Solidaria, interpretar la información disponible en la plataforma y responder consultas relacionadas con formularios, aprobaciones, asignaciones y convenios.
+
+¿Qué es Soy Siglo?
+
+Soy Siglo es la plataforma de vinculación que centraliza todas las gestiones de vinculación para las instancias organizacionales de Práctica Profesional, Práctica Solidaria y empleabilidad.
+
+La plataforma abarca los siguientes módulos:
+
+-
+Práctica Profesional y Solidaria: los estudiantes se vinculan con las organizaciones, gestionando el proceso de vinculación y formalización de convenios.
+
+-
+Portal de Organizaciones: las organizaciones cargan sus vacantes, formalizan los convenios y aprueban propuestas de estudiantes.
+
+-
+Portal de empleo: buscador de propuestas de empleos para estudiantes y egresados de la Universidad.
+
+ACCESO A LA PLATAFORMA:
+
+🔗Soy Siglo: https://21-csm.symplicity.com/faculty/index.php?
+
+Usuarios:
+
+-
+CAUs: (dominio @cau.ues21.edu.ar).
+
+-
+CASA: SupervisoresServicio@ues21eduar.onmicrosoft.com
+
+-
+Asesores de Mesa de Atención: acceden con el correo de cada Sede:
+
+-
+Nueva Córdoba: nvacba@soysiglo.edu.ar
+
+-
+Campus: campuscba@soysiglo.edu.ar
+
+-
+Río Cuarto: riocuarto@soysiglo.edu.ar
+
+-
+Vicente López: vtelopez@soysiglo.edu.ar
+
+Contraseña: Todos los usuarios recibirán una clave por correo electrónico.
+
+Vista general de la plataforma:
+
+INICIO: panel principal con anuncios y lista de verificación inicial (cuenta creada, perfil, privacidad).
+
+MIS ESTUDIANTES: Listado de todos los estudiantes inscriptos a Práctica solidaria y/o Práctica Profesional; allí nos muestra el nombre completo y su carrera.
+
+PRÁCTICA PROFESIONAL/SOLIDARIA: Podemos observar el estado y el formulario de cada estudiante.
+
+RECURSOS: Es predeterminado de la plataforma.
+
+MI CUENTA: Figuran los datos relacionados al correo con el que ingresaron (no modificarlos).
+
+Desde el apartado PRÁCTICA PROFESIONAL/SOLIDARIA podrán observar el listado de estudiantes donde van a poder filtrar según necesiten para optimizar la búsqueda.
+
+IMPORTANTE:
+
+- Asesores de Mesas de Atención de Sedes (Campus, Nueva Córdoba y Río Cuarto): visualizan estudiantes inscriptos en la materia, de modalidad P y PH (CAU SENIOR) y estudiantes modalidad ED y EDH inscriptos en CAU CBA01 y CUA01.
+
+- Asesores de CASA: visualizan todos los estudiantes inscriptos en la materia.
+
+- Asesores de CAUs: visualizan estudiantes inscriptos en la materia y en su CAU. Por ejemplo, asesores del CAU Argüello visualizan estudiantes inscriptos en Práctica Profesional y que además su legajo esté inscripto en el código de CAU CBA04.
+
+Qué significa cada dato en cada formulario:
+
+Estado de aprobación
+
+APROBACIÓN PENDIENTE (naranja) APROBADO (verde)
+
+Importante: Actualmente, los asesores pueden visualizar formularios en estado pendiente y aprobado. No visualizan formularios en estado rechazado o borrador.
+
+Período
+
+1-2026 = primer semestre 2-2026 = segundo semestre
+
+Nombre del formulario
+
+Quiero proponer una organización / Solicito que la Universidad me asigne una organización / Incompatibilidad de concurrencia
+
+Organización
+
+Nombre de la organización propuesta o asignada por la universidad.
+
+Pueden buscar con palabras claves: nombre y apellido del estudiante, tener en cuenta que si un mismo estudiante cursa ambas prácticas (profesional y solidaria) se verán sus dos formularios.
+
+Luego de filtrar según la vinculación y el periodo que quieran consultar hacer click en el botón buscar para efectuar la búsqueda.
+
+Al seleccionar el botón "más filtros" se habilitan los filtros para buscar por tipo de práctica y el período de cursado. Desde el filtro “Tipo de práctica”, pueden buscar según el tipo de vinculación de cada práctica (Profesional o Solidaria). Verificar el paréntesis de cada formulario, donde se indica el tipo de práctica.
+
+¿Qué quiere decir el formulario: Quiero proponer una Organización a la Universidad (Práctica Profesional)?
+
+Si el estudiante desea proponer una Organización, primero se debe comunicar con un representante de esta para obtener el consentimiento de la Organización.
+
+Una vez que la Organización le confirme, el estudiante completa el formulario con los datos solicitados.
+
+Estudiante envía → Universidad Valida → Tutor aprueba → Comienzan con sus prácticas.
+
+Al darle click al nombre podemos ver todos los datos que el estudiante cargó de la organización y del tutor.
+
+Del tutor podemos ver: Nombre y apellido, puesto en la organización, teléfono y correo electrónico; además de las tareas que realizará el estudiante.
+
+Por último, se ve la documentación obligatoria presentada por el estudiante.
+
+Importante: En este caso, el estado del formulario “Aprobado” significa que tanto la Universidad como el tutor han aprobado la propuesta (el proceso de asignación se encuentra al 100%) y el estudiante debe comenzar con sus prácticas en la organización.
+
+También podemos observar el siguiente estado “Aprobación Pendiente” la Universidad aprobó la propuesta y queda pendiente la aprobación por parte del tutor (el proceso de asignación se encuentra al 50%).
+
+Dentro de los formularios de Quiero Proponer una organización, si ingresamos veremos a la derecha que se encuentra la lista de aprobadores. Esta sección permite identificar quiénes intervienen en el proceso de validación y conocer el estado de cada aprobación.
+
+El primer aprobador corresponde al Miembro del personal, que representa a Universidad Siglo 21. Este aprobador es el encargado de realizar la revisión institucional del formulario presentado por el estudiante.
+
+En segundo lugar, observamos el Contacto, que corresponde al tutor o referente de la organización propuesta por el estudiante. Su función es revisar y validar la información vinculada a la práctica o actividad presentada.
+
+Junto a cada aprobador se muestra el estado de su revisión. Los posibles estados son:
+
+- Aprobado: se visualiza en color verde e indica que la revisión fue completada favorablemente.
+
+- Pendiente: indica que la revisión aún no ha sido realizada.
+
+- Plazo vencido: se visualiza en color rojo y aparece cuando han transcurrido más de tres días sin que se haya efectuado la revisión correspondiente.
+
+De esta manera, permite realizar un seguimiento claro del avance y estado de las aprobaciones requeridas para cada formulario.
+
+¿Qué quiere decir el formulario: Solicito que la Universidad me asigne una Organización (Práctica Profesional)?
+
+El estudiante completa el formulario para que la Universidad le asigne una organización en base a su localidad y su carrera. Se les avisa por correo electrónico la organización asignada y a través de la Talent 21 pueden ver esos datos.
+
+Estudiante solicita organización → Universidad asigna
+
+Dándole click al nombre del estudiante podremos observar los datos de la organización y tutor asignado, en caso de que no se encuentre está información quiere decir que le estudiante no ha sido asignado aún.
+
+Importante: El estado "Aprobado" indica que la Universidad recibió correctamente el formulario. Esto no implica que el estudiante ya haya sido asignado a una organización.
+
+Para verificar si el estudiante cuenta con una asignación, podrá consultar la información que se muestra debajo del estado o acceder al detalle completo haciendo clic sobre el nombre del estudiante.
+
+¿Qué quiere decir el formulario: Preasignación (sólo administradores) práctica profesional?
+
+En caso de que el estudiante ingrese a la plataforma, pero no complete ninguno de los formularios, se le realizará una preasignación de una organización (en el caso de que existan vacantes) en función de su carrera y su localidad.
+
+Ante esta preasignación, el estudiante podrá aceptar o rechazar la propuesta. Si la rechaza, la única alternativa disponible será proponer una organización por su cuenta.
+
+Universidad preasigna → Estudiante acepta o rechaza.
+
+Convenios
+
+Una vez que la organización y el tutor aprueban la propuesta y esta alcanza un estado de aprobación del 100 %, el sistema genera automáticamente un Convenio Anexo, que queda disponible dentro del formulario del estudiante. Este documento puede visualizarse desde la opción “Revisar” al final del formulario encuentran un apartado donde dice “Convenio Anexo” y deben darle al botón de “Ver Documento”:
+
+Por otro lado, cuando la organización se ha registrado y aceptado el Convenio de Actividades Académicas, se genera una copia en PDF del convenio marco, dicho documento queda disponible únicamente dentro del perfil de la organización.
+
+El estudiante y el docente no tienen acceso a este archivo.
+
+Es importante tener en cuenta que la generación de los archivos no es automática ni instantánea. Los usuarios deben aguardar a que los documentos se encuentren disponibles en el sistema.
+
+Asimismo, ni el estudiante ni el docente deben realizar ninguna gestión relacionada con la emisión de estos convenios. Una vez generados, los documentos estarán disponibles en los espacios correspondientes de la plataforma.
+
+Finalmente, el estudiante no debe firmar el Convenio Anexo.$pea0$, 'global', 'borrador', $pea0$https://kb-cau.21.edu.ar/servicios-cau/servicios/instructivo-plataforma-talent-21-para-asesores$pea0$)
+on conflict (categoria_id, slug) do nothing;
+
+insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
+values ((select id from public.categorias where slug = $pea0$oferta-academica$pea0$), null, 11, $pea0$kb-11-carreras-especiales$pea0$,
+        $pea0$Carreras especiales$pea0$, $pea0$Información sobre casos académicos especiales y procesos particulares de determinadas carreras y matriculaciones: Medicina, articulación Cervantes de Martillero y Corredor Público e Inmobiliario, g…$pea0$, $pea0$> **A validar:** contenido relevado de https://kb-cau.21.edu.ar/servicios-cau/servicios/carreras-especiales el 2026-11-19. Revisalo antes de publicar.
+
+Información sobre casos académicos especiales y procesos particulares de determinadas carreras y matriculaciones: Medicina, articulación Cervantes de Martillero y Corredor Público e Inmobiliario, gestión de alumnos por puntos, matriculación en el Colegio de Corredores Públicos Inmobiliarios de Entre Ríos y condiciones específicas de la Tecnicatura Universitaria en Atención Prehospitalaria de Emergencias.
+
+ÍNDICE:
+
+-
+Medicina
+
+-
+Articulación Cervantes – Martillero y Corredor Público e Inmobiliario
+
+-
+Alumno por Puntos
+
+-
+Matriculación – Colegio de Corredores Públicos Inmobiliarios de Entre Ríos
+
+-
+TECNICATURA UNIVERSITARIA EN ATENCIÓN PREHOSPITALARIA DE EMERGENCIAS
+
+MEDICINA 2027
+
+INFORMACIÓN GENERAL
+
+- Título: Médico/a.
+
+- Duración: 6 años.
+
+- Carga horaria: 6.254 horas.
+
+- Modalidad: Presencial.
+
+- Lugar de cursado: Campus Universitario (frente al aeropuerto).
+
+- Horario de cursado: Lunes a viernes de 8:00 a 17:00.
+
+- Resolución Ministerial: RM 1015/2025.
+
+- Más información: https://21.edu.ar/carreras-y-programas/medicina
+
+CURSO DE NIVELACIÓN
+
+El Ciclo de Nivelación tiene una duración de 9 semanas y está estructurado en distintas etapas que acompañan al estudiante en su preparación para el ingreso a Medicina. Durante el recorrido se desarrollan actividades de onboarding, contenidos de Ciencias Básicas, espacios de inspiración vocacional, experiencias presenciales inmersivas, instancias de coaching y simulacros, finalizando con la evaluación mediante la plataforma Klarway.
+
+-
+Semana 0 | Onboarding Inmersivo Inicio del recorrido. El estudiante se familiariza con la plataforma, el funcionamiento del Ciclo de Nivelación y las herramientas que utilizará durante el proceso.
+
+-
+Semanas 1 a 3 | Ciencias Básicas I Primer bloque académico enfocado en los contenidos de Física, Química y Biología. Durante este período el estudiante comienza su preparación para las evaluaciones de ingreso.
+
+-
+Semana 4 | Inspirar Medicina Espacio orientado a la construcción de la vocación médica y al desarrollo del perfil humanístico de la profesión. Busca acercar al estudiante a los valores y desafíos del ejercicio de la medicina.
+
+-
+Semana 5 | Hito Presencial Inmersivo Jornada presencial diseñada para fortalecer la experiencia universitaria, promover la integración entre aspirantes y acercarlos al entorno académico de la carrera.
+
+-
+Semanas 6 y 7 | Ciencias Básicas II Continuación y profundización de los contenidos de Física, Química y Biología, consolidando los conocimientos necesarios para la evaluación final.
+
+-
+Semana 8 | Coaching y Simulacros Instancia de acompañamiento y preparación para el examen. Incluye actividades de práctica, simulaciones y orientación para reforzar la confianza y el desempeño del estudiante.
+
+-
+Semana 9 | Evaluación Klarway Etapa final del proceso. El estudiante realiza las evaluaciones de admisión a través de la plataforma Klarway.
+
+NUEVA COHORTE DE EXAMENES DE MEDICINA
+
+vvan a rendir 3 exámenes, uno por día y en modalidad virtual, a través de SOE (Klarway).
+
+Lunes 28/09: Física
+Miércoles 30/09: Biología
+Viernes 02/10: Química
+
+El horario para rendir es de 06:00 a 22:00 h, lo van a poder realizar en cualquier momento del día contemplando esa franja horaria y la duración es de 60 min.Algunos datos importantes:
+
+- Para ingresar a la carrera, deberán aprobar las 3 materias. Por el momento, no se darán recuperatorios.
+
+- Inscripciones: Las mismas ya se encuentran gestionadas y las van a poder visualizar en los próximos días.
+
+- Los exámenes son de 30 preguntas y la escala de notas es la misma que utilizamos para los exámenes integradores.
+
+- A diferencia de la cohorte anterior, cuando finalicen cada examen van a poder ver la nota obtenida.
+
+- Las materias se encontrarán en estado Regular en SGU.
+
+CONDICIONES DE CURSADO
+
+Para mantener la regularidad en las materias, el estudiante debe:
+
+- Cumplir con un mínimo del 75% de asistencia.
+
+- Aprobar las instancias evaluativas definidas en cada asignatura.
+
+- Aprobar al menos 3 de los 4 trabajos prácticos requeridos.
+
+- Cumplir con los requisitos académicos establecidos en la planificación de cada materia.
+
+Importante:
+
+- Las materias son cuatrimestrales.
+
+- El estudiante puede cursar hasta 6 materias por cuatrimestre.
+
+- Los exámenes parciales se realizan durante el cursado según la planificación académica.
+
+- No se abona derecho de examen.
+
+PREGUNTAS FRECUENTES
+
+✅ ¿Dónde se cursa la carrera?
+
+Las actividades académicas se desarrollan en el Campus Universitario de Universidad Siglo 21.
+
+✅ ¿La asistencia es obligatoria?
+
+Sí. El estudiante debe cumplir con el porcentaje de asistencia establecido para conservar la regularidad de las materias.
+
+✅ ¿Existen actividades prácticas durante la carrera?
+
+Sí. La propuesta académica incorpora actividades prácticas de manera progresiva y culmina con la Práctica Final Obligatoria.
+
+✅ ¿La carrera incluye prácticas en instituciones de salud?
+
+Sí. La Práctica Final Obligatoria se realiza en hospitales, clínicas y otros espacios de formación con convenio institucional.
+
+✅ ¿Existen materias electivas?
+
+Sí. El plan contempla materias electivas y horas flexibles que permiten complementar la formación profesional.
+
+✅ ¿La carrera tiene prácticas solidarias?
+
+Sí. La Práctica Solidaria forma parte del recorrido académico obligatorio.
+
+ARTICULACIÓN CERVANTES
+
+MARTILLERO Y CORREDOR PÚBLICO E INMOBILIARIO
+
+¿Qué es la Articulación Cervantes?
+
+Es una propuesta académica que permite a estudiantes del Instituto Cervantes que hayan finalizado su cursado obtener el título de Martillero y Corredor Público e Inmobiliario, cursando una sola materia:
+
+-
+Principios Fundamentales de los Derechos Reales.
+
+¿Quiénes pueden realizarla?
+
+Pueden acceder a la articulación quienes cumplan alguna de las siguientes condiciones:
+
+-
+Alumnos que hayan aprobado la totalidad de las asignaturas correspondientes a los tres primeros cuatrimestres y se encuentren inscriptos para cursar el 4.º cuatrimestre de la carrera de Martillero y Corredor Público en Instituto Cervantes.
+
+-
+Alumnos que hayan cursado todos los cuatrimestres y solo adeuden la aprobación de asignaturas del 4.º cuatrimestre.
+
+-
+Egresados del Instituto Cervantes de la carrera de Martillero y Corredor Público.
+
+Planes de estudio no habilitados
+
+No deben ser admitidos alumnos provenientes de los siguientes planes de estudio, ya que actualmente la institución no puede emitir los títulos por cuestiones ministeriales:
+
+-
+Res. Min. N.º 1642/13
+
+-
+Res. Min. N.º 1640/15
+
+-
+Res. DGIPE N.º 0996/13
+
+-
+Res. DGIPE N.º 0039/19
+
+Modalidad de cursado
+
+-
+Modalidad: Presencial
+
+-
+Día y horario: Sábados de 9 a 14 h
+
+-
+Sede: Nueva Córdoba
+
+-
+Duración: Cuatrimestral
+
+-
+Períodos de inicio: Períodos A (marzo y agosto)
+
+-
+Importante: La materia no se habilita en períodos B.
+
+-
+Exámenes parciales: No posee.
+
+-
+Regularización: Por cursado.
+
+-
+El calendario de cursado y fechas se encuentra disponible en SGU, sección Formularios, Archivos y Links.
+
+Inscripción y documentación
+
+La inscripción solo se puede realizar en los períodos A (marzo y agosto).
+
+Para realizar la inscripción, el alumno debe presentar:
+
+-
+Tirilla emitida por Instituto Cervantes.
+
+-
+Certificado analítico definitivo o constancia de analítico en trámite.
+
+Gestión de la documentación
+
+El alumno no entrega documentación para el legajo en la Universidad.
+
+La Universidad articula internamente con Instituto Cervantes y el área de Trámites para la gestión de la documentación correspondiente.
+
+Gestión del título
+
+El alumno puede cursar la Articulación Cervantes aun cuando no cuente con el Certificado Analítico definitivo del Instituto Cervantes.
+
+Para iniciar la gestión del título, es obligatorio presentar el Certificado Analítico oficial y definitivo emitido por Instituto Cervantes.
+
+No se acepta copia, constancia de analítico en trámite ni certificados provisorios para la emisión del título.
+
+Hasta tanto no se presente el analítico definitivo, el alumno podrá cursar, pero no se iniciará la gestión del título.
+
+Evaluación final
+
+La evaluación final es presencial y se rinde en la sede Nueva Córdoba.
+
+Con 60 % o más de asistencia, el alumno rinde una instancia de examen oral.
+
+Con menos del 60 % de asistencia, la evaluación final es oral y escrita.
+
+Las fechas se encuentran establecidas en el calendario académico.
+
+No rinden exámenes parciales.
+
+La materia consta de 2 (dos) autoevaluaciones que están a disposición del alumno, a los fines de que pueda medir su rendimiento. Las mismas son de carácter optativo.
+
+Inscripción al examen final.
+
+En caso de que el alumno solicite la inscripción al examen final:
+
+-
+Se debe generar un caso en Sistema Q, indicando día y horario según los turnos establecidos en el calendario.
+
+-
+No se abona derecho de examen ni matrícula.
+
+Costos
+
+El título no se abona.
+
+Se abona el arancel por una materia ( se deriva por HubSpot el pedido a cobranza para la generación del mismo)
+
+Información normativa
+
+Para más información, consultar el Reglamento, capítulo 3.5 – Reconocimiento de Estudios. Equivalencias > Articulación con otras instituciones.
+
+ALUMNO POR PUNTOS
+
+¿A quiénes aplica? Este régimen aplica a una población acotada de alumnos que cuentan con sistema arancelario por puntos, incluyendo alumnos de modalidad EDH, conforme a la normativa vigente.
+
+Actualización de matrícula – Alumnos por Puntos
+
+Ante solicitudes de activación de matrícula, se debe proceder del siguiente modo:
+
+-
+El alumno debe contar con 100 puntos a favor, correspondientes al monto de activación de la matrícula.
+
+-
+Los puntos se obtienen mediante Pago Electrónico.
+
+-
+Se debe generar un caso y derivarlo al área de Cobranzas, para que se realice el descuento de los 100 puntos.
+
+-
+Una vez efectuado el descuento:
+
+-
+Cobranzas deriva el caso a Operativo SOA, quien actualiza la vigencia y el estado de la matrícula.
+
+-
+La matrícula tendrá una vigencia de 365 días desde la fecha de pago.
+
+Inscripción a materias – Sistema de Pago por Puntos
+
+-
+Al momento de inscribirse, el alumno verifica la cantidad de puntos que requiere cada materia.
+
+-
+El pago es por materia.
+
+-
+El alumno realiza la compra de los puntos correspondientes mediante Pago Electrónico.
+
+-
+El área de Cobranzas realiza la facturación del pago.
+
+-
+Con los puntos acreditados, el alumno puede inscribirse a las materias solicitadas.
+
+Pase de pago por puntos a pago semestralizado
+
+Al finalizar el cursado de la materia, el alumno queda en condición de REGULAR.
+
+Para rendir el examen final, deberá abonar nuevamente la misma cantidad de puntos que abonó para cursar la materia, en concepto de derecho de examen.
+
+Importante: este pago corresponde exclusivamente al derecho de examen, no al recursado de la materia.
+
+Ante esta situación, se presentan dos escenarios posibles:
+
+Opción 1 – El alumno desea rendir el examen final
+
+- Se realiza el pase de pago por puntos a pago semestralizado.
+
+- El alumno mantiene una deuda equivalente a los puntos abonados por el cursado, la cual deberá cancelar para rendir el examen final.
+
+Opción 2 – El alumno no desea rendir el examen final
+
+- La materia queda en condición de LIBRE.
+
+- La deuda se anula.
+
+- El alumno deberá recursar la materia si desea volver a cursarla.
+
+Régimen de Pago por Puntos – Modalidad EDH
+
+(Res. Rec. 479/08)
+
+De acuerdo con la normativa vigente, se establece que:
+
+- Los alumnos de modalidad EDH que posean puntos acumulados con anterioridad a la vigencia de la resolución deben consumir dichos puntos, no pudiendo adquirir nuevos mientras superen un stock de 400 puntos.
+
+- Los puntos se consumen por orden de antigüedad, utilizando primero los más antiguos.
+
+- Los puntos adquiridos con posterioridad al 14/04/2008 tienen una vigencia máxima de 365 días desde la fecha de compra.
+Vencido ese plazo, los puntos se pierden y no son recuperables.
+
+- En caso de baja definitiva del alumno, los puntos comprometidos en exámenes, tutorías, preinscripciones u otros servicios solicitados no son reintegrables.
+
+Condición académica al finalizar la materia – EDH por Puntos
+
+Alumno Regular (R)
+
+- La regularidad se garantiza al momento de la inscripción.
+
+- Al finalizar el cursado, el alumno mantiene la condición de Regular.
+
+- Debe rendir un examen final escrito de 50 preguntas.
+
+- Aprobación:
+
+- 26 o más respuestas correctas.
+
+- Calificación mínima: 6 (seis)
+
+Alumno Regular Preferente (RP)
+
+- El alumno adquiere esta condición cuando:
+
+- Realiza y aprueba los 4 Trabajos Prácticos.
+
+- Cada TP cuenta con nota igual o superior a 7 (siete).
+
+- Los trabajos no presentados se califican con 0 (cero).
+
+- Debe rendir un examen final escrito de 30 preguntas.
+
+- Aprobación:
+
+- 16 o más respuestas correctas.
+
+- Calificación mínima: 6 (seis).
+
+Inscripción a exámenes – Derivación interna
+
+Para solicitar la inscripción a exámenes, se debe generar un caso a través de CRM y derivarlo a SITA, incluyendo obligatoriamente la siguiente información:
+
+- Legajo
+
+- Código de materia
+
+- Código de CAU
+
+- Fecha de la mesa
+
+- Hora de la mesa
+
+- Tipo de examen (final o parcial) y cantidad de preguntas
+
+COLEGIO DE CORREDORES PÚBLICOS INMOBILIARIOS DE ENTRE RÍOS REQUISITO PARA LA MATRICULACIÓN
+
+El Colegio de Corredores Públicos Inmobiliarios de Entre Ríos exige contar con título de grado para poder iniciar el trámite de matriculación.
+
+Títulos habilitados para matricularse.
+
+Actualmente, ya se puede presentar cualquiera de las siguientes combinaciones de títulos para solicitar la matrícula:
+
+- Título de Martillero, Corredor Público y Corredor Inmobiliario, o
+
+- Título de Martillero, Corredor Público y Corredor Inmobiliario + Licenciatura en Desarrollo de Negocios Inmobiliarios.
+
+Cumplido este requisito, el egresado puede iniciar el trámite de inscripción y obtener la matrícula profesional.
+
+TECNICATURA UNIVERSITARIA EN ATENCIÓN PREHOSPITALARIA DE EMERGENCIAS
+
+INFORMACIÓN GENERAL
+
+-
+Título: Técnico/a Universitario/a en Atención Prehospitalaria de Emergencias.
+
+-
+Duración: 2 años y medio.
+
+-
+Modalidad: Presencial.
+
+-
+Lugar de cursado: Campus Universidad Siglo 21 (Córdoba).
+
+-
+Horario de cursado: Lunes a sábados, en turnos diurnos o nocturnos, según la planificación académica de cada comisión.
+
+-
+Resolución Ministerial: RM N.° 3362/2022.
+
+-
+La carrera está habilitada para que el Ministerio de Salud de la Provincia de Córdoba le otorgue la matricula habilitante.
+
+-
+La carrera cumple con las regulación de la actividad del ejercicio del Tecnico en Emergencia ordenadas por la ley 10970 de la Legislatura de la Provincia de Córdoba http://web2.cba.gov.ar/web/leyes.nsf/6dd74b426f288a67032572340058a003/1d5ccd05c5ef683903258b650044b960?OpenDocument
+
+-
+Más información: https://21.edu.ar/carreras-y-programas/tecnicatura-en-atencion-prehospitalaria-de-emergencias
+
+MODALIDAD DE CURSADO INTENSIVO
+
+¿Qué es la modalidad de cursado intensivo?
+
+La modalidad de cursado intensivo es una propuesta académica implementada inicialmente como prueba piloto durante el primer semestre de 2026 para la Tecnicatura Universitaria en Atención Prehospitalaria de Emergencias.
+
+Su objetivo es facilitar el acceso y la permanencia de estudiantes que necesitan compatibilizar su formación universitaria con actividades laborales u otras responsabilidades, sin modificar los estándares académicos de la carrera.
+
+La modalidad combina:
+
+- Encuentros virtuales sincrónicos durante la semana.
+
+- Jornadas presenciales intensivas los días sábados.
+
+- Actividades prácticas, talleres, simulaciones y evaluaciones presenciales.
+
+Importante: Al momento de la elaboración de este documento, la modalidad se encuentra en proceso de formalización institucional. La información aquí contenida tiene carácter preliminar y podrá actualizarse conforme se definan los aspectos académicos y administrativos
+
+RECONOCIMIENTO DE COMPETENCIAS Y TRAYECTOS FORMATIVOS
+
+La modalidad contempla el reconocimiento parcial de saberes y experiencias previas mediante distintos mecanismos de validación.
+
+1. Reconocimiento por experiencia laboral
+
+Destinado a personas que acrediten un mínimo de tres (3) años de experiencia en atención prehospitalaria y traslado sanitario.
+
+Para acceder al reconocimiento deberán aprobar:
+
+- Evaluación escrita.
+
+- Evaluación práctica organizada por estaciones.
+
+2. Articulación con instituciones conveniadas
+
+Dirigido a integrantes de instituciones con convenio vigente con la Universidad, entre ellas:
+
+- Policía de Córdoba.
+
+- Bomberos Voluntarios.
+
+- Defensa Civil.
+
+- ETAC.
+
+- Fuerzas Armadas.
+
+- Empresas de emergencias.
+
+El reconocimiento se realizará mediante:
+
+- Validación documental.
+
+- Entrevista de validación con la Dirección de la carrera.
+
+3. Reconocimiento de trayectos formativos no universitarios
+
+Podrán solicitarlo quienes hayan realizado cursos, certificaciones o programas de formación afines emitidos por instituciones validadas y con convenio vigente.
+
+La documentación presentada será evaluada mediante una entrevista de validación.
+
+Alcance del reconocimiento
+
+El reconocimiento de competencias podrá comprender únicamente aquellos espacios curriculares compatibles con la trayectoria acreditada.
+
+No podrán reconocerse:
+
+- Prácticas profesionales.
+
+- Seminarios.
+
+- Instancias integradoras.
+
+Esta medida garantiza la calidad académica y la formación profesional requerida para el ejercicio de la actividad.
+
+CAMBIO DE MODALIDAD
+
+¿Un estudiante que actualmente cursa en modalidad presencial puede solicitar el cambio?
+
+Como criterio general, no se recomienda que los estudiantes continúen cursando en la modalidad en la que iniciaron su carrera.
+
+La incorporación a esta modalidad está prevista principalmente para los nuevos ingresantes a partir del segundo semestre de 2026.
+
+Las solicitudes excepcionales deberán ser evaluadas considerando:
+
+- La trayectoria académica del estudiante.
+
+- Las materias aprobadas.
+
+- El impacto organizativo del cambio.
+
+Toda excepción deberá contar con la autorización de las áreas académicas correspondientes.
+
+ORGANIZACIÓN DEL CURSADO
+
+¿Qué materias se cursan los sábados?
+
+Los estudiantes cursarán las asignaturas correspondientes a su planificación académica.
+
+En el caso de estudiantes con reconocimiento de competencias, cursarán únicamente las materias y actividades que no hayan sido reconocidas.
+
+Las jornadas presenciales de los sábados estarán destinadas principalmente a:
+
+- Actividades prácticas.
+
+- Talleres.
+
+- Simulaciones.
+
+- Evaluaciones.
+
+- Actividades que requieran el uso del Multilab.
+
+- Uso de equipamiento específico.
+
+- Escenarios de práctica prehospitalaria.
+
+Horarios de cursado
+
+La organización preliminar contempla:
+
+Actividad
+|
+Horario
+|
+
+Encuentros virtuales sincrónicos
+|
+Miércoles, jueves y viernes de 18:00 a 20:00 (aproximadamente)
+|
+
+Jornadas presenciales intensivas
+|
+Sábados de 08:45 a 17:30
+|
+
+Importante: Los días y horarios podrán variar según la planificación de cada asignatura.
+
+ENCUENTROS VIRTUALES
+
+¿Se realizan encuentros virtuales?
+
+Sí. La modalidad prevé encuentros virtuales sincrónicos durante los días miércoles, jueves y viernes.
+
+¿Dónde se informa el cronograma?
+
+Cada docente publicará el cronograma correspondiente a través de:
+
+- Canvas.
+
+- Los canales institucionales de la asignatura.
+
+Duración
+
+La duración estimada es de una (1) hora por asignatura, de acuerdo con la planificación académica.
+
+Asistencia
+
+Los encuentros virtuales sincrónicos poseen los mismos criterios de asistencia establecidos para las actividades obligatorias de la modalidad presencial.
+
+EVALUACIONES
+
+¿Cómo se rinden los exámenes?
+
+Las evaluaciones se realizan:
+
+- De manera presencial.
+
+- En el Campus Universitario.
+
+Siempre que sea posible, se programarán durante las jornadas presenciales de los sábados, conforme al cronograma de cada asignatura.
+
+SIMULACIONES Y ACTIVIDADES PRÁCTICAS
+
+Las simulaciones y actividades prácticas propias de cada asignatura serán planificadas prioritariamente para los días sábados.
+
+Adicionalmente, podrá desarrollarse una simulación interdisciplinaria por semestre fuera del horario habitual.
+
+Esta actividad:
+
+- Tiene carácter obligatorio.
+
+- Será informada con anticipación mediante el calendario académico y los canales institucionales.
+
+ARANCELES
+
+¿Existe una diferencia arancelaria respecto de la modalidad presencial tradicional?
+
+Al momento de la elaboración de este documento, este aspecto se encuentra pendiente de definición por parte de las áreas administrativas correspondientes.
+
+Hasta tanto exista una comunicación institucional, no deberá informarse una diferencia arancelaria.
+
+CONSIDERACIONES IMPORTANTES
+
+- La modalidad de cursado intensivo se encuentra en proceso de formalización institucional.
+
+- La información contenida en este documento es de carácter preliminar.
+
+- Cualquier modificación será comunicada por los canales oficiales de la Universidad.
+
+Las solicitudes de excepción serán evaluadas individualmente por las áreas académicas correspondientes.$pea0$, 'global', 'borrador', $pea0$https://kb-cau.21.edu.ar/servicios-cau/servicios/carreras-especiales$pea0$)
+on conflict (categoria_id, slug) do nothing;
+
+insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
+values ((select id from public.categorias where slug = $pea0$tramites$pea0$), null, 12, $pea0$kb-12-modificaciones-en-el-legajo-modalidad-carrera-cau-plan-y-tur$pea0$,
+        $pea0$Modificaciones en el legajo (modalidad, carrera, CAU, plan y turno)$pea0$, $pea0$Gestión de modificaciones académicas y administrativas vinculadas al legajo del estudiante. Incluye cambios de plan de estudios, pases de modalidad y submodalidad, cambios de carrera, modificacione…$pea0$, $pea0$> **A validar:** contenido relevado de https://kb-cau.21.edu.ar/servicios-cau/servicios/modificaciones-en-el-legajo-modalidad-carrera-cau-plan-y-turno el 2026-11-19. Revisalo antes de publicar.
+
+Gestión de modificaciones académicas y administrativas vinculadas al legajo del estudiante. Incluye cambios de plan de estudios, pases de modalidad y submodalidad, cambios de carrera, modificaciones de CAU, requisitos, validaciones, áreas de derivación, tipificaciones y plazos de gestión.
+
+INDICE:
+
+-
+CAMBIO DE MODALIDAD
+
+-
+CAMBIO DE SUBMODALIDAD
+
+-
+CAMBIO DE CAU
+
+-
+REVISIÓN DE CONDICIÓN DE MATERIAS TRAS EL PASE
+
+-
+CAMBIO DE CARRERA
+
+-
+ACTUALIZACIÓN DE PLAN DE ESTUDIO
+
+-
+CAMBIO DE TURNO DE CURSADO
+
+-
+MODIFICACIÓN DE DATOS EN EL LEGAJO
+
+-
+CAMBIOS EN EL ESTADO DE LEGAJO:
+
+-
+
+- BAJA ADMINISTRATIVA
+
+- BAJA DE LEGAJO
+
+- BAJA DE LEGAJO POR LEGAJO DUPLICADO
+
+CAMBIO DE MODALIDAD
+
+¿Cuándo corresponde derivar un ticket a Trámites?
+
+Se debe derivar cuando el estudiante desee solicitar un cambio de modalidad de cursado o necesite asistencia por una gestión de cambio de modalidad ya iniciada.
+
+¿Qué casos deben derivarse al área de Trámites?
+
+Las derivaciones corresponden a solicitudes de cambio de modalidad o submodalidad P -PH, así como a errores en materias, equivalencias o EFIP detectados luego de un cambio de modalidad.
+
+🚨 Se extendio el plazo del Calendario de tramite 2/26 hasta el 17/08/2026 inclusive con el cierre de las inscripciones.
+
+Esto hace que las solicitudes de cambio de modalidad, submodalidad, pase de CAU y cambio de carrera se puedan solicitar hasta esta fecha inclusive.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Trámites
+
+Tipificación: Cambio de modalidad
+
+Nota interna - completar ticket con los siguientes datos:
+
+- DNI.
+
+- Legajo de origen.
+
+- Carrera de destino.
+
+- Modalidad de destino.
+
+- CAU o sede de destino.
+
+- Turno de cursado (si corresponde).
+
+- Confirmación de que comprende el impacto sobre las materias en estado Cursando y Libre por Nota.
+
+- Confirmación respecto de las materias en estado Regular.
+
+- Aceptación de las condiciones relacionadas con EFIP, cuando corresponda.
+
+Plazo estimado: hasta 5 días hábiles.
+
+⚠️ Importante
+
+- Las solicitudes fuera de los períodos establecidos en el Calendario de Trámites deberán esperar a la próxima ventana habilitada.
+
+- No podrán gestionarse cambios si el legajo tiene documentación obligatoria pendiente.
+
+- Si el estudiante desea regresar a una modalidad anterior, deberá solicitarlo en el próximo período habilitado.
+
+- Se permiten hasta dos cambios de modalidad durante toda la carrera.
+
+- Las equivalencias internas y articulaciones se consideran parte de la modalidad de destino para los análisis académicos y validaciones de EFIP.
+
+- Antes de un pase entre modalidades presenciales, verificar si el estudiante posee becas o beneficios que puedan perder vigencia.
+
+- Si el cambio impacta en las condiciones arancelarias, se aplicará la normativa vigente al momento del pase.
+
+- Para consultas sobre sedes, comisiones u horarios, revisar previamente la oferta académica vigente de la modalidad de destino.
+
+📢 Estado de materias tras pase:
+
+- Las materias en estado Cursando pasarán a estado Libre por Pase.
+
+- Las materias en estado Libre por Nota pasarán a estado Libre por Pase.
+
+- Las materias Regulares conservarán su condición.
+
+- Las materias Aprobadas conservarán su condición.
+
+Consideraciones sobre EFIP
+
+Antes de generar el trámite, verificar si el cambio de modalidad puede impactar en las condiciones de EFIP I o EFIP II.
+
+EFIP I
+
+Pase de modalidad Presencial a Distancia
+
+-
+Si el estudiante posee 21 o más materias aprobadas correspondientes al primer tramo de la carrera, podrá quedar eximido de rendir EFIP I.
+
+-
+En carreras que no poseen módulo de EFIP I, el Seminario de Práctica o Seminario de Planificación y Control de Gestión deberá encontrarse aprobado dentro de esas 21 materias para que corresponda la eximición.
+
+-
+Si no cumple estas condiciones, deberá rendir EFIP I en la modalidad de destino.
+
+Pase de modalidad Distancia a Presencial
+
+-
+Si el estudiante posee 21 o más materias aprobadas correspondientes al primer tramo de la carrera, deberá rendir EFIP I antes de efectuar el pase.
+
+-
+Si posee hasta 20 materias aprobadas en dicho tramo, podrá quedar eximido de EFIP I.
+
+Importante: Se considera primer tramo de la carrera al conjunto de materias comprendidas entre el 1.° y el 6.° semestre.
+
+EFIP II
+
+Pase de modalidad Presencial a Distancia
+
+-
+Si al momento del pase restan aprobar 5 o más materias del último año de la carrera (sin considerar Seminario Final), deberá rendir EFIP II.
+
+-
+Si restan aprobar 4 materias o menos, quedará eximido de EFIP II.
+
+Pase de modalidad Distancia a Presencial
+
+-
+Si el estudiante posee aprobadas hasta 4 materias del último año de la carrera, podrá realizar el pase y quedará eximido de EFIP II.
+
+-
+Si posee aprobadas 5 o más materias del último año, no podrá realizar el cambio de modalidad y deberá finalizar la carrera en su modalidad actual.
+
+Información que debe recopilarse para evaluar EFIP
+
+Confirmar con el estudiante:
+
+-
+Cantidad de materias aprobadas correspondientes al primer tramo de la carrera.
+
+-
+Cantidad de materias aprobadas correspondientes al último año de la carrera.
+
+-
+Si acepta rendir EFIP I y/o EFIP II en caso de no corresponder eximición.
+
+⚠️ Importante:
+
+Si el cambio de modalidad genera una modificación en las condiciones de EFIP I o EFIP II, el estudiante deberá cumplir los requisitos académicos vigentes de la modalidad de destino, aun cuando corresponda una eximición parcial. La eximición de EFIP I o EFIP II no modifica las demás correlatividades establecidas en el plan de estudios.
+
+CAMBIO DE SUBMODALIDAD
+
+¿Cuándo corresponde derivar un ticket? derivar un ticket al área de Gestiones N2 cuando el estudiante solicite un cambio de submodalidad (entre modalidades distancias) de cursado o requiera asistencia sobre una solicitud ya iniciada.
+
+Casos que deben derivarse a Trámites:
+
+-
+Solicitud de cambio de submodalidad (entre modalidades distancias).
+
+-
+Consulta sobre el estado de la solicitud.
+
+-
+Solicitud rechazada.
+
+-
+Inconvenientes derivados del cambio de submodalidad.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Gestiones N2
+
+Tipificación: Cambio de submodalidad
+
+Nota interna - completar ticket con los siguientes datos:
+
+- DNI.
+
+- Legajo.
+
+- Carrera.
+
+- Submodalidad de origen.
+
+- Submodalidad de destino.
+
+- CAU o sede de destino.
+
+- Materias en estado Cursando (Sí/No).
+
+- Materias en estado Libre por Nota (Sí/No). DNI.
+
+Plazo estimado: hasta 5 días hábiles.
+
+Validaciones previas:
+
+-
+Se encuentre dentro de los períodos habilitados según calendario de trámites.
+
+-
+No registre deuda administrativa.
+
+-
+Conozca las condiciones académicas del cambio solicitado.
+
+-
+Cumpla los requisitos de la submodalidad de destino.
+
+-
+En caso de carreras alcanzadas por Art. 43, la gestión sea evaluada por Trámites.
+
+⚠️ Importante:
+
+- La aprobación de la solicitud estará sujeta a validaciones académicas y administrativas.
+
+- La solicitud únicamente podrá gestionarse dentro de los períodos habilitados por el calendario de trámites.
+
+- Las condiciones académicas de la submodalidad de destino pueden diferir de las vigentes en la submodalidad de origen.
+
+📢 Estado de materias tras pase:
+
+- Las materias en estado Cursando pasarán a estado Libre por Pase.
+
+- Las materias en estado Libre por Nota pasarán a estado Libre por Pase.
+
+- Las materias Regulares conservarán su condición.
+
+- Las materias Aprobadas conservarán su condición.
+
+CAMBIO DE CAU
+
+¿Cuándo corresponde derivar un ticket?
+
+Se deberá derivar un ticket al área de Gestiones N2 cuando el estudiante solicite cambiar el CAU o sede donde continuará desarrollando sus actividades académicas.
+
+Casos que deben derivarse a Gestiones N2:
+
+- Solicitud de cambio de CAU.
+
+- Consulta sobre el estado de una solicitud de cambio de CAU.
+
+- Solicitudes de cambio de CAU rechazadas.
+
+- Inconvenientes relacionados con un cambio de CAU previamente realizado.
+
+Casos especiales:
+
+- Cuando el pedido de cambio de CAU provenga del frente (1ra línea o mesa de atención de sede), se procederá con el cambio directo.
+
+- Los pedidos realizados desde un CAU deberán gestionarse utilizando la base correspondiente para validar la información y proceder con la solicitud de cambio de CAU.
+
+Cuando el estudiante solicite un cambio de CAU, se le deberá compartir el siguiente formulario:
+
+🔗Formulario para el estudiante: https://forms.gle/7B6XUsR1GCDZF7jB7
+
+Regla operativa | Cambio de CAU
+
+Si la consulta sobre Cambio de CAU es realizada por un CAU, el asistente virtual deberá compartir el siguiente formulario para que sea completado por el estudiante:
+
+🔗 https://forms.gle/7B6XUsR1GCDZF7jB7
+
+No deberá derivar al estudiante a otros canales antes de proporcionar este enlace.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Gestiones N2
+
+Tipificación: Cambio de CAU
+
+Nota interna - completar ticket con los siguientes datos:
+
+- DNI.
+
+- Nombre y apellido.
+
+- Legajo.
+
+- CAU o sede de origen.
+
+- CAU o sede de destino.
+
+- Motivo de la solicitud.
+
+Plazo de la gestión: 3 dias habiles
+
+Validaciones previas:
+
+- No registre deuda administrativa.
+
+- No posea una mesa de examen final solicitada.
+
+- Verifique que la carrera se dicte en el CAU de destino.
+
+⚠️ Consideraciones importantes
+
+- La disponibilidad de carreras y servicios puede variar según el CAU de destino.
+
+- La aprobación del cambio estará sujeta a validaciones administrativas.
+
+- Es responsabilidad del estudiante verificar que la carrera se encuentre disponible en el CAU elegido.
+
+- No es posible gestionar cambios hacia CAU que posean restricciones operativas vigentes.
+
+- Si el CAU de destino no ofrece la carrera del estudiante, la solicitud podrá ser rechazada.
+
+- La existencia de deuda administrativa o de una mesa de examen final solicitada impedirá la gestión del cambio.
+
+CAU excluidos
+
+❌ No es posible solicitar cambio de CAU hacia CAU Sociales.
+
+Los CAU excluidos son:
+
+- CAU Maldonado.
+
+- CAU Asunción.
+
+- CAU Warmi (Abra Pampa).
+
+REVISIÓN DE CONDICIÓN DE MATERIAS TRAS EL PASE
+
+¿Cuándo corresponde derivar un ticket? derivar un ticket al área de Trámites cuando, luego de un cambio de modalidad o carrera, el estudiante informe que una o más materias quedaron registradas con una condición académica incorrecta.
+
+Casos que deben derivarse a Trámites:
+
+-
+Materias que no conservaron la condición que correspondía luego del pase.
+
+-
+Materias que cambiaron a una condición distinta a la prevista por reglamento.
+
+-
+Dudas o reclamos sobre la condición académica de una materia luego de un pase de modalidad o carrera.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Trámites
+
+Tipificación: Revisión de condición de materias tras el pase
+
+Nota interna - completar ticket con los siguientes datos:
+
+- DNI.
+
+- Legajo de origen.
+
+- Legajo de destino.
+
+- Código de la materia.
+
+- Nombre de la materia.
+
+- Descripción del inconveniente detectado.
+
+Plazo de la gestión: 5 dias habiles
+
+Verificaciones previas:
+
+- El estudiante haya realizado previamente un cambio de modalidad o carrera.
+
+- La materia reportada pertenezca al legajo de destino.
+
+- La condición observada corresponda a una situación producida luego del pase.
+
+- Si la condición observada corresponde al Seminario Final, la regularidad se mantiene en todos los casos y deberá verificarse antes de reportar un error.
+
+Importante
+
+- Si el estudiante resultó eximido de EFIP I o EFIP II luego del pase, la carga de la condición correspondiente es gestionada por el área de Trámites.
+
+- Informar que la solicitud será analizada por el área de Trámites, quien verificará la condición académica resultante del pase y realizará las correcciones que correspondan, en caso de detectarse un error.
+
+CAMBIO DE CARRERA
+
+🚨 IMPORTANTE | Cambio de Carrera a Ciclos de Complementación
+
+Todo alumno que solicite un cambio a Ciclos de Complementación (carreras que requieren un título habilitante específico), ya sea desde NI o RI, deberá contar con la documentación requerida adjunta en HubSpot al momento de realizar la solicitud.
+
+Sin la documentación correspondiente, NO se realizará el pase de carrera.
+
+Podrá gestionarse únicamente cuando el alumno haya adjuntado la documentación requerida en el mismo ticket de HubSpot.
+
+¿Cuándo corresponde derivar un ticket? Derivar un ticket al área de Trámites cuando el estudiante solicite cambiar de carrera o requiera asistencia sobre una solicitud de cambio de carrera ya iniciada.
+
+Casos que se pueden derivar:
+
+-
+Solicitud de cambio de carrera.
+
+-
+Consulta sobre el estado de una solicitud de cambio de carrera.
+
+-
+Cambio de carrera rechazado. Error en la condición de materias luego del pase.
+
+-
+Error en equivalencias luego del pase.
+
+-
+Error en la condición de EFIP luego del pase.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Trámites
+
+Tipificación: Cambio de carrera
+
+Nota interna - completar ticket con los siguientes datos:
+
+- DNI.
+
+- Legajo de origen.
+
+- Carrera de destino.
+
+- Modalidad de destino.
+
+- CAU o sede de destino.
+
+- Turno de cursado (si corresponde).
+
+- Confirmación de aceptación sobre la pérdida de materias en estado Cursando y Libre por Nota.
+
+- Confirmación respecto de las materias en estado Regular.
+
+- Aceptación de las condiciones relacionadas con EFIP, cuando corresponda.
+
+Plazo estimado: hasta 5 días hábiles.
+
+Validaciones previas:
+
+- Cumpla las condiciones de ingreso de la carrera y modalidad de destino.
+
+- No registre deuda administrativa.
+
+- No se encuentre inscripto a una mesa de examen final.
+
+- No tenga notas finales pendientes de carga.
+
+- Tenga presentada la documentación obligatoria del legajo.
+
+- Acepte las condiciones académicas y administrativas de la carrera de destino.
+
+⚠️ Importante
+
+- Si la solicitud se presenta fuera de los períodos habilitados en el Calendario de Trámites, la gestión no podrá ser procesada hasta la próxima ventana disponible.
+
+- Si el estudiante no tiene completa la documentación obligatoria de legajo, la gestión no podrá realizarse hasta la regularización de la documentación requerida.
+
+- Si el cambio de carrera involucra equivalencias internas, deberán considerarse las limitaciones establecidas por la normativa vigente respecto del reconocimiento de asignaturas.
+
+- Si el cambio involucra equivalencias internas o una articulación, dichas materias serán consideradas dentro de la carrera y modalidad de destino para los análisis académicos que correspondan, incluyendo las validaciones de EFIP cuando aplique.
+
+- Si el estudiante solicita información sobre sedes, comisiones o horarios en la modalidad de destino, deberá consultar previamente la oferta académica vigente antes de confirmar la gestión
+
+- Si la solicitud requiere la evaluación de materias aprobadas para su reconocimiento en la carrera de destino, la resolución final dependerá de los criterios académicos y normativas de equivalencias vigentes.
+
+ACTUALIZACIÓN DE PLAN DE ESTUDIO
+
+¿Cuándo corresponde derivar un ticket? Derivar un ticket al área de Trámites cuando el estudiante solicite una actualización de plan de estudios o cuando un cambio de modalidad/carrera implique automáticamente el pase a un plan vigente.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Trámites
+
+Tipificación: Cambio de plan de estudio
+
+Nota interna - completar ticket con los siguientes datos:
+
+- DNI.
+
+- Legajo.
+
+- Carrera.
+
+- ¿Posee materias en estado Regular? Sí/No.
+
+- ¿Posee materias en estado Libre por Nota? Sí/No.
+
+Además, debe quedar registrada en el ticket la aceptación del estudiante respecto de:
+
+- Los cambios académicos que implica la actualización de plan.
+
+- La incorporación de materias correspondientes al nuevo plan de estudios.
+
+- La incorporación de materias de Universitario 21 cuando corresponda.
+
+- La condición en la que quedarán sus materias luego de la actualización.
+
+Plazo estimado: hasta 5 días hábiles.
+
+⚠️ Importante
+
+- Si la actualización implica un cambio hacia un plan más reciente, el estudiante deberá aceptar las condiciones académicas del nuevo plan de estudios.
+
+- Si el estudiante posee materias en estado Regular o Libre por Nota, deberá ser informado previamente sobre el impacto que la actualización podría generar en dichas condiciones.
+
+- En los cambios de modalidad, el sistema podrá actualizar automáticamente al estudiante al plan vigente cuando corresponda.
+
+- Para la carrera Tecnicatura en Relaciones Laborales, deberá considerarse el plan de transición vigente para evaluar el impacto académico de la actualización.
+
+- En las carreras alcanzadas por procesos de reválida, los cambios de plan pueden producirse como consecuencia de actualizaciones institucionales del plan de estudios.
+
+- Si un estudiante RI solicita un cambio de modalidad y la carrera posee un plan nuevo vigente, el sistema lo migrará automáticamente a dicho plan.
+
+CAMBIO DE TURNO DE CURSADO
+
+¿Cuándo corresponde derivar un ticket? derivar un ticket al área de Trámites cuando un estudiante solicite un cambio de turno de cursado.
+
+Casos que pueden gestionarse:
+
+-
+Estudiantes de modalidad P.
+
+-
+Estudiantes de modalidad PH.
+
+- Estudiantes de modalidad ED
+
+Condiciones
+
+-
+El turno solicitado debe encontrarse disponible según la oferta académica de la carrera.
+
+-
+La carrera debe ofrecer cursado en el turno solicitado (mañana o noche).
+
+-
+Para visualizar los horarios de cursado de cada carrera, consultar la oferta académica vigente.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Trámites
+
+Tipificación: Cambio de Turno de Cursado
+
+Nota interna - completar ticket con los siguientes datos:
+
+- DNI.
+
+- Legajo.
+
+- Carrera.
+
+- Turno solicitado.
+
+Plazo estimado: hasta 5 días hábiles.
+
+Validaciones previas:
+
+- El estudiante pertenezca a modalidad P o PH.
+
+- La carrera ofrezca cursado en el turno solicitado.
+
+- Exista disponibilidad del turno según la oferta académica vigente.
+
+⚠️ Importante
+
+- Si la carrera no posee oferta académica para el turno solicitado, la gestión no podrá ser aprobada.
+
+- Si el estudiante posee materias en estado Cursando o Libre por Nota, dichas condiciones no se verán afectadas por el cambio de turno.
+
+- El cambio de turno no implica cambio de modalidad, carrera, plan de estudios ni CAU.
+
+MODIFICACIÓN DE DATOS EN EL LEGAJO
+
+Modificar datos personales / Número de DNI
+
+Asesores primera línea:
+
+Antes de realizar la derivación, deberás realizar las siguientes validaciones:
+
+-
+Verificar si el alumno ya envió una copia de su DNI por Consulta Alumnos. En caso de que no lo haya enviado, deberemos solicitarlo previo a derivarlo.
+
+-
+Si verificamos que se encuentra cargada la copia del DNI en un ticket, deberemos tipificar el ticket y derivarlo a la bandeja de Asesores Segunda Línea.
+
+Asesores segunda línea:
+
+-
+Validar si la copia del DNI es legible y proceder a modificar los datos. En caso de que no sea posible (haya 2 alumnos con el mismo número de DNI), deberá revisar con SITA.
+
+-
+No debemos corregir únicamente el dato solicitado. Al validar el DNI, es necesario actualizar todos los campos que corresponden, aunque el estudiante no los haya informado. Esto nos permite regularizar el registro completo en una sola gestión y evitar retrabajos.
+
+-
+Toda solicitud que requiera validación documental debe incluir el DNI físico (frente y dorso), no se acepta DNI de Mi Argentina.
+
+-
+Para los campos sin información, utilice S/D (sin dato). Esos campos no serán modificados.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Gestiones N2
+
+Tipificación: Modificación de datos en el legajo
+
+Respetar el orden de los campos y estructura:
+
+- LEGAJO/S: ( requerido )
+
+- NOMBRE/S CORRECTO/S:
+
+- APELLIDOS/ CORRECTO/S:
+
+- DNI CORRECTO: ( requerido )
+
+- DNI ACTUAL o INCORRECTO: ( requerido en caso de modificación de DNI )
+
+- SEXO:
+
+- FECHA DE NACIMIENTO:
+
+Otros datos complementarios :
+
+- CORREO ELECTRÓNICO ACTUALIZADO:
+
+- ¿Requiere Nuevo USUARIO?:
+
+- ¿Requiere cambios en Canvas?
+
+Fragmento: #modificacióndatos_N2
+
+CAMBIO DE ESTADO DE EL LEGAJO
+
+1. BAJA DE LEGAJO/BAJA DE LEGAJO DUPLICADO
+
+Antes de realizar la derivación, es necesario validar el motivo real de la baja del legajo.
+
+Validaciones obligatorias:
+
+- Revisar el motivo de baja siguiendo el proceso de Grupo de Riesgo.
+
+- Si el estudiante manifiesta que desea abandonar sus estudios, no corresponde esta gestión y se deberá continuar con el circuito de Grupo de Riesgo.
+
+Motivos válidos para utilizar esta tipificación:
+
+- Legajo Preinscripto.
+
+- Legajo Duplicado.
+
+- Legajo Inactivo.
+
+Cuándo derivar: Corresponde realizar la derivación cuando el estudiante solicite:
+
+- La baja de un legajo duplicado.
+
+- La baja de una preinscripción vencida de un período anterior.
+
+- La baja de un legajo inactivo.
+
+2. BAJA ADMINISTRATIVA
+
+Este estado es gestionado por Administración cuando se produce una anulación de pago, lo que genera una deuda en la cuenta del estudiante.
+
+- Si la anulación corresponde a una baja administrativa, el legajo queda inactivo hasta regularizar la situación.
+
+- Una vez que el estudiante abona la deuda pendiente, el legajo se reactiva y puede continuar con su actividad académica con normalidad.
+
+- Este estado puede visualizarse tanto en procesos de alta como de baja, ya que responde exclusivamente a una situación administrativa vinculada al pago.
+
+Qué informar al estudiante:
+"Tu legajo se encuentra en un estado administrativo asociado a una anulación de pago. Una vez regularizada la deuda pendiente, el legajo se reactivará automáticamente para que puedas continuar con normalidad
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Gestiones N2
+
+Tipificación:
+
+- Baja de legajo
+
+- Baja de legajo por legajo duplicado
+
+- Baja Administrativa
+
+Nota interna - completar ticket con los siguientes datos:
+
+- DNI
+
+- Legajo
+
+- Nombre y apellido
+
+- Motivo
+
+#bajadelegajo_N2
+
+3. REAPERTURA DE LEGAJO
+
+Antes de realizar la derivación, es necesario validar que el legajo no se encuentre en estado "Baja por Anulación de Pago".
+
+🚨 Importante:
+
+- Cuando el legajo se encuentra en Baja Administrativa por Anulación de Pago, no corresponde solicitar la reapertura de manera directa.
+
+- En estos casos, el requerimiento debe ser derivado previamente a Cobranzas para que el área valide que el pago haya sido correctamente imputado.
+
+- Una vez validada la situación, Cobranzas deberá brindar la autorización correspondiente a N2 para gestionar la reapertura del legajo.
+
+Acción del asesor:
+Verificar el motivo de la baja antes de derivar. Si se trata de una Baja por Anulación de Pago, derivar a Cobranzas para su validación y autorización previa.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Gestiones N2
+
+Tipificación: Reapertura de legajo
+
+Nota interna - completar ticket con los siguientes datos:
+
+- DNI
+
+- Legajo
+
+- Nombre y apellido
+
+- Motivo
+
+#reapertura_N2
+
+Estado de carrera
+|  Uso relevado |  Proceso asociado |
+
+Baja Académica Transitoria |
+Podría aplicar ante suspensiones o sanciones académicas. Tambien, se usa cuando no hay actividad académica por muchos años.
+|  Sanciones |
+
+Baja Administrativa |
+Estado solicitado por Administración, tanto para alta como para baja, ante anulaciones de pago, lo que genera deuda y cuando paga deuda se activa el legajo.
+|
+Gestión de Cobros (Anulación de pago)
+|
+
+Baja Carrera |  Estado aplicado cuando el estudiante solicita la baja de la carrera y, luego de la intervención de Grupo de Riesgo, decide avanzar con la baja. También se utiliza en el procedimiento de Baja de Oferta Académica cuando el estudiante opta por reintegro. |
+Retención (Grupo de Riesgo), Baja de Oferta Académica, Reintegro (parte de Gestión de Cobros)
+|
+
+Baja por Inactividad |  Según reglamento, debería aplicarse cuando el estudiante no abona dos matrículas consecutivas. Actualmente no se utiliza. |  Recupero |
+
+Pase / Cambio Carrera |
+Se utiliza sobre el legajo de origen cuando el estudiante cambia de carrera. El legajo origen se a de baja por el cambio.
+|  Proceso de Pases |
+
+Matrícula Paga |
+Estado que se interpreta operativamente como estudiante o legajo activo, independientemente de si la matrícula fue abonada o no. El nombre del estado no refleja necesariamente su uso actual. (Es cuando el estudiante ya pagó la matricula, no significa que este paga la matricula del periodo vigente sino que ya pago una matricula y se convirtió en estudiante.
+|
+Procesos de gestión y atención al estudiante
+|
+
+Reinicio Pendiente - En Garantía |  Estado asociado históricamente a Garantía de Adaptación. Según lo relevado, no debería utilizarse actualmente, ya que la garantía se gestiona por botón y debería avanzar hacia autogestión. |  Garantía de Adaptación |
+
+CAMBIO DE MEDIOS DE PAGO$pea0$, 'global', 'borrador', $pea0$https://kb-cau.21.edu.ar/servicios-cau/servicios/modificaciones-en-el-legajo-modalidad-carrera-cau-plan-y-turno$pea0$)
+on conflict (categoria_id, slug) do nothing;
+
+insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
+values ((select id from public.categorias where slug = $pea0$plataformas$pea0$), null, 13, $pea0$kb-13-portal-estudiantes$pea0$,
+        $pea0$Portal Estudiantes$pea0$, $pea0$Información sobre Portal Estudiantes, la plataforma de autogestión de Universidad Siglo 21. Incluye funcionalidades académicas y administrativas, consulta de cursado, exámenes, inscripción a materi…$pea0$, $pea0$> **A validar:** contenido relevado de https://kb-cau.21.edu.ar/servicios-cau/servicios/herramientas-portal-estudiantes el 2026-11-19. Revisalo antes de publicar.
+
+Información sobre Portal Estudiantes, la plataforma de autogestión de Universidad Siglo 21. Incluye funcionalidades académicas y administrativas, consulta de cursado, exámenes, inscripción a materias, pagos, asistencias, CAE, simulador de precios, accesos institucionales y el uso de impersonación desde SGU para acompañamiento al estudiante.
+
+¿Qué es Portal Estudiantes?
+
+Portal Estudiantes es la plataforma de autogestión de Universidad Siglo 21 desde la cual los estudiantes pueden gestionar gran parte de su vida académica y administrativa sin necesidad de contactar a un asesor.
+
+A través del Portal pueden consultar información de su carrera, inscribirse a materias y exámenes, visualizar calificaciones, realizar pagos, hacer seguimiento de determinados procesos académicos y acceder a otras herramientas institucionales.
+
+🔗Video Portal Estudiantes: https://www.youtube.com/watch?v=Xg-5liaMMf4
+
+Impersonar desde el SGU
+
+Los asesores pueden acceder al Portal Estudiantes mediante la funcionalidad de Impersonar, lo que permite visualizar la plataforma tal como la ve el estudiante.
+
+Pasos
+
+- Ingresar al SGU el DNI del estudiante.
+
+- Seleccionar el legajo correspondiente.
+
+- Presionar Portal Estudiantes.
+
+Importante: el impersonar debe utilizarse únicamente para consulta y acompañamiento al estudiante.
+
+Funcionalidades principales del Portal Estudiantes:
+
+Cursado
+
+Es la pantalla principal del Portal.
+
+Desde aquí el estudiante puede visualizar:
+
+- Carrera que está cursando.
+
+- Últimos eventos académicos.
+
+- Próximos exámenes.
+
+- Últimas calificaciones.
+
+- Acceso a los distintos módulos del Portal.
+
+Exámenes
+
+Desde este módulo el estudiante puede:
+
+- Inscribirse a mesas de exámenes parciales, finales y recuperatorios
+
+- Seleccionar la materia que desea rendir.
+
+- Elegir la sede o CAU disponible.
+
+- Visualizar las mesas habilitadas.
+
+- Anular una inscripción mientras se encuentre dentro del período permitido.
+
+Inscripción a Materias
+
+Permite al estudiante:
+
+- Inscribirse a materias para el semestre
+
+- Consultar las materias disponibles para cursar.
+
+- Realizar el seguimiento de su trayectoria académica.
+
+Pagos
+
+Desde este módulo el estudiante puede:
+
+- Consultar su estado de cuenta.
+
+- Gestionar pagos pendientes.
+
+- Completar procesos asociados a la inscripción de materias.
+
+Asistencias
+
+Podrán realizar seguimiento de sus presentes y ausentes en cada clase, según su modalidad de cursado
+
+CAE
+
+Los estudiantes que se encuentren atravesando un proceso de Comisión Académica Evaluadora (CAE) podrán realizar el seguimiento del estado de sus correcciones y resoluciones desde este apartado.
+
+Precios
+
+Simulador de precios según su modalidad, con opciones de pago y financiaciones
+
+Más opciones
+
+Reúne funcionalidades complementarias, entre ellas:
+
+- Agenda académica.
+
+- Preguntas frecuentes.
+
+- Cambio de contraseña.
+
+- Actualización de datos personales.
+
+- Acceso a otras herramientas institucionales.
+
+Información visible desde la pantalla principal
+
+Al ingresar al Portal, el estudiante puede visualizar:
+
+Últimos eventos
+
+Incluye novedades relacionadas con su actividad académica, como por ejemplo:
+
+- Próximos exámenes.
+
+- Actividades relevantes.
+
+- Avisos académicos.
+
+Últimas notas
+
+Permite consultar las calificaciones obtenidas recientemente.
+
+Accesos rápidos
+
+En la parte superior del Portal se encuentran accesos directos a otras herramientas institucionales:
+
+- eBook: Biblioteca virtual de Universidad Siglo 21.
+
+- SAM: Aula Virtual, la plataforma de estudio.
+
+- Contáctanos: acceso al Chat y al formulario de consultas web.$pea0$, 'global', 'borrador', $pea0$https://kb-cau.21.edu.ar/servicios-cau/servicios/herramientas-portal-estudiantes$pea0$)
+on conflict (categoria_id, slug) do nothing;
+
+insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
+values ((select id from public.categorias where slug = $pea0$modalidades$pea0$), null, 15, $pea0$kb-15-modalidades-de-cursado$pea0$,
+        $pea0$Modalidades de cursado$pea0$, $pea0$La Universidad ofrece modalidades presenciales y a distancia, cada una con características específicas de cursado.$pea0$, $pea0$> **A validar:** contenido relevado de https://kb-cau.21.edu.ar/servicios-cau/servicios/modalidades-de-cursado el 2026-11-19. Revisalo antes de publicar.
+
+La Universidad ofrece modalidades presenciales y a distancia, cada una con características específicas de cursado.
+
+MODALIDADES DE CURSADO, ASISTENCIA Y EVALUACIÓN
+
+MODALIDADES DE CURSADO Modalidades a Distancia
+
+- Educación Distribuida (ED)
+
+- Educación Distribuida Home (EDH)
+
+Modalidades Presenciales
+
+- Presencial (P)
+
+- Presencial Home (PH)
+
+- Presencial Distribuida (PD)
+
+EDUCACIÓN DISTRIBUIDA (ED)
+
+Modalidad que combina el cursado virtual en Canvas con encuentros presenciales obligatorios en el CAU. El estudiante debe asistir a 4 encuentros presenciales por materia, aproximadamente cada 15 días.
+
+Cursado
+
+- Accede al contenido desde Canvas.
+
+- Realiza actividades y Trabajos Prácticos.
+
+- Participa en encuentros presenciales en el CAU.
+
+- Cuenta con acompañamiento docente durante toda la cursada.
+
+Equipo académico
+
+- Profesor Tutor.
+
+- Profesor Experto.
+
+- Profesor Virtual (desde tercer cuatrimestre).
+
+Asistencia
+
+- Obligatoria.
+
+- Requiere 75% de asistencia.
+
+- Es requisito para regularidad y promoción.
+
+Exámenes
+
+- Parciales con inscripción previa.
+
+- Recuperatorios e integradores con inscripción.
+
+- Examen final únicamente escrito.
+
+- Puede rendir en mesa virtual o mesa CAU según disponibilidad.
+
+EDUCACIÓN DISTRIBUIDA HOME (EDH)
+
+Modalidad completamente virtual desarrollada mediante la Plataforma Multimedia (Canvas).
+
+Cursado
+
+- Accede a contenidos digitales.
+
+- Realiza actividades y Trabajos Prácticos.
+
+- Se comunica con docentes desde la plataforma.
+
+- No requiere encuentros presenciales.
+
+Equipo académico
+
+- Profesor Tutor.
+
+- Profesor Experto.
+
+- Profesor Virtual (desde tercer cuatrimestre).
+
+Asistencia
+
+- No aplica.
+
+- No existen controles de asistencia presencial.
+
+Exámenes
+
+- Parciales con inscripción previa.
+
+- Recuperatorios e integradores con inscripción.
+
+- Examen final únicamente escrito.
+
+- Puede rendir mediante Mesa Virtual o Mesa CAU.
+
+PRESENCIAL (P)
+
+Modalidad con predominio de clases presenciales y apoyo mediante Canvas. Las materias se cursan de forma cuatrimestral.
+
+Cursado
+
+- Clases presenciales.
+
+- Material complementario en Canvas.
+
+- Actividades académicas presenciales y virtuales.
+
+Asistencia
+
+- Obligatoria.
+
+- 75% mínimo de asistencia.
+
+- Registro mediante App Siglo 21.
+
+Exámenes
+
+- Parciales automáticos (sin inscripción).
+
+- Recuperatorios e integradores con inscripción.
+
+- Examen final escrito online + instancia oral.
+
+PRESENCIAL HOME (PH)
+
+Modalidad que combina presencialidad y virtualidad.
+
+- Materias programáticas: cursado bimestral.
+
+- Materias de proceso: cursado cuatrimestral.
+
+Cursado
+
+- Clases presenciales.
+
+- Material complementario en Canvas.
+
+- Materias programáticas bimestrales.
+
+- Materias de proceso cuatrimestrales.
+
+Asistencia
+
+- Obligatoria.
+
+- 75% mínimo de asistencia.
+
+- Registro mediante App Siglo 21.
+
+Exámenes
+
+- Parciales automáticos (sin inscripción).
+
+- Recuperatorios e integradores con inscripción.
+
+- Examen final escrito online + instancia oral.
+
+PRESENCIAL DISTRIBUIDA (PD)
+
+Modalidad que combina clases presenciales en el CAU con telepresencia para interactuar en tiempo real con docentes y estudiantes de otros centros.
+
+Cursado
+
+- Asistencia presencial al CAU.
+
+- Clases mediante telepresencia.
+
+- Material complementario en Canvas.
+
+- Interacción sincrónica con docentes.
+
+Equipo académico
+
+- Docente Experto.
+
+- Tutores dinamizadores en CAU.
+
+Asistencia
+
+- Obligatoria.
+
+- 75% mínimo de asistencia.
+
+- Registro mediante App Siglo 21.
+
+Exámenes
+
+- Parciales automáticos (sin inscripción).
+
+- Recuperatorios e integradores con inscripción.
+
+- Examen final escrito online + oral.
+
+ASISTENCIA POR MODALIDAD
+
+Modalidad |  Asistencia |
+
+ED |  75% obligatoria |
+
+EDH |  No aplica |
+
+P |  75% obligatoria |
+
+PH |  75% obligatoria |
+
+PD |  75% obligatoria |
+
+Registro de asistencia
+
+-
+ED: se registra en los encuentros presenciales del CAU.
+
+-
+EDH: no aplica.
+
+-
+P: registro mediante App Siglo 21.
+
+-
+PH: registro mediante App Siglo 21.
+
+-
+PD: registro mediante App Siglo 21.
+
+DIFERENCIAS CLAVE ENTRE MODALIDADES
+
+Tema |  ED |  EDH |  P |  PH |  PD |
+
+Asistencia obligatoria |  Sí |  No |  Sí |  Sí |  Sí |
+
+Asistencia mínima |  75% |  No aplica |  75% |  75% |  75% |
+
+Final oral |  No |  No |  Sí |  Sí |  Sí |
+
+Final escrito |  Sí |  Sí |  Sí |  Sí |  Sí |
+
+Parciales con inscripción |  Sí |  Sí |  No |  No |  No |
+
+EFIP |  Sí |  Sí |  No |  No |  No |
+
+TIPOLOGÍA DE MATERIAS
+
+MEC - Materias de Exploración y Conceptualización
+
+Características
+
+- 4 Trabajos Prácticos.
+
+- Corrección automática.
+
+- Múltiples intentos permitidos.
+
+- Se conserva la última nota obtenida.
+
+Camino de Dominio
+
+Aplica para:
+
+- Abogacía.
+
+- Contador Público.
+
+- Licenciatura en Informática.
+
+TP3 y TP4 incluyen Camino de Dominio.
+
+El estudiante debe:
+
+- Completar diagnóstico.
+
+- Completar el TP asignado.
+
+Si sólo realiza el diagnóstico, la actividad queda sin realizar y sin nota.
+
+Entregas fuera de término
+
+- Descuento de 5 puntos por día de atraso.
+
+- Aplica únicamente a MEC.
+
+- Se puede entregar hasta la fecha de cierre del período.
+
+MIA - Materias de Integración y Aplicación
+
+Características
+
+- Corrección docente.
+
+- Consignas abiertas.
+
+- No poseen recuperatorio de TP.
+
+Foros obligatorios
+
+- TP2 requiere participación previa en foro.
+
+- TP3 requiere participación previa en foro.
+
+Si entrega sin participar en el foro:
+
+- Calificación automática de 1.
+
+MIP - Materias de Intervención Profesional
+
+Características
+
+- Actividades individuales.
+
+- Utilizan foros colaborativos obligatorios.
+
+Foros obligatorios
+
+- TP1 requiere foro previo.
+
+- TP3 requiere foro previo.
+
+Si entrega sin participar:
+
+- Calificación automática de 1.
+
+Particularidad
+
+- TP4 suele ser obligatorio para lograr regularidad o promoción según modalidad.
+
+MAP - Materias de Aplicación Preprofesional
+
+Características
+
+- Combinan actividades automáticas y actividades prácticas.
+
+- Incluyen actividades evaluativas preprofesionales obligatorias.
+
+- Utilizan rúbricas de evaluación.
+
+CORRELATIVAS
+
+Regla general
+
+- Para cursar una materia deben estar regularizadas las correlativas.
+
+- Para aprobar o promocionar deben estar aprobadas.
+
+Situación frecuente
+
+Si una materia fue promocionada pero la correlativa anterior no se aprueba dentro de los 60 días posteriores a la finalización del cursado:
+
+- La materia pasa a condición Regular.
+
+- El estudiante deberá rendir examen final.
+
+Consulta de correlativas
+
+Portal de Estudiantes → Carrera → Plan de Estudio → Ver Correlativas.
+
+MATERIAS ELECTIVAS
+
+Requisito general
+
+- Carreras de grado: 2 materias electivas.
+
+Excepciones
+
+Abogacía
+
+- 1 materia electiva.
+
+Psicología
+
+- No posee materias electivas.
+
+No pueden utilizarse como electivas
+
+- Idiomas.
+
+- Práctica Solidaria.
+
+EFIP - Aplica únicamente a
+
+- Educación Distribuida (ED).
+
+- Educación Distribuida Home (EDH).
+
+No aplica a
+
+- Presencial (P).
+
+- Presencial Home (PH).
+
+- Presencial Distribuida (PD).
+
+Consideración para modalidades presenciales
+
+Una vez aprobado el Seminario Final:
+
+- Se continúa con la Defensa Oral del Trabajo Final de Graduación.
+
+- No existe instancia EFIP.
+
+INSCRIPCIÓN A EXÁMENES - RESUMEN ED y EDH
+
+Parciales
+
+- Requieren inscripción.
+
+- Deben inscribirse durante la primera semana de cursado.
+
+Recuperatorio e Integrador
+
+- Inscripción hasta 24 horas antes.
+
+- Desinscripción hasta 48 horas hábiles antes.
+
+Finales
+
+- Inscripción mínima: 4 días corridos antes.
+
+- Anulación permitida hasta que el estado sea "Aceptado".
+
+INSCRIPCIÓN A EXÁMENES - RESUMEN P, PH y PD
+
+Parciales
+
+- Inscripción automática.
+
+- No requieren gestión del estudiante.
+
+Recuperatorio e Integrador
+
+- Requieren inscripción.
+
+- Inscripción hasta 24 horas antes.
+
+- Desinscripción hasta 48 horas hábiles antes.
+
+Finales
+
+- Inscripción mínima: 4 días corridos antes.
+
+- Anulación posible mientras el estado sea "Pedido".$pea0$, 'global', 'borrador', $pea0$https://kb-cau.21.edu.ar/servicios-cau/servicios/modalidades-de-cursado$pea0$)
+on conflict (categoria_id, slug) do nothing;
+
+insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
+values ((select id from public.categorias where slug = $pea0$tramites$pea0$), null, 16, $pea0$kb-16-documentos-con-firma-digital$pea0$,
+        $pea0$Documentos con Firma Digital$pea0$, $pea0$Guía operativa sobre documentación con Firma Digital de Universidad Siglo 21. Incluye normativa vigente, validación de firmas digitales, consulta y recuperación de trámites enviados, acceso a la pl…$pea0$, $pea0$> **A validar:** contenido relevado de https://kb-cau.21.edu.ar/servicios-cau/servicios/documentos-con- el 2026-11-19. Revisalo antes de publicar.
+
+Guía operativa sobre documentación con Firma Digital de Universidad Siglo 21. Incluye normativa vigente, validación de firmas digitales, consulta y recuperación de trámites enviados, acceso a la plataforma de documentos digitales y procedimiento para atender consultas sobre documentos finalizados sin necesidad de derivación.
+
+Resolución del Consejo Superior N° 494/2016
+
+La Universidad Siglo 21 ha adoptado el uso de Firma digital para todos los documentos de uso interno y externo que sean susceptibles de emitirse digitalmente, bajo el marco de la Ley Nacional N° 25506 del año 2001 sus decretos reglamentarios emitidos por el Poder Ejecutivo Nacional N° 2628/2002 y N° 724/2006 y las Decisiones Administrativas 5/2007 y 927/2014.
+
+🔗 Resolución: descarga aquí
+
+Importante:
+
+Aquella documentación que sea emitida por la Universidad con Firma Digital podrá ser compartida por el interesado tantas veces como lo necesite, con las entidades que se la requieran, pero siempre a través de medios digitales. En caso de imprimirse, el documento emitido con Firma digital pierde su validez como "original".
+
+Quienes reciban documentación con Firma digital de las autoridades de la Universidad Siglo 21 podrán verificar la validez de las firmas en el siguiente enlace: https://validar.encodesa.com.ar/
+
+Consulta de Trámites con Firma Digital:
+
+Para poder verificar trámites enviados a alumnos y egresados, contamos con un usuario de consulta para acceder a la plataforma de firma digital. Desde la misma podremos:
+
+- Visualizar si un trámite fue enviado.
+
+- Copiar el enlace del trámite para reenviarlo al alumno/egresado.
+
+- Descargar el documento y compartirlo en pdf.
+
+- Compartirlo desde la plataforma a otra dirección de correo.
+
+Para poder acceder, debemos:
+
+🔗 Ingresar a https://ar.tucarpeta.com/ues21/app/account/default/index?ReturnUrl=%2Fues21%2Fapp%2Fidoc%2Fdefault%2Fpersonal
+
+1. Seleccione la opción “OTROS” e ingrese los siguientes datos de acceso:
+
+Usuario : consultatramitesdigitales
+
+Contraseña: 123456
+
+2. Una vez que ingresemos, podremos consultar el envío de los siguientes trámites:
+
+-
+Certificado de matrícula + Constancia de título en trámite (carreras que requieren matriculación).
+
+-
+Constancia de título en trámite (carreras que no requieren matriculación).
+
+-
+Analíticos parciales programas CON y SIN.
+
+-
+Certificados de alumno regular.
+
+-
+Certificados de baja.
+
+- Copias legalizadas digitales.
+
+3. Para ello, debemos seleccionar la opción “Enviados” según el tipo de DOCUMENTO que necesitemos consultar.
+
+4. Una vez que se despliega el listado de trámites enviados, debemos ingresar en la opción “BUSCAR” el apellido del alumno/egresado. Identificado el trámite, desplegando las opciones que están a la derecha, podemos:
+
+- Descargar el documento,
+
+- Compartir por correo electrónico
+
+- Copiar el enlace del mismo, desde la opción “Propiedades del documento”.
+
+Con este usuario de consulta podemos resolver en el momento las consultas/reclamos por el estado de trámites que ya tienen un estado FINALIZADO en CRM y los casos en que los alumnos manifiestan NO haber recibido el trámite en su correo.
+
+A partir de ahora NO será necesario derivar casos a la bandeja de SOA por este motivo.
+
+Regla operativa | Firma Digital y Consulta de Trámites
+
+Si el asesor consulta sobre documentación con Firma Digital, validación de firmas o recuperación de trámites digitales enviados a alumnos o egresados, el asistente virtual deberá compartir el enlace correspondiente según la necesidad:
+
+🔗 Resolución Firma Digital: https://contenidos.21.edu.ar/microsites/reglamento/assets/pdf/res.c.s.n494.16.firma-digital.pdf
+
+🔗 Validación de Firma Digital: https://validar.encodesa.com.ar/
+
+🔗 Plataforma de Consulta de Trámites Digitales: https://ar.tucarpeta.com/ues21/app/account/default/index?ReturnUrl=%2Fues21%2Fapp%2Fidoc%2Fdefault%2Fpersonal
+
+Si la consulta corresponde a un trámite con estado FINALIZADO o a un alumno que indica no haber recibido la documentación, deberá indicar la consulta mediante la plataforma de trámites digitales y no derivar el caso a SOA.$pea0$, 'global', 'borrador', $pea0$https://kb-cau.21.edu.ar/servicios-cau/servicios/documentos-con-$pea0$)
+on conflict (categoria_id, slug) do nothing;
+
+insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
+values ((select id from public.categorias where slug = $pea0$oferta-academica$pea0$), null, 18, $pea0$kb-18-experiencias-21$pea0$,
+        $pea0$Experiencias 21$pea0$, $pea0$Brindar orientación sobre las propuestas de Formación Ampliada de Experiencias 21, acompañando al estudiante en consultas relacionadas con actividades cocurriculares, programas de desarrollo profes…$pea0$, $pea0$> **A validar:** contenido relevado de https://kb-cau.21.edu.ar/servicios-cau/servicios/experiencias-21-formación-ampliada el 2026-11-19. Revisalo antes de publicar.
+
+Brindar orientación sobre las propuestas de Formación Ampliada de Experiencias 21, acompañando al estudiante en consultas relacionadas con actividades cocurriculares, programas de desarrollo profesional, internacionalización, sustentabilidad, empleabilidad y comunidad universitaria.
+
+INDICE:
+
+-
+Cápsulas ED
+
+-
+Certificados en Competencias
+
+-
+Emprendimiento
+
+-
+Desafíos 21
+
+-
+Impulso 21
+
+-
+Desafío Emprender en Argentina
+
+-
+V21 Programa de Validación
+
+-
+Feria 21
+
+-
+Club de Emprendedores 21
+
+-
+Iniciativas aliadas de apoyo al ecosistema emprendedor
+
+-
+Internacionalización
+
+- Anfitriones 21
+
+- Intercambio Internacional
+
+- Misiones Académicas
+
+- Doble Titulación
+
+-
+Sustentabilidad
+
+-
+Actividades de Extensión Universitaria
+
+-
+Voluntarios 21
+
+-
+Arte y Cultura
+
+-
+Salud y Deportes (Vida 21)
+
+-
+Investigación
+
+-
+Docencia
+
+-
+Empleabilidad
+
+-
+Pasantías (Ley 26.427)
+
+-
+Internships (Pasantías Internacionales)
+
+-
+Ecosistema y Semillero de Mujeres en Tecnología
+
+-
+Desarollo
+
+-
+Formación Continua
+
+-
+Actividades disciplinares
+
+-
+Comunidad NET
+
+Portal “Experiencias 21” - Formación Ampliada:
+
+Los estudiantes podrán encontrar el total de las actividades de Formación Ampliada. Allí podrán seleccionar el propósito que los inspiran y acceder a todas las actividades pensadas para potenciar y enriquecer su perfil académico y profesional.
+
+🔗 Portal Experiencias 21 : https://informate.21.edu.ar/experiencia-21
+
+Boletín Experiencias 21:
+
+El estudiante puede suscribirse al Newsletter de Experiencias 21 para recibir información actualizada mensualmente, sobre actividades y propuestas disponibles.
+
+🔗 Suscripción al Newsletter: https://inscribite.21.edu.ar/newsletter-experiencias-21
+
+CÁPSULA ED
+
+¿Qué son?
+Las Cápsulas ED son videos breves que se comparten semanalmente antes de la Open Class. Forman parte del Modelo Académico ED y tienen como objetivo acompañar al estudiante durante su recorrido académico.
+
+¿Qué información incluyen?
+En cada cápsula se presentan las propuestas de Experiencias 21, un conjunto de actividades extracurriculares y de formación ampliada que complementan el aprendizaje y enriquecen la experiencia universitaria.
+
+Estas actividades permiten a los estudiantes acceder a distintas oportunidades de desarrollo personal, académico y profesional a lo largo de su cursado.
+
+¿Cómo se registra la asistencia?
+Durante la cápsula se muestra un QR de asistencia para que los estudiantes registren su participación.
+
+✅ Es importante recordar que este QR es distinto al de la Open Class, por lo que deben completar ambos registros por separado.
+
+Si el estudiante no pudo escanear el QR durante la transmisión:
+Compartir el QR manual correspondiente para que pueda registrar su asistencia.
+
+CERTIFICADOS EN COMPETENCIAS
+
+🔗 https://informate.21.edu.ar/certificado-en-competencias
+
+¿Qué son?
+Los Certificados en Competencias complementan la formación de grado y permiten desarrollar habilidades específicas para el mundo laboral a través de propuestas impulsadas por los Centros de Excelencia de la Universidad.
+
+¿Qué beneficios tienen?
+✅ Desarrollar competencias alineadas a los intereses y objetivos profesionales del estudiante.
+✅ Obtener un suplemento al título que quedará registrado en el certificado analítico definitivo al momento de graduarse.
+
+¿Qué certificados están disponibles?
+
+- Competencias Emprendedoras
+
+- Competencias de Sustentabilidad
+
+- Competencias de Internacionalización
+
+¿Quiénes pueden inscribirse?
+Estudiantes de carreras de grado que hayan ingresado desde 2017 en adelante.
+
+❗ No aplica para carreras de Doble Titulación ni Ciclos de Complementación Curricular, ya que sus planes de estudio no incluyen todas las materias requeridas para estas certificaciones.
+
+¿Cuándo puede inscribirse el estudiante?
+Puede preinscribirse desde su ingreso a la carrera y hasta antes de cursar la Práctica Profesional y el Seminario Final de Graduación. La inscripción se efectiviza al inicio de cada bimestre.
+
+¿Cómo se realiza la inscripción?
+La gestión la realiza directamente el estudiante desde el enlace correspondiente al certificado elegido:
+
+- Competencias Emprendedoras: https://cocurriculares.21.edu.ar/alumnos?idCareer=10985
+
+- Competencias de Sustentabilidad: https://cocurriculares.21.edu.ar/alumnos?idCareer=10986
+
+- Competencias de Internacionalización: https://cocurriculares.21.edu.ar/alumnos?idCareer=10984
+
+Al inscribirse, se genera un nuevo legajo asociado al certificado. Sin embargo, las materias se cursan y aprueban desde el legajo original de la carrera. Una vez aprobadas, se reconocen automáticamente por equivalencia en el legajo del certificado.
+
+¿Cómo se inscribe a las materias?
+Las materias se inscriben desde el Portal de Estudiantes, utilizando el legajo de la carrera, en la opción Inscripción a Materias.
+
+Si alguna materia no forma parte del plan de estudios de la carrera, aparecerá como materia electiva.
+
+✅ Las materias cuentan con los créditos académicos correspondientes.
+✅ No tienen costo adicional, siempre que se cursen dentro del paquete de materias ya contratado por el estudiante.
+
+¿Cuál es el recorrido académico para obtener la Certificación?
+
+Trayectos académicos obligatorio, especificos y retos de cada certificado:
+
+🔗 Landing de certificados
+
+Espacio de consultas para estudiantes inscriptos
+
+Los estudiantes que ya estén inscriptos en un Certificado en Competencias pueden participar de un espacio de acompañamiento para resolver dudas y realizar consultas de manera personalizada.
+
+📅 Lunes - 16:00 hs
+
+🔗Únase a la reunión de Zoom:
+https://ues21-edu-ar.zoom.us/j/84161740367?pwd=iicruM6ZvgtQDJhH2Twb9bCALJ0QsT.1
+
+ID de reunión: 841 6174 0367
+Código de acceso: 554827
+
+Título: Consultas Certificados en Competencias
+
+Tipificación: Consultas Certificados en Competencias
+
+Área de derivación: Centro de Sustentabilidad Social (para las tres certificaciones: Internacionalización, Sustentabilidad y Emprendedoras)
+
+Información obligatoria
+
+- Nombre y apellido
+
+- DNI
+
+- Carrera
+
+- Legajo
+
+- Certificado al que está inscripto/a
+
+- Detalle de la consulta o reclamo
+
+Si indica que se inscribió pero no visualiza el legajo del certificado, solicitar además:
+
+- Si seleccionó el agrupador al momento de la inscripción.
+
+- Fecha en que realizó la inscripción.
+
+- Si recibió el correo de confirmación de la postulación.
+
+💡 Recordatorio: La inscripción se efectiviza con la apertura de cada bimestre, por lo que la visualización del legajo no siempre es inmediata.
+
+✅ Validaciones previas
+
+- Verificar que el estudiante haya ingresado a partir de 2017.
+
+- Verificar que esté inscripto o tenga creado el legajo del certificado.
+
+EMPRENDIMIENTO
+
+Importante
+✅ Todas las consultas y solicitudes deben derivarse mediante HubSpot.
+❌ No se reciben gestiones por otros canales.
+
+Tipificación: Consultas Centro de Emprendimiento
+
+Área de derivación: Centro de Emprendimiento e Innovación
+
+Información obligatoria en notas
+
+- Nombre y apellido
+
+- DNI
+
+- Legajo
+
+- Nombre del programa o actividad
+
+- Detalle de la consulta o solicitud
+
+Recordatorio para el asesor Antes de derivar, verificar que la consulta incluya toda la información requerida para evitar demoras en la gestión.
+
+👉 Desafíos 21
+
+¿Qué es?
+Desafíos 21 es una competencia dirigida a estudiantes que busca potenciar habilidades de innovación, creatividad y trabajo en equipo.
+
+Durante la actividad, una empresa u organización presenta un desafío real relacionado con un producto, proceso o servicio, y los estudiantes desarrollan propuestas de solución innovadoras.
+
+🔗 Centro de Emprendimiento e Innovación: https://www.lanube.21.edu.ar/ce-emprendimiento-innovacion
+
+¿En qué materias se desarrolla?
+Se implementa dentro de las siguientes materias:
+
+- Desarrollo Emprendedor
+
+- Emprendimientos Universitarios
+
+- Innovación para Nuevos Negocios
+
+- Creatividad y Emprendedorismo
+
+- Herramientas Digitales para Emprendedores
+
+¿Cuándo se realiza?
+Se desarrolla en todos los períodos académicos, de acuerdo con la modalidad de cursado correspondiente.
+
+Gestión de consultas
+
+✅ Ante dudas o consultas sobre Desafíos 21, el estudiante debe contactar primero al/la docente de la materia.
+
+✅ Solo si el/la docente no puede brindar respuesta o resolver la situación, corresponde realizar una derivación:
+
+Información para la derivación (HubSpot)
+
+Tipificación: Consultas Centro de Emprendimiento
+
+Área de derivación: Centro de Emprendimiento e Innovación
+
+👉 Impulso 21
+
+Reúne programas de acompañamiento emprendedor para estudiantes y graduados, adaptados a las distintas etapas de desarrollo de un proyecto:
+
+Iniciativa Impulso 21 (Preincubación):
+
+Para ideas en etapa de conceptualización. Es un programa que dura entre 8 y 10 semanas, en las que acceden a herramientas prácticas, capacitaciones, asesoramiento y networking para validar la idea y el plan de negocios.
+
+-
+Modalidad: VIRTUAL. A través de CANVAS el/la estudiante dispondrá de la información del programa y el contacto con el /la profesor/a titular experto/a, no incluye evaluaciones. Se exigen entregables y 80% de asistencia para contar con los créditos y el suplemento al título.
+
+-
+Convocatoria: Abre dos veces al año y se comunican a través de los canales oficiales de la Universidad (Newsletter, mailing, redes sociales, etc.)
+
+-
+Inscripción: Habilitada para todo el país. La postulación la realiza el estudiante a través de clic aqui.
+
+-
+Beneficios: Otorga créditos académicos y suplemento al título. Los créditos se reconocen únicamente si el estudiante no posee créditos previos de otras actividades de Emprendimientos.
+
+📄 Suplemento al título: Se refleja en la cuarta hoja del analítico definitivo al momento del egreso.
+
+🔄 Solicitud de créditos y suplemento: Se acredita automáticamente una vez finalizado el programa, siempre que el legajo figure en estado EGRESADO.
+
+Impulso 21 LaunchPad (Incubación)
+
+Destinado a emprendimientos productivos o de servicios que se encuentren en estadíos iniciales, buscando la inserción en el mercado.
+
+-
+Modalidad: VIRTUAL (DemoDay final presencial para Córdoba y alrededores).
+
+-
+Convocatoria: Abre dos veces al año y se comunican a través de los canales oficiales de la Universidad (Newsletter, mailing, redes sociales, etc.)
+
+-
+Inscripción: Habilitada para todo el país. La inscripción la realiza el estudiante a través de un formulario de Santander que estará disponible cuando se abra la convocatoria. Clic aquí
+
+-
+Al comenzar el programa el referente se pondrá en contacto a través de mail para brindarle toda la información necesaria.
+
+-
+Beneficios: Otorga créditos académicos y suplemento al título. Requiere cumplir con los entregables y contar con un 80% de asistencia.
+
+📄 Créditos y suplemento: Los créditos aplican únicamente si el estudiante no posee créditos previos de otras actividades de Emprendimientos. El suplemento al título se reflejará en la cuarta hoja del analítico definitivo al egresar.
+
+🔄 Solicitud: Una vez finalizado el programa, el estudiante debe solicitar los créditos y el suplemento a través de los canales oficiales de atención.
+
+-
+Asesores Front: Derivar el pedido a través de ticket Hubspot indicando el periodo en el que el/la estudiante realizó el programa.
+
+Información para la derivación (HubSpot)
+
+Tipificación: Consultas Centro de Emprendimiento
+
+Área de derivación: Centro de Emprendimiento e Innovación
+
+Impulso 21 Tech (Incubación)
+
+Programa orientado a emprendimientos de base tecnológica, como apps, software y plataformas, que buscan validar su MVP y comprender el funcionamiento del ecosistema startup, con foco en el desarrollo de proyectos escalables.
+
+-
+Modalidad: VIRTUAL (DemoDay final presencial para Córdoba y alrededores).
+
+-
+Convocatoria: Abre dos veces al año y se comunican a través de los canales oficiales de la Universidad (Newsletter, mailing, redes sociales, etc.)
+
+-
+Inscripción: Habilitada para todo el país. La inscripción la realiza el estudiante a través de un formulario de Santander que estará disponible cuando se abra la convocatoria clic aqui.
+
+-
+Al comenzar el programa el referente se pondrá en contacto a través de mail para brindarle toda la información necesaria.
+
+-
+Beneficios: Otorga créditos académicos y suplemento al título. Requiere cumplir con los entregables y contar con un 80% de asistencia.
+
+📄 Créditos y suplemento: Los créditos aplican únicamente si el estudiante no posee créditos previos de otras actividades de Emprendimientos. El suplemento se refleja en la cuarta hoja del analítico definitivo al egresar.
+
+🔄 Solicitud: Una vez finalizado el programa, el estudiante debe solicitar los créditos y/o el suplemento a través de los canales oficiales de atención.
+
+-
+Asesores Front: Derivar el pedido a través de ticket Hubspot indicando el periodo en el que el/la estudiante realizó el programa.
+
+Información para la derivación (HubSpot)
+
+Tipificación: Consultas Centro de Emprendimiento
+
+Área de derivación: Centro de Emprendimiento e Innovación
+
+Accelerate (Aceleradora):
+
+Para incrementar tus ventas o recibir capital semilla.
+
+-
+Modalidad: VIRTUAL.
+
+-
+Convocatoria: Se comunican a través de los canales oficiales de la Universidad (Newsletter, mailing, redes sociales, etc.)
+
+-
+Inscripción: Habilitada para todo el país, abierta permanentemente de Marzo a Diciembre (El/la estudiante se puede inscribir en cualquier momento de esos periodos). La inscripción la realiza el estudiante a través de clic aqui
+
+-
+Al comenzar el programa el referente se pondrá en contacto a través de mail para brindarle toda la información necesaria.
+
+-
+Duración: 6 meses.
+
+-
+Beneficios: La participación y el cumplimiento del programa otorga suplemento al título.
+
+-
+Respecto del suplemento al título, lo verá reflejado en la cuarta hoja de su analítico definitivo en cuanto se egrese.
+
+-
+Solicitud de Suplemento al Título: Una vez cumplimentado el programa, el estudiante debe solicitarlos a través de los canales oficiales de atención.
+
+-
+Asesores Front: Derivar el pedido a través de HubSpot indicando el periodo en el que el/la estudiante realizó el programa.
+
+Información para la derivación (HubSpot)
+
+Tipificación: Consultas Centro de Emprendimiento
+
+Área de derivación: Centro de Emprendimiento e Innovación
+
+👉 Desafío Emprender en Argentina
+
+Es una convocatoria federal, en el marco de Feria 21, que invita a los CAUs a identificar, acompañar y seleccionar emprendimientos innovadores de su comunidad. A través de Demodays locales, los proyectos con mayor potencial de crecimiento representan a su localidad en Feria 21, acceden a mentorías, premios y beneficios, y se vinculan con el ecosistema emprendedor a nivel nacional.
+
+-
+Apertura: 2A
+
+-
+Convocatoria e inscripción: Desde el Centro de Emprendimiento e Innovación, través de los CAUs.
+
+Información para la derivación (HubSpot)
+
+Tipificación: Consultas Centro de Emprendimiento
+
+Área de derivación: Centro de Emprendimiento e Innovación
+
+👉 V21 Programa de Validación
+
+El programa tiene foco en la validación de producto y mercado, trabajando sobre la identificación de hipótesis clave (problema, cliente, propuesta de valor) y el diseño de experimentos que permitan testearlas de manera concreta y ágil, a través de un proceso de acompañamiento metodológico.
+
+-
+Apertura: 1A y 2A
+
+-
+Duración: 2 encuentros teóricos y un día de validación práctica con público real en Zona E (Campus).
+
+-
+Modalidad: PRESENCIAL
+
+-
+Convocatoria e inscripción: Se comunican a través de los canales oficiales de la Universidad (Newsletter, mailing, redes sociales, etc.) se postulará mediante un formulario que estará disponible en cuanto se abra la postulación.
+
+👉 Feria 21
+
+Es la Feria de Emprendimiento e Innovación de la Universidad Siglo 21 y la competencia de emprendimientos más grande de la institución. Cada año reúne a emprendedores, empresas, instituciones públicas y ONGs de todo el país, generando oportunidades de vinculación, formación y desarrollo profesional. Durante tres días, emprendimientos de alcance nacional exponen sus proyectos de manera presencial, participan en actividades y son evaluados por un jurado de prestigio, que reconoce a los proyectos más destacados con premios académicos y monetarios.
+
+Edición 2026: 7, 8 y 9 de octubre del 2026 – Campus Córdoba
+
+Modalidad: PRESENCIAL
+
+Requisitos, información general y postulación: https://app.santanderx.com/calls/banco-santander-connects-feria-21-2026
+
+Inscripción: Los estudiantes realizan la postulación a través del formulario, luego un referente de Centro de Emprendimiento e Innovación se pondrá en contacto para iniciar el proceso de selección.
+
+-
+
+-
+Link para compartirle al estudiante: Centro de Emprendimiento e Innovación https://app.santanderx.com/calls/banco-santander-connects-feria-21-2026
+
+-
+Beneficios: Los/as estudiantes que participen de Feria 21 acceden a Suplemento en el Título, lo verán aplicado en la cuarta hoja de su certificado analítico cuando egresen.
+
+- Fechas:
+
+- Inscripciones abiertasde 16 de jul de 26 a 30 de ago de 26 - 11:59 PM.
+
+-
+
+- Evaluando solicitudesde 30 de ago de 26 a 1 de sept de 26
+
+-
+
+- Selección de candidatos el 1 de sept de 26
+
+Información para la derivación (HubSpot)
+
+Tipificación: Consultas Centro de Emprendimiento
+
+Área de derivación: Centro de Emprendimiento e Innovación
+
+👉 Club de Emprendedores 21
+
+Es una comunidad que reúne a estudiantes, egresados/as, docentes e investigadores de la Universidad Siglo 21 de todo el país que se encuentran en distintas etapas del camino emprendedor, desde la idea inicial hasta la consolidación del proyecto. Funciona como un espacio de intercambio de conocimientos, experiencias e información, y brinda beneficios y acompañamiento para potenciar el desarrollo de los emprendimientos.
+
+-
+Modalidad: VIRTUAL
+
+-
+Convocatoria: Se comunican a través de los canales oficiales de la Universidad (Newsletter, mailing, redes sociales, etc.) . Inscripción: Abierta todo el año.
+
+-
+Postulación: El/la estudiante se postula a través de formulario Luego se pondrán en contacto desde el Centro de Emprendimiento e Innovación para continuar con el proceso.
+
+-
+Beneficios: Los/as estudiantes que participen del Club de Emprendedores 21 acceden a Suplemento en el Título, lo verán aplicado en la cuarta hoja de su certificado analítico cuando egresen.
+
+-
+Consultas: Comunicarse con Elina Etchart, referente del Club de Emprendedores 21, al mail Elina-Etchart@mi.21.edu.ar .
+
+Información para la derivación (HubSpot)
+
+Tipificación: Consultas Centro de Emprendimiento
+
+Área de derivación: Centro de Emprendimiento e Innovación
+
+👉 Iniciativas aliadas de apoyo al ecosistema emprendedor
+
+Refiere a programas impulsados por instituciones externas aliadas del Centro de Emprendimiento e Innovación, orientados a brindar apoyo a emprendedores.
+
+No se trata de programas propios del Centro.
+
+👌Explorer:
+
+Es un programa lanzado por Santander, pensado para quienes quieren dar sus primeros pasos en el mundo del emprendimiento, sin necesidad de contar con conocimientos previos en empresas o negocios. Durante 12 semanas, los participantes trabajan en el desarrollo de una idea que aporte a los Objetivos de Desarrollo Sostenible (ODS 2030), mientras fortalecen habilidades clave que serán útiles en cualquier ámbito profesional. Además, el programa permite conectar con una comunidad global de jóvenes emprendedores y participar de manera individual o en equipo.
+
+-
+Convocatoria: Desde el Centro de Emprendimiento e Innovación se realiza la difusión de la convocatoria a estudiantes de la Universidad.
+
+-
+Inscripción: Se realizará a través de un formulario dispuesto por Santander.
+
+-
+Acompañamiento: Desde el Centro de Emprendimiento e Innovación se pone a disposición una persona que acompañará a estudiantes postulados.
+
+👌Global Student Challenge:
+
+Es una competencia internacional dirigida a estudiantes de grado y posgrado que cuentan con una idea de negocio y desean llevarla al siguiente nivel. La propuesta permite entrenarse y vivir una experiencia de emprendimiento con impacto, con la posibilidad de acceder a premios en efectivo, becas y una semana formativa en Babson College, Estados Unidos. Es una oportunidad para animarse a transformar una idea en un proyecto con proyección global.
+
+-
+Convocatoria: Desde el Centro de Emprendimiento e Innovación se realiza la difusión de la convocatoria a estudiantes de la Universidad.
+
+-
+Inscripción: Se realizará a través de un formulario dispuesto por Babson College.
+
+-
+Fecha de inicio: Marzo – abril 2026
+
+👌Foro Internacional de Emprendedores (FIE) :
+
+Es un programa educativo de alto impacto organizado por la Fundación Junior Achievement Córdoba, dirigido a jóvenes de entre 16 y 24 años de más de diez países. Ofrece una experiencia intensiva con conferencistas destacados, competencias, talleres prácticos y actividades orientadas al desarrollo del liderazgo. Además, brinda la posibilidad de postular a becas completas para participar del evento sin costo.
+
+-
+Convocatoria: Desde el Centro de Emprendimiento e Innovación se realiza la difusión de la convocatoria a estudiantes de la Universidad.
+
+-
+Inscripción: Se realizará a través de un formulario dispuesto por la Fundación Junior Achievement Córdoba
+
+-
+Beneficios: Inasistencias justificadas en clases o actividades académicas, Aprobación de exámenes (a excepción de exámenes finales), Suplemento al Título. Los solicitan a través de referente del Centro de Emprendimiento e Innovación.
+
+-
+Más información: https://fieargentina.com.ar/
+
+INTERNACIONALIZACIÓN
+
+Importante
+✅ Todas las consultas y solicitudes deben derivarse mediante HubSpot.
+❌ No se gestionan consultas por otros canales.
+
+Derivación a 3° Línea | Centro de Internacionalización
+
+Tipificación
+
+- Intercambio Académico
+
+- Doble Titulación Internacional
+
+- Misiones Académicas
+
+Área de derivación: Centro de Internacionalización
+
+Información obligatoria en notas
+
+- Nombre y apellido
+
+- DNI
+
+- Legajo
+
+- Nombre del programa o actividad
+
+- Detalle de la consulta o solicitud
+
+Recordatorio para el asesor Antes de derivar, verificar que la consulta incluya toda la información requerida para agilizar la gestión y evitar rechazos o demoras.
+
+👉 Anfitriones 21
+
+Es un programa que brinda a estudiantes la oportunidad de acompañar e integrar a alumnos internacionales, que vienen de intercambio a nuestra Universidad, durante su experiencia académica. A través de la participación en instancias de inducción, actividades culturales y la vida universitaria, los Anfitriones colaboran en la adaptación al país y a la Universidad.
+
+La convocatoria prioriza a quienes cursan el Certificado en Competencias de Internacionalización y propone una experiencia formativa y transformadora para quienes deseen ser parte.
+
+-
+Apertura: 1A – 2A
+
+-
+Inscripción: Habilitada para alumnos de modalidad Presencial. La realiza el/la estudiante a través de clic aquí  y un representante del Centro de Internacionalización se pondrá en contacto.
+
+-
+Beneficios: Si el/la estudiante ya cuenta con los créditos obligatorios de materias electivas, se le brindará un Suplemento al Título. En caso de que aún no cumpla con el total de créditos de materias electivas, se le brindará la materia Capital Humano Intercultural como electiva la cual le sumará 4 créditos
+
+👉 Intercambio Internacional
+
+Un intercambio Internacional es una experiencia académica que permite a los estudiantes cursar parte de su carrera en una universidad del extranjero. A través de esta modalidad, pueden perfeccionar un segundo idioma, conocer nuevas culturas, ampliar su red de contactos y sumar una mirada global que fortalece su perfil profesional. Gracias a más de 200 convenios de cooperación internacional, los estudiantes tienen la oportunidad de vivir una experiencia de cursado en distintas partes del mundo y potenciar su futuro académico y laboral.
+
+-
+El/ la estudiante puede optar por realizar el Intercambio Internacional en modalidad PRESENCIAL o VIRTUAL.
+
+-
+Convenios vigentes para compartir con el estudiante > CONVENIOS INTERNACIONALES
+
+- En estos convenios son Free Fee / Free Tuition:
+
+-
+El estudiante no paga aranceles de cursado en la universidad extranjera.
+
+-
+Puede cursar entre 1 a 6 materias, abonando el TK de materia de intercambio para la cantidad de materias que decida cursar.
+
+-
+Debe cubrir otros gastos, como pasaje, alojamiento, manutención, seguro médico y visa.
+
+-
+Continúa siendo alumno regular de su Universidad de origen.
+
+-
+Protocolo de Movilidad Internacional – OUTGOINGS. Para compartir al estudiante clic aquí
+
+-
+Tickets de materias de intercambio: Lo debe autogestionar el /la estudiante a través del “Portal de Estudiante > Más opciones > Materias de Intercambio”
+
+Requisitos:
+
+- Ser alumno regular de una carrera de GRADO, de cualquier modalidad.
+
+- Tener un promedio con aplazos de 6 (seis).
+
+- Tener un mínimo de 12 materias aprobadas. Las materias de cuatrimestre 0 no se cuentan, si incluye equivalencias externas.
+
+- La situación académica y administrativa debe estar al día.
+
+- Presentar la siguiente documentación:
+
+-
+Constancia de alumno regular
+
+-
+Constancia de no sanción
+
+-
+Analítico parcial de tu carrera
+
+-
+Inscripción Intercambio Presencial: El/la estudiante debe realizar la postulación a través de clic aquí.
+
+-
+Inscripción Intercambio Virtual: El/la estudiante debe realizar la postulación a través de clic aquí.
+
+-
+Beneficio: Los/as estudiantes que realicen un Intercambio Internacional, presencial o virtual, accederán a el Suplemento al Título.
+
+- Constancia de alumno regular - Estudiantes de intercambio (Constancia para estudiantes Incomings, los/as que vienen de intercambio de otras Universidades del mundo a Siglo 21).
+
+Charla Informativa:
+
+VIRTUAL
+
+Todos los martes (hábiles)
+
+Hora: 10h . TEAMS
+
+https://teams.microsoft.com/dl/launcher/launcher.html?url=%2F_%23%2Fl%2Fmeetup-join%2F19%3Ameeting_NWQ5ZGE5Y2MtZjU2YS00ODRkLWJmNjctYzI3NjNmMzhhNWUz%40thread.v2%2F0%3Fcontext%3D%257b%2522Tid%2522%253a%252250a68648-8a2a-489c-b745-643d4d86d1e3%2522%252c%2522Oid%2522%253a%2522af4f0748-021e-4060-a445-58faed206515%2522%257d%26anon%3Dtrue&type=meetup-join&deeplinkId=9a5a028c-4ff8-4ce3-b06c-6a24010b6a16&directDl=true&msLaunch=true&enableMobilePage=true&suppressPrompt=true
+
+PRESENCIAL
+
+.Todos los jueves (hábiles)
+
+. Hora: 14:30h a 15:30h
+
+.  Aula: 212 - Edificio Arcor (Campus)
+
+Tipificación
+
+- Intercambio Académico
+
+Área de derivación: Centro de Internacionalización
+
+Información obligatoria en notas
+
+- Nombre y apellido
+
+- DNI
+
+- Legajo
+
+- Nombre del programa o actividad
+
+- Detalle de la consulta o solicitud
+
+👉Learning Expedition (Short Term Experience Programme):
+
+Orientado a estudiantes y profesionales extranjeros vinculados a los negocios, administración de empresas y carreras afines, interesados en vivir un intercambio cultural en Argentina.
+
+👉 Programa para estudiantes
+
+Ofrecemos una semana de capacitación e intercambio cultural intensivo, donde los estudiantes podrán acceder a clases, conferencias y programas de competencia exclusiva de la Universidad. Además podrán conocer las tradiciones y costumbres de Córdoba a través de paseos y visitas guiadas, donde tendrán contacto con la cultura y la gastronomía local.
+
+👉Programa para ejecutivos y profesionales
+
+Ofrecemos una semana de capacitación e intercambio cultural intensivo, donde los participantes podrán acceder a conferencias, masterclass, mesas de diálogo y enlace con referentes locales. Además, podrán conocer las tradiciones y costumbres de Córdoba a través de paseos y visitas guiadas, donde tendrán contacto con la cultura y la gastronomía local.
+
+- Programa sujeto a articulación y adaptación, en función de las partes interesadas.
+
+Consultas: Derivarla a través HubSpot con la tipificación “Intercambio académico”.
+
+👉 Misiones Académicas
+
+Son experiencias internacionales de corta duración que combinan formación académica y vivencias culturales. A través de viajes a distintos destinos, permiten participar en capacitaciones con docentes e instituciones internacionales, acceder a certificaciones y conocer otras realidades educativas, productivas y culturales. Su objetivo es fomentar la movilidad de estudiantes, egresados y docentes, promoviendo el aprendizaje colaborativo, la interculturalidad y la transferencia de conocimientos a la comunidad académica al regreso.
+
+MISIONES ACADÉMICAS 2027
+
+Las misiones académicas a realizar en 2027
+
+- Misión Académica España: Global Business Inmersión, CEREM - MAYO Y OCTUBRE
+
+- Misión Académica Orlando, EEUU: Managment en Turismo y Hotelería - ABRIL
+
+- Misión Académica Cannes, Francia: Mundial de Publicidad - JUNIO
+
+- Misión Académica Medellin, Colombia: Inteligencia artificial para la globalización - JULIO
+
+- Misión Académica Washington y New York
+
+Para más información pueden brindarle el mail de la referente de Misiones Académicas Internacionales:
+
+iara-aguirre@mi.21.edu.ar
+
+👉 Doble Titulación
+
+La Universidad ofrece a sus estudiantes la posibilidad de acceder a una Doble Titulación Internacional, con títulos emitidos y validados por ambas instituciones. Esta modalidad se basa en la equivalencia de los planes de estudio de las universidades partners y el cursado de materias diferenciales en cada una.
+
+Por consultas al respecto derivar a través de HubSpot con la tipificación “Doble Titulación Internacional”.
+
+A través de la Doble Titulación Internacional, los estudiantes pueden obtener su título de grado o posgrado y sumar una valiosa experiencia académica internacional.
+
+-
+Se ofrece a: Estudiantes próximos a recibirse o egresados.
+
+-
+Modalidad: Se ajusta según disposición por convenio de las Universidades partes.
+
+AUDENCIA BUSINESS SCHOOOL:
+
+La oferta está dirigida a estudiantes y graduados de las carreras de Administración y MBA que deseen realizar un intercambio para obtener un doble título, habilitado en calidad de grado o máster por la Universidad de Audencia, siempre que hayan cumplido con los requisitos académicos, incluida la obtención de los créditos necesarios y la eximición por suficiencia idiomática.
+
+El título de Audiencia se otorgará una vez que el estudiante de la Universidad Siglo 21 haya completado el programa Grande École y cumplido con los siguientes requisitos, debidamente ordenados y consolidados:
+
+- Obtener la totalidad de los 60 créditos ECTS cursados en Audencia Business School, distribuidos en 51 ECTS correspondientes a una de las especializaciones y 9 ECTS al Trabajo Final de Máster.
+
+- Aprobar al menos 60 ECTS durante el año académico en Audencia, que incluyen una especialización en el semestre de otoño y una pasantía u otra especialización en el semestre de primavera.
+
+- Acreditar dominio del idioma inglés mediante uno de los siguientes exámenes internacionales, en caso de no ser hablante nativo: TOEIC (puntaje mínimo 850), IELTS (puntaje mínimo 7), TOEFL iBT (puntaje mínimo 90/120) o Cambridge Advanced Certificate C1.
+
+- Elaborar una tesis y aprobar la correspondiente defensa oral final.
+
+Tipificación: Doble Titulación Internacional
+
+Área de derivación: Centro de Internacionalización
+
+Información obligatoria en notas
+
+- Nombre y apellido
+
+- DNI
+
+- Legajo
+
+- Nombre del programa o actividad
+
+- Detalle de la consulta o solicitud
+
+SUSTENTABILIDAD
+
+Importante
+✅ Todas las consultas y solicitudes deben derivarse mediante HubSpot.
+❌ No se reciben consultas por otros canales.
+
+Esta derivación aplica para consultas relacionadas con:
+
+- Proyectos de Intervención Comunitaria (PIC)
+
+- Servicios de Extensión Comunitaria (SEC)
+
+- Voluntarios 21
+
+Derivación a 3° Línea | Centro de Sustentabilidad
+
+Tipificación
+
+- Consultas Certificados en Competencias
+
+- Proyectos de Extensión SEVI
+
+Área de derivación: Centro de Sustentabilidad
+
+Información obligatoria en notas
+
+- Nombre y apellido
+
+- DNI
+
+- Nombre del proyecto al que está inscripto/a
+
+- Detalle de la consulta o solicitud
+
+⚠️ Importante: Incorporar la mayor cantidad de información posible en la descripción del caso para facilitar una respuesta completa al estudiante.
+
+👉 Actividades de Extensión Universitaria
+
+Tiene como objetivo impulsar el desarrollo local, promover la transferencia de conocimiento y fortalecer el vínculo entre la universidad y la comunidad. Se trata de oportunidades cocurriculares de programas de interacción con agentes comunitarios.
+
+🔗 Listado de proyectos clic aquí - No compartir con estudiantes
+
+🔗La Nube: https://www.lanube.21.edu.ar/sustentabilidad-social
+
+Proyectos de Intervención Comunitaria (PIC): Proyectos que abordan una problemática más compleja que un PAT, nutridos de manera interdisciplinaria con la intervención de diferentes carreras, poseen un formato similar a los equipos de investigación con la diferencia que se trata de un tema aplicado a necesidades comunitarias reales (Duración anual).
+
+Servicios de Extensión Comunitaria (SEC): Servicios que responden a oportunidades identificadas en conjunto con organizaciones de la comunidad, con un alto potencial de impacto (Permanentes).
+
+-
+Apertura: 1A - 1B - 2A - 2B
+
+-
+Modalidad: PRESENCIAL, VIRTUAL O HÍBRIDA (Dependerá del proyecto) - Por consultas sobre la modalidad de cursado, indicar que se comunique con el/la docente a cargo del proyecto a través de la mensajería de CANVAS.
+
+-
+Quienes se pueden postular: Estudiantes y egresados/as
+
+-
+Convocatoria: Se comunican a través de los canales oficiales de la Universidad (Newsletter, mailing, redes sociales, etc.)
+
+-
+Inscripción: Debe realizarla el/la estudiante a través del link que corresponda al proyecto. Derivar a clic aquí
+
+-
+Al realizar la inscripción en la plataforma de Cocurriculares, se crea automáticamente el legajo correspondiente y se habilita el espacio en CANVAS para que el/la estudiante pueda comunicarse con el/la docente del proyecto. Además, podrá consultar su legajo desde el Portal de Estudiantes.
+
+-
+Beneficios: Otorga suplemento al título en todos los casos. Debe cumplir un año (consecutivo o no consecutivo) siendo parte del Proyecto
+
+IMPORTANTE:
+
+- Si el legajo no figura egresado el sistema no lo reconocerá y no se cargará el suplemento al título. En caso de que el/la estudiante indique que finalizó el Proyecto y el legajo aún no figura como egresado, deberán derivarlo a 3ra línea utilizando la tipificación indicada anteriormente
+
+- Únicamente para estudiantes que participan en carácter de "Ayudantes Alumnos en Extensión", se les brindará créditos académicos. Debe cumplir un año (consecutivo o no consecutivo) siendo parte del Proyecto.
+
+👉 Voluntarios 21
+
+Es un espacio de compromiso y servicio a la comunidad donde se difunden convocatorias y oportunidades de voluntariado en organizaciones aliadas de todo el país.
+
+-
+Tiene 4 áreas de desarrollo: Servicio, Educación, Medioambiente y DDHH.
+
+-
+Apertura: 1A - 1B - 2A - 2B
+
+-
+Modalidad: PRESENCIAL, VIRTUAL O HÍBRIDA - Dependerá del voluntariado
+
+-
+Quienes se pueden postular: Estudiantes y egresados/as
+
+-
+Convocatoria: Se comunican a través de los canales oficiales de la Universidad (Newsletter, mailing, redes sociales, etc.)
+
+-
+Información e Inscripción: Debe realizarla el/la estudiante a través del link https://informate.21.edu.ar/experiencia-21
+
+-
+Beneficios: Los voluntariados de Derechos Humanos y de Ambiente otorgan crédito académico y suplemento al título. Para acceder el/la estudiante deberá acreditar su participación en dos periodos semestrales consecutivos o no consecutivos.
+
+ARTE Y CULTURA
+
+👉 Misión Vida 21
+
+Inspirar en estudiantes y egresados entusiasmo por expandir y potenciar su aprendizaje: ser, saber y hacer, dentro y fuera del aula, diseñando experiencias co-curriculares que permitan desarrollar emociones positivas, compromiso con su desarrollo, relacionamiento con el entorno, definición de propósito personal y el alcance de logros mientras habitan ecosistemas de bienestar.
+
+-
+Talleres de arte y cultura
+
+-
+Los Talleres Virtuales se desarrollan a lo largo de dos meses e incluyen entre 4 y 6 clases que se dictan virtualmente.
+
+-
+En el caso de los Talleres Presenciales, se realizan 1 o 2 encuentros por semana a lo largo del año, según la dinámica de cada taller.
+
+La inscripción a Talleres no genera legajo ni se cursa a través de CANVAS, el cursado es a través de clases sincrónicas con el/la docente.
+
+Importante:
+
+- Si se cumple con el requisito de asistencia mínima (75%) se otorga certificado de asistencia.
+
+- Los solo los talleres de Creación fotográfica y Voces 21 otorgan suplemento al título. Para obtenerlo el alumno debe contar con una asistencia mayor a un 80% a los encuentros semanales y cumplimiento de los compromisos asumidos, además de tener matricula activa y mostrar comportamiento adecuado y ejemplar.
+
+- En ambos casos el sistema creará un nuevo legajo del curso, que el estudiante podrá verlo a través del Portal de Estudiantes. Si cumple con los requisitos, el sistema reprocesará el estado del legajo como EGRESADO y se le otorgará el suplemento de manera automática.
+
+- Si el legajo no figura egresado el sistema no lo reconocerá y no se cargará el suplemento al título. En caso de que el/la estudiante indique que finalizó el Taller y el legajo aún no figura como egresado, deberán derivarlo a 3ra línea utilizando la tipificación indicada anteriormente
+
+Para más información:
+
+-
+Portal de Experiencias 21: clic aquí
+
+-
+La Nube: clic aquí
+
+-
+Talleres de arte y cultura (NO compartir con estudiantes) clic aquí
+
+SALUD Y DEPORTES
+
+Importante
+✅ Todas las consultas y solicitudes deben derivarse mediante HubSpot.
+❌ No se reciben consultas o solicitudes por otros medios.
+
+Derivación a 3° Línea | Vida 21
+
+Tipificación: Consultas Vida 21
+
+Área de derivación: Vida 21
+
+Información obligatoria en notas
+
+- Nombre y apellido
+
+- DNI
+
+- Legajo
+
+- Detalle de la consulta o solicitud
+
+⚠️ Importante: Incluir el mayor detalle posible sobre la consulta para agilizar el análisis y la respuesta del área.
+
+👉 Cursos disponibles
+Se le creará un nuevo legajo correspondiente al curso y el estudiante podrá verlo en su Portal de Estudiante.
+
+- Caso 1: Al ingresar a ver la nota del examen final del curso aparece nota 2 o 3, pero la nota del TP está correcta y el legajo figura en condición de EGRESADO.
+
+- Esto sucede porque el sistema asigna una nota final automática para poder reprocesar el legajo, pero no impacta en la condición final del curso, ya que la regla toma la nota del TP como válida.
+
+- En estos casos no será necesario derivar el TK en HubSpot, deben brindar tranquilidad al estudiante indicando que su legajo se encuentra como EGRESADO, con la nota del TP correcta, por lo que accederá al suplemento en el título sin inconvenientes al momento de egresar
+
+- El cursado es virtual y asincrónico a través de CANVAS. Requiere solo el abordaje del contenido disponible.
+
+- Los estudiantes tendrán un tutor a quien le podrán consultar dudas con respecto al contenido mediante la mensajería de CANVAS.
+
+- Para su aprobación, deberán acreditar conocimientos mediante una instancia evaluativa, logrando una nota igual o superior a 80%.
+
+- En el caso finalización y aprobación del curso se le brindará suplemento al título, lo podrá visualizar en la 4ta hoja de su certificado analítico definitivo al graduarse.
+
+Importante: NO SE ENVÍA CERTIFICADO, solo suplemento al título
+
+Capacitaciones
+
+-
+Capacitación en Primeros Auxilios: Actividad virtual, se realiza cada dos meses a través de Teams y tiene una duración de 2 horas. No otorga Suplemento al Título ni Crédito Académico.
+
+-
+Capacitación en RCP: Actividad Presencial, se realiza cada dos meses presencialmente en Campus y tiene una duración de 2 horas. No otorga Suplemento al Título ni Crédito Académico.
+
+Escuadras deportivas
+
+- Se les creará el legajo de la Escuadra a la cual se inscribieron, podrán verlo a través del Portal de Estudiantes.
+
+- Otorgan Crédito Académico únicamente para las CAPITANÍAS, correspondientes a la materia Grupo y liderazgo. Además, se les otorga Suplemento al Título, el cual podrá verlo en la 4ta hoja de su certificado analítico definitivo al graduarse.
+
+- A quienes participen de cualquier Escuadra Deportiva, se les otorga Suplemento al Título, el cual podrá verlo en la 4ta hoja de su certificado analítico definitivo al graduarse.
+
+👉   Actividades de Salud y Deporte disponibles
+
+Para más información:
+
+-
+Actividades (NO compartir con alumnos) clic aquí
+
+-
+Portal de Experiencias 21: clic aquí
+
+-
+La Nube: clic aquí
+
+INVESTIGACIÓN
+
+Investigá y Generá Nuevo Conocimiento:
+
+¿En qué consiste una ayudantía en investigación?
+
+- La ayudantía en investigación incluye actividades en las que estudiantes apoyan proyectos de investigación de la Universidad, con el objetivo de desarrollar habilidades en este campo.
+
+- No implica relación laboral ni remuneración. Se realiza en equipos guiados por docentes investigadores, que acompañan el aprendizaje.
+
+- Las tareas pueden incluir búsqueda de información, apoyo en la metodología, recolección y análisis de datos, colaboración en informes o trabajos, participación en reuniones y apoyo en actividades de difusión del conocimiento.
+
+¿Qué beneficios otorga la ayudantía en investigación?
+
+- La participación en proyectos de investigación fortalece el perfil académico y profesional del estudiante, aportando experiencia valorada en instancias de formación de posgrado, becas, concursos académicos y desarrollo profesional.
+
+- La ayudantía en investigación constituye una instancia de iniciación en la actividad científica y académica, y puede ser el primer paso hacia trayectorias de investigación, docencia universitaria o formación de posgrado.
+
+- Certifica el desempeño de los estudiantes que hayan cumplido en tiempo y forma con sus tareas.
+
+- Otorga suplemento al Título, lo verán reflejado en la 4ta hoja del Certificado Analítico definitivo cuando se gradúen.
+
+- Otorga Créditos Académicos para una materia electiva.
+
+Requisitos para obtener el Suplemento al título y el Crédito Académico
+
+- Participar como ayudante en un proyecto de investigación durante el plazo de un (1) año, pudiendo cumplirse en períodos consecutivos o no consecutivos.
+
+- La certificación y el crédito académico se otorgan una vez cumplido el período y las actividades establecidas, previa validación institucional.
+
+¿Cómo y cuándo puedo iniciar una ayudantía en investigación?
+
+- Para conocer los Proyectos de Investigación disponibles y realizar la inscripción, ingresar aquí.
+
+Confirmación y Contacto
+
+Una vez enviado el formulario, el proceso entra en una etapa de revisión por parte de la Secretaría de Investigación o el Director del Proyecto. El estudiante recibirá una notificación por correo electrónico (Dominio SoySiglo) confirmando la recepción y los pasos a seguir para la entrevista o incorporación formal.
+
+Contacto institucional
+
+Para consultas específicas o derivaciones formales, se encuentra habilitada la vía de contacto institucional de la Secretaría de Investigación. Correo de contacto: secretariadeinvestigacion@ues21.edu.ar
+
+Las postulaciones y consultas formales se gestionan exclusivamente a través de este canal institucional
+
+DOCENCIA
+
+Da tus Primeros Pasos en la Docencia
+
+¿En qué consiste una ayudantía en docencia?
+
+La Ayudantía brinda la posibilidad de formarse en el rol académico a aquellos alumnos que deseen dar sus primeros pasos en la carrera docente.
+
+IMPORTANTE: Al tratarse de actividades formativas facilitadas por la Universidad, su desempeño es ad honorem.
+
+Requisitos para ser ayudante
+
+- Ser alumno de la Universidad Siglo 21.
+
+- Tener aprobada la materia en la que se realizará la Ayudantía con nota igual o mayor a 7 (siete).
+
+- Participar sólo en las materias de la misma modalidad que cursa.
+
+- Conocer la Resolución del Consejo Superior (R.C.S) N° 700/19, que reglamenta el proceso de ayudantías, y cumplir con las obligaciones que el mismo establece. clic aquí
+
+¿En qué modalidad se puede realizar una ayudantía?
+
+Las Ayudantías son ofrecidas en todas las modalidades que ofrece la Universidad:
+
+- Presencial
+
+- Presencial Home
+
+- Educación Distribuida
+
+- Educación Distribuida Home
+
+¿Qué duración tiene la ayudantía?
+
+Las Ayudantías de alumno en docencia tienen una duración total de un año, debiendo participar en todos los periodos de cursado de la materia.
+
+¿Qué beneficios otorga la ayudantía?
+
+La Universidad certifica el desempeño de los Ayudantes alumnos que hayan cumplido en tiempo y forma con los deberes establecidos.
+
+Además, las Ayudantías serán consignadas como suplemento al título universitario y te otorgarán crédito para una materia electiva.
+
+Requisito para obtener crédito: cumplir con 4 periodos de ayudantías (bimestrales o cuatrimestrales según la modalidad de la materia) aprobados.
+
+¿Qué sucede una vez que el estudiante realiza la postulación?
+
+-
+Una vez cerrada la Convocatoria, se evaluarán las postulaciones, valorándose los antecedentes presentados.
+
+-
+Se le enviará un mail asignándole a una materia del área de interés, al que deberá responder rechazando o aceptando la propuesta.
+
+-
+Una vez aceptada la ayudantía, se le generará un legajo y se le indicará los pasos a seguir para la asignación a la materia.
+
+Importante:
+
+-
+Más información: https://contenidos.21.edu.ar/microsites/ayudantias-y-adscripciones/me-interesa.html
+
+-
+Inscripción: https://cocurriculares.21.edu.ar/alumnos?idCareer=10911
+
+-
+Por consultas derivar al estudiante al mail adscripcionesyayudantias@ues21.edu.ar
+
+EMPLEABILIDAD
+
+Importante
+✅ Todas las consultas y solicitudes deben derivarse mediante HubSpot.
+❌ No se reciben consultas o solicitudes por otros medios.
+
+Derivación a 3° Línea | Centro de Empleabilidad y Desarrollo
+
+Tipificación
+
+-
+Empleabilidad - Programas Cocurriculares
+
+Área de derivación: Centro de Empleabilidad
+
+Información obligatoria en notas
+
+- Nombre y apellido
+
+- DNI
+
+- Legajo
+
+- Nombre del programa o actividad
+
+- Detalle de la consulta o solicitud
+
+Solicitud de Créditos Académicos por Pasantía
+
+Además de los datos anteriores, incluir:
+
+- Razón Social de la empresa
+
+- N.° de CUIT
+
+- Fecha de inicio y fin de la pasantía (según convenio firmado)
+
+- Tareas realizadas durante la pasantía
+
+⚠️ Importante: Incorporar la mayor cantidad de información posible para agilizar la evaluación y resolución del caso.
+
+👉Ruta de Empleabilidad es una propuesta de Universidad Siglo 21
+
+La Ruta de Empleabilidad es una propuesta de Universidad Siglo 21 orientada a fortalecer la inserción laboral y el desarrollo profesional de los estudiantes mediante recorridos formativos en empleabilidad, emprendimiento y nuevas tendencias del mercado de trabajo.
+
+Actualmente incluye ciclos como “Tus primeros pasos como freelance” y “Cómo prepararte para trabajar en empresas con impacto”, donde los estudiantes pueden desarrollar competencias profesionales, potenciar su perfil laboral, conocer oportunidades de trabajo y adquirir herramientas prácticas para su crecimiento profesional.
+
+🔗 Para consultar el detalle completo, fechas, inscripciones y actividades vigentes: https://www.lanube.21.edu.ar/empleabilidad
+
+👉 Pasantías (Ley 26.427)
+
+Se entiende como pasantía al conjunto de actividades formativas que realizan estudiantes en empresas u organismos públicos o privados con personería jurídica, relacionadas con su carrera. Estas prácticas son de alto valor pedagógico y no tienen carácter obligatorio.
+
+Características principales:
+
+Duración:
+
+- Mínimo: 2 meses
+
+- Máximo: 12 meses
+
+Carga horaria:
+
+- Hasta 20 horas semanales
+
+- Hasta 4 horas por día
+
+- Se desarrollan de lunes a viernes, en horario diurno
+
+- La distribución puede acordarse entre las partes
+
+Asignación estímulo:
+
+- Los pasantes reciben una suma no remunerativa
+
+- Se calcula en base al salario básico del convenio colectivo de la empresa, proporcional a la carga horaria
+
+- Si no hay convenio, se toma el salario mínimo, vital y móvil
+
+- Pueden establecerse estímulos mayores para estudiantes avanzados o con alto rendimiento académico
+
+Beneficios para estudiantes:
+
+Desde Siglo 21 se reconoce el valor de esta experiencia co-curricular. Por ello, al realizar una pasantía con una duración mínima de 4 meses
+
+Se otorga:
+
+- Créditos Académicos:
+
+- Para solicitar los Créditos Académicos deberán derivar el TK a través de HubSpot con la información indicada al principio.
+
+- Pueden solicitar los Créditos Académicos únicamente si han finalizado la Pasantía.
+
+- Suplemento al título
+
+Convocatoria:
+
+Se comunican a través de los canales oficiales de la Universidad (Newsletter, mailing, redes sociales, etc.)
+
+Inscripción: Clic aquí
+
+👉 Internships (Pasantías Internacionales)
+
+Desde la Universidad Siglo 21, entendemos las Internships como experiencias de pasantías con impacto en el ámbito global.
+
+Una pasantía adquiere carácter internacional cuando la organización en la que se realiza:
+
+- Opera en más de un país, o
+
+- Tiene alcance, proyección o influencia a nivel regional o global
+
+· Objetivo de las internships
+
+Promover que los/as estudiantes:
+
+- Se desarrollen en entornos con diversidad cultural
+
+- Adquieran una visión global del mundo profesional
+
+- Fortalezcan competencias interculturales
+
+- Se preparen para los desafíos del contexto laboral actual
+
+Condiciones generales
+
+Si bien las normativas pueden variar según el país, todas las pasantías deben respetar las bases establecidas en los convenios.
+
+Es importante garantizar que:
+
+- Se defina claramente la carga horaria y la duración de la pasantía
+
+- El/la estudiante reciba una asignación estímulo (no remunerativa)
+
+- Se cuente con cobertura de salud
+
+- Se contemplen beneficios y licencias según la reglamentación vigente
+
+Beneficios para estudiantes:
+
+Desde Siglo 21 se reconoce el valor de esta experiencia co-curricular. Por ello, al realizar una Internships, se otorga:
+
+- Créditos Académicos
+
+- Para solicitar los Créditos Académicos deberán derivar el TK a través de HubSpot con la información indicada al principio
+
+- Pueden solicitar los Créditos Académicos únicamente si han finalizado la Internships.
+
+- Suplemento al título
+
+Convocatoria:
+
+Se comunican a través de los canales oficiales de la Universidad (Newsletter, mailing, redes sociales, etc.)
+
+Inscripción: Clic aquí
+
+👉 Ecosistema y Semillero de Mujeres en Tecnología
+
+Este programa de becas académico-laborales que tiene el objetivo de brindar un espacio de inserción profesional a las alumnas de la universidad, asegurando al mismo tiempo el avance académico durante el cursado de su carrera y un incentivo para que más mujeres decidan estudiar carreras relacionadas con la tecnología.
+
+Carreras: Ingresantes o estudiantes del primer semestre de Licenciatura en Sistemas o Ingeniería en Software
+
+Beneficios: Acceso a un descuento de hasta un 50% en aranceles durante la participación en el programa. Y un 30% posterior a la finalización de dicho programa de pasantía.
+
+- La beca no incluye matrículas.
+
+- Acceso a la realización de una pasantía rentada en la empresa, según la Ley y normativa de Pasantías.
+
+Para acceder al beneficio, deberás:
+
+- Mantener un promedio de 8 (ocho), incluyendo aplazos.
+
+- La duración de la pasantía dependerá de la organización, con un máximo de hasta 18 meses
+
+Programa de inserción profesional - ¿A quién está dirigido?:
+
+- Estudiantes de últimos años
+
+- Egresados recientes (hasta 2 años de egreso)
+
+Como funciona el programa - dividido en dos etapas:
+
+-
+Diagnóstico de tu CV - ElevArte Asesoría
+
+-
+Construcción de CV optimizado utilizando feedback de la primera etapa del programa.
+
+🔗Dirigir a La Nube para conocer más y ver próximos encuentros: https://www.lanube.21.edu.ar/empleabilidad
+
+DESARROLLO
+
+Accedé a talleres que fortalecen tus competencias y amplían tus conocimientos.
+
+Beneficios: Suplemento al titulo
+
+Para acceder al beneficio:
+
+-
+Completar el curso dentro de los plazos establecidos
+
+-
+Obtener una nota mayor a 8 (ocho) en la evaluación final.
+
+Cursos disponibles (no compartir con estudiantes): Cursos por SAM - Desarrollo.xlsx
+
+🔗 Dirigir a La Nube: https://www.lanube.21.edu.ar/desarrollo-y-prop%C3%B3sito
+
+Inscripción masiva a Cursos Virtuales | Formación Ampliada – Experiencias 21 | 2B/26
+
+En el marco de Formación Ampliada – Experiencias 21, se realizará la inscripción masiva de aproximadamente 13.414 estudiantes previamente seleccionados/as a distintos Cursos Virtuales correspondientes al período 2B/26.
+
+La participación no es obligatoria, aunque sí altamente recomendable, ya que estas propuestas buscan complementar la formación académica con nuevas herramientas y habilidades.
+
+Curso |  Público |
+
+Bienestar y Emociones Positivas |  5.880 estudiantes ingresantes |
+
+Creatividad estratégica: Diseño de nuevos escenarios |  1.591 estudiantes del Decanato de Humanidades |
+
+Innovación social y emprendimientos sostenibles |  2.437 estudiantes de Administración |
+
+SEO y SEM |  952 estudiantes del Decanato de Salud |
+
+Estrategias para salir de la zona de confort y asumir nuevos retos |  2.554 estudiantes de Martillero Público y Corredor Inmobiliario |
+
+Información importante
+
+- Los/as estudiantes serán notificados/as luego de realizado el enrolamiento.
+
+- Posteriormente recibirán información en Canvas por parte de los/as docentes.
+
+- Los cursos son 100% virtuales y asincrónicos.
+
+- Cada estudiante podrá avanzar según su propia disponibilidad.
+
+- La duración es bimestral: del 5 de octubre al 5 de diciembre de 2026.
+
+- Los contenidos y el contacto con el/la docente estarán disponibles desde Canvas.
+
+- Quienes aprueben la evaluación final con una nota igual o superior a 8 obtendrán un Suplemento al Título, que se reflejará en el analítico definitivo al momento del egreso.
+
+- Estos cursos no otorgan certificado de aprobación.
+
+Ante consultas, se deberá orientar al estudiante con la información correspondiente al curso asignado y recordar que la participación es voluntaria. Para consultas sobre contenidos o cursado, el estudiante podrá comunicarse con el/la docente mediante la mensajería de Canvas.
+
+FORMACIÓN CONTINUA
+Aprendizaje para la vida (APLV)
+
+- Para más información redirigir al estudiante a La Nube: https://www.lanube.21.edu.ar/aprendizaje-para-la-vida
+
+Propuestas APLV
+
+- Canal de contacto para el/la estudiante: posgrado@soysiglo.edu.ar
+
+Estos programas brindan habilidades prácticas y formación continua a través de cursos, certificados y diplomaturas abiertos a todos, sin requisitos previos.
+
+Para conocer las propuestas disponibles ingresar en https://informate.21.edu.ar/experiencia-21?tag=formaci%C3%B3n_continua&seen=1&page=1
+
+ACTIVIDADES DISCIPLINARES
+
+Profundizá tu Formación en tu Área Disciplinar
+
+¿Qué son las Actividades Disciplinares?
+
+Son instancias formativas que permiten a los/as estudiantes participar en experiencias vinculadas directamente con su área de estudio, con el objetivo de fortalecer sus conocimientos, habilidades y desarrollo dentro de su campo específico.
+
+Actividades disponibles
+
+-
+Para conocer las propuestas disponibles ingresar en clic aquí
+
+-
+Por dudas o consultas indicar al estudiante que se comunique con el Director/a de su carrera. Listado aquí
+
+COMUNIDAD NET
+
+Espacios propios de los cuales, egresados y egresadas, son protagonistas
+
+LinkedIn
+
+https://www.linkedin.com/in/direcciondeegresadosyrelacionesconlacomunidad/
+
+Grupos cerrados de Facebook
+
+Los participantes pueden enterarse de primera mano de todas las actividades, búsquedas laborales y eventos https://www.facebook.com/groups/egresados21
+
+Comunidades por carrera
+
+ABOGACÍA "Abogar21"
+
+Red de graduados de las carreras de Abogacía y Procurador de la Universidad Siglo 21.
+
+El egresado puede acceder a ABOGAR 21 mediante ComunidadNET.
+
+Participa si:
+
+- Te interesa fortalecer los valores adquiridos en la carrera.
+
+- Queres entablar vínculos afectivos y profesionales.
+
+- Te interesa generar tareas sinérgicas que potencien a todos.
+
+Para participar: Link de facebook
+
+MARTILLERO Y CORREDOR.
+
+Red de graduados de la carrera en Martillero, Corredor Público y Corredor Inmobiliario.
+
+Para participar: Link de Facebook
+
+ADM. HOTELERA, GESTIÓN TURISTICA Y RECURSOS TURISTICOS.
+
+Red de graduados de la carrera en Administración hotelera, gestión turística y recursos turísticos.
+
+Para participar: Link de Facebook
+
+RECURSOS HUMANOS.
+
+Red de graduados de la carrera en Gestión de Recursos Humanos de la Universidad Siglo 21.
+
+Participa si: Te interesa acceder a tendencias, experiencias y charlas de actualización profesional.
+
+Queres vivenciar acontecimientos que potencien tus conocimientos y competencias profesionales.
+
+Para participar: Link de Linkedin
+
+👉 Beneficios de egresados 21
+
+Acceso al portal de empleo: Para postularse como candidato a aplicar en una vacante laboral o registrarse como empleador.
+
+- Becas: Para continuar la formación académica.
+
+- Carrera docente 21: Acceso a adscripciones y concursos.
+
+- Posibilidad de Working Points: Prestamos de espacios de trabajo. Siempre con reserva previa ----- Link de reserva en la NUBE.
+
+- Invitaciones exclusivas: A jornadas de actualización, conferencias y otros intereses.
+
+- Acceso a biblioteca y Ebook 21.
+
+- Networking y red de vinculación en comunidadNet.
+
+-  Newsletters.$pea0$, 'global', 'borrador', $pea0$https://kb-cau.21.edu.ar/servicios-cau/servicios/experiencias-21-formación-ampliada$pea0$)
+on conflict (categoria_id, slug) do nothing;
+
+insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
+values ((select id from public.categorias where slug = $pea0$tramites$pea0$), null, 19, $pea0$kb-19-portal-de-equivalencias$pea0$,
+        $pea0$Portal de equivalencias$pea0$, $pea0$¿Cómo realizar un pedido de equivalencias?$pea0$, $pea0$> **A validar:** contenido relevado de https://kb-cau.21.edu.ar/servicios-cau/servicios/portal-de-equivalencias el 2026-11-19. Revisalo antes de publicar.
+
+¿Cómo realizar un pedido de equivalencias?
+
+🔗El alumno deberá ingresar a https://tusestudiosprevios.21.edu.ar
+
+Paso 1: Al hacer click en COMENZAR selecciona el tipo de trámite que vas a iniciar.
+
+Paso 2: Debes seleccionar la opción de externas y confirmar.
+
+Paso 3: cargá tus datos personales.
+
+Paso 4: selecciona la institución de donde venís, y selecciona la carrera y el plan de estudio que cursaste.
+
+Paso 5: una vez cargados los datos de la institución y carrera de origen el portal sugerirá aquellas carreras siglo que ya cuenten con un predictamen y las materias siglo equivalentes.
+
+En el paso 3 deberás seleccionar las materias que tenga aprobadas en su carrera de origen. Si alguna no figura en el listado podrá agregarla manualmente.
+
+En la misma ventana deberás cargar los datos de aprobación de la materia.
+
+Una vez que realicen la carga de todas las materias que requieran visualizaran el paso 4 de la siguiente manera: las con regla al lado le mostrara por cual se otorga en destino y las sin regla le solicitara agregue la sugerencia
+
+Visualizaran la opción al lado de un signo +, el cual al seleccionarlo nos abre una ventana donde deben adjuntar programa de materia y contenidos mínimos que coinciden con los de siglo 21.
+
+Una vez cargadas todas las materias, vamos a ir al paso 5 donde adjuntamos la documentación que se solicita y aceptamos los términos y condiciones.
+
+De este modo podemos finalizar el trámite y el mismo nos genera un número de solicitud, el mismo nos llegara al mail que cargamos en la solicitud junto a los términos y condiciones.
+
+SEGUIMIENTO DE EQUIVALENCIAS
+
+Seguimiento para asesores
+
+Los asesores pueden consultar el estado de una solicitud de equivalencias a través del siguiente enlace:
+
+🔗 https://formsbpm.uesiglo21.edu.ar/tracking/zendesk
+
+📌 Al ingresar, el sistema solicitará las credenciales de acceso del Campus Virtual.
+
+📌 Una vez autenticado, la búsqueda podrá realizarse utilizando el DNI del estudiante.
+
+Seguimiento para estudiantes
+
+El estudiante podrá realizar el seguimiento de su trámite desde el Portal de Equivalencias.
+
+📌 Para consultar el estado de la solicitud deberá ingresar:
+
+- Número de solicitud.
+
+- DNI.
+
+📌 Desde allí podrá visualizar el estado actualizado de su trámite y consultar el resultado una vez finalizado el análisis.
+
+📌 Estado del trámite
+
+El portal mostrará el estado actualizado de la solicitud. Una vez finalizado el análisis, el estudiante podrá consultar el resultado de las equivalencias gestionadas.
+
+📌 Motivo de rechazo
+
+En la sección "Materias Presentadas", el estudiante podrá seleccionar la opción "Ver motivo de rechazo" para consultar el detalle de aquellas materias que no alcanzaron el porcentaje mínimo de contenidos requerido para su análisis.
+
+📌 Resultado del análisis
+
+En esta sección se visualizarán las materias sugeridas por el estudiante durante la carga del formulario y el resultado obtenido para cada una de ellas luego del análisis realizado por la Universidad.
+
+📌 Motivo de rechazo
+
+Al seleccionar la opción "Ver motivo de rechazo", el estudiante podrá consultar el detalle del análisis realizado y conocer el motivo por el cual la materia sugerida no fue homologada.
+
+📌 Equivalencias reconocidas
+
+Si la solicitud obtuvo reconocimiento de materias, el estudiante podrá consultar el detalle en la sección "Equivalencias de esta solicitud", donde se mostrarán las materias homologadas y su correspondencia dentro del plan de estudios de Siglo 21.
+
+📌 Resultado del análisis académico
+
+El tutor de carrera puede determinar que la materia sugerida por el estudiante no corresponde para el otorgamiento de la equivalencia.
+
+En esos casos, la sugerencia podrá ser rechazada, pero la materia de origen podrá reconocerse por otra materia de Siglo 21 que el tutor considere académicamente equivalente según el análisis realizado.
+
+📌 Detalle del resultado
+
+El estudiante podrá consultar el motivo del rechazo de su sugerencia y, en caso de corresponder, visualizar qué materia de Siglo 21 fue otorgada por equivalencia a partir del análisis realizado, aun cuando sea diferente de la materia originalmente sugerida.$pea0$, 'global', 'borrador', $pea0$https://kb-cau.21.edu.ar/servicios-cau/servicios/portal-de-equivalencias$pea0$)
+on conflict (categoria_id, slug) do nothing;
+
+insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
+values ((select id from public.categorias where slug = $pea0$oferta-academica$pea0$), null, 20, $pea0$kb-20-ayudantia-docente$pea0$,
+        $pea0$Ayudantía Docente$pea0$, $pea0$Brindar información sobre el programa de Ayudantías en Docencia, orientando a los estudiantes respecto de los requisitos de postulación, modalidades, proceso de selección, obligaciones, beneficios…$pea0$, $pea0$> **A validar:** contenido relevado de https://kb-cau.21.edu.ar/servicios-cau/servicios/ayudantía-en-docencia el 2026-11-19. Revisalo antes de publicar.
+
+Brindar información sobre el programa de Ayudantías en Docencia, orientando a los estudiantes respecto de los requisitos de postulación, modalidades, proceso de selección, obligaciones, beneficios y condiciones para participar como Ayudante Alumno.
+
+¿Qué es una Ayudantía en Docencia?
+
+La Ayudantía en Docencia es una instancia formativa destinada a estudiantes de la Universidad que desean iniciar su camino en la docencia académica. Permite participar en actividades de apoyo académico bajo la supervisión del docente responsable y contribuye a la formación docente del estudiante.
+
+Como actividad formativa facilitada por la Universidad, su desempeño es ad honorem (no remunerado).
+
+¿Qué tareas realiza un Ayudante en Docencia?
+
+Durante su participación, el ayudante puede:
+
+- Participar en instancias áulicas y extra-áulicas de la materia.
+
+- Colaborar en actividades y evaluaciones según lo planificado por el docente de cátedra.
+
+- Contribuir con tareas académicas complementarias bajo supervisión docente.
+
+Las tareas específicas pueden variar según la modalidad de cursado de la materia.
+
+¿Cuánto tiempo dura una Ayudantía?
+
+- La Ayudantía en Docencia tiene una duración total de un año.
+
+- El estudiante debe participar en todos los períodos de cursado de la materia en la que cumple el rol de ayudante.
+
+- Si la materia se dicta una vez al año, el ayudante podrá ser asignado a otra materia correlativa o afín a la disciplina.
+
+Requisitos para postularse
+
+Para postularse a una Ayudantía en Docencia, el estudiante debe:
+
+- Ser alumno/a regular de la Universidad.
+
+- Tener aprobada con nota igual o mayor a 7 (siete) la materia en la cual desea desempeñarse como ayudante.
+
+- Participar únicamente en materias que correspondan a la misma modalidad de cursado que la que el alumno cursa regularmente.
+
+Modalidades en las que se puede realizar
+
+Las Ayudantías en Docencia se ofrecen en todas las modalidades de estudio que la Universidad Siglo 21 ofrece, incluyendo:
+
+- Presencial
+
+- Presencial Distribuida
+
+- Presencial Home
+
+- Educación Distribuida
+
+- Educación Distribuida Home
+
+Beneficios de la Ayudantía
+
+Los beneficios de participar como ayudante incluyen:
+
+- Certificación oficial del desempeño como Ayudante Alumno.
+
+- Consignación de la ayudantía como suplemento al título universitario.
+
+- Otorgamiento de créditos para una materia electiva, siempre que se cumplan con los requisitos académicos y de asistencia.
+
+Requisito para obtener créditos
+
+Se deben cumplir al menos cuatro (4) períodos de participación como ayudante, ya sean bimestrales o cuatrimestrales, de acuerdo con la modalidad de cursado de la materia.
+
+¿Cómo es el proceso de postulación y asignación?
+
+- Se abre una convocatoria anual para Ayudantes Alumnos.
+
+- Los estudiantes interesados completan el formulario de postulación con sus datos personales, DNI y antecedentes académicos.
+
+- Una vez cerrada la convocatoria, se evalúan las postulaciones considerando los antecedentes académicos y cumplimiento de requisitos.
+
+- Los estudiantes seleccionados reciben un correo de asignación con la materia en la que fueron elegidos.
+
+- El estudiante debe responder en un plazo de 48 horas aceptando o rechazando la propuesta.
+
+- Tras la aceptación, se genera un legajo para formalizar la ayudantía y se indica al estudiante los pasos a seguir.
+
+Si no resultás seleccionado, también se te informa por correo.
+
+Obligaciones y condiciones de cumplimiento
+
+Según el reglamento institucional de ayudantías, los ayudantes deben cumplir con las siguientes obligaciones:
+
+Para modalidad Presencial
+
+- Asistir al 80 % de las clases de la materia en la cual se desempeña como ayudante.
+
+- Aprobar el curso de formación específico para Ayudantes en Docencia.
+
+- Mantener un compromiso de confidencialidad respecto de la información académica en la que interviene.
+
+Para modalidad Distancia
+
+- Cumplir con las actividades académicas previstas por el docente en la plataforma virtual.
+
+- Participar en foros, debates y ejercicios según lo planificado por la cátedra y con la supervisión del docente responsable.
+
+- Aprobar el curso de formación para Ayudantes en Docencia.
+
+- Mantener un compromiso de confidencialidad respecto de la información académica en la que interviene.
+
+En ambas modalidades, el cumplimiento de estas obligaciones se evalúa periódicamente y forma parte de la certificación de desempeño.
+
+Informe de desempeño académico
+
+Al finalizar cada período de ayudantía, el docente responsable de la materia debe presentar un informe de desempeño detallado sobre la participación del ayudante, que puede incluir:
+
+- Nivel de cumplimiento de las tareas designadas.
+
+- Asistencia y participación académica.
+
+- Colaboración con actividades de cátedra.
+
+- Observaciones generales sobre desempeño y compromiso.
+
+Este informe forma parte del historial académico del ayudante.
+
+Ayudante Alumno / Adscripto – Diferencias
+
+Ayudante Alumno
+
+- Es un alumno activo que quiere iniciar la formación docente.
+
+- Puede desempeñarse solamente en materias aprobadas con nota ≥ 7.
+
+-
+Debe cumplir con la modalidad de cursado que él mismo cursa.
+
+Adscripto
+
+- Es un graduado que puede participar en actividades de docencia, investigación y extensión.
+
+- Debe contar con título universitario válido y registrado.
+
+- La adscripción está regulada por el reglamento institucional y se realiza en una instancia diferente a la ayudantía.
+
+Reglas importantes de postulación
+
+- El estudiante solo puede marcar una modalidad de cursado al postular, porque solo puede ser ayudante o adscripto en la modalidad en la que está cursando o se ha recibido.
+
+- En el formulario de postulación, el estudiante debe colocar la materia específica para la cual desea ser ayudante.
+
+- Dicha materia debe estar aprobada en su historial académico.
+
+- Los ítems del formulario del 15 en adelante deben completarse exactamente según lo que indica la convocatoria o las características del llamado, tanto para Ayudantes Alumnos como para Adscriptos.$pea0$, 'global', 'borrador', $pea0$https://kb-cau.21.edu.ar/servicios-cau/servicios/ayudantía-en-docencia$pea0$)
+on conflict (categoria_id, slug) do nothing;
+
+insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
+values ((select id from public.categorias where slug = $pea0$tramites$pea0$), null, 21, $pea0$kb-21-documentacion-de-legajo$pea0$,
+        $pea0$Documentación de legajo$pea0$, $pea0$Documentación requerida para carreras de grado, pregrado, posgrado, ciclos complementarios curriculares (CCC), alumnos extranjeros y mayores de 25 años, además de los canales para carga y envío de…$pea0$, $pea0$> **A validar:** contenido relevado de https://kb-cau.21.edu.ar/servicios-cau/servicios/documentación-de-legajo el 2026-11-19. Revisalo antes de publicar.
+
+Documentación requerida para carreras de grado, pregrado, posgrado, ciclos complementarios curriculares (CCC), alumnos extranjeros y mayores de 25 años, además de los canales para carga y envío de documentación y requisitos específicos por carrera.
+
+INDICE:
+
+-
+CARRERAS DE GRADO Y PREGRADO
+
+-
+¿DÓNDE SE ENTREGA LA DOCUMENTACIÓN?
+
+-
+¿DÓNDE DEBE ENVIAR LA DOCUMENTACIÓN EL ALUMNO?
+
+-
+CARRERAS DE POSGRADO
+
+-
+CICLO COMPLEMENTARIO CURRICULAR
+
+-
+ALUMNO EXTRANJERO
+
+-
+ALUMNO +25 AÑOS
+
+CARRERAS DE GRADO Y PREGRADO
+
+DOCUMENTACIÓN OBLIGATORIA:
+
+👉 SOLICITUD DE INSCRIPCIÓN COMPLETA:
+
+-
+Descargala haciendo clic aquí.
+
+- Debe tener la firma del alumno, certificada (firmada y sellada) autoridad competente (escribano, juez de paz) o la autoridad competente del CAU o la UES21 – Prosecretaria Académica o Mesa de Atención.
+
+👉 FOTOCOPIA FRENTE Y DORSO DE DNI ACTUALIZADA:
+
+-
+Debe presentar la foto del frente y dorso del DNI.
+
+-
+No se aceptarán DNI descargados desde la aplicación Mi Argentina, dichos documentos carecen del dato de localidad/provincia de nacimiento.
+
+👉 CERTIFICADO DE ESTUDIOS SECUNDARIO COMPLETO – LEGALIZADA:
+
+-
+Debe enviar, al menos, una de las siguientes documentaciones:
+
+-
+Certificado Analítico de estudios secundarios. (Solo es válido Libro Matriz si contiene Institución de la que egresaste, título obtenido y fecha de egreso).
+
+-
+Título secundario (frente y dorso).
+
+-
+Deben estar legalizados por el ministerio, institución de origen y por Siglo. En ambos casos no hace falta que contenga el promedio.
+
+-
+Debe contar con los siguientes datos: título obtenido, año y lugar de egreso, y nombre de la institución.
+
+👉 FICHA MÉDICA:
+
+-
+Deberá hacer completar y firmar esta ficha por un profesional matriculado. No es válido el certificado de buena salud ni ningún otro formato que no sea el propuesto.
+
+-
+El modelo de la misma esta cargado en el campus virtual del alumno o podrá acceder al formulario haciendo clic aquí.
+
+👉 FOTO A COLOR:
+
+-
+Enviar una foto actualizada, que se muestre de manera frontal y sobre un fondo liso.
+
+Regla operativa | Solicitud de Inscripción Completa y Ficha Médica
+
+Si el asesor consulta por la Solicitud de Inscripción Completa o la Ficha Médica, el asistente virtual deberá compartir los enlaces oficiales correspondientes.
+
+🔗 Solicitud de Inscripción Completa: https://www.lanube.21.edu.ar/_files/ugd/cf0a7a_3215ab2df4f64536b0febc420fa4d153.pdf
+
+🔗Ficha Médica: https://44080364.fs1.hubspotusercontent-na1.net/hubfs/44080364/FICHA%20MEDICA%20UES%2021%20(1).pdf
+
+No deberá responder la consulta sin proporcionar el enlace del documento solicitado. Además, para la Ficha Médica deberá aclarar que debe ser completada y firmada por un profesional matriculado y que no se aceptan certificados de buena salud ni formatos alternativos.
+
+Carrera de Fonoaudiología
+
+👉 APTO FONOAUDIOLÓGICO y AUDIOMETRÍA TONAL
+
+Realizados por un/a fonoaudiólogo/a con informe, firma, sello y matrícula. La ficha debe descargarse y presentarse completa al momento de la inscripción. Este requisito forma parte de una política de prevención y acompañamiento, y es condición necesaria para acceder a las prácticas clínicas.
+
+Descargá acá la ficha.
+
+Regla operativa | Apto Fonoaudiológico y Audiometría Tonal
+
+Si el asesor consulta por requisitos de ingreso para la carrera de Fonoaudiología, el asistente virtual deberá informar que el estudiante debe presentar el Apto Fonoaudiológico y la Audiometría Tonal realizados por un/a fonoaudiólogo/a, con informe, firma, sello y matrícula profesional.
+
+Además, deberá compartir la ficha oficial:
+
+🔗 https://www.lanube.21.edu.ar/_files/ugd/cf0a7a_c0ab5526aa9a43d694b9b0fb943b3e62.pdf
+
+No deberá responder la consulta sin proporcionar el enlace correspondiente.
+
+¿DÓNDE SE ENTREGA LA DOCUMENTACIÓN?
+
+🔗 Intructivo para la carga de documentación: www.lanube.21.edu.ar/documentacion
+
+🔗 Digital Admin para el estudinate: https://contractmanager.digitaladmin.com.ar/postulantes/
+
+🔗 Documentos digitales: http://documentodigital.ues21.edu.ar/Default.aspx
+
+🚨 IMPORTANTE
+Una vez que la documentación es cargada en Digital Admin, existe una demora de hasta 7 días hábiles para que quede disponible en la plataforma de Documentos Digitales.
+
+Regla operativa | Entrega de documentación
+
+Si el asesor consulta dónde debe presentar el estudiante su documentación, el asistente virtual deberá compartir los canales oficiales de carga documental:
+
+🔗 Instructivo de carga de documentación: https://www.lanube.21.edu.ar/documentacion
+
+🔗 Digital Admin: https://contractmanager.digitaladmin.com.ar/postulantes/
+
+🔗 Documentos Digitales: http://documentodigital.ues21.edu.ar/Default.aspx
+
+No deberá responder la consulta sin compartir los enlaces correspondientes.
+
+¿DÓNDE DEBE ENVIAR LA DOCUMENTACIÓN EL ALUMNO?
+
+-
+Alumno egresado con trámite de titulación pendiente por adeudar documentación:
+
+-
+Debe enviarla a través de Consulta Alumnos / Chat.
+
+-
+Alumno con trámite frenado por adeudar documentación (Analítico, Certificado de Horas o Articulación de Procurador):
+
+-
+Debe enviarla a través de Consulta Alumnos / Chat.
+
+-
+Alumno que regularizó Seminario Final, está en condiciones de acceder al visado y adeuda documentación:
+
+-
+El proceso es automatizado por BPM / Algarrobo y la documentación será solicitada por Campus Virtual.
+
+📋 Posibles situaciones
+
+Extravio o robo de DNI
+El alumno puede presentar provisoriamente el comprobante de trámite de un nuevo DNI. Una vez recibido el documento definitivo, deberá enviar la copia de frente y dorso.
+
+No posee Certificado Analítico o Título Secundario
+Puede presentar provisoriamente:
+
+- Certificado de estudios en trámite, y/o
+
+- Constancia de materias aprobadas que indique expresamente que no adeuda materias del secundario.
+
+⚠️ Esta documentación tiene una validez de 6 meses.
+
+CARRERAS DE POSGRADO
+
+POSGRADOS:
+
+- Ficha de Inscripción completa descárgala  aquí
+
+- Fotocopia de DNI (frente y dorso).
+
+- Fotocopia legalizada del Título de Grado.
+
+- CV actualizado.
+
+- 2 fotos tipo carnet.
+
+- Carta de aceptación del reglamento descargala  aquí
+
+APRENDIZAJE PARA LA VIDA (APLV) MODALIDAD PRESENCIAL
+
+- Ficha de Inscripción completa descárgala  aquí
+
+- Fotocopia de DNI (frente y dorso).
+
+IMPORTANTE
+
+La norma general establece que, para cursar una carrera de posgrado en la República Argentina, la persona interesada que posea un título de grado obtenido en el extranjero deberá convalidarlo o revalidarlo (según corresponda) conforme a la normativa vigente al momento del trámite.
+
+Sin embargo, de acuerdo con lo expresado en la Resolución Ministerial N.º 416/00, las universidades podrán reconocer estudios de grado aprobados en el extranjero exclusivamente a los efectos de la prosecución de estudios de posgrado en la República Argentina, siempre que la currícula del programa no requiera el ejercicio profesional.
+
+-
+Condiciones, Admisión y Permanencia de ingreso  haga clic aquí.
+
+-
+Documentación para alumnos extranjeros  haga clic aquí
+
+CICLO COMPLEMENTARIO CURRICULAR
+
+👉 ESCRIBANIA -   Resolución Ministerial:
+
+Fotocopia legalizada del título de Abogado o analítico oficial final completo (frente y dorso con sellos y/o etiquetas ministeriales). Siendo esta una carrera de Grado, su duración en años no puede ser inferior a cuatro años y 2600 horas reloj mínimas.
+
+👉 LICENCIATURA EN EDUCACIÓN - Resolución Ministerial:
+
+Fotocopia legalizada del frente y el dorso del título de profesor + certificación de 1200 horas reloj (Plan de estudios, resolución ministerial o certificado emitido por la institución).
+
+La constancia de 1200hs puede estar en los siguientes documentos:
+
+- Certificado Analítico del profesorado que consigne cantidad de horas reloj,
+
+- Copia legalizada del Plan de Estudios del profesorado, donde se detalla la cantidad de horas reloj cursadas.
+
+- Constancia de hora reloj cursadas emitida por la Institución de origen. Si es copia, debe estar legalizada.
+
+- Copia legalizada de la Resolución Ministerial mediante la cual se aprobó el Profesorado donde se detalle la cantidad de horas de cursada.
+
+👉 LICENCIATURA EN PSICOPEDAGOGÍA - Resolución Ministerial:
+
+Fotocopia legalizada del frente y dorso del título con reconocimiento oficial y validez nacional, otorgado por institución autorizada, con una duración mínima de 2 años y una carga horaria no inferior a 1400 horas reloj.
+
+Se admitirán los siguientes títulos:
+
+- Psicopedagogo/a
+
+- Profesor/a en Psicopedagogía
+
+- Profesor/a en Ciencias de la Educación
+
+- Profesor en Psicología
+
+- Profesor Superior en Psicopedagogía
+
+- Técnico/a Superior en Psicopedagogía
+
+- Técnico/a Universitario/a en Psicopedagogía
+
+- Técnico en Psicopedagogía
+
+- Técnica Universitaria en Psicopedagogía
+
+- Asistente en Psicopedagogía
+
+- Asistente Psicopedagógico/a
+
+- Asistente Psicopedagógico Universitario
+
+- Auxiliar Psicopedagógico
+
+👉 LICENCIATURA EN GERONTOLOGÍA - Resolución Ministerial:
+
+Fotocopia legalizada del frente y dorso del título de Enfermero, Trabajador Social, Terapista Ocupacional, Técnico en Gerontología y/o Técnico Universitario en Acompañamiento, cuidado y asistencia al adulto mayor. El mismo deberá estar otorgado por institución autorizada, con duración de al menos 2 años y carga horaria no inferior a 1600hs reloj. Si no indica la cantidad de horas cursadas, se podrán acreditarlas con una constancia emitida por la institución de origen o con copia legalizada de la Resolución Ministerial que aprueba el título y detalle las horas.
+
+👉 LICENCIATURA EN EMPRENDIMIENTO - Resolución Ministerial:
+
+Es condición necesaria poseer título de Técnico/a Universitario/a otorgado por institución autorizada, con duración de al menos 2 años y carga horaria no inferior a 1400hs reloj, conforme lo contemplado taxativamente en la Resolución Ministerial que otorga reconocimiento oficial. Si no indica el número de horas cursadas, se puede acreditar el cumplimiento de las horas mediante una constancia expedida por la institución de origen o con una copia legalizada de la Resolución Ministerial que aprobó el título, en la que se detallen dichas horas.
+
+👉 PROFESORADO PARA EL NIVEL SECUNDARIO Y SUPERIOR - Resolución Ministerial:
+
+Es condición necesaria poseer Título de Nivel Superior en carreras de 4 años o más y con una carga horaria mínima de 2600 horas reloj. Si el Título no acredita la carga horaria podrá acreditarlas mediante una constancia emitida por la Institución de origen o copia legalizada de la Resolución Ministerial mediante la cual se aprobó el Título donde se detalle la cantidad de horas cursadas. Si no indica el número de horas cursadas, se puede acreditar el cumplimiento de las horas mediante una constancia expedida por la institución de origen o con una copia legalizada de la Resolución Ministerial que aprobó el título, en la que se detallen dichas horas.
+
+👉 LICENCIATURA EN DESARROLLOS DE NEGOCIOS INMOBILIARIOS - Resolución Ministerial:
+
+Es necesario tener título de Técnico en:
+
+- Tecnicatura en Martillero y corredor público y similares (dos años y medio de duración)
+
+- Técnico en corretaje inmobiliario
+
+- Técnico en emprendedorismo
+
+- Técnico en administración de empresas.
+
+- Técnico en gestión contable e impositiva.
+
+- Procurador
+
+El mismo deberá estar otorgado por Institución autorizada, con duración de al menos 2 años y carga horaria no inferior a 1400 horas reloj. Si no indica el número de horas cursadas, se puede acreditar el cumplimiento de las horas mediante una constancia expedida por la institución de origen o con una copia legalizada de la Resolución Ministerial que aprobó el título, en la que se detallen dichas horas.
+
+👉 LICENCIATURA EN ADMINISTRACIÓN DE SERVICIOS DE LA SALUD
+
+-
+Resolución Ministerial - Distancia
+
+-
+Resolución Ministerial - Presencial
+
+Es condición necesaria poseer título de Técnico/a Universitario/a otorgado por institución autorizada, con duración de al menos 2 años y carga horaria no inferior a 1400hs reloj, conforme lo contemplado taxativamente en la Resolución Ministerial que otorga reconocimiento oficial. Si no indica el número de horas cursadas, se puede acreditar el cumplimiento de las horas mediante una constancia expedida por la institución de origen o con una copia legalizada de la Resolución Ministerial que aprobó el título, en la que se detallen dichas horas.
+
+ALUMNO EXTRANJERO
+
+Las personas extranjeras pueden estudiar en la Universidad bajo tres modalidades:
+
+- Alumno regular: cursa una carrera completa en la Universidad.
+
+- Alumno de intercambio: cursa una o varias materias en el marco de un convenio entre Universidad Siglo 21 y una institución educativa extranjera.
+
+- Alumno independiente: cursa una o varias materias sin que exista un convenio institucional entre ambas universidades.
+
+Importante: Todo aspirante extranjero que desee cursar una carrera en Universidad Siglo 21 deberá realizar previamente el trámite de Alumno Extranjero y presentar la documentación correspondiente.
+
+RENURE
+
+El RENURE (Registro Nacional Único de Requirentes de Extranjeros) es el número de registro necesario para validar títulos secundarios extranjeros y avanzar con la inscripción en la Universidad.
+
+🔗 Consultar información oficial: https://www.argentina.gob.ar/interior/migraciones/registro-nacional-unico-de-requirentes-de-extranjeros
+
+DOCUMENTACIÓN REQUERIDA PARA LA INSCRIPCIÓN:
+
+Los alumnos extranjeros que ingresen como alumnos regulares deberán presentar:
+
+-
+Título Secundario Convalidado en Argentina o Estudios Universitarios Parciales Legalizados, acompañado del analítico secundario del país de origen.
+
+-
+Copia del Pasaporte.
+
+-
+Visa de Estudiante.
+
+TRÁMITE DE VISA DE ESTUDIANTE - Pueden darse dos situaciones:
+
+👉 ESTUDIANTES PROVENIENTES DE PAÍSES DEL MERCOSUR Y ESTADOS ASOCIADOS
+
+Procedimiento:
+
+1. La institución educativa debe informar la inscripción a la Dirección Nacional de Migraciones indicando:
+
+- Apellido y nombre.
+
+- Nacionalidad.
+
+- Número de cédula o pasaporte.
+
+- Fecha de nacimiento.
+
+- Domicilio real.
+
+- Carrera o estudios a cursar.
+
+- Fecha de inicio y duración de los estudios.
+
+2. La institución educativa debe entregar al estudiante una constancia de inscripción firmada por un funcionario autorizado.
+
+3. El estudiante deberá gestionar su residencia ante la Dirección Nacional de Migraciones dentro de los 30 días posteriores a la inscripción, presentando:
+
+- Constancia de inscripción.
+
+- Pasaporte vigente, cédula de identidad vigente o certificado de nacionalidad.
+
+- Certificado de antecedentes penales del país de origen o de los países donde residió durante los últimos 3 años, debidamente legalizado.
+
+- Certificado de antecedentes penales emitido en Argentina.
+
+- Comprobante de pago de la tasa correspondiente.
+
+👉 ESTUDIANTES PROVENIENTES DE PAÍSES EXTRA MERCOSUR
+
+Se consideran estudiantes formales aquellas personas extranjeras provenientes de países fuera del MERCOSUR que solicitan residencia en Argentina por estar inscriptas como alumnos regulares.
+
+Procedimiento:
+
+1. Antes de aceptar la inscripción, la Universidad deberá solicitar a la Dirección Nacional de Migraciones la autorización de ingreso al país informando:
+
+- Número de inscripción en el RENURE.
+
+- Apellido y nombre.
+
+- Nacionalidad.
+
+- Número de pasaporte.
+
+- Fecha de nacimiento.
+
+- Carrera o estudios a cursar.
+
+- Fecha de inicio y duración de los estudios.
+
+- Necesidad o no de acreditar conocimientos del idioma español.
+
+- Consulado donde solicitará el visado.
+
+2. La Dirección Nacional de Migraciones comunicará el resultado de la verificación a la institución educativa.
+
+3. Una vez autorizada, la persona deberá gestionar la visa ante el consulado correspondiente.
+
+REQUISITOS PARA LA VISA
+
+- Pasaporte válido y vigente.
+
+- Certificado de antecedentes penales del país de origen o de los países donde haya residido durante los últimos 5 años.
+
+- Partida de nacimiento.
+
+- Acreditación de medios económicos suficientes para la estadía en Argentina.
+
+- Acreditación de conocimientos de idioma español cuando corresponda.
+
+- Pago de la tasa retributiva correspondiente.
+
+CONVALIDACIÓN DE ESTUDIOS SECUNDARIOS PAÍSES CON CONVENIO DE RECONOCIMIENTO DE ESTUDIOS
+
+Los estudiantes provenientes de los siguientes países deberán gestionar la convalidación de su título secundario ante el Ministerio de Educación de la Nación: Bolivia, Brasil, Colombia, Chile; Ecuador, España, Francia, Italia, México, Paraguay, Perú, Uruguay y Venezuela.
+
+Para ello deberán presentar el Certificado de Estudios Secundarios legalizado por las autoridades correspondientes del país de origen.
+
+PAÍSES SIN CONVENIO DE RECONOCIMIENTO DE ESTUDIOS
+
+Si el estudiante proviene de un país que no posee convenio con Argentina, deberá realizar la convalidación del título secundario de forma virtual y gratuita ante el Ministerio de Educación.
+
+🔗 Consultar procedimiento oficial: Ver aquí
+
+Datos de contacto del Ministerio de Educación
+
+📍 Montevideo 950, Ciudad Autónoma de Buenos Aires (CP 1026)
+
+📞 (011) 4129-1317 / 4129-1318
+
+📠 (011) 4129-1319
+
+📧 consultascyl@me.gov.ar
+
+🔗 https://portal.educacion.gov.ar/servicios/validez-nacional-de-titulos-y-estudios/
+
+ESTUDIANTES EXTRANJEROS CON ESTUDIOS UNIVERSITARIOS PREVIOS
+
+Los estudiantes que hayan aprobado materias en una universidad extranjera podrán solicitar un Trámite de Equivalencias.
+
+Requisitos:
+
+-
+Analítico universitario.
+
+-
+Programas de estudio de las materias aprobadas.
+
+-
+Documentación legalizada por:
+
+- Embajada o Consulado Argentino en el país de origen.
+
+- Ministerio de Educación de la Nación Argentina.
+
+-
+Solicitud de Equivalencias correspondiente.
+
+Ante cualquier duda, el alumno deberá comunicarse con el Ministerio de Educación de la Nación, a los fines de solicitar y verificar los requisitos necesarios para la legalización.
+
+Datos para el contacto:
+
+Montevideo 950, Ciudad de Buenos Aires. CP 1026.
+
+Teléfonos: (011) 4129-1317 / 4129-1318
+
+Fax: (011) 4129-1319
+
+consultascyl@me.gov.ar
+
+https://portal.educacion.gov.ar/servicios/validez-nacional-de-títulos-y-estudios/
+
+ASPIRANTES O ALUMNOS QUE RESIDEN EN EL EXTERIOR
+
+Los alumnos que se encuentren fuera de Argentina pueden:
+
+- Inscribirse.
+
+- Cursar.
+
+- Rendir exámenes.
+
+Excepción:
+
+Por restricciones vigentes, no podrán realizar estas gestiones los estudiantes que residan en los siguientes países considerados de riesgo:
+
+- Rusia
+
+- Irán
+
+- Rumania
+
+- China
+
+- Corea del Norte
+
+- Irak
+
+- Yemen
+
+Recordatorio : Si el aspirante es extranjero y desea cursar en Universidad Siglo 21, deberá completar previamente el trámite de Alumno Extranjero y presentar toda la documentación requerida para su legajo.
+
+ALUMNO +25 AÑOS
+
+Los aspirantes mayores de 25 años que no hayan finalizado sus estudios secundarios podrán solicitar el ingreso a la Universidad mediante el régimen de Admisión para Mayores de 25 Años, conforme a la normativa vigente.
+
+Importante: La recepción de la documentación no implica la aprobación automática del trámite. La admisión quedará sujeta a la evaluación y resolución institucional correspondiente.
+
+✅Requisitos
+
+El aspirante debe tener 25 años o más y cumplir al menos una de las siguientes condiciones:
+
+- Fotocopia de 1º y 2º hoja de DNI.
+
+- Fotocopia legalizada del analítico.
+
+- Carta a la Rectora de la Universidad solicitando el ingreso a partir de esta condición comentando los motivos por los cuales quiere empezar una carrera y por qué elige esa carrera específica.
+
+- Curriculum Vitae actualizado, con teléfono de contacto.
+
+- Fotocopia de certificados de cursos realizados, extras al secundario, si los tuvieran.
+
+✅ ¿Qué sucede cuando este alumno quiere hacer otra carrera en Siglo?
+
+Si las carreras son totalmente afines (ejemplo: Contador - Tec. gestión contable e impositiva) no es necesaria nueva resolución.
+
+En caso de que las carreras no tengan conexión directa, debe ponerse a consideración del tutor de la segunda carrera el caso del alumno, indicándole el avance en la primera carrera para que este decida si:
+
+- Lo admite sin mayores requisitos en su carrera (SOA emite resolución)
+
+- Desea analizar el caso particular del alumno, en tal caso se debe solicitar a éste último presentar nuevamente CV actualizado, a los fines de ser evaluados sus antecedentes por el tutor de la segunda carrera.
+
+✅ Alumnos del extranjero con secundaria incompleta
+
+Tiene que hacer la convalidación de estudios secundarios incompletos en la página del ministerio de educación argentina ya su vez presentar si o si el analítico legalizado con apostilla o lo que corresponde que otorgue el país como documento más la convalidación antes mencionada.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Equivalencias
+
+Tipificación: Ingreso Secundario incompleto-Mayor 25 años
+
+Nota interna - Completar ticket con los siguientes datos:
+
+- DNI del aspirante.
+
+- Legajo (si ya posee).
+
+- Carrera a la que desea inscribirse.
+
+- Motivo de la consulta o derivación.
+
+- Estado actual del trámite.
+
+- Fecha de presentación de la documentación.
+
+- Detalle de la situación a revisar (demora, pendiente en tutor, falta de resolución, cambio de carrera, etc.).
+
+- Adjuntar documentación respaldatoria disponible.
+
+Plazos:
+
+- Consultar al área cuando el trámite se encuentre Pendiente en Tutor por más de 30 días hábiles.
+
+- Consultar también cuando el trámite figure como Finalizado y no se informe si el aspirante fue admitido o no a la carrera.
+
+- Los plazos de resolución dependen de la evaluación académica y administrativa de cada caso en particular.
+
+🎯 Procedimiento para solicitar la ADMISIÓN
+
+Hola (Nombre del aspirante),
+
+Mi nombre es (asesor) aquí te envío los pasos que debes seguir para poder iniciar el trámite de Admisión.
+
+1- ENVIAR UNA CARTA A LA RECTORA DE LA UNIVERSIDAD DE LA SIGUIENTE MANERA:
+
+Estimada Rectora
+
+Gerente Laura Rosso
+
+Universidad Siglo 21
+
+Detalle:
+
+- Motivos por lo cuales no pudiste finalizar los estudios secundarios.
+
+- La elección de la carrera a la que deseas inscribirte indicando las razones que te motivan a dicha elección.
+
+Al pie de la carta detallar:
+
+- Número de DNI o CI.
+
+- Firma y aclaración
+
+2- A LA CARTA SE DEBERÁ ADJUNTAR:
+
+- Fotocopia de DNI o CI: 1º y 2º hoja .
+
+- Curriculum Vitae:  El mismo deberá contener:
+
+2.a Datos personales y de contacto.
+
+2.b Antecedentes académicos (todo tipo de estudios realizados, por ej. cursos). Por cada antecedente adjuntar certificados o diplomas recibidos.
+
+2.c Antecedentes laborales: consignando períodos de fechas, lugares y referencias acompañadas de certificados de trabajo.
+
+2.d DOCUMENTACION QUE DEMUESTRE EXPERIENCIA LABORAL EN LA CARRERA ELEGIDA (CERTIFICADO/S LABORAL/ES).
+
+3. Certificado Analítico de Estudios Secundarios Incompleto Legalizado. Tener el ciclo básico aprobado es requisito indispensable para acceder al beneficio . El mismo implica la aprobación de los primeros 3 años de Nivel Medio.
+
+IMPORTANTE: el envío de la solicitud NO implica aceptación del trámite. El mismo podrá ser aprobado o no.
+
+Estamos a tu disposición,
+
+¡Saludos!$pea0$, 'global', 'borrador', $pea0$https://kb-cau.21.edu.ar/servicios-cau/servicios/documentación-de-legajo$pea0$)
+on conflict (categoria_id, slug) do nothing;
+
+insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
+values ((select id from public.categorias where slug = $pea0$oferta-academica$pea0$), null, 22, $pea0$kb-22-sistema-de-creditos-academicos-free-flow$pea0$,
+        $pea0$Sistema de Créditos Académicos (Free Flow)$pea0$, $pea0$La Universidad Siglo 21 ofrece a los estudiantes diferentes experiencias complementarias a su formación académica que permiten acceder a:$pea0$, $pea0$> **A validar:** contenido relevado de https://kb-cau.21.edu.ar/servicios-cau/sistema-de-créditos-académicos-free-flow el 2026-11-19. Revisalo antes de publicar.
+
+La Universidad Siglo 21 ofrece a los estudiantes diferentes experiencias complementarias a su formación académica que permiten acceder a:
+
+- Reconocimiento de Crédito Académico.
+
+- Suplemento al Título Universitario.
+
+- Doble Titulación.
+
+- Viculación Grado y Posrado
+
+Estas experiencias buscan potenciar el desarrollo profesional, académico y personal de los estudiantes mediante actividades extracurriculares y trayectos formativos complementarios.
+
+👉 RECONOCIMIENTO DE CRÉDITO ACADÉMICO
+
+El estudiante de grado podrá obtener la equivalencia de materias específicas de su Plan de Estudio y/o reconocimiento dematerias electivas, participando de alguna/s de estas instancias extrcurriculares
+
+👉 SUPLEMENTO AL TÍTULO UNIVERSITARIO
+
+El estudiante de grado podrá participar de diferentes experiencias que complementarán su perfil profesional y obtener suacreditación junto a su Certificado Analítico Oficial al finalizar la carrera.
+
+👉 DOBLE TITULACIÓN
+
+Como egresado/a o estudiante de último año de alguna carrera de grado de nuestra Universidad el alumno podrátitularse en una segunda carrera afín de acuerdo a sus intereses personales y profesionales.
+
+👉VINCULACIÓN GRADO Y POSGRADO
+
+Como estudiante de alguna carrera de grado de nuestra Universidad tiene la posibilidad de de vivir la experiencia de unprograma de nuestra Escuela de Negocios y acreditarla como una materia electiva o programática en tu formación degrado.
+
+Diferentes áreas donde el alumno podrá realizar su experiencia:
+
+Ayudantía en Docencia:
+
+✅ Enseñanza
+
++ Información: https://www.lanube.21.edu.ar/ayudantias
+
+La Ayudantía en Docencia comprende actividades de apoyo a la función docente de la Universidad. Esta experiencia permite al estudiante conocer en profundidad la tarea docente y desarrollar competencias vinculadas a la expresión oral y escrita, la gestión del conocimiento, las relaciones interpersonales, el liderazgo y el trabajo en equipo.
+
+Reconocimiento de Crédito Académico
+
+Para acceder al reconocimiento, el estudiante deberá completar cuatro subperíodos o dos períodos académicos de ayudantía, consecutivos o no consecutivos, equivalentes a un año de participación. Los períodos pueden ser bimestrales o cuatrimestrales, según la modalidad de cursado de la asignatura. El reconocimiento otorgado corresponde a 1 materia electiva.
+
+Suplemento al Título Universitario
+
+La participación en esta actividad permite acceder al Suplemento al Título Universitario conforme a la normativa vigente.
+
+Ayudantía en Investigación:
+
+✅ Investigación
+
++ Información: https://www.lanube.21.edu.ar/investigacion
+
+La Ayudantía en Investigación incluye actividades de apoyo al desarrollo de la función de investigación de la Universidad. Esta experiencia permite al estudiante desarrollar competencias vinculadas a la investigación científico-tecnológica en distintos campos del conocimiento.
+
+Reconocimiento de Crédito Académico
+
+Para obtener el reconocimiento, el estudiante deberá participar en cuatro subperíodos o dos períodos académicos, consecutivos o no consecutivos, en proyectos de investigación aprobados por la Secretaría de Investigación. El reconocimiento otorgado corresponde a 1 materia electiva.
+
+Suplemento al Título Universitario
+
+La participación en esta actividad permite acceder al Suplemento al Título Universitario conforme a la normativa vigente.
+
+Ayudantía en Extensión:
+
+✅ Extensión
+
++ Información: https://www.lanube.21.edu.ar/sustentabilidad-social
+
+La Ayudantía en Extensión comprende actividades orientadas a la sensibilización, formación y promoción de valores y actitudes éticas y solidarias. Permite al estudiante desarrollar competencias vinculadas al compromiso social y a la construcción de una sociedad más justa, segura, sostenible y solidaria.
+
+Reconocimiento de Crédito Académico
+
+En el caso de los Proyectos de Intervención Comunitaria (PIC) y los Servicios de Extensión Comunitaria (SEC), el estudiante deberá acreditar su participación durante un año, en períodos consecutivos o no consecutivos. El reconocimiento otorgado corresponde a 1 materia electiva. Los Proyectos Académicos Transversales (PAT) no otorgan Reconocimiento de Crédito Académico.
+
+Suplemento al Título Universitario
+
+La participación en actividades de extensión permite acceder al Suplemento al Título Universitario conforme a la normativa vigente.
+
+Participación en Proyectos Académicos Transversales (PAT) Proyectos de intervención Comunitaria (PIC) oServicios de extensión comunitaria (SEC)
+
+-
+Los Proyectos Académicos Transversales (PAT) buscan dar respuestas a necesidades comunitarias a partir deuna materia específica. La duración de los mismos está directamente vinculada al período de dictado de la materia.Son intervenciones puntuales que dan respuesta a necesidades específicas identificadas.
+
+-
+Los Proyectos de Intervención Comunitaria (PIC) impl ican una intervención en la comunidad, con aporte endiferentes áreas del saber. Tienen una duración anual y te permitirán trabajar en problemáticas del mundo social yproductivo actual.
+
+-
+Los Servicios de Extensión Comunitaria (SEC) buscan contribuir al mejoramiento de la calidad de vida de lossectores vulnerados mediante intervenciones (disciplinares e interdisciplinares) que permitan abordar de maneraintegral la complejidad y multicausalidad de la realidad social a lo largo de todo el país. Estos servicios se brindan demanera permanente y te permitirán trabajar en problemáticas que han sido priorizadas por la Universidad en diálogopermanente con la comunidad.
+
+Estas propuestas promueven el intercambio entre el mundo académico y el productivo y social, facilitando la prácticaextensionista docentes y alumnos/as trabajarán sobre problemáticas del mundo actual, identificadas en los diferentessectores de la sociedad.
+
+Participación en el Programa Voluntarios 21
+
+Este programa comprende actividades de vinculación con el mundo social y sobre todo con comunidades vulnerables, atendiendo de manera coordinada y orgánica las problemáticas sociales, ambientales, de género, entre otras. Se llevaadelante a través de convocatorias que se realizan de manera conjunta con organizaciones sociales de la comunidad.
+
+✓ Reconocimiento de Crédito Académico
+
+Debés acreditar tu participación en proyectos de voluntariado en dos períodos semestrales consecutivos o noconsecutivos.Reconocimiento: 1 materia electiva
+
+✓ Suplemento al Título Universitario
+
+Ver resolución clic aquí
+
+ACTIVIDADES ACADÉMICAS CO-CURRICULARES
+
+1. Actividades Académicas Complementarias
+
+Involucra actividades directamente relacionadas con un área disciplinar determinada. Su objetivo es tu desarrollo y futurainserción profesional en ámbitos de tu interés.
+
+Pasantías Educativas Rentadas:
+
+Cumplimentar como mínimo de 4 meses, consecutivos o no consecutivos, en pasantías educativas rentadas.
+
+✓ Reconocimiento de Crédito Académico
+
+Debés acreditar cuatro 1 proceso de pasantía con 4 meses minimo, conforme el período para el cual se hayan definido elproyecto de pasantía.
+
+Reconocimiento: 1 materia electiva
+
+✓ Suplemento al Título Universitario - Ver resolución clic aquí
+
+Participación en Internships:
+
+Son pasantías de impacto internacional que son propuestas por el/la propio/aestudiante. La Universidad no realiza convocatorias para estas experiencias: es el/la alumno/a quien se postula a laInternship del mismo modo que lo haría a cualquier otro empleo y luego presenta la propuesta a la Universidad.
+
+A partirde esta postulación, la empresa u organización avanza con la firma del convenio correspondiente con la Universidad.Se trata de actividades formativas no obligatorias, directamente vinculadas con el área disciplinar de la carrera, que sereconocen como una experiencia de alto valor práctico y con impacto directo en la empleabilidad. Su objetivo esacompañar el desarrollo profesional y favorecer la inserción del/la estudiante en ámbitos afines a su formación.
+
+Reconocimiento de Crédito Académico:
+
+Cumplir un período mínimo de 4 meses de Internship, ya sea de manera consecutiva o no consecutiva, en actividadesvinculadas a esta experiencia.
+
+Participación en Feria 21:
+
+Feria 21 es un evento académico que conecta emprendedores/as, empresas líderes, instituciones públicas y ONGs de todoel país. También podés participar de rondas de negocio, simulación de entrevistas, charlas sobre tendencias en tecnologíae innovación, entre otras actividades.
+
+Incluye la presentación de emprendimientos de alumnos/as, egresados/as y de la comunidad, espacios de exposición paraorganizaciones reconocidas como marcas emprendedoras, entrevistas exclusivas para estudiantes y egresados/as de lainstitución con distintas organizaciones con el propósito de generar oportunidades de inserción profesional, actividadescolaborativas entre los Centros de Excelencia Académica y las distintas Direcciones de Carrera y actividades en paralelo dedistintas áreas de la Universidad vinculadas con la temática.
+
+X No otorga Reconocimiento de Crédito Académico
+
+✓ Suplemento al Título Universitario - Ver resolución clic aquí
+
+2.Actividades de Emprendedorismo e Innovación
+
+Involucra las actividades tendientes a desarrollar el espíritu y las competencias necesarias para que puedas emprender einnovar en áreas de tu interés o campo disciplinar.
+
+Programa Impulso 21
+
+Es un programa de 12 semanas que acompaña a estudiantes, graduados y docentes en el desarrollo de emprendimientospropios. A través de un proceso estructurado de formación y acompañamiento, se trabaja en la clarificación, modelado,validación y presentación de ideas de negocio.
+
+El programa ofrece tres opciones según la etapa del proyecto: Impulso 21 Initiatives (pre-incubación), Impulso 21 LaunchPad (incubación) y Impulso 21 Accelerate (aceleración).
+
+✓Reconocimiento de Crédito Académico
+
+Debés acreditar una participación en esta actividad. Podrás obtener este reconocimiento por única vez a lo largo de tucarrera.
+
+Reconocimiento: equivalencia académica de las materias Desarrollo Emprendedor o Emprendimientos Universitarios. Encaso de que ninguna de estas materias forme parte de tu Plan de Estudio, se reconocerán por equivalencia como unamateria electiva.
+
+Ver resolución clic aquí
+
+✓Suplemento al Título Universitario
+
+Para acceder al Suplemento, deberás obtener un puntaje de 6 (seis) o más puntos en cada uno delos entregables solicitados, según avances requeridos para el proyecto emprendedor. Además, deberás acreditar asistenciao participación en un 75% de las instancias de ejercitación, consulta o mentoría oportunamente indicados.
+
+Ver resolución clic aquí
+
+Por más información el alumno puede comunicarse a través de “Consultas de Alumnos”.
+
+Participación en Foro Internacional de Emprendedores
+
+El Foro Internacional de Emprendedores (FIE) es un programa educativo de alto impacto que la fundaciónJunior Achievement Córdoba organiza para el mundo en más de 15 países. Es una oportunidad única para que ciento dejóvenes, a través de la formación en valores, actitudes y herramientas, descubran su potencial para emprender, mejorar yser protagonistas en la transformación de su comunidad.
+
+En ese marco, el evento afianza el espíritu innovador y comprometido que promueve nuestra Universidad. Por ello,alentamos tu participación como estudiante ya que se trata de un proceso formativo que complementa tu currícula comofuturo/a profesional.
+
+X No otorga Reconocimiento de Crédito Académico.
+
+✓Suplemento al Título Universitario
+
+Para acceder al Suplemento, deberás acreditar una asistencia del 100% a las diferentes instancias del evento. Luego,deberás enviar tu certificado de participante emitido por el organizador a través de Consultas de Alumnos.
+
+Ver resolución clic aquí
+Gestión de hubspot: Derivar el ticket con la tipificación “Consultas Centro de Emprendimiento”
+
+3. Actividades de Internacionalización
+
+Comprende los proyectos y actividades vinculadas al desarrollo y perfeccionamiento de las competencias de gestión en laglobalidad. Esta dimensión incluye aquellas instancias, realizadas en el marco de la pertenencia a la Universidad, que tefaciliten el contacto con realidades más allá de tu ámbito local que no necesariamente presuponen o se limitan a una experiencia en un país extranjero.
+
+Misión Académica
+
+Las Misiones Académicas Internacionales tienen por objetivo fomentar la movilidad de alumnos/as egresados/as ydocentes. Las mismas pretenden propiciar espacios de capacitación y transformación a nivel personal y profesionalizante,fomentando el respeto por la diversidad y la interculturalidad.
+
+Promueven el trabajo en equipo a través de viajes cortos con agenda académica y vincular que te permitirán diferentesrealidades, debatir y reflexionar, con la misión clave de transferir y divulgar estas prácticas y conocimientos a lacomunidad académica, y en extensión a tu regreso.
+
+✓Reconocimiento de Crédito Académico
+
+Debés acreditar dos participaciones en esta actividad, pudiendo ser consecutivas o no consecutivas.
+
+Reconocimiento: 1 materia electiva
+
+✓ Suplemento al Título Universitario
+
+Ver resolución clic aquí
+
+Por consultas o información que no se encuentre en el libreto, derivar a través de HubSpot con la tipificación“Misiones Académicas”
+
+Intercambio Internacional
+
+El objetivo general del Programa de Movilidad Académica Internacional es facilitar y propiciar a que como alumno/atengas la oportunidad de vivir una inmersión académica, intercultural y de internacionalización en el exterior, a dondepodrás potenciar y lograr mayor competitividad a la carrera profesional elegida, a través del cursado de materias de lacarrera de grado (independientemente de la modalidad en la que se curse) en alguna de las universidades de educaciónsuperior del mundo con las cuales tenemos convenio, según las plazas disponibles.
+
+Se propone fomentar las siguientes habilidades y competencias:
+
+-
+Capacidad de resolver problemas y adaptación a los cambios.
+
+-
+Trabajo en equipo y colaborativo en entornos interculturales
+
+✓Reconocimiento de Crédito Académico
+Debes acreditar la participación de un intercambio internacional de al menos un semestre de duración de cursado formalen otra institución validada por el Centro de Internacionalización. No podrás obtener reconocimiento por aquellasasignaturas cursadas en programa de intercambio en el extranjero por las cuales ya obtengas equivalencia.
+
+Reconocimiento: 1 materia electiva. Si el intercambio se realiza en un país de habla inglesa o portuguesa, y por un lapsomínimo de 6 meses, se te otorgará adicionalmente el reconocimiento por equivalencia de los niveles de idioma inglés oportugués que contemple tu Plan de Estudio.
+
+Ver resolución ► click aqui
+
+✓ Suplemento al Título Universitario
+
+VINCULACIÓN GRADO Y POSGRADO
+
+Comprende espacios de formación complementaria así como trayectos de vinculación entre carreras de grado y programasde posgrado que te permitirán fortalecer tu perfil profesional y certificar en competencias altamente demandadas delmundo laboral.
+
+Programas de Aprendizaje para la Vida
+
+Comprende toda la oferta académica de formación para la vida y el trabajo que nuestra Universidad a través de susCertificados o Diplomaturas. Podés elegir el programa que mejor se ajuste a tu necesidad y complemente tu perfilprofesional.
+
+✓Reconocimiento de Crédito Académico
+
+Debés acreditar el cursado y aprobación de una Diplomatura de 8 meses de duración o dos Certificado de 4 meses deduración.
+
+Reconocimiento: equivalencia académica por 2 materias electivas.Serán susceptibles de otorgar reconocimientoúnicamente los programas de Aprendizaje para la Vida que sean definidos para cada carrera.
+
+Mirá las equivalencias vigentes
+
+X No otorga Suplemento al Título Universitario
+
+Equivalencias entre Grado y Posgrado
+
+Como estudiante de alguna carrera de grado de nuestra Universidad tenés la posibilidad de de vivir la experiencia de unprograma de nuestra Escuela de Negocios y acreditarla como una materia electiva o programática en tu formación degrado.
+
+Mirá las equivalencias vigentes
+
+VIDA 21
+
+Comprende las actividades universitarias que tengan como objetivo facilitar y promocionar la práctica de actividadesfísico-deportivas. Su objetivo es fomentar la participación en competición o bien el desarrollo de hábitos saludables,
+formación de la persona y/o adquisición y desarrollo de otras competencias.
+
+Participación en Escuadra Deportiva
+
+El alumno puede formar parte de las diferentes escuadras deportivas que ofrece nuestra Universidad en Hockey, Fútbol,Ajedrez, Running y Voley.
+
+✓Reconocimiento de Crédito Académico
+
+Debés acreditar tu participación por un período anual como capitán de equipo de una escuadra deportiva.
+
+Reconocimiento: equivalencia académica de la materia Grupo y Liderazgo. En caso de que dicha materia no forme partedel plan de estudios,se reconocerá por equivalencia una materia electiva.
+
+Ver resolución clic aquí
+
+✓Suplemento al Título Universitario
+
+Podés acceder al Suplemento si formas parte de alguno de los equipos deportivos federados de la Universidad y larepresenten en diferentes instancias deportivas competitivas. Para ello debés contar con la matrícula activa, cumplir losrequisitos de asistencia de 80% a los entrenamientos y a los compromisos deportivos asumidos por la institución.
+
+Ver resolución clic aquí
+
+Participación en Voces 21
+
+X No otorga Reconocimiento de Crédito Académico
+
+✓Suplemento al Título UniversitarioPodes acceder al Suplemento si formas parte del Coro de nuestra Universidad. Para ello deberás contar con la matrículaactiva, mostrar comportamiento adecuado y ejemplar. Además, debés acreditar asistencia del 80% a los ensayossemanales y compromisos asumidos en los que se haga presente el grupo coral.
+
+Ver resolución clic aquí
+
+DOBLE TITULACIÓN
+
+El egresado/a de nuestra Universidad o si el alumno esta cursando el último año de su carrera podrá obtener el título degrado en una segunda carrera a través de la doble titulación en áreas similares del conocimiento.
+
+Las posibles doble titulaciones son las siguientes
+
+Clic aqui link para compartir al alumno
+
+Matriz de doble titulación actual: https://guiones21.startuniversity.net/User/Libretos/View.aspx?Id=881
+
+Solicitud de Reconocimiento de Materias Electivas por Pasantía
+
+Solicitud de Reconocimiento de Materias Electivas por Pasantía
+
+Tipificación:
+
+Empleabilidad - Programas cocurriculares
+
+Información necesaria para la solicitud:
+
+-
+DNI:
+
+-
+Legajo:
+
+-
+Organización donde realizaste la pasantía:
+
+-
+CUIT de la organización: (N° caso de no contar con el CUIT, detallar la localidad de la empresa o cualquierinformación adicional para identificarla).
+
+Duración del proceso 20 a 30 días
+
+Una vez que inicie el proceso se informará por correo electrónico sobre la demora estimada. También le notificaremos alestudiante una vez que las equivalencias hayan sido aprobadas y el proceso haya finalizado.$pea0$, 'global', 'borrador', $pea0$https://kb-cau.21.edu.ar/servicios-cau/sistema-de-créditos-académicos-free-flow$pea0$)
+on conflict (categoria_id, slug) do nothing;
+
+insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
+values ((select id from public.categorias where slug = $pea0$tramites$pea0$), null, 23, $pea0$kb-23-cambio-de-genero$pea0$,
+        $pea0$Cambio de género$pea0$, $pea0$Guía operativa para la gestión de Cambio de Género. Incluye documentación requerida, consideraciones según exista o no cambio registral, impacto sobre la documentación académica, empadronamiento pa…$pea0$, $pea0$> **A validar:** contenido relevado de https://kb-cau.21.edu.ar/servicios-cau/servicios/cambios-de-género el 2026-11-19. Revisalo antes de publicar.
+
+Guía operativa para la gestión de Cambio de Género. Incluye documentación requerida, consideraciones según exista o no cambio registral, impacto sobre la documentación académica, empadronamiento para exámenes, procedimiento de derivación y plazos de resolución.
+
+🔗Modelo: descarga aquí
+
+Solicitar al estudiante:
+
+-
+Formulario de Cambio de Género completo y firmado.
+
+-
+DNI actualizado (si ya realizó el cambio registral).
+
+Consideraciones:
+
+-
+Si cuenta con cambio registral, deberá adjuntar el nuevo DNI para su digitalización.
+
+-
+Si aún no posee el DNI actualizado, la gestión puede realizarse igualmente.
+
+-
+Los títulos y documentos académicos se emitirán con los datos que figuren en el DNI vigente presentado al momento de la finalización de la carrera.
+
+-
+Si no posee cambio registral, solo se modificará la visualización en las plataformas; la documentación oficial continuará emitiéndose con los datos del DNI vigente.
+
+-
+Luego del cambio deberá empadronarse nuevamente para rendir exámenes.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Trámites
+
+Tipificación: Cambio de género
+
+Nota interna - completar ticket con los siguientes datos:
+
+- DNI
+
+- Legajo
+
+Plazos: 10 días hábiles.
+
+Regla operativa | Cambio de Género
+
+Si el asesor consulta por un trámite de Cambio de Género, el asistente virtual deberá compartir el modelo de formulario oficial:
+
+🔗 https://drive.google.com/file/d/1rlMO7oKpm_FiX9OWOHvQuSo_2dMRZR3b/view?usp=sharing
+
+Además, deberá indicar que el estudiante debe presentar el Formulario de Cambio de Género completo y firmado, y el DNI actualizado si ya realizó el cambio registral.
+
+No deberá responder la consulta sin compartir el formulario correspondiente.$pea0$, 'global', 'borrador', $pea0$https://kb-cau.21.edu.ar/servicios-cau/servicios/cambios-de-género$pea0$)
+on conflict (categoria_id, slug) do nothing;
+
+insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
+values ((select id from public.categorias where slug = $pea0$atencion-y-derivaciones$pea0$), null, 24, $pea0$kb-24-gestiones-efip$pea0$,
+        $pea0$Gestiones EFIP$pea0$, $pea0$Reúne las gestiones relacionadas con EFIP I y EFIP II que requieren derivación, indicando cuándo corresponde gestionarlas y cómo proceder.$pea0$, $pea0$> **A validar:** contenido relevado de https://kb-cau.21.edu.ar/servicios-cau/servicios/gestiones-efip el 2026-11-19. Revisalo antes de publicar.
+
+Reúne las gestiones relacionadas con EFIP I y EFIP II que requieren derivación, indicando cuándo corresponde gestionarlas y cómo proceder.
+
+ÍNDICE
+
+- Anulación de inscripción a EFIP I por excepción
+
+- Inscripción a EFIP I
+
+- Carga de nota de EFIP I
+
+- Anulación de inscripción a EFIP II por excepción
+
+- Inscripción a EFIP II
+
+- Carga de nota de EFIP II
+
+- Mesa especial de EFIP por residencia en otro país
+
+- EFIP Diferenciado – Abogacía
+
+- EFIP Diferenciado – Contador Público
+
+- EFIP ÁGIL
+
+- EFIP Descentralizado (Presencial en CAU)
+
+- Aspectos generales
+
+1. Anulación EFIP I por excepción
+
+Descripción
+
+Esta gestión contempla las solicitudes de anulación de la inscripción al Examen Final Integrador Presencial I (EFIP I) por situaciones excepcionales que requieren evaluación del área responsable.
+
+¿Cuándo corresponde?
+
+El estudiante podrá gestionar la anulación de EFIP I teniendo en cuenta que debe realizarse con una anticipación mínima de 7 días corridos desde la fecha de la mesa de examen solicitada.
+
+En mesas virtuales, al no poder el estudiante autogestionar su inscripción a EFIP I, podrá solicitar con una anticipación mínima de 7 días corridos a la fecha de examen la anulación de su solicitud de inscripción.
+Antes de solicitar una anulación se debe validar que el estudiante posea matrícula activa. Anulaciones por fuera de plazo no se realizarán.
+
+Validaciones previas
+
+Antes de realizar la derivación, verificar:
+
+- Que el estudiante se encuentre correctamente identificado.
+
+- Que la solicitud corresponda a una anulación de inscripción a EFIP I.
+
+- Que posea matrícula activa.
+
+- Que se hayan realizado las validaciones disponibles para el primer nivel de atención.
+
+- Que se cuente con la información necesaria para la derivación.
+
+- Que la solicitud se encuentre dentro del plazo establecido.
+
+Información para la derivación (HubSpot)
+
+Área responsable: SAI
+
+Tipificación HubSpot: Anulación EFIP I por excepción.
+
+Información que debe incluir la derivación
+
+- Nombre del estudiante.
+
+- DNI.
+
+- Carrera.
+
+- Fecha de examen.
+
+- Motivo de anulación.
+
+Tiempo de gestión: 3 días hábiles.
+
+2. Inscripción EFIP I
+
+Descripción
+
+Esta gestión contempla las solicitudes relacionadas con la inscripción al Examen Final Integrador Presencial I (EFIP I) que requieren intervención del área responsable.
+
+Durante la inscripción el estudiante podrá seleccionar la sede o el Centro de Aprendizaje Universitario (CAU) habilitado donde desea rendir, sujeto a disponibilidad de cupos.
+
+¿Cuándo corresponde?
+
+La inscripción a EFIP I debe ser gestionada por el estudiante desde:
+Portal de Estudiantes > Exámenes > + Nueva inscripción
+Cada estudiante deberá solicitar mesa de examen dentro de los días habilitados según el cronograma publicado en el Portal de Estudiantes, teniendo en cuenta los cupos disponibles al momento de gestionar la inscripción.
+
+🚨La derivación al área responsable corresponde únicamente cuando el estudiante no puede gestionar la inscripción desde Portal de Estudiantes o el asesor no lo puede realizar por medio del siguiente botón: “Inscribir a examen” (NMA 2012).
+
+Casos que requieren derivación:
+
+- Plan de estudio desactualizado.
+
+- Error durante la inscripción.
+
+- Imposibilidad de gestionar la inscripción desde Portal de Estudiantes.
+
+Validaciones previas
+
+Antes de realizar la derivación, verificar:
+
+- Tener matrícula activa.
+
+- Tener el módulo de cursado de EFIP I (cursando o regular) o Seminario de práctica / planificación (según carrera) en estado regular.
+
+- Tener aprobadas las materias correlativas correspondientes a EFIP según reglamento institucional.
+
+- Respetar los 6 días de anticipación a la mesa publicada.
+
+Información para la derivación (HubSpot)
+
+Área responsable: SAI
+
+Tipificación HubSpot: Inscripción EFIP I.
+
+Información que debe incluir la derivación
+
+- Carrera.
+
+- Fecha en la que desea rendir y sede/cau.
+
+- Datos del estudiante.
+
+- Motivo de la solicitud.
+
+Tiempo de gestión: 3 días hábiles.
+
+3. Carga de nota EFIP I
+
+Descripción
+
+Esta gestión contempla las solicitudes relacionadas con la carga, actualización o corrección de la calificación correspondiente al Examen Final Integrador Presencial I (EFIP I), cuando requieren intervención del área responsable.
+
+¿Cuándo corresponde?
+
+Corresponde cuando el alumno no encuentre impactado dentro del Portal de Estudiantes su nota de la instancia evaluativa de Efip o bien si la misma se encuentra cargada no es la correcta.
+
+Validaciones previas
+
+Antes de realizar la derivación, verificar:
+
+- Que el estudiante se encuentre correctamente identificado.
+
+- Que la consulta corresponda a una carga, actualización o corrección de nota de EFIP I.
+
+- Que se hayan realizado las validaciones disponibles para el primer nivel de atención.
+
+- Que se cuente con la información necesaria para la derivación.
+
+Información para la derivación (HubSpot)
+
+Área responsable: SAI
+
+Tipificación HubSpot: Carga de nota EFIP I.
+
+Información que debe incluir la derivación:
+
+- Carrera.
+
+- Fecha en la que rindió y sede/cau
+
+- Datos del estudiante.
+
+Tiempo de gestión: 3 días hábiles
+
+4. Anulación EFIP II por excepción
+
+Descripción
+
+Esta gestión contempla las solicitudes de anulación de la inscripción al Examen Final Integrador Presencial II (EFIP II) por situaciones excepcionales que requieren evaluación del área responsable.
+
+¿Cuándo corresponde?
+
+- El estudiante podrá gestionar la anulación de EFIP II teniendo en cuenta que debe realizarse con una anticipación mínima de 7 días corridos desde la fecha publicada de examen.
+
+- Se recomienda recordar al estudiante la importancia de anular su inscripción en caso de no poder asistir a la mesa solicitada, ya que esto permitirá liberar un cupo para otro estudiante que quiera rendir.
+
+- En mesas virtuales, al no poder el estudiante autogestionar su inscripción a EFIP II, podrá solicitar con una anticipación mínima de 7 días corridos a la fecha de examen la anulación de su solicitud de inscripción.
+
+- No procede la anulación fuera de dicho plazo.
+
+Validaciones previas
+
+Antes de realizar la derivación, verificar:
+
+- Que el estudiante se encuentre correctamente identificado.
+
+- Que la solicitud corresponda a una anulación de inscripción a EFIP II.
+
+- Que posea matrícula activa.
+
+- Que la solicitud se encuentre dentro del plazo establecido.
+
+- Que se hayan realizado las validaciones disponibles para el primer nivel de atención.
+
+- Que se cuente con la información necesaria para la derivación.
+
+Información para la derivación (HubSpot)
+
+Área responsable: SAI
+
+Tipificación HubSpot: Anulación EFIP II por excepción.
+
+Información que debe incluir la derivación:
+
+- Nombre del estudiante.
+
+- DNI.
+
+- Carrera.
+
+- Fecha de examen.
+
+- Motivo de anulación.
+
+Tiempo de gestión: 3 días hábiles.
+
+5. Inscripción EFIP II
+
+Descripción
+
+Esta gestión contempla las solicitudes relacionadas con la inscripción al Examen Final Integrador Presencial II (EFIP II) que requieren intervención del área responsable.
+
+Durante la inscripción el estudiante podrá seleccionar la sede o el Centro de Aprendizaje Universitario (CAU) habilitado donde desea rendir, sujeto a disponibilidad de cupos.
+
+¿Cuándo corresponde?
+
+La inscripción a EFIP II debe ser gestionada por el estudiante desde:
+
+Portal de Estudiantes > Exámenes > + Nueva inscripción
+
+El estudiante deberá solicitar mesa dentro de los días habilitados según el cronograma publicado en Portal de Estudiantes, considerando los cupos disponibles al momento de gestionar la inscripción.
+
+La derivación al área responsable corresponde únicamente cuando el estudiante no puede gestionar la inscripción desde Portal de Estudiantes y el asesor desde el botón: “Inscribir a examen” (NMA 2012).
+
+Casos que requieren derivación:
+
+- Plan de estudio desactualizado.
+
+- Error durante la inscripción.
+
+- Imposibilidad de gestionar la inscripción desde Portal de Estudiantes.
+
+El estudiante cuenta con ilimitadas posibilidades de inscripción a EFIP II.
+
+Validaciones previas
+
+Antes de realizar la derivación, verificar:
+
+- Tener matrícula activa.
+
+- Tener el Seminario Final en condición regular.
+
+- Contar con los créditos de electivas correspondientes a su carrera.
+
+- Respetar los 6 días de anticipación a la mesa publicada.
+
+- Que la consulta corresponda a una gestión de inscripción a EFIP II.
+
+Información para la derivación (HubSpot)
+
+Área responsable: SAI
+
+Tipificación HubSpot: Inscripción EFIP II.
+
+Información que debe incluir la derivación
+
+- Carrera.
+
+- Fecha en la que desea rendir.
+
+- Datos del estudiante.
+
+- Motivo de la solicitud.
+
+Tiempo de gestión: 3 días hábiles.
+
+6. Carga de nota EFIP II
+
+Descripción
+
+Esta gestión contempla las solicitudes relacionadas con la carga, actualización o corrección de la calificación correspondiente al Examen Final Integrador Presencial II (EFIP II), cuando requieren intervención del área responsable.
+
+¿Cuándo corresponde?
+
+Corresponde cuando el alumno no cuente con su nota de la instancia evaluativa de Efip II cargada en SGU o bien si la misma se encuentra cargada no es la correcta.
+
+Validaciones previas
+
+- Antes de realizar la derivación, verificar:
+
+- Que el estudiante se encuentre correctamente identificado.
+
+- Que la consulta corresponda a la carga, actualización o corrección de nota de EFIP II.
+
+- Que se hayan realizado las validaciones disponibles para el primer nivel de atención.
+
+- Que se cuente con la información necesaria para la derivación.
+
+Información para la derivación (HubSpot)
+
+Área responsable: SAI
+
+Tipificación HubSpot: Carga de nota EFIP II.
+
+Información que debe incluir la derivación:
+
+- Carrera.
+
+- Fecha en la que rindió y sede/cau
+
+- Datos del estudiante.
+
+Tiempo de gestión: 3 días hábiles
+
+Consideraciones importantes
+
+• Si la nota de EFIP II se encuentra cargada en Historial Académico del estudiante desde SGU, significa que la nota se encuentra correctamente registrada.
+
+• La nota puede no visualizarse en Portal de Estudiantes debido a que corresponde a un examen final y no a una materia.
+
+7-Mesa especial EFIP por residencia en otro país
+
+Descripción
+
+Esta gestión contempla solicitudes de estudiantes que residen en otro país y requieren una mesa especial de EFIP debido a su situación de residencia.
+
+¿Cuándo corresponde?
+
+Corresponde cuando el estudiante no reside en Argentina y solicita una instancia especial de examen.
+
+Requisitos que debe reunir el estudiante
+
+El estudiante deberá presentar documentación que acredite su residencia en otro país:
+
+- Certificado emitido por el consulado.
+
+- Certificado de residencia emanado por autoridad competente del país donde reside.
+
+- Carta oferta del empleador que avale residencia en otro país por motivos laborales, es recomendable que se adicione a la solicitud cualquiera de los dos certificados anteriores, ya que los mismos pueden ser requeridos para un mejor análisis de la solicitud.
+
+- Además, debe encontrarse académicamente en condiciones de rendir EFIP y contar con matrícula activa. (que me ayude debo a redactar tema vigencia)
+
+Validaciones previas
+
+Antes de realizar la derivación, verificar:
+
+- Identidad del estudiante.
+
+- Carrera.
+
+- Situación académica para rendir EFIP.
+
+- Documentación respaldatoria de residencia.
+
+- Matrícula activa.
+
+Información para la derivación (HubSpot)
+
+Área responsable: SAI
+
+Tipificación HubSpot: INSCRIPCIÓN EFIP I O II (según corresponda)
+
+Información que debe incluir la derivación
+
+- Nombre del estudiante.
+
+- DNI.
+
+- Carrera.
+
+- Documentación respaldatoria.
+
+- EFIP correspondiente (I o II).
+
+- Motivo de solicitud.
+
+Gestión de la mesa especial
+
+El área responsable coordinará la mesa especial de la siguiente manera:
+
+Se ofrecerá al estudiante una fecha y horario según disponibilidad de la Universidad.
+
+Las franjas horarias disponibles serán:
+
+- 9 a 13 hs.
+
+- 13 a 17 hs.
+
+- 17 a 21 hs.
+
+Si el estudiante acepta la mesa:
+
+- Se enviará un correo con la información de la sala Zoom y clave de ingreso.
+
+- La inscripción podrá visualizarse con una anticipación de 72 horas hábiles respecto de la fecha del examen.
+
+- Si la mesa fue confirmada, transmitir tranquilidad al estudiante indicando que podrá rendir correctamente.
+
+- La inscripción figurará con sede Campus, pero el examen se desarrollará de manera virtual.
+
+Consideraciones importantes: no se realizarán otorgamientos de mesas virtuales por motivos personales, laborales, económicos.
+
+8-EFIP DIFERENCIADO ABOGACÍA
+
+Esta propuesta tiene como objetivo reconocer a los estudiantes con desempeño académico destacado en las materias que conforman EFIP I:
+
+• Derecho Constitucional
+
+• Bases del Derecho Privado
+
+• Contratos
+
+• Teoría General del Proceso
+
+• Derecho Penal: Parte General
+
+📌 ¿En qué consiste?
+
+Los estudiantes que hayan obtenido 7 o más como calificación final en todas las materias mencionadas no deberán realizar la instancia escrita tradicional del EFIP.
+
+👉 En su lugar, el examen se desarrollará en tres etapas:
+
+1. Análisis individual del caso
+
+2. Trabajo grupal y debate con compañeros
+
+3. Examen oral ante tribunal
+
+🎓 Objetivo del EFIP Diferenciado
+
+- Reconocer el rendimiento académico del estudiante
+
+- Fortalecer el aprendizaje colectivo
+
+- Brindar una experiencia de cierre más significativa
+
+Para tener en cuenta:
+
+- Si cumple con los requisitos, informarle que, al momento de rendir, rendirá en la modalidad DIFERENCIADO.
+
+- Si no cumple, deberá rendir el EFIP bajo la modalidad tradicional (con instancia escrita).
+
+- Esta modalidad también aplica para las materias aprobadas como equivalencias, tanto internas como externas.
+
+9-EFIP DIFERENCIADO CONTADOR PÚBLICO
+
+El EFIP I Diferencial para Contador Publico, tiene como objetivo reconocer a los estudiantes con desempeño académico destacado en las materias que conforman EFIP I:
+
+• Contabilidad Superior
+
+• Análisis Cuantitativo Financiero
+
+• Derecho Empresario
+
+📌 ¿En qué consiste?
+
+Durante el EFIP I Diferencial para Contador Publico los estudiantes que hayan obtenido 7 o más como calificación final en todas las materias mencionadas no deberán realizar la instancia escrita tradicional del EFIP.
+
+👉 En su lugar, el examen se desarrollará en tres etapas:
+
+- Análisis individual del caso
+
+- Trabajo grupal y debate con compañeros
+
+- Examen oral ante tribunal (IMPORTANTE: la oralidad no implica que la evaluación sea exclusivamente teórica, ya que la dinámica de la oralidad contempla y requiere el desarrollo y la defensa de preguntas y planteos de carácter teórico-práctico, por lo cual se puede solicitar el desarrollo oral de un planteo práctico).
+
+🎓 Objetivo del EFIP I Diferencial para Contador Publico
+
+- Reconocer el rendimiento académico del estudiante
+
+- Fortalecer el aprendizaje colectivo
+
+- Brindar una experiencia de cierre más significativa
+
+Para tener en cuenta:
+
+- Si el estudiante consulta por el EFIP I Diferencial para Contador Publico, verificar en SGU o en su portal si cumple con el requisito: haber obtenido 7 o más como nota final en todas las materias del EFIP (el equipo de Sita se encuentra trabajando para que, en el futuro, quienes accedan a este beneficio puedan verlo identificado con una marca o indicador)
+
+- Si cumple con los requisitos, informarle que, al momento de rendir, rendirá en la modalidad DIFERENCIADO.
+
+IMPORTANTE PARA AMBAS CARRERAS (Abogacía y Contador Publico)
+
+- La inscripción al EFIP Diferenciado para Abogacía y Contador Publico debe realizarse desde el Portal del Estudiante de la misma manera en que se gestiona la inscripción al EFIP tradicional. No existe una distinción específica en el sistema al momento de efectuar la inscripción.
+
+- ¿Cómo verificar si un estudiante rendirá EFIP Diferenciado para Abogacía y Contador Publico? verificar en SGU o en el Portal Estudiantes si cumple con el requisito: haber obtenido 7 o más como nota final en todas las materias que integran el EFIP.
+
+- Si no cumple los requisitos mencionados, deberá rendir el EFIP bajo la modalidad tradicional (con instancia escrita).
+
+- Esta modalidad también aplica para las materias aprobadas como equivalencias, tanto internas como externas.
+
+10- EFIP Ágil
+
+Convocatorias y condiciones de participación
+
+Descripción breve: Información sobre EFIP I Ágil para Abogacía y Contador Público: modalidad, requisitos, cronograma, inscripción, selección de CAU, asistencia obligatoria, oportunidades de examen y criterios de atención.
+
+¿En qué consiste la instancia?
+
+EFIP I Ágil es una alternativa para rendir EFIP I, dirigida a estudiantes de las carreras de Abogacía y Contador Público.
+
+Se desarrolla durante una semana, mediante tres encuentros obligatorios en los que se trabaja sobre un mismo caso, con el acompañamiento del mismo equipo docente.
+
+Instancia |  Modalidad |  Dinámica |
+
+Presentación del caso |  Virtual |  Presentación y contextualización del caso, recuperación de marcos conceptuales y explicación de los criterios de evaluación. |
+
+Construcción de la propuesta |  Virtual |  Presentación de la propuesta, revisión de fundamentos e incorporación de ajustes mediante el intercambio con el docente. |
+
+Evaluación oral |  Presencial |  Presentación de la resolución final y fundamentación de las decisiones adoptadas, utilizando la rúbrica presentada en el primer encuentro. |
+
+Los tres encuentros son obligatorios. Un asesor de CASA habilitará las salas virtuales 30 minutos antes del inicio previsto para resolver consultas.
+
+Convocatoria y requisitos
+
+La convocatoria general está dirigida a estudiantes que cumplan las siguientes condiciones:
+
+- Tener una inscripción solicitada para rendir EFIP I tradicional en el mes correspondiente a la convocatoria.
+
+- Contar con la matrícula activa. No es requisito tener abonado el arancel.
+
+- Recibir la invitación institucional y completar el formulario de postulación.
+
+La postulación no garantiza la participación. La Universidad asignará los cupos disponibles y comunicará por correo electrónico la selección.
+
+EFIP I Ágil no cuenta con inscripción abierta y no se admitirán pedidos excepcionales de incorporación a las convocatorias.
+
+Los enlaces y horarios de los encuentros serán informados a los estudiantes seleccionados mediante el correo de confirmación.
+
+Cronograma | Próximas convocatorias
+
+Instancia |  Noviembre |  Noviembre/Diciembre |
+
+Convocatoria e inscripción |  A confirmar |  27/10 |
+
+Confirmación de seleccionados |  A confirmar |
+27/10
+|
+
+Presentación del caso (virtual obligatorio) |  02/11 |  30/11 |
+
+Construcción de la propuesta (virtual obligatorio) |  04/11 |  02/12 |
+
+Evaluación oral (presencial obligatorio) |  06/11 |  04/12 |
+
+Listado de alumnos confirmados para rendir el 06/11 y 04/12
+
+VER LISTADO
+
+Formulario de inscripción y selección de CAU
+
+Para las próximas convocatorias se establecen las siguientes condiciones:
+
+- Formulario único: cada estudiante podrá completar el formulario de postulación una sola vez.
+
+- Datos y selección: antes de enviarlo, deberá verificar sus datos personales, la fecha de examen seleccionada y el CAU evaluador, ya que no se permitirán modificaciones posteriores.
+
+- CAU evaluador: el nuevo formulario permitirá seleccionar el CAU en el que desea rendir la evaluación oral presencial, entre los CAUs habilitados para EFIP tradicional.
+
+- Primera convocatoria de noviembre (06/11): dado que el formulario utilizado no contemplaba la selección de CAU, la Universidad realizará una nueva comunicación a los estudiantes con las definiciones correspondientes.
+
+No se admitirán modificaciones de fecha o CAU una vez enviado el formulario.
+
+Anulación de mesa e inscripción
+
+🎯La Universidad gestionará la anulación de la mesa tradicional y la inscripción a EFIP I Ágil de los estudiantes seleccionados, según el circuito establecido.
+
+Importante: La actualización de la inscripción se realizará internamente durante la semana de su nueva fecha de examen de EFIP Ágil.
+
+No se deben generar derivaciones cuando el estudiante informe que aún visualiza la fecha del examen tradicional, ya que la actualización no es inmediata.
+
+Siempre que el estudiante tenga confirmada su participación en EFIP Ágil, se gestionará internamente su inscripción a la nueva mesa de examen.
+
+Para las solicitudes de anulación de mesa de EFIP ÁGIL deberán solicitarse 7 días de la fecha del primer encuentro virtual ( la instancia comienza a correr desde esta fecha)
+
+- Convocatoria 06/11: excepcionalmente, se recibirán solicitudes de anulación hasta el 01/11, a través de la bandeja de SAI (derivando por Hubspot)
+
+- Convocatoria de diciembre: las solicitudes podrán realizarse hasta el 23/11.
+
+Validación de estudiantes seleccionados
+
+Los docentes contarán con una nómina de estudiantes habilitados para participar.
+
+Si un estudiante ingresa a un encuentro virtual, pero no figura en esa nómina, el docente le informará que no podrá avanzar con la evaluación y le indicará que se comunique con su CAU de referencia para revisar su situación.
+
+Asistencia y oportunidades de examen
+
+- La instancia consume una de las tres oportunidades disponibles para rendir EFIP I y no constituye una oportunidad adicional.
+
+- La oportunidad comienza a contabilizarse cuando la Universidad realiza la inscripción del estudiante, luego de comunicarle su selección.
+
+- La asistencia a los dos encuentros virtuales y a la evaluación oral presencial es obligatoria.
+
+- Si el estudiante no asiste a cualquiera de las tres instancias, no podrá continuar con el examen, quedará Ausente y habrá utilizado una de sus oportunidades de examen.
+
+Comunicación y seguimiento
+
+La Universidad implementará el siguiente circuito para informar y acompañar a los estudiantes seleccionados:
+
+- Correo electrónico: confirmación de selección con cronograma, enlaces e indicaciones del examen.
+
+- WhatsApp: refuerzo a quienes no hayan leído el correo, solicitando que revisen la información enviada.
+
+- Contacto telefónico de CASA: comunicación con los estudiantes cuyos correos hayan rebotado, para informarles su selección y brindar las indicaciones correspondientes.
+
+Criterios de atención
+
+Ante consultas relacionadas con EFIP I Ágil, tener en cuenta:
+
+- Inscripción: únicamente podrán participar estudiantes convocados y seleccionados por la Universidad. No se admitirán solicitudes excepcionales de incorporación.
+
+- Formulario: podrá completarse una sola vez, sin posibilidad de modificar posteriormente los datos, la fecha o el CAU seleccionados.
+
+- CAU evaluador: para las nuevas convocatorias, el estudiante podrá seleccionar el CAU entre las opciones habilitadas en el formulario. Para la convocatoria del 06/11 se enviará una comunicación específica.
+
+- Anulación de mesa: respetar los plazos establecidos para cada convocatoria. No gestionar solicitudes fuera de término.
+
+- Confirmación de participación: completar el formulario no implica que el estudiante haya sido seleccionado. Deberá aguardar la confirmación institucional.
+
+- Asistencia: recordar que los tres encuentros son obligatorios y que la ausencia a cualquiera de ellos implica perder la oportunidad de examen utilizada.
+
+- Gestión de inscripción: el estudiante no debe realizar por su cuenta una nueva inscripción a EFIP I Ágil, ya que la Universidad gestionará las inscripciones de los seleccionados.
+
+Encuentros de consulta
+
+Los estudiantes podrán participar de encuentros virtuales para resolver dudas sobre EFIP I Ágil.
+
+Información |  Detalle |
+
+Días |  Martes y jueves |
+
+Horario |  15:00 h |
+
+Vigencia |  01/10 al 19/11/2026 |
+
+Modalidad |  Virtual – Teams |
+
+Acceso |  EFIP – La Nube |
+
+Estos espacios son de consulta y no reemplazan las instancias obligatorias de evaluación.
+
+Convocatoria excepcional | Diciembre 2026
+
+Se contempla una convocatoria excepcional para aproximadamente 600 estudiantes pendientes de reinscripción (RI) que tienen pendiente el cursado del módulo EFIP.
+
+Para participar deberán:
+
+- Abonar la matrícula y el arancel correspondientes al período 2B.
+
+- Inscribirse al módulo de cursado de EFIP.
+
+Speeches para la atención
+
+Estudiante no convocado
+
+En esta instancia, EFIP I Ágil está dirigida a una población específica de estudiantes previamente inscriptos para rendir EFIP tradicional.
+
+La participación se realiza mediante invitación institucional y no se encuentra habilitada la inscripción abierta. Si no recibiste la convocatoria, podrás continuar con tu inscripción y rendir EFIP I mediante la modalidad tradicional.
+
+Estudiante convocado, pero no seleccionado
+
+La participación en EFIP I Ágil está sujeta a disponibilidad de cupos. Completar el formulario e indicar una fecha de preferencia no garantiza la selección. Si no quedaste seleccionado, podrás continuar con tu inscripción para rendir EFIP I tradicional.
+
+Estudiante que no figura en la nómina de seleccionados
+
+Para participar de EFIP I Ágil es necesario encontrarse habilitado por la Universidad.
+
+Si no figurás en la nómina de estudiantes seleccionados, no podrás continuar con la evaluación, aunque hayas ingresado al encuentro virtual. Te sugerimos comunicarte con tu CAU de referencia para revisar tu situación.
+
+Estudiante que no recibió o no leyó el correo de confirmación
+
+La Universidad envía a los estudiantes seleccionados un correo electrónico con las fechas, accesos e indicaciones para participar. Te recomendamos revisar tu bandeja de entrada y la carpeta de correo no deseado. Si no encontrás la comunicación, contactá a tu CAU de referencia para revisar tu situación.
+
+Estudiante que no puede asistir a un encuentro
+
+Los tres encuentros de EFIP I Ágil son obligatorios y forman parte de la evaluación. Si ya fuiste inscripto y no asistís a alguna de estas instancias, quedarás Ausente y habrás utilizado una de tus tres oportunidades disponibles para rendir EFIP I.
+
+EFIP II Ágil
+
+Alcance del piloto
+
+- Carreras: Abogacía y Contador Público.
+
+- Participantes: 140 estudiantes en total, 70 por carrera.
+
+- Población convocada: estudiantes que hayan ingresado en el 2020-2021 y aún no hayan aprobado el examen al día de la fecha (03/11)
+
+Se desarrolla en tres encuentros a lo largo de una semana, trabajando durante todo el proceso sobre el mismo caso y con el mismo equipo docente.
+
+Listado de alumnos seleccionados:
+
+https://docs.google.com/spreadsheets/d/1ti2XDBQmh63bh_JHbMFex-_ZYGlz5_ax/edit?usp=sharing&ouid=104202626536604623421&rtpof=true&sd=true
+
+Instancia
+|
+Modalidad
+|
+Dinámica
+|
+
+Presentación del caso
+|
+Virtual – Obligatorio
+|
+Se presenta y contextualiza el caso, se recuperan los marcos conceptuales y se explican los criterios de evaluación.
+|
+
+Construcción de la propuesta
+|
+Virtual – Obligatorio
+|
+El alumno presenta su propuesta y, mediante el intercambio con el docente, revisa fundamentos y realiza los ajustes necesarios.
+|
+
+Evaluación oral
+|
+Presencial – Obligatorio
+|
+El alumno presenta la resolución final y fundamenta las decisiones adoptadas. Se utiliza la misma rúbrica presentada en el primer encuentro.
+|
+
+Fechas:
+
+Instancia |  Fecha |
+
+Convocatoria |  04/11 |
+
+Confirmación de seleccionados |  11/11 |
+
+Presentación del caso – Virtual |  16/11 |
+
+Construcción de la propuesta – Virtual |  18/11 |
+
+Evaluación oral – Presencial |  20/11 |
+
+Formulario de inscripción y selección de CAU
+
+- Formulario único: cada estudiante podrá completar el formulario de postulación una sola vez.
+
+- Datos y selección: antes de enviarlo, deberá verificar sus datos personales, la fecha de examen seleccionada y el CAU evaluador, ya que no se permitirán modificaciones posteriores.
+
+- CAU evaluador: el formulario permitirá seleccionar el CAU en el que desea rendir la evaluación oral presencial, entre los CAUs habilitados para EFIP tradicional.
+
+Speech de contención para alumnos que no fueron seleccionados:
+
+La convocatoria a EFIP I Ágil está dirigida a los estudiantes que recibieron la invitación y cuenta con cupos limitados. Completar el formulario e indicar tu CAU de preferencia registra tu interés en participar, pero no garantiza la selección ni reserva un lugar.
+
+La participación quedará confirmada mediante una comunicación de la Universidad. Si no resultás seleccionado, podrás continuar con el proceso de inscripción para rendir EFIP I en su modalidad tradicional.
+
+¡Seguí preparándote para dar este paso en tu carrera! Todo lo que avances en tu estudio te servirá para rendir en cualquiera de las dos modalidades. Mantenete atento a las comunicaciones de la Universidad sobre próximas fechas y convocatorias de EFIP I Ágil.
+
+11- EFIP Descentralizado (Presencial en CAU)
+
+📣 Planificación de mesas 2026 |
+
+⚠️ El EFIP se rinde de manera presencial en las sedes o CAU habilitados por la Universidad. La evaluación se desarrolla mediante una sesión sincrónica con el tribunal evaluador a través de tecnología.
+
+Además, los estudiantes pueden participar en Talleres Virtuales del Gabinete de Bienestar, orientados a la planificación del examen, aspectos técnicos y manejo de la ansiedad.
+
+Población objetivo:
+
+Estudiantes de las carreras de grado dictadas en modalidad distancia, de todo el país que deberán rendir los Exámenes Finales Integrales Presenciales (EFIP) I y II​.
+
+Ubicaciones habilitadas para rendir:
+
+- Campus Sede.
+
+- Sede Nueva Córdoba.
+
+- Centro Universitario Siglo 21 Buenos Aires ​(Vicente López).
+
+- Diversos Centros de Aprendizaje Universitario (CAUs) seleccionados estratégicamente.
+
+12-Aspectos generales
+
+Descripción
+
+El Examen Final Integrador Presencial (EFIP) constituye la instancia de evaluación integradora que permite verificar el desarrollo de las competencias definidas en el perfil de egreso de la carrera.
+
+Los estudiantes de las modalidades a distancia deberán rendir el EFIP de manera presencial en las sedes o Centros de Aprendizaje Universitario (CAU) habilitados por la Universidad para cada convocatoria, utilizando tecnología que permita la interacción sincrónica con el tribunal evaluador.
+
+Modalidad del examen
+
+- El estudiante podrá seleccionar, al momento de su inscripción, la sede o CAU habilitado más conveniente según la disponibilidad de cupos para cada convocatoria.
+
+- La evaluación se desarrolla de manera presencial desde la sede o CAU seleccionado, mediante una sesión sincrónica con el tribunal responsable de la evaluación.
+
+- No es requisito que el estudiante cuente con computadora propia para rendir el examen, ya que el equipamiento tecnológico será provisto en el lugar asignado.
+
+Locaciones habilitadas
+
+El EFIP podrá rendirse en las sedes y CAUs habilitados por la Universidad para cada convocatoria.
+
+Las sedes y CAU disponibles serán informados oportunamente y podrán variar según la planificación académica vigente.
+
+Detalle operativo del examen
+
+Para la organización de las mesas de EFIP se tendrán en cuenta las siguientes características operativas:
+
+- Cada CAU habilitado podrá recibir hasta 20 estudiantes por mesa, conforme a la planificación académica.
+
+- Las mesas podrán organizarse en las siguientes franjas horarias:
+
+- 9:00 a 13:00 hs.
+
+- 13:00 a 17:00 hs.
+
+- 17:00 a 21:00 hs.
+
+- El estudiante deberá inscribirse desde el Portal de Estudiantes, donde podrá seleccionar la sede o CAU disponible para rendir.
+
+- Una vez confirmada la inscripción, recibirá la información correspondiente por los canales oficiales de la Universidad.
+
+- El examen contempla una instancia escrita y una instancia oral, desarrolladas mediante conexión sincrónica con el tribunal evaluador.
+
+- La duración estimada del circuito completo de evaluación es de aproximadamente 4 horas.
+
+- Finalizada la instancia escrita, el tribunal podrá disponer de hasta 45 minutos para la corrección antes de iniciar la evaluación oral.
+
+Etapas de la evaluación
+
+El desarrollo del EFIP comprende las siguientes instancias:
+
+- Presentación del tribunal y del caso a resolver.
+
+- Lectura individual del caso.
+
+- Trabajo colaborativo entre estudiantes.
+
+- Producción individual.
+
+- Corrección de la producción escrita por parte del tribunal.
+
+- Evaluación oral.
+
+- Comunicación de la calificación final.
+
+- Firma del acta de conformidad.
+
+Recursos de apoyo para el estudiante
+
+La Universidad pone a disposición de los estudiantes Talleres Virtuales organizados por el Gabinete de Bienestar, destinados a brindar herramientas para la planificación del examen, recomendaciones técnicas y estrategias para el manejo de la ansiedad.
+
+Locaciones habilitadas
+
+El examen podrá rendirse en las sedes y CAUs habilitados para cada convocatoria. A continuación, se detallan las provincias y localidades disponibles para la planificación vigente.
+
+Estudiantes privados de la libertad
+
+Las solicitudes de mesa de EFIP para estudiantes privados de la libertad deberán ser gestionadas exclusivamente por el Servicio Penitenciario, mediante comunicación directa con el área de Legales de la Universidad.
+
+Canal de gestión:
+
+- denunciasues21@gmail.com
+
+Modalidad de evaluación: el desarrollo del examen se realizará bajo la misma modalidad prevista para los estudiantes que residen en el exterior, conforme a la planificación y coordinación que establezca la Universidad.
+
+Importante: Ante consultas particulares o situaciones no contempladas en este procedimiento, validar el caso con Lucas Appendino antes de brindar una respuesta al estudiante.$pea0$, 'global', 'borrador', $pea0$https://kb-cau.21.edu.ar/servicios-cau/servicios/gestiones-efip$pea0$)
+on conflict (categoria_id, slug) do nothing;
+
+insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
+values ((select id from public.categorias where slug = $pea0$oferta-academica$pea0$), null, 25, $pea0$kb-25-trabajo-final-de-grado$pea0$,
+        $pea0$Trabajo Final de Grado$pea0$, $pea0$Brindar información actualizada sobre el proceso de Seminario Final, desde su cursado y regularización hasta la evaluación del TFG mediante CAE y la instancia final de Defensa Oral, facilitando el…$pea0$, $pea0$> **A validar:** contenido relevado de https://kb-cau.21.edu.ar/servicios-cau/servicios/trabajo-final-de-grado el 2026-11-19. Revisalo antes de publicar.
+
+Brindar información actualizada sobre el proceso de Seminario Final, desde su cursado y regularización hasta la evaluación del TFG mediante CAE y la instancia final de Defensa Oral, facilitando el correcto asesoramiento y la gestión de consultas y derivaciones.
+
+ÍNDICE
+
+- Cursado del Seminario Final
+
+- CAE – Comisión Académica Evaluadora
+
+- Defensa Oral
+
+1-CURSADO DEL SEMINARIO FINAL
+
+👉 Módulo 0
+
+Es un espacio de preparación diseñado para que el estudiante inicie el tramo final de su carrera con una planificación clara y los conocimientos necesarios para desarrollar su TFG.
+
+Contenido
+
+- Incluye 4 módulos de lectura obligatoria que acompañan las distintas etapas del desarrollo del proyecto final.
+
+- Se recomienda realizar las lecturas en orden, ya que cada una complementa y profundiza los contenidos de la anterior.
+
+¿Qué aporta al estudiante?
+
+- Herramientas para organizar tiempos y planificar el trabajo.
+
+- Orientación metodológica para el desarrollo del TFG.
+
+- Integración y reflexión sobre los aprendizajes adquiridos durante la carrera.
+
+- Apoyo para convertir una idea en una propuesta profesional sólida.
+
+Acceso
+
+- El Módulo 0 se encuentra dentro de la materia Seminario Final, en la Página de Inicio.
+
+- Para ingresar, el estudiante debe acceder a Opciones de TFG y luego a Seminario Final.
+
+👉 Condiciones de cursado
+
+Duración
+
+- El cursado de Seminario Final tiene una duración de un cuatrimestre, independientemente de la modalidad.
+
+Temática y producto
+
+- El estudiante debe elegir un Producto y una Línea Temática para desarrollar su TFG.
+
+- Las opciones disponibles se encuentran en Canvas > Seminario Final > Módulo 0.
+
+- Una vez seleccionada, la temática no puede modificarse.
+
+Entregas
+
+- La materia consta de 4 módulos evaluativos, cada uno con una entrega parcial obligatoria.
+
+- Todas las entregas se realizan a través de Canvas.
+
+- Las fechas de entrega pueden consultarse en el cronograma de la materia ver aquí.
+
+- El Profesor Director dispone de hasta 10 días corridos para corregir y publicar la calificación.
+
+Regularidad
+
+Para regularizar la materia, el estudiante debe:
+
+- Aprobar al menos 2 de las primeras 3 entregas con una nota mínima del 50%.
+
+- Aprobar obligatoriamente la Entrega 4 con una nota mínima del 50%.
+
+- En modalidades Presencial (P/PH), cumplir con el 75% de asistencia.
+
+Calificación y devolución
+
+- Las devoluciones se publican en Canvas junto con la calificación.
+
+- Incluyen observaciones del docente y una grilla de evaluación con el detalle del desempeño alcanzado.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Trabajo Final de Grado - TFG
+
+Tipificación: Corrección Seminario final
+
+Nota interna - completar ticket con los siguientes datos:
+
+- DNI
+
+- Legajo
+
+-  Print de pantalla de Canvas o de su Portal de alumno donde se visualice inconveniente con la carga de nota de los tp.
+
+¿En qué casos derivamos?
+
+Derivaremos aquellas consultas relacionadas con el cursado de Seminario Final antes de que quede regular, es decir, mientras la materia se encuentra en estado CURSANDO.
+
+Carga de Nota de TFG
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Secretaría de Gestion Académica - SGEA
+
+Tipificación: Carga de nota defensa oral
+
+Nota interna - completar ticket con los siguientes datos:
+
+- DNI del alumno
+
+- Legajo
+
+- Carrera
+
+- Modalidad
+
+- Fecha de defensa oral
+
+Plazos:
+
+La nota del TFG puede demorar hasta 5 días hábiles en cargarse. Si pasado ese plazo aún no figura, corresponde derivar un ticket.
+
+Seminario Final de Extensión de Regularidad
+
+✅ Extensión de Regularidad de Seminario Final
+
+La solicitud de extensión solo podrá gestionarse cuando cuente con:
+
+- Aprobación previa del Director de Carrera o referente académico.
+
+- Confirmación del plazo de extensión autorizado.
+
+Casos en los que puede otorgarse una extensión:
+
+- Estudiantes que hayan solicitado Defensa Oral y cuya regularidad venza antes de la fecha asignada para rendir.
+
+- Estudiantes que se encuentren en proceso de evaluación de CAE, siempre que exista evidencia de que la instancia evaluativa continúa en curso.
+
+❌ No corresponde gestionar una extensión cuando:
+
+- El estudiante solicita una extensión para poder rendir o aprobar el EFIP II.
+
+- No existe aprobación previa del Director de Carrera o referente académico.
+
+- No se encuentra definido el plazo de extensión autorizado.
+
+- El estudiante no alcanzó la condición de Habilitado a Defensa Oral antes del vencimiento de la regularidad.
+
+- El pedido tiene como finalidad extender el acceso o uso de Canvas una vez vencido el período de cursado.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Operativo SOA
+
+Tipificación: Extensión de regularidad de materia
+
+Nota interna - completar ticket con los siguientes datos:
+
+- DNI
+
+- Legajo
+
+- Motivo de la solicitud
+
+- Adjuntar la aprobación y el plazo autorizadopor Director.
+
+2-CAE - Comisión Académica Evaluadora
+
+¿Cuándo comienza?
+
+La instancia de CAE inicia una vez que el estudiante regulariza la materia Seminario Final y el estado figura como REGULAR en su Portal de Estudiantes.
+
+A partir de ese momento, la Universidad asignará una Comisión Académica Evaluadora (CAE) para la evaluación de su Trabajo Final de Grado (TFG).
+
+¿Cuánto tiempo dura?
+
+-  El proceso de evaluación de la CAE tiene una duración de hasta 60 días corridos. Dentro de los primeros 15 días desde la asignación, el docente debe realizar la primera devolución. Las correcciones o ajustes posteriores podrán desarrollarse dentro del plazo total previsto para la evaluación.
+
+¿Cómo visualizar el estado de CAE?
+
+Para consultar el estado de la CAE de un estudiante:
+
+- Ingresar a SGU.
+
+- Acceder a Reporte de Alumnos.
+
+- Seleccionar Portal Estudiantes y enmascararse como el estudiante.
+
+- Una vez que Seminario Final se encuentre en estado REGULAR, estará disponible el botón CAE en el portal.
+
+Estados posibles de CAE
+
+- Pendiente de revisión: la corrección se encuentra a cargo del docente evaluador.
+
+- Pendiente de reentrega: el estudiante debe realizar ajustes y volver a presentar el trabajo.
+
+- Aprobado: el estudiante se encuentra habilitado para solicitar la instancia de Defensa Oral.
+
+👉 Visado de CAE
+
+El Visado de CAE (Comisión Académica Evaluadora) es la instancia en la que se valida que el TFG fue aprobado conforme a los criterios académicos establecidos.
+
+- El proceso de visado se realiza de forma automática.
+
+- Durante la gestión, el estudiante recibe las notificaciones correspondientes en el correo electrónico registrado en su Campus Virtual.
+
+Consultas frecuentes
+
+Es habitual que algunos estudiantes informen que su TFG figura aprobado, pero el Visado de CAE continúa apareciendo pendiente.
+
+En estos casos, el asesor deberá verificar el estado en la plataforma de CAE. Si la evaluación se encuentra aprobada, puede informar al estudiante que avance con la solicitud de Defensa Oral, ya que el área de TFG realizará las validaciones administrativas correspondientes de manera interna.
+
+El estudiante también puede consultar estos estados y cargar la documentación solicitada directamente desde su Portal de Estudiantes.
+
+Tendrá la posibilidad de ver su estado y de adjuntar el archivo de la corrección en caso de que se lo soliciten.
+
+Una vez APROBADA la entrega, desde el portal del estudiante se puede ver la leyenda del proceso CAE aprobado:
+
+¿Que estados puedo ver de CAE?
+
+Como asesor, a través del portal estudiantes, podrás ver el estado de corrección de su trabajo final de grado para brindarle asesoramiento:
+
+A. Realizar recomendaciones de mejora: que el trabajo presentado por el alumno cumpla con lo esperado para dicha instancia quedando habilitado a Defensa Oral.
+
+B. Solicitar ajustes y modificaciones: que el CAE indique ajustes del TFG por parte del alumno, en cuyo caso se le hace llegar un acta rúbrica con el detalle de las recomendaciones, indicándole el plazo en el cual deberá entregar una nueva versión modificada de su Trabajo Final. En caso de que el alumno no cumpla con dicha entrega dentro del plazo indicado por el docente; supere los de 30 días corridos, o la misma no responda a lo indicado por la CAE la materia Seminario Final quedará desaprobada debiendo el alumno recursar la materia para confección un nuevo TFG.
+
+C. Desaprobar el TFG: que el CAE considera que el TFG no está en condiciones de ser aprobado para Defensa Oral. En caso de presentarse esta situación se deberá reunir a los integrantes de la CAE, el profesor de Seminario Final y el Director de la carrera para el análisis y dictamen final. En el caso de confirmarse lo observado por el CAE, la materia Seminario Final será desaprobada debiendo el alumno recurrir a la materia para elaborar un nuevo TFG. Caso contrario se solicitarán ajustes del TFG por parte del alumno, siguiendo el proceso detallado en el punto anterior.
+
+Estado de Evaluación CAE
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Trabajo Final de Grado - TFG
+
+Tipificación: Estado de Evaluación CAE
+
+Nota interna - completar ticket con los siguientes datos:
+
+- DNI
+
+- Legajo
+
+- Print de pantalla del portal del alumno en la sección CAE donde se visualice el inconveniente (ya sea que no puede cargar el archivo o por ejemplo no tiene respuesta del docente).
+
+¿En qué casos derivamos?
+
+- Demora en respuesta del docente de CAE (teniendo en cuenta siempre los plazos establecidos)
+
+- Inconvenientes con el botón CAE
+
+- Cualquier otra consulta relacionada específicamente a CAE que el alumno no pueda resolver con el tutor asignado.
+
+3-DEFENSA ORAL
+
+Accesos útiles
+
+🔗 Respuesta del formulario de solicitud de mesa de Defensa Oral: click aquí
+🔗 Listado de estudiantes con Defensa Oral programada: click aquí
+
+Información general
+
+- Las Defensas Orales se realizan de forma presencial en el Campus de Universidad Siglo 21.
+
+- Solo podrán solicitar modalidad virtual:
+
+- Estudiantes privados de su libertad.
+
+- Estudiantes que residan en el exterior.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Trabajo Final de Grado - TFG
+
+Tipificación: Consulta de coordinación de mesa
+
+Nota interna - completar ticket con los siguientes datos:
+
+- DNI
+
+- Legajo
+
+Documentación obligatoria:
+
+- Alumnos privados de su libertad: Documentación legal.
+
+- Alumnos residentes en el extranjero: Certificados de residencia o trabajo en el exterior.
+
+Una vez aprobada la solicitud, se le comunica al alumno que debe completar el formulario de solicitud de mesa disponible en la nube, para poder avanzar con la coordinación de la mesa.
+
+No se considerarán solicitudes por motivos personales, económicos o laborales.
+
+Speech para objeciones en caso de no querer trasladarse a Campus Siglo 21:
+
+Te contamos que el examen de Defensa Oral se rinde de manera presencial en nuestro Campus en Córdoba.
+
+Esto es para que puedas tener la posibilidad de interactuar con los profesores y otros miembros de tu comunidad educativa y así enriquecer tu experiencia en esta importante etapa de tu carrera. Vas a poder recorrer el Campus y conocer nuestras instalaciones, diseñadas para ofrecerte un entorno académico de excelencia.
+
+Consideraciones importantes
+
+- Constituye una falta grave presentar como propios textos o producciones de terceros (plagio).
+
+- Para rendir la Defensa Oral, el estudiante abona únicamente la matrícula.
+
+- No debe presentar la tesis encuadernada.
+
+- Debe tener completa la documentación de legajo.
+
+- La solicitud de mesa se realiza mediante el formulario correspondiente. 👉 Ver aquí
+
+- La fecha y el horario asignados no se reprograman.
+
+- El Test de Suficiencia de Idiomas aplica únicamente para las carreras de Diseño Gráfico y Publicidad. 👉 Ver aquí
+
+¿Cómo es la instancia de Defensa Oral?
+
+La Defensa Oral es la instancia final del TFG, donde el estudiante presenta y defiende su trabajo ante un tribunal evaluador.
+
+La evaluación consta de dos etapas:
+
+- Presentación oral del TFG, donde el estudiante expone su trabajo.
+
+- Ronda de preguntas, en la que el tribunal evalúa:
+
+- Dominio del tema desarrollado.
+
+- Integración y aplicación de los conocimientos adquiridos durante la carrera.
+
+- Fundamentación de las respuestas brindadas.
+
+- Calidad de la presentación y de los recursos utilizados.
+
+Al finalizar la instancia, el tribunal comunicará el resultado y brindará una devolución sobre los aspectos destacados y las oportunidades de mejora identificadas.
+
+Calificación final
+
+La nota final surge de la siguiente ponderación:
+
+- Seminario Final + CAE: 60%
+
+- Defensa Oral: 40%
+
+Ambas instancias deben estar aprobadas.
+
+La escala de calificación va de 4 a 10 puntos. Si la nota final es inferior a 4, la materia Seminario Final quedará desaprobada y el estudiante deberá recursarla para desarrollar un nuevo TFG.
+
+Solicitud de Defensa Oral
+
+Una vez que la CAE aprueba el TFG, el estudiante queda Habilitado a Defensa Oral y puede solicitar mesa de examen.
+
+Para ello deberá cumplir con los siguientes requisitos:
+
+- Contar con la habilitación a Defensa Oral otorgada por la CAE.
+
+- Tener el visado académico del analítico.
+
+- En modalidades ED y EDH, tener aprobado el EFIP II (excepto Licenciatura en Educación).
+
+- Solicitar la mesa dentro de los 30 días corridos posteriores a la habilitación otorgada por la CAE.
+
+Una vez solicitada, el Área de TFG verificará los requisitos y coordinará la mesa examinadora, proceso que puede demorar hasta 10 días hábiles.
+
+Regla operativa | Trabajo Final de Grado (TFG)
+
+Si la consulta del asesor está relacionada con Seminario Final, CAE o Defensa Oral, el asistente virtual deberá compartir los enlaces oficiales correspondientes cuando se encuentren vinculados a la gestión consultada.
+
+🔗 Calendario académico y cronograma de entregas de Seminario Final:
+https://kb.21.edu.ar/bcsiglo21/servicio/informacion-para-gestiones/informacion-para-el-asesor/matriz-general?hsLang=en#calendarios
+
+🔗 Respuesta del formulario de solicitud de mesa de Defensa Oral:
+https://docs.google.com/spreadsheets/d/1Fi9ua00NkBWyEg3DFBHbLjQi7kuv04V9dlLLm-Y6St4/edit#gid=257619452
+
+🔗 Formulario de solicitud de mesa de Defensa Oral:
+https://docs.google.com/forms/d/1lBYw4SFSL2DU4NKEpGjt-T6yOdzNsHuPU5tdNlrgk9Y/viewform?edit_requested=true&pli=1
+
+No deberá responder consultas relacionadas con estas gestiones sin compartir el enlace oficial correspondiente cuando aplique.$pea0$, 'global', 'borrador', $pea0$https://kb-cau.21.edu.ar/servicios-cau/servicios/trabajo-final-de-grado$pea0$)
+on conflict (categoria_id, slug) do nothing;
+
+insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
+values ((select id from public.categorias where slug = $pea0$tramites$pea0$), null, 26, $pea0$kb-26-certificados-constancias-y-analiticos$pea0$,
+        $pea0$Certificados, constancias y analíticos$pea0$, $pea0$INDICE$pea0$, $pea0$> **A validar:** contenido relevado de https://kb-cau.21.edu.ar/servicios-cau/servicios/cetificados-constancias-y-analiticos el 2026-11-19. Revisalo antes de publicar.
+
+INDICE
+
+-
+CERTIFICADO DE ALUMNO REGULAR - FIRMA DIGITAL
+
+-
+CERTIFICADO DE ALUMNO REGULAR CON LEGALIZACIÓN MINISTERIAL
+
+-
+CERTIFICADO DE BAJA
+
+-
+CERTIFICADO DE NO SANCIÓN
+
+-
+CERTIFICADO DE PORCENTAJE DE AVANCE INFORMACIÓN
+
+-
+CERTIFICADO DE HORAS
+
+-
+CERTIFICADO DE WORK AND TRAVEL
+
+-
+CERTIFICADO DE TÍTULO EN TRÁMITE
+
+-
+CONSTANCIA DE EGRESO
+
+-
+COPIAS LEGALIZADAS DEL TÍTULO
+
+-
+ANALÍTICO PARCIAL SIN PROGRAMAS
+
+-
+ANALÍTICO PARCIAL CON PROGRAMAS
+
+-
+ANALÍTICO PARCIAL CON PROGRAMAS Y LEGALIZACIÓN MINISTERIAL
+
+-
+ANALÍTICO PARCIAL CON PROGRAMAS Y LEGALIZACIÓN MINISTERIAL PARA ESTUDIANTES EXTRANJEROS RESIDENTES EN ARGENTINA
+
+-
+CONSTANCIAS MIGRATORIAS
+
+-
+CERTIFICADO DE ANSES
+
+-
+CERTIFICADO DE CRÉDITOS EUROPEOS
+
+-
+CONSTANCIA DE ALUMNO REGULAR – ESTUDIANTES DE INTERCAMBIO (INCOMINGS)
+
+-
+CONSTANCIA DE FINALIZACIÓN DE CURSADO
+
+-
+ANALÍTICO WES
+
+-  CERTIFICADO DE INCUMBENCIAS
+
+-  CERTIFICADO PARA PUNTAJE DOCENTE
+
+-  PEDIDO DE RESOLUCIONES RECTORALES
+
+- ENVÍO DE DOCUMENTACIÓN A COLEGIOS PROFESIONALES
+
+- CERTIFICADO DE EXAMEN
+
+- CERTIFICADO ALUMNO REGULAR
+
+- CERTIFICADO DE LIBRE DE DEUDA ADMINISTRATIVO
+
+CERTIFICADO DE ALUMNO REGULAR - FIRMA DIGITAL
+
+El Certificado de Alumno Regular puede descargarse directamente desde Portal de Estudiantes y tiene plena validez.
+
+Sin embargo, algunas instituciones (por ejemplo, obras sociales, organismos públicos o entidades que validan documentación en plataformas oficiales) pueden solicitar que el certificado cuente con firma digital.
+
+En estos casos, corresponde gestionar una versión firmada digitalmente mediante una solicitud interna.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: TRAMITES
+
+Tipificación: Certificado de Alumno Regular con Firma Digital
+
+Nota interna - completar ticket con los siguientes datos:
+
+- DNI
+
+- Legajo
+
+- Carrera
+
+- Motivo o justificación de la solicitud con firma digital (obligatorio)
+
+Plazo de gestión: 3 días hábiles.
+
+⚠️ Importante
+
+Solo derivar cuando el estudiante indique expresamente que la entidad receptora requiere una versión con firma digital. En los demás casos, el certificado puede descargarse directamente desde Portal de Estudiantes.
+
+CERTIFICADO DE ALUMNO REGULAR CON LEGALIZACIÓN MINISTERIAL
+
+Se emite exclusivamente para estudiantes extranjeros que deben presentarlo ante la Dirección Nacional de Migraciones.
+
+Este certificado debe solicitarse junto con el Analítico con Legalización Ministerial, ya que el Ministerio no admite su gestión por separado.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Secretaría Académica
+
+Tipificación: Analítico parcial sin programas
+
+Nota interna: completar los siguientes datos:
+
+DNI o documento de identidad
+
+-
+Legajo
+
+-
+Carrera
+
+-
+Indicar que se solicita Certificado de Alumno Regular con Legalización Ministerial
+
+-
+Aclarar que corresponde a un alumno extranjero
+
+-
+Confirmar que la documentación será presentada ante la Dirección Nacional de Migraciones
+
+Plazo de gestión: 90 días hábiles
+
+⚠️Importante
+
+Antes de derivar, verificar que el estudiante también haya solicitado el Analítico con Legalización Ministerial, ya que ambos trámites deben gestionarse en conjunto. Asimismo, corroborar que la necesidad de la legalización ministerial sea exclusivamente para trámites ante Migraciones.
+
+CERTIFICADO DE BAJA
+
+El Certificado de Baja acredita que el estudiante ya no posee una matrícula activa en la carrera correspondiente.
+
+Antes de derivar la solicitud, es indispensable verificar que el legajo se encuentre efectivamente dado de baja. En caso de corresponder, la baja deberá haber sido gestionada previamente por el área responsable (Grupo de Riesgo).
+
+Información para la derivación (HubSpot)
+
+Área de derivación: TRÁMITES
+
+Tipificación: Certificado de Baja
+
+Nota interna: Completar los siguientes datos:
+
+- DNI
+
+- Legajo
+
+- Carrera
+
+Plazo de gestión: 10 días hábiles.
+
+⚠️ Importante
+
+El estudiante debe encontrarse dado de baja al momento de solicitar el certificado.
+
+Si la baja aún no fue procesada, deberá gestionarse previamente antes de derivar la solicitud del certificado.
+
+Verificar el estado del legajo antes de generar la derivación para evitar rechazos o devoluciones.
+
+CERTIFICADO DE NO SANCIÓN
+
+El Certificado de No Sanción acredita que el estudiante no registra sanciones disciplinarias en la institución.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: TRÁMITES
+
+Tipificación: Certificado de no sanción
+
+Nota interna: completar los siguientes datos:
+
+-
+DNI
+
+-
+Legajo
+
+-
+Carrera
+
+Plazo de gestión: 10 días hábiles.
+
+⚠️Importante
+
+Verificar que los datos del estudiante sean correctos antes de generar la derivación para evitar demoras en la gestión.
+
+CERTIFICADO DE PORCENTAJE DE AVANCE INFORMACIÓN
+
+El Certificado de Porcentaje de Avance acredita el porcentaje de materias o trayecto académico aprobado por el estudiante dentro de su carrera.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Trámites
+
+Tipificación: Certificado de porcentaje de avance
+
+Nota interna: completar los siguientes datos:
+
+- DNI
+
+- Legajo
+
+- Carrera
+
+Plazo de gestión: 10 días hábiles.
+
+⚠️ Importante
+
+Verificar que el legajo y la carrera informados correspondan al certificado solicitado antes de realizar la derivación.
+
+CERTIFICADO DE HORAS
+
+El Certificado de Horas acredita la carga horaria correspondiente a la carrera cursada por el estudiante.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Trámites
+
+Tipificación: Certificado de horas
+
+Nota interna - completar los siguientes datos:
+
+-
+DNI
+
+-
+Legajo
+
+-
+Carrera
+
+-
+Tipo de certificado solicitado:
+
+-
+Horas cátedra
+
+-
+Horas reloj
+
+Plazo de gestión: 10 días hábiles.
+
+⚠️ Importante
+
+El certificado solo puede ser solicitado por estudiantes egresados.
+
+Antes de derivar, verificar que el estado académico del estudiante sea de egreso.
+
+Es obligatorio indicar en la nota interna si solicita un certificado de horas cátedra o horas reloj, ya que se trata de documentos diferentes.
+
+CERTIFICADO DE WORK AND TRAVEL
+
+El Certificado de Work and Travel es una constancia académica emitida por la Universidad para ser presentada ante organismos y entidades vinculadas a programas de intercambio y trabajo temporal en Estados Unidos.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Trámites
+
+Tipificación: Certificado de Work and Travel
+
+Nota interna - completar los siguientes datos:
+
+-
+DNI
+
+-
+Legajo
+
+-
+Sede donde retirará el certificado en formato papel:
+
+-
+Campus - Nueva Córdoba - Río IV
+
+-
+Indicar si solicita envío en formato digital.
+
+Plazo de gestión: 7 días hábiles.
+
+Proceso
+
+-
+El asesor deriva la solicitud al área de Trámites.
+
+-
+Trámites emite el certificado.
+
+-
+El certificado se envía al área de Correo para coordinar la entrega en la sede indicada.
+
+-
+El asesor deberá aguardar la confirmación del área de Correo antes de informar al estudiante la fecha de retiro.
+
+Fechas académicas
+
+- La fecha de inicio de clases no se modifica bajo ninguna circunstancia, ya que corresponde a la establecida en el Calendario Académico.
+
+- Los estudiantes de modalidad ED, EDH y PH podrán solicitar excepcionalmente que figure como fecha de inicio de cursado el comienzo del Primer Bimestre (1B).
+
+- La fecha de finalización de clases también será la establecida en el Calendario Académico.
+
+Situación académica
+
+-
+El certificado se emite únicamente sobre la carrera correspondiente al legajo activo.
+
+-
+Si el estudiante posee más de un legajo, no podrá solicitar el certificado sobre un legajo que no se encuentre cursando actualmente.
+
+-
+Si el estudiante cursa materias de años avanzados pero adeuda materias de primer o segundo año (incluyendo idiomas), el certificado reflejará el año académico que corresponda según su situación regular.
+
+Año de ingreso
+
+-
+En casos de cambio de modalidad o submodalidad, se considerará como año de ingreso la fecha en que el estudiante abonó su primera matrícula.
+
+-
+Para estudiantes que ingresaron con equivalencias, se tomará como año de ingreso la fecha de pago de la matrícula correspondiente.
+
+Modalidad de entrega
+
+-
+Los certificados se emiten originalmente en formato papel.
+
+-
+Si el estudiante necesita una copia digital, deberá indicarse expresamente en la derivación para que el documento pueda ser escaneado.
+
+-
+El retiro se realiza en Bedelía Campus o puede enviarse a las sedes de Nueva Córdoba y Río IV.
+
+-
+Los estudiantes pertenecientes a un CAU recibirán el certificado en formato digital.
+
+⚠️ Importante
+
+- Destino del certificado
+
+- El certificado emitido por la Universidad está diseñado para ser presentado en Estados Unidos.
+
+- Si el estudiante necesita presentarlo en otro país o requiere un formato específico, deberá adjuntar el documento completo en formato PDF e indicar claramente el espacio donde debe incorporarse la firma.
+
+- Si se trata de otro formulario provisto por la empresa, deberá adjuntarse en HubSpot para evaluar su emisión.
+
+- En todos los casos, el estudiante deberá adjuntar su DNI digitalizado e indicar en la nota del ticket el formato solicitado y la sede de retiro o si requiere envío digital.
+
+CERTIFICADO WETAG: estos formularios pueden emitirse siempre que sean enviados con el nombre y apellido del estudiante completos, tal como figuran en el DNI.
+
+CERTIFICADO DE TÍTULO EN TRÁMITE
+
+El Certificado de Título en Trámite acredita que el estudiante ha finalizado su carrera y que su título se encuentra en proceso de emisión.
+
+Antes de derivar la solicitud, es necesario validar que:
+
+- El estudiante se encuentre Activo o Egresado en SGU.
+
+- El trámite de título no figure como "Trámite Finalizado" en la consulta de SIDCer.
+
+- La documentación correspondiente se encuentre completa según el tipo de carrera.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Operación Títulos
+
+Tipificación: Certificado de título en trámite
+
+Nota interna - completar los siguientes datos:
+
+-
+DNI
+
+-
+Legajo
+
+-
+Aclarar si corresponde a un Título Intermedio
+
+Plazo de gestión: 7 días hábiles.
+
+Documentación de legajo requerida:
+
+Carreras de Grado, Intermedios y Tecnicaturas:
+
+- DNI actualizado (frente y dorso).
+
+- Copia del Certificado Analítico o Diploma Secundario legalizado.
+
+Posgrados
+
+- DNI actualizado (frente y dorso).
+
+-
+Diploma de Grado legalizado (frente y dorso).
+
+VEDU – Licenciatura en Educación:
+
+- DNI actualizado (frente y dorso).
+
+-
+Copia legalizada del título de Profesor/a.
+
+-
+Documentación que acredite 1200 horas reloj de cursado.
+
+VESC – Escribanía:
+
+- DNI actualizado (frente y dorso).
+
+- Diploma Oficial de Abogado/a (frente y dorso).
+
+Martillero Cervantes:
+
+- DNI actualizado (frente y dorso).
+
+- Certificado Analítico Secundario legalizado.
+
+- Certificado Analítico Oficial de Institución Cervantes.
+
+Ciclos Complementarios:
+
+- Revisar la documentación específica según la carrera correspondiente.
+
+Documentación adicional al certificado que se envia según carrera:
+
+Abogacía
+
+-
+Certificado de Título en Trámite.
+
+-
+Certificado de Matrícula.
+
+Escribanía
+
+-
+Certificado de Título en Trámite.
+
+-
+Certificado de Matrícula.
+
+Martillero, Corredor Público y Corredor Inmobiliario
+
+-
+Certificado de Título en Trámite.
+
+-
+Reporte Analítico de Materias.
+
+Tecnicatura en Higiene y Seguridad Laboral
+
+-
+Certificado de Título en Trámite.
+
+-
+Reporte Analítico de Materias.
+
+Enfermería y Psicología: los egresados de estas carreras deben gestionar una matrícula profesional provisoria para poder comenzar a ejercer. De manera excepcional se emitirá:
+
+-
+Certificado de Título en Trámite.
+
+-
+Certificado de Matrícula.
+
+-
+Analítico Parcial sin Programas (sin costo).
+
+Validación previa a la derivación:
+
+Verificar que el título no figure como "Trámite Finalizado" en SIDCer. En caso de encontrarse finalizado, no corresponde solicitar el Certificado de Título en Trámite.
+
+Solicitud en formato papel:
+
+Si el estudiante requiere el Certificado de Título en Trámite en formato papel, deberá adjuntar una nota emitida por la institución receptora indicando que no acepta documentación con firma digital.
+La nota debe estar firmada y sellada por la institución solicitante y no por el estudiante.
+
+⚠️ Importante:
+
+- No es válido el DNI descargado desde Mi Argentina. Debe presentarse imagen del DNI físico vigente.
+
+- El certificado se emite en formato digital.
+
+- Puede compartirse tantas veces como sea necesario a través de medios digitales.
+
+- Si el documento se imprime, pierde su validez como original digital.
+
+- La vigencia del certificado es de un año desde su emisión. Transcurrido ese plazo deberá solicitarse nuevamente.
+
+CONSTANCIA DE EGRESO
+
+La Constancia de Egreso certifica que el estudiante ha finalizado y aprobado la totalidad de los requisitos académicos de su carrera.
+
+Antes de derivar la solicitud, verificar que el estudiante figure como egresado en los sistemas institucionales.
+
+Solicitud en formato papel
+
+Si la institución requiere la Constancia de Egreso en formato papel, el estudiante deberá presentar una nota emitida por dicha institución indicando que no acepta documentación con firma digital.
+
+La nota debe estar firmada y sellada por la institución solicitante y no por el estudiante.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Operación Títulos
+
+Tipificación: Constancia de egreso
+
+Nota interna: completar los siguientes datos:
+
+DNI
+
+Legajo
+
+Correo electrónico de la institución solicitante
+
+Plazo de gestión: 7 días hábiles.
+
+⚠️ Importante
+
+Verificar que el estudiante se encuentre efectivamente egresado.
+
+La Constancia de Egreso se envía únicamente a instituciones que la requieran.
+
+La documentación no se envía al correo personal del egresado.
+
+Al momento de realizar la solicitud, el estudiante debe informar el correo electrónico institucional donde deberá remitirse la constancia.
+
+COPIAS LEGALIZADAS DEL TÍTULO
+
+Las Copias Legalizadas del Título permiten obtener reproducciones oficiales del diploma y documentación asociada con validación institucional.
+
+Antes de generar la solicitud, verificar si el título cuenta con código QR en el dorso del diploma y en la tercera hoja del analítico.
+
+En estos casos, no corresponde solicitar copias legalizadas en formato digital, ya que el documento puede validarse y descargarse tantas veces como sea necesario mediante el escaneo del código QR.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Operación Títulos
+
+Tipificación: Legalización de fotocopias de tí­tulo
+
+Nota interna: completar los siguientes datos:
+
+-
+DNI
+
+-
+Legajo
+
+-
+Formato solicitado:
+
+-
+Digital
+
+-
+Físico
+
+-
+En caso de formato físico, indicar CAU o sede de entrega
+
+-
+Comprobante de pago
+
+Plazo de gestión:
+
+-
+Formato digital: 5 días hábiles.
+
+-
+Formato físico: 5 días hábiles.
+
+Solicitud en formato papel:
+
+Si el estudiante solicita copias legalizadas en formato físico, deberá presentar una nota emitida por la institución receptora indicando que no acepta documentación con firma digital.
+
+La nota debe estar firmada y sellada por la institución solicitante y no por el estudiante.
+
+Casos habilitados para emisión en formato físico:
+
+-
+Las copias legalizadas en papel se emiten únicamente para presentar ante:
+
+-
+Embajadas.
+
+-
+Colegios profesionales que no acepten documentación con firma digital.
+
+-
+Trámites de apostillado.
+
+-
+Fuera de estos casos, la documentación deberá gestionarse en formato digital.
+
+⚠️ Importante
+
+Si el título posee código QR en el dorso del diploma y en la tercera hoja del analítico, no deben solicitarse copias legalizadas en formato digital.
+
+El comprobante de pago tiene una vigencia de 3 meses.
+
+Si al momento de iniciar la gestión hubo una actualización del arancel y el pago fue realizado hace más de 3 meses, el estudiante deberá abonar la diferencia correspondiente antes de comenzar el trámite.
+
+ANALÍTICO PARCIAL SIN PROGRAMAS
+
+El Analítico Parcial Sin Programas es un documento que certifica las materias aprobadas y la situación académica del estudiante, sin incluir los programas de las asignaturas.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Secretaría Académica
+
+Tipificación: Analítico parcial sin programas.
+
+Nota interna: completar los siguientes datos:
+
+-
+DNI
+
+-
+Legajo
+
+Plazo de gestión: 5 días hábiles.
+
+Requisitos
+
+Verificar que el estudiante presente:
+
+-
+DNI frente y dorso digitalizado.
+
+-
+Analítico secundario digitalizado.
+
+- Documentación obligatoria según carrera completa.
+
+-
+Tasa correspondiente abonada y facturada.
+
+Solicitud en formato papel:
+
+De manera excepcional, si una entidad externa solicita el Analítico Parcial Sin Programas en formato papel, deberá adjuntarse una nota emitida por dicha institución indicando que no acepta documentación digital.
+
+La nota debe estar suscripta por la entidad solicitante y deberá indicarse el CAU de envío correspondiente en el ticket.
+
+⚠️ Importante
+
+No requiere solicitud mediante formulario; la gestión se realiza únicamente mediante ticket en HubSpot.
+
+El comprobante de pago tiene una vigencia de 3 meses.
+
+Si al momento de solicitar el trámite hubo una actualización del arancel y el pago fue realizado con más de 3 meses de antigüedad, el estudiante deberá abonar la diferencia correspondiente antes de iniciar la gestión.
+
+Antes de derivar, validar que la documentación requerida se encuentre completa y legible.
+
+ANALÍTICO PARCIAL CON PROGRAMAS
+
+El Analítico Parcial con Programas es un documento que incluye el detalle de las materias aprobadas por el estudiante junto con los programas de las asignaturas cursadas.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Secretaría Académica
+
+Tipificación: Analítico parcial con programas
+
+Nota interna: completar los siguientes datos:
+
+-
+DNI
+
+-
+Legajo
+
+Plazo de gestión: 5 días hábiles.
+
+Requisitos:
+
+-
+DNI frente y dorso digitalizado.
+
+-
+Analítico secundario digitalizado.
+
+- Documentación obligatoria según carrera completa.
+
+- Tasa correspondiente abonada y facturada.
+
+⚠️ Importante
+
+El comprobante de pago tiene una vigencia de 3 meses.
+
+Si al momento de solicitar el trámite hubo una actualización del arancel y el pago fue realizado con más de 3 meses de antigüedad, el estudiante deberá abonar la diferencia correspondiente antes de iniciar la gestión.
+
+Antes de derivar, validar que la documentación requerida se encuentre completa y legible.
+
+Verificar que la tasa abonada corresponda específicamente al trámite de Analítico Parcial con Programas.
+
+La gestión se realiza mediante ticket en HubSpot una vez validados los requisitos.
+
+ANALÍTICO PARCIAL CON PROGRAMAS Y LEGALIZACIÓN MINISTERIAL
+
+El Analítico Parcial con Programas y Legalización Ministerial es el documento que certifica las materias aprobadas e incluye los programas de estudio, contando además con la legalización emitida por el Ministerio de Educación.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Secretaría Académica
+
+Tipificación: Analítico parcial con programas y Legalización Ministerial
+
+Plazos de gestión:
+
+-
+Tiempo de respuesta del área: 5 días hábiles.
+
+-
+Tiempo estimado del trámite ante el Ministerio: 90 días hábiles
+
+Nota interna - completar los siguientes datos:
+
+- DNI
+
+- Legajo
+
+- País donde presentará la documentación
+
+- Nombre de la institución donde presentará la documentación
+
+Verificar que el estudiante presente:
+
+- DNI frente y dorso digitalizado.
+
+- Analítico secundario digitalizado.
+
+- Documentación obligatoria según carrera completa.
+
+- Tasa correspondiente abonada y facturada
+
+⚠️ Importante
+
+Validaciones previas obligatorias:
+
+No puede emitirse documentación con Legalización Ministerial para instituciones con domicilio en Argentina.
+
+No aplica para organismos, embajadas o consulados ubicados en territorio argentino.
+
+El país de destino y la institución receptora son datos obligatorios para el Ministerio de Educación.
+
+Si estos datos no son informados, la solicitud será rechazada.
+
+Estudiantes egresados:
+
+-
+Antes de derivar, verificar el estado del título en SIDCer.
+
+-
+Si el estudiante es egresado, el título debe encontrarse finalizado en SIDCer.
+
+-
+El trámite de título y la legalización ministerial no pueden gestionarse simultáneamente ante el Ministerio.
+
+Consulta del estado del trámite:
+
+-
+Verificar estado en SIDCer. Consultar el estado ingresando el DNI del estudiante en el sistema correspondiente.
+
+-
+La documentación disponible en Firma Digital no es válida para este trámite.
+
+-
+La validez del proceso depende del certificado de legalización emitido por el Ministerio de Educación, por lo que siempre debe derivarse el caso al área correspondiente. Actuar según el resultado:
+
+-
+Si el estado figura como "Finalizado": Secretaría Académica generará un nuevo ticket para enviar al estudiante el analítico junto con el certificado de legalización ministerial.
+
+-
+Si el estado aún no figura como "Finalizado": derivar ticket a Secretaría Académica para gestionar el reclamo correspondiente ante el Ministerio de Educación y realizar el seguimiento del trámite.
+
+No enviar documentación de Firma Digital:
+
+-
+La documentación disponible en Firma Digital no es válida para este trámite.
+
+-
+La validez del proceso depende del certificado de legalización emitido por el Ministerio de Educación, por lo que siempre debe derivarse el caso al área correspondiente.
+
+Vigencia del pago
+
+-
+El pago del trámite tiene una vigencia de 3 meses.
+
+-
+Si al momento de solicitar la gestión el arancel tuvo modificaciones y el pago fue realizado hace más de 3 meses, el estudiante deberá abonar la diferencia correspondiente antes de iniciar el trámite.
+
+ANALÍTICO PARCIAL CON PROGRAMAS Y LEGALIZACIÓN MINISTERIAL - ESTUDIANTES EXTRANJEROS RESIDENTES EN ARGENTINA
+
+Este trámite está destinado exclusivamente a estudiantes extranjeros residentes en Argentina que necesiten presentar documentación ante la Dirección Nacional de Migraciones.
+
+Permite solicitar el Analítico Parcial con Programas y Legalización Ministerial para acreditar la condición académica ante dicho organismo.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Secretaría Académica
+
+Tipificación: Analítico parcial con programas y Legalización Ministerial
+
+Nota interna - completar los siguientes datos:
+
+Nombre y apellido del estudiante.
+
+-
+DNI.
+
+-
+Legajo.
+
+Plazo de gestión: 90 días hábiles.
+
+Arancel:
+
+Debe abonarse la tasa correspondiente a:
+
+Analítico parcial con programas con legalización ministerial
+
+Sin costo adicional, el estudiante puede solicitar conjuntamente:
+
+Certificado de Alumno/a Regular con Legalización Ministerial
+
+Este certificado solo puede gestionarse junto con el Analítico con Legalización Ministerial y no de forma independiente.
+
+Requisitos
+
+Verificar que el estudiante cuente con:
+
+-
+Documentación de legajo completa.
+
+-
+DNI vigente.
+
+-
+Analítico de estudios secundarios.
+
+-
+Convalidación de estudios (para estudiantes extranjeros, cuando corresponda).
+
+-
+Documentación complementaria del Ciclo Complementario, si aplica.
+
+-
+Indicar expresamente: "Para presentar ante Migraciones Argentinas".
+
+-
+Aclarar si solicita también el Certificado de Alumno/a Regular con Legalización Ministerial.
+
+⚠️ Importante
+
+Este trámite es exclusivo para presentaciones ante la Dirección Nacional de Migraciones.
+
+La aclaración "Para presentar ante Migraciones Argentinas" es obligatoria en la derivación.
+
+Si el estudiante solicita el Certificado de Alumno/a Regular con Legalización Ministerial, debe indicarse en el mismo ticket.
+
+Verificar previamente que toda la documentación requerida se encuentre completa antes de realizar la derivación.
+
+CONSTANCIAS MIGRATORIAS
+
+Las Constancias Migratorias están destinadas a estudiantes extranjeros regulares que necesitan acreditar su condición académica ante organismos migratorios.
+
+Este documento puede ser requerido para trámites de residencia, renovaciones de visa, permisos de estudio u otros requisitos legales vinculados a la permanencia del estudiante en el país.
+
+¿Como solicitar la constancia?:
+
+-
+Los alumnos incomings y alumnos regulares deberan solicitarlo por fomulario:
+
+https://docs.google.com/forms/d/e/1FAIpQLSefRtb5xkC3Ku_erTIN7A5JdZsBlilwlga4lpKX3iv2BFG6Xw/viewform
+
+Requisitos
+
+Para gestionar la constancia, el estudiante debe:
+
+-
+Ser alumno extranjero.
+
+-
+Tener condición de Alumno Regular.
+
+-
+Encontrarse matriculado.
+
+-
+Tener el arancel al día.
+
+-
+Contar con DNI argentino para extranjeros.
+
+-
+Tener la documentación escolar debidamente convalidada.
+
+-
+No podrá emitirse el título de grado o pregrado con validez nacional a los estudiantes que no presenten DNI argentino para extranjeros y documentación escolar convalidada.
+
+-
+Plazo de solicitud: La solicitud debe realizarse con una anticipación mínima de 30 días hábiles previos al turno migratorio.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Secretaría Académica
+
+Tipificación: Constancias Migratorias
+
+🚨 Solo se derivan ticket para consultar por el estado de la constancia cuando se cumple el plazo de gestión.
+
+⚠️ Importante
+
+Alumnos Incomings
+
+-
+La solicitud debe realizarse mediante el formulario correspondiente.
+
+-
+La constancia se emite por única vez.
+
+-
+Tiene una vigencia de 6 meses.
+
+Alumnos Regulares Extranjeros
+
+-
+La constancia puede emitirse una única vez por legajo y carrera.
+
+-
+Se confecciona por el plazo de duración de la carrera según la oferta académica vigente.
+
+Cambio de carrera
+
+-
+Constancia vencida y el estudiante continúa siendo alumno regular.
+
+CERTIFICADO DE ANSES
+
+El Certificado de ANSES es una constancia de alumno regular certificada y sellada por la Universidad, utilizada para acreditar ante ANSES que el estudiante se encuentra cursando sus estudios de manera regular.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Secretaría Académica
+
+Tipificación: Certificado de ANSES
+
+Nota interna - completar los siguientes datos:
+
+-
+DNI
+
+-
+Legajo
+
+-
+Carrera
+
+-
+Documentación requerida
+
+El estudiante debe adjuntar el formulario de ANSES completo con todos los datos que le correspondan.
+
+La Universidad completará únicamente los siguientes campos:
+
+-
+Universidad
+
+-
+Carrera
+
+-
+Número de registro
+
+-
+Firma
+
+Plazo de gestión: 5 días hábiles.
+
+⚠️ Importante
+
+Verificar que el formulario adjunto se encuentre completo y legible antes de realizar la derivación.
+
+La Universidad solo completará los campos institucionales indicados; el resto de la información debe estar previamente completada por el estudiante.
+
+Corroborar que el estudiante mantenga condición de alumno regular al momento de solicitar la certificación.
+
+CERTIFICADO DE CRÉDITOS EUROPEOS INFORMACIÓN
+
+El Certificado de Créditos Europeos permite traducir la carga horaria y el trayecto académico del plan de estudios argentino al sistema europeo de créditos ECTS (European Credit Transfer and Accumulation System).
+
+Este documento facilita la evaluación, reconocimiento y eventual convalidación de estudios por parte de universidades europeas, detallando la equivalencia de créditos correspondientes a las materias cursadas por el estudiante.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Secretaría Académica
+
+Tipificación: Certificados de Créditos Europeos
+
+Nota interna - completar los siguientes datos:
+
+-
+DNI
+
+-
+Legajo
+
+-
+Carrera
+
+Plazo de gestión: 5 días hábiles.
+
+⚠️ Importante
+
+El certificado se utiliza principalmente para trámites académicos ante universidades e instituciones educativas europeas.
+
+Permite acreditar la carga académica cursada bajo un formato compatible con el sistema de créditos ECTS.
+
+Verificar que los datos del estudiante y de la carrera sean correctos antes de realizar la derivación.
+
+La gestión debe derivarse a Secretaría Académica mediante la tipificación correspondiente.
+
+CERTIFICADO EXCEPCIONALES
+
+La tipificación Certificados Excepcionales se utiliza para gestionar solicitudes que no se encuadran dentro de ninguno de los certificados institucionales ya definidos.Se trata de documentos emitidos por excepción para atender requerimientos específicos de estudiantes o instituciones que necesitan una constancia con características particulares.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Secretaría Académica
+
+Tipificación: Certificados Excepcionales
+
+Plazo de gestión: 3 días hábiles.
+
+Nota interna - completar los siguientes datos:
+
+-
+DNI
+
+-
+Legajo
+
+-
+Carrera
+
+-
+Documentación o información que solicita incluir en el certificado
+
+-
+Motivo de la solicitud
+
+-
+Institución de destino
+
+-
+Cualquier otra información relevante para la emisión del documento
+
+Plazo de gestión: 3 días hábiles.
+
+⚠️ Importante
+
+Antes de derivar, verificar que la necesidad planteada no pueda resolverse mediante otro certificado institucional ya existente.
+
+CONSTANCIA DE ALUMNO REGULAR – ESTUDIANTES DE INTERCAMBIO (INCOMINGS)
+
+Constancia destinada a estudiantes de intercambio provenientes de otras universidades del mundo que se encuentran cursando estudios en la Universidad.
+
+La documentación se emite en formato digital y se envía al correo electrónico registrado por el estudiante.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Secretaría Académica
+
+Tipificación: Certificado Excepcional
+
+Nota interna - completar los siguientes datos:
+
+Nombre y apellido
+
+Número de pasaporte
+
+Plazo de gestión: 3 días hábiles.
+
+⚠️ Importante
+
+Esta constancia aplica únicamente para estudiantes Incomings.
+
+CONSTANCIA DE FINALIZACIÓN DE CURSADO INFORMACIÓN
+
+Constancia destinada a estudiantes que se encuentran en instancia de CAE y requieren acreditar la finalización de cursado para realizar la inscripción en el programa de Doble Titulación Internacional (DTI) con el Collège de Paris.
+
+La documentación se emite en formato digital y se envía al correo electrónico registrado por el estudiante.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Secretaría Académica
+
+Tipificación: Certificado Excepcional
+
+Nota interna
+
+Nombre y apellido
+
+DNI
+
+Carrera
+
+Legajo
+
+Plazo de gestión: 3 días hábiles.
+
+Carreras habilitadas para DTI
+
+-
+Administración
+
+-
+Comercio Internacional
+
+-
+Gestión Turística
+
+-
+Comercialización
+
+-
+Relaciones Públicas e Institucionales
+
+-
+Diseño de Indumentaria
+
+-
+Licenciatura en Recursos Humanos
+
+⚠️ Importante
+
+Antes de derivar, verificar que la carrera se encuentre dentro de las habilitadas para el programa de Doble Titulación Internacional.
+
+ANALÍTICO WES
+
+El Analítico WES es un trámite destinado a estudiantes o egresados que necesitan presentar su documentación académica ante World Education Services (WES) para procesos de evaluación y reconocimiento de estudios en el exterior.
+
+Para su gestión, se emite un Analítico Parcial Sin Programas, que luego es procesado junto con el formulario oficial de WES.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Secretaría Académica
+
+Tipificación: Analítico parcial sin programas
+
+Nota interna - completar los siguientes datos:
+
+DNI
+
+Legajo
+
+Formulario WES adjunto
+
+Plazo de gestión:
+
+Secretaría Académica: 5 días hábiles.
+
+Operación Títulos (carga y validación en WES): 72 horas hábiles estimadas una vez firmado el analítico.
+
+Requisitos:
+
+Abonar el concepto correspondiente a Analítico Parcial Sin Programas.
+
+Adjuntar el formulario oficial de WES debidamente completado.
+
+⚠️ Importante
+
+Desde Secretaría Académica se emitirá únicamente el Analítico Parcial Sin Programas.
+
+Una vez firmado el analítico, la documentación será remitida al área de Operación Títulos junto con el formulario WES presentado por el estudiante.
+
+Desde Operación Títulos se realizará la carga y validación de la documentación en la plataforma WES.
+
+El tiempo estimado para esta última gestión es de 72 horas hábiles desde la recepción del analítico firmado.
+
+Verificar que el formulario WES esté completo antes de realizar la derivación para evitar rechazos o demoras en el trámite.
+
+CERTIFICADO DE INCUMBENCIAS
+
+El Certificado de Incumbencias es una certificación emitida por la Secretaría de Organización Académica que acredita los alcances profesionales de un título e incluye la Resolución Ministerial que le otorga validez nacional.
+
+El certificado contiene:
+
+- Apellido y nombre del solicitante.
+
+- DNI.
+
+- Carrera y modalidad.
+
+- Número de la Resolución Ministerial que otorga validez nacional al título.
+
+- Alcances profesionales del título.
+
+- Copia de la Resolución Ministerial correspondiente.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: SOA - Legalidad
+
+Tipificación: Certificado de incumbencias
+
+Plazo de gestión:
+
+- Tiempo de respuesta del área: 5 días hábiles.
+
+Nota interna - completar los siguientes datos:
+
+- Nombre del alumno.
+
+- Legajo.
+
+⚠️ Importante
+
+- El certificado no tiene costo.
+
+- Se emite con firma digital y se envía al correo electrónico registrado por el estudiante en el Portal del Estudiante, salvo que informe otra dirección de correo para la recepción.
+
+- Solo se emitirá en formato papel cuando el solicitante presente una constancia de la institución receptora donde se indique expresamente que no aceptan documentación con firma digital.
+
+CERTIFICADO PARA PUNTAJE DOCENTE
+
+Cuando un alumno o egresado de Universidad Siglo 21 necesite obtener puntaje docente o la habilitación para ejercer la docencia en una jurisdicción provincial donde su carrera no se encuentre contemplada, la Universidad podrá realizar una presentación formal ante el Ministerio de Educación correspondiente para que dicho organismo determine si el título habilita para la docencia, otorga puntaje docente o no.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: SOA - Legalidad
+
+Tipificación: Certificado para puntaje docente
+
+Nota interna - completar los siguientes datos:
+
+- Carrera del alumno o egresado.
+
+- Ministerio de Educación donde se realizará la presentación.
+
+- Repartición ministerial correspondiente (Junta de Clasificación, Consejo de Educación u otra).
+
+- Nivel educativo para el que se solicita la habilitación (Inicial, Primario o Secundario).
+
+- Dirección donde debe realizarse la presentación (si el alumno dispone de esa información).
+
+⚠️ Importante
+
+Solicitud individual
+
+Cuando la gestión corresponda a un alumno o egresado en particular, generar un ticket en HubSpot y derivarlo a SOA - Legalidad.
+
+Solicitud general
+
+Si la consulta refiere a una carrera en general y no a un caso individual, generar un ticket Jira – Portal VGI – Servicio "Legalidad" > Gestiones Generales, consignando la misma información requerida para la derivación.
+
+Consideraciones
+
+- El área SOA - Legalidad analizará la pertinencia de la solicitud y realizará la presentación ante el organismo correspondiente.
+
+- La posibilidad de que un título habilite para la docencia o otorgue puntaje docente es independiente de los alcances profesionales del título.
+
+- Cada provincia, a través de su Ministerio de Educación y los organismos competentes, define si un título habilita para la docencia, otorga puntaje docente o no.
+
+- El resultado de la gestión dependerá exclusivamente de la resolución emitida por la jurisdicción correspondiente.
+
+PEDIDO DE RESOLUCIONES RECTORALES
+
+Permite solicitar Resoluciones Rectorales o del Consejo Superior cuyo contenido no se encuentre disponible en el Reglamento Institucional ni en las herramientas de consulta vigentes (Guiones, Infomesa).
+
+En caso de no contar con el número de resolución, se deberá informar el tema de la resolución y cualquier otro dato que permita identificarla.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: SOA - Legalidad
+
+Tipificación: Certificado de incumbencias
+
+Nota interna - completar los siguientes datos:
+
+- Número de resolución solicitada e indicar si corresponde al Rectorado o al Consejo Superior.
+
+- En caso de no conocer el número, indicar el tema de la resolución y toda información que facilite su identificación.
+
+- Tipo de documentación solicitada, especificando si requiere legalización.
+
+- Persona o institución destinataria.
+
+- Datos de envío (correo electrónico o dirección postal, según corresponda).
+
+⚠️ Importante
+
+No corresponde derivar:
+
+- Pedidos de Resoluciones Ministeriales de carreras de pregrado, grado o posgrado, ya que se encuentran disponibles en la página web institucional.
+
+- Consultas sobre el Reglamento Institucional.
+
+- Pedidos de contacto con alumnos.
+
+Los casos que no se ajusten a estas condiciones serán devueltos como mal derivados.
+
+SOA - Legalidad corresponde al área de legalidad interna y debe diferenciarse del área Legales, responsable de cuestiones de legalidad externa.
+
+ENVÍO DE DOCUMENTACIÓN A COLEGIOS PROFESIONALES
+
+Permite solicitar el envío de documentación institucional correspondiente a la aprobación de carreras o planes de estudio cuando sea requerida por un Colegio Profesional.
+
+Por defecto, la documentación se envía directamente al Colegio Profesional solicitante. Si se requiere el envío al estudiante o al CAU, deberá indicarse expresamente y quedará sujeto a aprobación del área.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: SOA - Legalidad
+
+Tipificación: Certificado de incumbencias
+
+Nota interna - completar los siguientes datos:
+
+- Tipo de documentación solicitada, especificando si requiere legalización.
+
+- Colegio Profesional solicitante y provincia a la que pertenece.
+
+- Persona o referente destinatario.
+
+- Datos de envío (correo electrónico o dirección postal).
+
+⚠️ Importante
+
+No corresponde derivar:
+
+- Consultas sobre el Reglamento Institucional.
+
+- Pedidos de contacto con alumnos.
+
+Los casos que no se ajusten a estas condiciones serán devueltos como mal derivados.
+
+SOA - Legalidad corresponde al área de legalidad interna y debe diferenciarse del área Legales, responsable de cuestiones de legalidad externa.
+
+CERTIFICADO DE ALUMNO REGULAR
+
+¿Qué acredita?
+
+Certifica que el estudiante posee condición de alumno regular en la Universidad.
+
+Requisitos
+
+✅ Tener la matrícula activa.
+
+¿Dónde lo obtiene el estudiante?
+
+Desde el Portal del Alumno:
+
+Certificados → Certificado de Alumno Regular
+
+Información para brindar al estudiante
+
+📌 El certificado se genera de manera autogestionada desde el Portal del Alumno.
+
+📌 Si la opción no se encuentra disponible, verificar que el estudiante tenga la matrícula activa.
+
+Respuesta sugerida
+
+Para descargar tu Certificado de Alumno Regular, ingresá a tu Portal del Alumno y seleccioná la opción Certificados ubicada en el menú lateral. Allí podrás descargar el certificado correspondiente.
+
+Recordá que es necesario contar con la matrícula activa para acceder al documento.
+
+CERTIFICADO DE EXAMEN
+
+¿Qué acredita?
+
+Certifica la asistencia o participación del estudiante en una instancia de examen.
+
+Requisitos
+
+✅ Haber rendido el examen o que la mesa examinadora ya haya sido procesada en el sistema.
+
+¿Dónde lo obtiene el estudiante?
+
+Desde el Portal del Alumno:
+
+Certificados → Certificado de Examen
+
+Información para brindar al estudiante
+
+📌 El certificado se genera de manera autogestionada desde el Portal del Alumno.
+
+📌 El documento estará disponible únicamente luego de que el examen haya sido rendido o la mesa se encuentre procesada.
+
+Respuesta sugerida
+
+Para descargar tu Certificado de Examen, ingresá a tu Portal del Alumno y seleccioná la opción Certificados ubicada en el menú lateral. Allí podrás descargar el documento correspondiente.
+
+Recordá que el certificado estará disponible una vez que hayas rendido el examen o que la mesa haya sido procesada por el sistema.
+
+CERTIFICADO DE LIBRE DE DEUDA ADMINISTRATIVO
+
+¿Qué acredita?
+
+Certifica que el estudiante no registra deuda administrativa con la Universidad.
+
+📌 Este certificado es requerido para avanzar en la instancia de Visado Administrativo dentro de los procesos de titulación.
+
+Requisitos
+
+✅ No registrar deuda administrativa al momento de la solicitud.
+
+✅ Cumplir con las condiciones requeridas para la emisión del certificado.
+
+¿Dónde lo obtiene el estudiante?
+
+Desde el Portal del Alumno:
+
+Certificados → Certificado de Libre Deuda Administrativo
+
+Información para brindar al estudiante
+
+📌 El certificado se genera de manera autogestionada desde el Portal del Alumno.
+
+📌 Este documento puede ser solicitado durante el proceso de Visado Administrativo para validar la situación administrativa del estudiante.
+
+📌 Si el certificado no se encuentra disponible para descarga, se recomienda verificar previamente que no existan obligaciones administrativas pendientes.
+
+Respuesta sugerida
+
+Para descargar tu Certificado de Libre Deuda Administrativo, ingresá a tu Portal del Alumno y seleccioná la opción Certificados ubicada en el menú lateral.
+
+Allí podrás descargar el documento correspondiente, el cual puede ser requerido durante la instancia de Visado Administrativo de tu trámite de titulación.
+
+Recordá que para obtenerlo no debes registrar deuda administrativa pendiente.$pea0$, 'global', 'borrador', $pea0$https://kb-cau.21.edu.ar/servicios-cau/servicios/cetificados-constancias-y-analiticos$pea0$)
+on conflict (categoria_id, slug) do nothing;
+
+insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
+values ((select id from public.categorias where slug = $pea0$oferta-academica$pea0$), null, 27, $pea0$kb-27-modelo-academico$pea0$,
+        $pea0$Modelo académico$pea0$, $pea0$Información sobre tipologías de materias, condiciones de aprobación y mecanismos de evaluación académica en Universidad Siglo 21.$pea0$, $pea0$> **A validar:** contenido relevado de https://kb-cau.21.edu.ar/servicios-cau/servicios/modelo-academico el 2026-11-19. Revisalo antes de publicar.
+
+Información sobre tipologías de materias, condiciones de aprobación y mecanismos de evaluación académica en Universidad Siglo 21.
+
+INDICE:
+
+Tipologia de materias
+
+-
+
+-
+Universitario 21
+
+-
+Materias Sello
+
+-
+Materias Matriciales
+
+-
+Materias Programáticas
+
+-
+Materias de integración
+
+-
+Materias de proceso
+
+-
+Materias MIA
+
+-
+Materias MEC
+
+-
+Materias MIP
+
+-
+Materias MAP
+
+- Materias electivas
+
+- Materias gemelas
+
+Condiciones de aprobación
+
+-
+
+-
+Materias MEC
+
+-
+Materias MIA
+
+-
+Materias MIP
+
+-
+Materias MAP
+
+-
+Materias de verano
+
+Trabajos practicos
+
+Parciales
+
+Examenes Finales
+
+Materias especiales
+
+TIPOLOGIA DE MATERIAS
+
+📝 UNIVERSITARIO 21
+
+Es el sistema de ingreso obligatorio para todos los estudiantes inscriptos en carreras de Grado o Pregrado. Su propósito fundamental es guiar a los alumnos durante el primer tramo de sus estudios, facilitando su adaptación al modelo académico e institucional.
+
+Este sistema se compone de los siguientes elementos:
+
+Introducción a la Vida Universitaria
+
+Es el primer hito académico que debe cumplir el ingresante antes de comenzar el cursado de su carrera. En este espacio se brindan herramientas para conocer el funcionamiento de la universidad, el modelo de cursado, el sistema de evaluación y el uso de las plataformas informáticas. Su asistencia es obligatoria en todas las modalidades.
+
+Materias que la componen
+
+Universitario 21 contempla dos materias específicas que se integran al primer semestre de todas las carreras, independientemente de la modalidad de estudio elegida:
+
+-
+Aprender en el Siglo 21: Esta asignatura se centra en brindar herramientas para la autorregulación del aprendizaje, autogestión, autoconfianza y el desarrollo de competencias blandas y socioemocionales. Busca que el estudiante construya nuevos hábitos de estudio para transitar con éxito su recorrido académico.
+
+-
+Tecnología, Humanidades y Modelos Globales: Propone potenciar competencias vinculadas a los desafíos del contexto actual, como la globalización y los procesos tecnológicos. El objetivo es que el alumno comprenda el impacto de su desarrollo profesional en el mundo laboral moderno a través de soluciones innovadoras.
+
+Especificaciones y Requisitos
+
+Es una condición necesaria tener aprobadas estas materias para poder inscribirse a cursar materias del 4° cuatrimestre del plan de estudios.
+
+Algunos estudiantes pueden quedar exentos de cursarlas, entre ellos:
+
+-
+Ingresantes a Ciclos de Complementación Curricular (CCC).
+
+-
+Alumnos que ya posean el curso de nivelación o Universitario 21 aprobado por una carrera anterior en Siglo 21.
+
+-
+Estudiantes que cuenten con cinco (5) o más materias aprobadas en su legajo (ya sea por equivalencias externas o cursado previo).
+
+Estas materias se rigen por las mismas reglas de evaluación, vigencia y regularidad que el resto de las materias curriculares de la carrera según la modalidad elegida.
+
+📝 MATERIAS SELLO
+
+Las Materias Sello son componentes fundamentales del diseño curricular de la Universidad Siglo 21, caracterizadas por ser transversales a todos los programas de estudio de la institución. Su función principal es imprimir la identidad institucional en la formación de cada estudiante, independientemente de la carrera que curse.
+
+Las materias sello tienen como objetivo primordial fomentar los valores identitarios y las competencias institucionales propias de la Universidad. Buscan asegurar que todos los egresados, sin importar su especialidad, posean habilidades y actitudes alineadas con la misión de la institución.
+
+Materias que componen el bloque Sello:
+
+Dentro de la estructura curricular, las asignaturas que cumplen esta función específica son:
+
+-
+Desarrollo Emprendedor.
+
+-
+Emprendimientos Universitarios.
+
+-
+Grupo y Liderazgo.
+
+-
+Práctica Solidaria.
+
+-
+Idioma Extranjero.
+
+Estas materias se diferencian de las matriciales (que son transversales pero enfocadas en competencias genéricas) y de las programáticas (que son específicas de cada disciplina profesional).
+
+📝MATERIAS MATRICIALES
+
+Las Materias Matriciales son un componente del diseño curricular de la Universidad Siglo 21 concebidas con contenidos transversales a diversas disciplinas. A diferencia de las materias sello, que se enfocan en la identidad institucional, o las programáticas, que son específicas de una carrera, estas buscan integrar saberes de distintas áreas profesionales.
+
+El objetivo principal de estas materias es la adquisición y fortalecimiento de competencias profesionales genéricas e institucionales. Están diseñadas para que el estudiante no solo aprenda conceptos teóricos, sino que desarrolle habilidades aplicables en diversos contextos profesionales.
+
+Una característica distintiva de las materias matriciales es que reúnen a estudiantes de distintas carreras en un mismo espacio de aprendizaje. Esto fomenta:
+
+-
+A través de materiales, didácticas y prácticas compartidas que permiten la confluencia de disciplinas complementarias.
+
+-
+Se promueve el abordaje de problemas desde múltiples perspectivas profesionales simultáneamente.
+
+-
+Estas asignaturas están enfocadas en cultivar habilidades fundamentales para el mundo laboral moderno, tales como:
+
+-
+Para analizar situaciones complejas desde diversos ángulos.
+
+-
+Aprendiendo a colaborar con perfiles profesionales diferentes al propio.
+
+-
+Una visión integral de los desafíos contemporáneos, preparando al alumno para enfrentar realidades complejas con una perspectiva multidisciplinaria.
+
+Dentro del modelo académico, las materias matriciales actúan como un puente entre la formación en valores (sello) y la formación técnica específica (programática), asegurando que el profesional tenga una base sólida de competencias transversales antes de profundizar exclusivamente en su especialidad.
+
+📝 MATERIAS PROGRAMÁTICAS
+
+Las Materias Programáticas son aquellas asignaturas propias y específicas de cada formación disciplinar dentro de la Universidad Siglo 21. A diferencia de las materias sello o matriciales, sus contenidos y experiencias prácticas están diseñados para una titulación concreta, brindando los saberes particulares necesarios para el futuro ejercicio profesional.
+
+El objetivo fundamental de estas materias es que el estudiante adquiera una comprensión profunda y especializada de los principios, teorías y prácticas asociados a su campo de estudio. Esto le permite alcanzar un dominio sólido de saberes específicos, preparándolo para responder de manera efectiva a los desafíos del entorno laboral.
+
+El modelo académico organiza las materias programáticas en cuatro categorías, según la complejidad de las competencias que buscan desarrollar:
+
+Materias de Exploración y Conceptualización (MEC): Están orientadas al desarrollo de competencias genéricas básicas. Se centran en que el alumno pueda comprender hechos e ideas, recordar información y relevar datos y conceptos fundamentales.
+
+Materias de Integración y Aplicación (MIA): Buscan que el estudiante integre conocimientos y los aplique en situaciones prácticas. Ponen énfasis en examinar, identificar causas y utilizar el conocimiento en diversos contextos, promoviendo el debate y la interacción en foros.
+
+Materias de Intervención Profesional (MIP): Se enfocan en procesos cognitivos de mayor complejidad como crear, proponer y evaluar. El objetivo es que el alumno pueda proponer soluciones profesionales innovadoras y efectivas ante situaciones reales o hipotéticas.
+
+Materias de Aplicación Preprofesional (MAP): Están diseñadas para promover el desarrollo progresivo de competencias a través de prácticas en entornos reales o simulados. Estas materias facilitan la integración teórico-práctica desde los primeros años de la carrera a través de tres niveles de intervención: básica, intermedia y avanzada.
+
+Dinámica de Cursado y Evaluación:
+
+Contenidos: se basan en 4 módulos de lecturas y objetos de aprendizaje disponibles en la plataforma.
+
+Instancias evaluativas: generalmente contemplan 2 exámenes parciales y 4 trabajos prácticos (TPs).
+
+Corrección: dependiendo de la tipología, la corrección de los TPs puede ser automática (como en las MEC o algunos TPs de las MAP) o manual por parte del docente (como en las MIA o MIP).
+
+Transparencia: al momento de la inscripción, el alumno puede visualizar a qué tipología (MEC, MIA, MIP o MAP) corresponde cada materia de su plan de estudios.
+
+📝 MATERIAS DE INTEGRACIÓN
+
+Las Materias de Integración y Aplicación (MIA) son una tipología de materias programáticas diseñadas para proporcionar un espacio dinámico y colaborativo donde el estudiante pueda consolidar sus saberes mediante la práctica y el debate.
+
+El objetivo principal de estas materias es que los alumnos logren integrar y reflexionar sobre sus conocimientos, con un fuerte énfasis en examinar e identificar causas para aplicar lo aprendido en situaciones prácticas y contextos diversos. Requieren un proceso de comprensión y desarrollo de mayor complejidad cognitiva en comparación con las materias básicas.
+
+A diferencia de otras tipologías, las materias MIA solo están disponibles para las carreras del artículo 43 de la Ley de Educación Superior. Esto incluye específicamente las carreras de:
+
+-
+Abogacía.
+
+-
+Contador Público.
+
+-
+Licenciatura en Informática.
+
+-
+Licenciatura en Psicología.
+
+La metodología de evaluación en estas asignaturas presenta características particulares:
+
+-
+A diferencia de los exámenes de opción múltiple, los TPs poseen consignas que permiten un enfoque práctico y crítico, facilitando una evaluación más detallada.
+
+-
+El docente realiza la corrección de forma personalizada, con un plazo de demora de aproximadamente 5 días hábiles.
+
+-
+En los trabajos prácticos 2 y 3, se incorporan foros de participación obligatoria para promover el debate crítico entre pares. Cabe destacar que, aunque el foro es grupal, la entrega del TP sigue siendo individual.
+
+Estructura y Cursado
+
+Carga horaria: Tienen una dedicación prevista de 4 a 6 horas semanales.
+
+Duración: Su cursado es bimestral para las modalidades de distancia (ED, EDH y PH) y cuatrimestral para la modalidad Presencial.
+
+Evaluación: El esquema se compone de 2 exámenes parciales y 4 trabajos prácticos. Es importante notar que en esta tipología los trabajos prácticos no se pueden recuperar si se desaprueban o no se entregan a tiempo.
+
+📝MATERIAS DE PROCESO
+
+Las Materias de Proceso son asignaturas diseñadas para que el estudiante logre el pleno desarrollo de sus competencias mediante la aplicación de conocimientos en contextos reales o simulados. A diferencia de las materias programáticas comunes, estas vinculan los contenidos teóricos con la realidad práctica y la inmersión en organizaciones.
+
+El objetivo central es integrar los contenidos específicos y las competencias profesionales adquiridas a lo largo de la carrera. Estas materias permiten al alumno evolucionar en su pensamiento profesional, acercándose al ejercicio real de la profesión, la toma de decisiones y la búsqueda de soluciones innovadoras ante problemas complejos.
+
+Estas materias presentan una dinámica distinta al resto de las asignaturas:
+
+-
+Duración: Tienen una duración cuatrimestral (o semestral según la modalidad) para todas las modalidades de estudio, a diferencia del cursado bimestral de las materias comunes,,.
+
+-
+Evaluación: Su esquema contempla la realización de 4 trabajos prácticos (TPs), pero no tienen exámenes parciales.
+
+-
+Nota Final: En materias como Práctica Profesional y Práctica Solidaria, la nota final surge del promedio de los 4 TPs, debiendo ser este promedio de 4 o más para aprobar,.
+
+Dentro de los planes de estudio de Grado y Pregrado, las materias de proceso más relevantes son:
+
+-
+Práctica Profesional: Vinculación directa con el contexto profesional real (250 horas de práctica organizacional).
+
+-
+Práctica Solidaria: Participación activa en organizaciones sociales para fomentar valores y responsabilidad social,.
+
+-
+Seminario de Práctica (vinculado a EFIP I): Integra contenidos de materias nodales mediante el análisis de casos y fundamentos críticos.
+
+-
+Trabajo Final de Graduación (TFG): Proceso integral donde el alumno demuestra las destrezas asimiladas en su disciplina.
+
+-
+Integración Profesional (Pregrado): Enfocada en el diagnóstico de casos y aplicación de conceptos en situaciones reales.
+
+Las reglas para regularizar o aprobar estas materias son estrictas:
+
+Regularidad: Se requiere tener aprobados 3 de los 4 TPs con nota de 5 o más, siendo obligatorio aprobar el TP 4 con 5 o más,.
+
+Asistencia: En las modalidades presenciales (P, PH, PD) y ED, se exige el 75% de asistencia,.
+
+Limitaciones: Estas materias no pueden ser promocionadas ni rendidas en condición de "Libre por nota".
+
+Consecuencias: Si el estudiante no cumple con las condiciones de regularidad o aprobación al finalizar el cursado, la materia queda en condición de Libre y debe ser recursada obligatoriamente.
+
+📝MATERIAS MIA
+
+Las Materias de Integración y Aplicación (MIA) son una tipología de materias programáticas diseñadas para que el estudiante integre, reflexione y aplique sus conocimientos en situaciones prácticas y contextos diversos.
+
+El objetivo principal de estas materias es proporcionar un espacio dinámico y colaborativo para consolidar saberes mediante el debate y la interacción. Se distinguen por requerir un proceso de mayor complejidad cognitiva, enfocándose en que el alumno pueda examinar e identificar causas antes de aplicar lo aprendido en el campo profesional.
+
+Las materias MIA no son universales; están disponibles exclusivamente para las carreras del Artículo 43 de la Ley de Educación Superior, que en la institución incluyen:
+
+-
+Abogacía.
+
+-
+Contador Público.
+
+-
+Licenciatura en Informática.
+
+-
+Licenciatura en Psicología.
+
+La metodología de evaluación en las materias MIA tiene reglas específicas que las diferencian de otras tipologías:
+
+-
+Corrección Manual: A diferencia de las materias de corrección automática, aquí el docente corrige manualmente cada entrega en un plazo de aproximadamente 5 días hábiles, brindando una evaluación detallada y personalizada.
+
+-
+Entrega Única: Los trabajos prácticos se presentan por única vez dentro de la fecha establecida por el calendario académico, sin posibilidad de ser reenviados para mejorar la nota una vez entregados.
+
+-
+Consignas Abiertas: Los TPs cuentan con consignas que promueven un enfoque práctico y crítico en lugar de opciones múltiples.
+
+-
+Foros de Discusión Grupal: En los trabajos prácticos 2 y 3, es obligatoria la participación en foros, donde se busca el debate crítico entre pares; no obstante, la entrega final del TP sigue siendo individual.
+
+Estructura y Requisitos de Aprobación
+
+Carga Horaria y Duración: Tienen una carga de 4 a 6 horas semanales y su duración puede ser bimestral o cuatrimestral según la modalidad de estudio.
+
+Esquema Evaluativo: El cursado consta de 2 exámenes parciales y 4 TPs.
+
+Condición de Regularidad: Para regularizar, el alumno debe aprobar al menos 3 de los 4 TPs con nota de 5 o más y ambos parciales con 5 o más.
+
+Asistencia: Se exige un 75% de asistencia en modalidades presenciales y en Educación Distribuida (no aplica para Distribuida Home).
+
+Promoción Directa: Se logra aprobando 3 de 4 TPs con nota 7 o más y ambos parciales (o recuperatorio/integrador) con nota 7 o más.
+
+📝 MATERIAS MEC
+
+Las Materias de Exploración y Conceptualización (MEC) son una tipología de materias programáticas diseñadas para proporcionar los fundamentos básicos y el desarrollo de competencias genéricas en todas las carreras de la Universidad,.
+
+El objetivo central de estas materias es que el estudiante logre comprender hechos e ideas básicos, sea capaz de encontrar y recordar información, y pueda relevar datos y conceptos fundamentales. Están orientadas al desarrollo de competencias iniciales y cuentan con una carga horaria de entre 2 y 3 horas semanales.
+
+Las materias MEC tienen reglas de evaluación únicas que buscan fomentar la práctica constante:
+
+-
+Los TPs se realizan en la plataforma y el sistema arroja el resultado de forma inmediata.
+
+-
+El estudiante puede realizar los TPs la cantidad de veces que desee hasta la fecha de cierre del periodo,. El sistema siempre conservará y validará la última nota obtenida.
+
+-
+Incluyen un Foro de Evaluación de Pares para fomentar el diálogo y la mejora continua a través del feedback docente.
+
+Valoración de Tiempo de Entrega (VTE)
+
+-
+Esta es una característica exclusiva de las materias MEC que premia la organización del alumno:
+
+-
+Se aplica un descuento de puntos (5 puntos por cada día de demora) si el TP se entrega después de la "Fecha de Entrega" pero antes de la "Fecha Fin de Periodo".
+
+-
+El sistema asegura que este descuento nunca hará que la nota sea menor a 5 (nota mínima de aprobación), por lo que el alumno no desaprobará el TP solo por entregarlo tarde.
+
+Estructura y Cursado:
+
+Duración: Su cursado es bimestral para las modalidades a distancia (ED, EDH y PH) y cuatrimestral para la modalidad Presencial,,.
+
+Esquema evaluativo: Se compone de 2 exámenes parciales y 4 trabajos prácticos,.
+
+Casos específicos: Materias como Portugués Avanzado I y II se rigen bajo esta tipología MEC.
+
+Requisitos de Regularidad y Promoción:
+
+Para alcanzar las distintas condiciones académicas en una materia MEC, se requiere:
+
+Regularidad: Aprobar al menos 3 de los 4 TPs (nota 5+) y ambos parciales (nota 5+).
+
+Promoción Directa: Aprobar 3 de los 4 TPs (nota 7+) y ambos parciales (nota 7+).
+
+Asistencia: En las modalidades que lo requieren (P, PH y ED), se exige el 75% de asistencia.
+
+📝 MATERIAS MIP
+
+Las Materias de Intervención Profesional (MIP) son una tipología de materias programáticas diseñadas para que el estudiante aplique sus conocimientos en la creación de soluciones profesionales efectivas ante situaciones reales o hipotéticas. Representan un nivel de formación donde se abordan procesos cognitivos de alta complejidad, como crear, proponer y evaluar.
+
+El objetivo central de estas materias es proporcionar un espacio de aplicación práctica orientado a la resolución de problemas. Se busca que el alumno desarrolle una capacidad de evaluación crítica y sea capaz de generar propuestas innovadoras integrando los saberes específicos de su formación profesional.
+
+Carreras Destinatarias:
+
+Al igual que las materias MIA, las materias MIP son exclusivas para las carreras del Artículo 43 de la Ley de Educación Superior, las cuales son:
+
+-
+Abogacía.
+
+-
+Contador Público.
+
+-
+Licenciatura en Informática.
+
+-
+Licenciatura en Psicología.
+
+Estructura y Cursado:
+
+Duración: A diferencia de otras materias programáticas que pueden ser bimestrales, las MIP están diseñadas para cursarse exclusivamente de manera cuatrimestral en todas las modalidades de estudio.
+
+Carga horaria: Requieren una dedicación de 6 o más horas semanales.
+
+Esquema evaluativo: El cursado consta de 2 exámenes parciales y 4 trabajos prácticos.
+
+Dinámica de los Trabajos Prácticos (TPs):
+
+La metodología de los TPs en las MIP tiene requisitos estrictos de entrega y corrección:
+
+Entrega Única: Los trabajos prácticos se presentan una sola vez dentro de la fecha de vencimiento. No existe la posibilidad de reenvío ni de recuperación si se desaprueban o no se entregan.
+
+Corrección Manual: Son corregidos por el docente en un plazo de 5 días hábiles.
+
+Consignas Abiertas: Las tareas consisten en producciones escritas de complejidad progresiva en lugar de opciones múltiples.
+
+Foros Obligatorios: En los TP 1 y TP 3, se incorporan foros de discusión grupal obligatorios para fomentar el debate crítico. Aunque el intercambio es grupal, la entrega final del TP sigue siendo individual.
+
+Requisitos de Regularidad y Promoción:
+
+Para estas materias, el cumplimiento de los plazos y la aprobación de instancias clave es fundamental:
+
+Regularidad: Se deben aprobar 3 de los 4 TPs y ambos parciales con nota 5 o más. Es obligatorio aprobar el 4° TP con nota de 5 o más para no quedar libre.
+
+Promoción Directa: Requiere aprobar 3 de los 4 TPs con nota 7 o más (siendo el 4° TP obligatorio con 5 o más) y ambos parciales con nota 7 o más.
+
+Asistencia: Se exige un 75% de asistencia en las modalidades presenciales y Educación Distribuida.
+
+📝 MATERIAS MAP
+
+Las Materias de Aplicación Preprofesional (MAP) son una tipología innovadora dentro del diseño curricular de la Universidad Siglo 21, orientadas a promover el desarrollo progresivo de competencias profesionales específicas a través de prácticas en entornos reales o simulados. Su propósito fundamental es facilitar la integración teórico-práctica desde los primeros años de la formación académica.
+
+Niveles de Intervención:
+
+Las MAP están diseñadas para guiar al estudiante a través de tres niveles de complejidad creciente:
+
+-
+Intervención Básica: Primer acercamiento mediante observación no participante y análisis de casos en contextos cercanos o situaciones simuladas de bajo riesgo.
+
+-
+Intervención Intermedia: Aplicación de conocimientos en contextos reales y participación en proyectos de extensión (como PAT, PIC y SEC) o comunidades de práctica.
+
+-
+Intervención Avanzada: Colaboración directa con organizaciones (públicas, privadas u ONGs) enfrentando desafíos auténticos del entorno laboral. Los estudiantes en este nivel cuentan con un seguro gestionado por la Universidad para cubrir contingencias en la organización.
+
+Dinámica de los Trabajos Prácticos (TPs)
+
+Estas materias combinan dos metodologías de evaluación distintas para sus 4 trabajos prácticos:
+
+-
+TP 1 y TP 3 (Opción Múltiple): Son de calificación automática en Canvas y pueden resolverse tantas veces como sea necesario hasta el cierre del periodo, conservando el sistema la última nota obtenida.
+
+-
+TP 2 y TP 4 (Consigna Abierta): Requieren una producción individual escrita donde el alumno aplica la teoría a la práctica preprofesional que está desarrollando. La corrección es manual por parte del docente mediante una rúbrica de evaluación.
+
+Herramientas Específicas: DreamShaper y VTE
+
+-
+DreamShaper: Es una plataforma online utilizada en ciertas materias MAP para desarrollar los TP 2 y 4. A través de un recorrido guiado, el estudiante trabaja sobre un reto real vinculado a una organización; si bien las actividades de aprendizaje pueden ser grupales, la entrega final del TP en Canvas es individual.
+
+-
+Valoración de Tiempo de Entrega (VTE): Al igual que en las materias MEC, se aplica un descuento de 5 puntos por cada día de demora si el TP se entrega después de la fecha límite, pero la nota nunca será menor a 5 (nota mínima de aprobación) por este motivo.
+
+Estructura de Cursado y Evaluación
+
+Duración y Carga Horaria: El cursado puede ser bimestral o cuatrimestral según la modalidad, con una dedicación prevista de 4 a 8 horas semanales dependiendo del nivel de intervención.
+
+Esquema Evaluativo: Consta de 2 exámenes parciales y los 4 TPs mencionados.
+
+Condiciones Académicas:
+
+-
+Regularidad: Aprobar 3 de 4 TPs y ambos parciales con nota 5 o más.
+
+-
+Promoción Directa: Aprobar 3 de 4 TPs y ambos parciales con nota 7 o más.
+
+-
+Asistencia: Se exige un 75% de asistencia en las modalidades presenciales y Educación Distribuida.
+
+📝 MATERIAS ELECTIVAS
+
+Generalidades :
+
+- Las materias optativas son obligatorias para completar carreras de grado.
+
+- Se organizan en agrupadores (ELEC01 y/o ELEC02) según el plan de estudios.
+
+- El estudiante solo puede cursar 1 (una) o 2 (dos) electivas según su plan de estudios, no podrá cursar una 3er y 4ta electiva.
+
+- El estudiante solo puede inscribirse en las materias habilitadas para su carrera; no corresponde solicitar otras materias como optativas.
+
+- Deben cursar en la misma modalidad y período de apertura de la carrera de origen.
+
+- Las materias de Idioma no pueden cursarse como optativas.
+
+- Los estudiantes ED solo pueden cursar optativas en modalidad EDH.
+
+- La oferta vigente de materias optativas se encuentra publicada en La Nube.
+
+Validaciones
+
+Validar siempre plan de estudios, créditos requeridos y agrupadores habilitados antes de informar opciones de inscripción.
+
+Carrera |  Plan |  Créditos | Electivas |
+
+Abogacía |  2018 |  8 créditos |
+
+Abogacía |  2021 / 2022 |  4 créditos |
+
+Contador Público |  2018 |  12 créditos |
+
+Contador Público |  2021 / 2022 |  8 créditos |
+
+Licenciada en Informática |  Cualquier plan |  8 créditos |
+
+Psicología |  Cualquier plan |  No posee materias electivas |
+
+Resto de carreras |  Cualquier plan |  8 créditos |
+
+Equivalencia orientativa
+4 créditos = 1 materia electiva (agrupador Elect 1).
+8 créditos = hasta 2 materias electivas (agrupador Elect 1 y Elect 2).
+
+Speech para Abogacía / carreras que requieren 4 créditos
+
+Te informamos que, como parte de tu plan de estudios, tu carrera contempla una materia electiva correspondiente al agrupador Electiva I. Ya cumpliste con esa electiva, no corresponde avanzar con la inscripción a Electiva II ni a nuevas materias electivas adicionales, ya que exceden lo previsto en tu plan.
+
+Podés continuar avanzando con las materias habilitadas de tu carrera desde tu Portal Estudiante.
+
+Speech para carreras que requieren 8 créditos
+
+Te informamos que, como parte de tu plan de estudios, tu carrera contempla dos materias electivas: una correspondiente a Electiva I y otra a Electiva I I. Ya cumpliste con ambas materias, no corresponde avanzar con la inscripción a una tercera o cuarta materia electiva, ya que exceden la cantidad prevista en tu plan de estudios.
+
+Podés continuar avanzando con las materias habilitadas de tu carrera desde tu Portal Estudiante.
+
+Carreras de Grado
+
+- Cambio de plan: las materias aprobadas en el plan anterior que no forman parte del nuevo plan pueden reconocerse como créditos electivos. No aplica para materias de idioma.
+
+- Cambio de carrera, segunda carrera o doble titulación: las materias aprobadas en la primera carrera que no forman parte de la segunda pueden reconocerse como créditos electivos. Incluye materias de idioma.
+
+Carreras de Pregrado
+
+- Las materias aprobadas en carreras de pregrado finalizadas pueden reconocerse como créditos electivos en carreras de grado.
+
+Programas de materias Electivas:
+
+Indicar al alumno que se contacte con el/la director/a de su carrera.
+
+Las materias optativas que se le habiliten para inscribirse, SIEMPRE SON RECOMENDADAS Y HABILITADAS POR EL DIRECTOR DE LA CARRERA.
+
+📝 MATERIAS GEMELAS
+
+Las materias gemelas son iguales en sus contenidos y evaluación a otra pero puede que tengan diferente nombre.
+
+Se define en general una materia “madre” y las otras de distinta denominación son sus “hijas” . → pero su contenido es el mismo.
+
+🔗 Listado de materias gemelas
+
+CONDICIONES DE APROBACIÓN
+
+Según el reglamento institucional detallado en el apartado 4.5.8 CONDICIONES DE APROBACIÓN del Modelo Académico, las exigencias varían según la tipología de la materia. A continuación, se detallan los requisitos para cada una:
+
+Requisitos Comunes Generales
+
+Para todas las tipologías (excepto en submodalidad EDH), se exige un 75% de asistencia en las modalidades que así lo requieran.
+Aquellos en condición Regular rinden un examen de 30 preguntas, mientras que los de condición Libre por Nota rinden uno de 50 preguntas. Las modalidades P, PH y PD incluyen además un examen oral.
+Para las promociones, la calificación surge del promedio de los 4 TPs, los 2 parciales (o recuperatorio/integrador) y la Nota de Proceso en caso de modalidad presencial
+
+✅ Materias de Exploración y Conceptualización (MEC)
+
+Estas materias se centran en el entendimiento básico de conceptos y permiten la re-entrega de TPs.
+
+- Regularidad: Aprobar 3 de 4 TPs con nota de 5 o más y los 2 parciales con nota 5 o más (puede mediar recuperatorio o integrador).
+
+- Promoción Directa: Aprobar 3 de 4 TPs con nota de 7 o más, los 2 parciales con nota de 7 o más y tener las correlativas aprobadas.
+
+- Promoción Indirecta: Aprobar 4 de 4 TPs con nota de 7 o más, los 2 parciales con nota de 5 o 6 y tener las correlativas aprobadas.
+
+- Nota: Se aplica la Valoración de Tiempo de Entrega (VTE), descontando 5 puntos por día de demora sin bajar de la nota mínima de 5.
+
+✅ Materias de Integración y Aplicación (MIA)
+
+Exclusivas para carreras del artículo 43, requieren mayor complejidad y participación en foros.
+
+- Regularidad: Aprobar 3 de 4 TPs dentro de la fecha de vencimiento con nota 5 o más, participar obligatoriamente en los foros y aprobar 2 parciales con nota 5 o más.
+
+- Promoción Directa: Aprobar 3 de 4 TPs con nota 7 o más, participar en foros, aprobar 2 parciales con nota 7 o más y tener las correlativas aprobadas.
+
+- Promoción Indirecta: Aprobar 4 de 4 TPs con nota 7 o más, participar en foros, aprobar 2 parciales con nota 5 o 6 y tener las correlativas aprobadas.
+
+- Importante: En los TPs 2 y 3 se incorporan foros de discusión grupal de carácter obligatorio.
+
+✅ Materias de Intervención Profesional (MIP)
+
+Orientadas a la creación de soluciones profesionales con procesos cognitivos complejos.
+
+- Regularidad: Aprobar 3 de 4 TPs con nota 5 o más, siendo obligatorio aprobar el 4º TP con nota de 5 o más. Requiere participación en foros y 2 parciales con nota 5 o más.
+
+- Promoción Directa: Aprobar 3 de 4 TPs con nota 7 o más, siendo obligatorio aprobar el 4º TP con 5 o más, participar en foros, aprobar 2 parciales con 7 o más y tener correlativas aprobadas.
+
+- Promoción Indirecta: Aprobar 4 de 4 TPs con nota 7 o más, siendo obligatorio aprobar el 4º TP con 5 o más, participar en foros, aprobar 2 parciales con nota 5 o 6 y tener correlativas aprobadas.
+
+- Importante: Los foros obligatorios se integran en los TP1 y TP3.
+
+✅ Materias de Aplicación Preprofesional (MAP)
+
+Integran teoría y práctica en entornos reales o simulados a través de diversos niveles de intervención.
+
+- Regularidad: Aprobar 3 de 4 TPs con nota de 5 o más y 2 parciales con nota 5 o más.
+
+- Promoción Directa: Aprobar 3 de 4 TPs con nota 7 o más, 2 parciales con nota 7 o más y tener correlativas aprobadas.
+
+- Promoción Indirecta: Aprobar 4 de 4 TPs con nota 7 o más, 2 parciales con nota 5 o 6 y tener correlativas aprobadas.
+
+- Nota: Al igual que en las MEC, se aplica la VTE con descuento de puntos por demora, pero sin bajar de la nota
+
+✅ Materias de verano
+
+Es un esquema de cursado intensivo que se realiza bajo la modalidad EDH (virtual) para todos los alumnos, independientemente de su modalidad de origen. La inscripción a materias para cursar en período verano está disponible, en todas las modalidades, únicamente para personas que se reinscriban al cursado, quedando excluidas las personas ingresantes a carreras.
+
+Podrán inscribirse a cursar hasta un máximo de 4 (cuatro) materias.
+
+Si el alumno alcanza la condición de Regular, deberá rendir el examen final bajo las reglas de su modalidad de origen.
+
+Las exigencias para determinar el estado final del alumno al terminar el cursado de verano se resumen en:
+Regularidad:
+
+- Trabajos Prácticos: Aprobar 3 de 4 TPs con nota de 5 o más.
+
+- Parciales: Aprobar 2 parciales con nota de 5 o más (puede mediar Recuperatorio o Integrador).
+
+- Evaluación Final: Debe rendir un examen de 30 preguntas.
+
+- Nota: La calificación final será la obtenida en dicho examen.
+
+Promoción Directa:
+
+- Trabajos Prácticos: Aprobar 3 de 4 TPs con nota de 7 o más.
+
+- Parciales: Aprobar 2 parciales con nota de 7 o más (admite Recuperatorio o Integrador).
+
+- Correlatividades: Deben estar aprobadas.
+
+- Beneficio: La materia queda aprobada sin rendir examen final.
+
+Promoción Indirecta:
+
+- Trabajos Prácticos: Aprobar 3 de 4 TPs con nota de 5 o más.
+
+- Parciales: Aprobar 2 parciales con nota de 5 o más.
+
+- Correlatividades: Deben estar aprobadas.
+
+- Beneficio: Al igual que en la directa, la materia se considera aprobada.
+
+Libre por Nota:
+
+- Ocurre cuando no se cumplen las condiciones de regularidad mencionadas.
+
+- El alumno debe rendir un examen final de 50 preguntas.
+
+Libre:
+
+- Si no alcanza ninguna de las condiciones anteriores, el alumno pierde la materia y debe recursarla.
+
+Nota Final de AprobaciónPara los casos de Promoción (Directa o Indirecta), la nota surge del promedio de los 4 TPs, los 2 parciales (o nota de Recuperatorio/Integrador) y la Nota de Proceso en caso de pertenecer a la modalidad Presencial .
+
+TRABAJOS PRÁCTICOS
+
+Los Trabajos Prácticos (TPs) son instancias de evaluación de proceso que permiten al estudiante aplicar los conocimientos teóricos de cada módulo de manera gradual y práctica.
+
+A continuación, se explican los detalles de su funcionamiento según las fuentes:
+
+¿Qué son los Trabajos Prácticos?:
+
+Se definen como evaluaciones de proceso centradas en los principales ejes temáticos de cada uno de los 4 módulos de una materia. Su objetivo es que el alumno trabaje en la transferencia de contenidos y la construcción de soluciones a problemáticas propias de su disciplina profesional.
+
+Cantidad de trabajos:
+
+Normalmente, cada materia curricular contempla la realización de 4 Trabajos Prácticos. En las materias de proceso (como Prácticas o Seminarios) también se mantiene este esquema de 4 entregas.
+
+Obligatoriedad:
+
+Para el cursado: La realización de los 4 TPs es de carácter obligatorio para todos los estudiantes.
+
+Para la regularidad: Es condición necesaria aprobar al menos 3 de los 4 TPs con una nota mínima de 5 (o 50 puntos).
+
+TP 4 Obligatorio: En ciertas tipologías, como las materias MIP o las Materias de Proceso, es requisito indispensable aprobar obligatoriamente el TP 4 para no quedar libre, independientemente de la nota de los demás.
+
+Recuperación:
+
+La posibilidad de recuperar o rehacer un trabajo depende exclusivamente de la tipología de la materia:
+
+-
+MEC y MAP (TP 1 y 3): Los trabajos pueden rehacerse de manera ilimitada dentro de los plazos del calendario académico. El sistema siempre conservará la última nota obtenida.
+
+-
+MIA y MIP: Los trabajos se presentan por única vez. No existe la posibilidad de recuperarlos ni de reenviarlos si se desaprueban o si el plazo vence.
+
+Participación en la nota final:
+
+Las notas de los 4 TPs forman parte del promedio para el cálculo de la nota final de la materia.
+
+Si un estudiante no entrega un trabajo, se le asigna una calificación de 0 (cero), la cual se promedia con el resto de las instancias.
+
+En las promociones (directa o indirecta), la nota final surge del promedio de los 4 TPs y los 2 parciales (dividido por 6).
+
+Diferencias según la Tipología de Materia
+
+El reglamento establece dinámicas distintas para las entregas según el tipo de materia:
+
+-
+MEC (Exploración): Corrección automática. Se permite el reenvío ilimitado. Aplica la Valoración de Tiempo de Entrega (VTE), que descuenta 5 puntos por día de demora sin bajar de la nota 5.
+
+-
+MIA (Integración): Corrección manual por el docente (hasta 5 días hábiles). Se incorpora la participación obligatoria en foros en los TPs 2 y 3. No admite VTE ni reenvíos.
+
+-
+MIP (Intervención): Corrección manual. Es obligatorio aprobar el TP 4. Incluye participación obligatoria en foros en los TPs 1 y 3. No admite reenvíos.
+
+-
+MAP (Aplicación): Formato mixto. Los TP 1 y 3 son de opción múltiple con corrección automática y reenvío ilimitado. Los TP 2 y 4 son de consigna abierta con corrección manual, enfocados en la práctica real o simulada. Pueden utilizar herramientas como DreamShaper.
+
+PARCIALES
+
+Siguiendo el modelo académico de la Universidad Siglo 21, el sistema de evaluación contempla diversas instancias de exámenes de término para valorar el conocimiento de los estudiantes.
+
+📌 Parcial 1 y Parcial 2
+
+Son las instancias obligatorias de evaluación por módulos.
+
+Contenidos: El Parcial 1 evalúa los módulos 1 y 2 de la materia; el Parcial 2 evalúa los módulos 3 y 4.
+
+Formato: Constan de 20 preguntas de opción múltiple.
+
+Cronograma (Semanas):
+
+-
+Modalidad Distancia (ED/EDH): El primer parcial se rinde entre la semana 1 y 4, y el segundo entre la semana 5 y 8.
+
+-
+Modalidad Presencial (P): Se rinden en las semanas 6-7 (P1) y 13-14 (P2).
+
+-
+Modalidad Presencial Home (PH): Se rinden en las semanas 3-4 (P1) y 7-8 (P2).
+
+📌 Examen Recuperatorio
+
+Es una instancia para regularizar la situación académica tras un inconveniente en un parcial.
+
+Cuándo corresponde: Se puede rendir si se obtuvo una nota menor a 5 en un parcial o si se estuvo ausente en uno de ellos.
+
+Mejora de nota: También permite recuperar un parcial aprobado con menos de 7 para intentar alcanzar la Promoción Directa.
+
+Contenido: Evalúa únicamente los temas del parcial que se está recuperando (P1 o P2) y consta de 20 preguntas.
+
+Regla de reemplazo: La nota obtenida en el recuperatorio siempre reemplaza a la nota del parcial original, sin importar si es mayor o menor.
+
+📌 Examen Integrador
+
+Es una instancia de mayor alcance que unifica los contenidos de toda la materia.
+
+Cuándo corresponde: Se rinde cuando el alumno ha desaprobado ambos parciales, ha estado ausente en ambos, o una combinación de estas situaciones.
+
+Uso opcional: También pueden rendirlo quienes tengan notas de 5 o 6 en ambos parciales y busquen acceder a la Promoción.
+
+Contenido: Es un examen de 30 preguntas que abarca los contenidos de los 4 módulos (Parcial 1 y Parcial 2).
+
+Regla de reemplazo: La nota del integrador reemplaza la calificación de ambos parciales.
+
+Nota Mínima y Escala
+
+Aprobación: La nota mínima para aprobar cualquier instancia (Parcial, Recuperatorio o Integrador) es 5 (cinco).
+
+Relación de preguntas:
+
+-
+En exámenes de 20 preguntas (Parcial/Rec): Se aprueba con 9 respuestas correctas.
+
+-
+En exámenes de 30 preguntas (Integrador): Se aprueba con un rango de 13 a 15 respuestas correctas según la escala aritmética.
+
+Las Materias de Proceso (como Práctica Profesional o Solidaria) representan la excepción a este esquema, ya que no tienen exámenes parciales y su evaluación se basa exclusivamente en 4 trabajos prácticos.
+
+⚠️ ¿Qué sucede si falta?
+
+Si falta a un parcial, debe rendir el Recuperatorio. Si falta a ambos, debe rendir el Integrador.
+
+La inasistencia por razones personales, médicas o laborales no autoriza la reprogramación del examen; se registra como "Ausente" y el alumno debe usar la instancia de recuperación disponible.
+
+Si un estudiante se inscribe para un Recuperatorio o Integrador y no se presenta, el sistema le asigna automáticamente una nota de 0 (cero), la cual se utiliza para el promedio final de la materia.
+
+EXÁMENES FINALES
+
+En el marco del sistema de evaluación Eva21, la Universidad Siglo 21 establece distintas instancias de exámenes finales y de integración para asegurar la formación por competencias. A continuación, se detallan las características de cada uno:
+
+📌 Final Regular
+
+Es el examen que rinden los alumnos que han alcanzado la condición de Regular en una materia.
+
+-
+Formato: Consta de un examen escrito de 30 preguntas de opción múltiple.
+
+-
+Evaluación: Se utiliza una escala logarítmica y se aprueba con una nota mínima de 4 (equivalente a 14 respuestas correctas).
+
+-
+Modalidad: En modalidades virtuales es solo escrito; en modalidades P, PH y PD incluye además una instancia oral obligatoria tras aprobar el escrito.
+
+-
+Vigencia: El alumno tiene un plazo de 18 meses y hasta 3 oportunidades (los ausentes cuentan como oportunidad consumida).
+
+📌 Final Libre (por Nota o Inasistencia)
+
+Corresponde a los estudiantes que no alcanzaron la regularidad pero cumplen con los requisitos mínimos para no recursar directamente.
+
+-
+Formato: Examen escrito de 50 preguntas de opción múltiple.
+
+-
+Evaluación: Escala logarítmica, se aprueba con nota mínima de 4 (equivalente a 24 respuestas correctas).
+
+-
+Modalidad: Al igual que el regular, incluye instancia oral para modalidades presenciales (P, PH y PD).
+
+-
+Vigencia: El plazo es más acotado, generalmente de 3 a 6 meses, y cuenta con una sola oportunidad de examen (el aplazo o ausencia implica recursar la materia).
+
+📌 Examen Integrador
+
+A diferencia de los finales de carrera, esta es una instancia de término de cursado para definir la condición académica del alumno.
+
+-
+Propósito: Se rinde cuando el alumno desaprueba ambos parciales, falta a ambos, o desea subir sus notas de 5 o 6 para alcanzar la Promoción.
+
+-
+Estructura: Consta de 30 preguntas que abarcan los contenidos de los 4 módulos de la materia.
+
+-
+Calificación: Utiliza una escala aritmética y se aprueba con nota 5 (13 a 15 respuestas correctas). La nota obtenida siempre reemplaza a las de los parciales originales.
+
+📌 EFIP I (Examen Final Integrador Presencial I)
+
+Es una instancia obligatoria para alumnos de Carreras de Grado en Modalidad Distancia (ED y EDH).
+
+-
+Objetivo: Evalúa la integración de conocimientos y competencias de los módulos 1 a 6 de la carrera. Es requisito para obtener el Título Intermedio.
+
+-
+Instancias: Incluye una evaluación de Integración Curricular (escrita y oral) y un módulo de Idioma Extranjero (si la carrera lo posee).
+
+-
+Requisitos: Tener regular la materia Seminario de Práctica (o similar) y tener aprobadas todas las materias correlativas del plan.
+
+-
+Importancia: Su aprobación es necesaria para poder cursar las materias del 7° y 8° cuatrimestre.
+
+📌 EFIP II (Examen Final Integrador Presencial II)
+
+Es la instancia final de integración previa a la graduación para la Modalidad Distancia.
+
+-
+Condición de acceso: El alumno debe tener aprobadas todas las materias del plan (incluyendo electivas y Práctica Solidaria) y el Seminario Final en condición de Regular.
+
+-
+Contenidos: Evalúa los conocimientos nodales de los módulos 7 y 8 y la integración global del perfil profesional.
+
+-
+Dinámica: Consta de una instancia escrita; si se aprueba, se accede al examen oral ante un tribunal evaluador.
+
+-
+Finalidad: Es requisito obligatorio y previo para poder realizar la Defensa Oral del Trabajo Final de Graduación (TFG).
+
+MATERIAS ESPECIALES
+
+Dentro de la tipología de Materias de Proceso, la Universidad Siglo 21 incluye dos instancias fundamentales de vinculación con el medio: la Práctica Profesional y la Práctica Solidaria.
+
+A continuación, se detalla la información solicitada para cada una:
+
+📝 Práctica Profesional (PP)
+
+¿Qué es?: Es una materia de integración curricular donde el estudiante transita una experiencia de formación a través de la vinculación directa con su contexto profesional real. Su objetivo es aplicar los conocimientos adquiridos a lo largo de la carrera para identificar oportunidades y formular propuestas fundamentadas en una organización.
+
+¿Cuándo se cursa?: Tiene una duración cuatrimestral (semestral) en todas las modalidades. El alumno debe cumplimentar 250 horas de práctica organizacional, realizando entre 20 y 25 horas semanales para asegurar su cumplimiento en el periodo establecido.
+
+Condición de aprobación:
+
+-
+Trabajos Prácticos: Se deben aprobar 3 de los 4 TPs con nota de 5 o más, siendo el TP 4 de aprobación obligatoria.
+
+-
+Evaluación de Desempeño: Es necesario obtener una nota mayor o igual a 7 (siete) en la evaluación realizada por la organización.
+
+-
+Asistencia: En las modalidades Presencial y Presencial Home (P y PH), se exige el 75% de asistencia.
+
+-
+Nota Final: La materia queda aprobada cuando el promedio de los 4 TPs sea de 4 o más; no hay examen final.
+
+-
+Requisito de Correlatividades: Todas las materias correlativas deben estar aprobadas; de lo contrario, la materia queda en estado "Regular" hasta que se aprueben.
+
+📝 Práctica Solidaria (PS)
+
+¿Qué es?: Es una materia obligatoria que consiste en la participación activa en organizaciones sociales para realizar tareas comunitarias. Busca formar profesionales con conciencia ética, solidaria y responsabilidad social, vinculándolos con realidades sociales fuera de su disciplina específica de estudio.
+
+¿Cuándo se cursa?: Puede cursarse a partir del tercer cuatrimestre de la carrera de grado. El alumno debe cumplir al menos 3 horas semanales de servicio comunitario durante 16 semanas en una organización validada por el docente. No tiene costo adicional para el alumno.
+
+Condición de aprobación:
+
+-
+Trabajos Prácticos: Requiere aprobar 3 de los 4 TPs con nota 5 o más, siendo el TP 4 de aprobación obligatoria.
+
+-
+Evaluación de Desempeño: Se debe obtener una nota mayor o igual a 5 en la evaluación realizada por la organización social.
+
+-
+Asistencia: En modalidades P, PH y PD, se exige el 75% de asistencia a las clases presenciales o encuentros sincrónicos.
+
+-
+Nota Final: Al igual que la PP, se aprueba con un promedio mínimo de 4 entre los 4 TPs y no cuenta con instancia de examen final.
+
+-
+Correlatividades: La condición de "Aprobada" está sujeta al cumplimiento del régimen de correlatividades del plan de estudios.
+
+📝 Idioma Inglés
+
+¿Quiénes deben cursarlo?: Es obligatorio para todas las carreras de Grado, con excepción de: Abogacía, Contador Público, Diseño Gráfico y Publicidad.
+
+¿Cómo funciona el Placement Test?: Es un examen de nivelación único de 100 preguntas (con duración de 1 a 2 horas) que determina en cuál de los 10 niveles comenzará el alumno según sus conocimientos previos. Se realiza una sola vez antes de iniciar el cursado; si se pierde la regularidad, debe rendirse nuevamente.
+
+¿Cómo se obtiene la regularidad?: Se alcanza al cumplir uno de estos dos requisitos:
+
+-
+Aprobar 6 niveles consecutivos con una nota del 70% o más.
+
+-
+Llegar y aprobar el nivel más alto (Advanced 3).
+
+-
+En las modalidades presenciales (P, PH, PD) se exige además el 75% de asistencia.
+
+¿Cómo se aprueba?: Una vez regular, el alumno debe rendir un Examen Final Integrador presencial en el CAU. Consta de 50 preguntas de opción múltiple y se aprueba con una nota mínima de 4.
+
+¿Quiénes pueden solicitar la eximición?:
+
+-
+Alumnos ubicados directamente en Advanced 3 por el Placement Test (eximidos de cursado, rinden directo el final).
+
+-
+Poseedores de títulos oficiales de validez nacional (Licenciado, Profesor o Traductor de Inglés).
+
+-
+Quienes presenten certificaciones internacionales de nivel B2 o superior.
+
+📝Idioma Portugués
+
+Qué carreras lo cursan: Exclusivo para las licenciaturas en Gestión Turística, Comercio Internacional y Administración Hotelera.
+
+Correlatividades: Es correlativa directa de Inglés. Se debe tener aprobado el Examen Integrador de Inglés antes de iniciar Portugués. A su vez, Portugués I es correlativa de Portugués II.
+
+Modalidad: Es 100% virtual a través de la plataforma SAM para todas las modalidades de la Universidad.
+
+Aprobación: Se rigen bajo la tipología de materias MEC (Exploración y Conceptualización). Para aprobar, se debe:
+
+-
+Lograr la regularidad (aprobar 3 de 4 TPs —siendo el TP4 obligatorio— y 2 parciales con nota 5 o más).
+
+-
+Rendir un examen final (30 preguntas para regulares o 50 para libres) y aprobar con nota mínima de 4.
+
+Eximición: Se otorga a quienes presenten el certificado Celpe-Bras (Certificado de Proficiência em Língua Portuguesa para Estrangeiros) en niveles intermedio o superior.
+
+📝Seminario de Práctica
+
+Esta asignatura es una materia de proceso clave para la integración de conocimientos antes de alcanzar hitos evaluativos mayores.
+
+Objetivo: Integrar los contenidos de las materias nodales del plan de estudios. Busca que el alumno desarrolle una postura crítica y capacidad de fundamentación (oral y escrita) mediante la resolución de problemas en contextos profesionales simulados.
+
+Modalidad: Su cursado es semestral/cuatrimestral para todas las modalidades de estudio. Puede dictarse de forma presencial o virtual dependiendo de la carrera del alumno.
+
+Trabajos Prácticos: Consta de 4 Trabajos Prácticos (TPs) que aumentan en complejidad de manera paulatina. Al ser una materia de proceso, no contempla exámenes parciales.
+
+Aprobación:
+
+-
+Regularidad: Se requiere aprobar 3 de los 4 TPs con nota de 5 o más, siendo el TP 4 de aprobación obligatoria.
+
+-
+Nota Final (Presencial/PH): La materia se aprueba si el promedio de los 4 TPs es de 4 o más.
+
+-
+Nota Final (ED/EDH): En la modalidad a distancia, la nota de aprobación del Seminario es la que el alumno obtenga en el examen EFIP I.
+
+📝 Seminario Final
+
+Representa la primera etapa del proceso para obtener el título de grado, centrada en la elaboración del Trabajo Final de Graduación (TFG).
+
+¿Qué es?: Es la asignatura donde el estudiante desarrolla su Proyecto de TFG bajo la guía de un docente tutor. Durante 4 meses, el alumno realiza entregas de avances del trabajo a través de la plataforma.
+
+¿Cómo se aprueba?:
+
+-
+Para alcanzar la Regularidad, el alumno debe aprobar al menos 3 de las 4 entregas (o 2 de las primeras 3) con una nota mínima del 50%.
+
+-
+La 4° entrega es obligatoria y debe aprobarse con 50% o más.
+
+-
+En modalidades presenciales (P, PH), se exige además el 75% de asistencia.
+
+¿Cómo se rinde?:
+
+-
+Una vez regularizado el Seminario, el trabajo es enviado a una Comisión Asesora y Evaluadora (CAE) compuesta por expertos que sugieren mejoras o correcciones.
+
+-
+Tras obtener la habilitación del CAE y tener el examen EFIP II aprobado (en caso de alumnos de distancia), el estudiante puede solicitar la Defensa Oral.
+
+-
+La defensa es una instancia sincrónica que se realiza ante un tribunal en la Sede Campus (Córdoba).$pea0$, 'global', 'borrador', $pea0$https://kb-cau.21.edu.ar/servicios-cau/servicios/modelo-academico$pea0$)
+on conflict (categoria_id, slug) do nothing;
+
+insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
+values ((select id from public.categorias where slug = $pea0$tramites$pea0$), null, 28, $pea0$kb-28-equivalencias-internas$pea0$,
+        $pea0$Equivalencias Internas$pea0$, $pea0$Información sobre segundas carreras, doble titulación, articulaciones y equivalencias internas en Universidad Siglo 21. Incluye requisitos, procesos de reconocimiento académico, resoluciones aplica…$pea0$, $pea0$> **A validar:** contenido relevado de https://kb-cau.21.edu.ar/servicios-cau/servicios/equivalencias-internas el 2026-11-19. Revisalo antes de publicar.
+
+Información sobre segundas carreras, doble titulación, articulaciones y equivalencias internas en Universidad Siglo 21. Incluye requisitos, procesos de reconocimiento académico, resoluciones aplicables, articulaciones entre carreras de grado y pregrado, articulaciones con instituciones externas, gestión de doble titulación y procedimientos para la revisión de equivalencias otorgadas.
+
+INDICE:
+
+- Segunda Carrera
+
+-
+Doble Titulación
+
+-
+Resolución Doble Titulación
+
+-
+Articulaciones
+
+- Abogacía y Procurador
+
+- Procurador a Abogacía
+
+- Abogacía a Procurador
+
+- Pregrado a Grado
+
+- Grado a Pregrado
+
+- Con Instituciones Externas
+
+- Revisión de equivalencias internas
+
+SEGUNDA CARRERA
+
+Información para la derivación (HubSpot)
+
+- Área de derivación: Equivalencias
+
+- Tipificación: Equivalencias internas por segunda carrera
+
+Nota interna - completar ticket con los siguientes datos:
+
+- DNI.
+
+- Legajo de origen.
+
+- Legajo de destino.
+
+- Carrera de origen.
+
+- Carrera de destino.
+
+- Detalle de la solicitud de segunda carrera.
+
+✅ Validación del legajo de la carrera de destino
+
+Antes de iniciar cualquier gestión de Segunda Carrera, el asesor deberá verificar que el estudiante cuente con el legajo correcto correspondiente a la carrera de destino.
+
+- El legajo de la carrera de destino debe estar previamente creado.
+
+- Si el legajo aún no existe, la gestión deberá ser derivada a un asesor de Admisión para su creación.
+
+- En el caso de los CAU, el legajo puede ser generado directamente desde su propia gestión.
+
+✅ Control de legajos duplicados
+
+Antes de avanzar con la solicitud, el asesor deberá validar que no existan legajos duplicados.
+
+- Si el estudiante ya posee un legajo de la carrera de destino con materias cargadas, no debe generarse un nuevo legajo.
+
+- La creación de un legajo adicional puede impedir el correcto traslado de las materias aprobadas y afectar el proceso de equivalencias.
+
+Importante: Antes de gestionar equivalencias para una Segunda Carrera, verificar siempre que el estudiante tenga el legajo correcto de la carrera de destino y que no existan legajos duplicados asociados a la solicitud.
+
+⚠️ Consulta de Resoluciones y Equivalencias Internas por Segunda Carrera
+
+Esta validación es obligatoria para todas las consultas y gestiones relacionadas con Segunda Carrera.
+
+Cada vez que un asesor consulte sobre una Segunda Carrera, o realice preguntas vinculadas con:
+
+- Materias reconocidas.
+
+- Equivalencias internas.
+
+- Homologaciones.
+
+- Reconocimiento de antecedentes internos.
+
+- Cantidad de materias que se trasladan entre carreras.
+
+- Materias alcanzadas por una resolución de equivalencias.
+
+Deberá consultar y compartir la Matriz de Equivalencias Internas (Matriz de Segunda Carrera) antes de gestionar o derivar la solicitud.
+
+La matriz deberá utilizarse para validar las materias que serán reconocidas entre la carrera de origen y la carrera de destino.
+
+Asimismo, el asesor deberá indicar al estudiante cómo identificar correctamente:
+
+- La carrera de origen.
+
+- La carrera de destino.
+
+- El plan operativo correspondiente.
+
+- La resolución de equivalencias aplicable.
+
+De esta manera, el estudiante podrá visualizar correctamente las equivalencias que corresponden a su situación académica.
+
+🔗 Matriz de Equivalencias Internas
+
+https://ues21eduar-my.sharepoint.com/:x:/g/personal/adriana_vasquez_ues21_edu_ar/IQDtU-oyzak2QL1IOEQvaLQMAbCvhz2aVv1yUbG8VGuFjvQ?e=fiW5mL
+
+Regla obligatoria para el asistente: Ante cualquier consulta sobre Segunda Carrera, equivalencias internas, homologaciones, reconocimiento de materias o antecedentes internos, siempre indicar al asesor que debe validar la información en la Matriz de Equivalencias Internas antes de brindar una respuesta o derivar la gestión.
+
+📋 ¿Cómo consultar la matriz?
+
+1. Seleccionar la carrera de origen
+Filtrar y elegir la carrera que el estudiante cursa actualmente.
+
+2. Seleccionar la carrera de destino
+Filtrar y elegir la carrera que el estudiante desea cursar como segunda carrera.
+
+3. Seleccionar el Plan Operativo
+Corresponde al plan que figura en SGU / Historial Académico del estudiante.
+
+4. Seleccionar la Resolución
+Elegir la resolución correspondiente al plan de estudios para acceder a la tabla de equivalencias.
+
+5. Visualizar las materias reconocidas
+La matriz mostrará las materias que serán reconocidas en la nueva carrera.
+
+✅ Cómo validar las equivalencias
+
+Al revisar la matriz, tener en cuenta que:
+
+- Las materias que figuran en la tabla son aquellas que requieren una equivalencia específica entre ambas carreras.
+
+- Las materias que poseen el mismo código y la misma denominación en ambas carreras se reconocen automáticamente al momento de la creación del legajo de destino y, por lo tanto, no aparecen en la matriz.
+
+- La ausencia de una materia en la tabla no implica necesariamente que no sea reconocida. Primero debe verificarse si mantiene el mismo código y nombre en ambas carreras.
+
+- La matriz debe utilizarse como referencia para informar al estudiante cuáles serán las materias reconocidas al iniciar la Segunda Carrera.
+
+⚠️ Restricciones importantes
+
+Las carreras que cuentan con Doble Titulación entre sí, de acuerdo con la normativa institucional, no pueden gestionar una Segunda Carrera.
+
+En estos casos, el estudiante deberá:
+
+- Esperar a cumplir los requisitos para acceder a la Doble Titulación, o
+
+- Gestionar un Cambio de Carrera, según corresponda.
+
+DOBLE TITULACIÓN
+
+🔗 CONSULTA LAS DT VIGENTES
+
+Resolución hasta 2022
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Equivalencias
+Tipificación: Equivalencias internas por doble titulación
+
+📌 Nota interna - Completar ticket con los siguientes datos:
+
+- DNI.
+
+- Legajo.
+
+- Carrera de origen.
+
+- Carrera de destino.
+
+👉 Cuadro comparativo por escenario
+
+Aspecto |  Alumno Avanzado |  Alumno Egresado |
+
+Situación académica |
+Tiene hasta 4.º cuatrimestre aprobado en la carrera de origen.
+|
+Egresado de la carrera de origen
+|
+
+Momento de solicitud |  Antes de egresar |  Después de egresar |
+
+Materias del mismo código / gemelas |  Se otorgan automáticamente.
+Si aún no están aprobados en origen, se irán otorgando a medida que las aprueben |  Se otorgan automáticamente |
+
+Materias por competencia |  Se otorgan como aprobadas condicionales |  Se otorgan como aprobadas definitivas |
+
+Cambio de estado de materias por competencia |  Pasan a aprobadas definitivas una vez que el alumno egresa de la carrera de origen |  No aplica (ya se otorgan definitivas) |
+
+Seminario Final |  No se otorga en esta instancia |  Se solicita una vez que el alumno aprueba EFIP II |
+
+Acción del asesor |  Aclarar que algunas materias serán condicionales hasta el egreso |  Indicar que debe comunicarse tras aprobar EFIP II para solicitar el Seminario Final |
+
+👉 Tipología de materias
+
+Tipo de materia |  Legajo donde se cursa/ otorga |  Momento del reconocimiento |
+
+Materias por competencia |  Legajo secundario/ destino |  Se otorgan como aprobadas condicionales una vez que el alumno aprueba todas las materias del 1.º al 4.º cuatrimestre en el legajo primario.
+Pasan a aprobadas definitivas cuando el alumno egresa del legajo primario.
+Se registran con nota 7 en el analítico. |
+
+Materias de igual nombre y código |  Se otorgan en legajo secundario/ destino
+Se cursan solo en legajo primario/origen. |  Se otorgan de manera definitiva al generarse el legajo.
+No pueden cursarse en el legajo secundario. |
+
+Materias electivas |  Legajo secundario/ destino |  Se otorgan de manera definitiva una vez que fueron aprobadas en el legajo primario / origen. |
+
+Seminario Final |  Legajo secundario/ destino |  Se otorga de manera definitiva únicamente cuando el alumno egresa del legajo primario.
+En alumnos egresados, se solicita luego de aprobar EFIP II. |
+
+Materias de distinta denominación, mismo contenido |  Legajo secundario/ destino |  Se otorgan de manera definitiva una vez que la materia fue aprobada en el legajo primario/origen. |
+
+Materias sin equivalencia |  Legajo secundario/ destino |  El alumno debe cursar y aprobar estas materias en el legajo secundario |
+
+Tipología de Doble Titulación - Legajo de destino
+|
+
+Características Específicas - Tipología Única |
+
+Seminario de Práctica |  Se cursa en legajo primario  |
+
+Examen EFIP I |  Se rinde en legajo primario  |
+
+Práctica Solidaria  |  Se cursa en legajo primario  |
+
+Práctica Profesional |  Se cursa en el legajo primario y secundario  |
+
+Seminario Final |  Se cursa y ride en el legado primario |
+
+Examen EFIP II |  Se rinde en el legajo primario y secundario  |
+
+Materias electivas |  Se cursan en legajo primario  |
+
+Cantidad mínima de materias a cursar |   8 materias |
+
+Cantidad máxima de materias a cursar  |   13 materias |
+
+⚠️ Importante | Doble Titulación
+
+Seminario Final:
+
+- Si el Seminario Final corresponde por Doble Titulación, se incorporará durante la gestión del Visado Analítico.
+
+- No debe solicitarse al área de Equivalencias.
+
+Obtención de título intermedio en la carrera de destino Para solicitar el título intermedio de la nueva carrera, el estudiante deberá:
+
+-
+Tener aprobadas las materias del 1.º al 6.º semestre de la carrera de destino.
+
+-
+En modalidad Distancia, contar además con el EFIP I aprobado de la carrera de destino.
+
+Ejemplo:
+
+- Si un estudiante de Abogacía accede a una Doble Titulación en Recursos Humanos, deberá aprobar las materias hasta el 6.º semestre de Recursos Humanos.
+
+- Si cursa en modalidad Distancia, también deberá aprobar el EFIP I.
+
+- Recién entonces podrá solicitar el título de Técnico en Recursos Humanos.
+
+TIPOLOGÍA DOBLE TITULACIÓN – LEGAJO DE DESTINO
+|
+
+CARACTERÍSTICAS ESPECÍFICAS
+|
+TIPOLOGÍA ÚNICA
+|
+
+SEMINARIO DE PRÁCTICA
+|
+Se cursa en legajo primario
+|
+
+EXAMEN EFIP I
+|
+Se rinde en legajo primario
+|
+
+PRÁCTICA PROFESIONAL
+|
+Se cursa en el legajo primario y secundario
+|
+
+SEMINARIO FINAL
+|
+Se cursa y rinde en legajo primario
+|
+
+EXAMEN EFIP II
+|
+Se rinde en el legajo primario y secundario
+|
+
+PRÁCTICA SOLIDARIA
+|
+Se cursa en legajo primario
+|
+
+MATERIAS ELECTIVAS
+|
+Se cursan en legajo primario
+|
+
+CANTIDAD MÍNIMA DE MATERIAS A CURSAR
+|
+8 materias
+|
+
+CANTIDAD MÁXIMA DE MATERIAS A CURSAR
+|  13 materias |
+
+Aclaraciones Generales:
+
+✅ Legajo de destino
+
+- Debe existir previamente.
+
+- Si no existe, debe gestionarse con Admisión.
+
+- Los CAU pueden generarlo directamente.
+
+✅ Segunda Carrera vs. Doble Titulación
+
+- No corresponde gestionar una Segunda Carrera si la carrera de destino posee Doble Titulación.
+
+- En estos casos, el alumno deberá gestionar un Cambio de Carrera o cumplir los requisitos académicos de Doble Titulación.
+
+✅ Validación de requisitos
+
+- Si el alumno no cumple las condiciones académicas, el sistema impedirá la inscripción y mostrará un mensaje informativo.
+
+✅ No duplicar legajos
+
+- No debe crearse un nuevo legajo si el alumno ya posee uno con materias cargadas.
+
+- La duplicación puede afectar el reconocimiento de materias.
+
+✅ Seguimiento del trámite
+
+- Se realiza desde BPM, utilizando el DNI del alumno.
+
+- Allí puede consultarse el estado de la solicitud y los motivos de rechazo, si existieran.
+
+✅ Materias otorgadas por competencia
+
+- Se registran con el promedio general obtenido por el alumno en la carrera de origen al momento de egresar.
+
+✅ Baja del legajo de origen
+
+- Si el alumno da de baja el legajo antes de egresar, las materias otorgadas condicionalmente por competencia vuelven al estado "No cursada".
+
+✅ Equivalencias
+
+- Las carreras con Doble Titulación no cuentan con tabla de Segunda Carrera.
+
+- Solo aplican equivalencias por materias del mismo código o materias gemelas.
+
+🚨 Seminario Final
+
+- Si corresponde por Doble Titulación, se carga durante el Visado Analítico.
+
+- No debe solicitarse al área de Equivalencias.
+
+ARTICULACIONES
+
+🔗 CONSULTA LAS ARTICULACIONES VIGENTES
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Equivalencias
+
+Tipificación:
+
+-
+Articulación higiene y seguridad
+
+-
+Articulación procurador
+
+Nota interna - completar ticket con los siguientes datos:
+
+-
+DNI.
+
+-
+Legajo.
+
+-
+Carrera de origen.
+
+-
+Carrera de destino.
+
+-
+Tipo de articulación solicitada.
+
+-
+Confirmación de cumplimiento de requisitos académicos.
+
+-
+Confirmación de documentación completa.
+
+-
+Confirmación de pago de tasa (si corresponde)
+
+⚠️ Todas las articulaciones tienen que abonar su TASA correspondiente; las mismas están cargadas en pago electrónico.
+
+👉 Abogacía ↔ Procurador
+
+No es posible cursar Abogacía y Procurador en paralelo.
+
+El estudiante deberá:
+
+- Gestionar un Cambio de Carrera, o
+
+- Cumplir los requisitos académicos para solicitar la articulación.
+
+Las articulaciones habilitadas se encuentran definidas por Resolución Rectoral vigente.
+
+La resolución es de uso interno y no debe compartirse con estudiantes.
+
+Requisitos para solicitar la articulación
+
+El estudiante debe:
+
+- Abonar la tasa de articulación.
+
+- Contar con documentación de legajo completa:
+
+- DNI.
+
+- Analítico.
+
+- Cumplir los requisitos académicos establecidos para la articulación solicitada.
+
+- Tener legajo activo o preinscripción vigente.
+
+💲 Consideraciones sobre aranceles
+
+Corresponde abonar tasa de articulación:
+
+- Abogacía → Procurador.
+
+- Procurador (Plan 2021) → Abogacía.
+
+Corresponde beneficio de Segunda Carrera:
+
+- Egresados de Procurador Plan 2013 que continúan Abogacía.
+
+Materias requeridas según carrera y plan de estudio
+
+En los siguientes enlaces se puede consultar el PDF con los materiales necesarios para solicitar la articulación, según el origen y el plan:
+
+Carrera de origen → destino |  Acceso al listado |
+
+Plan Abogacía 2018 → Plan Procurador 2021
+|
+Ver listado
+|
+
+Plan Abogacía 2021 → Plan Procurador 2021
+|
+Ver listado
+|
+
+Plan Procurador 2013 → Plan Abogacía 2021
+|
+Ver listado
+|
+
+Plan Procurador 2021 → Plan Abogacía 2021
+|
+Ver listado
+|
+
+👉 Procurador → Abogacía
+
+Seminarios de Actualización (vigentes según normativa)
+
+Materias requeridas:
+
+- DER500 - Seminario de Complementación en Derechos Humanos y del Consumidor
+
+- DER501 - Seminario de Profundización en Derecho Privado
+
+Se cursan en el legajo extracurricular SPROC.
+
+Consideraciones
+
+- Actividad gratuita.
+
+- Modalidad 100% virtual.
+
+- Ambos seminarios son obligatorios para concretar la articulación.
+
+Modalidad de aprobación
+
+- Cursado bimestral.
+
+- 4 Trabajos Prácticos por materia.
+
+- Debe aprobar al menos 3 de los 4 TP.
+
+- Cada TP aprobado debe tener nota igual o superior a 5.
+
+- Es obligatorio aprobar el TP N.° 4.
+
+👉 Abogacía → Procurador
+
+Requisitos académicos
+
+El estudiante debe tener aprobadas:
+
+✅ Todas las materias de:
+
+- 1.º cuatrimestre.
+
+- 2.º cuatrimestre.
+
+- 3.º cuatrimestre.
+
+- 5.º cuatrimestre.
+
+✅ Todas las materias de 4.º y 6.º cuatrimestre, excepto:
+
+- Teoría de la Argumentación Jurídica.
+
+- Derecho de Integración Regional.
+
+✅ Además:
+
+- Derecho Procesal Público (7.º cuatrimestre).
+
+- Ética y Deontología Profesional (8.º cuatrimestre).
+
+- Mediación, Arbitraje y Negociación (8.º cuatrimestre).
+
+- Recursos Informáticos como electiva.
+
+👉Otras Articulaciones Articulación Pregrado → Grado (Siglo 21)
+
+¿Qué permite?
+
+Que un egresado de una tecnicatura continúe sus estudios para obtener un título de grado.
+
+Reconocimiento académico
+
+-
+Materias aprobadas del 1.º al 4.º cuatrimestre.
+
+-
+2 materias optativas.
+
+Requisitos
+
+-
+Ser egresado de la tecnicatura.
+
+-
+Cumplir requisitos de la carrera de destino.
+
+-
+Contar con documentación completa.
+
+-
+Rendir EFIP I y EFIP II cuando corresponda.
+
+-
+Cursar las materias desde 5.º cuatrimestre en adelante.
+
+-
+Abonar la tasa correspondiente.
+
+CARRERA DE ORIGEN ARTICULACIÓN
+|
+CARRERA DESTINO ARTICULACIÓN
+|
+RESOLUCIÓN RECTORAL
+|
+
+Tecnicatura en Relaciones Laborales
+|
+Licenciatura en Gestión de Recursos Humanos
+|
+6388/2024
+|
+
+Tecnicatura Universitaria en Gestión de Clima Laboral en la Organización
+|
+Licenciatura en Gestión de Recursos Humanos
+|
+6389/2024
+|
+
+Tecnicatura Universitaria en Administración y Gestión de Políticas Públicas
+|
+Licenciatura en Ciencia Política y Gobierno
+|
+6392/2024
+|
+
+Tecnicatura Universitaria en Administración y Gestión de Políticas Públicas
+|
+Licenciatura en Administración Pública
+|
+6390/2024
+|
+
+Tecnicatura Universitaria en Gestión Administrativa de los Servicios de Salud
+|
+Licenciatura en Administración Pública
+|
+6391/2024
+|
+
+Tecnicatura Universitaria en Promoción Comunitaria en Niñez y Adolescencia
+|
+Licenciatura en Psicopedagogía
+|
+6393/2024
+|
+
+Tecnicatura en Gestión de Empresas Familiares
+|
+Licenciatura en Administración
+|
+6398/2024
+|
+
+Tecnicatura en Gestión de Servicios de Salud
+|
+Licenciatura en Administración
+|
+6399/2024
+|
+
+Tecnicatura en Gestión de Empresas Familiares
+|
+Licenciatura en Administración Agraria
+|
+6394/2024
+|
+
+Tecnicatura Universitaria en Auditorías Ambientales (ED/ EDH)
+|
+Licenciatura en Gestión Ambiental
+|
+6395/2024
+|
+
+Tecnicatura Universitaria en Auditorías Ambientales (ED/ EDH)
+|
+Licenciatura en Ambiente y Energías Renovables
+|
+6396/2024
+|
+
+Tecnicatura en Gestión Contable e Impositiva
+|
+Contador Público
+|
+6401/2024
+|
+
+Tecnicatura en Administración y Gestión Tributaria
+|
+Contador Público
+|
+6402/2024
+|
+
+Tecnicatura en Dirección de Protocolo, Organización de eventos
+|
+Licenciatura en Relaciones Públicas e Institucionales
+|
+6397/2024
+|
+
+Tecnicatura en Higiene y Seguridad Laboral
+|
+Licenciatura en Higiene, Seguridad y Medio Ambiente
+|
+6400/2024
+|
+
+Procurador
+|
+Abogacía
+|
+5080/2021
+|
+
+Tecnicatura en Marketing y Publicidad Digital
+|
+Licenciatura en Comercialización
+|
+6916/2026
+|
+
+Tecnicatura en Investigación de la Escena del Crimen
+|
+Licenciatura en Criminología y Seguridad
+|
+6915/2026
+|
+
+👉 Articulación Grado → Pregrado
+
+¿Qué permite?
+
+Obtener una titulación de pregrado a partir de una carrera de grado sin título intermedio.
+
+Reconocimiento académico
+
+-
+Materias aprobadas del 1.º al 4.º cuatrimestre.
+
+Requisitos
+
+-
+Documentación completa.
+
+-
+Estar inscripto en una carrera de grado sin título intermedio.
+
+-
+Tener aprobadas las materias del 1.º al 4.º cuatrimestre.
+
+-
+Abonar la tasa correspondiente.
+
+-
+Cursar las materias restantes del pregrado.
+
+CARRERA DE ORIGEN ARTICULACIÓN
+|
+CARRERA DESTINO ARTICULACIÓN
+|
+RESOLUCIÓN RECTORAL
+|
+
+Contador Público
+|
+Tecnicatura en Gestión Contable e Impositiva
+|
+6403/2024
+|
+
+Abogacía
+|
+Procurador
+|
+5080/2021
+|
+
+Licenciatura en Higiene, Seguridad y Medio Ambiente
+|
+Tecnicatura en Higiene y Seguridad Laboral
+|
+6403/2024
+|
+
+👉 Articulaciones con Instituciones Externas
+
+¿Qué permite?
+
+Los convenios de articulación permiten que estudiantes o egresados de instituciones externas continúen sus estudios en Universidad Siglo 21 para obtener una titulación complementaria o alcanzar un título de grado.
+
+Reconocimiento académico
+
+Las equivalencias otorgadas se encuentran sujetas a las condiciones definidas en cada convenio de articulación vigente. El Vicerrectorado de Asuntos Académicos establece los criterios de reconocimiento considerando la institución de origen, los contenidos, la metodología de enseñanza y los mecanismos de evaluación de la carrera de procedencia.
+
+Requisitos generales
+
+-
+DNI.
+
+-
+Analítico o documentación académica requerida por el convenio correspondiente.
+
+-
+Cumplimiento de las condiciones académicas definidas para cada articulación.
+
+-
+Presentación de la documentación exigida por Universidad Siglo 21.
+
+Consideraciones
+
+-
+Aplica únicamente a instituciones con convenio de articulación vigente.
+
+-
+Todo convenio debe estar aprobado mediante resolución institucional.
+
+-
+Las equivalencias no son automáticas y dependen de las condiciones establecidas en cada acuerdo.
+
+-
+El estudiante debe solicitar formalmente el reconocimiento acompañando la documentación prevista en el convenio.
+
+Articulación especial | Institución Cervantes
+
+Pueden acceder:
+
+-
+Estudiantes que hayan aprobado los tres primeros cuatrimestres e iniciado el cuarto cuatrimestre de Martillero y Corredor Público en Institución Cervantes.
+
+-
+Estudiantes que hayan cursado todos los cuatrimestres y adeuden únicamente materias del cuarto cuatrimestre.
+
+-
+Egresados de Institución Cervantes de la carrera Martillero y Corredor Público.
+
+Proceso de articulación Cervantes
+
+-
+Completar la solicitud de articulación en Institución Cervantes.
+
+-
+Presentar la documentación requerida.
+
+-
+Abonar el arancel correspondiente.
+
+-
+Cursar la materia Principios Fundamentales de Derechos Reales.
+
+-
+Cumplir con los requisitos establecidos para acceder a la evaluación final.
+
+Validaciones previas del asesor
+
+-
+Verificar que exista un convenio de articulación vigente.
+
+-
+Confirmar que la carrera o institución se encuentre alcanzada por dicho convenio.
+
+-
+Validar que el estudiante cumpla los requisitos académicos exigidos.
+
+-
+Verificar que la documentación requerida esté completa.
+
+-
+Corroborar el pago del arancel cuando corresponda.
+
+-
+Confirmar que las equivalencias ya se encuentren procesadas antes de solicitar revisiones posteriores.
+
+Validaciones para solicitudes de revisión
+
+-
+La revisión aplica cuando el estudiante considera que existe una materia pendiente de reconocimiento o detecta una inconsistencia en el resultado otorgado.
+
+-
+Informar que toda revisión quedará sujeta al análisis del área de Equivalencias.
+
+-
+La revisión no implica necesariamente una modificación del resultado original.
+
+-
+Incorporar toda la documentación académica relevante en el ticket.
+
+-
+Evitar generar solicitudes duplicadas sobre trámites que ya se encuentren en gestión.
+
+Otras articulaciones externas vigentes
+
+📌 Universidad de Origen: Universidad Nacional de Mar del Plata
+
+Carrera de Origen: Tecnicatura Universitaria en Comercialización Plan 2015
+
+Carrera Destino: Licenciatura en Comercialización
+
+Reconocimiento: Materias aprobadas de 1.º a 4.º cuatrimestre + Universitario 21.
+
+📌 Universidad de Origen: Instituto Universitario Aeronáutico Córdoba (IUA)
+
+Carrera de Origen: Tecnicatura Universitaria en Recursos Humanos
+
+(RM 1134/2015) - Título Intermedio
+
+Carrera Destino: Licenciatura en Gestión de Recursos Humanos
+
+Reconocimiento: Según convenio de articulación vigente y validación académica correspondiente.$pea0$, 'global', 'borrador', $pea0$https://kb-cau.21.edu.ar/servicios-cau/servicios/equivalencias-internas$pea0$)
+on conflict (categoria_id, slug) do nothing;
+
+insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
+values ((select id from public.categorias where slug = $pea0$atencion-y-derivaciones$pea0$), null, 29, $pea0$kb-29-inscripcion-a-examenes$pea0$,
+        $pea0$Inscripción a Exámenes$pea0$, $pea0$Este artículo reúne los requisitos, condiciones y procedimientos para la inscripción a exámenes en todas las modalidades de cursado de la Universidad Siglo 21, incluyendo parciales, recuperatorios,…$pea0$, $pea0$> **A validar:** contenido relevado de https://kb-cau.21.edu.ar/servicios-cau/servicios/inscripción-a-exámenes/generalidades el 2026-11-19. Revisalo antes de publicar.
+
+Este artículo reúne los requisitos, condiciones y procedimientos para la inscripción a exámenes en todas las modalidades de cursado de la Universidad Siglo 21, incluyendo parciales, recuperatorios, integradores y finales, conforme al Reglamento Institucional y a los procedimientos operativos vigentes.
+
+Índice
+
+-
+Requisitos generales para rendir un examen
+
+-
+Condiciones generales durante el examen
+
+-
+Modalidad ED / EDH
+
+-
+Exámenes parciales
+
+-
+Exámenes recuperatorios e integradores
+
+-
+Exámenes finales
+
+-
+Modalidad P / PH / PD
+
+-
+Exámenes parciales
+
+-
+Exámenes recuperatorios e integradores
+
+-
+Exámenes finales
+
+1. Requisitos generales para rendir un examen
+
+Para encontrarse habilitado a rendir cualquier instancia evaluativa (parcial, recuperatorio, integrador o final), el estudiante deberá cumplir con los siguientes requisitos:
+
+- Contar con DNI vigente para acreditar su identidad.
+
+- Tener abonada la matrícula del período académico correspondiente.
+
+- Los estudiantes que cuenten con ajustes razonables, conforme al Protocolo de Prácticas Educativas Inclusivas, deberán rendir en la Sede o CAU asignado y acompañados por el personal designado por la Universidad.
+
+- Encontrarse inscripto en una mesa de examen, de acuerdo con el Calendario Académico y la modalidad de cursado.
+
+- Contar, cuando corresponda, con un equipo que cumpla las especificaciones técnicas definidas por la Universidad para rendir exámenes online.
+
+- Presentarse dentro del horario establecido para el examen. Se admite una tolerancia máxima de 15 minutos, sin que ello implique una extensión del tiempo disponible para rendir.
+
+- En los exámenes escritos online, aceptar los términos y condiciones que se informan al momento de iniciar la evaluación.
+
+2. Condiciones generales durante el examen
+
+Durante cualquier instancia evaluativa, el estudiante deberá respetar las condiciones de conducta establecidas por el Reglamento Institucional. Entre las principales se encuentran
+
+- Resolver el examen de manera individual.
+
+- No utilizar apuntes, bibliografía ni otro material de estudio, salvo autorización expresa del programa de la asignatura.
+
+- Utilizar únicamente los elementos permitidos para rendir.
+
+- No utilizar celulares, tablets, pantallas secundarias ni otros dispositivos electrónicos ajenos a la evaluación.
+
+- En exámenes online, mantener abierta únicamente la ventana del navegador donde se desarrolla la evaluación.
+
+🚨El incumplimiento de estas condiciones podrá dar lugar a la anulación del examen y/o a la aplicación de sanciones disciplinarias, conforme a lo establecido en el Régimen Disciplinario del Reglamento Institucional.
+
+3. Modalidad ED / EDH
+
+Exámenes parciales
+
+Descripción
+
+En el período 2B 2026, la inscripción a los exámenes parciales de las modalidades Educación a Distancia (ED) y Educación Distribuida Home (EDH) se realizará mediante un esquema de autogestión escalonada con acompañamiento del CAU.
+
+Este nuevo proceso permite que el estudiante planifique con anticipación sus evaluaciones, pudiendo seleccionar desde el inicio del período de inscripción las fechas y horarios del Primer Parcial y del Segundo Parcial desde el Portal del Estudiante.
+
+El proceso contempla tres instancias:
+
+- Autogestión del estudiante.
+
+- Acompañamiento del CAU.
+
+- Inscripción centralizada.
+
+¿Cómo funciona el proceso?
+
+1. Inicio de la inscripción
+
+Desde el 05/10/2026 se habilita la inscripción por autogestión en el Portal del Estudiante.
+
+Durante este período el estudiante podrá:
+
+- Inscribirse al Primer Parcial.
+
+- Inscribirse al Segundo Parcial.
+
+- Seleccionar la fecha y el horario de ambas evaluaciones.
+
+⏰Franja horarias para rendir parciales:
+
+Lunes a viernes:
+
+06:00 a 09:00
+
+09:00 a 13:00
+
+13:00 a 17:00
+
+17:00: a 20:00
+
+Sabados y domingos:
+
+01:00 a 04:00
+
+04:00 a 09:00
+
+09:00 a 13:00
+
+13:00 a 17:00
+
+17:00 a 20:00
+
+20:00 a 22:00
+
+Importante: No es necesario esperar a rendir el Primer Parcial para inscribirse al Segundo.
+
+2. Período de autogestión
+
+El estudiante podrá gestionar su inscripción hasta las siguientes fechas:
+
+Evaluación |  Cierre de autogestión |
+
+Primer Parcial |  18/10/2026 (Semana 2) |
+
+Segundo Parcial |  10/11/2026 (Semana 5 se estiende unos días por el feriado) |
+
+Durante este período el asesor deberá incentivar que el estudiante complete la inscripción desde el Portal del Estudiante.
+
+3. Activity de seguimiento
+
+Al finalizar cada período de autogestión, la Universidad identificará a los estudiantes que aún no hayan realizado la inscripción y generará un Activity dirigido al CAU correspondiente.
+
+El objetivo del Activity es que el CAU:
+
+- contacte al estudiante;
+
+- le recuerde la importancia de completar la inscripción;
+
+- lo acompañe en la planificación de sus evaluaciones;
+
+- gestione la inscripción cuando corresponda.
+
+Importante: El Activity constituye una acción de seguimiento y acompañamiento. No reemplaza la autogestión realizada por el estudiante.
+
+4. Inscripción centralizada
+
+Finalizada la etapa de acompañamiento del CAU, la Universidad realizará una inscripción centralizada para aquellos estudiantes que continúen sin haber gestionado su inscripción.
+
+Reprogramación
+
+Si el estudiante, una vez inscripto, necesita modificar la fecha de un examen parcial por una situación excepcional, deberá comunicarse con su CAU o Sede, donde se evaluará la solicitud de acuerdo con la disponibilidad de cupos y las condiciones vigentes.
+
+Importante para la gestión: Si el estudiante pertenece a un CAU, no corresponde generar derivaciones por HubSpot relacionadas con la reprogramación de exámenes parciales. Esta gestión debe ser realizada directamente por el CAU, ya que cuenta con los permisos necesarios para efectuar la reprogramación.
+
+Consideraciones importantes
+
+- La inscripción se realiza mediante un esquema de autogestión escalonada con acompañamiento del CAU.
+
+- El estudiante puede seleccionar desde el inicio del período las fechas del Primer y Segundo Parcial.
+
+- El estudiante no necesita esperar a rendir el Primer Parcial para inscribirse al Segundo.
+
+- Al cierre de cada período de autogestión, la Universidad generará un Activity para los estudiantes que aún no hayan completado la inscripción.
+
+- El CAU deberá contactar a esos estudiantes, acompañarlos y gestionar la inscripción cuando corresponda.
+
+- La inscripción centralizada constituye la última instancia del proceso y se realizará únicamente para los estudiantes que continúen sin inscripción luego de las acciones de acompañamiento.
+
+Speech sugeridos | Inscripción anticipada a parciales
+
+Mensaje central: La modalidad de cursado no cambia y la flexibilidad se mantiene.
+Los estudiantes continúan teniendo la posibilidad de elegir la fecha y el horario de sus parciales. A partir de las sugerencias recibidas en el 1/26 mejoramos el proceso para brindar más tiempo de planificación y favorecer una mejor organización del bimestre, siempre dentro de los plazos establecidos por el calendario académico.
+
+1. ¿Por qué cambiaron la forma de inscripción a parciales?
+Respuesta sugerida
+El objetivo de este cambio es que puedas organizar tus evaluaciones con mayor anticipación y evitar que todos los parciales se concentren sobre el final del bimestre.
+Además, incorporamos una mejora en el Portal del Estudiante para que, desde la primera semana de cursado, puedas seleccionar las fechas de ambos parciales. De esta manera contás con una visión completa del calendario y podés planificar mejor tus tiempos de estudio y tu organización personal.
+
+2. ¿Esto significa que ya no puedo elegir mis fechas?
+Respuesta sugerida
+No. La posibilidad de elegir tus fechas se mantiene.
+Vas a poder seleccionar el día y el horario que prefieras dentro de las opciones disponibles. La diferencia es que esa elección deberá realizarse dentro de los plazos establecidos para cada parcial y no en las últimas semanas del bimestre.
+Además, ahora no necesitás esperar a rendir el primer parcial para inscribirte al segundo: desde la primera semana ya podés dejar definidas ambas fechas.
+
+3. Siento que me están quitando autonomía
+Respuesta sugerida
+Al contrario. El objetivo es brindarte más autonomía.
+Con esta mejora podés definir las fechas de los dos parciales desde el inicio del cursado, directamente desde tu Portal del Estudiante y sin depender de gestiones posteriores.
+La propuesta busca darte más tiempo para organizarte y elegir las fechas que mejor se adapten a tu planificación.
+
+4. No sé qué voy a estar haciendo dentro de dos meses
+Respuesta sugerida
+Entendemos esa situación y justamente por eso ajustamos el proceso.
+A partir de las sugerencias de los estudiantes, la inscripción al Parcial 2 permanecerá abierta hasta la Semana 5, lo que te brinda más tiempo para definir esa fecha sin perder la posibilidad de planificar con anticipación.
+Buscamos encontrar un equilibrio entre la flexibilidad que necesitás y una mejor organización de las evaluaciones.
+
+5. ¿Qué pasa si no me inscribo?
+Respuesta sugerida
+Si no registrás tu inscripción dentro del plazo correspondiente a cada parcial, se te asignará automáticamente una fecha de evaluación.
+Esa asignación buscará favorecer una distribución equilibrada de tus evaluaciones, considerando la organización general del calendario académico.
+Si posteriormente necesitás revisar esa fecha por una situación particular, podrás gestionarlo con tu CAU, sujeto a la disponibilidad existente.
+De todos modos, la recomendación es que seas vos quien elija las fechas dentro de los plazos establecidos para aprovechar al máximo la flexibilidad del sistema.
+
+6. ¿Puedo cambiar la fecha más adelante?
+Respuesta sugerida
+Sí. Si después de inscribirte surge una situación excepcional que te impida asistir en la fecha elegida, podrás comunicarte con tu CAU para evaluar las alternativas disponibles, de acuerdo con los cupos y las condiciones vigentes.
+De todas maneras, te recomendamos seleccionar desde el inicio las fechas que mejor se adapten a tu planificación para evitar cambios posteriores.
+
+Exámenes recuperatorios e integradores
+
+Consideraciones importantes
+
+Los estudiantes que deban rendir un examen recuperatorio o integrador deberán tener en cuenta lo siguiente:
+
+La inscripción podrá realizarse hasta 24 (veinticuatro) horas antes de la fecha del examen.
+
+La inscripción podrá anularse hasta 48 (cuarenta y ocho) horas antes de la fecha prevista.
+
+IMPORTANTE: Si el estudiante se inscribe a un examen recuperatorio o integrador y no se presenta a rendir, el examen será calificado con nota cero (0), la cual será considerada para el cálculo de la nota final de la asignatura.
+
+Exámenes finales
+
+Consideraciones importantes
+
+Los estudiantes que deban rendir un examen final deberán:
+
+Inscribirse hasta 4 (cuatro) días corridos antes de la fecha y hora publicadas para el examen.
+
+Podrán anular la inscripción hasta 8 (ocho) días corridos antes de la fecha del examen, es decir, antes de que la solicitud sea aceptada.
+
+4. Modalidad P / PH / PD
+
+Descripción
+
+Las modalidades Presencial (P), Presencial Home (PH) y Presencial Distribuida (PD) comparten el mismo procedimiento de inscripción a exámenes. A continuación se detallan las condiciones aplicables para las instancias parciales, recuperatorias, integradoras y finales.
+
+Exámenes parciales
+
+Consideraciones importantes
+
+La inscripción a los exámenes parciales es automática. El estudiante no debe realizar ninguna gestión para inscribirse.
+
+La mesa de examen no puede anularse.
+
+Si el estudiante no asiste al examen, la instancia quedará registrada con condición Ausente.
+
+La duración del examen parcial es de 40 minutos.
+
+Exámenes recuperatorios e integradores
+
+Consideraciones importantes
+
+Para acceder a un examen recuperatorio o integrador, el estudiante deberá:
+
+Inscribirse hasta 24 horas antes de la fecha del examen.
+
+Podrá anular la inscripción hasta 48 horas antes de la mesa.
+
+Deberá optar por rendir recuperatorio o integrador, ya que no podrá inscribirse a ambas instancias.
+
+Inasistencia
+
+Si el estudiante se inscribe y no se presenta a rendir:
+
+El examen será calificado con nota cero (0).
+La nota será considerada para el cálculo de la calificación final de la asignatura.
+
+Duración
+
+- Recuperatorio: 40 minutos.
+
+- Integrador: 60 minutos.
+
+Exámenes finales
+
+Consideraciones importantes
+
+Para rendir un examen final, el estudiante deberá:
+
+Inscribirse con una anticipación mínima de 4 (cuatro) días corridos a la fecha y hora del examen.
+
+Podrá anular la inscripción hasta 8 (ocho) días corridos antes de la fecha del examen, es decir, antes de que la solicitud sea aceptada.
+
+Inasistencia
+
+Si el estudiante no asiste al examen final:
+
+- La mesa quedará registrada con condición Ausente.
+
+- Perderá una de las oportunidades disponibles para rendir la materia antes de que esta pase a condición Libre.
+
+Recordar que:
+
+- Las materias en condición Regular cuentan con tres oportunidades para rendir el examen final.
+
+- Las materias en condición Libre por Nota cuentan con una única oportunidad, conforme a lo establecido en el Reglamento Institucional.
+
+Duración
+
+- Examen final: 90 minutos.$pea0$, 'global', 'borrador', $pea0$https://kb-cau.21.edu.ar/servicios-cau/servicios/inscripción-a-exámenes/generalidades$pea0$)
+on conflict (categoria_id, slug) do nothing;
+
+insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
+values ((select id from public.categorias where slug = $pea0$tramites$pea0$), null, 30, $pea0$kb-30-equivalencias-externas$pea0$,
+        $pea0$Equivalencias externas$pea0$, $pea0$Información sobre el proceso de equivalencias. Incluye la herramienta de consulta interna, tipos de trámites, procesos con y sin predictamen, estados y seguimiento en el Portal de Equivalencias, eq…$pea0$, $pea0$> **A validar:** contenido relevado de https://kb-cau.21.edu.ar/servicios-cau/servicios/equivalencias-externas el 2026-11-19. Revisalo antes de publicar.
+
+Información sobre el proceso de equivalencias. Incluye la herramienta de consulta interna, tipos de trámites, procesos con y sin predictamen, estados y seguimiento en el Portal de Equivalencias, equivalencias condicionales, revisiones, formularios duplicados, articulaciones institucionales, eximiciones de idiomas y convenios específicos con instituciones educativas y organismos que cuentan con reglas particulares de reconocimiento académico.
+
+INDICE:
+
+- Herramienta de consulta interna de equivalencias
+
+-
+Tipos de Trámites de Equivalencias
+
+- Proceso equivalencias CON Regla (Con predictamen)
+
+- Proceso equivalencias SIN Regla (Sin predictamen)
+
+- Estados de equivalencias en Portal de Equivalencias
+
+- Equivalencias condicionales
+
+- Revisión de equivalencias en Portal de Equivalencias
+
+- Duplicación de formularios en Portal de Equivalencias
+
+- Careras Nuevas
+
+- Eximisión de Idiomas
+
+- Ingles
+
+- Portugues
+
+- Eximición de Idiomas - Convenio Celi
+
+- Institución Cervantes
+
+-  Escuela de Oficiales de la Policía "Libertador General San Martín"
+
+- Articulación Teclab
+
+- Licenciatura - Programa Gbo de Bs As - Mendoza
+
+- Instituto de Seguridad Pública de la Provincia ISEP - Santa Fe
+
+- Articulaciones de Profesorados de Matemática con la Lic. en Matemáticas
+
+- Instituto Tecnológico de Santiago del Estero (ITSE)
+
+HERRAMIENTA DE CONSULTA INTERNA
+
+🔗 Acceso al simulador de equivalencias:  https://tusestudiosprevios.21.edu.ar/simulador
+
+Información para la derivación (HubSpot) | Estado de trámites de equivalencias
+
+Área de derivación: Equivalencias
+Tipificación: Estado de trámites de equivalencias
+
+📌 Nota interna - Completar ticket con los siguientes datos:
+
+- DNI.
+
+- Legajo.
+
+- Carrera.
+
+- Número de solicitud.
+
+- Estado informado por el estudiante (si corresponde).
+
+Importante
+
+✅ Antes de derivar, verificar el estado disponible en las herramientas de seguimiento.
+
+✅ Incluir el número de solicitud para agilizar la gestión.
+
+✅ Detallar cualquier observación relevante visualizada en el seguimiento del trámite.
+
+TIPOS DE TRÁMITES DE EQUIVALENCIAS
+
+Con Regla
+
+📅 Plazo de gestión: 3 días hábiles
+
+Corresponde a solicitudes que cuentan con predictamen automático, por lo que no requieren análisis de un Tutor de Carrera ni la presentación de programas de materias.
+
+Documentación requerida:
+
+- Analítico emitido por la institución de origen.
+
+- Plan de estudios emitido y legalizado por la institución de origen.
+
+Sin Regla
+
+📅 Plazo de gestión: 30 días hábiles
+
+Corresponde a solicitudes que no cuentan con predictamen y requieren análisis académico por parte del Tutor de Carrera.
+
+El estudiante deberá seleccionar la materia Siglo 21 que considera equivalente, tomando como referencia los contenidos mínimos disponibles en el Portal de Equivalencias.
+
+Documentación requerida:
+
+- Documentación definitiva y obligatoria para iniciar el trámite.
+
+- Programas de materias cuando corresponda.
+
+Mixta
+
+📅 Plazo de gestión:
+
+- 3 días hábiles para materias con regla.
+
+- 30 días hábiles para materias sin regla.
+
+Corresponde a solicitudes que incluyen materias con predictamen y materias que requieren análisis académico.
+
+Para las materias sin regla, el estudiante deberá seleccionar la materia Siglo 21 que considere equivalente según los contenidos mínimos disponibles en el Portal de Equivalencias.
+
+Documentación requerida:
+
+- Documentación definitiva y obligatoria para iniciar el trámite.
+
+- Información académica necesaria para el análisis de las materias sin regla.
+
+Importante: Los plazos se aplican según el tipo de materia incluida en la solicitud. Por este motivo, una gestión mixta puede tener resoluciones parciales en diferentes momentos.
+
+Información para la derivación (HubSpot) | Consulta documentación de equivalencias
+
+Área de derivación: Equivalencias
+Tipificación: Consulta documentación de equivalencias
+
+📌 Nota interna - Completar ticket con los siguientes datos:
+
+- DNI.
+
+- Legajo.
+
+- Carrera.
+
+- Tipo de equivalencia solicitada.
+
+- Documentación consultada o pendiente.
+
+- Detalle de la consulta del estudiante.
+
+Importante
+
+✅ Verificar previamente la documentación requerida según el tipo de trámite.
+
+✅ Confirmar si la consulta corresponde a documentación obligatoria, documentación observada o documentación faltante.
+
+✅ Detallar claramente qué documentación necesita validar el estudiante.
+
+EQUIVALENCIAS CON REGLA (CON PREDICTAMEN)
+
+¿Cuándo corresponde?
+
+Estos se otorgan cuando existe un pronóstico entre la carrera de origen y la de destino.
+
+¿Cuándo corresponden equivalencias condicionales?
+
+Las equivalencias condicionales se otorgan cuando el alumno tiene una solicitud web con pre-dictamen.
+
+Se debe cargar la siguiente documentación:
+
+- Fotocopia del DNI, frente y dorso.
+
+- Copia del Analítico, emitida y legalizada por una autoridad competente de la Institución de origen. El mismo debe indicar la carrera cursada, calificación, fecha de aprobación de la asignatura y número de registro (nº de libro y acta/folio, en caso de no tenerlo colocar 01).
+
+- Copia del plan de estudio, emitido y legalizado por una autoridad competente de la Institución de origen. El mismo debe incluir la estructura curricular de la carrera cursada, plan de correlativas, carga horaria y Resolución Ministerial y/o Año al cual corresponda.
+
+En caso que el alumno envíe la documentación y no se corresponda con el predictamen, las equivalencias condicionales NO se otorgan.
+
+¿Cuándo se cargan las condicionales?
+
+Las condicionales se cargan el primer día del periodo por el cual las solicita. Las materias figurarán en su analítico de Campus Virtual en estado REGULAR CONDICIONAL
+
+¿Por cuánto tiempo se guarda la regularidad condicional?
+
+El alumno tiene tiempo hasta la 5ta semana de cursado de dicho periodo para enviar la documentación, caso contrario, tanto las materias que otorgamos por equivalencias condicionales como las que se encuentre cursando quedarán en condición “LIBRE”.
+
+Consideraciones generales
+
+- La solicitud web debe estar registrada en el sistema con la modalidad de cursado correcto y los datos de origen verídicos.
+
+- El alumno puede enviar documentación (provisoria o definitiva) y solicitar las equivalencias condicionales.
+
+¿Cuándo se cargan las equivalencias?
+
+- Una vez finalizada la gestión se otorgan las equivalencias.
+
+- Demora de la gestión 3 días hábiles .
+
+EQUIVALENCIAS SIN REGLA (SIN PREDICTAMEN)
+
+¿Cuándo corresponden equivalencias SIN Reglas?
+
+Las equivalencias externas sin regla son cuando NO hay predictamente con el plan y carrera de origen del alumno. Este proceso está destinado a alumnos que solicitan equivalencias externas sin contar con un predictamen previo.
+
+Será el propio alumno quien deberá revisar los contenidos de las materias aprobadas en su institución de origen y seleccionar las materias de Universidad Siglo 21 que considere equivalentes.
+
+Las materias sugeridas se otorgarán inicialmente en estado Regular Condicional por Sugerencia y permanecerán en esa condición hasta la 5.ª semana de cursado del período en que se realizó la solicitud, o hasta que se resuelva el trámite de equivalencias.
+
+Características del proceso
+
+- No requiere predictamen previo.
+
+- El alumno selecciona las materias que considera equivalentes.
+
+- Las materias se otorgan inicialmente en estado Regular Condicional por Sugerencia.
+
+- Esta condición se mantiene hasta la 5.ª semana de cursado o hasta la resolución del trámite.
+
+- La aprobación definitiva dependerá de la presentación de la documentación requerida y del análisis académico correspondiente.
+
+Condiciones de materias que se obtendran:
+
+- Si el alumno presenta la documentación dentro del plazo establecido y el análisis académico confirma las equivalencias sugeridas, las materias serán otorgadas de manera definitiva.
+
+- Si el alumno no presenta la documentación dentro del plazo establecido, las materias otorgadas en estado Regular Condicional por Sugerencia pasarán automáticamente a estado Libre.
+
+- Si, una vez analizada la documentación, el tutor rechaza total o parcialmente las materias sugeridas por el alumno, únicamente las materias no aprobadas pasarán a estado Libre.
+
+- Cuando una materia sugerida sea rechazada y pase a estado Libre, también quedarán en estado Libre todas las materias correlativas que dependan de ella.
+
+Se debe cargar la siguiente documentación:
+
+- Fotocopia del DNI, frente y dorso.
+
+- Copia del Analítico, emitida y legalizada por una autoridad competente de la Institución de origen. El mismo debe indicar la carrera cursada, calificación, fecha de aprobación de la asignatura y número de registro (nº de libro y acta/folio, en caso de no tenerlo colocar 01).
+
+- Copia del plan de estudio, emitido y legalizado por una autoridad competente de la Institución de origen. El mismo debe incluir la estructura curricular de la carrera cursada, plan de correlativas, carga horaria y Resolución Ministerial y/o Año al cual corresponda.
+
+- Copias de los programas de materias, emitidos, foliados y legalizados por una autoridad competente de la Institución de origen.
+
+ESTADO DE EQUIVALENCIAS
+
+-
+DOCUMENTACIÓN APROBADA: el alumno presentó toda la documentación completa.Las materias con regla se aprueban, y las que no tienen regla pasan a análisis del tutor (plazo: 30 días hábiles).
+
+-
+PEDIENTE DE DOCUMENTACIÓN.: el alumno solicitó materias sin regla, pero la documentación está incompleta. Se le enviará un email indicando los documentos faltantes (plazo: 14 días de corrido).
+
+-
+SOLICITUD APROBADA CONDICIONAL: El alumno solicitó materias con regla, pero no presentó toda la documentación. Se aprueban de manera condicional, y debe entregarla antes de la 9ª semana. Si no lo hace, se reprocesan como materias libres.
+
+EQUIVALENCIAS CONDICIONALES
+
+Las equivalencias condicionales se otorgan cuando hay un predictamen entre Universidades pero el alumno no presentó la documentación completa y definitiva aún. Las materias quedan en carácter de "REGULAR CONDICIONAL" y los estudiantes tienen plazo hasta la semana 9° de cursado para presentarla de manera completa.
+
+Si cumplido el plazo no completaron dicha documentación, las materias (y correlativas que hayan cursado) quedan en estado LIBRE (esta información se encuentra en el formulario de equivalencias y también se da aviso por email).
+
+📌 ¡Importante!
+
+Si un alumno carga un trámite mixto (materias con regla y sin regla), las materias con regla quedan como equivalencias "condicionales", y las materias sin regla quedarán rechazadas del trámite, debiendo el estudiante cargar la documentación solicitada y un nuevo formulario en caso de querer avanzar.
+
+Información para la derivación (HubSpot) | Estado de equivalencias condicionales
+
+Área de derivación: Equivalencias
+Tipificación: Estado de equivalencias condicionales
+
+📌 Nota interna - Completar ticket con los siguientes datos:
+
+- DNI.
+
+- Legajo.
+
+- Carrera.
+
+- Número de solicitud (si lo posee).
+
+- Consulta realizada por el estudiante.
+
+Importante
+
+✅ Verificar previamente el estado de la solicitud en el Portal de Equivalencias o BPM.
+
+✅ Recordar que las equivalencias condicionales se otorgan cuando existe predictamen, pero la documentación aún no se encuentra completa o definitiva.
+
+✅ Informar cualquier documentación pendiente identificada en el trámite.
+
+PROCESO DE REVISIÓN
+
+Si el estudiante no está conforme con el resultado obtenido en su trámite de equivalencias, podrá solicitar una revisión sin necesidad de generar un nuevo formulario.
+
+Paso a paso:
+
+- Ingresar al Portal de Equivalencias.
+
+- Iniciar una nueva carga y completar el primer paso con sus datos personales.
+
+- Completar los campos:
+
+- Institución.
+
+- Carrera.
+
+- Plan.
+
+- Materias de origen.
+
+- Carrera en Siglo.
+
+- El sistema detectará que ya existe una solicitud asociada a esos datos y mostrará un pop-up en pantalla.
+
+- Seleccionar la opción "Ver solicitud".
+
+- El estudiante será redirigido a la solicitud original, donde podrá consultar:
+
+- Estado del trámite.
+
+- Materias homologadas.
+
+- Materias no homologadas.
+
+- Dirigirse al final de la página, a la sección "Solicitud de Revisión".
+
+- Completar la siguiente información:
+
+- Materias que solicita revisar.
+
+- Fundamentación.
+
+- Presionar el botón "Enviar" para reactivar el formulario como solicitud de revisión.
+
+Plazo de gestión: 40 días.
+
+La revisión será analizada nuevamente por el Tutor de Carrera.
+
+⚠️ Importante
+
+El estudiante dispone de una única instancia de revisión por solicitud.
+
+Si luego del nuevo análisis el Director o Tutor de Carrera determina que la materia solicitada no corresponde a ninguna materia Siglo 21, el trámite finalizará sin reconocimiento y no podrá generarse una nueva solicitud con los mismos datos de:
+
+- Institución.
+
+- Carrera.
+
+- Plan.
+
+- Materias de origen.
+
+Si el estudiante desea solicitar el análisis de materias diferentes a las incluidas en la solicitud original, podrá generar una nueva presentación.
+
+En esos casos, el Portal de Equivalencias informará que existe una solicitud previa finalizada con los mismos datos de institución, carrera y plan de origen, permitiendo:
+
+- Consultar el detalle de la solicitud anterior.
+
+- Continuar con una nueva carga si corresponde.
+
+Información para la derivación (HubSpot) | Revisión de equivalencias externas
+
+Área de derivación: Equivalencias
+Tipificación: Revisión de equivalencias externas
+
+📌 Nota interna - Completar ticket con los siguientes datos:
+
+- DNI.
+
+- Legajo.
+
+- Carrera.
+
+- Número de solicitud de equivalencias.
+
+- Materias que solicita revisar.
+
+- Fundamentación informada por el estudiante.
+
+Importante
+
+✅ Verificar que exista una resolución previa sobre la solicitud de equivalencias.
+
+✅ Detallar las materias involucradas en la revisión.
+
+✅ Incluir los fundamentos informados por el estudiante para facilitar el nuevo análisis.
+
+⚠️ Recordar que el estudiante dispone de una única instancia de revisión sobre la solicitud presentada.
+
+RESTRICCIÓN DUPLICACIÓN DE FORMULARIOS DE EQUIVALENCIAS
+
+Si el alumno ya ha realizado una solicitud de equivalencias y esta aún está pendiente de análisis, el sistema no le permitirá cargar un nuevo formulario con los mismos datos de institución, carrera/plan de origen y carrera Siglo.
+
+Al completar sus datos personales en el paso 1 y luego ingresar la información de institución, carrera, plan y materias en el paso 2, si ya tiene un formulario activo, le aparecerá un pop-up indicando que solo podrá hacer el seguimiento de la solicitud, sin opción de generar una nueva carga.
+
+Una vez que el trámite haya finalizado en BPM, el alumno podrá cargar una nueva solicitud.
+
+EQUIVALENCIAS CARRERAS NUEVAS
+
+- No es posible presentar solicitudes de equivalencias por avance académico en carreras nuevas.
+
+- La carrera de Ingeniería en Software no admite solicitudes de equivalencias en modalidad Presencial, ya que no habrá apertura de materias desde el 3.º al 10.º cuatrimestre en dicha modalidad hasta el año 2027.
+
+- Esta medida responde al plan de transición vigente, definido debido a que la modalidad presencial es nueva para esta carrera y aún no cuenta con avance académico de alumnos que habilite dichos reconocimientos.
+
+EXIMICIÓN DE IDIOMA
+
+Información para la derivación (HubSpot) | Eximición de idiomas
+
+Área de derivación: Equivalencias
+Tipificación: Eximición de idiomas
+
+📌 Nota interna - Completar ticket con los siguientes datos:
+
+- DNI.
+
+- Legajo.
+
+- Carrera.
+
+- Idioma a eximir.
+
+- Certificación o examen presentado por el estudiante.
+
+- Detalle de la solicitud.
+
+Importante
+
+✅ Verificar que el estudiante cuente con la documentación respaldatoria correspondiente.
+
+✅ Adjuntar toda la documentación presentada para evaluación.
+
+✅ Detallar el examen o certificación que fundamenta la solicitud de eximición.
+
+👉 INGLÉS
+
+El alumno puede solicitar la eximisión del idioma inglés si cuenta con una Certificación Nacional o Internacional válida .
+
+- No se exige antigüedad máxima del certificado para solicitar la eximición.
+
+- La solicitud y la documentación deben cargarse exclusivamente a través de Algarrobo.
+
+Modalidad de evaluación
+
+-
+¿El alumno debe rendir examen de suficiencia o examen final (Edusoft)?
+
+No se rinden solicitudes. La materia se registra directamente como APROBADA, una vez validada la documentación.
+
+Inscripción a exámenes
+
+-
+¿El alumno debe elegir tipo de examen o inscribirse a finales?
+
+No corresponde. Al tratarse de una eximición, no hay instancia de inscripción ni rendición .
+
+Gestión y soporte
+
+¿Qué área atrás gestiona las solicitudes y resuelve consultas?
+Equivalencias - CRE Front el área responsable de:
+
+- Analizar la documentación cargada.
+
+- Resolver dudas, inconvenientes o solicitudes relacionadas con la exclusión de idioma.
+
+TIPOS DE CERTIFICADOS:
+
+-
+NACIONAL:
+
+-
+Fotocopia de 1º y 2º hoja de DNI.
+
+-
+Fotocopia legalizada de Título de Licenciado, Profesor o Traductor; pudiendo ser de nivel Universitario o Terciario siempre y cuando cuenten con el respaldo del Ministerio de Educación de la Nación Argentina (títulos oficiales).
+
+-
+INTERNACIONAL:
+
+-
+Fotocopia de 1º y 2º hoja de DNI.
+
+-
+Fotocopia legalizada del Certificado de Examen de Inglés aprobada
+
+El Certificado Internacional es válido siempre que provenga se las siguientes instituciones:
+
+-
+IGCSE First Language English
+
+-
+IGCSE World Literature
+
+-
+IGCSE Global Perspectives
+
+-
+AS Global Perspectives and Research
+
+-
+AS Business
+
+-
+AS Biology
+
+-
+AS Sociology
+
+-
+AS Design and Technology
+
+-
+AS English General Paper
+
+El estudiante podrá acreditar el requisito correspondiente presentando la documentación respaldatoria del examen aprobado.
+
+Institución Certificante |  Certificado o Examen Rendido Internacional |
+
+Universidad de Cambridge |  FCE (Primer Certificado en Inglés) |
+
+CAE (Certificado de Inglés Avanzado) |
+
+CPE (Certificado de Competencia en Inglés) |
+
+BEC (Vantage & Higher · IELTS (5-6-7-8-9) |
+
+Exámenes de Trinity |  ISE II (Habilidades Integradas en Inglés) |
+
+GESE 7-8-9 (Exámenes calificados de inglés hablado) |
+
+ETS (Servicios de Pruebas de Inglés) |  Prueba de inglés como lengua extranjera |
+
+TOEFL iBT (basado en Internet) 60 o más · TOEFL (computadora) 173 o más -TOEFL (papel) 500 o más · BULATS (60-74) o más |
+
+TOEIC (Test of English for International Communication) 600 o más |
+
+Exámenes de Anglia |  Avanzado |
+
+Competencia de AcCEPT |
+
+Máster |
+
+Colegio San Pedro Apóstol |  Bachillerato Internacional “Inglés B” (Calificación 5 o más) |
+
+Bachillerato Internacional “Inglés B” |  (Calificación 5 o más emitida por instituciones que hayan sido certificadas y habilitadas como Centros Evaluadores. |
+
+Oxford University Press certificados por la Universidad de Oxford |
+Serán eximidos de la obligatoriedad de rendir la prueba de colocación de inglés y cursar los niveles de inglés que presentan su plan de estudios, los alumnos que hayan rendido exámenes de Oxford University Press certificados por la Universidad de Oxford que demuestren un nivel equivalente a B2 en el Marco Común Europeo de Referencia (MCER).
+
+Se considera nivel B2 a aquellos alumnos que hayan rendido:
+
+Oxford Test of English y obtuvieron 111 – 140 puntos
+|
+
+Cambridge Assessment International Education
+
+|  Se reconocen los programas y exámenes de Cambridge Assessment |
+
+International Education de la siguiente manera:- Lengua Inglesa: Serán eximidos de la obligatoriedad de cursar y rendir la materia inglés en el curso de ingreso los alumnos que hayan rendido exámenes de Cambridge International que demuestren un nivel equivalente a B2 en el Marco Común Europeo de Referencia (CEFR), siempre y cuando hayan rendido los exámenes hasta dos años antes de postularse a la universidad. |
+
+- Se considera nivel B2 a aquellos alumnos que hayan rendido los |
+
+exámenes de Cambridge International y hayan obtenido una calificación igual o superior a C en: |
+
+·IGCSE Inglés como Primera Lengua e IGCSE Inglés como Segunda Lengua, o un equivalente a 60/80 puntos o más en |
+
+Lengua inglesa de nivel AS y A |
+
+Literatura en inglés de nivel AS y A |
+
+Psicología de nivel AS y A |
+
+Prueba de Aptitud Académica (SAT) |  Emitido por instituciones que hayan sido certificadas y habilitadas como Centros Evaluadores. |
+
+Certificado Internacional Pearson |  Se reconocen los programas y exámenes PEIC nivel 3 en adelante y PTE Academic desde un puntaje de 56 en adelante |
+
+👉 PORTUGUÉS
+
+Institución Certificante |  Certificado o Examen Rendido |
+
+Institución Habilitada para el dictado de carrera de Pregrado o Grado |  Tener títulos Universitarios o Terciarios de validez nacional, Licenciaturas, Profesorados o Traductorados de Inglés de portugués |
+
+Certificado de Proficiência en Lengua Portuguesa para Extranjeros (Celpe-Bras) |  Otorgado por el Ministerio de Educación de Brasil a extrajeros- no nativos de Brasil. Se certifican los niveles:- Intermedio - Intermedio Superior - Avanzado - Avanzado Superior |
+
+👉CONVENIO CELI (PEARSON)
+
+Aquellos alumnos que hayan aprobado un examen internacional Pearson English International Certificate (PEIC) en el marco del Convenio CELI podrán solicitar que se les reconozca como equivalencia la materia de idioma correspondiente a la carrera elegida, siempre que aplique según el plan de estudios .
+
+Documentación obligatoria
+
+- Certificado de examen final Pearson English International Certificate, debidamente legalizado .
+
+- DNI – frente y dorso .
+
+La carga de la documentación se realiza conforme al circuito habitual del trámite de eximición de idiomas.
+
+Vigencia del convenio
+
+- El Convenio CELI se encuentra vigente hasta el 31/12/2026 .
+
+Clave para el asesor:
+
+- Verifique que el certificado corresponda efectivamente a Pearson English International Certificate .
+
+- Confirmar vigencia del convenio al momento de la consulta.
+
+- Aclarar que el reconocimiento queda sujeto a que la materia idioma corresponde en el plan de la carrera.
+
+INSTITUCIÓN CERVANTES
+
+Verifique en simulador cuáles son las materias que se reconocen.
+
+Carrera de origen en Cervantes
+|
+Articulaciones posibles en Siglo
+|
+
+Técnico Superior en Gestión Inmobiliaria |  Martillero y corredor público e inmobiliario |
+
+Carrera de origen en Cervantes
+|
+Carrera con combo de materias en Siglo
+|
+
+Técnico Superior en Recursos Humanos |  Licenciada en Recursos Humanos |
+
+ARTICULACIÓN CERVANTES
+
+Estos planes de estudio de Cervantes no deberán ser admitidos, porue la institución no puede emitir los títulos de los alumnos con estos planos por temas ministeriales:
+
+-
+Res. Min Nº 1642/13
+
+-
+Res. Min Nº 1640/15
+
+-
+Res. DGIPE Nº 0996/13
+
+-
+Res. DGIPE 0039/19
+
+✅ ¿Qué es la Articulación Cervantes?
+
+Es una propuesta académica que les permite a los estudiantes del Instituto Cervantes que hayan finalizado su cursado obtener el título de Martillero y Corredor Público e Inmobiliario cursando una sola materia ( PRINCIPIOS FUNDAMENTALES DE LOS DERECHOS REALES ).
+
+✅ ¿Cómo, dónde y cuándo es el cursado?
+
+Modalidad de cursado:
+
+- Presencial
+
+- Días sábados de 9 a 14 h.
+
+- Sede: Nueva Córdoba
+
+- Cursado cuatrimestral.
+
+- Inicio: marzo y agosto al igual que modalidad Presencial.
+
+- No posee exámenes parciales; la materia se regulariza por cursado
+
+DATOS PARA APERTURA DE LEGAJO (responder a este correo en caso de avanzar con la inscripción):
+
+- Nombre completo.
+
+- Apellido/s.
+
+- Número de DNI (sin puntos, espacios, ni comas).
+
+- Número de celular.
+
+- Domicilio.
+
+- Correo electrónico.
+
+- Fecha de nacimiento.
+
+- Institución en que finalizó el secundario  (aclarar localidad si es fuera de Córdoba Capital).
+
+- Año de finalización del secundario. .
+
+✅ ¿Cómo es la Inscripción?
+
+La preinscripción se gestiona de manera directa a través de la planilla de SGU .
+
+Esta propuesta representa una gran oportunidad de upselling académico para sumar valor profesional a los egresados ​​de esa institución y potenciar la conversión.
+
+✅¿Cuáles son las instancias evaluativas?
+
+No tiene exámenes parciales.Se regulariza directamente y luego se rinde final oral (las fechas también están estipuladas en el calendario).Rinde en la Nueva Córdoba
+
+✅Documentación:
+
+-
+Fotocopia del DNI
+
+-
+2 Fotos carnet
+
+-
+Certificado médico
+
+-
+Certificado Analítico del Instituto Cervantes para gestionar el Título.
+
+-
+Si presenta un certificado de Título en trámite o bien ninguno, no podrás recibirte (hasta tanto la documentación se encuentre completa).
+
+Para realizar la inscripción:
+
+-
+Se debe presentar la tirilla emitida desde la Institución Cervantes en la que consta que está habilitada para cursar la articulación para poder iniciar el trámite de inscripción (SIN EXCEPCIÓN). Debido a la situación actual, se puede enviar una fotografía de la misma por este medio
+
+✅¿Qué hacer cuando recibimos una consulta sobre?
+
+- Si no puede inscribirse a la materia, enviamos caso a OPERATIVO SOA
+
+-
+Si es por cambio de condición en la materia, a OPERATIVO SOA.
+
+-
+Si bien desde MESAS PRESENCIALES hacen la inscripción cuando lo solicitan, deben verificar antes el rechazo porque NO siempre es un error de Campus del alumno.
+
+⚠️  Importante:
+
+Para la inscripción a las mesas de examen, el alumno debe disponer de un derecho de examen. Y el alumno debe contar con hasta 4 días corridos antes de cada mesa para poder solicitarla.
+
+Para ver el Cronograma / Calendario de clases y exámenes, haga clic aquí. Examen Oral: El alumno rendirá de manera presencial en la sede Nueva Córdoba, en el horario estipulado.
+
+Metodología del Examen:
+
+En caso de que el alumno se comunique solicitando la inscripción al examen final, debemos derivar un caso a sistema Q indicando día y horario, dependiendo de los turnos establecidos en el calendario.
+
+ESCUELA DE OFICIALES DE LA POLICÍA "LIBERTADOR GENERAL SAN MARTÍN"
+
+Registre verificar en la tabla de equivalencias el paquete de materiales disponibles.
+
+Carrera de origen |  Articulaciones posibles en Siglo |
+
+Tecnicatura Superior en Seguridad Pública |  Licenciatura en Criminología |
+
+ARTICULACIÓN TECLAB
+
+El trámite se realiza como equivalencia externa.
+
+Documentación para que se tomen las equivalencias:
+
+- DNI frente y dorso
+
+- Analítico TECLAB donde conste que es egresado.
+
+El reconocimiento de materiales en la articulación se hace del 1° al 4° cuatrimestre más dos materias electivas.
+
+Carrera Teclab |  Articulación con Carrera Siglo |  Carreras que reconocemos materias, pero no articulan |
+
+Técnico Superior en Gestión Contable |  Contador Público/Lic. En Administración |  Lic. En Comercialización/Lic. En Comercio Internacional |
+
+Técnico Superior en Gestión de la Empresa Agraria |  Lic. En Administración Agraria |  Lic. En Administración/Lic. En Comercialización |
+
+Técnico Superior en Venta Directa |  Lic. En Comercialización |    |
+
+Técnico Superior en Gestión y Marketing de Moda |    |  Lic. En Diseño de Indumentaria/Lic. En Relaciones Públicas/Lic. En Hidrocarburos |
+
+Técnico Superior en Programación |  Licenciatura en Informática |  Ing. En Software |
+
+Técnico Superior en Periodismo y Nuevas Tecnologías |  Licenciatura en Periodismo |    |
+
+Técnico Superior en Relaciones Laborales |  Licenciada en Recursos Humanos |    |
+
+Técnico Superior en Planificación y Organización de Eventos |  Licenciada en Relaciones Públicas |    |
+
+Técnico Superior en Marketing Entradante (Inbound Marketing) |  Lic. En Relaciones Públicas/Lic. En Comercialización |  Licenciado en Publicidad |
+
+Técnico Superior en Redes Informáticas |    |  Ing. En Software |
+
+Técnico Superior en Administración de Servicios en la Nube |    |  Lic. En Informática/Ing. En Software (2020) |
+
+Técnico Superior en Ciencia de Datos |    |    |
+
+Técnico Superior en Experiencia del Cliente |  Lic. En Relaciones Públicas/Lic. En Comercialización/Lic. En Publicidad |    |
+
+Técnico Superior en Gestión Hotelera |    |  Lic. En Relaciones Públicas/Lic. En Administración Hotelera |
+
+Técnico Superior en Marketing Digital |    |  Lic. En Relaciones Públicas/Lic. En Comercialización/Lic.en Publicidad |
+
+Técnico Superior en Seguridad Informática |    |  Lic. En Informática/Lic. En Gestión Deportiva/Lic. En Relaciones Públicas/Lic. En Hidrocarburos |
+
+Técnico Superior en Seguros |    |    |
+
+Verifique información en el simulador de equivalencias. (NO compartir al lead)
+
+👉 ENLACE AQUÍ
+
+LICENCIATURA - PROGRAMA GBO DE BS AS - MENDOZA
+
+¿A quién está dirigido?
+
+Si contamos con un alumno o interesado egresado, o próximo a egresar, de una tecnicatura superior , podemos ofrecer el Programa Licenciate BA , que permite avanzar hacia un título de grado aprovechando los estudios previos.
+
+Información para compartir con el interesado
+
+El programa cuenta con un sitio oficial con información detallada para el aspirante: .
+
+🔗 Haga clic aquí
+
+Reconocimiento academico
+
+Las universidades públicas y privadas reconocen un paquete de materias que aprobado en su tecnicatura
+
+- Las universidades públicas y privadas reconocen un paquete de materias que aprobo en su tecnicatura.
+
+- Listado de tecnicaturas (terciarios) reconocidas: 🔗 Listado de terciarios
+
+Inscripción al programa
+
+- Para continuar los estudios , el alumno deberá inscribirse en la Universidad Siglo 21 .
+
+- Para postular al estímulo económico , deberá realizar la inscripción desde la página web del programa .
+
+Apoyo económico
+
+- Consiste en una asignación equivalente al Salario Mínimo Vital y Móvil .
+
+- Se abona en hasta 10 cuotas anuales , con posibilidad de prórroga por un año más .
+
+- El pago se deposita en una cuenta gratuita a nombre del beneficiario , a través del Banco Ciudad .
+
+Importante para la gestión del asesor
+
+Más allá del momento en que ingrese el plomo o de que el período de postulación al programa Licenciate se encuentre finalizado , siempre puede ofrecerse la articulación .
+
+Esto permite:
+
+- Aprovechar el convenio vigente con la institución.
+
+- Lograr que el aspirante avance más rápido en su carrera.
+
+- Evitar que deba comenzar desde cero su formación de grado.
+
+Además, es recomendable destacar otros beneficios académicos y diferenciales que ofrece la Universidad.
+
+Paquetes de materiales según sede:
+
+📍 Buenos Aires : Ingresando al siguiente enlace, se puede consultar el paquete de materias reconocidas según la tecnicatura de origen: 🔗 Clic aquí
+
+📍 Mendoza: Ingresando al siguiente enlace, se puede consultar el paquete de materias reconocidas según la tecnicatura de origen: 🔗 Clic aquí
+
+ARTICULACIÓN: TECNICATURA SUPERIOR EN INVESTIGACIÓN CRIMINAL
+
+Nueva articulación entre la Tecnicatura Superior en Investigación Criminal de la Escuela de Investigaciones de la Policía del Instituto de Seguridad Pública (I.Se.P.) (dependiente del entonces Ministerio de Seguridad de la Provincia de Santa Fe) y el destino carrera Licenciatura en Criminología y Seguridad de la Universidad Siglo 21.
+
+La articulación contempla:
+
+-
+Reconocimiento de materias desde 1.º hasta 4.º cuatrimestre.
+
+-
+Reconocimiento de UES21.
+
+-
+incorporación de 2 materias optativas.
+
+Las materias electivas reconocidas en esta articulación serán:
+
+-
+INF340 – Big Data
+
+-
+IPSI269 – Mediación Comunitaria y Cultura de Paz
+
+Origen Carrera, plan RESCONJ-2025-00000412-APPSF-PE#MJYS .
+
+Carrera destino: Licenciatura en Criminología y Seguridad
+R.M. 481/2019
+R.M. 4229/2017
+
+ARTICULACIONES DE PROFESORADOS DE MATEMÁTICA CON LA LIC. EN MATEMÁTICAS DE LA PROVINCIA DE CÓRDOBA
+
+INSTITUTO ORIGEN |  RM |
+
+ESCUELA NORMAL SUPERIOR DR. DALMACIO VELÉZ SARFIELD - VILLA DOLORESPROFESORADO DE EDUCACIÓN SECUNDARIA EN MATEMÁTICA |  RM 978/2014 |
+
+INSTITUTO SUPERIOR DR. CARLOS MARÍA CARENA |  PENDIENTE |
+
+INSTITUTO DE ENSEÑANZA SUPERIOR SIMÓN BOLÍVARPROFESORADO DE EDUCACIÓN SECUNDARIA EN MATEMÁTICA |  RM 978/2014 |
+
+INSTITUTO SUPERIOR DE FORMACIÓN DOCENTE RENEE TRETTEL DE FABIÁN
+PROFESORADO DE EDUCACIÓN SECUNDARIA EN MATEMÁTICA |  RM 978/2014 |
+
+INSTITUTO SUPERIOR ZARELA MOYANO DE TOLEDOPROFESORADO DE EDUCACIÓN SECUNDARIA EN MATEMÁTICA |  RM 978/2014 |
+
+COLEGIO SUPERIOR SAN MARTÍN - SAN FRANCISCOPROFESORADO DE EDUCACIÓN SECUNDARIA EN MATEMÁTICA |  RM 978/2014 |
+
+ESCUELA NORMAL SUPERIOR GENERAL MANUEL BELGRANO - SUPERIOR - MARCO JUÁREZPROFESORADO DE EDUCACIÓN SECUNDARIA EN MATEMÁTICA |  RM 978/2014 |
+
+INSTITUTO DE ENSEÑANZA SUPERIOR ARTURO CAPDEVILAPROFESORADO DE EDUCACIÓN SECUNDARIA EN MATEMÁTICA |  RM 978/2014 |
+
+Enlace para equivalencias similares aquí.
+
+ARTICULACIÓN : INSTITUTO TECNOLÓGICO DE SANTIAGO DEL ESTERO (ITSE)
+
+INSTITUTO |  CARRERA ORIGEN |  RM |  CARRERA DESTINO |
+
+INSTITUTO TECNOLÓGICO DE SANTIAGO DEL ESTERO - ITSE
+|
+TÉCNICO SUPERIOR EN CIENCIA DE D ATOS E INTELIGENCIA AR TIFICIAL
+|
+
+RE SOL-2024-802-E -GDESDE-ME
+
+|
+LIC. EN CIENCIA DE DATOS
+|
+
+INSTITUTO TECNOLÓGICO DE SANTIAGO DEL ESTERO - ITSE |  TÉCNICO SUPERIOR EN CIENCIA DE D ATOS E INTELIGENCIA AR TIFICIAL |
+RE SOL-2024-802-E -GDESDE-ME
+|  LIC. EN INTELIGENCIA ARTIFICIAL Y ROBÓTICA |
+
+Enlace para equivalencias similares aquí.$pea0$, 'global', 'borrador', $pea0$https://kb-cau.21.edu.ar/servicios-cau/servicios/equivalencias-externas$pea0$)
+on conflict (categoria_id, slug) do nothing;
+
+insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
+values ((select id from public.categorias where slug = $pea0$oferta-academica$pea0$), null, 31, $pea0$kb-31-idioma$pea0$,
+        $pea0$Idioma$pea0$, $pea0$Principales consultas relacionadas con Idioma Inglés e Idioma Portugués, incluyendo inscripción, eximición, cursado, evaluaciones, regularidad y dificultades asociadas a las plataformas de idiomas.$pea0$, $pea0$> **A validar:** contenido relevado de https://kb-cau.21.edu.ar/servicios-cau/servicios/idioma el 2026-11-19. Revisalo antes de publicar.
+
+Principales consultas relacionadas con Idioma Inglés e Idioma Portugués, incluyendo inscripción, eximición, cursado, evaluaciones, regularidad y dificultades asociadas a las plataformas de idiomas.
+
+ÍNDICE:
+
+INFORMACIÓN GENERAL – IDIOMA INGLÉS
+
+GESTIONES – IDIOMA INGLÉS
+
+1. Inscripción a Idioma Inglés
+
+2. Condición de materia Idiomas
+
+3. Error en plataforma de Idioma
+
+4. Rehabilitación del test de nivelación Idioma
+
+INFORMACIÓN GENERAL – IDIOMA PORTUGUÉS
+
+GESTIONES – IDIOMA PORTUGUÉS
+
+5. Inscripción a Idioma Portugués
+
+6. TOEIC Bridge
+
+INFORMACIÓN GENERAL – IDIOMA INGLÉS
+
+Tema |  Información importante |
+
+Carreras que deben cursarlo |  Todas las carreras de grado, excepto Abogacía, Contador Público, Diseño Gráfico y los Ciclos de Complementación Curricular. |
+
+Inscripción |  Se realiza de manera autogestiva desde el Portal de Estudiantes. El estudiante puede cursar Idioma Inglés una vez abonada su segunda matrícula. |
+
+Arancel |  Se abona como cualquier otra materia y ocupa un lugar dentro del paquete de materias. |
+
+Plataforma de cursado |  El cursado se realiza mediante English Discoveries – Edusoft, con acceso desde Canvas. |
+
+Vigencia de la plataforma |  La plataforma permanece habilitada durante un año académico. |
+
+Anulación |  Puede realizarse hasta un día antes del inicio de clases, sin excepción. Una vez iniciado el cursado, no corresponde reclamar el cupo de la materia. |
+
+Placement Test |  Es el test de nivelación que determina el nivel desde el cual comienza el estudiante. Se realiza una única vez por licencia, consta de 100 preguntas y tiene una duración de 1 hora. |
+
+Requisitos para el Placement Test |  Se realiza desde Google Chrome y requiere la extensión correspondiente de Klarway. La plataforma indica cómo instalarla. |
+
+Niveles |  Idioma Inglés cuenta con 10 niveles, cada uno compuesto por 10 unidades. |
+
+Avance de nivel |  Para avanzar al siguiente nivel, debe alcanzar 70 % de avance y aprobar el Final Test con un mínimo de 70 %. |
+
+Regularidad |  Se obtiene al aprobar con 70 % o más el examen final del último nivel correspondiente al Placement Test. La regularidad se refleja mediante la nota correspondiente en TP1 de Canvas. |
+
+Examen final integrador |  Se realiza mediante Sistema Q/Klarway, consta de 50 preguntas de opción múltiple y se aprueba con una calificación mínima de 4 (cuatro). |
+
+Vigencia de la regularidad |  El estudiante cuenta con 18 meses para rendir el examen final, con 3 oportunidades. |
+
+Recursado |  Desde marzo de 2025, el progreso no se conserva al recursar. Debe comenzar desde cero si finaliza el año de vigencia de la plataforma, vencen los 18 meses de regularidad o desaprueba las 3 oportunidades. |
+
+Correlatividad con Portugués |  Las carreras que incluyen Idioma Portugués deben tener Idioma Inglés aprobado previamente, ya que son correlativas directas. |
+
+EFIP I – Modalidad a distancia |  El estudiante debe tener Idioma Inglés aprobado antes de rendir EFIP I. |
+
+Publicidad |  La Licenciatura en Publicidad no posee Idioma Extranjero (Inglés) como materia dentro de su plan de estudios. Cuenta con una instancia de validación de idioma previa a la Defensa Oral, que no requiere cursado. Los pasos son informados por TFG. |
+
+MyELT |  Si el estudiante cursó Inglés mediante MyELT, debe rendir el módulo de Idioma el mismo día que EFIP I. Si no lo aprueba, no podrá avanzar al módulo correspondiente a la carrera. |
+
+DT |  Si realiza una DT y en su carrera de origen no tenía Inglés dentro de su plan de estudios, debe rendir el módulo de Idioma el mismo día que EFIP I. |
+
+Profesor Virtual |  Cada estudiante cuenta con un Profesor Virtual, que acompaña el cursado y se comunica mediante la mensajería de Canvas. |
+
+Progreso del cursado |  Se recomienda realizar cada nivel en aproximadamente 6 semanas, aunque el estudiante administra sus tiempos dentro del año de vigencia de la licencia. |
+
+Guardado del progreso |  Para que el progreso se registre correctamente, el estudiante debe cerrar la sesión mediante “log out” desde English Discoveries y no cerrar directamente la ventana del navegador. |
+
+Problemas de acceso |  Ante inconvenientes de acceso a Edusoft, se recomienda borrar las cookies del navegador antes de volver a ingresar. |
+
+1. Inscripción a Idioma Inglés
+
+Descripción
+
+Esta gestión contempla las consultas relacionadas con la inscripción a la materia Idioma Inglés.
+
+La inscripción se realiza de manera autogestiva desde el Portal de Estudiantes.
+
+¿Cuándo corresponde?
+
+El estudiante podrá inscribirse a Idioma Inglés una vez abonada su segunda matrícula, siempre que la materia se encuentre disponible para su inscripción.
+
+Para realizar la inscripción, debe ingresar al Portal de Estudiantes y completar el proceso de manera autogestiva.
+
+La materia:
+
+- Se abona como cualquier otra materia y ocupa un lugar dentro del paquete de materias.
+
+- Tiene una duración de un año calendario.
+
+- Se cursa a través de English Discoveries – Edusoft.
+
+- Se accede a la plataforma desde Canvas.
+
+Importante: ante consultas generales sobre el proceso de inscripción, orientar al estudiante para que realice la gestión desde el Portal de Estudiantes.
+
+La derivación solo corresponde cuando el estudiante informa un error o inconveniente que le impide realizar la inscripción de manera autogestiva.
+
+Anulación de la inscripción
+
+La anulación podrá realizarse hasta un día antes del inicio de clases, sin excepción.
+
+Una vez iniciado el cursado, no corresponde reclamar el cupo de la materia, dado que el estudiante dispone de la plataforma durante un año calendario y puede comenzar su recorrido dentro de ese período.
+
+Validaciones previas
+
+Antes de realizar la derivación, verificar:
+
+-
+
+- Que el estudiante haya intentado realizar la inscripción desde el Portal de Estudiantes.
+
+- Que informe un error o inconveniente concreto que impida completar la inscripción.
+
+Circuito de derivación
+
+Área responsable: Operativo SOA
+Tipificación HubSpot: Inscripción a Idioma ingles
+
+La selección de esta tipificación genera la derivación automática al área correspondiente.
+
+Información que debe incluir la derivación
+
+- Nombre del estudiante.
+
+- DNI.
+
+- Carrera.
+
+- Modalidad.
+
+- Descripción del error o inconveniente.
+
+- Captura de pantalla del error, cuando corresponda.
+
+- Período en el que intenta realizar la inscripción.
+
+Tiempo de gestión: 72 hs hábiles.
+
+2. Condición de materia idiomas
+
+Descripción
+
+Esta gestión contempla las consultas relacionadas con la condición académica de la materia Idiomas, cuando el estudiante indica que cumplió con los requisitos para obtener la regularidad, pero la condición no se encuentra reflejada correctamente en SGU, en el historial académico del estudiante.
+
+¿Cuándo corresponde?
+
+Corresponde cuando el estudiante manifiesta que cumplió con las condiciones requeridas para obtener la regularidad de Idioma, pero la misma no se encuentra actualizada en sus sistemas académicos.
+
+En caso de corresponder, el área responsable verificará en el administrador de Edusoft que el estudiante haya cumplido efectivamente con los requisitos necesarios para obtener la regularidad.
+
+Validaciones previas
+
+Antes de realizar la derivación, verificar:
+
+- Que la consulta corresponda a la condición de la materia Idiomas.
+
+- Que el estudiante manifieste haber cumplido con los requisitos necesarios para obtener la regularidad.
+
+- Que la condición o calificación no se encuentre correctamente reflejada en SGU.
+
+Circuito de derivación
+
+Área responsable: Operativo SOA
+
+Tipificación HubSpot: Condición de materia idiomas
+
+Información que debe incluir la derivación
+
+- Nombre del estudiante.
+
+- DNI.
+
+- Carrera.
+
+- Materia.
+
+- Descripción de la situación.
+
+- Requisitos que el estudiante indica haber cumplido.
+
+- Captura de pantalla de SGU o Portal de estudiantes, donde se verifica que continúa en condición “cursando”.
+
+- Captura de pantalla de los seis niveles aprobados en el Assessment Center de English Discoveries, o de la nota cargada en TP1 de CANVAS (se sugiere siempre revisar que los niveles requeridos hayan sido debidamente aprobados).
+
+- NO SE RECIBIRÁN CONSULTAS SIN LAS CAPTURAS CORRESPONDIENTES.
+
+Tiempo de gestión: 72 horas hábiles.
+
+Ejemplos de capturas que se deben adjuntar:
+
+1- Niveles aprobados en English Discoveries o nota de TP1 cargada :
+
+2- Condición “cursando” en SGU o Portal de estudiantes
+
+3. Error en plataforma de idioma
+
+Descripción
+
+Esta gestión contempla los casos en los que el estudiante informa un error o inconveniente en el funcionamiento o acceso a la plataforma de Idioma Inglés: Edusoft.
+
+¿Cuándo corresponde?
+
+Corresponde cuando el estudiante informa un error relacionado con la plataforma de Idioma y, luego de realizar las validaciones y orientaciones disponibles, el inconveniente persiste.
+
+Antes de derivar, se debe verificar que la situación corresponda efectivamente a un inconveniente de plataforma y no a una consulta sobre el cursado, condición de materia o rehabilitación del Placement Test.
+
+Importante: antes de realizar la derivación, consultar al estudiante si pudo revisar el manual de uso de la plataforma disponible en La Nube 21, ya que allí se encuentran indicaciones para resolver algunos inconvenientes de manera autogestiva.
+
+Validaciones previas
+
+Antes de realizar la derivación, verificar:
+
+- Que el inconveniente corresponda a la plataforma de idioma.
+
+- Validar si el estudiante realizó el Placement Test o no.
+
+- Que el estudiante haya informado claramente cuál es el error presentado.
+
+- Que el inconveniente persista luego de las indicaciones brindadas.
+
+- Que se cuente con una captura de pantalla del error, cuando corresponda.
+
+Circuito de derivación
+
+Área responsable: Gestiones N2
+
+Tipificación HubSpot: Error en plataforma de idioma
+
+Información que debe incluir la derivación
+
+- Nombre del estudiante.
+
+- DNI.
+
+- Carrera.
+
+- Descripción detallada del inconveniente.
+
+- Plataforma en la que se presenta el error.
+
+- Momento en que se presenta el inconveniente.
+
+-
+Captura de pantalla completa de lo que el estudiante visualiza dentro de la plataforma (en caso de necesitar derivarlo al proveedor, el mismo no admite fotos o recortes, ya que necesita corroborar el navegador que se utiliza, y lo que aparece en pantalla completa).
+
+-
+Descripción escrita y clara del error que aparece (cómo accede el estudiante a la plataforma, qué visualiza, en qué actividad no puede avanzar, describir nivel, unidad y lección).
+
+- Validaciones realizadas por el asesor.
+
+- NO SE RECIBIRÁN CONSULTAS SIN LAS CAPTURAS CORRESPONDIENTES.
+
+Tiempo de gestión: 72 hs hábiles
+
+Ejemplos de capturas de errores: (No son los unicos que pueden presentarse)
+
+4. Rehabilitación del test de nivelación idioma
+NO INDICAR O CONFIRMAR AL ALUMNO QUE SE REHABILITARÁ EL TEST.
+
+Descripción
+
+Esta gestión contempla las solicitudes de rehabilitación del Placement Test o prueba de nivelación de Idioma Inglés.
+
+La gestión se utiliza cuando el estudiante conserva progreso de una licencia anterior y necesita que el test sea restablecido para comenzar nuevamente su recorrido.
+
+También puede corresponder cuando el Placement Test quedó finalizado sin haber sido completado debido a un inconveniente durante su realización.
+
+¿Cuándo corresponde?
+
+Puede solicitarse la rehabilitación cuando:
+
+- El estudiante visualiza progreso correspondiente a una licencia anterior al iniciar nuevamente su cursado.
+
+- El estudiante tuvo un problema técnico durante la realización del Placement Test.
+
+-  Un error derivado de la integración con Klarway.
+
+-  Un corte de luz comprobable.
+
+- Un corte de internet u otra situación técnica que el estudiante pueda acreditar.
+
+No corresponde rehabilitar: Solicitudes realizadas por otras causas que no respondan a un inconveniente técnico o a una situación acreditable, por ejemplo: alumno disconforme con el nivel obtenido, alumno que reclama se le reconozca el progreso previo obtenido en otra inscripción, o que desea otra oportunidad para hacerlo mejor.
+
+Aclaración por el período de transición:
+
+Actualmente, debido al período de transición de la integración de la plataforma con Klarway, y a los inconvenientes que se han presentado en su funcionamiento, todos los casos de rehabilitación en los que el estudiante no tenga progreso en plataforma se derivan a SITA, para que ellos definan con el historial del estudiante, si corresponden o no.
+
+SITA deberá verificar si efectivamente existió un error de sistema o de Klarway y determinar si corresponde habilitar nuevamente el placement test, de manera que el estudiante tenga la posibilidad de completar el proceso de nivelación correctamente.
+
+Importante: si el estudiante interrumpió el Placement Test por error o debido a un inconveniente técnico y posteriormente realizó alguna actividad correspondiente al cursado en la plataforma, no será posible rehabilitar el test, ya que la gestión requiere utilizar una nueva licencia.
+
+Por este motivo, ante un inconveniente durante el Placement Test, el estudiante no debe realizar actividades correspondientes al cursado hasta que se resuelva la situación.
+
+Validaciones previas
+
+Antes de realizar la derivación, verificar:
+
+- Que la consulta corresponda a una solicitud de rehabilitación del Placement Test.
+
+- Qué situación se presentó durante la realización del test o qué progreso visualiza actualmente.
+
+- Si el estudiante está iniciando un nuevo cursado y el progreso corresponde a una licencia anterior.
+
+- Que, en caso de haber interrumpido el Placement Test, no haya realizado posteriormente actividades correspondientes al cursado.
+
+- Que se cuente con la información necesaria para la derivación.
+
+Circuito de derivación
+
+Área responsable: Secretaría de Gestión Académica – SGEA
+
+Tipificación HubSpot: Rehabilitación del test de nivelación idioma
+
+Información que debe incluir la derivación:
+
+- Nombre del estudiante.
+
+- DNI.
+
+- Carrera.
+
+- Descripción de la situación.
+
+- Motivo por el cual solicita la rehabilitación.
+
+- Placement Test realizdo: SI/NO
+
+- Indicar si se trata de progreso correspondiente a una licencia anterior.
+
+- Fecha aproximada en la que realizó el Placement Test, cuando corresponda.
+
+- Captura de pantalla del inconveniente o progreso visualizado, cuando corresponda.
+
+Tiempo de gestión: 3 días hábiles.
+
+5. INFORMACIÓN GENERAL – IDIOMA PORTUGUÉS
+
+Tema |  Información importante |
+
+Carreras que cuentan con Idioma Portugués |  Lic. en Gestión Turística, Lic. en Administración Hotelera y Lic. en Comercio Internacional. |
+
+Materias |  En el plan de estudios figuran como Idioma Extranjero VII – Portugués Avanzado I e Idioma Extranjero VIII – Portugués Avanzado II. |
+
+Correlatividad |  Para cursar Portugués debe estar aprobado Idioma Inglés. Portugués Avanzado I y II no pueden cursarse en simultáneo, ya que existe correlatividad entre ambas materias. |
+
+Inscripción |  La inscripción se realiza desde el Campus Virtual. |
+
+Cursado |  El cursado es virtual, independientemente de la modalidad del estudiante. Se realiza mediante Nuevo SAM / Canvas. |
+
+Duración del cursado |  Es bimestral para ED, EDH y PH y cuatrimestral para MP. |
+
+Arancel |  Se abona como una materia más. En ED, EDH y PH ocupa un lugar dentro del paquete de 3 o 6 materias; en MP, se abona la materia. |
+
+Modalidad de evaluación |  Es una materia MEC, por lo que el estudiante debe cumplir con las entregas de TP y rendir los parciales correspondientes. |
+
+Regularidad |  Se obtiene mediante un examen Q de 30 preguntas, con 18 meses de vigencia y 3 oportunidades. |
+
+Libre por Nota |  Examen Q de 50 preguntas, con 3 meses de vigencia y 1 oportunidad. |
+
+Nota de aprobación |  La calificación mínima de aprobación es 4 (cuatro). |
+
+Calendario académico |  Cada modalidad debe rendir sus instancias de evaluación dentro de las semanas establecidas en su calendario académico. |
+
+6 -Inscripción a Idioma Portugués
+
+Descripción
+
+Esta gestión contempla las consultas relacionadas con la inscripción a Idioma Portugués Avanzado I y II.
+
+La inscripción se realiza de manera autogestiva desde el portal de estudiantes.
+
+¿Cuándo corresponde?
+
+Idioma Portugués forma parte del plan de estudios de las siguientes carreras:
+
+- Lic. en Gestión Turística.
+
+- Lic. en Administración Hotelera.
+
+- Lic. en Comercio Internacional.
+
+Las materias figuran en el plan de estudios como:
+
+- Idioma Extranjero VII – Portugués Avanzado I
+
+- Idioma Extranjero VIII – Portugués Avanzado II
+
+Para cursar Idioma Portugués, el estudiante debe tener aprobado Idioma Inglés.
+
+Además, Portugués Avanzado I y II son correlativas, por lo que no pueden cursarse en simultáneo.
+
+La derivación solo corresponde cuando el estudiante informa un error o inconveniente que le impide completar la inscripción de manera autogestiva.
+
+Validaciones previas
+
+Antes de realizar la derivación, verificar:
+
+- Que el estudiante pertenezca a una de las carreras que cuentan con Idioma Portugués.
+
+- Que tenga Idioma Inglés aprobado.
+
+- Que respete la correlatividad entre Portugués Avanzado I y II.
+
+- Que haya intentado realizar la inscripción desde su portal
+
+- Que informe un error o inconveniente concreto que impida completar la inscripción.
+
+Circuito de derivación
+
+Área responsable: Operativo SOA
+
+Tipificación HubSpot: Inscripción a Idioma portugués
+
+Información que debe incluir la derivación
+
+- Nombre del estudiante.
+
+- DNI.
+
+- Carrera.
+
+- Materia a la que intenta inscribirse.
+
+- Descripción del error o inconveniente.
+
+- Captura de pantalla del error, cuando corresponda.
+
+Tiempo de gestión: 72 hs hábiles.
+
+7. Información complementaria – TOEIC Bridge
+
+⚠️ Importante: a partir de septiembre, el certificado TOEIC dejará de estar vigente dentro de la oferta, por lo que ya no estará disponible para los estudiantes.
+
+Tema |  Información importante |
+
+¿Qué es? |  Es un examen internacional de inglés de 100 preguntas y 1 hora de duración, que certifica hasta nivel B1 del MCER. Está avalado por ETS, organismo que también desarrolla TOEFL. |
+
+Vigencia del certificado |  El certificado tiene una vigencia de 2 años y reconocimiento internacional. |
+
+Acceso al examen |  Una vez acreditado el pago, EDUSOFT envía por correo electrónico las credenciales de acceso a English Discoveries. |
+
+Modalidad |  Es 100 % online, con proctoring remoto. El estudiante necesita computadora, cámara, micrófono y auriculares con cable, además de una conexión estable a Internet. |
+
+Requisitos técnicos |  Debe descargar previamente el Secure Browser desde la plataforma. |
+
+Certificado |  Al día siguiente de rendir, puede consultar y descargar el certificado digital desde English Discoveries → Assessment Center → Test Results. |$pea0$, 'global', 'borrador', $pea0$https://kb-cau.21.edu.ar/servicios-cau/servicios/idioma$pea0$)
+on conflict (categoria_id, slug) do nothing;
+
+insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
+values ((select id from public.categorias where slug = $pea0$tramites$pea0$), null, 32, $pea0$kb-32-proceso-de-titulos$pea0$,
+        $pea0$Proceso de Títulos$pea0$, $pea0$Gestión del proceso de titulación que incluye lineamientos para la digitalización de documentación, etapas y consideraciones del trámite, consulta de estado de título, emisión de títulos intermedio…$pea0$, $pea0$> **A validar:** contenido relevado de https://kb-cau.21.edu.ar/servicios-cau/servicios/operación-títulos el 2026-11-19. Revisalo antes de publicar.
+
+Gestión del proceso de titulación que incluye lineamientos para la digitalización de documentación, etapas y consideraciones del trámite, consulta de estado de título, emisión de títulos intermedios, rectificación de datos, envío y entrega de títulos académicos.
+
+Índice
+
+- DIGITALIZACIÓN DE DOCUMENTACIÓN PARA PROCESO DE TITULACIÓN
+
+-
+PROCESO DE TITULACIÓN
+
+-
+ESTADO DE TÍTULO
+
+-
+TÍTULO INTERMEDIO
+
+-
+RECTIFICACIÓN DE TÍTULO
+
+-
+ENVÍO DE TÍTULOS
+
+- ENTREGA DE TÍTULOS
+
+1-DIGITALIZACIÓN DE DOCUMENTACIÓN PARA PROCESO DE TITULACIÓN
+
+Canales habilitados para la presentación de documentación de legajo, según la situación académica del alumno:
+
+- Alumnos egresados: la documentación debe enviarse mediante un ticket de HubSpot, utilizando la tipificación “Digitalización de documentación para proceso de titulación”.
+
+- Alumnos en instancia de visado: deberán adjuntar la documentación a través del formulario emergente (pop up) disponible en su Portal Estudiante. En caso de presentar inconvenientes para realizar la carga, corresponde derivar la gestión mediante la tipificación “Visado Analítico”.
+
+- Alumnos ingresantes: la carga de documentación debe realizarse exclusivamente a través de Digital Admin. No se contemplan excepciones para este procedimiento.
+
+Información para la derivación (HubSpot)
+Área de derivación: Operación Títulos
+Tipificación: Digitalización de documentación para proceso de titulación
+Nota interna - completar ticket con los siguientes datos:
+
+- DNI
+
+- Legajo
+
+- Intermedio SI/NO
+
+Plazos: 3 días hábiles.
+importante: Solo se receptará documentación digital, en caso de que el alumno se encuentre EGRESADO.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Operación Títulos
+
+Tipificación: Inicio de trámite de titulación
+
+Nota interna - completar ticket con los siguientes datos:
+
+- DNI
+
+- Legajo
+
+Validaciones: solo debe utilizarse cuando hayan transcurrido más de 15 días hábiles desde el cumplimiento de los requisitos para iniciar la titulación y no se evidencie el inicio del proceso en los sistemas de seguimiento correspondientes.
+
+REQUISITOS DE DOCUMENTACIÓN PARA CADA CARRERA:
+
+- CARRERAS GRADO, INTERMEDIOS Y TECNICATURAS: frente y dorso DNI actualizado (no es válido DNI emitido desde Mi Argentina), copia Certificado Analítico o Diploma Secundario legalizado.
+
+- POSGRADOS: frente y dorso DNI actualizado (no es válido DNI emitido desde Mi Argentina), Diploma de Grado (frente y dorso) legalizado.
+
+- VEDU: frente y dorso DNI actualizado (no es válido DNI emitido desde Mi Argentina), copia legalizada del título de Profesor/a, documentación que acredite 1200 hs reloj de cursado.
+
+- VESC: frente y dorso DNI actualizado (no es válido DNI emitido desde Mi Argentina), Diploma Oficial de Abogado/a (frente y dorso).
+
+- MAR CERVANTES: frente y dorso DNI actualizado (no es válido DNI emitido desde Mi Argentina), Certificado Analítico Secundario legalizado, Certificado Analítico Oficial de Institución Cervantes.
+
+- CICLOS COMPLEMENTARIOS: Revisar documentación correspondiente en el siguiente link.
+
+2-CONSIDERACIONES DEL PROCESO DE TITULACIÓN
+
+El plazo estimado para la emisión del título y del analítico definitivo es de 120 días.
+
+El inicio del proceso de titulación es automático y tiene una demora de 15 días hábiles desde la fecha de egreso, no se debe solicitar vía ticket.
+
+🔗 Proceso de titulación en La Nube: https://www.lanube.21.edu.ar/proceso-de-titulacion
+
+✅Cuando un egresado nos consulta el estado de su título debemos informarle que se encuentra en proceso.
+NO debemos proactivamente dar información detallada sobre el estado del título ni debemos comprometer plazos.
+
+✅ Cuando un egresado ya ha verificado en Sidcer el estado de su título y nos consulte el detalle de ese estado, debemos informar según la descripción de los estados que se detallan a continuación.
+
+✅Cuando un egresado consulte porque su título se encuentra “Rechazado”, “Observado” o “Anulado” en Sidcer, se deberá informar que la Universidad realiza la rectificación de los datos observados por el Ministerio para dar continuidad al proceso de titulación. En caso de ser necesario derivar un ticket Hubspot a la bandeja “Operación Títulos” para reportar demora en el cambio de estado de la solicitud.
+
+✅El plazo de entrega del título se encuentra comprendido dentro de los 120 días que contempla el proceso de titulación. Asimismo, se establece como prioridad la emisión de títulos correspondientes a carreras que requieren dicho documento para el ejercicio profesional.
+
+✅ Documentación requerida:
+
+-
+CARRERAS GRADO, INTERMEDIOS Y TECNICATURAS: frente y dorso DNI actualizado (no es válido DNI emitido desde Mi Argentina), copia Certificado Analítico o Diploma Secundario legalizado.
+
+-
+POSGRADOS: frente y dorso DNI actualizado (no es válido DNI emitido desde Mi Argentina), Diploma de Grado (frente y dorso) legalizado.
+
+-
+VEDU - Licenciatura en Educación: frente y dorso DNI actualizado (no es válido DNI emitido desde Mi Argentina), copia legalizada del título de Profesor/a, documentación que acredite 1200 hs reloj de cursado.
+
+-
+VESC - Escribania: frente y dorso DNI actualizado (no es válido DNI emitido desde Mi Argentina), Diploma Oficial de Abogado/a (frente y dorso).
+
+-
+MARTILLERO CERVANTES : frente y dorso DNI actualizado (no es válido DNI emitido desde Mi Argentina), Certificado Analítico Secundario legalizado, Certificado Analítico Oficial de Institución Cervantes.
+
+-
+CICLOS COMPLEMENTARIOS: Revisar documentación correspondiente en el siguiente link.
+
+3-ESTADO DE TÍTULO
+
+¿Cómo validar el estado del título desde el Portal del Estudiante?
+
+1. Etapa "VALIDACIÓN"
+
+📅 Plazo total estimado: 75 días
+
+Primeros 65 días
+
+- Asignar Auxiliar → Tu trámite de titulación está en curso.
+
+- Validar Datos de Alumnos → Tu trámite de titulación está en curso.
+
+Últimos 10 días
+
+- Generación Archivos SICer → Tu trámite de titulación está en curso.
+
+- Impresión Archivo → Tu trámite de titulación está en curso.
+
+- Pendiente Envío Digitalización → Tu trámite de titulación está en curso.
+
+2. Etapa "LEGALIZACIÓN"
+
+📅 Plazo total estimado: 40 días
+
+Estados posibles durante esta etapa
+
+- En espera de Digitalización → Tu título está en proceso de legalización.
+
+- Documento con Firma Pendiente → Tu título está en proceso de legalización.
+
+- Envío de Imágenes a SICer → Tu título está en proceso de legalización.
+
+- Pendiente de Finalizar en SICer → Tu título está en proceso de legalización.
+
+- Pendiente de Archivo → Tu título está en proceso de legalización.
+
+📌 Seguimiento del trámite
+
+- En esta etapa, el alumno puede realizar el seguimiento del título en la página de Consulta Sidcer, ingresando su número de DNI.
+
+-
+Para conocer y brindarle el número de seguimiento de envío de Titulo a nuestros egresados, accede haciendo 🡺  click aquí.
+
+- Si hay una diferencia de información entre SIDCER y el Portal, siempre prevalece SIDCER.
+
+🔗 SIDCER: https://sicer.educacion.gob.ar/estado_solicitud.php
+
+3. Etapa "DESPACHO"
+
+📅 Plazo total estimado: 5 días
+
+Estado posible durante esta etapa
+
+- Para Entrega de Documento → Título disponible para enviar/retirar.
+
+4. Otros estados de títulos que pueden aparecer
+
+📌 Etapa Validación con "DOCUMENTACIÓN INCOMPLETA"
+
+Estado posible
+
+- Legajos con Documentación Pendiente → Tu legajo está incompleto.
+
+📌 Gestión de documentación faltante
+
+- Se recuerda que la documentación faltante de alumnos egresados se debe enviar por ticket HubSpot, no por Digital Admin.
+
+- Corresponde derivar la gestión a Operación Títulos utilizando la tipificación “Digitalización de documentación para el proceso de titulación”.
+
+-  Legajos con ambos títulos en proceso (título intermedio, Doble Titulación o Segunda carrera):
+
+-   Error al recuperar datos de BPM:
+
+En este caso derivar un ticket Hubspot para que puedan verificar la información sobre el estado del título del egresado.
+
+Área de derivación: Operación Títulos
+Tipificación: Estado de Títulos
+Nota interna - completar ticket con los siguientes datos:
+
+- DNI
+
+- Legajo
+
+¿Cómo validar el estado del título desde el botón BPM en HubSpot?
+
+📌 Importante
+
+- En caso de que el registro del título no se encuentre en SIDCER, se deberá validar la etapa en la que se encuentra el trámite desde HubSpot.
+
+📋 Paso a paso
+
+- Ingresar al contacto del egresado.
+
+- Hacer clic en la pestaña BPM dentro de la columna central.
+
+- Validar el estado del título.
+
+- Corroborar la etapa informada y brindar la información correspondiente al alumno.
+
+ETAPAS DE ESTADO DE TÍTULO
+
+Estados de título e interpretación
+
+📌 "Tu trámite de titulación está en curso"
+
+Corresponde a las siguientes etapas internas:
+
+- Asignar a auxiliar
+
+- Validar datos del Alumno
+
+- Generación de archivos SIDCER
+
+- Impresión archivo
+
+- Pendiente envío a digitalización
+
+📌 "Documentación de legajo faltante"
+
+Corresponde a la siguiente etapa interna:
+
+- Legajo con documentación pendiente
+
+📌 "Tu título está en proceso de legalización"
+
+Corresponde a las siguientes etapas internas:
+
+- En espera de digitalización
+
+- Documento con firma pendiente
+
+- Envío de imágenes a SIDCER
+
+- Pendiente de finalizar en SIDCER
+
+📌 "Título disponible para enviar / retirar"
+
+Corresponde a la siguiente etapa interna:
+
+- Para entrega de Documento
+
+📌 "Trámite finalizado / Título entregado"
+
+Corresponde a la siguiente etapa interna:
+
+- Trámite finalizado
+
+Paso a paso para validar en SIDCER y solicitar envío de título:
+
+📌 Validación inicial
+
+- Consultar en SIDCER con el DNI del egresado y verificar que la solicitud figure con estado "Trámite Finalizado".
+
+📌 Si el alumno requiere las imágenes del título
+
+- Previo al envío, se debe solicitar ENVÍO DE TÍTULO DIGITAL:
+
+Información para la derivación (HubSpot)
+Área de derivación: Operación Títulos
+Tipificación: Estado de Título
+
+📌 Si el título fue finalizado hace menos de 72 horas
+
+- El alumno debe aguardar la recepción del correo electrónico de finalización del título.
+
+📌 Si el título fue finalizado hace más de 72 horas
+
+- Consultar o solicitar envío/retiro del título:
+
+Información para la derivación (HubSpot)
+Área de derivación: Correo
+Tipificación: Envío de Título
+
+4-SOLICITUD DE TÍTULO INTERMEDIO
+
+¿Cuándo corresponde esta gestión?
+Cuando el alumno solicite la emisión de un título intermedio de una carrera que contemple esta certificación.
+
+Carreras con título intermedio
+
+Grado |  Intermedio |
+
+Licenciado en Administración - Orientación: Management - MD |  Técnico Universitario en Planificación Gerencial - MD |
+
+Licenciado en Administración Agraria - MD |  Técnico Universitario en Administración Agraria - MD |
+
+Licenciado en Administración Hotelera - MD |  Técnico Universitario en Hotelería - MD |
+
+Licenciado en Administración Pública - MD |  Analista Universitario en Administración Pública - MD |
+
+Licenciado en Comercialización - Marketing - MD |  Analista Universitario en Mercado y Estrategias de Comercialización - MD |
+
+Licenciado en Comercio Internacional - MD |  Técnico Universitario en Comercio Internacional - MD |
+
+Licenciado en Gestión Ambiental - MD |  Técnico Universitario en Evaluación del Impacto Ambiental - MD |
+
+Licenciado/a en Gestión Ambiental |  Técnico/a Universitario/a en Evaluación del Impacto Ambiental |
+
+Licenciado en Gestión de Recursos Humanos |  Técnico Universitario en Gestión de Recursos Humanos |
+
+Licenciado en Gestión Turística - MD |  Técnico Universitario en Turismo - MD |
+
+Licenciado en Informática - MD |  Analista Universitario en Sistemas de Computación - MD |
+
+Licenciado en Relaciones Públicas e Institucionales - MD |  Analista Universitario en Relaciones Públicas e Institucionales - MD |
+
+Licenciado en Administración Agraria |  Técnico Universitario en Administración Agraria |
+
+Licenciado en Administración Hotelera |  Técnico Universitario en Hotelería |
+
+Licenciado en Administración Pública |  Analista Universitario en Administración Pública |
+
+Licenciado en Comercialización con orientación en Marketing |  Analista Universitario en Mercado y Estrategias de Comercialización |
+
+Licenciado en Comercio Internacional |  Técnico Universitario en Comercio Internacional |
+
+Ingeniero en Software |  Analista de Software |
+
+Licenciado en Diseño de Indumentaria y Textil |  Técnico Universitario en Diseño de Indumentaria y Textil |
+
+Licenciado en Diseño Gráfico |  Técnico Universitario en Diseño Gráfico |
+
+Licenciado en Diseño Industrial |  Técnico Universitario en Diseño Industrial |
+
+Licenciado en Gestión Turística |  Técnico Universitario en Turismo |
+
+Licenciado en Relaciones Públicas e Institucionales |  Analista Universitario en Relaciones Públicas e Institucionales |
+
+Licenciado en Administración con orientación en Management |  Técnico Universitario en Planificación Gerencial |
+
+Licenciado en Publicidad |  Técnico Universitario en Publicidad |
+
+Licenciado en Instrumentación Quirúrgica |  Técnico/a Universitario/a en Isntrumentación Quirúrgica |
+
+Licenciado/a en Bioinformática |  Técnico Universitario en Bioinformática |
+
+Licenciado/a en Finanzas |  Analista Universitario/a en Finanzas |
+
+Licenciado/a en Inteligencia de Negocios Digitales |  Técnico/a Universitario/a en Inteligencia de Negocios Digitales |
+
+Licenciado/a en Producción de Bioimágenes |  Técnico/a Universitario/a en Radiología |
+
+Licenciado/a en Gestión Deportiva - MD |  Técnico/a Universitario/a en Gestión Deportiva |
+
+🔗 Listado actualizado: https://docs.google.com/spreadsheets/d/1-8mT4t1BArrjIPKxKt-0EPxxX3sVYfF7/edit?usp=sharing&ouid=108293365243312196043&rtpof=true&sd=true
+
+Requisitos para solicitar el Título Intermedio:
+
+✅ Tener aprobadas las materias correspondientes del 1° al 6° semestre, incluyendo Idioma Inglés.
+
+✅ No es requisito contar con Práctica Solidaria aprobada.
+
+✅ Tener aprobado el EFIP I (modalidad Distancia).
+
+✅ Tener abonada la tasa de "Titulación Intermedia".
+
+✅ Contar con la documentación de legajo completa: https://www.lanube.21.edu.ar/documentacion
+
+⚠️ Importante: Si el pago de la tasa supera la vigencia de 3 meses, el alumno deberá abonar la diferencia correspondiente para poder continuar con la gestión.
+
+Validaciones previas:
+
+Antes de derivar la solicitud, verificar:
+
+- Cumplimiento de los requisitos académicos.
+
+- Pago de la tasa de Titulación Intermedia.
+
+- Documentación de legajo completa.
+
+- Carrera con opción de título intermedio.
+
+Información para la derivación (HubSpot)
+
+- Área de derivación: Operación Títulos
+
+- Tipificación: Título Intermedio
+
+Nota interna - completar ticket con los siguientes datos:
+
+- DNI.
+
+- Legajo.
+
+📅 Tiempo estimado de gestión
+
+- Visado: 7 días hábiles.
+
+- Gestión del título: 120 días.
+
+Observaciones
+
+- Confirmar que se validaron los requisitos académicos.
+
+- Confirmar que se verificó el pago de la tasa correspondiente.
+
+- Confirmar que el legajo se encuentra completo.
+
+5- DUPLICADO/REIMPRESIÓN/RECTIFICACIÓN DEL TÍTULO
+
+¿Cuándo corresponde esta gestión?
+
+- Cuando el alumno haya extraviado o perdido su título.
+
+- Cuando el documento presente un error atribuible a la Universidad.
+
+- Cuando sea necesario realizar una rectificación de datos en la documentación emitida.
+
+- La gestión contempla la emisión de un duplicado del diploma, analítico o ambos documentos, según corresponda.
+
+👉 RECTIFICACIÓN DE TÍTULO O ANALÍTICO
+
+Documentación requerida
+
+- DNI (frente y dorso).
+
+- Documento a rectificar:
+
+- Analítico.
+
+- Título.
+
+- Ambos.
+
+La documentación deberá cargarse en el siguiente formulario:
+
+🔗 Formulario de solicitud: https://forms.gle/KecxYvbgiBH6K1cZA
+
+Antes de iniciar la gestión, informar al estudiante que debe verificar el arancel vigente del trámite:
+
+🔗 Consulta de aranceles:
+https://kb.21.edu.ar/bcsiglo21/servicio/administrativo/gestion-de-cobro/g21_servicio_administrativo_gestiondecobro_formasdepaoyfinanciaci%C3%B3n
+
+👉 DUPLICADO POR ROBO, EXTRAVÍO, PÉRDIDA O DESTRUCCIÓN
+
+Documentación requerida
+
+- Nota dirigida a la Rectora solicitando la emisión del duplicado. Debe incluir:
+
+- Nombre y apellido.
+
+- DNI.
+
+- Domicilio actualizado.
+
+- Teléfono de contacto.
+
+- Denuncia policial (original y copia) donde conste el robo, extravío, pérdida o destrucción del diploma y/o analítico.
+
+- Fotocopia de las dos primeras hojas del DNI.
+
+- Comprobante de pago de la tasa administrativa correspondiente.
+
+- En caso de requerirse documentación adicional, el área de Títulos se pondrá en contacto con el estudiante.
+
+Consideraciones importantes
+
+-
+Si la solicitud se realiza por un motivo distinto a robo o extravío, la denuncia policial no es obligatoria, aunque deberá presentarse el resto de la documentación requerida para la gestión.
+
+-
+La documentación podrá enviarse digitalizada para dar comienzo al trámite. No obstante, el estudiante deberá remitir posteriormente la documentación física original cuando corresponda.
+
+-
+Una vez recibida y validada la documentación requerida, se procederá a la emisión del nuevo documento.
+
+-
+En caso de que durante el análisis de la solicitud el área de Títulos requiera información o documentación adicional, se contactará directamente con el estudiante para informarle los pasos a seguir.
+
+-
+El importe correspondiente a la tasa administrativa deberá verificarse en Pago Electrónico, ya que los valores pueden sufrir modificaciones.
+
+-
+En todos los casos, el área de Títulos dará prioridad a la gestión con el objetivo de entregar el documento rectificado o duplicado en el menor tiempo posible.
+
+Información para la derivación (HubSpot)
+
+- Área de derivación: Operación Títulos
+
+- Tipificación: Duplicado/Reimpresión/Rectificación de Título
+
+📌 Observaciones para incluir en el caso
+
+- Motivo de la solicitud (extravío, robo, pérdida, destrucción, rectificación o error de emisión).
+
+- Documento involucrado (Título, Analítico o Ambos).
+
+- Confirmar que el alumno fue informado sobre:
+
+- La documentación requerida.
+
+- El formulario de carga.
+
+- El envío de documentación física cuando corresponda.
+
+- El arancel vigente asociado al trámite.
+
+6-ENVÍO DE TÍTULO
+
+¿Cómo gestionar una solicitud de envío de título?
+
+📌 Validaciones previas obligatorias
+
+Antes de solicitar el envío de un título, verificar:
+
+- Que el estado del título en SGU sea"Título Disponible para Retirar/Enviar".
+
+- Que el título se encuentre habilitado para entrega o envío.
+
+- El CAU o sede asociada al legajo del egresado[
+
+⚠️ Importante: No es suficiente que el trámite figure como finalizado en SIDCER. Para gestionar el envío, el estado en SGU debe ser"Título Disponible para Retirar/Enviar".
+
+Según la ubicación del egresado
+
+📌 Egresados de Córdoba y alrededores
+
+- El título debe retirarse en Sede Campus.
+
+- Informar los días y horarios de atención correspondientes.
+
+- También puede ser retirado por un tercero debidamente autorizado.
+
+📌 Egresados de Río Cuarto
+
+- Verificar el cronograma vigente de envíos.
+
+- Solicitar el envío del título mediante HubSpot.
+
+📌 Egresados de otros CAU
+
+- Pueden retirar el título en Córdoba o solicitar el envío.
+
+- El envío se realizará al CAU asociado al legajo que figura como "Activo - Egresado" en SGU.
+
+- El egresado deberá aguardar la fecha de envío y luego coordinar el retiro con su CAU
+
+- Se puede consultar el listado de CAUs con habilitación oficial haciendo clic aquí.
+
+El egresado puede retirar su título en córdoba (Sede Campus), sea personalmente o a través de un 3ro o comisionista autorizado:
+
+-
+
+-
+En tal caso, debe solicitar turno ingresando al siguiente link: clic aquí
+
+En caso de ser retirado por 3ro o comisionista autorizado los mismos deben presentar la siguiente documentación:
+
+- DNI frente y dorso del egresado
+
+- DNI frente y dorso de la persona que retira el mismo
+Autorización del egresado certificada ante un juez de paz o policía.
+
+- Autorización para terceros
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Correo
+Tipificación: Envío de Título
+Nota interna - completar ticket con los siguientes datos:
+
+- Legajo del egresado.
+
+- Código del CAU asociado en SGU.
+
+⚠️ Importante | Envío y retiro de títulos para estudiantes de CAU Virtual
+
+- Si el estudiante pertenece a CAU Virtual, pero al consultar por DNI en SGU posee otro legajo asociado a un CAU, el envío podrá gestionarse a ese CAU.
+
+- Si el estudiante posee únicamente un legajo de CAU Virtual, el envío puede realizarse a las sedes habilitadas (Río Cuarto o Vicente López). En caso de no solicitar envío, el título deberá retirarse en Sede Campus.
+
+- Si el estudiante tiene un único legajo de CAU Virtual y no puede acercarse a ninguna de las sedes para retirar su título, se podrá consultar al CAU solicitado por el estudiante si está en condiciones de recibir la documentación y coordinar la entrega.
+
+- Una vez que el CAU confirme la recepción, se podrá programar el envío e informar al estudiante la fecha asignada.
+
+- Si se trata de una articulación y la misma figura como CAU Virtual, deberá tomarse como referencia para el envío el CAU de la primera carrera.
+
+- En las columnas identificadas en la planilla de seguimiento, podrá verificarse si el CAU se encuentra habilitado, la fecha de reinicio de actividades o si posee algún horario especial de atención.
+
+✅ CAU con envío directo autorizado
+
+Para los siguientes CAU no es necesario realizar la consulta previa por correo. Se puede generar directamente la gestión habitual mediante HubSpot:
+
+SDE02, FOR03, TUN01, SRF01, ALV01, NEU03, MDQ05, TAN03, OLV04, VGE01, STT02, NEC02, MJZ01, CDG01, CAS01, MMZ01, MBY01, VTU02, FIR02, ZAR03, BGO02, CAM02 y BEL01.
+
+🗓️ Cronograma de envío de titulos
+
+- Desde el 2022 se separan los CAU’s en 2 grupos (A y B)
+
+- El Grupo A una frecuencia semanal de envíos
+
+- El Grupo B una frecuencia quincenal.
+
+- Sede Río IV tiene una frecuencia de envío quincenal.
+
+🔗 Grupos de CAU
+
+Preguntas Frecuentes sobre Solicitud y Gestión de Turnos para Retiro de Título
+
+No recibí el mail de confirmación luego de completar el formulario de solicitud de turno
+
+Respuesta:
+El correo de confirmación puede haber sido bloqueado como correo no deseado. No obstante, si no recibió ningún aviso o mensaje de error al enviar el formulario, significa que su turno quedó registrado correctamente.
+
+Solicité un turno y necesito cambiarlo
+
+Respuesta:
+Debe ingresar nuevamente al formulario y solicitar un nuevo turno para otro día y horario. Si actualmente no visualiza fechas u horarios disponibles, estos se habilitarán progresivamente a medida que se generen nuevos cupos.
+
+Ingresé al formulario, pero no puedo seleccionar fecha u horario
+
+Respuesta:
+Esto ocurre porque los turnos disponibles se encuentran completos por el momento. Se recomienda volver a ingresar más tarde, ya que los cupos se habilitan de forma gradual.
+
+Solicité turno para retirar en Córdoba, pero resido en otra localidad. ¿La Universidad emite algún permiso para trasladarme?
+
+Respuesta:
+La Universidad ofrece la posibilidad de retirar el título a través de un tercero autorizado para quienes no puedan viajar o trasladarse personalmente. Por este motivo, no se emiten constancias de circulación. En caso de decidir trasladarse a Córdoba para realizar el retiro, será responsabilidad del egresado contar con la documentación o habilitación requerida para circular.
+
+Quiero solicitar un turno, pero aún no recibí el correo con el formulario
+
+Respuesta para brindar al estudiante:
+
+"Se va comunicando por mail la disponibilidad de turnos en función de la capacidad, que es limitada para garantizar las medidas de seguridad. Por favor, aguardá a recibirlo en el próximo envío y revisá también tu carpeta de correo no deseado."
+
+📌 Importante: Antes de informar esta respuesta, verificar en SGU que el título se encuentre efectivamente en un estado que permita el retiro o envío.
+
+7-ENTREGA DE TITULOS
+
+Registro de Entrega Presencial de Títulos
+
+📌 Tipificación: "Entrega de título"
+
+Esta tipificación deberá utilizarse exclusivamente para registrar las entregas presenciales de títulos realizadas por Mesa de Atención, Sedes y CAUs.
+
+¿Cuándo corresponde utilizar esta tipificación?
+
+-
+Cuando se realiza la entrega presencial de un título al egresado.
+
+-
+Cuando la entrega es realizada en una Sede o CAU habilitado.
+
+-
+Cuando se requiere dejar constancia formal de la entrega de un documento oficial de la Universidad.
+
+⚠️  Importante para Sedes y CAUs
+
+Al realizar la entrega de un título es obligatorio generar el ticket correspondiente en HubSpot.
+
+El título es un documento oficial de la Universidad, por lo que el registro en HubSpot permite dejar constancia de su entrega al egresado.
+
+Información para HubSpot
+
+-
+Tipificación: Entrega de título
+
+Comentario sugerido para cerrrar en el ticket:
+
+Hola, [Nombre]. Dejo constancia de la entrega de tu título. ¡Felicitaciones por lograr esta meta!
+
+⚠️ Se recomienda completar el caso en el momento de la entrega para asegurar la trazabilidad y el correcto registro de la gestión.
+
+-
+
+-$pea0$, 'global', 'borrador', $pea0$https://kb-cau.21.edu.ar/servicios-cau/servicios/operación-títulos$pea0$)
+on conflict (categoria_id, slug) do nothing;
+
+insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
+values ((select id from public.categorias where slug = $pea0$tramites$pea0$), null, 33, $pea0$kb-33-visado-y-validacion-academica$pea0$,
+        $pea0$Visado y validación academica$pea0$, $pea0$Proceso de validación académica, visado analítico, doble titulación y posgrado, requisitos, derivaciones, plazos y tipos de visados.$pea0$, $pea0$> **A validar:** contenido relevado de https://kb-cau.21.edu.ar/servicios-cau/servicios/visado-y-validación-academica el 2026-11-19. Revisalo antes de publicar.
+
+Proceso de validación académica, visado analítico, doble titulación y posgrado, requisitos, derivaciones, plazos y tipos de visados.
+
+INDICE:
+
+-
+Carga de validación académica
+
+-
+Visado analítico
+
+-
+Tipo de visado
+
+-
+Visado doble titulación
+
+-
+Visado analitico posgrado
+
+CARGA DE VALIDACIÓN ACADÉMICA
+
+Consiste en una validación automática de campus virtual que le permite al alumno ED/EDH inscribirse en EFIP II y acceder al beneficio de persistencia en matrícula.
+
+La búsqueda del check de validación debe realizarse por LEGAJO, no por DNI.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Operación Títulos
+
+Tipificación: Carga de validación académica
+
+Nota interna - completar ticket con los siguientes datos:
+
+-
+DNI
+
+-
+Legajo
+
+Plazos: 7 días hábiles.
+
+⚠️ importante: Utilizaremos esta derivación SOLO cuando el alumno NO posea en el campus virtual el check de validación académica (lo que le permite solicitar el beneficio del 50% en matrícula).
+
+La búsqueda del check de validación debe realizarse por LEGAJO, no por DNI.
+
+Una vez que el alumno aprueba su última materia o corra el reproceso de materias (quedando regular el Seminario Final), se debe aguardar 72 hs para poder reclamar el CHECK DE VALIDACIÓN ACADÉMICA.
+
+Verificar que el alumno cumpla con las siguientes condiciones académicas:
+
+- Todas las materias aprobadas, exceptuando Seminario Final en estado REGULAR y que adeude únicamente EFIP II de rendir.
+
+- Materias electivas (Elect I y Elect II).
+
+PROCESO DE VISADO ANALÍTICO PARA DEFENSA ORAL
+El proceso comienza de manera automática una vez que el alumno cumple con las siguientes condiciones académicas:
+
+- El visado no tiene fecha de vencimiento, una vez que figura “Completado” no pierde validez.
+
+- El ticket de tasa de graduación se emite automáticamente una vez iniciado el proceso de visado; en ese momento, queda disponible en Pago Electrónico. Si el arancel no aparece, puede tratarse de un ticket anulado o no generado, en cuyo caso debe derivarse con la tipificación “Visado Analítico” hacia Operación Títulos.
+
+- Cuenta con todas las materias aprobadas.
+
+- Seminario Final Regular.
+
+- Créditos correspondientes de materias electivas.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Operación Títulos
+
+Tipificación: Visado Analítico
+
+Nota interna - completar ticket con los siguientes datos:
+
+-
+DNI
+
+-
+Legajo
+
+Plazos: 7 días hábiles.
+⚠️ Únicamente se debe derivar Ticket a OPERACIÓN TÍTULOS cuando haya reclamos sobre el VISADO DOCUMENTAL, los otros visados deben verse con el área correspondiente a cada uno.
+
+🚨 BECA CAU SOCIAL: Si el estudiante cursó con Beca CAU Social 100% (CAU Maldonado, CAU Asunción o CAU Abra Pampa) o participó de los programas “Presente 21” o “La Universidad es Posible”, queda exento del pago de la tasa de graduación.
+
+Acción a realizar: Derivar a SOPER para la correcta facturación de la tasa. Cuando el caso esté regularizado y cuente con Libre Deuda Administrativo, completar el visado administrativo.
+
+Tipificación: NC Excepcional
+Área de derivación: SOPER.
+
+TIPOS DE VISADOS
+
+🔗 Validar que el legajo se encuentre integrado en BPM FORM.
+
+👉 Visado Documental:
+
+Se verifican los datos personales del estudiante y la documentación requerida para iniciar el proceso de titulación.
+
+Si falta alguna documentación, el estudiante recibirá una notificación por correo electrónico y deberá actualizarla a través del formulario emergente (pop up) disponible en su Portal Estudiantes.
+
+👉 Visado Administrativo:
+
+Se valida que el estudiante haya abonado la tasa de graduación y cuente con Libre Deuda Administrativo.
+
+Si el visado no se realiza de forma automática, verificar el pago de la tasa de graduación y consultar el estado del Libre Deuda Administrativo.
+
+👉 Visado de Biblioteca:
+
+Se controla que el estudiante no posea material bibliográfico pendiente de devolución.
+
+Además, cuando corresponda, deberá completar la autorización para la publicación de su trabajo final mediante el formulario emergente (pop up) disponible en el Portal Estudiante.
+
+👉 Visado de Proceso CAE:
+
+Se validará que el trabajo final está aprobado según los criterios pactados.
+Durante el proceso de VISADO, que será automático, el estudiante irá recibiendo vía mail las notificaciones de cada uno de los pasos (a la casilla registrada en su Portal Estudiante).
+
+⚠️Visados Psicología
+
+En BPM FORM, el trámite se visualizará diferenciado según la orientación elegida por el alumno (Clínica u Organizacional), encontrándose cada orientación asociada a un código específico.
+
+Si al momento de la búsqueda por BPM Form figura la leyenda "No hay datos para el documento ingresado", corresponde derivar a la bandeja de Operación Títulos para reportar el caso.
+
+Antes de realizar la derivación se deberá verificar:
+
+- Tener aprobadas todas las materias correspondientes a la orientación elegida.
+
+- Cuente con la tasa de titulación abonada.
+
+- Cuente con documentación de legajo completa.
+
+- Posea matrícula activa.
+
+Si cumple con todos los puntos anteriores, se deberá derivar el caso con la siguiente tipificación: visado analítico.
+
+Materias de psicología:
+
+-
+Hasta el 6to cuatrimestre las materias son comunes a ambas orientaciones.
+
+-
+A partir del 7° cuatrimestre, las materias varían según la orientación seleccionada.
+
+-
+Es correcto que las materias de la orientación no elegida figuren como no cursadas.
+
+CUATRIMESTRE |  CLÍNICA |  ORGANIZACIONAL |
+
+7 |  Psicoterapia II |  Diagnóstico Organizacional |
+
+Diseño y evaluación de Puesto |
+
+8 |  Psicología de las Conductas Adictivas |  Selección de Personal |
+
+Psicoterapia III |
+
+9 |  Psicoterapia IV |  Teoría y Práctica de la Motivación |
+
+Clínica Psicológica |  Estrategias y Métodos de capacitación |
+
+SOLICITUD VISADO ANALÍTICO DOBLE TITULACIÓN
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Operación Títulos
+
+Tipificación: Visado de Analítico Doble Titulación
+
+Nota interna - completar ticket con los siguientes datos:
+
+- DNI
+
+- Legajo
+
+🔗 Consultá las carreras que se encuentran reglamentadas para la Doble Titulación acá.
+
+Modalidad P / PH
+
+-
+Verificar que el alumno no adeude materias y figure como egresado en su legajo de origen.
+
+Indicarle que deberá realizar un pago a cuenta en su cuenta de Pago Electrónico, con el importe correspondiente a Tasa de titulación vigente.
+
+-
+Una vez que cuenta con el saldo a favor, derivar a SOPER para su facturación con la siguiente tipificación “Imputación saldo a favor alumno”.
+
+*Una vez facturado el pago, SOPER deberá derivar el ticket a Operación Títulos solicitando la carga del Seminario Final, con la tipificación Visado de Analítico Doble Titulación.
+
+-
+Operación Títulos gestiona con el área de SITA la carga del Seminario Final aprobado por equivalencia de Doble Titulación.
+
+Luego, se informará al alumno el inicio en forma correcta del proceso de titulación.
+
+Modalidad ED / EDH
+
+-
+Verificar que el alumno no adeude materias y figure como egresado en su legajo de origen. Solicitar por ticket a Operación Títulos (tipificación: Visado de Analítico Doble Titulación) que se reprocese el Seminario Final a estado REGULAR.
+
+Sin este paso, el alumno no podrá inscribirse a EFIP II.
+
+-
+Una vez aprobado el examen EFIP II, indicar al alumno que deberá realizar un pago a cuenta en su cuenta de Pago Electrónico, con el importe correspondiente a Tasa de titulación vigente.
+
+Una vez que cuenta con el saldo a favor, derivar a SOPER para su facturación con la siguiente tipificación “Imputación saldo a favor alumno”. Una vez facturado el pago, SOPER deberá derivar el ticket a Operación Títulos solicitando la carga del Seminario Final, con la tipificación Visado de Analítico Doble Titulación.
+
+-
+Operación Títulos gestiona la carga del Seminario Final aprobado por equivalencia de Doble Titulación con el área de SITA.
+
+Luego, se informará al alumno el inicio en forma correcta del proceso de titulación.
+
+SOLICITUD VISADO ANALÍTICO POSGRADO
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Operación Títulos
+
+Tipificación: Visado analitico posgrado
+
+Nota interna - completar ticket con los siguientes datos:
+
+- DNI
+
+- Legajo
+
+Plazos: 5 días hábiles.
+
+⚠️ Tener en cuenta que los alumnos de estas carreras NO deben abonar tasa de titulación para el trámite.
+
+Validar:
+
+- Que el alumno cuente con todas las materias aprobadas a excepción de la materia de Trabajo Final/Desarrollo de trabajo final.
+
+- Documentación de legajo correspondiente a la carrera.
+
+Documentación de Carreras Posgrado:
+
+- Frente y dorso DNI actualizado (no es válido DNI emitido desde Mi Argentina)
+
+- Título de Grado (frente y dorso)
+
+Como requisito obligatorio, el alumno si o si debe ser graduado/a universitario en una universidad argentina o extranjera, con título de grado (carrera universitaria de cuatro (4) años de duración como mínimo).$pea0$, 'global', 'borrador', $pea0$https://kb-cau.21.edu.ar/servicios-cau/servicios/visado-y-validación-academica$pea0$)
+on conflict (categoria_id, slug) do nothing;
+
+insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
+values ((select id from public.categorias where slug = $pea0$institucional$pea0$), null, 34, $pea0$kb-34-regimen-de-sanciones$pea0$,
+        $pea0$Régimen de Sanciones$pea0$, $pea0$Guía para asesores sobre el procedimiento disciplinario ante irregularidades en instancias evaluativas. Incluye marco normativo, etapas y plazos, tipos de sanciones, recursos, información para comu…$pea0$, $pea0$> **A validar:** contenido relevado de https://kb-cau.21.edu.ar/servicios-cau/servicios/régimen-de-sanciones el 2026-11-19. Revisalo antes de publicar.
+
+Guía para asesores sobre el procedimiento disciplinario ante irregularidades en instancias evaluativas. Incluye marco normativo, etapas y plazos, tipos de sanciones, recursos, información para comunicar al estudiante, criterios de derivación, herramientas de consulta y gestión.
+
+ÍNDICE
+
+-
+Marco normativo
+
+-
+Circuito del procedimiento disciplinario
+
+-
+Información importante para transmitir al estudiante
+
+-
+Concurso del Poder Judicial de Córdoba
+
+-
+Herramientas y accesos para la gestión
+
+-
+Gestión de situaciones irregulares – CAU y Sedes
+
+1-MARCO NORMATIVO
+
+El presente documento se enmarca en lo establecido por el Reglamento Institucional, el cual regula las condiciones de cursado, evaluación y conducta académica de los estudiantes.
+
+El Reglamento establece que todas las instancias evaluativas podrán ser auditadas con el objetivo de garantizar la transparencia, la igualdad de condiciones y la integridad académica.
+
+Asimismo, contempla un régimen disciplinario aplicable cuando se detecten irregularidades durante una evaluación, estableciendo los tipos de faltas, las sanciones correspondientes y el procedimiento administrativo que garantiza el derecho de defensa del estudiante.
+
+🚨El Capítulo 13 del Reglamento Institucional detalla los supuestos comprendidos dentro de cada tipo de sanción disciplinaria. Ante consultas sobre una conducta específica, deberá consultarse dicho apartado. https://contenidos.21.edu.ar/microsites/reglamento/index.php?put=13-1-regimen-general-de-sanciones
+
+2-CIRCUITO DEL PROCEDIMIENTO DISCIPLINARIO
+
+El procedimiento disciplinario contempla distintas instancias, desde la auditoría del examen hasta la posibilidad de presentar recursos.
+
+A continuación, se detalla el circuito y los plazos correspondientes.
+
+1) Auditoría del examen
+
+Una vez que el alumno rinde un examen, la Universidad dispone de 10 días hábiles desde la fecha del examen para realizar la auditoría correspondiente.
+
+En caso de detectarse una irregularidad, se inicia el procedimiento disciplinario correspondiente.
+
+Importante: durante este plazo, si el alumno consulta porque detectó una modificación en su calificación o manifiesta preocupación por una posible sanción, no corresponde derivar la consulta a SOA - Legalidad. Se deberá indicar al alumno que debe aguardar la notificación formal correspondiente.
+
+2) Notificación al alumno
+
+Toda notificación vinculada a un proceso disciplinario se realizará al correo electrónico que el alumno tenga registrado en su Portal.
+
+Es responsabilidad exclusiva del alumno controlar periódicamente su casilla de correo electrónico y mantener actualizados sus datos de contacto.
+
+Una vez realizada la auditoría y detectada una irregularidad que dé lugar al inicio de un procedimiento disciplinario, la Universidad dispone de un plazo máximo de 7 días hábiles desde la auditoría para notificar al alumno.
+
+La notificación puede corresponder al inicio del expediente disciplinario o a la confirmación de una sanción, según la instancia del procedimiento.
+
+Importante: los plazos son fatales, es decir, no tienen prórroga, y se computan siempre en días hábiles (días laborables).
+
+Ejemplo:
+
+- El estudiante rinde un examen el 10/07/2026.
+
+- La Universidad dispone de 10 días hábiles desde la fecha del examen para realizar la auditoría.
+
+- Si durante la auditoría se detecta una infracción, la Universidad dispone de hasta 7 días hábiles desde la auditoría para notificar al estudiante.
+
+3) Apertura del expediente disciplinario y descargo
+
+Mediante la notificación de apertura del expediente disciplinario se informa al alumno la conducta observada y la sanción que correspondería en caso de aplicarse de manera definitiva.
+
+La sanción puede aplicarse de forma provisoria mientras se sustancia el procedimiento disciplinario.
+
+En esta instancia, el alumno recibe la evidencia de la que dispone la Universidad y se le otorga la posibilidad de presentar un descargo, en ejercicio de su derecho de defensa.
+
+El alumno cuenta con 5 días hábiles desde la recepción de la notificación para presentar su descargo, independientemente del tipo de sanción.
+
+🚨 IMPORTANTE: esta es la única instancia del procedimiento en la que el alumno puede ofrecer prueba.
+
+El descargo debe presentarse exclusivamente por el medio indicado en la notificación correspondiente. No se receptan descargos por HubSpot ni por otros canales.
+
+Una vez presentado el descargo, la respuesta correspondiente se emite dentro de un plazo de 7 días hábiles.
+
+4) Resolución del expediente disciplinario
+
+Esta instancia procede cuando el alumno presentó el descargo dentro del plazo establecido y, luego de evaluar los argumentos y la prueba aportada, la Universidad determina que no existen elementos que justifiquen dejar sin efecto la sanción, por lo que la misma se mantiene.
+
+En esta instancia, se notifica al alumno la resolución correspondiente, informándole que la sanción continúa vigente.
+
+Una vez presentado el descargo, la Universidad dispone de un plazo de 7 días hábiles para responder al alumno.
+
+Si el alumno no está de acuerdo con la resolución, podrá continuar con el procedimiento mediante la presentación de un Recurso de Reconsideración.
+
+5) Recurso de Reconsideración
+
+El Recurso de Reconsideración permite al alumno solicitar que su situación sea nuevamente evaluada cuando no está de acuerdo con la resolución dictada luego del procedimiento disciplinario.
+
+El recurso es resuelto por la Coordinación de SOA - Legalidad dentro de un plazo de 10 días hábiles.
+
+Si el alumno consulta por un Recurso de Reconsideración que no se encuentra resuelto y ya transcurrieron más de 10 días hábiles desde su presentación, corresponde derivar la consulta al área.
+
+6) Recurso Jerárquico
+
+Si el alumno no está de acuerdo con la resolución del Recurso de Reconsideración, puede interponer un Recurso Jerárquico.
+
+El alumno cuenta con 10 días hábiles para presentarlo, a través del link que se encuentra al final de la resolución que rechaza el Recurso de Reconsideración.
+
+El Recurso Jerárquico es resuelto por la Vicerrectora de Gestión Institucional dentro de un plazo de 45 días hábiles y constituye la última instancia dentro de la Universidad.
+
+El recurso implica que un directivo analice el video del examen y determine si existe o no una infracción.
+
+Advertencia
+
+La advertencia es un llamado de atención preventivo ante una conducta que podría derivar en una sanción si se reitera.
+
+Su objetivo es informar al alumno sobre la conducta observada y advertirle que debe tener especial cuidado para evitar que vuelva a ocurrir.
+
+La advertencia no constituye una sanción disciplinaria y no implica:
+
+- Calificación cero (0).
+
+- Modificación de la condición de la materia.
+
+- Registro de una sanción disciplinaria.
+
+- Ninguna otra consecuencia académica.
+
+En caso de reiteración de la conducta, podrá corresponder la aplicación de una sanción disciplinaria de acuerdo con el régimen vigente.
+
+CIRCUITO DE DERIVACIÓN
+
+Antes de derivar una consulta el asesor deberá identificar la necesidad del alumno y realizar las validaciones correspondientes.
+
+1. Consulta sanciones
+
+Corresponde utilizar esta tipificación cuando el alumno manifiesta tener calificación cero (0) en un examen y desconoce el motivo, indicando que no recibió ninguna notificación en el correo electrónico personal registrado en su Portal.
+
+Validaciones previas a la derivación
+
+El asesor deberá validar:
+
+- Que el alumno tenga calificación cero (0) y manifieste desconocer el motivo.
+
+- Que el alumno indique no haber recibido la notificación en el correo electrónico registrado en su Portal, medio por el cual se envían las comunicaciones.
+
+- Que hayan transcurrido más de 7 días hábiles correspondientes al plazo de notificación.
+
+- Ingresar a Tu Carpeta y verificar que no exista una notificación emitida para el alumno.
+
+🚨 Solo corresponde derivar cuando, luego de realizar estas validaciones, se comprueba que no existe una notificación en Tu Carpeta y ya transcurrió el plazo establecido para su emisión.
+
+Si la notificación se encuentra disponible en Tu Carpeta, no corresponde derivar. Se deberá orientar al alumno sobre la comunicación disponible y los pasos a seguir.
+
+Información para la derivación en HubSpot
+
+Área de derivación: SOA - Legalidad
+
+Tipificación: Consulta sanciones
+
+Nota interna – completar con:
+
+- DNI:
+
+- Legajo:
+
+- Indicar que el alumno manifiesta tener calificación 0 (cero) y desconocer el motivo.
+
+- Indicar que manifiesta no haber recibido la notificación en el correo registrado en Portal.
+
+- Materia:
+
+2. Recurso jerárquico
+
+Corresponde utilizar esta tipificación cuando el alumno indica haber presentado el Recurso Jerárquico a través del link correspondiente y consulta por el estado de su pedido.
+
+Validaciones previas a la derivación
+
+El asesor deberá validar:
+
+- Que el alumno indique haber presentado efectivamente el Recurso Jerárquico.
+
+- Que lo haya presentado mediante el link correspondiente.
+
+- Obtener la fecha en la que fue presentado, para poder verificar el estado de la gestión.
+
+Información para la derivación en HubSpot
+
+Área de derivación: SOA - Legalidad
+
+Tipificación: Recurso jerárquico
+
+Nota interna – completar con:
+
+- DNI:
+
+- Legajo:
+
+- Fecha en la que el alumno presentó el Recurso Jerárquico.
+
+- Detalle de la consulta del alumno respecto del estado de su pedido.
+
+🚨 Importante: el Recurso Jerárquico no debe ofrecerse proactivamente. Corresponde intervenir cuando el alumno ya presentó el recurso y consulta por el estado de su gestión.
+
+Circuito – Vista rápida
+
+Etapa |  Responsable |  ¿Qué sucede? |  Plazo |
+
+1. Auditoría |  Universidad Siglo 21 |  Se analiza el examen para detectar posibles irregularidades. |  10 días hábiles desde la fecha del examen |
+
+2. Notificación |  Universidad Siglo 21 |  Se comunica al alumno el inicio del expediente o la sanción correspondiente. |  Hasta 7 días hábiles desde la auditoría |
+
+3. Descargo |  Alumno |  El alumno presenta sus argumentos y puede ofrecer prueba. |  5 días hábiles desde que recibe la notificación |
+
+4. Resolución |  Universidad Siglo 21 |  Se analiza el descargo y se determina si la sanción se mantiene. |  7 días hábiles para responder |
+
+5. Reconsideración |  Alumno / Universidad Siglo 21 |  El alumno solicita una nueva evaluación de su situación y la Universidad resuelve el recurso. |  10 días hábiles para resolver |
+
+6. Jerárquico |  Alumno / Universidad Siglo 21 |  El alumno puede recurrir la resolución de Reconsideración y la Universidad resuelve el recurso. |  10 días hábiles para presentarlo / 45 días hábiles para resolver |
+
+Consecuencias de cada tipo de sanción
+
+Las consecuencias dependen de la gravedad de la conducta y del tipo de sanción aplicada:
+
+Llamado de Atención – Falta leve
+
+- Se aplica calificación cero (0) en la actividad correspondiente.
+
+- No implica la condición de libre en la materia.
+
+- No constituye una sanción que quede registrada en el legajo ni en el analítico del alumno.
+
+Apercibimiento – Falta grave
+
+- Se aplica calificación cero (0) en la actividad correspondiente.
+
+- Implica la condición de libre en la materia.
+
+- La sanción queda registrada en el legajo y en el analítico definitivo del alumno al momento del egreso.
+
+Suspensión – Falta muy grave
+
+- Se aplica calificación cero (0) en la actividad correspondiente.
+
+- Implica la condición de libre en la asignatura.
+
+- Implica la imposibilidad de cursar o rendir durante un período de 6 o 12 meses, según la irregularidad detectada.
+
+- La sanción queda registrada en el legajo del alumno.
+
+Expulsión – Falta gravísima
+
+- Implica la pérdida definitiva de la condición de alumno de la Universidad.
+
+- La sanción queda registrada en el legajo.
+
+- Se comunica la sanción a todo el Sistema Universitario Nacional.
+
+3- Importante información para transmitir a nuestros alumnos:
+
+Al momento de rendir un examen, el alumno visualizará el siguiente mensaje emergente (POP UP) en Klarway, recomendarle leer atentamente este mensaje, ya que detalla las condiciones a cumplir durante la instancia evaluativa para evitar inconvenientes.
+
+“Universidad Siglo 21 te recuerda que esta instancia evaluativa será grabada y auditada a los fines de garantizar el cumplimiento de las normas establecidas en el Reglamento Institucional en el capítulo 3.10.1 (Condiciones para Rendir Exámenes): los alumnos, durante el examen, deben saber que:
+
+- Sólo pueden disponer del programa de la materia sin anotaciones
+
+- No puede rendir el examen con elementos que no sean expresamente permitidos por el programa de la materia.
+
+- No puede manipular durante la instancia de examen ningún dispositivo electrónico.
+
+- En la PC del laboratorio/equipo del alumno, solo puede abrir la pantalla del explorador en la cual se realiza el examen.
+
+- La nota obtenida en el examen, provisoria por el plazo de 72 horas hábiles, quedando sujeta a una posterior auditoría del equipo de evaluaciones de la Universidad. Este plazo, podrá extenderse excepcionalmente por 48 horas hábiles, en aquellos casos que la complejidad lo amerite.
+
+- En caso de detectarse irregularidades en un examen rendido por el alumno, la Universidad se reserva la potestad de auditar exámenes que el alumno haya rendido con anterioridad, pudiendo retrotraerse hasta los 10 días hábiles anteriores.
+
+- Toda irregularidad que se detecte durante el proceso de exámenes será notificada al correo electrónico que el alumno tiene registrado en su campus virtual, con carácter de declaración jurada, dentro de los 7 días hábiles posteriores a la auditoría.
+
+- Todo alumno notificado, podrá ejercer su derecho de defensa por medio del link que se encuentra al final de notificación, conforme a lo establecido
+
+- por la normativa vigente. (Capítulo 4.5 del Reglamento Institucional)
+
+4-Concurso del Poder Judicial de Córdoba
+
+Cuando un alumno se presenta al Concurso del Poder Judicial de la Provincia de Córdoba, el sector administrativo de dicho organismo se comunica directamente con el área de Legalidad de la Universidad para solicitar la documentación académica correspondiente (analítico con cantidad de materias aprobadas, promedio, aplazos y demás información requerida).
+
+🚨Esta gestión se realiza exclusivamente mediante comunicación institucional entre el Poder Judicial de Córdoba y el área de Legalidad de la Universidad.El alumno no puede solicitar este trámite por sus propios medios.
+No corresponde generar casos en HubSpot ni derivar consultas a las bandejas de Secretaría Académica o SOA - Legalidad por este motivo.
+
+¿Qué informar al alumno?
+
+Si el alumno consulta sobre este trámite, se deberá informar que la gestión es realizada directamente entre el Poder Judicial de Córdoba y la Universidad.
+
+En caso de que el alumno necesite acreditar su información académica por otros motivos, se le deberá indicar que puede gestionar un Analítico Parcial o un Analítico Parcial con Programas, según corresponda. Esta documentación será enviada a la casilla de correo electrónico registrada por el alumno con firma digital y no será remitida al Poder Judicial.
+
+5. HERRAMIENTAS DE CONSULTA Y GESTIÓN
+
+Tu Carpeta es la plataforma desde la cual se pueden visualizar los documentos emitidos en el marco de un proceso disciplinario
+
+Acceso: Tu Carpeta
+
+Para acceder, utilizar las siguientes credenciales:
+
+- Usuario: consultatramitesdigitales
+
+- Contraseña: 123456
+
+Consulta y envío de documentación de sanciones
+
+Desde Tu Carpeta es posible consultar los documentos emitidos en el marco de los distintos procesos disciplinarios.
+
+Los flujos disponibles son:
+
+- Resolución VGI.
+
+- Recursos de Reconsideración.
+
+- Apertura de Expediente Disciplinario.
+
+- Advertencias.
+
+Cada flujo permite identificar los documentos según su estado: Pendientes de Firma, Firmados, Rechazados o Cancelados.
+
+¿Cuándo se puede compartir la documentación con el estudiante?
+
+La documentación podrá compartirse únicamente cuando el estudiante informe que no recibió la notificación por correo electrónico y siempre que el documento se encuentre en la solapa “Firmados”.
+
+Ante estos casos, se deberá:
+
+- Verificar que el correo electrónico registrado en SGU sea correcto.
+
+- Consultar en Tu Carpeta la dirección de correo a la que fue enviada la notificación, desde Propiedades > Acciones.
+
+- Solicitar al estudiante que revise su bandeja de entrada, correo no deseado o spam, y consultar cómo visualiza o identifica el correo recibido.
+
+- Si el estudiante continúa sin encontrar la notificación, se podrá compartir el documento, siempre que se encuentre firmado.
+
+🎯Importante: los documentos que se encuentren en la solapa “Pendientes de Firma” no deben compartirse con los estudiantes bajo ninguna circunstancia. Esta indicación aplica a todos los flujos, independientemente de la fecha de emisión de los documentos.
+
+Ante consultas de estudiantes que visualicen una modificación de su nota a 0 o un cambio en su condición en la materia, y cuya documentación aún esté pendiente de firma, se deberá informar que deben aguardar los plazos establecidos para recibir la comunicación formal de la sanción.
+
+🚨 Importante: esta consulta permite verificar el correo al que efectivamente fue enviada la notificación y validar si coincide con el correo electrónico registrado por el alumno.
+
+6. GESTIÓN DE SITUACIONES IRREGULARES – CAU Y SEDES
+
+Ante determinadas situaciones que puedan constituir una irregularidad durante una instancia evaluativa, se deberá cargar el formulario de solicitud de sanción para que el área correspondiente pueda realizar la auditoría y analizar la situación en particular.
+
+🚨 IMPORTANTE – SOLO PARA ASESORES CAU Y SEDES
+
+Formulario de solicitud de sanción: ► https://docs.google.com/forms/d/e/1FAIpQLScZ538uCXYi0ztdXG0HNPEgJ-iUcboUa__EzGPC5IVeyZJQkw/viewform
+
+¿En qué situaciones corresponde cargar el formulario?
+
+El formulario puede utilizarse para iniciar el expediente disciplinario ante las siguientes situaciones:
+
+- Situaciones de copia en examen detectadas por asesor o alertadas por docentes
+
+- Alumno que rinde fuera de Sede/CAU, siempre que su modalidad de cursado establezca que debe rendir allí.
+
+¿Quiénes están habilitados para solicitar una sanción?
+
+En los CAU:
+
+- Coordinadores.
+
+- TAP.
+
+- CEO.
+
+En las Sedes:
+
+- Decanos.
+
+- Tutores y docentes.
+
+- Co-docentes (Supervisores y Coordinadores).
+
+🚨 Importante: la carga del formulario permite que el área responsable realice la auditoría y analice la situación particular. La aplicación de una sanción queda sujeta al análisis correspondiente y al procedimiento disciplinario establecido por la Universidad.$pea0$, 'global', 'borrador', $pea0$https://kb-cau.21.edu.ar/servicios-cau/servicios/régimen-de-sanciones$pea0$)
+on conflict (categoria_id, slug) do nothing;
+
+insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
+values ((select id from public.categorias where slug = $pea0$oferta-academica$pea0$), null, 35, $pea0$kb-35-practica-profesional$pea0$,
+        $pea0$Práctica Profesional$pea0$, $pea0$INDICE:$pea0$, $pea0$> **A validar:** contenido relevado de https://kb-cau.21.edu.ar/servicios-cau/servicios/práctica-profesional el 2026-11-19. Revisalo antes de publicar.
+
+INDICE:
+
+Informacion para deivar por Hubspot:
+
+-
+Inconveniente con organización Práctica Profesional
+
+-
+Problema con carga de formulario
+
+Estudiantes inscriptos en Certificados en Competencias
+
+Instancia académica
+
+-
+Caracteristicas de cursado
+
+-
+Calendario 2026
+
+Instancia organizacional
+
+-
+Fechas importantes
+
+-
+SOY SIGLO (ex talent 21)
+
+-
+Asignacion de organización
+
+-
+Organización a la Universidad
+
+-
+Organización estudiantil proponente
+
+-
+Incompatibilidad de concurrencia
+
+-
+Talleres
+
+Documentación
+
+Seguro de vida
+
+Casos particulares
+
+PRÁCTICA PROFESIONAL
+
+Práctica Profesional es una asignatura obligatoria de proceso cuatrimestral para todas las carreras de grado.
+
+Tiene como finalidad que el estudiante desarrolle experiencia profesional en contextos reales de trabajo, aplicando los conocimientos adquiridos durante su formación académica.
+
+El período de inscripción a la Práctica Profesional cierra indefectiblemente el viernes anterior al comienzo del período lectivo.
+
+Cierre de inscripción 1/26: 13/03/26
+Cierre de inscripción 2/26: 31/07/26
+
+INFORMACIÓN PARA LA DERIVACIÓN (HUBSPOT)
+
+Inconveniente con organización Práctica Profesional
+
+Casos que corresponden a esta tipificación
+
+-
+La organización asignada no responde al estudiante.
+
+-
+Trato inadecuado por parte de la organización.
+
+-
+Tareas asignadas no vinculadas a la formación profesional.
+
+-
+Asignación de organización en una localidad diferente.
+
+-
+Solicitudes de modificación de cláusulas de convenios.
+
+-
+Demora superior a 5 días hábiles en la recepción de la póliza solicitada a la aseguradora.
+
+-
+Cualquier otro inconveniente relacionado con la organización donde se desarrolla la práctica.
+
+Área de derivación: Práctica Profesional
+
+Tipificación: Inconveniente con organización Práctica Profesional
+
+Nota interna - Completar ticket con los siguientes datos:
+
+Nombre y apellido del estudiante.
+
+-
+DNI.
+
+-
+Legajo.
+
+-
+Nombre de la organización donde realiza la práctica.
+
+-
+Descripción detallada del inconveniente.
+
+-
+Evidencia respaldatoria (capturas de pantalla, correos electrónicos, fotografías, videos, entre otros).
+
+Plazo de gestión: 3 días hábiles.
+
+⚠️ Importante
+
+Derivar el caso a la bandeja de Práctica Profesional.
+
+Adjuntar toda la evidencia disponible para facilitar el análisis del caso.
+
+Verificar previamente que hayan transcurrido los plazos correspondientes cuando el reclamo se vincule a asignaciones o documentación.
+
+Problema con carga de formulario
+
+Casos que corresponden a esta tipificación
+
+-
+Errores al completar formularios en SOY SIGLO.
+
+-
+Problemas para guardar información.
+
+-
+Inconvenientes para cargar documentación.
+
+-
+Errores relacionados con el uso de la plataforma.
+
+-
+Problemas técnicos asociados a formularios de Práctica Profesional.
+
+Área de derivación: Práctica Profesional
+
+Tipificación: Problema con carga de formulario
+
+Nota interna - Completar ticket con los siguientes datos:
+
+-
+Nombre y apellido del estudiante.
+
+-
+DNI.
+
+-
+Legajo.
+
+-
+Nombre del formulario afectado.
+
+-
+Descripción detallada del inconveniente.
+
+-
+Captura de pantalla o evidencia del error informado.
+
+⚠️ Importante
+
+-
+No utilizar esta tipificación para solicitar evaluaciones de desempeño.
+
+-
+No utilizar esta tipificación para solicitar planillas de asistencia.
+
+-
+Las consultas sobre corrección de trabajos prácticos deben gestionarse con el docente de la práctica.
+
+-
+Las demoras en corrección o carga de notas deben derivarse a SGEA.
+
+La materia contempla:
+
+Instancia académica, desarrollada mediante actividades y trabajos prácticos en Canvas.
+
+Instancia organizacional, desarrollada en una organización o con un profesional independiente habilitado, bajo la supervisión de un tutor.
+
+Estudiantes inscriptos en Certificados en Competencias:
+
+📄 https://informate.21.edu.ar/certificado-en-competencias
+
+Deben realizar su práctica profesional en una organización relacionada con el perfil del certificado seleccionado.
+Es obligatorio cumplir con la rúbrica establecida en los módulos M2, M3 y M4, según el perfil de certificación correspondiente.
+
+INSTANCIA ACADEMICA
+
+👉 CARACTERISTICAS DEL CURSADO
+
+Se desarrolla en diversos espacios, el aula presencial y/o virtual (Canvas) con un Docente a cargo.
+El estudiante deberá entregar en tiempo y forma los TP correspondientes a la materia, independientemente de su modalidad.
+El estudiante debe mantener un contacto frecuente con su docente.
+
+Requisitos de aprobación:
+
+Presencial
+
+-
+Cursado Cuatrimestral
+
+-
+¿Cómo se Aprueba?
+
+-
+Tener aprobados 3 TPs con nota de 5 o más, siendo obligatorio aprobar el TP4.
+
+-
+75% de asistencia a clases presenciales.
+
+-
+Correlativas aprobadas.
+
+-
+La nota final es el promedio de los 4 TP´s de la materia.
+
+-
+Si al finalizar el cursado, las correlativas previas no están aprobadas, la materia queda en estado REGULAR por un plazo máximo de 18 (dieciocho) meses. Si en dicho plazo no aprobas tus correlativas, la materia queda en estado LIBRE, y debes recursarla.
+
+Presencial Home
+
+-
+Cursado Cuatrimestral
+
+-
+¿Cómo se Aprueba?
+
+-
+Tener aprobados 3 TPs con nota de 5 o más, siendo obligatorio aprobar el TP4.
+
+-
+75% de asistencia a clases presenciales.
+
+-
+Correlativas aprobadas.
+
+-
+La nota final es el promedio de los 4 TP´s de la materia.
+
+-
+Si al finalizar el cursado, las correlativas previas no están aprobadas, la materia queda en estado REGULAR por un plazo máximo de 18 (dieciocho) meses. Si en dicho plazo no aprobas tus correlativas, la materia queda en estado LIBRE, y debes recursarla.
+
+Distancia
+
+-
+Cursado Cuatrimestral
+
+-
+¿Cómo se Aprueba?
+
+-
+Tener aprobados 3 TPs con nota de 5 o más, siendo obligatorio aprobar el TP4.
+
+-
+Correlativas aprobadas.
+
+-
+La nota final es el promedio de los 4 TP´s de la materia.
+
+-
+Si al finalizar el cursado, las correlativas previas no están aprobadas, la materia queda en estado REGULAR por un plazo máximo de 18 (dieciocho) meses. Si en dicho plazo no aprobas tus correlativas, la materia queda en estado LIBRE, y debes recursarla.
+
+El estudiante debe presentar la evaluación de desempeño, firmada por la organización, aprobada con nota igual o mayor a 7 (siete) validando además el cumplimiento de la carga horaria a través de la planilla de asistencia . Ambos documentos se entregan junto con el TP4 a través de CANVAS.
+
+👉 CALENDARIO 2026
+
+TP 1 6ª SEMANA - 07/09/2026
+
+TP 2 8ª SEMANA - 28/09/2026
+
+TP 3 12° SEMANA - 19/10/2026
+
+TP 4 15° SEMANA - 09/11/2026
+
+INSTANCIA ORGANIZACIONAL
+
+👉 FECHAS IMPORTANTES
+
+-
+Fecha límite para solicitar organización: 07 de agosto del 2026
+
+-
+Fecha límite para declarar incompatibilidad: 24/08/26
+
+-
+Fecha límite para proponer organización: 24/08/26
+
+👉 SOY SIGLO (EX TALENT 21 )
+
+La gestión de la instancia organizacional de Práctica Profesional se realiza a través de la plataforma SOY SIGLO.
+
+-
+Acceso a la plataforma: https://21-csm.symplicity.com/
+
+-
+Instructivo SOY SIGLO para Asesores y Codocentes: Instructivo SOY SIGLO para asesores.docx
+
+Este instructivo es desde la vista que tiene el estudiante, para que el front pueda guiarlo dentro de la plataforma
+
+🎯Los estudiantes inscriptos a la materia, acceden directamente a la plataforma con su correo institucional; no deben registrarse.
+
+Si no están inscriptos en la materia, no podrán acceder a los formularios.
+
+👉ASIGNACIÓN DE ORGANIZACIÓN
+
+El estudiante deberá realizar la Práctica Profesional en una Organización con el acompañamiento de un tutor, completando 250 horas durante el semestre, con una dedicación máxima de 20 a 25 horas semanales. Los días y horarios de asistencia serán coordinados con el tutor.
+
+-
+Una vez inscripto en la asignatura, dispondrá de 72 horas para completar el formulario correspondiente. Si no lo hace, la Universidad podrá realizar una preasignación de una Organización, que deberá aceptar o rechazar.
+
+-
+Si rechaza la preasignación, deberá proponer una Organización que cumpla con los requisitos establecidos y sea aprobada por la Universidad antes del inicio del cursado. En este caso, no se realizarán nuevas asignaciones.
+
+📌 Solicitar organización a la Universidad
+
+El estudiante deberá completar el formulario "Solicito que la Universidad me asigne una organización" en SOY SIGLO y guardar la solicitud.
+
+-
+La asignación se realiza respetando la localidad del CAU/Sede al que pertenece el estudiante. Pueden verificarlo desde SGU:
+
+-
+Una vez asignada la Organización, deberá ingresar al formulario y seleccionar "Revisar". Si visualiza los datos de la Organización y del tutor, significa que la asignación fue realizada. El formulario permanecerá siempre con estado "Aprobado".
+
+-
+Una vez asignada la Organización, el estudiante podrá consultar los datos de contacto del tutor en la plataforma y deberá establecer el primer contacto para coordinar el inicio de la práctica.
+
+Importante para la atención: solo deberá derivarse el caso a 3.° línea si transcurrieron más de 10 días hábiles desde la carga del formulario y el/la estudiante aún no tiene una Organización asignada.
+
+Aclaración: el estudiante deberá ingresar proactivamente a la plataforma y consultar su asignación. Tener en cuenta que el estado “Aprobado” no significa que la asignación se haya realizado.
+
+📌 Proponer Organización
+
+Si el estudiante desea proponer una Organización para realizar su Práctica Profesional, deberá verificar que cumpla con los siguientes requisitos:
+
+-
+Ser una Organización o un profesional independiente registrado en ARCA.
+
+-
+Brindar un espacio y los recursos necesarios para el desarrollo de la práctica.
+
+-
+Garantizar que las actividades a realizar estén vinculadas con la formación académica del estudiante.
+
+-
+El estudiante podrá proponer la Organización en la que trabaja actualmente, siempre que cumpla con los requisitos establecidos y que la práctica se desarrolle en un área distinta de aquella en la que desempeña sus funciones habituales.
+
+-
+También podrá proponer una Organización propia o familiar, siempre que el tutor no sea familiar directo ni tenga una relación de subordinación con el/la estudiante.
+
+Requisitos del tutor:
+
+La Organización deberá designar un tutor que acompañe y supervise la práctica.
+
+Para las carreras de Abogacía, Contador Público, y Licenciatura en Informática, el tutor deberá:
+
+-
+Poseer título de grado correspondiente a la carrera.
+
+-
+Adjuntar el título de grado como parte de la documentación requerida.
+
+En el caso de Licenciatura en Informática, también se aceptará como tutor a un Ingeniero en Sistemas.
+
+Causas de rechazo de la Organización:
+
+No será aprobada la Organización cuando:
+
+-
+El profesional independiente o la Organización no se encuentren registrados en ARCA.
+
+-
+El tutor no posea título de grado cuando este sea un requisito.
+
+-
+Para las carreras de Abogacía, Contador Público, o Licenciatura en Informática, el tutor no cuente con el título profesional correspondiente (en Informática también se acepta Ingeniería en Sistemas).
+
+-
+El tutor no adjunte el título de grado requerido.
+
+-
+El tutor sea familiar directo o tenga una relación de subordinación con el estudiante.
+
+📌 Incompatibilidad de concurrencia
+
+La incompatibilidad de concurrencia aplica únicamente en los siguientes casos:
+
+-
+Empleados/as de reparticiones públicas que tengan prohibición de desempeñar tareas o funciones fuera de su ámbito laboral.
+
+-
+Estudiantes privados/as de la libertad mientras cursan la asignatura.
+
+Documentación requerida:
+
+Según el caso, el/la estudiante deberá presentar:
+
+-
+Empleados/as de reparticiones públicas: certificado laboral y la normativa que acredite la incompatibilidad.
+
+-
+Estudiantes privados/as de la libertad: resolución judicial correspondiente.
+
+La documentación deberá cargarse a través del formulario "Aplico incompatibilidad de concurrencia" disponible en la plataforma.
+
+Importante: La presentación de la documentación no implica la aprobación automática de la incompatibilidad. Cada caso será evaluado por la Universidad. No se considerarán incompatibilidades situaciones como superposición con el horario laboral, problemas personales u otros motivos similares.
+
+¿Qué sucede si la incompatibilidad es aprobada?:
+
+Si la incompatibilidad es aprobada, el/la estudiante no deberá concurrir a una Organización.
+
+En su lugar, el/la docente asignará a través de Canvas actividades simuladas propias del ejercicio profesional, equivalentes a 250 horas de práctica, conforme a la Resolución 3810/2020. Para aprobar la asignatura, el/la estudiante deberá completar y aprobar estas actividades, además de los trabajos prácticos obligatorios de Canvas.
+
+👉 TALLERES
+
+El cronograma de talleres se publicará previo a cada inicio de semestre. Los próximos son para el periodo 1A/27. La asistencia al taller es obligatoria y debe realizarse antes de completar cualquiera de los formularios de la Práctica Profesional.
+
+Los talleres se dictan por Microsoft Teams. Los datos de acceso se publican en La Nube, por lo que no es necesario realizar una inscripción previa. El/la estudiante deberá ingresar de manera proactiva el día y horario que prefiera, según el decanato de su carrera, sin iniciar sesión en Teams.
+
+👉 DOCUMENTACIÓN
+
+Convenio de Actividades Académicas (Marco y Anexo)
+
+Antes del inicio de la práctica, la Universidad y la Organización deberán formalizar la vinculación mediante la aceptación de los convenios de actividades académicas. La firma se realiza de forma digital a través de la plataforma. La plataforma es SOY SIGLO y lo visualiza la Organización, no el/la estudiante.
+
+📌 Convenio Marco
+
+Formaliza el vínculo entre la Universidad y la Organización. Es firmado por el tutor de la Organización al momento de registrarse en la plataforma y puede visualizarse desde su perfil.
+
+📌 Convenio Anexo
+
+Formaliza el vínculo entre la Universidad, la Organización y el estudiante.
+
+El Convenio Anexo estará disponible una vez que la Organización haya sido asignada o que la propuesta presentada por el/la estudiante haya sido aprobada. Para visualizarlo, deberá ingresar al formulario correspondiente, seleccionar "Revisar" y, al final de la página, acceder al apartado "Convenio Anexo", donde podrá abrir el archivo en formato PDF.
+
+📄 Planilla de asistencia: https://contenidos.21.edu.ar/descargas/planilla-de-asistencia-alumnos-de-practica-profesional.pdf
+
+📄 Evaluaciones de desempeño: https://www.lanube.21.edu.ar/post/evaluaci%C3%B3n-de-desempe%C3%B1o
+
+Tener en cuenta: esta documentación deberá ser presentada a través de Canvas, dentro de la consigna correspondiente al Trabajo Práctico N.° 4.
+
+⚠️ Importante
+
+-
+El/la estudiante no debe realizar ninguna gestión sobre los convenios (no debe firmarlos ni presentarlos).
+
+-
+Si es necesario, la Organización podrá descargarlos desde la plataforma.
+
+-
+Desde el período 1-2026, no se recibe documentación en formato PDF con firma manuscrita. La firma de los convenios se realiza exclusivamente de manera digital a través de la plataforma.
+
+-
+Los/as estudiantes con incompatibilidad de concurrencia no cuentan con convenios vinculantes, ya que no realizan la práctica en una Organización.
+
+- En caso de que, por algún motivo, sea necesario modificar algún dato de la organización o del tutor, la organización será la responsable de realizar dicha modificación en su perfil dentro de la plataforma .
+
+Por consultas realizadas por organizaciones, deberán facilitarles el correo de Empleabilidad:
+
+empleabilidad21@ues21.edu.ar.
+
+(Solo compartir a organizaciones, no se responden correos de estudiantes).
+
+👉 SEGURO DE VIDA
+
+Seguro de vida y accidentes:
+
+Los estudiantes inscriptos en la asignatura Práctica Profesional cuentan con un seguro de vida y accidentes otorgado por la Universidad. La cobertura estará vigente desde el primer día de clases hasta el último día del período académico de cursado.
+
+El estudiante no debe realizar ninguna gestión para activar la cobertura. Es importante que no asista a la Organización antes del inicio del cursado, ya que el seguro no estará vigente.
+
+Si necesita el certificado de cobertura (póliza), deberá solicitarlo directamente a la aseguradora mediante el formulario disponible en La Nube. La póliza será enviada al correo electrónico registrado en un plazo de hasta 5 días hábiles.
+
+📄 Formulario de solicitud de póliza: https://forms.gle/9qNr9yv99tL8SYcw7
+
+Este formulario debe ser completado y enviado únicamente por el/la estudiante.
+
+En caso de accidente:
+
+El estudiante deberá asistir al centro médico más cercano y, dentro de las 72 horas de ocurrido el accidente, completar el formulario de reporte correspondiente. A través de este formulario también deberá adjuntar los comprobantes de atención y los gastos médicos y/o farmacéuticos para gestionar el reintegro.
+
+El formulario podrá ser completado por el/la estudiante o por una persona responsable.
+
+📄 Formulario de informe de accidente: https://forms.gle/pKJrNfbsZCVNME1RA
+
+👉 CASOS PARTICULARES
+
+📌 Estudiantes de carreras del Decanato de Ciencias de la Salud
+
+Los/as estudiantes de las carreras de Licenciatura en Nutrición, Licenciatura en Psicología, Licenciatura en Terapia Ocupacional y Desarrollo Humano y Licenciatura en Kinesiología y Fisioterapia no utilizan la plataforma SOY SIGLO ni deben asistir a los talleres preparatorios.
+
+Todo el proceso de asignación de la práctica es gestionado por sus respectivos coordinadores/as de práctica, con quienes deberán mantenerse en contacto, al igual que con el/la docente de la asignatura.
+
+Si la Organización solicita la póliza del seguro, el/la estudiante no deberá completar los formularios disponibles en la plataforma, sino solicitarla directamente a su coordinador/a de práctica.
+
+📌 Estudiantes con discapacidad
+
+Los/as estudiantes con discapacidad podrán realizar la Práctica Profesional en igualdad de condiciones, con los apoyos necesarios. Cada situación se aborda de manera personalizada junto al Centro de Sustentabilidad y la asesoría especializada en accesibilidad e inclusión académica.
+
+Importante para la atención: derivar un ticket a la bandeja de Práctica Profesional y notificar por correo electrónico a los/as supervisores/as para que el equipo de Empleabilidad tome intervención prioritaria.
+
+📌 Estudiantes que cursan desde el extranjero
+
+Los/as estudiantes que cursan desde el extranjero también deberán realizar la Práctica Profesional en una Organización.
+
+Podrán proponer una Organización del país donde residen, siempre que cumpla con los requisitos establecidos, y presentar la propuesta mediante el formulario correspondiente.
+
+Si no cuentan con una Organización, podrán solicitar una asignación a la Universidad a través del formulario "Quiero solicitar una organización a la Universidad" disponible en la plataforma. En estos casos, la Universidad asignará una Organización con modalidad virtual.
+
+Excepción: los/as estudiantes de Abogacía y Contador Público deberán realizar la práctica de forma presencial, sin excepción.
+
+Selección de Talento
+
+Es una nueva alternativa de vinculación para los estudiantes de Práctica Profesional 1-27, permitiéndoles participar en procesos de selección reales para realizar sus prácticas en empresas líderes del sector.
+
+Cabe destacar que esta alternativa no reemplaza las modalidades existentes y no es obligatoria, quienes no participen deberán gestionar su vinculación bajo el proceso habitual.
+
+Fechas y Requisitos Clave:
+
+- Requisito Excluyente: Esta oportunidad está dirigida exclusivamente a los estudiantes que se inscriban para cursar la materia en 1-27 hasta el 30 de noviembre de 2026.
+
+- Postulación a vacantes: Hasta el 1 de diciembre de 2026.
+
+- Confirmación de postulados/as que inician el Programa: Hasta el 15 de diciembre de 2026.
+
+- Selección de estudiantes: Sujeto a condiciones y plazos de la Organización
+
+- Confirmación de seleccionados/as: Durante febrero 2027
+
+- Inicio de la práctica: Primer semana de cursado del período 1-27.
+
+Guía de Orientación al Estudiante (Paso a Paso):
+
+Si un estudiante consulta sobre cómo participar de esta experiencia, el Front de Atención deberá guiarlo a través de las siguientes etapas:
+
+- Validar la Inscripción: El primer paso obligatorio para que el/la estudiante participe es que ya haya completado su inscripción a la materia Práctica Profesional 1-27.
+
+- Configuración en el Portal de Empleo: Deben indicarle a los/las estudiantes que ingresen a la plataforma https://21-csm.symplicity.com/, para cargar su currículum y configurar su perfil como "público". Es fundamental recordarles que actualicen sus datos de contacto para que las empresas puedan llamarlos.
+
+- Búsqueda de Vacantes (Fecha límite: 1 de diciembre de 2026): El/la alumno/a debe buscar dentro del portal las oportunidades identificadas con la marca “Prácticas Profesionales 1 - 2027”. Una vez que encuentre la que se relaciona con su carrera, debe hacer clic en “Solicitar”. Tienen tiempo máximo hasta el 1 de diciembre de 2026.
+
+- Periodo de Selección (Hasta el 15 de diciembre de 2026): Las empresas evaluarán los perfiles y contactarán directamente a los candidatos que se ajusten a su búsqueda hasta el 15 de diciembre para comenzar el proceso de selección. Dicho proceso está sujeto a las condiciones y plazos que disponga la organización; la Universidad no interviene en esta etapa.
+
+Si un estudiante indica que no recibió comunicación en ese plazo, informarle que la Universidad se contactará con él/ella para notificarle cómo continuar con el proceso de vinculación habitual, ya que la Organización no tendrá en cuenta su perfil para iniciar el Programa.
+
+-
+
+- Confirmación y Alternativas: La Universidad será la encargada de confirmarle al/la estudiante el resultado del proceso de selección:
+
+- Si es seleccionado/a: El/la estudiante comenzará su práctica el primer día de clases, en paralelo al cursado habitual.
+
+- Si NO es seleccionado/a: Se le brindará un feedback y se le recordará que debe contar con una organización para cursar la materia. Por lo tanto, el estudiante deberá continuar el proceso habitual, solicitando o proponiendo organización, y enviar el formulario de Práctica Profesional correspondiente para cursar la materia en 1-27.
+
+Desde SEVI se contactarán a los/as estudiantes por correo electrónico y/o llamada telefónica en ambos casos.
+
+Importante: La inscripción a la materia estará habilitada hasta el viernes previo al comienzo de clases; el requisito de inscribirse hasta el 30/11/26 inclusive aplica únicamente para quienes deseen participar del programa "Selección de Talento".
+
+-
+Además, el ser seleccionado/a por una organización no implica una relación laboral, sino la vinculación con una organización para realizar únicamente su Práctica Profesional en los plazos establecidos por el Calendario Académico y bajo las condiciones del Convenio de Actividades Académicas y el Reglamento Institucional.
+
+En relación a las dudas o consultas que puedan surgir, se deberá redirigir al estudiante a https://www.lanube.21.edu.ar/practica-profesional y/o derivarn el caso mediante ticket en HubSpot con la tipificación "Inconveniente con Organización Práctica Profesional" con los datos del/la estudiante y el motivo de su consulta.$pea0$, 'global', 'borrador', $pea0$https://kb-cau.21.edu.ar/servicios-cau/servicios/práctica-profesional$pea0$)
+on conflict (categoria_id, slug) do nothing;
+
+insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
+values ((select id from public.categorias where slug = $pea0$aranceles-y-pagos$pea0$), null, 36, $pea0$kb-36-gestiones-administrativas-soper$pea0$,
+        $pea0$Gestiones administrativas SOPER$pea0$, $pea0$Brindar información clara y actualizada sobre las principales gestiones vinculadas a aranceles, pagos, notas de crédito, saldos a favor, traspasos y Garantía de Adaptación, estableciendo las valida…$pea0$, $pea0$> **A validar:** contenido relevado de https://kb-cau.21.edu.ar/servicios-cau/servicios/gestiones-administrativas el 2026-11-19. Revisalo antes de publicar.
+
+Brindar información clara y actualizada sobre las principales gestiones vinculadas a aranceles, pagos, notas de crédito, saldos a favor, traspasos y Garantía de Adaptación, estableciendo las validaciones y circuitos de derivación necesarios para una correcta gestión.
+
+Índice
+
+- Análisis de motivo de deuda
+
+- Facturación con saldo a favor del estudiante
+
+- Nota de crédito por periodo no cursado
+
+- Nota de crédito por promoción o beca no aplicada
+
+- Nota de crédito por cambio de modalidad / carrera
+
+-
+Traspaso de aranceles por pago imputado erróneamente
+
+- Traspaso de aranceles - Ticket A al Ticket B
+
+- Pago no imputado
+
+- Garantía de adaptación
+
+1. Análisis de Motivo de Deuda
+
+Descripción
+
+Esta gestión corresponde cuando el estudiante presenta una deuda o un saldo pendiente y, luego de realizar las validaciones correspondientes, no es posible identificar el origen del importe adeudado con la información disponible.
+
+Su objetivo es solicitar el análisis del caso por parte del equipo especialista cuando el motivo de la deuda no pueda determinarse desde el primer nivel de atención.
+
+¿Cuándo corresponde?
+
+Corresponde solicitar esta gestión cuando:
+
+- El estudiante presenta una deuda o saldo pendiente.
+
+- Se revisó la información disponible en los sistemas institucionales.
+
+- No es posible determinar el origen de la deuda.
+
+Validaciones previas
+
+Antes de derivar, verificar siempre:
+
+- La cuenta corriente del estudiante.
+
+- Las facturas, recibos, notas de crédito y notas de débito registradas.
+
+- Que el origen de la deuda no pueda determinarse con la información disponible.
+
+- Si el estudiante posee antecedentes de:
+
+- Cambio de submodalidad.
+
+- Aranceles abonados de forma duplicada.
+
+Circuito de derivación
+
+Tipificación HubSpot: Análisis motivo de deuda.
+
+Nota de derivación: #GESTIONES SOPER – DERIVACIÓN
+
+La nota deberá incluir una breve descripción del inconveniente.
+
+Datos que debe contener la derivación
+
+- Nombre y apellido.
+
+- DNI.
+
+- Legajo.
+
+- Período involucrado.
+
+- Motivo del reclamo.
+
+Tiempo de gestión: 3 días hábiles.
+
+2. Facturación con Saldo a Favor del Estudiante
+
+Descripción
+
+Esta gestión corresponde cuando el estudiante posee un saldo a favor en la Universidad y solicita utilizarlo para cancelar un concepto arancelado.
+
+También contempla aquellos casos en los que la facturación automática de un ticket de semestre no se realizó, a pesar de haber transcurrido el plazo establecido.
+
+¿Cuándo corresponde?
+
+Corresponde solicitar esta gestión cuando:
+
+- El estudiante desea utilizar su saldo a favor para abonar un trámite arancelado, como por ejemplo:
+
+- Analítico legalizado.
+
+- Programa de materias.
+
+- Certificados.
+
+- Otros trámites arancelados.
+
+- Se generó un ticket de semestre, transcurrieron más de 24 horas y la facturación automática no se realizó.
+
+En estos casos, el saldo disponible debe ser igual o superior al importe del trámite.
+
+Validaciones previas
+
+Antes de derivar, verificar siempre:
+
+- Que el estudiante posea un saldo a favor disponible.
+
+- Que el saldo sea igual o superior al importe del trámite o concepto que desea facturar.
+
+- Que, en caso de tratarse de un ticket de semestre, hayan transcurrido más de 24 horas desde su generación sin que se haya realizado la facturación automática.
+
+Importante: Si el saldo a favor es inferior al importe del trámite o concepto a facturar, no corresponde realizar esta gestión. En ese caso, el estudiante deberá abonar la diferencia para completar el importe total.
+
+Circuito de derivación
+
+Tipificación HubSpot: Imputación saldo a favor alumno.
+
+Nota de derivación: #GESTIONES SOPER – DERIVACIÓN
+
+La nota deberá incluir una breve descripción del inconveniente identificado.
+
+Datos que debe contener la derivación
+
+- Nombre y apellido.
+
+- DNI.
+
+- Legajo.
+
+- Período involucrado.
+
+- Motivo del reclamo.
+
+Tiempo de gestión: 3 días hábiles.
+
+3 -Nota de crédito por periodo no cursado
+
+1. Consideraciones generales
+
+La Nota de Crédito (NC) es una gestión administrativa que permite analizar el reconocimiento de los aranceles de cursado abonados cuando el estudiante no registró actividad académica en el período correspondiente.
+
+⚠️ Importante:
+El reconocimiento mediante Nota de Crédito se realiza únicamente sobre los aranceles de cursado abonados (Ticket A y/o Ticket B según corresponda).
+
+📌La matrícula no se reconoce y no forma parte del cálculo del importe a acreditar, ya que corresponde a conceptos administrativos asociados a la vinculación del estudiante con la Universidad.
+
+Matrícula
+
+⚠️ No corresponde emitir Nota de Crédito por matrícula.
+
+La matrícula corresponde a gastos administrativos asociados a la vinculación del estudiante con la Universidad:
+
+- Creación del usuario institucional.
+
+- Alta del legajo académico.
+
+- Activación de licencia en la plataforma virtual.
+
+Por este motivo, no corresponde reconocer total ni parcialmente el importe abonado en concepto de matrícula.
+
+Excepciones
+
+Corresponde analizar el caso únicamente cuando:
+
+- El estudiante abonó por error una matrícula correspondiente a otro período.
+
+- El pago fue imputado a un legajo incorrecto.
+
+- El estudiante abonó matrícula fuera de vigencia.
+
+Reconocimiento de aranceles
+
+-
+El análisis de reconocimiento de aranceles aplica para modalidad PH, ED Y EDH.
+
+📢En modalidad Presencial no corresponde generar nota de crédito por las materias no cursadas.
+
+Ejemplo:
+
+El estudiante abonó un paquete de 6 materias y cursó únicamente 4.
+
+¿Cuándo puede solicitarse una Nota de Crédito?
+
+La gestión puede solicitarse cuando se cumpla alguno de los siguientes escenarios:
+
+-  El semestre haya finalizado.
+
+-  Finalizó el período de inscripción al segundo bimestre (B), tanto para arancel completo como parcial.
+
+Validaciones previas obligatorias
+
+Antes de derivar una solicitud de Nota de Crédito, el asesor debe verificar:
+
+- Que no exista una Nota de Crédito emitida previamente por el mismo concepto.
+
+- Que el estudiante haya abonado aranceles de cursado (Ticket A, Ticket B o ambos).
+
+- Que no haya registrado actividad académica, validando:
+
+- La cantidad de materias a las que se inscribió.
+
+- La cantidad de materias efectivamente cursadas.
+
+- Si el estudiante se inscribió a la materia Inglés, ya que esta también se abona y se considera una materia cursada a los fines del análisis.
+
+⚠️ Recordatorio: La matrícula no se contempla dentro del análisis de reconocimiento.
+
+Consideración especial: Materia Inglés
+
+Desde período 2/25 se debe validar la inscripción a la materia Inglés.
+
+Aunque el estudiante no tenga actividad académica:
+
+- No puede ser anulada.
+
+- Se considera materia cursada.
+
+Esto debe contemplarse al momento de analizar si corresponde reconocimiento del importe abonado.
+
+¿Cómo se realiza la Nota de Crédito?
+
+La gestión debe realizarse siempre desde el botón Nota de crédito por periodo ni cursado nvo, que se encuentra en el sistema institucional: SGU/ CAMPUS VIRTUAL.
+
+Solo corresponde derivar el caso cuando una inconsistencia técnica impida completar la gestión desde el sistema.
+
+Circuito de derivación
+
+Tipificación HubSpot: NC período no cursado
+
+Nota de derivación
+
+#GESTIONES SOPER – DERIVACIÓN
+
+Informar la inconsistencia detectada que impide iniciar la solicitud desde el botón NC.
+
+Datos que debe contener la derivación
+
+- Nombre y apellido:
+
+- DNI:
+
+- Legajo:
+
+- Período: (Ejemplo: 2/26)
+
+- Motivo: Describir la inconsistencia detectada.
+
+Tiempo de gestión: 3 días hábiles.
+
+Criterios generales de reconocimiento
+
+⚠️ Importante: Los porcentajes de reconocimiento aplican únicamente sobre los aranceles de cursado abonados (TK A / TK B). La matrícula queda excluida en todos los casos.
+
+Carreras de Grado: aplica lo siguiente
+
+Arancel de cursado abonado
+|
+Situación académica ( cursó )
+|
+Reconocimiento posible
+|
+
+TK B (50%)
+|
+0 materias cursadas
+|
+Hasta el 50% del arancel abonado.
+|
+
+TK A (60%) + TK B (40%)
+|
+0 materias cursadas
+|
+Hasta el 100% del arancel de cursado abonado.
+|
+
+TK A (60%) + TK B (40%)
+|
+Cursó entre 1 y 3 materias según condiciones del período
+|
+Hasta el 40% correspondiente al TK B.
+|
+
+Carreras de Pregrado: aplica lo siguiente
+
+Aranceles de cursado abonados
+|
+Situación académica
+|
+¿Corresponde NC?
+|
+Porcentaje de reconocimiento
+|
+
+TK B (50%)
+|
+0 materias cursadas
+|
+✅ Sí
+|
+50%
+|
+
+TK A (60%) + TK B (40%)
+|
+0 materias cursadas
+|
+✅ Sí
+|
+100%
+|
+
+TK A (60%) + TK B (40%)
+|
+De 1 a 4 materias cursadas (período A)
+|
+❌ No
+|
+—
+|
+
+TK A (60%) + TK B (40%)
+|
+De 1 a 2 materias cursadas (período B)
+|
+✅ Sí
+|
+40%
+|
+
+4-Nota de crédito por promoción o beca no aplicada:
+
+Esta gestión corresponde cuando el estudiante posee una beca o beneficio vigente, realizó el pago de sus aranceles y el descuento no fue aplicado al momento de efectuar el pago.
+
+Su objetivo es solicitar la revisión del caso cuando el beneficio se encontraba vigente y, por un inconveniente administrativo, no se reflejó en la facturación.
+
+¿Cuándo corresponde?
+
+Corresponde solicitar esta gestión cuando:
+
+- El estudiante realizó el pago de sus aranceles.
+
+- La beca o beneficio se encontraba vigente y activo en su legajo al momento del pago.
+
+- El descuento correspondiente no fue aplicado.
+
+Importante: Los beneficios y becas no son retroactivos. Si el estudiante realizó el pago antes de que la beca o beneficio estuviera vigente en su legajo, no corresponde solicitar esta gestión.
+
+Validaciones previas
+
+Antes de derivar, verificar siempre:
+
+- La fecha en la que el estudiante realizó el pago, mediante el recibo o comprobante disponible en Pago Electrónico.
+
+- Que la beca o beneficio estuviera vigente en la fecha del pago.
+
+- La vigencia del beneficio en el listado de becas o en el ticket de HubSpot donde fue otorgado.
+
+Circuito de derivación
+
+Tipificación HubSpot: NC beca no aplicada/ NC promoción no aplicada
+
+Nota de derivación: #GESTIONES SOPER – DERIVACIÓN
+
+Datos que debe contener la derivación
+
+Nombre y apellido.
+
+DNI.
+
+Legajo.
+
+Período involucrado.
+
+Motivo del reclamo
+
+Tiempo de gestión: 3 días hábiles.
+
+5. Nota de crédito por cambio de modalidad / carrera
+
+Descripción
+
+Se utiliza cuando hubo un cambio de carrera y/o modalidad y existe una diferencia de aranceles/matrícula que se debe ajustar, sea en favor del alumno o en deuda.
+
+Circuito de derivación
+
+Tipificación HubSpot: NC por cambio de modalidad/Carrera
+
+Datos que debe contener la derivación
+
+Nombre y apellido.
+
+DNI.
+
+Legajo.
+
+Período
+
+Tiempo de gestión: 3 días hábiles.
+
+6. Traspaso de Aranceles por Pago Imputado Erróneamente
+
+Descripción
+
+Esta gestión corresponde cuando el estudiante realizó un pago a cuenta y el importe fue imputado por error en un concepto (matrícula o arancel), período o legajo que no correspondía.
+
+El objetivo es solicitar el traspaso del importe al concepto o legajo correcto, manteniendo el pago realizado por el estudiante.
+
+⚠️ Importante: Esta gestión aplica únicamente cuando el pago se encuentra correctamente realizado e imputado, pero fue aplicado en un lugar incorrecto.
+
+No corresponde utilizar esta gestión para:
+
+- solicitar una devolución de dinero;
+
+- solicitar reconocimiento de aranceles;
+
+- gestionar pagos que no se encuentran acreditados.
+
+¿Cuándo corresponde?
+
+Corresponde solicitar esta gestión cuando:
+
+El estudiante realizó un pago para abonar sus aranceles correspondientes, pero lo imputó por error en otro concepto o legajo.
+
+Ejemplo: el estudiante debía abonar los aranceles de su carrera actual, pero imputó el pago en una prescripción antigua; un legajo anterior; un legajo generado por una articulación; otro concepto diferente al correspondiente (por ejemplo, matrícula en lugar de arancel).
+
+En estos casos, no corresponde solicitar una devolución, sino realizar el traspaso del importe al lugar correcto.
+
+Validaciones previas
+
+Antes de derivar, verificar siempre:
+
+1. Confirmar que el pago esté imputado
+
+Validar:
+
+- Buscar el recibo en Pago Electrónico (PE).
+
+- Confirmar que el pago figure acreditado.
+
+⚠️ Si el pago no se encuentra imputado, no corresponde esta gestión.
+
+2. Identificar dónde debe aplicarse el pago
+
+Verificar mediante Pago Electrónico (PE)
+
+- Legajo correcto.
+
+- Concepto correcto (matrícula o arancel).
+
+- Período correcto.
+
+3. Validar que la imputación actual sea incorrecta
+
+Verificar que en el período o legajo donde quedó aplicado el pago:
+
+- No posea actividad académica.
+
+- No corresponda el cobro de ese concepto.
+
+- El importe deba ser trasladado al concepto correcto.
+
+Si el pago corresponde al concepto donde fue imputado, no corresponde solicitar esta gestión.
+
+Circuito de derivación
+
+Tipificación HubSpot:
+Traspaso de aranceles por pago imputado erróneamente
+
+Nota de derivación:
+#GESTIONES SOPER – DERIVACIÓN
+
+Completar el campo Motivo indicando:
+
+- Dónde quedó imputado actualmente el pago.
+
+- Dónde debe imputarse correctamente.
+
+- Motivo por el cual corresponde realizar el traspaso.
+
+Datos que debe contener la derivación
+
+NOMBRE:
+DNI:
+LEGAJO:
+MOTIVO:
+PERÍODO: (Ejemplo: 2/22)
+
+Tiempo de gestión: 3 días hábiles.
+
+7. Traspaso de Aranceles - Ticket A al Ticket B
+
+Descripción
+
+Esta gestión corresponde cuando el estudiante abonó el Ticket A y, debido a la cantidad de materias que cursará en el período B, corresponde trasladar el importe abonado al Ticket B.
+
+El objetivo es ajustar la imputación de los aranceles abonados de acuerdo con la modalidad de cursado del estudiante.
+
+⚠️ Importante:
+Esta gestión aplica únicamente cuando se cumplen las condiciones académicas definidas para cada tipo de carrera.
+
+¿Cuándo corresponde?
+
+El estudiante podrá solicitar el traspaso en los siguientes casos:
+
+Carreras de Grado
+
+Corresponde cuando:
+
+- El estudiante abonó Matrícula + Ticket A.
+
+- Solo cursará 3 materias en el período B.
+
+Carreras de Pregrado
+
+Corresponde cuando:
+
+- El estudiante abonó Matrícula + Ticket A.
+
+- Solo cursará 2 materias en el período B.
+
+Validaciones previas
+
+Antes de derivar, verificar siempre:
+
+1. Validar inscripción a materias del período A
+
+Si el estudiante:
+
+No se inscribió a ninguna materia en el período A y tiene el Ticket B pendiente de pago:
+
+➡️ Intentar realizar la anulación del ticket desde la botonera de SGU, siempre que no posea inscripción a materias.
+
+Si no es posible realizar la anulación:
+
+➡️ Derivar ticket según circuito definido para solicitar la gestión correspondiente.
+
+2. Validar actividad académica
+
+Verificar si posee materias inscriptas:
+
+Está inscripto y NO posee actividad académica
+
+➡️ Solicitar anulación correspondiente según circuito definido.
+
+Está inscripto y posee actividad académica
+
+➡️ No corresponde realizar esta gestión.
+
+No está inscripto
+
+➡️ Continuar con el proceso de traspaso.
+
+Circuito de derivación
+
+Tipificación HubSpot:
+Traspaso de aranceles por pago imputado erróneamente
+
+Nota de derivación:
+#GESTIONES SOPER – DERIVACIÓN
+
+En el campo Motivo, indicar:
+
+- Carrera.
+
+- Modalidad.
+
+- Período involucrado.
+
+- Ticket abonado (TK A).
+
+- Ticket a trasladar (TK B).
+
+- Cantidad de materias inscriptas en período A y B.
+
+- Validaciones realizadas.
+
+Datos que debe contener la derivación
+
+NOMBRE:
+DNI:
+LEGAJO:
+CARRERA:
+MODALIDAD:
+PERÍODO:
+MOTIVO:
+
+Tiempo de gestión: 3 días hábiles.
+
+8. Pago No Imputado
+
+Descripción
+
+Esta gestión corresponde cuando el estudiante informa que realizó un pago, pero continúa visualizando sus tickets pendientes de pago en Pago Electrónico (PE).
+
+El objetivo de esta gestión es solicitar la revisión del pago cuando el importe abonado no se encuentra reflejado o imputado en la cuenta corriente del estudiante.
+
+⚠️ Importante:
+Antes de derivar, se deben realizar las validaciones correspondientes y confirmar que se cumplan los plazos establecidos según la fecha real de pago.
+
+¿Cuándo corresponde?
+
+Corresponde realizar esta gestión cuando:
+
+- El estudiante informa que efectuó un pago.
+
+- El pago continúa sin verse reflejado en sus tickets pendientes de pago.
+
+- Transcurrieron más de 72 horas hábiles desde la fecha real de pago.
+
+- El estudiante cuenta con el comprobante correspondiente.
+
+Validaciones previas
+
+Antes de derivar, verificar siempre:
+
+1. Fecha de pago
+
+Validar la fecha real en la que el estudiante realizó el pago.
+
+⚠️ El reclamo corresponde únicamente cuando hayan transcurrido más de 72 horas hábiles desde la fecha de pago.
+
+2. Medio de pago utilizado
+
+Verificar:
+
+- Medio de pago utilizado.
+
+- Si fue realizado con tarjeta de crédito:
+
+- Marca de tarjeta.
+
+- Cantidad de cuotas.
+
+- Medio por el cual efectuó el pago:
+
+- Pago Electrónico.
+
+- Telefónicamente.
+
+- CAU.
+
+- Presencial en Sede.
+
+3. Datos del pago
+
+Validar:
+
+- Importe abonado.
+
+- Comprobante de pago.
+
+- Concepto que el estudiante intentó cancelar.
+
+- Período involucrado.
+
+4. Facturación a nombre de empresa
+
+Consultar si el estudiante solicitó vinculación de facturación a nombre de una empresa.
+
+5. Verificación de saldo a favor
+
+Ingresar a la opción “Cuenta” en E-Pagos y verificar que el importe no figure como saldo a favor.
+
+⚠️ Si el pago se encuentra registrado como saldo a favor, no corresponde gestionar como pago no imputado.
+
+Circuito de derivación
+
+Circuito de derivación
+
+Tipificaciones HubSpot
+
+Seleccionar la tipificación según el medio de pago utilizado:
+
+Tipificación HubSpot
+|
+Aplicación
+|
+
+Pago no imputado en efectivo
+|
+Cuando el estudiante realizó el pago en efectivo y el importe no se encuentra imputado.
+|
+
+Pago no imputado por pago electrónico
+|
+Cuando el estudiante realizó el pago mediante Pago Electrónico y el importe no se encuentra imputado.
+|
+
+Pago no imputado por posnet
+|
+Cuando el estudiante realizó el pago mediante Posnet y el importe no se encuentra imputado.
+|
+
+Nota de derivación
+
+#GESTIONES SOPER – DERIVACIÓN
+
+En el campo Motivo, detallar según corresponda:
+
+- Fecha real de pago.
+
+- Medio de pago utilizado.
+
+- Importe abonado.
+
+- Concepto/período que debía cancelar.
+
+- Situación informada por el estudiante.
+
+- Validaciones realizadas.
+
+Adjuntar el comprobante de pago al momento de derivar el caso.
+
+Datos que debe contener la derivación
+
+NOMBRE:
+DNI:
+LEGAJO:
+MOTIVO:
+PERÍODO: (Ejemplo: 2/22)
+FECHA DE PAGO:
+IMPORTE:
+MEDIO DE PAGO:
+COMPROBANTE ADJUNTO:
+
+Tiempo de gestión: 3 días hábiles
+
+9. Garantía de Adaptación
+
+Descripción
+
+La Garantía de Adaptación (GA) es un beneficio institucional destinado a estudiantes ingresantes que, por diferentes circunstancias que pudieron interferir en el inicio de su trayectoria académica, no pudieron adaptarse o cursar el semestre de acuerdo con lo previsto.
+
+El beneficio permite al estudiante reiniciar su trayectoria académica y económica, bonificando el 100% de la matrícula y de los aranceles abonados, y devolviéndolo a un estado de inicio.
+
+Puede contemplar situaciones vinculadas con dificultades de adaptación al comienzo de la carrera, situaciones personales o cualquier otra circunstancia que haya impedido al estudiante desarrollar normalmente su cursado.
+
+Importante: la Garantía de Adaptación no se limita a un cambio de carrera o modalidad. Su finalidad es brindar una nueva oportunidad de inicio cuando las circunstancias del comienzo de la trayectoria hayan dificultado la continuidad del estudiante.
+
+¿Cuándo corresponde?
+
+Corresponde solicitar esta gestión cuando:
+
+- El estudiante es ingresante (NI).
+
+- Pertenece a una carrera de grado o pregrado, en cualquier modalidad.
+
+- Abonó al menos una matrícula y un ticket de arancel.
+
+- No posee materias aprobadas del primer semestre.
+
+- No transcurrieron más de 2 años desde su fecha de ingreso.
+
+- No solicitó previamente la Garantía de Adaptación en ese legajo.
+
+Importante: Las materias de Universitario 21 (U21) aprobadas no impiden solicitar la Garantía de Adaptación.
+
+⚠️ Si el estudiante posee materias en condición Regular o Libre por Nota, deberá ser informado previamente de que al aplicar la Garantía de Adaptación perderá dicha condición.
+
+Condición |  Requisito |
+
+Tipo de estudiante |  Ingresante (NI) |
+
+Carreras |  Grado y Pregrado |
+
+Modalidad |  Todas |
+
+Pago mínimo |  Al menos 1 matrícula y 1 ticket de arancel abonados |
+
+Materias aprobadas |  No debe tener materias aprobadas del primer semestre |
+
+Antigüedad |  Hasta 2 años desde la fecha de ingreso |
+
+Uso del beneficio |  Una sola vez por legajo |
+
+GA previa |  No debe haber solicitado previamente el beneficio en ese legajo |
+
+Legajos activos |  No debe tener más de un legajo activo para la autogestión |
+
+¿Cómo se gestiona?
+
+La Garantía de Adaptación debe ser gestionada por el estudiante de manera autogestiva
+
+Pasos que realiza el alumno en el Portal
+
+- Ingresar al Portal Estudiante con sus credenciales
+
+- Ir a: Gestiones → Iniciar Trámites
+
+- Seleccionar "Garantía de Adaptación" del desplegable
+
+- Elegir el paquete de materias disponible según su configuración académica
+
+- Visualizar la simulación de tickets económicos
+
+- Aceptar los términos y condiciones
+
+- Confirmar la solicitud
+
+⚠️ La autogestión es exclusiva del estudiante. Los asesores y codocentes no pueden realizar la gestión en su nombre ni impersonándolo.
+
+Casos donde aplica la GA autogestionable:
+
+Situación |  Resultado |
+
+Solo tiene aprobadas materias de Cuatrimestre 0 |  Puede solicitar GA |
+
+Tiene equivalencias aprobadas |  Puede solicitar GA |
+
+Tiene una materia aprobada fuera de Cuatrimestre 0 |  No puede solicitar GA |
+
+Tiene GA previa |  No puede solicitar nuevamente |
+
+Pasaron más de 2 años desde el ingreso |  No puede solicitar GA |
+
+Carrera modalidad P |  Puede solicitar GA |
+
+Alumno multicarrera |  No puede solicitar GA |
+
+Tiene materias REGULARES |  Se anulan y pasan a CURSANDO |
+
+Tiene materias LIBRE POR NOTA |  Se anulan y pasan a CURSANDO |
+
+Tiene materias LIBRES |  Se anulan y pasan a CURSANDO |
+
+Equivalencia aprobada |  Mantiene el estado |
+
+Materia de Cuatrimestre 0 aprobada |  Mantiene el estado |
+
+Matrícula + Arancel A + B abonados |  Puede solicitar GA |
+
+Matrícula + Arancel A abonados |  Se bonifican matrícula + A |
+
+Solo matrícula abonada |  No corresponde GA |
+
+Matrícula + A y luego B abonados |  Puede solicitar GA |
+
+Posee materias aprobadas |  No corresponde GA |
+
+La Garantía de Adaptación es una gestión autogestionable que el estudiante puede realizar directamente desde el Portal, excepto en los siguientes casos:
+
+- Pase de carrera.
+
+- Pase de modalidad.
+
+- Casos con más de un legajo (multilegajo).
+
+En estas situaciones, el estudiante deberá generar un ticket para que la gestión sea realizada de manera manual.
+
+El circuito de gestión involucra a N2 + SOPER.
+
+Garantía de Adaptación con pase
+
+Cuando el estudiante solicita la Garantía de Adaptación junto con un pase de carrera o modalidad, la gestión debe realizarse de manera manual.
+
+⚠️ Regla clave: primero se aplica la Garantía de Adaptación y luego se gestiona el pase de carrera o modalidad. Nunca al revés.
+
+Validaciones previas
+
+Antes de derivar el caso, verificar:
+
+- Que el estudiante no posea deuda ni saldo a favor superior a $10 en Pago Electrónico → Pago a Cuenta.
+
+- Que el CAU asignado se encuentre activo.
+
+- Que no tenga tickets generados del período en curso. Si existen, intentar anularlos desde SGU.
+
+- Que no exista una Garantía de Adaptación previa en SGU → Listado de Becas.
+
+- Que no existan facturas asociadas a una aplicación previa del beneficio como Nota de Crédito.
+
+- Que no posea materias en condición Libre por Nota. Si las tiene, solicitar previamente la anulación a SOA.
+
+Importante
+
+Si el estudiante realiza una Garantía de Adaptación con pase y luego no registra actividad académica en el nuevo legajo, no podrá otorgarse nuevamente el beneficio, sin excepción.
+
+Al realizar el pase:
+
+- Las materias U21 aprobadas se mantienen.
+
+- Las materias U21 regulares se pierden.
+
+- Las materias aprobadas de carreras anteriores no se trasladan automáticamente.
+
+Circuito de derivación
+
+Tipificaciones HubSpot: garantía de adaptación
+
+Área de derivación: N2
+
+La gestión se realiza en dos etapas:
+
+1. Solicitud de confirmación al estudiante
+
+Una vez creado el ticket con el CAU deberá enviar al estudiante un correo interno solicitando la confirmación de los datos de la solicitud:
+
+¡Hola [NOMBRE]!
+
+Recibimos tu pedido de Garantía de Adaptación, ¿podrías confirmarnos el pedido por este medio? Te dejo los datos para que los verifiques:
+
+Nombre y apellido de alumno:
+DNI:
+Legajo sobre el que solicita Garantía de Adaptación:
+Mantiene carrera:
+Mantiene modalidad:
+Mantiene CAU:
+
+Saludos.
+
+2. Confirmación y derivación
+
+Si el estudiante confirma la solicitud, se deberá completar la información correspondiente y derivar el ticket al área para su gestión manual.
+
+Nota interna:
+
+GARANTÍA DE ADAPTACIÓN
+
+Datos que debe contener la derivación:
+
+NOMBRE:
+DNI:
+LEGAJO:
+CARRERA:
+MODALIDAD:
+PERÍODO:
+MOTIVO:
+
+Importante: si el estudiante no responde dentro de las 24 horas, se deberá cerrar el ticket indicando que no se recibió respuesta y que deberá volver a contactarse con su CAU para realizar nuevamente la solicitud.
+
+Plazo de solución: 3 días hábiles.$pea0$, 'global', 'borrador', $pea0$https://kb-cau.21.edu.ar/servicios-cau/servicios/gestiones-administrativas$pea0$)
+on conflict (categoria_id, slug) do nothing;
+
+insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
+values ((select id from public.categorias where slug = $pea0$oferta-academica$pea0$), null, 37, $pea0$kb-37-planificacion-academica$pea0$,
+        $pea0$Planificación Académica$pea0$, $pea0$Reúne las gestiones relacionadas con la planificación académica, ampliación de cupos, cambios de cátedra y otras solicitudes que requieren derivación para su resolución.$pea0$, $pea0$> **A validar:** contenido relevado de https://kb-cau.21.edu.ar/servicios-cau/servicios/organización-académica el 2026-11-19. Revisalo antes de publicar.
+
+Reúne las gestiones relacionadas con la planificación académica, ampliación de cupos, cambios de cátedra y otras solicitudes que requieren derivación para su resolución.
+
+ÍNDICE
+
+- Creación de Mesa de Finales Presencial, Presencial Home y Presencial Distribuida
+
+- Cambio de cátedra
+
+- Apertura excepcional de materias
+
+1-Creación de Mesa de Finales Presencial o Presencial Home
+
+Descripción
+
+Esta gestión contempla las solicitudes relacionadas con la creación de mesas de examen final para estudiantes de modalidades Presencial (P), Presencial Home (PH) y Presencial Distribuida (PD) cuando, al intentar inscribirse, el sistema informa un inconveniente que requiere la intervención de Planificación Académica.
+
+El rol del primer nivel de atención consiste en identificar el motivo del rechazo, realizar las validaciones correspondientes y derivar el caso únicamente cuando corresponda.
+
+¿Cuándo corresponde?
+
+La gestión corresponde cuando un estudiante informa que no puede inscribirse a un examen final y, luego de analizar el informe disponible en Campus mediante el botón "No puedo inscribirme en finales", se identifica alguna de las siguientes situaciones:
+
+- No existe una mesa de examen creada para la materia.
+
+- El estudiante cumple con todas las condiciones académicas, pero aun así no puede realizar la inscripción.
+
+- El estado de la materia no se encuentra actualizado debido a un reproceso pendiente.
+
+Si el estudiante no cumple las condiciones académicas o las correlatividades exigidas, no corresponde realizar la derivación y deberá informarse el motivo del rechazo.
+
+Validaciones previas
+
+Antes de realizar la derivación, verificar:
+
+-
+
+- Que se haya consultado el informe mediante el botón "No puedo inscribirme en finales" en Campus.
+
+- Que se haya identificado el motivo del rechazo.
+
+- Que se haya validado si la mesa de examen se encuentra creada.
+
+- Que se hayan verificado las correlatividades y condiciones académicas del estudiante.
+
+- Que se haya corroborado el estado de la materia.
+
+- Que se cuente con toda la información necesaria para la derivación.
+
+Circuito de derivación
+
+Área responsable: Planificación Académica.
+
+Tipificación HubSpot: Creación de Mesa de Finales Presencial o Presencial Home.
+
+Información que debe incluir la derivación
+
+- Nombre.
+
+- DNI.
+
+- Legajo.
+
+- Carrera.
+
+- Plan de estudio.
+
+- Materia.
+
+- Período académico.
+
+- Motivo del rechazo identificado en Campus.
+
+- Confirmación de si la mesa de examen se encuentra creada.
+
+- Confirmación del cumplimiento de correlatividades.
+
+- Estado de la materia.
+
+Cuando corresponda, Planificación Académica realizará la derivación a SITA para su intervención.
+
+Tiempo de gestión: 3 días hábiles.
+
+2-Cambio de cátedra
+
+Descripción
+
+El cambio de cátedra para estudiantes de modalidad Presencial (P) y Presencial Home (PH) es una gestión 100 % autogestiva, que se realiza desde el Portal del Estudiante.
+
+La derivación solo corresponde cuando, luego de realizar las validaciones correspondientes, no sea posible efectuar el cambio de manera autogestiva o cuando se trate de una situación excepcional que requiera evaluación.
+
+¿Cuándo corresponde?
+
+La derivación solo corresponde cuando exista superposición horaria entre materias pertenecientes al mismo cuatrimestre y, luego de verificar desde SGU, mediante la funcionalidad Cambio de cátedra, se constate que no existen otras cátedras disponibles que permitan resolver dicha superposición.
+
+En estos casos, podrá solicitarse la intervención para evaluar alternativas que garanticen el cursado.
+
+🚨Importante: Si el estudiante se encuentra cursando materias de distintos cuatrimestres, la Universidad no garantiza la inexistencia de superposiciones horarias.
+
+Excepciones
+
+También podrá solicitarse la evaluación de un cambio de cátedra en los siguientes casos:
+
+- Estudiantes en período de lactancia.
+
+- Deportistas federados.
+
+En ambos casos, será obligatorio adjuntar la documentación respaldatoria correspondiente. La solicitud será evaluada de acuerdo con la disponibilidad existente.
+
+Validaciones previas
+
+Antes de realizar la derivación, verificar:
+
+- Que las materias involucradas pertenezcan al mismo cuatrimestre.
+
+- Que exista una superposición horaria entre las materias.
+
+- Que, desde SGU, mediante la funcionalidad Cambio de cátedra, no existan otras cátedras disponibles que permitan resolver la superposición.
+
+- Que, en los casos de excepción, el estudiante cuente con la documentación respaldatoria correspondiente para solicitar la excepción.
+
+Circuito de derivación
+
+Área responsable: Planificación Académica.
+
+Tipificación HubSpot: Utilizar la tipificación correspondiente según la modalidad del estudiante.
+
+- Cambio de cátedra Modalidad Presencial.
+
+- Cambio de cátedra Modalidad Presencial Home.
+
+Información que debe incluir la derivación
+
+- Nombre y apellido del estudiante.
+
+- DNI.
+
+- Legajo.
+
+- Carrera.
+
+- Materias involucradas con sus respectivos códigos.
+
+- Cuatrimestre al que pertenece cada materia.
+
+- Descripción de la superposición horaria.
+
+- Documentación respaldatoria, cuando corresponda.
+
+Tiempo de gestión: 72 hs hábiles.
+
+3-Apertura excepcional de materias
+
+Descripción
+
+Esta gestión contempla las solicitudes de apertura excepcional de materias para estudiantes de las modalidades Presencial (P), Presencial Home (PH) y Distancia, cuando requieren solicitar el análisis de apertura de una materia que no se encuentra disponible para su inscripción en el período correspondiente.
+
+Importante: La carga del formulario no implica la apertura de la materia, sino el inicio del análisis de la solicitud por parte del área responsable.
+
+¿Cuándo corresponde?
+
+La solicitud corresponde cuando el estudiante requiere solicitar la apertura excepcional de una materia que no se encuentra disponible para su inscripción, siempre que cumpla con las condiciones establecidas para su evaluación.
+
+1- Plazo de recepción de solicitudes:
+
+El período para solicitar aperturas excepcionales se habilitará el jueves 22 de octubre de 2026, a las 8:00 h, y permanecerá vigente hasta el lunes 1 de marzo de 2027, a las 8:00 h, fecha límite establecida considerando las dos semanas previas al inicio del período de cursado.
+
+🚨Las solicitudes ingresadas fuera del plazo establecido no serán analizadas.
+
+2. Requisitos obligatorios
+
+Para que una solicitud pueda ser considerada, deberán cumplirse las siguientes condiciones:
+
+- Cupo mínimo de alumnos: toda materia que se habilite excepcionalmente deberá alcanzar un mínimo de 15 alumnos inscriptos, a fin de evitar el cierre posterior de la cátedra por falta de inscriptos.
+
+- Utilización del formulario único: todas las solicitudes deberán ingresarse exclusivamente a través del formulario correspondiente a cada canal, que estará habilitado desde el 22 de octubre de 2026 hasta la fecha límite indicada.
+
+- Importante: no se dará curso a ninguna solicitud que no haya sido ingresada mediante el formulario correspondiente y completada en su totalidad.
+
+- Registro en HubSpot: la gestión deberá quedar registrada mediante la carga correspondiente en HubSpot. No se debe derivar el caso a otra área; únicamente deberá dejarse el ticket cerrado, indicando que se envió el formulario de solicitud.
+
+3. Recomendaciones y consideraciones importantes
+
+A fin de asegurar una correcta gestión de los pedidos, solicitamos tener presentes las siguientes consideraciones:
+
+- El envío del formulario no garantiza la apertura de la materia. Su presentación constituye el inicio del proceso de análisis y evaluación de la solicitud por parte de SOA Planificación.
+
+- Correlatividades: la materia solicitada deberá cumplir con las correlativas regulares o aprobadas, según corresponda a las condiciones académicas establecidas.
+
+- Plazos de solicitud: los pedidos deberán realizarse con la debida anticipación, respetando como fecha límite las dos semanas previas al inicio del cursado. Las solicitudes ingresadas fuera de ese plazo no serán analizadas.
+
+- Materias nuevas: no se habilitarán aperturas excepcionales de materias que nunca hayan tenido al menos un período de apertura regular. Por lo tanto, esta alternativa aplica únicamente a materias que ya hayan tenido una apertura en algún período académico anterior.
+
+* No se tomará ningún pedido sin haber realizado el formulario en forma completa, SIN EXCEPCIÓN.
+
+Formularios disponibles
+
+-
+CASA: Aperturas Excepcionales 2027 - 1-27 : P. y 1-27A : PH - DISTANCIA: Rellenar formulario
+
+-
+CAUs: Aperturas Excepcionales 2027 - 1-27 A - DISTANCIA: Rellenar formulario
+
+Información que debe comunicarse al estudiante
+
+El asesor deberá informar que:
+
+- La solicitud mediante formulario inicia el análisis de apertura, pero no implica la habilitación automática de la materia.
+
+- La materia solicitada debe cumplir con las condiciones académicas requeridas.
+
+- Las solicitudes deben realizarse dentro del plazo establecido.
+
+- No se analizarán pedidos ingresados fuera de término.$pea0$, 'global', 'borrador', $pea0$https://kb-cau.21.edu.ar/servicios-cau/servicios/organización-académica$pea0$)
+on conflict (categoria_id, slug) do nothing;
+
+insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
+values ((select id from public.categorias where slug = $pea0$atencion-y-derivaciones$pea0$), null, 38, $pea0$kb-38-gestion-de-examenes-sai$pea0$,
+        $pea0$Gestión de Exámenes SAI$pea0$, $pea0$Información sobre las gestiones relacionadas con exámenes: disponibilidad de mesas, reprogramaciones, carga de notas, exámenes en Klarway, simulaciones y otras gestiones académicas.$pea0$, $pea0$> **A validar:** contenido relevado de https://kb-cau.21.edu.ar/servicios-cau/servicios/gestión-de-exámenes el 2026-11-19. Revisalo antes de publicar.
+
+Información sobre las gestiones relacionadas con exámenes: disponibilidad de mesas, reprogramaciones, carga de notas, exámenes en Klarway, simulaciones y otras gestiones académicas.
+
+Índice
+
+-
+Disponibilidad de mesas de examen
+
+- Solicitud de anulación de examen
+
+-
+Exámenes en Klarway
+
+-
+Extensión de tiempo para exámenes
+
+-
+Carga de notas
+
+-
+Reprogramación de exámenes
+
+-
+Simulaciones de examen
+
+1. Disponibilidad de mesas de examen.
+
+Descripción
+
+Esta gestión contempla las consultas relacionadas con la disponibilidad de mesas de examen cuando el estudiante no visualiza mesas para inscribirse o detecta un inconveniente en su publicación.
+
+Consideraciones importantes
+
+La disponibilidad de mesas se encuentra cubierta mediante la ampliación de días y franjas horarias, por lo que no corresponde solicitar ampliación de cupos por preferencia de día u horario.
+
+El estudiante deberá inscribirse en cualquiera de las mesas disponibles.
+
+Tener en cuenta el calendario académico y los períodos de alta demanda, como la cuarta semana de exámenes parciales de las modalidades ED y EDH o los períodos de caída de regularidades, ya que pueden registrarse menor disponibilidad de turnos.
+
+Procedimiento
+
+Antes de generar una derivación, el asesor deberá validar:
+
+-
+La disponibilidad de mesas en otros días u horarios.
+
+-
+La existencia de mesas habilitadas en el CAU, sede o modalidad correspondiente.
+
+-
+Que el período de inscripción continúe vigente.
+
+-
+Si se trata de un inconveniente general en la publicación de mesas o de un caso puntual del estudiante.
+
+Solo si, luego de estas validaciones, se confirma un inconveniente en la publicación de mesas, corresponderá generar el ticket por HubSpot.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Sistema Q
+
+Tipificación: Disponibilidad de mesas de examen
+
+Nota interna:
+
+Información obligatoria:
+
+-
+Dni
+
+-
+Legajo
+
+-
+Carrera
+
+-
+CAU / Sede.
+
+-
+Tipo de examen (parcial, final, recuperatorio o integrador)
+
+-
+Franja de fecha y hora afectada.
+
+-
+Detalle del inconveniente.
+
+Plazo de gestión: 72 hs hábiles.
+
+2. Solicitud de anulación de examen
+
+Descripción
+
+Esta gestión se utiliza únicamente en casos excepcionales en los que el estudiante no pudo completar correctamente un examen debido a un inconveniente generado por la Universidad o por un error en la plataforma Klarway.
+
+Aplica cuando, durante el desarrollo del examen, se produce un error interno que provoca la finalización anticipada de la evaluación, impidiendo al estudiante responder la totalidad de las preguntas y quedando la calificación registrada en el sistema.
+
+Consideraciones importantes
+
+- La anulación por excepción solo corresponde cuando el inconveniente ocurre durante el examen e impide su correcta finalización.
+
+- No corresponde solicitar la anulación por motivos personales del estudiante (enfermedad, viaje, mudanza u otras situaciones particulares).
+
+- No corresponde solicitar la anulación cuando el estudiante no pudo ingresar al examen. En estos casos, deberá gestionarse una reprogramación de examen a través del CAU o sede correspondiente.
+
+Procedimiento
+
+Antes de generar una derivación, el asesor deberá validar:
+
+- Que el estudiante haya podido iniciar el examen.
+
+- Que el inconveniente se haya producido durante la evaluación.
+
+- Que el examen haya finalizado de forma anticipada por un error de la plataforma o por un inconveniente atribuible a la Universidad.
+
+- Que la situación haya impedido completar el examen y la calificación haya quedado registrada en el sistema.
+
+Solo si se cumplen estas condiciones, corresponderá generar el ticket por HubSpot.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Sistema Q
+
+Tipificación: anulación de examen parcial/ anulación de examen final
+
+Nota interna
+
+Información obligatoria:
+
+- DNI.
+
+- Legajo.
+
+- Carrera.
+
+- Materia.
+
+- Fecha y hora del examen.
+
+- Modalidad de examen.
+
+- Descripción detallada del inconveniente.
+
+- Capturas de pantalla o evidencias, si las hubiera.
+
+Plazo de gestión: 72 hs hábiles.
+
+3. Exámenes en Klarway
+
+3.1 Revisión de examen
+
+Descripción
+
+Esta gestión contempla las consultas de estudiantes que solicitan la revisión de un examen realizado en Klarway, luego de haber utilizado la instancia de revisión disponible en la plataforma y continuar en desacuerdo con la respuesta recibida.
+
+Consideraciones importantes
+
+El plazo para solicitar la revisión desde Klarway es de:
+
+Examen parcial: 10 (diez) minutos posteriores a la finalización del examen.
+
+Examen final: 15 (quince) minutos posteriores a la finalización del examen.
+
+⚠️Esta es la única instancia disponible para solicitar la revisión de preguntas del examen.
+
+Para que la solicitud quede registrada correctamente, el estudiante deberá completar la totalidad de los datos requeridos por la plataforma.
+
+Procedimiento
+
+Antes de generar una derivación, el asesor deberá validar:
+
+-
+Que el estudiante haya realizado la solicitud de revisión desde Klarway dentro del plazo correspondiente.
+
+-
+Que ya haya recibido una respuesta a dicha revisión.
+
+-
+Que, luego de la respuesta recibida, continúe manifestando desacuerdo con el resultado.
+
+Solo si se cumplen estas condiciones, corresponderá generar el ticket por HubSpot.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Sistema Q
+
+Tipificación:
+
+- Revisión de examen parcial.
+
+- Revisión de examen final.
+
+Nota interna
+
+Información obligatoria:
+
+- DNI.
+
+- Legajo.
+
+- Materia.
+
+- Fecha y horario del examen.
+
+- Descripción del inconveniente.
+
+Plazo de gestión: 72 hs hábiles
+
+3.2 Empadronamiento en Klarway
+
+Descripción
+
+Esta gestión contempla los casos en los que el estudiante presenta inconvenientes al momento de realizar el empadronamiento (registro) en la plataforma Klarway.
+
+Consideraciones importantes
+
+- No corresponde derivar casos cuyo empadronamiento se encuentre en estado "Revisión", ya que el proceso puede demorar hasta 72 horas hábiles.
+
+- Solo corresponde generar una derivación cuando el estudiante presenta un error que le impide completar el registro.
+
+Procedimiento
+
+Antes de generar una derivación, el asesor deberá validar:
+
+- Que el inconveniente corresponda al proceso de empadronamiento.
+
+- Que no se trate de un empadronamiento en estado "Revisión".
+
+- Que el estudiante presente un error durante el registro.
+
+Solo si se cumplen estas condiciones, corresponderá generar el ticket por HubSpot.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Sistema Q
+
+Tipificación: Revisión de examen parcial.
+
+Nota interna
+
+Información obligatoria:
+
+- DNI.
+
+- Legajo.
+
+- Materia.
+
+- Día y horario del examen.
+
+- Descripción del inconveniente con el empadronamiento,
+
+- Captura de pantalla del error visualizado.
+
+Plazo de gestión: 72 horas hábiles.
+
+4. Extensión de tiempo para exámenes
+
+Descripción
+
+Esta gestión contempla las solicitudes de estudiantes que requieren una extensión del tiempo para rendir un examen debido a los ajustes autorizados por discapacidad.
+
+Consideraciones importantes
+
+- Para los exámenes finales, la mesa deberá encontrarse aceptada para poder solicitar los ajustes correspondientes.
+
+- La solicitud debe realizarse con 72 horas hábiles de anticipación al examen. Transcurrido ese plazo, no se puede garantizar la aplicación del ajuste.
+
+Procedimiento
+
+Antes de generar una derivación, el asesor deberá validar:
+
+- Que el estudiante tenga la marca de discapacidad en HubSpot (Datos Personales).
+
+- Que la solicitud corresponda a una extensión de tiempo para un examen.
+
+Si el estudiante no posee la marca de discapacidad, no corresponde realizar esta gestión y deberá seguir el circuito de alta de ajustes por discapacidad ( revisar en libreto de accesibilidad)Información para la derivación (HubSpot)
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Sistema Q
+
+Tipificación: Extensión de tiempo del examen – Discapacidad
+
+Nota interna
+
+Información obligatoria:
+
+-
+Dni
+
+-
+Legajo
+
+-
+Fecha y tipo de examen.
+
+-
+Materia.
+
+Plazo de gestión: 72 hs hábiles
+
+5. Inscripción a Examen Final
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Sistema Q
+
+Tipificación: Inscripción a Examen Final
+
+Nota interna - completar ticket con los siguientes datos:
+
+- DNI
+
+- Legajo
+
+Plazos:
+
+6. Carga de nota de examen parcial/final
+
+Descripción
+
+Esta gestión contempla las consultas de estudiantes que informan que la nota de un examen parcial o final no se encuentra reflejada en el sistema.
+
+Consideraciones importantes
+
+-
+Aplica para estudiantes de todas las modalidades.
+
+-
+En las modalidades P, PH y PD, no corresponde generar una derivación por exámenes finales hasta transcurridas 24 horas desde la finalización del examen, ya que la carga de notas es realizada por el docente.
+
+Procedimiento
+
+Antes de generar una derivación, el asesor deberá validar:
+
+- Que la nota no se encuentre cargada en el historial académico.
+
+Nota definitiva/Nota sistema:
+
+Modalidad P/PH/PD:
+
+- El alumno debe aprobar la primera instancia virtual para acceder al examen oral.
+
+- La nota definitiva corresponde a la obtenida en el examen oral.
+
+- Se debe solicitar a Sistema Q, con la tipificación "Carga de nota examen final" , la carga de la nota.
+
+Modalidad ED/EDH
+
+- La nota de sistema y definitiva es la misma.
+
+- Se debe solicitar a Sistema Q con la tipificación " Carga de nota examen final " la carga de la nota.
+
+Si luego de estas validaciones corresponde, deberá generarse el ticket por HubSpot.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Sistema Q
+
+Tipificación: Carga de nota examen final/parcial (según corresponda)
+
+Nota interna
+
+Información obligatoria:
+
+- DNI
+
+- Legajo.
+
+- Fecha del examen.
+
+- Materia.
+
+Plazo de gestión: 72 hs hábiles.
+
+7. Reprogramación de exámenes
+
+Descripción
+
+Esta gestión contempla las solicitudes de reprogramación de exámenes para las modalidades P, PH, PD, ED y EDH. La reprogramación constituye una gestión excepcional y solo podrá realizarse en los casos previstos para cada modalidad.
+
+Consideraciones importantes
+
+Modalidades P, PH y PD
+
+⚠️ Las solicitudes de reprogramación para estas modalidades no se derivan por HubSpot. Deben gestionarse mediante el formulario establecido para tal fin, siendo los supervisores los responsables de realizar la carga.
+
+- Los exámenes finales no se reprograman.
+
+- Solo podrán solicitarse reprogramaciones para parciales, recuperatorios e integradores.
+
+- Las solicitudes se gestionan mediante el formulario establecido para tal fin: https://docs.google.com/forms/d/e/1FAIpQLSf6fpSgWrdH6Qhj_3o3KaOwZt4eEo4SWaWItDHQVSSDnlWgIA/viewform
+
+- Los supervisores son los responsables de cargar la solicitud.
+
+- Los asesores pueden consultar el estado y la resolución de la gestión: https://docs.google.com/spreadsheets/d/1BYi6kfUVjWmUuIu3ZY2a1fx1vErgh7TCAK2wVySLLF0/edit?gid=1577085317#gid=1577085317
+
+Modalidades ED y EDH
+
+El CAU podrá gestionar hasta cuatro (4) reprogramaciones por examen, siempre que:
+
+-
+El estudiante no puede rendir el examen en la fecha asignada automáticamente por la Universidad.
+
+-
+El examen se encuentre dentro del período habilitado.
+
+-
+El estudiante no haya iniciado el examen.
+
+-
+El examen no haya finalizado por un inconveniente técnico en Klarway.
+
+Si el examen fue iniciado y finalizó debido a un inconveniente técnico en Klarway, no corresponde una reprogramación. En estos casos deberá gestionarse una Solicitud de anulación de examen.
+
+Casos en los que corresponde solicitar una reprogramación
+
+Modalidades P, PH y PD
+
+- Deportista federado: cuando el estudiante no pueda presentarse a rendir en la fecha asignada debido a la participación en una actividad deportiva oficial
+
+- Error en Klarway al momento de rendir en la sede.
+
+- Caída del servicio de Internet en la sede.
+
+- Corte de energía eléctrica en la sede.
+
+Modalidades ED y EDH
+
+- Caída del servicio de Internet en el CAU.
+
+- Corte de energía eléctrica en el CAU.
+
+- Disconformidad con la inscripción automática
+
+Procedimiento
+
+Antes de generar una derivación, el asesor deberá validar:
+
+- La modalidad del estudiante.
+
+- La instancia del examen.
+
+- Que el motivo de la solicitud se encuentre contemplado para la modalidad correspondiente.
+
+- Que no corresponda gestionar una Solicitud de anulación de examen por excepción.
+
+Información para la derivación (HubSpot) SOLO MODALIDAD ED/EDH
+
+Área de derivación: Sistema Q
+
+Tipificación: Reprogramación de exámenes.
+
+Nota interna
+
+Información obligatoria:
+
+- DNI
+
+- Legajo.
+
+- Materia.
+
+- Instancia del examen.
+
+- Motivo de la solicitud.
+
+- Captura de pantalla del inconveniente (con fecha y hora).
+
+- Nueva fecha y hora aproximada solicitada para la reprogramación.
+
+Plazo de gestión: 72 hs hábiles.
+
+8. Exámenes de simulación
+
+Descripción
+
+Esta gestión contempla las consultas relacionadas con los Exámenes de Simulación y la inscripción a esta instancia cuando el estudiante presenta inconvenientes durante el proceso.
+
+🚨Los Exámenes de Simulación son una herramienta de práctica diseñada para que los estudiantes puedan familiarizarse con la modalidad de evaluación y con la plataforma Klarway antes de rendir el examen parcial.
+
+Descripción
+
+Esta gestión contempla las consultas relacionadas con los Exámenes de Simulación y los inconvenientes en la inscripción a esta instancia.
+
+Los Exámenes de Simulación son una herramienta de práctica diseñada para que los estudiantes puedan familiarizarse con la modalidad de evaluación y con la plataforma Klarway antes de rendir sus exámenes parciales.
+
+Consideraciones importantes
+
+- Los Exámenes de Simulación no impactan en la calificación del estudiante.
+
+- Consisten en una evaluación de 20 preguntas de opción múltiple.
+
+- El estudiante dispone de hasta tres (3) intentos.
+
+- La instancia puede realizarse durante el período de cursado, incluso si el estudiante ya rindió el parcial.
+
+- El contenido se basa en las lecturas del aula virtual (Canvas) y en la bibliografía básica de la asignatura.
+
+- La inscripción a la simulación se realiza de la misma manera que la inscripción a un examen parcial.
+
+No todas las materias cuentan con Exámenes de Simulación. Antes de realizar cualquier gestión, el asesor deberá verificar que la asignatura se encuentre incluida en el listado vigente de materias con simulación.
+
+Procedimiento
+
+Antes de generar una derivación, el asesor deberá validar:
+
+- Que la materia se encuentre incluida en el listado vigente de materias con Exámenes de Simulación https://docs.google.com/spreadsheets/d/1s4bljRBU_HwYjdBp0hw_GybTb25ICN5tTqx9ZdjXuSs/edit?pli=1&gid=2130456570#gid=2130456570
+
+- Que la consulta corresponda a un Examen de Simulación.
+
+- Que el inconveniente esté relacionado con la inscripción o con la migración hacia Klarway.
+
+- Que el estudiante presente un error, por ejemplo:
+
+- No puede inscribirse a la mesa.
+
+- La inscripción no migra a Klarway.
+
+Solo si se cumplen estas condiciones, corresponderá generar el ticket por HubSpot.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Sistema Q
+
+Tipificación: Inscripción a Examen Parcial
+
+Nota interna
+
+Información obligatoria:
+
+- DNI
+
+- Legajo.
+
+- Materia.
+
+- Instancia.
+
+- Captura de pantalla del error.
+
+Plazo de gestión: 72 hs hábiles.$pea0$, 'global', 'borrador', $pea0$https://kb-cau.21.edu.ar/servicios-cau/servicios/gestión-de-exámenes$pea0$)
+on conflict (categoria_id, slug) do nothing;
+
+insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
+values ((select id from public.categorias where slug = $pea0$aranceles-y-pagos$pea0$), null, 39, $pea0$kb-39-formas-de-pago-y-financiacion$pea0$,
+        $pea0$Formas de Pago y Financiación$pea0$, $pea0$Información sobre campañas académicas, promociones comerciales, descuentos vigentes, medios de pago, financiaciones, cuotas sin interés y condiciones de pago para estudiantes.$pea0$, $pea0$> **A validar:** contenido relevado de https://kb-cau.21.edu.ar/servicios-cau/servicios/formas-de-pago-y-financiación el 2026-11-19. Revisalo antes de publicar.
+
+Información sobre campañas académicas, promociones comerciales, descuentos vigentes, medios de pago, financiaciones, cuotas sin interés y condiciones de pago para estudiantes.
+
+INDICE:
+
+-
+Memo
+
+- Wix de precios
+
+-
+Formas de financiación
+
+-
+
+-
+Rebanking
+
+-
+Pago Electrónico
+
+-
+Mobbex
+
+-
+Go cuotas
+
+-
+Pago con dos Tarjetas
+
+-
+Legajos Genéricos
+
+NOVEDADES RI - FINANCIACIÓN
+
+CAMPAÑAS ACADÉMICAS
+
+📢 ¿Necesitás consultar descuentos o campañas vigentes?
+
+Si sos parte de Gestión de Servicios al Alumno, encontrá en este documento toda la información actualizada sobre:
+Descuentos vigentes - Financiaciones - Campañas académicas
+
+👉 Ingresá al MEMO
+
+🔗 WIX DE PRECIOS: https://procesos-casa.wixsite.com/preciosgn
+
+FORMAS DE FINANCIACIÓN
+
+⚠️ Importante: Antes de brindar asesoramiento, verificá siempre la información en este documento, ya que constituye la fuente oficial y se mantiene permanentemente actualizada. Vas a encontras Recargos vigentes, Cantidad de cuotas disponibles y Entidades bancarias habilitadas.
+
+Aclaraciones a tener en cuenta:
+
+-
+Al momento de colocar los números de las tarjetas se deben TIPEAR los números y no copiar y pegar, ya que muchas veces por esto no se permite avanzar con el pago.
+
+-
+Tarjeta Naranja: esta tarjeta permite el pago sin interés en Plan Z (hasta 3 sin interés). Para esto, la tarjeta debe ser TARJETA NARANJA COMÚN Y NO VISA NI MASTERCARD. ¿Cómo corroborar que la tarjeta es efectivamente NARANJA COMÚN? Siempre los primeros 6 números de la tarjeta son: 589562. Además, en el mismo plástico, dice si es Visa o Master.
+
+-
+Fecha de vencimiento de la tarjeta: corroborar como se coloca la fecha, que puede variar según la tarjeta. En algunas se colocan dos dígitos para el mes y dos para el año: 02/23. En otras, el año completo: 02/2023. Ante un error, verificar que la misma esté colocada correctamente.
+
+-
+Cuando un pago es rechazado, el inconveniente lo tiene que ver el alumno con la tarjeta de crédito. Esto puede ser por un exceso de límite (probar, pasar un monto menor: matrícula + ticket A por ejemplo), porque necesita autorización o por alguna disposición de la tarjeta. Es decir, no es un error que corresponda a Siglo solucionar.
+
+Rebanking
+
+Nuestros ingresantes y alumnos contarán con una opción más a la hora de abonar el semestre.
+
+-
+Permitirá que, quien no disponga de tarjeta de crédito, puedan acceder a una tarjeta en simples pasos.
+
+-
+Es a través de una App Mobile que se llama “REBANKING”.
+
+-
+Con estas tarjetas se puede abonar en 6 cuotas sin interés.
+
+-
+En caso de que nos manifiesten que no cuentan con tarjeta de crédito para abonar, le brindamos esta opción.
+
+En Pago Electrónico encontrarán esta opción una vez que seleccionen los tickets a abonar, le den siguiente, y seleccionen el medio de pago Tarjeta de Crédito:
+
+A continuación cuentan con información útil para indicarles a los interesados cómo realizar esta solicitud:
+
+Pago Electrónico
+
+👉 Pago en Efectivo
+
+Se abona en efectivo ingresando a Pago Electrónico, y emitiendo el cupón de pago correspondiente (Rapipago-Pagofacil, etc).
+
+👉 Pago Electrónico
+
+Tarjetas de crédito ➔ se puede abonar con TC, ingresando a Pago Electrónico, y seleccionando la tarjeta elegida. Corroborar financiación según tarjeta.
+
+Mobbex
+
+👉 Pago en 1 cuota con Mobbex: estará disponible para operar en débito o crédito en 1 cuota vía Mobbex donde aplica un descuento del 5%.
+
+Aplica a todos los bancos, excepto: Nación, Bancor, Naranja, ICBC VISA, Hipotecario y Corrientes, Banco San Juan, Banco Santa Cruz, Nuevo Banco de Entre Rios, Banco Santa Fe, Banco Supervielle y Banco Hipotecario.
+
+Paso a paso para pagar con Mobbex:
+
+a) Luego de seleccionar los tickets a pagar, en el listado de medios de pago, seleccionar Mobbex.
+
+b) Seleccionamos la opción tarjeta de crédito/Débito
+
+c) Al cargar el número de tarjeta aplica el descuento del 30%
+
+Go cuotas
+
+Dentro la opción de Mobbex estará disponible Go cuotas para realizarcomprasr en 3 cuotas (para los que es la primera compra) o 4 cuotas para los que ya realizaron compras con el recargo del 15%.
+
+a) Luego de seleccionar los tickets a pagar, en el listado de medios de pago, seleccionar Mobbex.
+
+b) Selecciona el medio de pago GO CUOTAS.
+
+c) Registras tus datos.
+
+d) Te llegará un código al número de teléfono indicado en el paso anterior.
+
+e) Te llegará un código al número de teléfono indicado en el paso anterior.
+
+f) Ingresá los datos de tu TARJETA DE DÉBITO.
+
+g) Selecciona la cantidad de cuotas y paga.
+
+Pago con dos Tarjetas
+
+Pago con 2 tarjetas por PAY PER TIC:
+
+-
+Permite hacer un pago con 2 tarjetas, dividiendo el total por monto o porcentaje.
+
+-
+Las opciones de cuotas aparecen luego de colocar el número de tarjeta (ídem a Mercado Pago).
+
+-
+Las condiciones de financiación vigentes, están en la opción "ver promociones bancarias".
+
+🚨 ​Importante: Los pagos que NO completen las 2 operaciones aprobadas, se anularan y quedarán como no realizadas, es decir que si se aprueba la primera operación pero se cierra la página, no se aprueba la segunda operación o pasa algo que no permitirá terminar la segunda operación como aprobada, queda sin efecto el pago, por lo que se anulara el primer pago en caso de estar aprobado. Si el alumno quiere volver a intentar la operación, debe empezar todo desde cero.
+
+Paso a paso:
+
+a) Seleccionamos los ticket a pagar y seleccionamos la forma de pago
+
+b) Enviamos el link de pago
+
+c) Se puede abonar simple o pagar completo:
+
+d) División del monto a pagar. Cuando elegimos la opción de pago con dos tarjetas.
+
+Si presionamos el signo % podemos cambiar el porcentaje de pago de cada tarjeta, no necesariamente debe ser el 50% con cada uno.
+
+e) Debemos completar los datos de la tarjeta y seleccionamos la cantidad de coutas, luego
+hacemos lo mismo con la segunda tarjeta:
+
+f) Luego de completar los datos de ambas tarjetas nos aparece en detalle las coutas y montos
+que elegimos pagar con cada tarjeta.
+
+g) Antes de finalizar el pago, para mayor seguridad podrás hacer la revision de cada item de pago:
+
+Legajos Genéricos
+
+⚠️ Ante posibles consultas en las que no tengamos legado de referencia para consultar el precio, debemos utilizar el siguiente código que nos aparece en la opción de legado.
+
+Tipo de estudio |  Segmento |  Legajo |
+
+ED/EDH |  A |  SEG-A |
+
+ED/EDH |  B |  SEG-B |
+
+ED/EDH |  C |  SEG-C |
+
+ED/EDH |  D |  SEG-D |
+
+ED/EDH |  E |  SEG-E |
+
+ED/EDH |  F |  SEG-F |
+
+ED/EDH |  G |  SEG-G |
+
+CAU VIRTUAL |  A |  VIR-A |
+
+CAU VIRTUAL |  B |  VIR-B |
+
+CAU VIRTUAL |  C |  VIR-C |
+
+CAU VIRTUAL |  D |  VIR-D |
+
+CAU VIRTUAL |  E |  VIR-E |
+
+CAU VIRTUAL |  F |  VIR-F |
+
+CAU VIRTUAL |  G |  VIR-G |$pea0$, 'global', 'borrador', $pea0$https://kb-cau.21.edu.ar/servicios-cau/servicios/formas-de-pago-y-financiación$pea0$)
+on conflict (categoria_id, slug) do nothing;
+
+insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
+values ((select id from public.categorias where slug = $pea0$atencion-y-derivaciones$pea0$), null, 40, $pea0$kb-40-efip-informacion-general-y-academica$pea0$,
+        $pea0$EFIP – Información general y académica$pea0$, $pea0$información sobre objetivos, alcance, instancias EFIP I y EFIP II, requisitos académicos, modalidades de evaluación y condiciones generales.$pea0$, $pea0$> **A validar:** contenido relevado de https://kb-cau.21.edu.ar/servicios-cau/servicios/gestiones-y-trámites-de-legalidad el 2026-11-19. Revisalo antes de publicar.
+
+información sobre objetivos, alcance, instancias EFIP I y EFIP II, requisitos académicos, modalidades de evaluación y condiciones generales.
+
+Índice
+
+1. Generalidades
+
+- ¿Qué son los Exámenes Finales Integradores Presenciales (EFIP)?
+
+- Objetivo de los EFIP
+
+- Alcance
+
+- Obligatoriedad
+
+- Instancias de evaluación EFIP
+
+- Características generales de la evaluación
+
+- Uso excepcional de recursos tecnológicos
+
+- Imposibilidad permanente de traslado a centros evaluadores
+
+2. EFIP I
+
+- 2.1 Características generales
+
+- 2.2 Módulo de Cursado EFIP I
+
+- 2.3 Condiciones para rendir EFIP I
+
+- 2.4 Desarrollo del EFIP I
+
+- 2.5 Aprobación y oportunidades de examen
+
+- 2.6 Condiciones académicas posteriores al EFIP I
+
+3. EFIP II
+
+- 3.1 Características generales
+
+- 3.2 Condiciones para rendir EFIP II
+
+- 3.3 Desarrollo del EFIP II
+
+- 3.4 Aprobación del EFIP II
+
+- 3.5 Relación con el Trabajo Final de Graduación
+
+1. Generalidades
+
+¿Qué son los Exámenes Finales Integradores Presenciales (EFIP)?
+
+Los Exámenes Finales Integradores Presenciales (EFIP) I y II forman parte del modelo académico de Educación a Distancia adoptado por Universidad Siglo 21.
+
+Estas instancias evaluativas tienen como objetivo principal obtener una visión cuantitativa y cualitativa de la integración y aplicación de los conocimientos y competencias que el estudiantado desarrolla durante su trayectoria académica, en relación con su formación profesional.
+
+Los EFIP constituyen instancias de evaluación integral que permiten valorar la capacidad del estudiante para articular los conocimientos adquiridos a lo largo de la carrera y evidenciar el desarrollo de las competencias esperadas conforme al perfil profesional definido para su titulación.
+
+Los EFIP I y EFIP II forman parte del Sistema Integral de Evaluación de la Universidad y cumplen con las garantías exigidas por la normativa vigente.
+
+Objetivo de los EFIP
+
+El objetivo principal de los Exámenes Finales Integradores Presenciales es evaluar la integración y aplicación de los conocimientos y competencias que el estudiante debe desarrollar durante su formación profesional.
+
+Estas instancias buscan valorar tanto aspectos cuantitativos como cualitativos del proceso de aprendizaje, considerando la integración curricular de los contenidos de la carrera y su vinculación con el perfil profesional del estudiante.
+
+Alcance
+
+Los Exámenes Finales Integradores Presenciales se aplican exclusivamente a estudiantes inscriptos en Carreras de Grado de la Modalidad a Distancia.
+
+Comprenden las siguientes modalidades:
+
+- Educación Distribuida (ED).
+
+- Educación Distribuida Home (EDH).
+
+Los EFIP no corresponden a:
+
+- Carreras de Pregrado.
+
+- Ciclos de Complementación Curricular.
+
+Obligatoriedad
+
+Los Exámenes Finales Integradores Presenciales tienen carácter obligatorio para los estudiantes alcanzados por esta instancia evaluativa.
+
+Forman parte del Sistema Integral de Evaluación de la Universidad y constituyen una instancia académica necesaria dentro de la trayectoria formativa de las carreras de grado de modalidad Distancia.
+
+Instancias de evaluación EFIP
+
+El Sistema Integral de Evaluación contempla dos instancias de Exámenes Finales Integradores Presenciales:
+
+EFIP I
+
+El EFIP I corresponde al primer tramo de la carrera y evalúa la integración curricular de los contenidos en relación con el perfil profesional del estudiante.
+
+Además, constituye una condición académica necesaria para determinadas instancias posteriores de la trayectoria formativa y, en aquellas carreras que contemplan títulos intermedios dentro de su plan de estudios, es requisito previo para su obtención.
+
+EFIP II
+
+El EFIP II corresponde al tramo final de la carrera y evalúa la integración curricular de los contenidos respecto del perfil profesional del estudiante.
+
+Su aprobación es condición previa para rendir la Defensa Oral del Trabajo Final de Graduación y obtener el título de grado otorgado por la Universidad.
+
+Características generales de la evaluación
+
+Los EFIP son instancias evaluativas:
+
+- Sincrónicas con docente.
+
+- Presenciales.
+
+- Desarrolladas ante un Tribunal Evaluador.
+
+La modalidad habitual de examen es presencial, conforme a las condiciones académicas definidas por la Universidad.
+
+Uso excepcional de recursos tecnológicos
+
+La Universidad podrá autorizar, bajo su criterio exclusivo, que los estudiantes rindan los Exámenes Finales Integradores Presenciales EFIP I y/o EFIP II utilizando recursos tecnológicos.
+
+En estos casos:
+
+- La instancia evaluativa será grabada.
+
+- La grabación será utilizada exclusivamente por la Universidad con fines internos.
+
+- Su objetivo es asegurar la calidad académica y garantizar el cumplimiento de las normativas vigentes.
+
+Imposibilidad permanente de traslado a centros evaluadores
+
+Cuando exista una imposibilidad fáctica y permanente para trasladarse a la ciudad de Córdoba u otro centro evaluador descentralizado para rendir el EFIP, debidamente acreditada ante la Universidad, podrá autorizarse excepcionalmente que el estudiante asista a un Centro de Aprendizaje Universitario (CAU) para realizar el examen mediante el uso de tecnología.
+
+En estos casos:
+
+- El estudiante realizará el examen desde el CAU autorizado.
+
+- El Tribunal Evaluador permanecerá en la Sede Campus.
+
+Se considera imposibilidad fáctica permanente aquella situación que se mantenga como mínimo durante un año calendario, contado desde la fecha de acreditación de dicha imposibilidad ante la Universidad.
+
+Las fechas y modalidades de examen aplicables serán definidas por la Universidad mediante Resolución Rectoral.
+
+2. EFIP I
+
+2.1 Características generales
+
+¿Qué es el EFIP I?
+
+El Examen Final Integrador Presencial I (EFIP I) es una instancia evaluativa obligatoria para los estudiantes que cursan Carreras de Grado bajo la Modalidad Distancia.
+
+Tiene como objetivo evaluar la integración curricular de los contenidos de la carrera en relación con el perfil profesional del estudiante.
+
+Esta instancia forma parte del Sistema Integral de Evaluación de la Universidad y permite valorar la integración y aplicación de los conocimientos y competencias desarrolladas durante la trayectoria académica.
+
+Alcance del EFIP I
+
+El EFIP I corresponde a estudiantes inscriptos en Carreras de Grado de la Modalidad Distancia.
+
+Evalúa la integración curricular de los contenidos de la carrera en relación con el perfil profesional esperado para la formación del estudiante.
+
+Obligatoriedad del EFIP I
+
+El EFIP I es de carácter obligatorio para los estudiantes que cursan Carreras de Grado bajo la Modalidad Distancia.
+
+Asimismo, constituye una condición previa para la obtención de títulos intermedios en aquellas carreras que contemplen esta instancia dentro de su plan de estudios.
+
+2.2 Módulo de Cursado EFIP I
+
+¿Qué es el Módulo de Cursado EFIP I?
+
+El Módulo de Cursado EFIP I es un espacio académico de preparación para el Examen Final Integrador Presencial I.
+
+Tiene como objetivo acompañar al estudiante en la integración de los contenidos de la carrera y en el desarrollo de las competencias necesarias para afrontar la instancia de evaluación presencial.
+
+Dentro del módulo se trabajan diferentes recursos académicos, tales como:
+
+- Trabajos prácticos.
+
+- Lecturas.
+
+- Videos.
+
+- Actividades de preparación.
+
+Obligatoriedad del Módulo de Cursado EFIP I
+
+La obligatoriedad del Módulo de Cursado EFIP I depende de la definición establecida para cada carrera.
+
+En aquellas carreras donde la Universidad determine que el módulo es obligatorio, el estudiante deberá cumplir con esta instancia académica como requisito para avanzar hacia el examen.
+
+En las carreras donde se establezca la no obligatoriedad del módulo, el cursado será optativo.
+
+En estos casos, queda a criterio del estudiante el uso del servicio académico asociado al módulo y la realización de las actividades propuestas.
+
+Si bien en determinadas carreras el módulo puede tener carácter optativo, se recomienda su cursado y la realización de las actividades que lo componen, ya que permite:
+
+- Profundizar los contenidos centrales de la carrera.
+
+- Favorecer la integración curricular.
+
+- Desarrollar las competencias requeridas para la instancia de evaluación presencial.
+
+Inscripción al Módulo de Cursado EFIP I
+
+Para poder inscribirse a rendir el EFIP I, el estudiante deberá inscribirse al Módulo de Cursado EFIP I cuando corresponda según las condiciones establecidas para su carrera.
+
+Contenidos del Módulo de Cursado EFIP I
+
+Los contenidos del Módulo de Cursado EFIP I son establecidos por la Dirección de Carrera.
+
+La definición de contenidos procura garantizar la integración curricular respecto del perfil profesional del estudiante.
+
+Para ello, se consideran temas incluidos en las asignaturas troncales del plan de estudios de cada carrera.
+
+La Universidad podrá definir la incorporación del Módulo de Cursado EFIP I en aquellas carreras que actualmente no lo contemplen, respetando las características establecidas para esta instancia académica.
+
+Condiciones de regularidad del Módulo de Cursado EFIP I
+
+Para obtener la regularidad del Módulo de Cursado EFIP I, el estudiante deberá cumplir con las siguientes condiciones:
+
+- Aprobar 3 de los 4 Trabajos Prácticos (TP) con una calificación igual o superior a 5 (cinco).
+
+- Aprobar el 4.º Trabajo Práctico con una calificación igual o superior a 5 (cinco).
+
+- Cumplir con el 75% de asistencia en Modalidad Educación Distribuida (ED), siempre que la materia se dicte bajo dicha modalidad.
+
+Condiciones para cursar el Módulo de Cursado EFIP I
+
+Para poder inscribirse al cursado del Módulo EFIP I, el estudiante deberá cumplir con las condiciones establecidas en el plan de correlatividades de su carrera.
+
+Estas condiciones pueden contemplar:
+
+- Materias que deben encontrarse en condición Regular.
+
+- Materias que deben encontrarse en condición Aprobada.
+
+- Requisitos académicos específicos definidos por la carrera.
+
+2.3 Condiciones para rendir EFIP I
+
+Para poder inscribirse a rendir el Examen Final Integrador Presencial I (EFIP I), el estudiante deberá cumplir con las condiciones académicas establecidas para su carrera.
+
+Los requisitos son:
+
+- Tener en condición Regular la materia Seminario de Práctica o Seminario de Planificación y Control de Gestión, según corresponda a la carrera.
+
+- En aquellas carreras que cuentan con Módulo de Cursado EFIP I, encontrarse en condición Cursando o Regular en dicha instancia.
+
+- Tener aprobadas todas las materias que establezca el plan de correlatividades vigente de la carrera.
+
+2.4 Desarrollo del EFIP I
+
+El Examen Final Integrador Presencial I contempla dos instancias de evaluación:
+
+-  Integración curricular de la carrera respecto del perfil profesional.
+
+-  Producción oral y escrita de Idioma Extranjero, cuando corresponda según el plan de estudios de la carrera.
+
+Integración curricular
+
+La instancia de Integración Curricular tiene como objetivo evaluar la integración de los contenidos fundamentales de la carrera en relación con el perfil profesional del estudiante.
+
+Esta instancia contempla:
+
+- Una evaluación escrita.
+
+- Una evaluación oral.
+
+Los contenidos evaluados son establecidos por la Dirección de Carrera, considerando los contenidos centrales de las asignaturas troncales del plan de estudios y las competencias que el estudiante debe evidenciar durante su formación profesional.
+
+Idioma extranjero
+
+Cuando la carrera incluya materias de Idioma Extranjero dentro de su plan de estudios, el EFIP I contempla una instancia de producción oral y escrita del idioma.
+
+Esta evaluación tiene como finalidad valorar la aplicación de los conocimientos adquiridos en el área de idioma extranjero conforme a los requerimientos establecidos para la carrera.
+
+Eximición de la instancia de Idioma Extranjero
+
+El estudiante quedará eximido de rendir la instancia de Idioma Extranjero del EFIP I cuando:
+
+- Cuente con el Examen Integrador de Idioma aprobado, cursado mediante la plataforma Multimedia.
+
+- Haya sido eximido del cursado de Idiomas conforme a lo establecido en la normativa vigente.
+
+La eximición de la instancia de Idioma Extranjero no aplica para aquellos estudiantes que hayan cursado y aprobado los contenidos de idiomas extranjeros bajo el sistema vigente hasta el año 2012 inclusive.
+
+2.5 Aprobación y oportunidades de examen
+
+Aprobación del EFIP I
+
+El EFIP I se aprueba con una calificación comprendida entre 4 (cuatro) y 10 (diez).
+
+La calificación final se determina según las instancias evaluativas correspondientes a cada carrera.
+
+Carreras que incluyen Idioma Extranjero
+
+La nota final del EFIP I corresponde al promedio simple de las calificaciones obtenidas en:
+
+- Instancia de Integración Curricular.
+
+- Instancia de Idioma Extranjero.
+
+Carreras que no incluyen Idioma Extranjero
+
+Cuando la currícula de la carrera no contempla Idioma Extranjero, la calificación final del EFIP I corresponde únicamente a la nota obtenida en la instancia de Integración Curricular.
+
+Condiciones para aprobar el EFIP I
+
+Cuando corresponda rendir ambas instancias evaluativas:
+
+- La aprobación de Integración Curricular e Idioma Extranjero es necesaria para aprobar el EFIP I.
+
+- Ambas instancias deben aprobarse dentro del mismo turno de examen.
+
+- Si alguna de las instancias resulta desaprobada, el examen será considerado desaprobado.
+
+Cantidad de oportunidades para rendir EFIP I
+
+El estudiante podrá rendir el EFIP I hasta un máximo de tres oportunidades.
+
+Si el estudiante resulta desaprobado o ausente en las tres alternativas disponibles de examen de una o ambas instancias evaluativas, podrá:
+
+- Inscribirse nuevamente al Módulo de Cursado EFIP I, cuando corresponda.
+
+En aquellas carreras que no contemplen Módulo de Cursado EFIP I:
+
+- El estudiante deberá recursar la materia Seminario de Práctica o Seminario de Planificación y Control de Gestión, según corresponda.
+
+Es importante considerar que la aprobación de las materias:
+
+- Seminario de Práctica.
+
+- Seminario de Planificación y Control de Gestión.
+
+No implica la aprobación del EFIP I.
+
+Luego de cumplir nuevamente con las condiciones académicas correspondientes, el estudiante deberá rendir nuevamente el Examen Final Integrador Presencial I.
+
+2.6 Condiciones académicas posteriores al EFIP I
+
+La aprobación del EFIP I constituye una condición académica necesaria para avanzar en determinadas instancias posteriores de la trayectoria formativa de los estudiantes de Carreras de Grado de la Modalidad Distancia.
+
+Cursado y aprobación de materias del 7.º y 8.º semestre
+
+Las condiciones para cursar y aprobar materias correspondientes al 7.º y 8.º semestre dependerán del plan de correlatividades vigente de cada carrera.
+
+Como criterio general, el estudiante deberá contar con el EFIP I aprobado cuando así lo establezcan las condiciones académicas correspondientes.
+
+Situaciones donde EFIP I es correlatividad directa
+
+Cuando el EFIP I sea una correlatividad directa de una materia correspondiente al 7.º u 8.º semestre:
+
+- El estudiante podrá cursar la asignatura.
+
+- No podrá aprobarla hasta contar con el EFIP I aprobado.
+
+- Deberá rendir la instancia de aprobación correspondiente una vez aprobado el EFIP I.
+
+Cumplimiento del plan de correlatividades
+
+En todos los casos, el estudiante deberá cumplir con el plan de correlatividades vigente de su carrera.
+
+Estas condiciones pueden contemplar:
+
+- Materias que deben encontrarse en condición Regular.
+
+- Materias que deben encontrarse en condición Aprobada.
+
+- EFIP I aprobado, cuando corresponda como correlatividad directa.
+
+Inscripción a Seminario Final
+
+Sin contar con el EFIP I aprobado, el estudiante no podrá inscribirse a cursar la materia Seminario Final.
+
+Condiciones para aprobar materias posteriores al sexto semestre
+
+Abogacía y Contador Público
+
+La aprobación de materias correspondientes al 7.º y 8.º semestre, ya sea por promoción o examen final, se regirá por lo establecido en el plan de correlatividades de cada carrera.
+
+El EFIP I será condición únicamente para aquellas materias que tengan al examen como correlatividad directa, conforme a la normativa vigente.
+
+Otras carreras
+
+En las demás carreras de grado bajo Modalidad Distancia, será condición para aprobar por promoción o examen final cualquier materia posterior al sexto semestre contar con el EFIP I en estado Aprobado.
+
+3. EFIP II
+
+3.1 Características generales
+
+¿Qué es el EFIP II?
+
+El Examen Final Integrador Presencial II (EFIP II) es una instancia evaluativa obligatoria que forma parte del Sistema Integral de Evaluación de la Universidad.
+
+Tiene como objetivo evaluar la integración curricular de la carrera respecto del perfil profesional del estudiante, valorando la aplicación de los conocimientos y competencias desarrolladas durante su trayectoria académica.
+
+El EFIP II forma parte del modelo académico de Educación a Distancia adoptado por la Universidad y cumple con las garantías establecidas por la normativa vigente.
+
+Alcance del EFIP II
+
+El EFIP II corresponde a estudiantes inscriptos en Carreras de Grado de la Modalidad Distancia:
+
+- Educación Distribuida (ED).
+
+- Educación Distribuida Home (EDH).
+
+No corresponde a:
+
+- Carreras de Pregrado.
+
+- Ciclos de Complementación Curricular.
+
+Obligatoriedad del EFIP II
+
+El EFIP II es de carácter obligatorio para los estudiantes de Carreras de Grado de la Modalidad Distancia.
+
+Su aprobación constituye una condición previa para:
+
+- Realizar la Defensa Oral del Trabajo Final de Graduación.
+
+- Obtener el título de grado otorgado por la Universidad.
+
+3.2 Condiciones para rendir EFIP II
+
+Para poder acceder al EFIP II, el estudiante deberá cumplir con las condiciones académicas establecidas por la Universidad.
+
+Los requisitos son:
+
+- Tener aprobadas todas las materias correspondientes al plan curricular de la carrera.
+
+- Tener aprobada la Práctica Solidaria.
+
+- Contar con los créditos exigidos en Materias Electivas, según el plan de estudios vigente.
+
+- Tener el Seminario Final en condición Regular.
+
+El cumplimiento de estos requisitos será validado según la situación académica registrada del estudiante.
+
+3.3 Desarrollo del EFIP II
+
+El EFIP II contempla una evaluación de integración curricular de la carrera respecto del perfil profesional del estudiante.
+
+La instancia evaluativa contempla:
+
+-  Evaluación escrita.
+
+-  Evaluación oral.
+
+Los contenidos evaluados son establecidos por la Dirección de Carrera.
+
+El estudiante tendrá disponible el temario o programa correspondiente dentro del Portal del Estudiante de la Universidad.
+
+Instancia escrita
+
+La evaluación escrita tiene como objetivo valorar la integración de los contenidos centrales de la carrera.
+
+El estudiante que aprueba esta instancia continúa con la evaluación oral.
+
+Instancia oral
+
+La evaluación oral consiste en una instancia complementaria de profundización sobre:
+
+- Los temas abordados en la evaluación escrita.
+
+- Otros temas centrales o aspectos nodales de la carrera definidos por la Dirección correspondiente.
+
+3.4 Aprobación del EFIP II
+
+El EFIP II se aprueba con una calificación mínima de 4 (cuatro) y máxima de 10 (diez).
+
+Para aprobar el examen, el estudiante deberá superar las instancias evaluativas previstas:
+
+- Evaluación escrita.
+
+- Evaluación oral.
+
+Si alguna de las instancias evaluativas no resulta satisfactoria, el EFIP II será considerado desaprobado y el estudiante deberá rendirlo nuevamente.
+
+3.5 Relación con Trabajo Final de Graduación
+
+El EFIP II constituye una instancia académica previa al Trabajo Final de Graduación.
+
+El estudiante podrá rendir el EFIP II durante el período en el que desarrolla el proceso de coloquios con la Comisión Académica Evaluadora (CAE) del Trabajo Final de Graduación.
+
+La aprobación del EFIP II es requisito previo para realizar la Defensa Oral del Trabajo Final de Graduación.
+
+En caso de no aprobar el EFIP II:
+
+- El estudiante no podrá realizar la Defensa Oral del Trabajo Final de Graduación.
+
+- Deberá rendir nuevamente el EFIP II hasta obtener su aprobación.
+
+Consideraciones generales sobre EFIP I y EFIP II
+
+Tanto el EFIP I como el EFIP II son instancias presenciales y se rinden ante un Tribunal Evaluador.
+
+A criterio exclusivo de la Universidad, podrá autorizarse el uso de recursos tecnológicos para la realización del examen.
+
+En estos casos:
+
+- La instancia será grabada.
+
+- La grabación será utilizada exclusivamente por la Universidad con fines internos.
+
+- El objetivo es garantizar la calidad académica y el cumplimiento de la normativa vigente.
+
+Ante una imposibilidad fáctica y permanente debidamente acreditada que impida al estudiante trasladarse a Córdoba u otro centro evaluador descentralizado, la Universidad podrá autorizar excepcionalmente la realización del examen mediante el uso de tecnología desde un CAU, con el Tribunal Evaluador ubicado en Sede Campus.
+
+Se considera imposibilidad fáctica permanente aquella que perdure como mínimo durante un año calendario desde la fecha de acreditación ante la Universidad.$pea0$, 'global', 'borrador', $pea0$https://kb-cau.21.edu.ar/servicios-cau/servicios/gestiones-y-trámites-de-legalidad$pea0$)
+on conflict (categoria_id, slug) do nothing;
+
+insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
+values ((select id from public.categorias where slug = $pea0$atencion-y-derivaciones$pea0$), null, 41, $pea0$kb-41-inscripciones-a-materias-gestiones-y-derivaciones$pea0$,
+        $pea0$Inscripciones a materias - Gestiones y derivaciones$pea0$, $pea0$INDICE:$pea0$, $pea0$> **A validar:** contenido relevado de https://kb-cau.21.edu.ar/servicios-cau/servicios/gestiones-y-derivaciones-incripciones-a-materias el 2026-11-19. Revisalo antes de publicar.
+
+INDICE:
+
+Inscripcion a materias:
+
+-
+
+- Modalidades distancia
+
+- Modalidades presencial
+
+Anulación inscripción de materias
+
+Extensión de regularidad de materia
+
+Extensión de regularidad de Seminario Final
+
+Reproceso de condición de materias:
+
+-
+
+-
+Condición de materia de proceso
+
+-
+Revisión condición de materia Modalidad virtual
+
+-
+Revisión condición de materia Modalidad Presencial home
+
+-
+Revisión condición de materia Modalidad Presencial
+
+Renuncia de Regularidad de Materia.
+
+Inscripción a idioma:
+
+-
+
+-
+Inscripción a Idioma inglés
+
+-
+
+-
+Inscripción a Idioma portugués
+
+INSCRIPCIÓN POR EXCEPCIÓN A MATERIAS
+
+Lineamientos Generales (Aplica a todas las modalidades)
+
+Trámites de Equivalencias
+
+No se consideran excepción las solicitudes de inscripción cuando existan equivalencias pendientes.
+
+Para que el estudiante pueda inscribirse en nuevas materias:
+
+- El trámite de equivalencias debe estar finalizado.
+
+- No se permiten inscripciones o cambios asumiendo que las equivalencias serán otorgadas posteriormente.
+
+Alumnos Ingresantes (NI)
+
+- Está prohibido derivar casos a Operativo SOA solicitando inscripciones para alumnos ingresantes.
+
+Validaciones Previas
+
+-
+Estado de Pago
+
+- El pago debe estar facturado.
+
+- Para inscribirse a materias del período B, el ticket B debe encontrarse abonado y acreditado.
+
+- No se gestionarán inscripciones al período B si sólo posee facturado el ticket A.
+
+-
+Correlatividades: validar que el estudiante cumpla las correlativas directas e indirectas desde: Campus Virtual > Inscripción a Materias > Correlativas
+
+-
+Apertura de Materias:
+
+-
+Verificar previamente la apertura en la matriz.
+
+-
+Si la materia tiene apertura y existe un inconveniente de sistema: el asesor puede gestionar la inscripción.
+
+-
+Si la materia no tiene apertura: debe solicitarse una Apertura por Excepción mediante el formulario disponible en el libreto de Planificación Académica.
+
+-
+Requisito Académico U21: existe un bloqueo académico estricto:
+
+- Ningún estudiante podrá inscribirse en materias de 4° cuatrimestre en adelante si no posee aprobadas las materias de Universitario 21.
+
+INSCRIPCIÓN POR EXCEPCIÓN A MATERIAS DISTANCIA
+
+Si el estudiante tiene una materia en condición Regular y la misma se encuentra habilitada para el período vigente, deberá realizar la reinscripción por autogestión desde el Portal Estudiante, utilizando el botón correspondiente.
+
+En estos casos, la gestión puede ser realizada íntegramente por el alumno, por lo que no corresponde derivar la solicitud a Operativo SOA.
+
+Información para la derivación (HubSpot) - Modalidad Distancia
+
+Área de derivación: Gestiones N2
+
+Tipificación: Inscripción por excepción a materias por motivos académico
+
+Nota interna - completar ticket con los siguientes datos:
+
+- DNI
+
+-
+Legajo
+
+-
+Código de materia
+
+-
+Materia (código de materia).
+
+Plazos: 3 días hábiles.
+
+Información para la derivación (HubSpot) - Modalidad Distancia
+
+Áre de derivación: Gestiones N2
+
+Tipificación: Inscripción por excepción a materias por motivos administrativos
+
+Nota interna - completar ticket con los siguientes datos:
+
+- DNI
+
+-
+Legajo
+
+-
+Código de materia
+
+-
+Materia (código de materia).
+
+Plazos: 3 días hábiles.
+
+INSCRIPCIÓN POR EXCEPCIÓN A MATERIAS PRESENCIAL
+
+Ampliación de cupos (Modalidad Presencial P/PH)
+
+La ampliación de cupos corresponde cuando un estudiante no puede inscribirse a una materia desde el Portal del Estudiante debido a que:
+
+- No existen cátedras disponibles.
+
+- El sistema indica que la materia no se encuentra habilitada para el período correspondiente.
+
+Importante: esta gestión solo aplica si la materia posee apertura vigente.
+
+Validaciones previas
+
+Antes de realizar la derivación, verificar que:
+
+- La materia tenga apertura en la Matriz de Apertura correspondiente al período vigente.
+
+- El inconveniente informado por el estudiante haya sido validado.
+
+- El estudiante cumpla con las correlatividades requeridas.
+
+Información para la derivación (HubSpot) - Modalidad Presencial
+
+Área responsable: Planificación Académica
+
+Tipificación HubSpot: Ampliación de cupos de materias P y PH.
+
+Información que debe incluir la derivación
+
+- Nombre del estudiante.
+
+- DNI.
+
+- Legajo.
+
+- Carrera.
+
+- Plan de estudio.
+
+- Materia.
+
+Tiempo de gestión: 72 hs hábiles
+
+ANULACIÓN INSCRIPCIÓN DE MATERIAS
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Gestiones N2
+
+Tipificación: Anulación inscripción de materias
+
+Nota interna - completar ticket con los siguientes datos:
+
+Legajo.
+
+Materias (detallar qué materias se deben anular y sus códigos).
+
+Plazos: 3 días hábiles.
+
+⚠️ Importante:
+
+Si el alumno NO tiene actividad académica (TPs o parciales), se deriva directamente.
+
+Si TIENE actividad académica, solo lo solicita el área de Soper y el alumno debe tener aplicada la garantía de adaptación.
+
+La calificación "0" o un ausente en parcial no se consideran actividad académica para este trámite.
+
+Si nos encontramos dentro del período de inscripción se pueden anular desde Portal Estudiantes del alumno - no corresponde derivación.
+
+📢 CON actividad académica
+
+Esto puede solicitarlo SOLO el área de SOPER en aquellos casos en los que el alumno tenga aplicada la garantía de adaptación.
+
+EXTENSIÓN DE REGULARIDAD DE MATERIA
+
+Información para la derivación (HubSpot)
+
+Área de derivación: OPERATIVO SOA
+
+Tipificación: Extensión de regularidad de materia
+
+Nota interna - completar ticket con los siguientes datos:
+
+-
+Legajo.
+
+-
+Materia.
+
+-
+Motivo específico de la solicitud (Ej: enfermedades crónicas, fallecimientos).
+
+-
+Certificado adjunto que valide el motivo.
+
+Plazos: 5 días hábiles.
+
+⚠️ Importante:
+
+Esta gestión aplica para todas las materias excepto Trabajo Final de Grado. No se debe prometer al alumno que se otorgará, ya que SOA analiza cada situación.
+
+Extensión de regularidad de Seminario Final
+
+Información para la derivación (HubSpot)
+
+Área de derivación: OPERATIVO SOA
+
+Tipificación: Extensión de regularidad de materia (hasta que Extensión de regularidad de Seminario Final se derive a Operativo SOA, actualmente deriva a TFG).
+
+Nota interna - completar ticket con los siguientes datos:
+
+- Legajo.
+
+- Codigo y nombre de materia.
+
+- Motivo específico de la solicitud (Ej: enfermedades crónicas, fallecimientos).
+
+- Certificado adjunto que valide el motivo.
+
+- Aprobación del referente o director de carrera.
+
+- Confirmación del plazo de extensión autorizado.
+
+Plazos: 5 días hábiles.
+
+⚠️ Importante:
+
+Esta gestión aplica para todas las materias excepto Trabajo Final de Grado. No se debe prometer al alumno que se otorgará, ya que SOA analiza cada situación.
+
+Solo deberá crearse y derivarse cuando se cuente con todos los criterios necesarios para avanzar con la gestión
+
+REPROCESO DE CONDICIÓN DE MATERIAS
+
+Información para la derivación (HubSpot)
+
+Área de derivación: OPERATIVO SOA
+
+Tipificación: Condición de materia de proceso
+
+Nota interna - completar ticket con los siguientes datos:
+
+Legajo.
+
+Materia.
+
+Motivo de la solicitud.
+
+Plazos: 3 días hábiles.
+
+⚠️ Importante:
+
+El reproceso automático de materias demora 72 hs desde el fin del período de cursado; no corresponde pedir reproceso anticipado.
+
+En el caso de materias de proceso (como Práctica Profesional o Solidaria), la condición de aprobado está sujeta al cumplimiento del régimen de correlatividades.
+
+Tener en cuenta que el reproceso de la materia Idioma, debe ser derivada a SGEA para corroborar si corresponde cambiar la condición de la misma.
+
+Antes de derivar validar las correlativas.
+
+Por inconsistencias o corrección en las asistencias No corresponde derivar a SOA.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: OPERATIVO SOA
+
+Tipificación: Revisión condición de materia Modalidad virtual
+
+Nota interna - completar ticket con los siguientes datos:
+
+Nombre del alumno.
+
+Materias.
+
+Legajo.
+
+Semestre.
+
+Motivo de la solicitud.
+
+Plazos: 3 días hábiles.
+
+⚠️ Importante:
+
+Verificar asistencia a openclass si el alumno es ED, que el pago del semestre esté realizado, las correlativas directas e indirectas, y la ausencia de sanciones.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: OPERATIVO SOA
+
+Tipificación: Revisión condición de materia Modalidad Presencial home
+
+Nota interna - completar ticket con los siguientes datos:
+
+Nombre del alumno.
+
+Materias.
+
+Legajo.
+
+Semestre.
+
+Motivo de la solicitud.
+
+Plazos: 3 días hábiles.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: OPERATIVO SOA
+
+Tipificación: Revisión condición de materia Modalidad Presencial
+
+Nota interna - completar ticket con los siguientes datos:
+
+Nombre del alumno.
+
+Materias.
+
+Legajo.
+
+Semestre.
+
+Motivo de la solicitud.
+
+Plazos: 3 días hábiles.
+
+⚠️ Importante:
+
+Verificar que el pago del semestre esté realizado, las asistencias (75% requerido), las correlativas directas e indirectas y que no existan sanciones ni cátedras duplicadas.
+
+RENUNCIA DE REGULARIDAD DE MATERIA
+
+Información para la derivación (HubSpot)
+
+Tipificación: Renuncia de Regularidad de Materia.
+
+Dejar registro de que se asesoró al alumno sobre el proceso de renuncia.
+
+Indicar que el trámite es 100% autogestivo para todas las modalidades.
+
+Plazos: Inmediato (Autogestión).
+
+⚠️ Importante:
+
+NO corresponde derivar: Solo se debe crear la tipificación para dejar registro de la gestión en el sistema.
+
+Validación previa a la baja: El sistema permite la baja de una materia regular únicamente si el alumno cumple con las condiciones académicas necesarias (correlativas y período/subperíodo disponible) para la reinscripción inmediata.
+
+Esta restricción se implementó para evitar que los estudiantes cancelen materias y luego no puedan inscribirse, previniendo futuros reclamos.
+
+Si el alumno no cumple los requisitos, el sistema mostrará el mensaje: “No puede continuar con el proceso de baja regularidad, ya que no cumple con las condiciones académicas para la Reinscripción”.
+
+La baja se completa solo una vez confirmada la nueva inscripción; de lo contrario, la materia permanece en la pestaña "Habilitadas".
+
+Este proceso es IRREVERSIBLE.
+
+Proceso que debe realizar el estudiante
+
+Para llevar a cabo la renuncia, el alumno debe seguir estos pasos en su portal:
+
+Ingresar a Portal Estudiantes → Materias → Inscripción a Materias → pestaña Habilitadas.
+
+Seleccionar la materia que se encuentra en estado Regular.
+
+Elegir la opción “Inscribirme”.
+
+El sistema mostrará un mensaje de advertencia y un código de conformidad.
+
+Ingresar el código y seleccionar “Dar de baja”.
+
+INSCRIPCIÓN A IDIOMA
+
+Información para la derivación (HubSpot)
+
+Área de derivación: OPERATIVO SOA
+
+Tipificación: Inscripción a Idioma inglés
+
+Nota interna - completar ticket con los siguientes datos:
+
+Legajo.
+
+Materia (Edusoft).
+
+Motivo de la solicitud (por qué no puede inscribirse por Campus).
+
+Plazos: 3 días hábiles.
+
+⚠️ Importante:
+
+Validar que el alumno no esté ya inscripto, que tenga matrícula activa y que se haya matriculado al menos 2 veces (no aplica para ingresantes).
+
+En modalidad presencial, el arancel debe estar abonado y facturado.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: OPERATIVO SOA
+
+Tipificación: Inscripción a Idioma portugués
+
+Nota interna - completar ticket con los siguientes datos:
+
+Legajo.
+
+Materia. Plazos: 3 días hábiles.
+
+⚠️ Importante:
+
+El cursado de portugués es correlativo a la aprobación de Idioma Inglés.
+
+Se solicita a SOA solo cuando el alumno no puede realizar la inscripción autogestiva desde su Campus Virtual.$pea0$, 'global', 'borrador', $pea0$https://kb-cau.21.edu.ar/servicios-cau/servicios/gestiones-y-derivaciones-incripciones-a-materias$pea0$)
+on conflict (categoria_id, slug) do nothing;
+
+insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
+values ((select id from public.categorias where slug = $pea0$aranceles-y-pagos$pea0$), null, 42, $pea0$kb-42-reintegros$pea0$,
+        $pea0$Reintegros$pea0$, $pea0$Gestionar correctamente las situaciones relacionadas con la baja del estudiante y solicitudes de reintegro, asegurando el adecuado relevamiento, orientación y derivación de cada caso al área corres…$pea0$, $pea0$> **A validar:** contenido relevado de https://kb-cau.21.edu.ar/servicios-cau/servicios/grupo-de-riesgo el 2026-11-19. Revisalo antes de publicar.
+
+Gestionar correctamente las situaciones relacionadas con la baja del estudiante y solicitudes de reintegro, asegurando el adecuado relevamiento, orientación y derivación de cada caso al área correspondiente.
+
+ÍNDICE
+
+- Riesgo de Baja
+
+- Reintegro
+
+- Reintegro por Fallecimiento
+
+- Reintegro alumnos egresado
+
+1-RIESGO DE BAJA
+
+Objetivo
+
+Gestionar casos en los que un estudiante manifiesta su intención de desvincularse de la Universidad o solicita documentación asociada a la baja de su legajo, garantizando una escucha activa, relevamiento completo de la situación y derivación correcta al área de Grupo de Riesgo.
+
+¿Cuándo utilizar este libreto?
+
+Aplicar cuando el estudiante:
+
+- Solicita de forma explícita la baja de su legajo.
+
+- Solicita documentación académica por cambio de universidad.
+
+- Solicita:
+
+- Analítico Parcial.
+
+- Programas de materias.
+
+- Constancia de Baja de Matrícula.
+
+- Constancia de No Sanción.
+
+- Indica que abandonará sus estudios por motivos académicos, económicos o personales.
+
+- Consulta sobre traspaso de aranceles.
+
+- Solicita la baja por disconformidad con alguna gestión, resolución o atención recibida previamente.
+
+Consideraciones importantes
+
+✅ El asesor debe
+
+- Indagar en profundidad el motivo de la baja.
+
+- Practicar escucha activa y empatía.
+
+- Relevar toda la información posible para facilitar el análisis posterior.
+
+- Analizar previamente la situación académica y administrativa del estudiante.
+
+- Presentar herramientas de persistencia cuando correspondan.
+
+- Informar que un especialista de Grupo de Riesgo se comunicará dentro de las próximas 72 horas hábiles al teléfono indicado por el estudiante.
+
+❌ El asesor NO debe
+
+- Ofrecer reintegros.
+
+- Ofrecer anulaciones de pagos.
+
+- Ofrecer traspasos de fondos entre alumnos.
+
+- Garantizar excepciones arancelarias.
+
+- Insistir en la retención cuando el estudiante mantiene firme su decisión.
+
+Validaciones previas obligatorias
+
+Antes de realizar la derivación:
+
+Revisar
+
+- Estado de deuda o aranceles pendientes.
+
+- Actividad académica del estudiante.
+
+- Fechas de pago.
+
+- Beneficios vigentes.
+
+- Posibles herramientas de persistencia aplicables.
+
+⚠️Importante: si el estudiante posee deuda o aranceles pendientes de pago, no corresponde derivarlo a Grupo de Riesgo hasta regularizar la situación según la normativa vigente.
+
+Guion sugerido de atención
+
+Paso 1: Comprender el motivo
+
+"Comprendo tu solicitud. Para poder ayudarte correctamente y registrar el caso de manera adecuada, ¿podrías contarme en detalle cuál es el motivo por el que deseas solicitar la baja?"
+
+Profundizar mediante preguntas como:
+
+- ¿La decisión está relacionada con cuestiones económicas, académicas o personales?
+
+- ¿Hay algún inconveniente puntual que haya motivado esta decisión?
+
+- ¿Desde cuándo estás atravesando esta situación?
+
+- ¿Existe alguna condición que te ayudaría a continuar con tus estudios?
+
+Paso 2: Analizar alternativas de persistencia
+
+Según el caso, evaluar:
+
+Garantía de Adaptación
+
+Aplicable para estudiantes NI que:
+
+- No tengan materias programáticas aprobadas.
+
+- Posean más de un ticket de arancel abonado.
+
+- No hayan superado dos años desde el ingreso.
+
+- No hayan utilizado previamente este beneficio.
+
+Nota de Crédito
+
+Para estudiantes que hayan abonado aranceles y no continuarán cursando.
+
+Informar que el monto puede utilizarse en otros trayectos académicos o conceptos habilitados según normativa.
+
+Seguro de Continuidad
+
+Cuando el estudiante o quien financia sus estudios haya perdido su fuente laboral y pueda acreditar la situación correspondiente.
+
+Becas y Beneficios LaNube
+
+Informar sobre alternativas vigentes y acompañar en la búsqueda de beneficios compatibles con su situación.
+
+Paso 3: Si el estudiante mantiene la decisión
+
+"Entiendo tu decisión y procederemos con la gestión correspondiente. Voy a registrar toda la información para que el equipo especializado de Grupo de Riesgo pueda analizar tu caso y contactarte."
+
+Solicitar teléfono actualizado
+
+Informar:
+
+"El equipo especializado realizará un primer intento de contacto dentro de las próximas 72 horas hábiles. La gestión completa puede extenderse hasta 7 días hábiles."
+
+Casos especiales Traspaso de aranceles
+
+Informar:
+
+"Para que pueda evaluarse un traspaso de aranceles, previamente el legajo debe encontrarse dado de baja."
+
+Solicitud por fallecimiento
+
+Si la baja corresponde a un estudiante fallecido:
+
+- Verificar actividad académica.
+
+- Tipificar como Riesgo de Baja.
+
+- Incorporar el hashtag: #REINTEGROALUMNOFALLECIDO
+
+Información para la derivación (HubSpot)
+Área de derivación: Grupo de Riesgo
+Tipificación: Riesgo de baja
+Nota interna - completar ticket con los siguientes datos:
+
+- Nombre y apellido de alumno:
+
+- DNI:
+
+- Legajo sobre el que solicita baja:
+
+- Número de teléfono actual (1):
+
+- Descripción del motivo de baja/reintegro (2):
+
+- Alternativas que le presentó el asesor:
+
+- Comentarios adicionales (3):
+
+🕓 Importante : El primer intento de contacto con el alumno se realizará dentro de las 72 hs hábiles, pero la gestión tiene un plazo de hasta 7 días hábiles.
+
+Buenas prácticas para la descripción
+
+La descripción debe incluir:
+
+- Motivo principal de la baja.
+
+- Contexto académico.
+
+- Situación económica si aplica.
+
+- Situación personal si aplica.
+
+- Nivel de decisión del estudiante.
+
+- Herramientas de persistencia ofrecidas.
+
+- Respuesta obtenida frente a dichas alternativas.
+
+Mensaje de cierre sugerido
+
+"Gracias por compartirnos tu situación. He registrado toda la información para que el equipo especializado pueda analizar tu caso. Se comunicarán al teléfono informado dentro de las próximas 72 horas hábiles para brindarte acompañamiento y gestionar la solicitud correspondiente."
+
+2-REINTEGRO
+
+Gestionar correctamente las consultas relacionadas con solicitudes de reintegro, garantizando el cumplimiento de la normativa institucional y evitando generar expectativas incorrectas sobre devoluciones, anulaciones de pagos o transferencias de fondos.
+
+❌ El asesor NO debe
+
+- Ofrecer reintegros como alternativa de solución.
+
+- Ofrecer anulaciones de pagos.
+
+- Garantizar reintegros futuros.
+
+- Ofrecer traspasos de fondos entre alumnos.
+
+- Informar que el reintegro será aprobado.
+
+✅ El asesor debe
+
+- Analizar el motivo planteado por el estudiante.
+
+- Informar la política institucional vigente.
+
+- Verificar si existe una gestión previa de Baja de Legajo.
+
+- Corroborar que la derivación de Baja contenga toda la información requerida.
+
+- Registrar el caso de manera completa para evaluación posterior.
+
+Política institucional sobre reintegros
+
+La Universidad no posee una política de reintegros como procedimiento habitual.
+
+Las solicitudes de reintegro sólo pueden evaluarse de manera excepcional y requieren autorización previa conforme a los procesos internos establecidos.
+
+Por este motivo, no corresponde ofrecer ni prometer reintegros ante consultas o reclamos de estudiantes.
+
+⚠️ Importante: la Matrícula no es reintegrable.
+
+Esto se debe a que corresponde al proceso de vinculación del estudiante con la Universidad, incluyendo:
+
+- Creación del usuario institucional.
+
+- Generación del legajo.
+
+- Habilitación de accesos.
+
+- Activación de licencias y servicios de la plataforma virtual.
+
+- Gestión administrativa asociada al ingreso.
+
+Motivos que no justifican un reintegro
+
+No corresponde solicitar un reintegro únicamente porque el estudiante manifieste:
+
+- "No me gusta la universidad."
+
+- "La modalidad no era lo que esperaba."
+
+- "Cambié de opinión."
+
+- "Decidí estudiar en otra institución."
+
+- Motivos que no encuadren dentro de las excepciones contempladas por los procesos internos.
+
+En estos casos, el asesor deberá:
+
+- Aplicar escucha activa.
+
+- Indagar en profundidad la situación.
+
+- Gestionar objeciones.
+
+- Presentar herramientas de persistencia cuando corresponda.
+
+Reintegros asociados a Baja de Legajo
+
+Cuando el estudiante solicita:
+
+- Baja de la Universidad.
+
+- Baja de Legajo.
+
+- Reintegro asociado a una baja.
+
+La evaluación del posible reintegro queda exclusivamente bajo análisis de Grupo de Riesgo.
+
+El asesor no debe emitir opinión sobre la viabilidad del reintegro ni garantizar resultados.
+
+Guiones sugeridos:
+
+👉 Cuando el estudiante solicita un reintegro
+
+"Comprendo tu consulta. Quiero informarte que la Universidad no contempla reintegros como una gestión habitual y estos sólo pueden evaluarse de manera excepcional, según los procesos internos vigentes. Para poder orientarte correctamente, necesito comprender en detalle tu situación."
+
+👉 Si el estudiante solicita reintegro por baja
+
+"En los casos vinculados con solicitudes de baja, será el equipo especializado quien analizará integralmente cada situación y determinará si corresponde alguna gestión adicional. Por ese motivo voy a registrar toda la información necesaria para su evaluación."
+
+👉 Mensaje de cierre sugerido
+
+"He registrado la información de tu caso para que pueda ser evaluada por el área correspondiente. En caso de corresponder alguna gestión excepcional, será analizada conforme a la normativa y los procesos internos vigentes."
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Grupo de Riesgo
+Tipificación:
+
+- Reintegro baja de la universidad motivos laborales
+
+- Reintegro baja de la universidad motivos personales
+
+- Reintegro por auditoria CAU
+
+- Reintegro por auditoria Comercial
+
+- Reintegro por auditoria equivalencias
+
+Nota interna - completar ticket con los siguientes datos:
+
+- Nombre y apellido.
+
+- DNI.
+
+- Legajo.
+
+- Teléfono actualizado.
+
+- Motivo detallado de la baja.
+
+- Alternativas de persistencia ofrecidas.
+
+- Comentarios adicionales.
+
+Nota: #BAJALEGAJOGR
+
+3-REINTEGRO POR FALLECIMIENTO
+
+Gestionar de manera respetuosa y adecuada las solicitudes de reintegro asociadas al fallecimiento de un alumno, asegurando la correcta derivación del caso al área de Grupo de Riesgo para su análisis y resolución.
+
+¿Cuándo corresponde esta gestión?
+
+Aplicar esta tipificación cuando un familiar, tutor o representante informa el fallecimiento de un alumno y solicita una gestión relacionada con reintegro o devolución de fondos.
+
+Incluye los siguientes casos:
+
+👉 Alumno fallecido sin actividad académica: corresponde derivar la solicitud de reintegro por fallecimiento para su análisis.
+
+👉 Fondos disponibles en pasarela de pagos: si el alumno fallecido posee dinero remanente disponible en la pasarela de pagos, también corresponde utilizar esta misma tipificación y hashtag.
+
+👉 Alumno fallecido con actividad académica: cuando el alumno posea actividad académica y, luego del análisis realizado por el asesor, corresponda evaluar una Nota de Crédito para su devolución, la gestión deberá derivarse obligatoriamente bajo esta misma tipificación y hashtag.
+
+Requisito obligatorio para validar la gestión será necesario contar con el Certificado o Acta de Defunción.
+
+Gestión del asesor (Primera Línea) ante la comunicación de un familiar o tutor:
+
+1. Expresar condolencias: mantener una comunicación empática, respetuosa y cordial.
+
+Ejemplo: "Lamentamos profundamente esta situación y acompañamos a la familia en este momento. Voy a tomar los datos necesarios para que el área especializada pueda asistirlos con la gestión correspondiente."
+
+2. Solicitar los datos básicos - registrar:
+
+- Nombre y apellido de la persona que realizará el trámite.
+
+- Número de contacto.
+
+- Correo electrónico.
+
+3. Informar el proceso - comunicar que:
+
+"El equipo especializado de Grupo de Riesgo se pondrá en contacto para indicar la documentación necesaria y los pasos a seguir para evaluar la solicitud."
+
+4. Derivar el caso: registrar toda la información obtenida y realizar la derivación a Grupo de Riesgo.
+
+Gestión de Grupo de Riesgo
+
+1. Solicitud de documentación
+
+Grupo de Riesgo contactará al familiar o tutor para solicitar la documentación disponible.
+
+Documentación posible:
+
+- DNI del alumno fallecido.
+
+- DNI del beneficiario o sucesor universal.
+
+- DNI del tutor legal (cuando el alumno sea menor de edad).
+
+- Acta o Certificado de Defunción.
+
+- Declaratoria de Herederos finalizada y certificada por escribano público donde conste el sucesor universal.
+
+- Libreta de Familia.
+
+- Datos de la cuenta bancaria para la transferencia.
+
+- Nota firmada por el solicitante detallando:
+
+- Contexto de la solicitud.
+
+- Fecha de fallecimiento.
+
+Importante: no es requisito excluyente presentar toda la documentación mencionada. Se deberá aportar la mayor cantidad de documentación posible para facilitar el análisis y validación del caso.
+
+2. Análisis de documentación
+
+Grupo de Riesgo:
+
+- Revisa la documentación recibida.
+
+- Valida la información presentada.
+
+- Determina si la documentación resulta suficiente para continuar.
+
+- Calcula y valida el importe susceptible de reintegro.
+
+3. Solicitud de autorización
+
+Una vez validado el caso, Grupo de Riesgo solicita la autorización correspondiente a: Matías San Martín.
+
+4. Gestión del reintegro
+
+Luego de obtener la autorización correspondiente, Grupo de Riesgo deriva el caso al Área de Cobranzas.
+
+Cobranzas:
+
+- Procesa la transferencia bancaria al beneficiario autorizado.
+
+- Emite la confirmación del pago realizado.
+
+- Informa el resultado de la gestión a Grupo de Riesgo.
+
+5. Cierre del caso
+
+Grupo de Riesgo:
+
+- Contacta al familiar o tutor.
+
+- Informa la resolución favorable del trámite.
+
+- Comunica la fecha estimada de acreditación de la transferencia.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Grupo de Riesgo
+
+Tipificación: Reintegro por fallecimiento
+
+Nota interna - completar ticket con los siguientes datos:
+
+- DNI del alumno
+
+- Legajo del alumno
+
+- Nombre y apellido de la persona que realizará el trámite.
+
+- Número de contacto.
+
+- Correo electrónico.
+
+Nota: #REINTEGROALUMNOFALLECIDO
+
+4-REINTEGRO ALUMNO EGRESADO
+
+Gestionar solicitudes de reintegro para alumnos egresados que cuentan con un saldo a favor, ya sea por pagos realizados en exceso o por la generación de una Nota de Crédito (NC).
+
+Procedimiento
+
+1. Recepción y derivación: el asesor debe derivar el caso a SOPER, completando la nota interna con toda la información requerida. Tipificación: Reintegro alumno egresado
+
+2. Solicitud de autorización: el Supervisor (CAU o Primera Línea) solicita autorización por correo electrónico a Matías San Martín, con copia a Fernandez, Barbara.
+
+3. Gestión de SOPER
+
+SOPER revisa la solicitud y valida la información del caso.
+Genera la Nota de Crédito, si corresponde.
+Deriva el caso a Cobranzas con la autorización aprobada y los datos bancarios del titular.
+
+4. Revisión de Cobranzas
+
+El legajo se encuentre en estado Egresado.
+El importe a reintegrar coincida con el autorizado.
+La documentación y los datos bancarios estén completos.
+Una vez realizada la validación, se coordina con Tesorería la fecha de reintegro.
+
+5. Gestión del reintegro. Cobranzas gestiona con Tesorería la devolución del saldo a favor al alumno.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: SOPER
+
+Tipificación: Reintegro alumno egresado
+
+Nota interna - completar ticket con los siguientes datos:
+
+-
+Nombre y apellido.
+
+-
+DNI.
+
+-
+Legajo.
+
+- Teléfono actualizado.
+
+-
+Motivo detallado del reintegro
+
+-
+Nombre y apellido del titular de la cuenta:
+
+-
+Dni:
+
+-
+Cuil:
+
+-
+CBU:
+
+-
+Banco:
+
+Consideraciones importantes
+
+- Aplica para alumnos egresados que posean saldo a favor por pagos realizados en exceso o por la generación de una Nota de Crédito.
+
+- La gestión solo podrá avanzar una vez que SOPER haya validado el caso y enviado la autorización correspondiente junto con los datos bancarios.
+
+- El reintegro será programado por Tesorería una vez completadas las validaciones de Cobranzas.$pea0$, 'global', 'borrador', $pea0$https://kb-cau.21.edu.ar/servicios-cau/servicios/grupo-de-riesgo$pea0$)
+on conflict (categoria_id, slug) do nothing;
+
+insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
+values ((select id from public.categorias where slug = $pea0$oferta-academica$pea0$), null, 43, $pea0$kb-43-practica-solidaria$pea0$,
+        $pea0$Práctica Solidaria$pea0$, $pea0$Brindar información actualizada sobre la Práctica Solidaria, sus instancias de cursado, inscripción, gestión de organizaciones, requisitos, documentación, seguro y principales consultas, facilitand…$pea0$, $pea0$> **A validar:** contenido relevado de https://kb-cau.21.edu.ar/servicios-cau/servicios/práctica-solidaria- el 2026-11-19. Revisalo antes de publicar.
+
+Brindar información actualizada sobre la Práctica Solidaria, sus instancias de cursado, inscripción, gestión de organizaciones, requisitos, documentación, seguro y principales consultas, facilitando el correcto asesoramiento y derivación de los estudiantes
+
+ÍNDICE:
+
+-
+Inconveniente con organización práctica solidaria
+
+-
+Inconvenientes con carga de formulario
+
+Consideraciones especiales
+
+Instancia académica
+
+-
+Caracteristicas de cursado
+
+-
+Calendario 2026
+
+Instancia organizacional
+
+-
+Fechas importantes
+
+-
+SOY SIGLO (ex Talent 21)
+
+-
+Asignación de organización
+
+-
+Estudiante solicita organización a la Universidad
+
+-
+Estudiante propone una organizacion
+
+-
+Estudiante declara incompatibilidad de concurrencia a una organización
+
+-
+Estudiante que cursa su práctica solidaria en el extranjero
+
+Talleres
+
+Documentación
+
+Seguro de vida
+
+Preguntas frecuentes
+
+PRÁCTICA SOLIDARIA
+
+Práctica Solidaria es una asignatura obligatoria de cursado cuatrimestral que forma parte del plan de estudios de todas las carreras de grado. Puede cursarse a partir del tercer cuatrimestre y no tiene costo para el estudiante.
+
+Su objetivo es promover la formación de profesionales comprometidos con las problemáticas sociales mediante la participación en organizaciones de la sociedad civil, desarrollando actividades de servicio comunitario y reflexión académica.
+
+El período de inscripción a la Práctica Solidaria cierra indefectiblemente el viernes anterior al comienzo del período lectivo.
+
+Cierre de inscripción: 2/26 - 31/07/26
+
+INFORMACIÓN PARA LA DERIVACIÓN (HUBSPOT)
+
+Inconveniente con organización práctica solidaria
+
+Casos que corresponden a esta tipificación
+
+-
+La organización asignada no responde los intentos de contacto del estudiante.
+
+-
+El tutor asignado no realiza seguimiento.
+
+-
+El estudiante informa problemas durante la práctica, ej: indica haber recibido malos tratos.
+
+-
+Las tareas asignadas no se corresponden con la finalidad de la Práctica Solidaria.
+
+-
+Dificultades surgidas con una organización ya asignada o vinculada.
+
+Área de derivación: Práctica Solidaria
+
+Tipificación: Inconveniente con organización práctica solidaria
+
+Nota interna - Completar ticket con los siguientes datos:
+
+-
+Nombre completo del estudiante.
+
+-
+Legajo.
+
+-
+Nombre de la organización involucrada.
+
+-
+Descripción detallada del inconveniente.
+
+-
+Fecha de inicio del problema.
+
+-
+Evidencias adjuntas por el estudiante (correos, capturas de pantalla, mensajes, etc.).
+
+-
+Indicar si el inconveniente está relacionado con falta de respuesta, ausencia de tutor, tareas no vinculadas a la práctica o cualquier otra situación durante el desarrollo de la misma.
+
+⚠️ Importante
+
+-
+Solicitar evidencia de los intentos de contacto realizados por el estudiante.
+
+-
+No utilizar esta tipificación para consultas académicas o administrativas de la materia.
+
+-
+Las consultas sobre cursado, trabajos prácticos o calificaciones deben canalizarse con el docente o por los circuitos académicos correspondientes.
+
+Inconvenientes con carga de formulario
+
+Casos que corresponden a esta tipificación
+
+-
+Problemas para completar formularios en SOY SIGLO.
+
+-
+Errores al guardar información.
+
+-
+Imposibilidad de adjuntar documentación.
+
+-
+Problemas al enviar una solicitud de organización.
+
+-
+Inconvenientes al cargar una propuesta de organización.
+
+-
+Errores al presentar una incompatibilidad de concurrencia.
+
+Área de derivación: Práctica Solidaria
+
+Tipificación: Inconvenientes con la carga de formulario Práctica Solidaria
+
+Nota interna - Completar ticket con los siguientes datos:
+
+-
+Nombre completo del estudiante.
+
+-
+Legajo.
+
+-
+Formulario afectado.
+
+-
+Plataforma utilizada SOY SIGLO (ex Talent21).
+
+-
+Fecha y hora aproximada del inconveniente.
+
+-
+Descripción detallada del error.
+
+-
+Captura de pantalla del mensaje de error, si dispone.
+
+-
+Navegador utilizado y dispositivo desde el que realizó la gestión.
+
+⚠️ Importante
+
+-
+Verificar previamente que el estudiante haya intentado realizar la gestión desde otro navegador o ventana de incógnito.
+
+-
+Adjuntar toda evidencia disponible para facilitar el análisis técnico.
+
+📢 Consideraciones especiales
+
+Consulta de las Organizaciones deberán canalizarse con el Centro de Sustentabilidad al mail sustentabilidad21@ues21.edu.ar
+
+Consultas sobre cursado: deben ser gestionadas por el docente de Práctica Solidaria. El estudiante deberá realizar su consulta a través de la mensajería de Canvas.
+
+Corrección de trabajos prácticos y notas sobre calificaciones o corrección de trabajos prácticos deben derivarse a SGEA.
+
+- Si el estudiante consulta únicamente si un TP ya fue corregido, indicarle que contacte a su docente mediante Canvas.
+
+- Los docentes disponen de hasta 10 días para la corrección de trabajos prácticos por tratarse de una materia de proceso.
+
+Estudiantes con discapacidad: los estudiantes que posean Certificado Único de Discapacidad (CUD) y presenten dificultades para asistir presencialmente a una organización deberán gestionar una Incompatibilidad de Concurrencia mediante el formulario correspondiente en SOY SIGLO, adjuntando la documentación respaldatoria.
+
+Estudiantes en el extranjero: pueden proponer una organización en su lugar de residencia o solicitar una asignación por parte de la Universidad, considerando el país donde residen.
+
+La materia contempla dos instancias obligatorias:
+
+-
+Instancia académica (áulica), mediante encuentros y trabajos prácticos.
+
+-
+Instancia organizacional, mediante la participación en una organización social durante el período de cursado.
+
+INSTANCIA ACADÉMICA
+
+👉 CARACTERÍSTICAS DEL CURSADO
+
+Modalidad P. Y PH : 4 (cuatro) encuentros presenciales por semestre, en el día y horario correspondiente a cada cátedra, en las siguientes semanas:
+
+3° semana
+6° semana
+10° semana
+13° semana
+
+Modalidad PD, ED y EDH: 4 (cuatro) encuentros virtuales y sincrónicos por semestre en las siguientes semanas:
+
+3° semana
+6° semana
+10° semana
+13° semana
+
+Su docente envía las fechas y accesos a la sala de Teams a través de la mensajería de CANVAS.
+
+👉 CALENDARIO 2026
+
+A partir del 2-26, las entregas de materias de proceso vencen el lunes de la semana correspondiente:
+
+SEGUNDO SEMESTRE 2026
+
+TP 1 6ª SEMANA - 07/09/2026
+
+TP 2 9ª SEMANA- 28/09/2026
+
+TP 3 12° SEMANA - 19/10/2026
+
+TP 4 15° SEMANA - 09/11/2026
+
+INSTANCIA ORGANIZACIONAL
+
+👉 FECHAS IMPORTANTES
+
+-
+Cierre de inscripciones a las materias: 31/07/26
+
+-
+Fecha límite para solicitar organización: 08/07/26
+
+-
+Fecha límite para declarar incompatibilidad: 24/08/26
+
+-
+Fecha límite para proponer organización: 24/08/26
+
+👉 SOY SIGLO
+
+La gestión de la instancia organizacional de Práctica Solidaria se realiza a través de la plataforma SOY SIGLO.
+
+-
+Acceso a la plataforma: https://21-csm.symplicity.com/students/index.php
+
+-
+Instructivo SOY SIGLO para Asesores y Codocentes (este instructivo es desde la vista del estudiante, para que el front pueda guiar al estudiante dentro de la plataforma) https://contenidos.21.edu.ar/descargas/instructivo-talent21-estudiantes.pdf
+
+-
+El instructivo de SOY SIGLO para el front: Instructivo SOY SIGLO para asesores.docx
+
+👉 ASIGNACIÓN DE ORGANIZACIÓN
+
+📌Estudiante solicita organización a la Universidad:
+
+El estudiante podrá completar el formulario "Solicito que la Universidad me asigne una organización" enSOY SIGLO hasta el 7 de agosto de 2026. Una vez completado, debe guardar la solicitud para que quede registrada.
+
+-
+La asignación de una Organización no es inmediata. La asignación se realiza respetando la localidad del legajo del estudiante. Pueden verificarlo desde SGU:
+
+-
+Una vez asignada la Organización, recibirá una notificación en el correo electrónico registrado y deberá ingresar a la plataforma para consultar el estado de su solicitud. Es importante que el estudiante sepa que debe ingresar a la plataforma de SOY SIGLO de manera autónoma para verificarlo ya que puede suceder que no reciba la notificación.
+
+Solo deberá generarse un ticket en HubSpot si transcurrieron más de 10 días hábiles desde la carga del formulario y el/la estudiante aún no tiene una Organización asignada.
+
+-
+Una vez asignada la Organización, el/la estudiante podrá visualizar en la plataforma los datos de contacto de su tutor/a. Será responsabilidad del/de la estudiante establecer el primer contacto con el/la tutor/a para coordinar el inicio de la práctica.
+
+📌 Estudiante propone una organización:
+
+Si el estudiante desea proponer una Organización para realizar su Práctica Solidaria, deberá verificar previamente que cumpla con los siguientes requisitos:
+
+-
+Ser una organización de la sociedad civil que se encuentre en actividad.
+
+- Actualmente no es obligatorio adjuntar la constancia de ARCA en caso de que no tenga personería jurídica.
+
+-
+Desarrollar un proyecto de acción directa vinculado a los derechos humanos; es decir, iniciativas centradas en el desarrollo de las personas, como apoyos escolares, comedores infantiles, trabajo con jóvenes, personas con discapacidad, personas mayores, madres solas, entre otras.
+
+-
+Designar un/a tutor/a que acompañe al/la estudiante y realice el seguimiento de sus actividades durante la práctica.
+
+Estructura de la organización
+
+La organización deberá:
+
+-
+Contar con una estructura mínima de personas que desarrollen las actividades de la institución.
+
+-
+Acreditar al menos 3 años de trayectoria en la temática que aborda.
+
+-
+Si la organización no cuenta con Personería Jurídica, también podrá ser evaluada. En estos casos, se analizará su estructura, trayectoria y trabajo de campo. Además, el/la estudiante deberá informar el número de CUIL de la persona referente de la organización.
+
+Causas de rechazo de la organización
+
+No serán aprobadas las organizaciones que:
+
+-
+No desarrollen acciones de forma directa en materia de derechos humanos, como por ejemplo las organizaciones protectoras de animales.
+
+-
+Tengan como finalidad principal transmitir o influir en ideas políticas, religiosas u otras de carácter similar.
+
+-
+Sean entidades privadas que no cumplan con los criterios de aceptación definidos para la localidad del/de la estudiante.
+
+📌 Estudiante declara incompatibilidad de concurrencia a una organización:
+
+Los casos aceptados como incompatibilidad de concurrencia son:
+
+-
+Estudiante privado/a de su libertad.
+
+-
+Estudiante con Certificado Único de Discapacidad (CUD) imposibilitado de asistir presencialmente a una organización.
+
+¿Que documentación adjuntar para evidenciar situación? :
+
+-
+Resolución judicial
+
+- Certificado Único de Discapacidad - CUD.
+
+Deben enviar la documentación correspondiente a través del formulario de la plataforma y guardar novedades.
+
+El Centro de Sustentabilidad Social de la Universidad analizará su caso y se contactará con el estudiante a través del docente, donde le indicarán los pasos a seguir para cursar y aprobar la materia.
+
+En el caso de estudiantes con incompatibilidad de concurrencia, no existen convenios vinculantes, ya que no asisten a una organización.
+
+La declaración de incompatibilidad no implica la aprobación automática de la materia.
+
+📌 Estudiante que cursa su práctica solidaria en el extranjero:
+
+Los/as estudiantes que realizarán la Práctica Solidaria en el extranjero no se encuentran eximidos del cursado de la asignatura. Deberán proponer una Organización que cumpla con los requisitos establecidos y obtener la aprobación de la Universidad antes del inicio del cursado. Además, deberán presentar los trabajos prácticos y la Evaluación de Desempeño en las fechas previstas por el calendario académico.
+
+Si la Organización propuesta se encuentra en el extranjero, deberá aceptar que el/la estudiante no contará con el seguro de vida brindado por la Universidad durante la práctica. Asimismo, deberá aceptar el convenio vinculante sin modificaciones, incluyendo la cláusula octava (Jurisdicción y Competencia).
+
+Si el/la estudiante no cuenta con una Organización para proponer, la Universidad realizará la asignación considerando el país donde reside. Para ello, deberá consignar correctamente esa información en el formulario correspondiente.
+
+👉 TALLERES
+
+Una vez inscripto/a, y antes de iniciar el cursado de la materia, debes participar del taller preparatorio según tu modalidad de cursado. Las fechas y accesos se publicarán previo al inicio del semestre.
+
+👉 DOCUMENTACIÓN
+
+Convenio de actividades académicas (marco y anexo).
+
+Antes de iniciar la práctica, las partes deben firmar el convenio de actividades académicas:
+
+-
+Convenio marco: vinculante entre la Universidad y la Organización.
+
+-
+Convenio anexo: vinculante entre la Universidad, la Organización y el estudiante.
+
+Los estudiantes no deben realizar ninguna gestión respecto a los convenios (ni firma ni presentación). En caso de ser necesario la ORGANIZACIÓN podrá descargarlos en la plataforma. La firma de convenios es digital y se realiza a través de la plataforma.
+
+Para modificar algún dato de la organización o del tutor, la organización será la responsable de la modificación en su perfil dentro de la plataforma.
+
+Por consultas realizadas por organizaciones, deberán facilitarles el correo del Centro de Sustentabilidad Social: sustentabilidad21@ues21.edu.ar (Solo compartir a organizaciones, no se responden correos de estudiantes).
+
+📄 Evaluación de Desempeño: https://contenidos.21.edu.ar/descargas/evaluacion-institucional-desempeno-practica-solidaria.pdf
+
+-
+La Evaluación de Desempeño debe ser presentada junto con el 4to TP a través de CANVAS, respetando las fechas indicadas para la entregar del TP.
+
+-
+En el caso de Práctica Solidaria, no tienen Planilla de Asistencia.
+
+👉 SEGURO
+
+Los estudiantes inscritos en la materia Práctica Solidaria se encontrarán asegurados con un seguro de vida y accidente otorgado por la Universidad. Estará activo desde el primer día de clases y hasta el último día de clases, del período académico de cursado. El estudiante
+no debe realizar ninguna gestión para activar su cobertura. El alumno no debe asistir a la organización hasta antes estar asegurado.
+
+En caso de necesitar el certificado de cobertura (póliza), deben enviar su solicitud directamente a la aseguradora, a través del formulario disponible en La Nube. La aseguradora se lo enviará a su correo electrónico en un plazo de hasta 5 días hábiles.
+
+📄 Formulario de solicitud de póliza: https://forms.gle/WdNz4NfUZzFxSUZ99
+
+Debe ser completado y enviado únicamente por el estudiante y no por la organización.
+
+Ante un accidente, el estudiante debe asistir al centro médico más cercano y luego enviar el formulario de reporte de accidentes en un plazo no mayor a 72 hs. De ocurrido el accidente. Por ese medio debe enviar comprobantes de atención y gastos médicos y/o farmacéuticos para su reembolso. Puede ser completado y enviado por el estudiante o un responsable.
+
+📄 Formulario de informe de accidente: https://forms.gle/pKJrNfbsZCVNME1RA
+
+Datos del seguro:
+
+Aseguradora: SANCOR Coop. de Seguros Ltda. Modalidad: Innominada
+Cobertura: Alumnos en condición regular de Práctica Solidaria
+Contacto: ADDER Seguros | administración@adder.com.ar | +54 9 351 5053837
+
+👉 PREGUNTAS FRECUENTES
+
+A continuación, hay una serie de preguntas frecuentes especialmente para los estudiantes. Esta información está pensada para que puedas compartirla directamente con ellos cuando surjan dudas.
+
+¿Es posible realizar la práctica solidaria en la empresa donde ya estoy trabajando?
+
+Sólo si la empresa tiene área o proyectos vinculados a la responsabilidad social oa grupos vulnerados. En este caso podrás presentar tu organización en la plataforma, mediante el formulario Alumno propone organización.
+
+¿Qué procedimiento debe seguir si no aprueban la organización que propone para realizar la práctica?
+
+Si tu propuesta no cumple con los requisitos, no podremos aprobarla. En ese caso, deberá presentar una nueva organización que cumpla con los requisitos de aprobación o completar/corregir la información solicitada y volver a enviar el formulario.
+
+La organización que me fue asignada no responde a mis intentos de contacto. ¿Qué pasos debo seguir en este caso?
+
+Envíanos alguna prueba de que intentaste contactarlos (puede ser un correo, mensaje o captura). Con eso, vamos a intervenir y tratar de restablecer el contacto. Si aún así no obtenés respuesta, buscaremos otra alternativa para que puedas hacer tu práctica.
+
+Me asignaron una organización, ¿puedo rechazarla?
+
+En el caso de que el/al estudiante no esté de acuerdo con la Organización asignada no podrá rechazarla ni solicitar una nueva asignación, pero puede proponer una completando el formulario “Quiero proponer una Organización”.
+
+¿Tengo que esperar a que la organización me contacte?
+
+Una vez que obtengas los datos de la organización y tu tutor/a, sos vos quien debe tomar la iniciativa para escribir o llamar y presentarte.
+
+Es fundamental que hagas este primer contacto para coordinar el inicio de la práctica y acordar horarios o tareas.
+
+Problemas durante la práctica: ¿cómo se gestionan?
+
+Si tienes algún inconveniente durante la práctica (como tareas no relacionadas, ausencia del tutor, entre otras), comunícate con la Universidad lo antes posible. Así podremos intervenir y ayudar a resolver la situación.$pea0$, 'global', 'borrador', $pea0$https://kb-cau.21.edu.ar/servicios-cau/servicios/práctica-solidaria-$pea0$)
+on conflict (categoria_id, slug) do nothing;
+
+insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
+values ((select id from public.categorias where slug = $pea0$plataformas$pea0$), null, 44, $pea0$kb-44-contenido$pea0$,
+        $pea0$Contenido$pea0$, $pea0$Brindar información clara sobre las materias sin contenido disponible en Canvas y orientar la correcta gestión de los inconvenientes relacionados con errores de visualización, reproducción o funcio…$pea0$, $pea0$> **A validar:** contenido relevado de https://kb-cau.21.edu.ar/servicios-cau/servicios/contenido el 2026-11-19. Revisalo antes de publicar.
+
+Brindar información clara sobre las materias sin contenido disponible en Canvas y orientar la correcta gestión de los inconvenientes relacionados con errores de visualización, reproducción o funcionamiento del contenido académico.
+
+ÍNIDICE
+
+- Materias sin contenido
+
+- Error en Contenido
+
+1-Materias sin contenido
+
+Algunas materias pueden aparecer habilitadas en Canvas, pero no contar con contenido disponible en el aula virtual. Esto se debe a que su modalidad de cursado no requiere el uso de una cápsula académica.
+
+Materia actualmente comprendida en esta modalidad:
+
+Principios Fundamentales de Derechos Reales
+
+¿Cómo se cursan?
+
+- Desde la inscripción, la materia figura en estado Regular.
+
+- El estudiante no debe realizar actividades ni rendir parciales.
+
+- El estudio se realiza a partir del programa y la bibliografía básica proporcionados por el tutor.
+
+- El examen final podrá rendirse dentro de los plazos establecidos en el Calendario Académico.
+
+- La inscripción a examen final se realiza por los canales habituales, al igual que cualquier materia de modalidad EDH.
+
+Si la materia consultada por el estudiante no se encuentra dentro del listado de materias con cápsula vacía, corresponde continuar con la gestión indicada a continuación.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Contenido
+
+Tipificación: Materias sin contenido
+
+Nota interna - completar ticket con los siguientes datos:
+
+-
+DNI
+
+-
+Legajo
+
+- Periodo:
+
+- Modalidad:
+
+- Usuario/Contraseña:
+
+- Print de pantalla con error:
+
+- Materia:
+
+2-Error en Contenido
+
+⚠️ La derivación al área de Contenidos corresponde únicamente cuando el material ya se encuentra disponible en la plataforma, pero presenta errores de visualización, reproducción o funcionamiento.
+
+Importante: No corresponde derivar a Contenidos por materias que aún no fueron descargadas en Canvas o por demoras en la habilitación del aula virtual.
+
+Esta gestión permite resolver inconvenientes que impiden al estudiante acceder correctamente al material académico disponible.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Contenido
+
+Tipificación:
+
+Error en contenido - actividades evaluativas
+Error en contenido - material teórico
+
+Nota interna - completar ticket con los siguientes datos:
+
+DNI
+
+Legajo
+
+Plazos:$pea0$, 'global', 'borrador', $pea0$https://kb-cau.21.edu.ar/servicios-cau/servicios/contenido$pea0$)
+on conflict (categoria_id, slug) do nothing;
+
+insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
+values ((select id from public.categorias where slug = $pea0$institucional$pea0$), null, 45, $pea0$kb-45-acciones-especiales-persistencia$pea0$,
+        $pea0$Acciones Especiales | Persistencia$pea0$, $pea0$Conocé las acciones de Persistencia y las iniciativas de acompañamiento académico implementadas para favorecer la continuidad de los estudiantes, brindando mayor flexibilidad, oportunidades de avan…$pea0$, $pea0$> **A validar:** contenido relevado de https://kb-cau.21.edu.ar/servicios-cau/servicios/acciones-especiales el 2026-11-19. Revisalo antes de publicar.
+
+Conocé las acciones de Persistencia y las iniciativas de acompañamiento académico implementadas para favorecer la continuidad de los estudiantes, brindando mayor flexibilidad, oportunidades de avance y apoyo en el tramo final de sus carreras.
+
+INDICE:
+
+- Acciones de Persistencia 2/26
+
+-
+
+- Eliminación de correlativa de Idioma Inglés
+
+- Cursado simultáneo de Práctica Profesional y Seminario Final
+
+-  Alumnos Libres por nota– Período 1A
+
+Acciones de persistencia 2/26
+
+Con el objetivo de acompañar la continuidad académica de nuestros estudiantes y brindarles mayor flexibilidad en el tramo final de sus carreras, a partir del período 2/26 comenzarán a implementarse una serie de excepciones académicas.
+
+🔎 Resumen de las acciones vigentes:
+
+✅ Acción a : Eliminación de correlativa de idioma inglés.
+
+Para favorecer el avance académico de los estudiantes, se elimina la correlativa de Idioma Inglés.
+
+-
+¿Qué cambia? Se elimina la exigencia de idioma inglés para rendir EFIP e inscribirme en las materias que la requerían.
+
+-
+¿A quién aplica? Estudiantes con idioma inglés pendiente.
+
+-
+Carreras Todas las carreras alcanzadas por esta correlativa.
+
+¿Qué podrán hacer los estudiantes?
+
+-
+Rendir el EFIP I sin tener aprobada la asignatura Idioma Inglés.
+
+-
+Inscribirse a materias que anteriormente exigían idioma inglés como correlativa.
+
+Importante: Inscripción a Examen EFIP con Idioma Pendiente
+
+La inscripción al examen EFIP con idioma pendiente se debe generar desde Portal Estudiante.
+
+En caso de error o para el reporte de un inconveniente, se solicita que la evidencia adjunta (capturas de pantalla) sea obtenida desde Portal Estudiante (no SGU) , ya que es el canal sobre el cual debe validarse la incidencia.
+
+Vigente de manera permanente, pendiente de incorporarse en el Reglamento
+
+✅ Acción b: Cursado simultáneo de Práctica Profesional y Seminario Final
+
+A partir del período 2/26 se elimina la correlatividad entre Práctica Profesional y Seminario Final , permitiendo cursar ambas asignaturas en forma simultánea.
+
+-
+¿Qué cambia? A mbas asignaturas podrán cursarse en simultáneo.
+
+-
+¿A quién aplica? Estudiantes que deban cursarlas.
+
+-
+Carreras: Todas las carreras.
+
+Condiciones
+
+- Vigencia exclusiva para el período 2/26.
+
+- Los estudiantes podrán inscribirse en ambas asignaturas en el mismo período académico.
+
+- Ya no será necesario aprobar o finalizar una para inscribirse en la otra.
+
+- Esta medida busca brindar mayor flexibilidad y agilizar el avance académico.
+
+Importante
+
+La eliminación de la correlatividad se aplica únicamente entre estas dos asignaturas. Los estudiantes deberán continuar cumpliendo con los requisitos académicos y condiciones de aprobación vigentes para cada espacio curricular.
+
+Vigente de manera permanente, pendiente de incorporarse en el Reglamento
+
+Alumnos Libres por Nota – Período 1A
+
+La acción está dirigida a alumnos que, durante el período 1A 2026, quedaron en condición de Libre por Nota y no rindieron el examen final dentro del plazo inicialmente habilitado.
+
+A partir de la extensión de la acción, es importante diferenciar dos situaciones:
+
+1. Alumnos que ya habían arancelado dentro del primer plazo
+
+Los alumnos que arancelaron hasta el 17/09 inclusive mantienen las condiciones informadas inicialmente:
+
+- Las materias alcanzadas por la acción volverán a quedar en condición de Libre por Nota.
+
+- Podrán rendir el examen final hasta el 03/10.
+
+2. Alumnos que se encontraban pendientes de RI
+
+A los alumnos que se encontraban pendientes de RI hasta el viernes se les comunicó una nueva extensión:
+
+- Podrán acceder a la acción si arancelan hasta el jueves 01/10 inclusive.
+
+- En estos casos, tendrán plazo para rendir el examen final hasta el 10/10.
+
+Consideraciones para la atención
+
+Es importante validar en qué instancia de la acción se encuentra el alumno antes de informar la fecha límite para rendir:
+
+- Aranceló hasta el 17/09 → puede rendir hasta el 03/10.
+
+- Se encontraba pendiente de RI y accede a la extensión, arancelando hasta el 01/10 → puede rendir hasta el 10/10.
+
+Si un alumno se contacta indicando que recibió la comunicación, cumplió con el arancelamiento correspondiente para acceder a la acción, pero no visualiza la materia habilitada para inscribirse al examen final, podrán completar el formulario de Acción de Persistencia | Alumnos Libres por Nota – Período 1A, para que el equipo de Persistencia revise el caso y gestione la habilitación correspondiente. Acción de Persistencia | Alumnos Libres por nota– Período 1A : Rellenar formulario$pea0$, 'global', 'borrador', $pea0$https://kb-cau.21.edu.ar/servicios-cau/servicios/acciones-especiales$pea0$)
+on conflict (categoria_id, slug) do nothing;
+
+insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
+values ((select id from public.categorias where slug = $pea0$institucional$pea0$), null, 46, $pea0$kb-46-tutores-de-carrera$pea0$,
+        $pea0$Tutores de Carrera$pea0$, $pea0$Charlas con directores de carrera para alumnos$pea0$, $pea0$> **A validar:** contenido relevado de https://kb-cau.21.edu.ar/servicios-cau/servicios/tutores-de-carrera- el 2026-11-19. Revisalo antes de publicar.
+
+Charlas con directores de carrera para alumnos
+
+Los alumnos contarán con la posibilidad de tener encuentros virtuales con sus directores de Carrera. El espacio está pensado para que puedan resolver sus dudas/consultas académicas.
+
+Ante consultas sobre inscripción a materias según plan de correlativas u organización de cursado, o dudas sobre la carrera en particular, los front van a poder brindar el día, horario y enlace de la sala (que adjuntamos en este correo electrónico) para que el estudiante pueda contactarse con su director.
+
+Encuentros con directores: https://www.lanube.21.edu.ar/encuentros-con-directores
+
+La reunión será por la plataforma equipos estará habilitada en el día y horario estipulado por el director.
+
+⚠️Importante: no se tratarán temas vinculados a consultas administrativas/uso de plataformas o cualquier otra que deba ser abordada por los canales de Atención Alumnos.
+
+Decanato de Ciencias de la Administración y Management
+
+Decana: Dra. Analía Nievas
+
+- Licenciatura en Comercialización - Marketing — Lic. Luciana Mudry — luciana.mudry@ues21.edu.ar
+
+- Tecnicatura Universitaria en Dirección de Equipos de Ventas — Lic. Luciana Mudry — luciana.mudry@ues21.edu.ar
+
+- Tecnicatura Universitaria en Marketing y Publicidad Digital — Lic. Luciana Mudry — luciana.mudry@ues21.edu.ar
+
+- Licenciatura en Gestión de Recursos Humanos — Esp. Lic. Marcelo Lesta — marcelo.lesta@ues21.edu.ar
+
+- Tecnicatura Universitaria en Gestión de Clima Laboral en la Organización — Esp. Lic. Marcelo Lesta — marcelo.lesta@ues21.edu.ar
+
+- Tecnicatura en Relaciones Laborales — Esp. Lic. Marcelo Lesta — marcelo.lesta@ues21.edu.ar
+
+- Licenciatura en Administración — Esp. Lic. Marcelo Lesta — marcelo.lesta@ues21.edu.ar
+
+- Licenciatura en Emprendimiento (CCC) — Esp. Lic. Marcelo Lesta — marcelo.lesta@ues21.edu.ar
+
+- Licenciatura en Gestión Ambiental — Dr. Gabriel Imwinkelried — gabriel.imwinkelried@ues21.edu.ar
+
+- Tecnicatura Universitaria en Gestión y Auditorías Ambientales — Dr. Gabriel Imwinkelried — gabriel.imwinkelried@ues21.edu.ar
+
+- Licenciatura en Ambiente y Energías Renovables — Dr. Gabriel Imwinkelried — gabriel.imwinkelried@ues21.edu.ar
+
+- Licenciatura en Administración Agraria — Dr. Esteban Papalini — esteban.papalini@ues21.edu.ar
+
+- Contador Público — Pablo Bustos- pablo.bustos@ues21.edu.ar
+
+- Tecnicatura en Gestión Contable e Impositiva — Cdora. Gabriela Álvarez — gabriela.alvarez@ues21.edu.ar
+
+- Tecnicatura en Administración y Gestión Tributaria — Cdora. Gabriela Álvarez — gabriela.alvarez@ues21.edu.ar
+
+- Licenciatura en Comercio Internacional — Mgter. María Gabriela Vázquez — gabriela.vazquez@ues21.edu.ar
+
+- Licenciatura en Logística Global — Mgter. María Gabriela Vázquez — gabriela.vazquez@ues21.edu.ar
+
+- Licenciatura en Administración de Servicios de Salud (CCC) — Mgter. Pilar Maure — pilar.maure@ues21.edu.ar
+
+- Tecnicatura en Gestión de Empresas Familiares — Mgter. Pilar Maure — pilar.maure@ues21.edu.ar
+
+- Tecnicatura Universitaria en Gestión Administrativa de Servicios de Salud — Mgter. Pilar Maure — pilar.maure@ues21.edu.ar
+
+- Licenciatura en Gestión Turística — Mgter. Maximiliano Pérez — maximiliano.perez@ues21.edu.ar
+
+- Licenciatura en Administración Hotelera — Mgter. Maximiliano Pérez — maximiliano.perez@ues21.edu.ar
+
+- Tecnicatura Universitaria en Gestión de Recursos Turísticos — Mgter. Maximiliano Pérez — maximiliano.perez@ues21.edu.ar
+
+- Licenciatura en Gestión Deportiva — Lic. María Julia Grasso — Julia.Grasso@ues21.edu.ar
+
+- Licenciatura en Finanzas — Mgter. Nicolás Quaglia — nicolas.quaglia@ues21.edu.ar
+
+- Licenciatura en Inteligencia de Negocios Digitales — Mgter. Nicolás Quaglia — nicolas.quaglia@ues21.edu.ar
+
+- Actuario — Mgter. Nicolás Quaglia — nicolas.quaglia@ues21.edu.ar
+
+Decanato de Ciencias del Derecho
+
+Decana: Mgter. Paula Alladio
+
+- Abogacía — Ab. Guadalupe Virasoro — guadalupe.virasoro@ues21.edu.ar
+
+- Procurador — Ab. María Belén Villareal Bracamonte — belen.villareal@ues21.edu.ar
+
+- Escribanía (CCC) — Ab./Escr. Federico Miguel — federico.miguel@ues21.edu.ar
+
+- Tecnicatura en Administración y Auditoría de Propiedad Horizontal — Abg./Escr. Daniel Sebastián Nini Zalazar — sebastian.nini@ues21.edu.ar
+
+- Licenciatura en Desarrollo de Negocios Inmobiliarios — Abg./Escr. Daniel Sebastián Nini Zalazar — sebastian.nini@ues21.edu.ar
+
+- Martillero, Corredor Público y Corredor Inmobiliario — Abg./Escr. Daniel Sebastián Nini Zalazar — sebastian.nini@ues21.edu.ar
+
+- Tecnicatura en Investigación de la Escena del Crimen — Lic. Javier Francisco Chilo — javier.chilo@ues21.edu.ar
+
+- Licenciatura en Criminología y Seguridad — Lic. Javier Francisco Chilo — javier.chilo@ues21.edu.ar
+
+Decanato de Ciencias Aplicadas
+
+Decano: Ing. Carlos Ramonda
+
+- Tecnicatura Universitaria en Diseño y Animación Digital — Téc. Superior Roberto Benedetti — roberto.benedetti@ues21.edu.ar
+
+- Licenciatura en Diseño y Animación Digital — Téc. Superior Roberto Benedetti — roberto.benedetti@ues21.edu.ar
+
+- Licenciatura en Diseño Gráfico — Dis. Gráf. Fernanda Vincenti — fernanda.vincenti@ues21.edu.ar
+
+- Licenciatura en Publicidad — Dis. Gráf. Fernanda Vincenti — fernanda.vincenti@ues21.edu.ar
+
+- Licenciatura en Diseño Industrial — Vacante
+
+- Tecnicatura Universitaria en Gestión de Moda — Lic. Candelaria Urrere Pon — candelaria.urrerepon@ues21.edu.ar
+
+- Licenciatura en Diseño de Indumentaria y Textil — Lic. Candelaria Urrere Pon — candelaria.urrerepon@ues21.edu.ar
+
+- Licenciatura en Informática — Dr. Ing. Luis Bravo — luis.bravo@ues21.edu.ar
+
+- Ingeniería en Software — Dr. Ing. Luis Bravo — luis.bravo@ues21.edu.ar
+
+- Licenciatura en Higiene, Seguridad y Medioambiente del Trabajo — Mgter. Matías Andrés Aparicio — matias.aparicio@ues21.edu.ar
+
+- Tecnicatura en Higiene y Seguridad Laboral — Mgter. Matías Andrés Aparicio — matias.aparicio@ues21.edu.ar
+
+- Licenciatura en Inteligencia Artificial y Robótica — Ing. Sergio Fritz — sergio.fritz@ues21.edu.ar
+
+- Licenciatura en Administración de Infraestructura Tecnológica — Ing. Sergio Fritz — sergio.fritz@ues21.edu.ar
+
+- Tecnicatura Universitaria en Redes y Telecomunicaciones — Ing. Sergio Fritz — sergio.fritz@ues21.edu.ar
+
+- Ingeniería en Innovación y Desarrollo — Ing. Sergio Fritz — sergio.fritz@ues21.edu.ar
+
+- Licenciatura en Seguridad Informática — Lic. Emanuel Vilas — emmanuel.vilas@ues21.edu.ar
+
+- Licenciatura en Bioinformática — Lic. Martina Ceballos — martina.ceballos@ues21.edu.ar
+
+- Tec. en Diseño y Desarrollo de Videojuegos — Tec. Fernando Nicolás Córdoba — cordoba.fernando@ues21.edu.ar
+
+- Licenciatura en Matemática — Ing. Mónica Campos — monica.campos@ues21.edu.ar
+
+- Licenciatura en Gestión de la Información — VACANTE — —
+
+- Licenciatura en Ciencia de Datos — Lic. Marcos Augusto Ugarte — marcos.ugarte@ues21.edu.ar
+
+- Tecnicatura Universitaria en Hidrocarburos y Geociencias — Ing. Marcela Maldonado — marcela.maldonado@ues21.edu.ar
+
+Decanato de Ciencias Humanas y Sociales
+
+Decana: Lic. María Eugenia Scocco
+
+- Licenciatura en Relaciones Internacionales — Lic. Paola Ninci — paola.ninci@ues21.edu.ar
+
+- Licenciatura en Ciencia Política y Gobierno — Lic. Paola Ninci — paola.ninci@ues21.edu.ar
+
+- Licenciatura en Administración Pública — Lic. Paola Ninci — paola.ninci@ues21.edu.ar
+
+- Tecnicatura Universitaria en Administración y Gestión de Políticas Públicas — Lic. Paola Ninci — paola.ninci@ues21.edu.ar
+
+- Licenciatura en Relaciones Públicas e Institucionales — Lic. Guadalupe Altamirano — guadalupe.altamirano@ues21.edu.ar
+
+- Tecnicatura Universitaria en Dirección de Protocolo, Organización de Eventos y Relaciones Públicas — Lic. Guadalupe Altamirano — guadalupe.altamirano@ues21.edu.ar
+
+- Licenciatura en Periodismo — Dra. Celina Morgan — celina.morgan@ues21.edu.ar
+
+- Licenciatura en Educación (CCC) — Mgter. Débora Brocca — debora.brocca@ues21.edu.ar
+
+- Licenciatura en Educación y Nuevas Tecnologías — Mgter. Débora Brocca — debora.brocca@ues21.edu.ar
+
+- Profesorado Universitario para el Nivel Secundario y Superior — Mgter. Débora Brocca — debora.brocca@ues21.edu.ar
+
+- Licenciatura en Psicopedagogía — Esp. Lic. Luciana Rinaudo — Luciana.Rinaudo@ues21.edu.ar
+
+- Tecnicatura en Responsabilidad y Gestión Social — Mgter. Evangelina Pérez — evangelina.perez@ues21.edu.ar
+
+- Licenciatura en Antropología Organizacional — Mgter. Evangelina Pérez — evangelina.perez@ues21.edu.ar
+
+- Tecnicatura Universitaria en Promoción Comunitaria en Niñez y Adolescencia — Mgter. Evangelina Pérez — evangelina.perez@ues21.edu.ar
+
+Decanato de Ciencias de la Salud
+
+Decano: Dr. Diego Baenas
+
+- Licenciatura en Psicología — Dra. Ana Estefanía Azpilicueta — ana.azpilicueta@ues21.edu.ar
+
+- Licenciatura en Psicología (Río Cuarto) — Mgter. Paola Flores — paola.flores@ues21.edu.ar
+
+- Licenciatura en Kinesiología y Fisioterapia — Dra. Marcela La Villa — Marcela.Lavilla@ues21.edu.ar
+
+-
+Licenciatura en Nutrición - Directora Interina. Laura Sánchez Salamanca - laura.sanchez@ues21.edu.ar
+
+-
+Lic. en Tecnología de los Alimentos - Directora Interina. Laura Sánchez Salamanca - laura.sanchez@ues21.edu.ar
+
+- Licenciatura en Terapia Ocupacional y Desarrollo Humano — Lic. Milva González — milva.gonzalez@ues21.edu.ar
+
+- Licenciatura en Instrumentación Quirúrgica — Lic. Cecilia Ludueña — cecilia.luduena@ues21.edu.ar
+
+- Licenciatura en Producción de Bioimágenes — Lic. Esp. Danilo Catalfamo — danilo.catalfamo@ues21.edu.ar
+
+- Licenciatura en Gerontología (CCC) — Mgter. Gabriela Gallo — gabriela.gallo@ues21.edu.ar
+
+- Tecnicatura Universitaria en Atención de Emergencias Prehospitalarias — Lic. Carlos López Bigott — carlos.lopez@ues21.edu.ar
+
+- Tecnicatura Universitaria en Enfermería — Lic. Esp. María Isabel Morales — morales.maria@ues21.edu.ar
+
+- Licenciatura en Fonoaudiología — Lic. Daina Rojos — daina.rojos@ues21.edu.ar
+
+- Medicina — Dr. Marcelo Orias y Dra. Paola Carmona — marcelo.orias@ues21.edu.ar
+
+Posgrado
+
+-
+Especialización en Cibercrimen — Luciano Monchiero — luciano.monchiero@ues21.edu.ar
+
+-
+Especialización en Contabilidad y Auditoría — Martín Cuadro — martin.quadro@unc.edu.ar
+
+-
+Especialización en Derecho de Familia, Niñez y Adolescencia — Adriana María Warde — adriana.warde@ues21.edu.ar
+
+-
+Especialización en Derecho Penal Tributario y Económico — Abel Guillermo Sánchez Torres / Juan Manuel Álvarez Echague — juan.alvarez@ues21.edu.ar / abel.sanchez@ues21.edu.ar
+
+-
+Especialización en Logística y Cadena de Suministros — José Poncio — jose.poncio@setlogistica.com
+
+-
+Especialización en Finanzas Corporativas y Mercado de Capitales — Marcelo Alejandro Delfino — marcelo.delfino@ues21.edu.ar
+
+-
+Especialización en Gestión y Gobierno de Empresas Familiares — Martín Antonio Guezuraga Charrette — martin.guezuraga@ues21.edu.ar
+
+-
+Especialización en Marketing y Dirección Comercial — Federico Marcelo Paviolo — federico.paviolo@ues21.edu.ar
+
+-
+Especialización en Negocios Internacionales — Federico Iván Trebucq — federico.trebucq@ues21.edu.ar
+
+-
+Maestría en Administración de Empresas — Carina Inés Marqués Bertinatti — carina.marques@ues21.edu.ar
+
+-
+Maestría en Administración de Negocios y Aplicaciones Tecnológicas en la Empresa — Jorge Alberto Fantín — jorge.fantin@ues21.edu.ar
+
+-
+Maestría en Criminología y Ciencias Forenses — Hugo Álvarez — estudioslegales@gmail.com
+
+-
+Maestría en Derecho Internacional — Manuela Moccero — manuela.moccero@21.edu.ar
+
+-
+Maestría en Derecho Procesal — Silvana Chiapero — silvana.chiapero@ues21.edu.ar
+
+-
+Maestría en Innovación Educativa — Débora Brocca — debora.brocca@ues21.edu.ar
+
+-
+Maestría en Inteligencia de Negocios y Explotación de Datos — Hugo Fernando Frías — hugo.frias@ues21.edu.ar$pea0$, 'global', 'borrador', $pea0$https://kb-cau.21.edu.ar/servicios-cau/servicios/tutores-de-carrera-$pea0$)
+on conflict (categoria_id, slug) do nothing;
+
+insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
+values ((select id from public.categorias where slug = $pea0$atencion-y-derivaciones$pea0$), null, 47, $pea0$kb-47-secretaria-de-gestion-academica-sgea$pea0$,
+        $pea0$Secretaria de gestión académica - SGEA$pea0$, $pea0$Guía para gestionar consultas relacionadas con demoras en la carga de notas y correcciones, y falta de respuesta de los docentes.$pea0$, $pea0$> **A validar:** contenido relevado de https://kb-cau.21.edu.ar/servicios-cau/servicios/inscripción-a-materias el 2026-11-19. Revisalo antes de publicar.
+
+Guía para gestionar consultas relacionadas con demoras en la carga de notas y correcciones, y falta de respuesta de los docentes.
+
+ÍNDICE
+
+-
+Demora en respuesta del Docente
+
+- Demora en corrección de trabajo práctico
+
+- Revisión de calificación
+
+- Materia sin tutor asignado
+
+- Respuesta profesor materias de proceso
+
+1-Demora en respuesta del docente
+
+Descripción
+
+Esta gestión contempla los casos en los que un estudiante manifiesta no haber recibido respuesta por parte de su Docente, luego de haber realizado una consulta a través de la mensajería del Aula Virtual – Canvas.
+
+📣La mensajería de Canvas es el canal oficial de comunicación entre el estudiante y el Docente. Si el estudiante indica que realizó el contacto por otro medio, no corresponde gestionar el reclamo mediante esta tipificación. Tener en cuenta que siempre hacemos referencia a la bandeja de entrada dentro dentro de Canvas.
+
+Validaciones previas
+
+Antes de realizar la derivación, verificar:
+
+- Que el estudiante pertenezca a modalidad distancia.
+
+- Que el contacto con el docente se haya realizado mediante la mensajería del Aula Virtual – Canvas.
+
+- Que hayan transcurrido más de 48 horas hábiles desde el envío del mensaje sin recibir respuesta.
+
+- Que se cuente con una captura de pantalla que evidencie el contacto y la falta de respuesta.
+
+Importante: Esta tipificación aplica únicamente a estudiantes de modalidad distancia. En las modalidades presenciales, el estudiante debe contactarse con su docente a través de su entorno áulico.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: SGEA
+
+Tipificación: Demora en respuesta profesor titular experto
+
+Nota interna - completar ticket con los siguientes datos:
+
+- DNI:
+
+- Legajo
+
+- Materia:
+
+- Cátedra
+
+- Profesor asignado:
+
+- Print de pantalla que refleja la no respuesta del docente:
+
+Plazos: 3 días hábiles
+
+2- Demora en corrección de trabajo práctico
+
+Descripción
+
+Esta gestión contempla los casos en los que el estudiante realizó la entrega de un Trabajo Práctico (TP), pero no recibió la correspondiente corrección y calificación dentro del plazo establecido.
+
+Validaciones previas
+
+Antes de realizar la derivación, verificar:
+
+- Que la materia corresponda a una tipología MIP, MIA o MAP, ya que son las tipologías que requieren corrección docente.
+
+- Que hayan transcurrido más de 7 días corridos desde la fecha de vencimiento del Trabajo Práctico.
+
+- Que el Trabajo Práctico haya sido entregado correctamente por el estudiante y continúe sin corrección ni calificación.
+
+Importante: Esta gestión aplica a todas las modalidades de cursado.
+
+Importante: Esta tipificación corresponde cuando el Trabajo Práctico aún no fue corregido ni calificado. Si el estudiante ya recibió una corrección o calificación y desea realizar un reclamo sobre la nota o la devolución recibida, corresponde utilizar la tipificación Carga de nota TP con corrección docente.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: SGEA
+
+Tipificación: Demora en corrección de trabajo práctico
+
+Nota interna - completar ticket con los siguientes datos:
+
+- DNI
+
+- Legajo
+
+- Materia:
+
+- Cátedra
+
+- Número de TP
+
+- Profesor asignado:
+
+Plazos: 3 días hábiles
+
+3-REVISIÓN DE CALIFICACIÓN
+
+Descripción
+
+Esta gestión contempla los casos en los que el estudiante recibió la corrección y calificación de un Trabajo Práctico (TP) y manifiesta disconformidad con la justificación brindada por el docente o cuando no recibió comentarios o fundamentos que permitan comprender la calificación asignada.
+
+Validaciones previas
+
+Antes de realizar la derivación, verificar que el Trabajo Práctico haya sido entregado correctamente por el estudiante y cuente con una calificación registrada.
+
+Identificar el motivo del reclamo, según corresponda:
+
+-
+Disconformidad con la justificación del docente: el estudiante manifiesta que no está de acuerdo con los fundamentos o comentarios brindados por el docente respecto de la calificación obtenida.
+
+-
+Falta de devolución o ausencia de justificación: el estudiante manifiesta que no recibió comentarios, devolución o fundamentos que expliquen la calificación asignada. En estos casos, el reclamo debe centrarse en la falta de devolución o justificación de la nota.
+
+Importante: Esta gestión aplica a todas las modalidades de cursado.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: SGEA
+
+Tipificación: Carga de nota TP con corrección docente
+
+Nota interna - completar ticket con los siguientes datos:
+
+- DNI
+
+- Legajo
+
+- Materia
+
+- Cátedra
+
+- Número de TP
+
+- Profesor asignado
+
+-  Motivo del reclamo:
+
+Plazos: 3 días hábiles
+
+4- Materia sin tutor asignado
+
+Descripción
+
+Esta gestión contempla los casos en los que el estudiante informa que no tiene un tutor asignado para una materia.
+
+⚠️ Aclaración operativa
+
+Hasta el 16/08 inclusive, no se deben derivar tickets por HubSpot relacionados con cátedras que figuren como “SIN TUTORÍA”.
+
+Durante este período, las inscripciones permanecen abiertas y la organización de las cátedras continúa en definición, incluyendo movimientos de estudiantes, cierres y aperturas de cátedras.
+
+Por este motivo, no corresponde realizar la derivación hasta el 16/08. A partir del 17/08, si la materia continúa figurando como “SIN TUTORÍA”, se deberá realizar la gestión correspondiente según el circuito establecido.
+
+Validaciones previas
+
+Antes de realizar la derivación, verificar:
+
+-
+Que la materia se encuentre correctamente identificada en el historial académico del estudiante.
+
+-
+Consultar el profesor asignado a la materia en el historial académico, dentro de la columna “Profesor”.
+
+-
+Si en dicha columna figura “SIN TUTORÍA”, corresponde realizar la derivación.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: SGEA
+
+Tipificación: Materia sin tutor asignado
+
+Nota interna - completar ticket con los siguientes datos:
+
+- DNI:
+
+- Legajo:
+
+- Materia:
+
+- Cátedra:
+
+- Periodo:
+
+Plazo: 3 días hábiles
+
+5- Respuesta profesor materias de proceso
+
+Descripción
+
+Esta gestión contempla los casos en los que el estudiante realizó una consulta al profesor de una materia de proceso y no recibió respuesta dentro del plazo establecido.
+
+Materias de proceso
+
+Se consideran materias de proceso:
+
+- Seminario Final.
+
+- Práctica Profesional.
+
+- Seminario de Práctica Profesional (Pregrado).
+
+- Práctica Solidaria.
+
+- Integración Profesional: Estudio de un Caso (Pregrado).
+
+- Seminario de Planificación y Control de Gestión / Seminario de Práctica / EFIP I (Abogacía, Contador Público y RIN).
+
+Validaciones previas
+
+Antes de realizar la derivación, verificar:
+
+Que el estudiante haya realizado una consulta al profesor a través de Aula Virtual - Canvas.
+
+Verificar la fecha y hora del último contacto enviado por el estudiante al docente.
+
+Confirmar que hayan transcurrido más de 48 horas desde la consulta sin que el profesor haya brindado respuesta.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: SGEA
+
+Tipificación: Respuesta profesor materias de proceso
+
+Nota interna - completar ticket con los siguientes datos:
+
+- DNI:
+
+- Legajo:
+
+- Materia:
+
+- Cátedra:
+
+- Periodo:
+
+Plazos: 3 días hábiles$pea0$, 'global', 'borrador', $pea0$https://kb-cau.21.edu.ar/servicios-cau/servicios/inscripción-a-materias$pea0$)
+on conflict (categoria_id, slug) do nothing;
+
+insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
+values ((select id from public.categorias where slug = $pea0$institucional$pea0$), null, 48, $pea0$kb-48-iniciativas-de-acompanamiento-academico$pea0$,
+        $pea0$Iniciativas de Acompañamiento Académico$pea0$, $pea0$Información sobre iniciativas y recursos del Modelo Académico de Universidad Siglo 21 orientados a fortalecer el aprendizaje y acompañar la trayectoria académica de los estudiantes. Incluye sus obj…$pea0$, $pea0$> **A validar:** contenido relevado de https://kb-cau.21.edu.ar/servicios-cau/servicios/programa-preparatorio el 2026-11-19. Revisalo antes de publicar.
+
+Información sobre iniciativas y recursos del Modelo Académico de Universidad Siglo 21 orientados a fortalecer el aprendizaje y acompañar la trayectoria académica de los estudiantes. Incluye sus objetivos, funcionamiento, modalidades de acceso y beneficios para el aprendizaje.
+
+Índice
+
+- Programa preparatorio
+
+- Modulo 0
+
+- Tu Impulso a EFIP
+
+PROGRAMA PREPARATORIO
+
+El Programa Preparatorio es una instancia en la que se dictan clases de apoyo para estudiantes.
+
+Su objetivo es ayudar a adquirir conocimientos esenciales que faciliten el cursado de las materias troncales de cada carrera.
+
+El Módulo 0 de las materias seleccionadas se encuentra disponible en el Aula Virtual (Canvas).
+Los estudiantes pueden acceder durante el mes previo al inicio de clases, lo que les permite prepararse con anticipación.
+
+Contenido
+
+Cada Módulo 0 está compuesto por:
+
+- Cuatro (4) lecturas interactivas.
+
+- Actividades autoevaluativas incluidas en cada lectura.
+
+El propósito del módulo es brindar conocimientos básicos que faciliten la comprensión de los contenidos y favorezcan un tránsito exitoso por la materia.
+
+Acompañamiento
+
+Durante este período:
+
+- No habrá encuentros sincrónicos.
+
+- Los estudiantes contarán con un Tutor Virtual (CPV) disponible todos los días durante la duración del módulo.
+
+En Canvas se encuentran disponibles grabaciones de encuentros anteriores, que pueden utilizarse como material de refuerzo para el aprendizaje autónomo.
+
+MÓDULO 0
+
+El Módulo 0 es un módulo de lecturas que se encuentra disponible en materias específicas dentro del Aula Virtual (Canvas).
+
+Está pensado como un espacio de nivelación y preparación para materias que presentan mayor complejidad y un impacto significativo en el rendimiento académico.
+
+📅 Fechas de habilitación del Módulo 0
+
+El Módulo 0 se habilita aproximadamente un mes antes del inicio del cursado, de acuerdo con el calendario académico:
+
+- Período 1A: 18/02
+
+- Período 1B: 20/04
+
+- Período 2A: 06/07
+
+- Período 2B: 07/10
+
+Las fechas correspondientes a los períodos 1B, 2A y 2B podrían modificarse en función de la liberación de materias.
+
+Condiciones del cursado
+
+- El cursado del Módulo 0 es optativo.
+
+- No contiene instancias evaluativas formales.
+
+- Si bien está previsto que se transite un mes antes del inicio del cursado, el estudiante tendrá el Módulo 0 disponible durante todo el período en el que la materia esté habilitada.
+
+¿Para qué sirve cursar el Módulo 0?
+
+Mensajes clave para comunicar:
+
+- El Módulo 0 permite un inicio anticipado del recorrido de la materia.
+
+- Favorece una comprensión más clara de los contenidos antes del inicio formal del cursado.
+
+- La realización del Módulo 0 es una variable con impacto directo en el desempeño final del estudiante.
+
+- Incrementa las probabilidades de éxito académico.
+
+- Aporta claridad sobre la materia y su dinámica de cursado.
+
+- Facilita un inicio con mayor seguridad y confianza.
+
+Está comprobado que los estudiantes que participan del Módulo 0 incrementan su rendimiento académico en un 20%.
+
+¿De qué se compone el Módulo 0?
+
+Dentro del Módulo 0, el estudiante encontrará:
+
+- Cuatro (4) lecturas interactivas.
+
+- Actividades con devolución inmediata, que permiten practicar, corregir errores y comprender el porqué de cada respuesta.
+
+- Recursos de apoyo, como material complementario o clases grabadas, cuando estén disponibles.
+
+- Acompañamiento personalizado por parte de un tutor virtual a través de la mensajería de Canvas.
+
+- Apoyo disciplinar por parte de coordinadores disciplinares.
+
+¿Cómo se cursa el Módulo 0?
+
+Paso a paso para guiar al estudiante:
+
+El Módulo 0 se cursa de manera virtual en Canvas y se estructura en un trayecto simple:
+
+- Ingresar al Aula Virtual (Canvas).
+
+- Acceder a la materia donde se encuentra habilitado el Módulo 0.
+
+- En la página de inicio de la materia, hacer clic en “Módulo 0”.
+
+- El estudiante verá el módulo organizado por lecturas.
+
+- Para acceder a una lectura, debe hacer clic en “Ver lectura”.
+
+- Avanzar por las lecturas y realizar las actividades de repaso que se encuentran al final de cada una.
+
+- En cada actividad, el estudiante recibe retroalimentación inmediata para identificar errores, conocer la respuesta correcta y comprender su justificación.
+
+Acompañamiento y consultas
+
+- El canal principal de consultas es la mensajería de Canvas.
+
+- El estudiante puede contactar a su tutor virtual y recibir orientación para avanzar en el cursado.
+
+- Desde los fronts de atención, el acompañamiento debe estar orientado a:
+
+- Cómo avanzar en el Módulo 0.
+
+- Tiempos de cursado.
+
+- Ubicación de los materiales.
+
+- Ingreso y uso del Aula Virtual (Canvas).
+
+Si los estudiantes presentan consultas relacionadas con el modelo académico o con la comprensión de los contenidos, deben ser derivados al tutor virtual a través de la mensajería de su materia en Canvas.
+
+Materias que cuentan con Módulo 0
+
+El Módulo 0 se encuentra habilitado en las siguientes materias, según período de apertura y tipología.
+
+👉 Período 1-A
+
+Tipología MEC
+
+- CEX203 – Herramientas Matemáticas II – Análisis
+
+- CEX206 – Herramientas Matemáticas I – Álgebra
+
+- DER340 – Introducción al Derecho
+
+- PSI212 – Introducción a la Psicología
+
+- CSL207 – Fisiología Humana
+
+- INF352 – Introducción a la Ciencia de Datos
+
+- CEX320 – Álgebra y Geometría
+
+- CEX202 – Herramientas Matemáticas III – Estadística I
+
+- DER342 – Historia del Derecho
+
+- CSL202 – Anatomía Humana
+
+- PSI213 – Neuroanatomía y Neurofisiología
+
+- CSL232 – Anatomía
+
+- CSL231 – Bioquímica I
+
+- CSL298 – Enfermería Básica I
+
+- CSL332 – Fundamentos de Anatomía Humana
+
+Tipología MIA
+
+- DER353 – Derecho Penal Económico
+
+- ECO242 – Economía Internacional
+
+- CEX327 – Herramientas Matemáticas II – Análisis
+
+- ADO390 – Principios de la Contabilidad
+
+- CEX334 – Análisis Matemático
+
+- CEX335 – Matemática Discreta
+
+- CEX337 – Estadística y Probabilidad
+
+- CEX328 – Herramientas Matemáticas III – Estadística I
+
+Tipología MIP
+
+- DER341 – Derecho Constitucional
+
+- DER343 – Derecho Penal: Parte General
+
+- DER344 – Bases del Derecho Privado
+
+- CEX332 – Álgebra y Geometría
+
+- CEX333 – Lógica Simbólica
+
+- INF384 – Lenguajes Formales y Computabilidad
+
+- INF387 – Base de Datos I
+
+- CEX336 – Cálculo Avanzado
+
+- INF382 – Programación Orientada a Objetos
+
+👉 Período 1-B
+
+Tipología MEC
+
+- CEX203 – Herramientas Matemáticas II – Análisis
+
+- CEX206 – Herramientas Matemáticas I – Álgebra
+
+- DER342 – Historia del Derecho
+
+- ECO244 – Principios de Economía
+
+- TMP001 – Plan de Marketing Digital
+
+- TIE002 – Balística
+
+- CSL202 – Anatomía Humana
+
+- PSI213 – Neuroanatomía y Neurofisiología
+
+- THI003 – Electrotecnia y Termotecnia
+
+- CEX202 – Herramientas Matemáticas III – Estadística I
+
+Tipología MIA
+
+- DER352 – Teoría de la Argumentación Jurídica
+
+- CEX328 – Herramientas Matemáticas III – Estadística I
+
+- INF381 – Programación Lógica
+
+- INF383 – Arquitectura del Computador
+
+- INF380 – Sistemas de Información
+
+👉 Período 2-A
+
+Tipología MEC
+
+- CEX203 – Herramientas Matemáticas II – Análisis
+
+- CEX206 – Herramientas Matemáticas I – Álgebra
+
+- DER340 – Introducción al Derecho
+
+- CEX325 – Herramientas Matemáticas I – Álgebra
+
+- CSL207 – Fisiología Humana
+
+- CEX202 – Herramientas Matemáticas III – Estadística I
+
+- ECO244 – Principios de Economía
+
+- CSL237 – Fisiología
+
+- CSL236 – Bioquímica II
+
+- CSL305 – Ciencias Biológicas
+
+Tipología MIA
+
+- CEX327 – Herramientas Matemáticas II – Análisis
+
+- CEX335 – Matemática Discreta
+
+- INF380 – Sistemas de Información
+
+- DER353 – Derecho Penal Económico
+
+- DER352 – Teoría de la Argumentación Jurídica
+
+Tipología MIP
+
+- DER341 – Derecho Constitucional
+
+- DER343 – Derecho Penal: Parte General
+
+- DER344 – Bases del Derecho Privado
+
+- CEX332 – Álgebra y Geometría
+
+- CEX333 – Lógica Simbólica
+
+- INF384 – Lenguajes Formales y Computabilidad
+
+- INF387 – Base de Datos I
+
+- CEX336 – Cálculo Avanzado
+
+- INF382 – Programación Orientada a Objetos
+
+👉 Período 2-B
+
+Tipología MEC
+
+- CEX203 – Herramientas Matemáticas II – Análisis
+
+- CEX206 – Herramientas Matemáticas I – Álgebra
+
+- DER342 – Historia del Derecho
+
+- ECO244 – Principios de Economía
+
+- TMP001 – Plan de Marketing Digital
+
+- TIE002 – Balística
+
+- THI003 – Electrotecnia y Termotecnia
+
+- CEX305 – Cálculo Integral
+
+Tipología MIA
+
+- DER353 – Derecho Penal Económico
+
+- DER352 – Teoría de la Argumentación Jurídica
+
+- ECO242 – Economía Internacional
+
+- ADO390 – Principios de la Contabilidad
+
+- CEX328 – Herramientas Matemáticas III – Estadística I
+
+- CEX334 – Análisis Matemático
+
+- INF381 – Programación Lógica
+
+- INF383 – Arquitectura del Computador
+
+- CEX337 – Estadística y Probabilidad
+
+Aclaración importante para atención
+
+- La presencia del Módulo 0 depende de la materia y del período.
+
+- El Módulo 0 es optativo, no evaluativo y está orientado a nivelación académica.
+
+- Si el estudiante no visualiza el Módulo 0 en Canvas, se debe validar:
+
+- período habilitado,
+
+- materia correcta,
+
+- y estado de inscripción.
+
+Tu Impulso a EFIP
+
+Es una cápsula en Canvas creada para estudiantes de las carreras de Abogacía y Contador Público. Existe una cápsula por carrera, en la que se enrola a todos los estudiantes habilitados para rendir EFIP I y EFIP II.
+
+Inscripción y costo:
+
+La Universidad realiza el enrolamiento de los estudiantes, por lo que no necesitan inscribirse. La cápsula no tiene costo. Los enrolamientos se realizan de manera cuatrimestral.
+
+Propuesta de acompañamiento:
+
+La propuesta consiste en un proceso de preparación organizado en ciclos mensuales, dentro de los períodos de cursado. Durante las primeras tres semanas de cada ciclo (semanas 1, 2 y 3) se realiza un encuentro sincrónico semanal, en formato taller y a cargo de docentes evaluadores, destinado al repaso de los contenidos disciplinares evaluados en el EFIP I y/o II.
+
+En la semana 4, se espera que los estudiantes puedan rendir su examen EFIP bajo la modalidad ágil, siempre que cumplan con los requisitos establecidos para acceder a ella.
+
+Además, los estudiantes cuentan con el acompañamiento de un tutor virtual (CPV) en la cápsula. Los docentes no están enrolados ni disponibles en la misma.
+
+Recursos:
+
+Los estudiantes tienen disponible el programa de su examen (EFIP I y/o II), información acerca del EFIP Ágil, agenda de encuentros sincrónicos, y recursos en formato video y lecturas para ampliar su preparación (ejemplo: técnicas de estudio y autoevaluación para análisis de casos integradores)
+
+Importante:
+
+El objetivo de la propuesta es promover y acompañar el EFIP ágil, pero la participación en la cápsula no modifica/amplía los requisitos para rendir bajo esta nueva modalidad. Los recursos de preparación están disponibles para todos los estudiantes habilitados para rendir EFIP I y EFIP II, independientemente de la modalidad en la que rindan su examen.
+
+A partir del día de hoy 16/10 todos los alumnos de la carrera de Abogacía que se encuentran en condiciones de rendir EFIP I y II verán descargados en su AULA VIRTUAL (Canvas) la cápsula de Tu Impulso$pea0$, 'global', 'borrador', $pea0$https://kb-cau.21.edu.ar/servicios-cau/servicios/programa-preparatorio$pea0$)
+on conflict (categoria_id, slug) do nothing;
+
+insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
+values ((select id from public.categorias where slug = $pea0$aranceles-y-pagos$pea0$), null, 49, $pea0$kb-49-gestiones-de-cobranzas$pea0$,
+        $pea0$Gestiones de Cobranzas$pea0$, $pea0$Gestión de solicitudes administrativas y académicas, incluyendo anulación de tickets, anulación de pagos, materias extra, inconvenientes con promociones, recupero de beneficios, traspaso de arancel…$pea0$, $pea0$> **A validar:** contenido relevado de https://kb-cau.21.edu.ar/servicios-cau/servicios/gestiones-de-cobranzas el 2026-11-19. Revisalo antes de publicar.
+
+Gestión de solicitudes administrativas y académicas, incluyendo anulación de tickets, anulación de pagos, materias extra, inconvenientes con promociones, recupero de beneficios, traspaso de aranceles entre alumnos y resolución de errores en la generación de tickets.
+
+INDICE
+
+- ANULACIÓN DE TICKET
+
+- ANULACIÓN DE TICKET – MATERIA EXTRA
+
+- ANULACIÓN DE PAGO
+
+- INCONVENIENTE CON PROMOCIÓN
+
+- PROMOCIÓN ALUMNO RECUPERO
+
+- TRASPASO DE ARANCELES ENTRE ALUMNOS
+
+- ERROR EN LA GENERACIÓN DE TICKETS
+
+1-ANULACIÓN DE TICKET
+
+Antes de gestionar una anulación de ticket, verificar lo siguiente:
+
+- Confirmar que la anulación no pueda realizarse desde la botonera disponible en Portal Estudiante, SGU o Campus.
+
+- Proceder únicamente cuando:
+
+- Exista un error del sistema al intentar realizar la anulación desde la aplicación de anulación disponible en Portal Estudiante o Campus.
+
+- Se trate de un pedido de excepción debidamente fundamentado.
+
+- Realizar el correspondiente análisis académico.
+
+Tener en cuenta
+
+- Validar la cantidad de materiales involucrados.
+
+- Si la solicitud corresponde a un caso de no cursado y las materias se encuentran en condición Libre por Nota, no corresponde anular el ticket, ya que previamente debe solicitarse a SOA la anulación de la inscripción.
+
+- Si el estudiante cursó y abonó, no corresponde anular el ticket, sino facturarlo. Para ello, verificar el registro de pago mediante SOPER y contar con los comprobantes correspondientes.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Cobranzas
+
+Tipificación: Anulación de ticket por excepción
+
+Nota interna - completar ticket con los siguientes datos:
+
+- Nombre:
+
+- DNI:
+
+- Legajo:
+
+- N° de Ticket:
+
+- Motivo de anulación:
+
+- Nombre asesor:
+
+- Captura del error presentado.
+
+Plazos: 2 días hábiles
+
+2-ANULACIÓN DE TK MATERIA EXTRA
+
+Tener en cuenta el periodo de calendario academico de inscripciones de anulación, si estamos fuera del periodo de inscripción se debe solicitar la anulación de la materia, ya que no avanzamos con la anulación del tk en estado Libre por Nota de la materia extra.
+
+Analizar la cantidad de materias académicamente y su estado.
+Si lo abono y curso no corresponde anular el tk sino ver registro del pago con SOPER y sus respectivos comprobantes.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Cobranzas
+
+Tipificación: Anulación de ticket por excepción
+
+Nota interna - completar ticket con los siguientes datos:
+
+- Nombre:
+
+- DNI:
+
+- Legajo:
+
+- N° de Ticket:
+
+- Motivo de anulación:
+
+- Nombre asesor:
+
+Plazos: 2 días hábiles
+
+3-ANULACIÓN DE PAGO
+
+¿Cuando se solicita la anulación de pago?
+
+- Antes de las 18 hs del mismo día: el pago se anula y no impacta en el resumen.
+
+- Hasta 48 hs después: el pago se devuelve y se verá en el resumen junto con una nota de crédito por el mismo importe. No aplica para los alumnos que reclaman la disminución de intereses en las tarjetas de crédito.
+
+🎯Validaciones previas:
+
+- Es necesario informar el ID o código de operación del pago y el motivo del pedido.
+
+- Si el alumno solicita una baja definitiva, primero debe gestionarse con Trámites.
+
+- Si el pago quedó registrado en otro alumno, no se anula. Se debe solicitar un traspaso de pago.
+
+- No se pueden anular pagos de trámites ya facturados.
+
+- Si pasaron más de 48 horas desde el pago, corresponde gestionar un Riesgo de Baja.
+
+- Solo se revisan pagos realizados por canales online, Pago Electrónico o Rapipago Telefónico. Los pagos por Posnet deben derivarse a SOPER.
+
+- Es obligatorio adjuntar el comprobante de pago. Si no se cuenta con él, se deberán informar los datos alternativos solicitados.
+
+⚠️ Consideraciones importantes:
+
+- Toda anulación de pago generará deuda en el legajo, ya que el arancel ya fue facturado.
+
+- Una vez procesada la anulación, Cobranzas gestionará una baja administrativa del legajo.
+
+- Para solicitar el alta nuevamente, el alumno deberá realizar un pago a cuenta por el valor del semestre.
+
+- Luego del pago, será necesario contar con la conformidad de Cobranzas para avanzar con el alta administrativa.
+
+👉 Motivos de anulación de Pagos a gestionar:
+
+-
+Por pago duplicado (Sin baja administrativa dentro de las 48 hs de pago)
+
+-
+Por error en plan de pagos (Con baja administrativa hasta que abone a cuenta con el plan correcto)
+
+-
+Baja definitiva por no cursado (dentro de las 48 hs de pago) con baja de legajo previa con Tramites.
+
+-
+Motivo personal especificado con baja administrativa (Ej: accidente)
+
+👉 Tipo de anulaciones de pago:
+
+Anulación por pago duplicado
+
+¿Cuándo corresponde?
+
+- Cuando el alumno abonó dos o más veces el mismo concepto por error.
+
+¿Qué se valida?
+
+- Que ambos pagos se encuentren correctamente imputados en la cuenta del alumno.
+
+¿Qué sucede luego?
+
+- Se anula uno de los pagos realizados.
+
+- Mientras se procesa la anulación, el alumno verá un saldo a favor.
+
+- Una vez que la entidad confirma el contracargo, se genera una Nota de Débito (ND) que regulariza la cuenta y deja el saldo en cero.
+
+Anulación por error en el plan de pagos
+
+¿Cuándo corresponde?
+
+- Cuando el alumno seleccionó un plan de pagos incorrecto al momento de abonar.
+
+Importante
+
+- Debe indicar cuál era el plan de pagos que deseaba contratar.
+
+- Es necesario considerar los recargos o condiciones del nuevo plan seleccionado.
+
+¿Qué se valida?
+
+- Que el pago se encuentre correctamente imputado.
+
+¿Qué sucede luego?
+
+- Se anula el pago desde la plataforma.
+
+- Se solicita una baja administrativa del legajo.
+
+- El alumno deberá realizar un pago a cuenta con el plan de pagos correcto para gestionar el alta nuevamente.
+
+- Cuando la entidad confirme el contracargo, se cargará una Nota de Débito (ND) para cancelar el saldo a favor generado.
+
+Consideraciones importantes
+
+- La confirmación del contracargo puede demorar hasta 30 días.
+
+- Como el arancel ya fue facturado, la anulación generará deuda hasta que se regularice el nuevo pago.
+
+- El alumno recibirá una Nota de Crédito (NC) por el total del pago anulado.
+
+- Si realizó posteriormente un pago a cuenta, podrá visualizar ambos movimientos en su cuenta.
+
+- Si el pago original incluía un descuento por medio de pago (por ejemplo, pago en una cuota o débito), al anularlo se pierde ese beneficio y deberá abonar el importe sin descuento.
+
+Anulación de pago de Mobbex:
+
+Anulación de pago efectuados por Mobbex en 1 Cuota. Deberán informales a los alumnos que dicha anulación de pago implica la pérdida del beneficio recibido.
+
+- Anulación de Pago con Mobbex: En caso de que un cliente haya realizado el pago a través de MOBBEX y luego este pago sea anulado, se procederá a la anulación de dicho pago.
+Pérdida de Descuento: Debido a que el pago por medio de Mobbex permite aplicar un descuento especial del 10%, cuando este pago es anulado.
+
+- El cliente pierde el beneficio de dicho descuento, por lo que en el caso que el alumno decida abonar por otro medio (por ej, PPT en 6 cuotas) dicha transacción debe ser abonada/cancelada por el valor de los aranceles sin tener presente el descuento del 10% aplicado con anterioridad.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Cobranzas
+
+Tipificación:
+
+-
+Anulación de pago - Baja de Legajo
+
+-
+Anulación de pago Excepcional
+
+-
+Anulación de pago por error en plan de pagos
+
+-
+Anulación de pago por pago duplicado
+
+Nota interna - completar ticket con los siguientes datos:
+
+Obligatorio:
+
+- DNI del alumno.
+
+- Legajo.
+
+- ID de pago.
+
+- Si el cupón es de Paypertic, el ID comienza con 77.
+
+- Si no cuenta con el ID, adjuntar el cupón de Paypertic o Mobbex.
+
+Si no dispone del ID o cupón, informar:
+
+- DNI del titular.
+
+- Fecha del pago.
+
+- Últimos 4 dígitos de la tarjeta utilizada.
+
+- Plataforma de pago utilizada (Mobbex, Paypertic o Taca Taca/Cordobesa).
+
+- Importe abonado.
+
+- Cuota/s involucrada/s.
+
+Además:
+
+- Adjuntar el comprobante de pago (si lo posee).
+
+⏱️ Plazo de gestión estimado: 3 días hábiles.
+
+4-INCONVENIENTE CON PROMOCIÓN
+
+Teniendo en cuenta los posibles casos donde los alumnos no cuentan con la promoción aplicada o un porcentaje incorrecto en sus entradas.
+
+Tenga en cuenta en el caso de derivación a cobranza que se debe adjuntar la captura de e-pagos con el import que da a pagar por el cual se reclama y la captura de la wix de precios para ese legajo y fecha.
+
+No abonar a cuenta hasta que no se corrija la promoción en caso de error de sistemas.
+
+A partir de esto se nos pueden presentar tres escenarios distintos en función del plazo de vencimiento de la promoción , entre los cuales distinguimos:
+
+👉 PROMOCIÓN NO APLICADA
+
+DENTRO DE LAS 48 HS
+
+Verificar:
+
+-
+Es alumno reinscripto.
+
+-
+La promoción vence dentro de las próximas 48 hs.
+
+🚨 Si el alumno desea abonar dentro del plazo correspondiente y la promoción no se encuentra aplicada, se deberá tomar un pago a cuenta por el importe que correspondería abonar con la promoción vigente.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: SOPER
+
+Tipificación: NC Promoción NO aplicada.
+
+Nota interna - completar ticket con los siguientes datos:
+
+- DNI
+
+- Legajo
+
+- Nota de crédito por el descuento no aplicado.
+
+- Indicar fase de promoción.
+
+Plazo: 3 días hábiles.
+
+👉 YA VENCIÓ
+
+Verificar
+
+-
+Es alumno reinscripto.
+
+-
+Existe TK donde se manifiesta la intención de pago dentro de los plazos de la promoción.
+
+-
+La promoción ya venció.
+
+🚨 Si el alumno desea abonar dentro del plazo correspondiente y la promoción no se encuentra aplicada, se deberá tomar un pago a cuenta por el importe que correspondería abonar con la promoción vigente.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: SOPER
+
+Tipificación: NC Promoción NO aplicada.
+
+Nota interna - completar ticket con los siguientes datos:
+
+- DNI
+
+- Legajo
+
+- Nota de crédito por el descuento no aplicado.
+
+- Indicar fase de promoción.
+
+Plazo: 3 días hábiles.
+
+PROMOCIÓN NO APLICADA
+
+Verificar
+
+-
+Es alumno reinscripto.
+
+-
+La promoción NO vence dentro de las próximas 48 hs.
+
+🚨Si el alumno desea abonar dentro del plazo correspondiente y la promoción no se encuentra aplicada, corresponde gestionar la aplicación del descuento vigente.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Cobranzas
+
+Tipificación: Generación de matrícula y aranceles
+
+Nota interna - completar ticket con los siguientes datos:
+
+- DNI
+
+- Legajo
+
+- Solicitar aplicación del descuento vigente, junto a un print de pantalla de la fase reclamada.
+
+Plazo: 3 días hábiles.
+
+5-PROMOCIÓN ALUMNO RECUPERO
+
+La promoción recupero aplica SOLO si el alumno abona los conceptos completos. Es decir, si primero abona la matrícula y luego aranceles no tendrán los descuentos correspondientes. La promoción del 60% solo se aplica sobre los aranceles.
+
+En los siguientes casos se debe derivar a Cobranzas.
+
+- Alumno que cumpla con las condiciones de recuperación y no cuente con la promoción aplicada luego de haber generado los boletos.
+
+- Alumno con ticket diferenciado generado, que no impacta la promoción de manera automática por cuestiones de configuración del ticket.
+
+- Alumno con pase de carrera y/o modalidad, (no submodalidad).
+
+- Alumnos que tengan deudas de periodos anteriores (se debe derivar a SOPER previamente con formato de NC).
+
+- En el caso de que tenga boletos pendientes de pago de períodos anteriores, ya que el sistema no le permitirá anular y se trata de una excepción promocional solo para estos alumnos, se debe solicitar la anulación de los mismos.
+
+- Los tickets deben estar generados para el periodo en curso y en caso de error en la generación de los tks verificar si el cau, plan de estudio, modalidad etc están correctos.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: SOPER
+
+Tipificación: NC Recupero
+
+Nota interna - completar ticket con los siguientes datos:
+
+- DNI
+
+- Legajo al que se debe aplicar el descuento
+
+- Informar si se realizó algún cambio (modalidad/carrera)
+
+Plazos: 3 días hábiles.
+
+6-TRASPASO DE ARANCELES ENTRE ALUMNOS
+
+Verificar el motivo del pedido de traspaso. Si dicho pedido implica la baja de algún legajo, la gestión deberá realizarse desde Grupo de Riesgo.
+
+No debemos asegurar ni ofrecer traspasos de fondos, salvo que se trate de un pago imputado por error en otro legajo, ya que en los demás casos el proceso implica la baja del legajo cedente.
+
+👉 Traspaso de aranceles entre alumnos por baja del cedente
+
+Validar
+
+- Baja de legajo (aplica persistencia).
+
+- Actividad académica del alumno que quiere transferir el saldo y estado de las materias.
+
+- Que no tenga otros casos por el mismo motivo.
+
+- Que el pago se encuentre acreditado.
+
+Tener en cuenta
+
+- Que el legajo del cedente esté dado de baja y no tenga deuda.
+
+- Que el legajo del cedente tenga saldo a favor para traspasar.
+
+- Si no posee saldo a favor y el pedido corresponde a un período sin curso facturado, se debe emitir previamente la NC de manera automática a través de SOPER.
+
+- Que el legajo del alumno receptor esté activo o preinscripto, con los tickets del período en curso correctamente generados y sin tickets pendientes de períodos anteriores que no corresponda abonar.
+
+👉 Traspaso de aranceles por pago imputado en otro alumno
+
+Validar
+
+- Pago mal imputado (el pago fue realizado desde el PE de otro alumno).
+
+- En este caso NO es necesaria la baja académica de ningún alumno.
+
+Tener en cuenta
+
+- Se generará al alumno cedente una deuda por el importe transferido, la cual deberá abonarse a cuenta.
+
+- Si el pago mal imputado fue efectuado con recargos, al alumno receptor solo se le transferirá el importe del pago sin recargos, ya que estos permanecerán computados en el legajo del alumno cedente.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: SOPER
+
+Tipificación: Traspaso de aranceles entre alumnos
+
+Nota interna - completar ticket con los siguientes datos:
+
+- NOMBRE:
+
+- DNI:
+
+- LEGAJO:
+
+- MOTIVO:
+
+- PERÍODO:
+
+- Acuerdo de traspaso escaneado y firmado por ambos (Legalizado por el CAU).
+
+- DNI escaneado de cada alumno.
+
+Plazos: 10 días hábiles
+
+📋 Formularios:
+
+-
+Traspaso entre alumnos: descarga aquí
+
+-
+Alumno fallecido: descarga aquí
+
+🚨Importante:
+
+- No es necesario ser familiar directo; el formulario firmado por ambas personas físicas es suficiente.
+
+- El acuerdo debe enviarse a la Universidad por correo postal al Vicerrectorado de Gestión Institucional para su incorporación al legajo.
+
+- De forma excepcional, podrá gestionarse inicialmente con documentación escaneada para agilizar el proceso.
+
+- El alumno contará con 30 días para presentar la documentación requerida en forma física mediante correo postal.
+
+7-ERROR EN LA GENERACIÓN DE TICKETS
+
+MATERIAS EXTRAS - ALUMNOS NI
+
+Los alumnos NI no pueden realizar materias extras, por lo que no corresponde realizar una derivación en estos casos.
+
+Informar al alumno:
+
+"Al ser ingresante, en esta oportunidad no podrás hacer materias extras. Recién podrás hacerlo luego de abonar tu segunda matrícula."
+
+Derivación por error en la generación de tickets:
+
+Es indispensable intentar generar los tickets desde el Portal de Estudiante y verificar que el inconveniente persista.
+
+Antes de derivar:
+
+-
+Este proceso deberá utilizarse únicamente cuando exista un error al generar los tickets desde el Portal de Estudiante.
+
+-
+Solo en caso de presentarse un error en dicha gestión, corresponderá realizar la derivación.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Cobranzas
+
+Tipificación:
+
+-
+Generación de matrícula y aranceles
+
+-
+Generación de matrícula
+
+-
+Generación de tk materia de verano
+
+-
+Generación de tk materia extra
+
+Nota interna - completar ticket con los siguientes datos:
+
+- DNI
+
+- Legajo
+
+Plazo: 3 días hábiles.$pea0$, 'global', 'borrador', $pea0$https://kb-cau.21.edu.ar/servicios-cau/servicios/gestiones-de-cobranzas$pea0$)
+on conflict (categoria_id, slug) do nothing;
+
+insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
+values ((select id from public.categorias where slug = $pea0$atencion-y-derivaciones$pea0$), null, 50, $pea0$kb-50-gestion-cau-virtual$pea0$,
+        $pea0$Gestión CAU Virtual$pea0$, $pea0$Guía integral de CAU Virtual con información sobre exámenes, reprogramaciones y anulaciones de mesas, alumnos extranjeros , requisitos para EFIP I y II, cambios entre CAU físico y virtual.$pea0$, $pea0$> **A validar:** contenido relevado de https://kb-cau.21.edu.ar/servicios-cau/servicios/gestión-cau-virtual el 2026-11-19. Revisalo antes de publicar.
+
+Guía integral de CAU Virtual con información sobre exámenes, reprogramaciones y anulaciones de mesas, alumnos extranjeros , requisitos para EFIP I y II, cambios entre CAU físico y virtual.
+
+Exámenes parciales/finales
+
+🔗 Correo de EDH Virtual: centrouniversitariovirtual@ues21.edu.ar
+
+Los estudiantes de CAU Virtual rinden todas sus materias mediante Klarway, en modalidad 100% virtual.
+
+Las mesas de examen disponibles son las siguientes:
+
+Lunes a viernes
+
+06:00 a 09:00 hs
+09:00 a 13:00 hs
+13:00 a 17:00 hs
+17:00 a 20:00 hs
+20:00 a 22:00 hs
+
+Sábados y domingos
+
+01:00 a 04:00 hs
+04:00 a 09:00 hs
+09:00 a 13:00 hs
+13:00 a 17:00 hs
+17:00 a 20:00 hs
+20:00 a 22:00 hs
+
+Al asesorar al estudiante, es importante indicarle que, una vez inscripto en una mesa, podrá habilitar e iniciar su examen en cualquier momento dentro de la franja horaria seleccionada.
+
+Por ejemplo, si se inscribió en la mesa de 13:00 a 17:00 hs, podrá comenzar el examen en cualquier momento durante ese período.
+
+Al tratarse de una modalidad completamente virtual, no deberá presentarse en ninguna sede física para rendir.
+
+🔗 Instructivo ERROR 500 ► Ver aquí
+
+Reprogramaciones de solicitudes EDH Virtual
+
+Parciales
+
+En caso de que el estudiante no haya podido rendir un examen parcial debido a un inconveniente con la plataforma Klarway o por otro motivo contemplado por reglamento, deberá contactarse directamente con CAU Virtual para solicitar la reprogramación.
+
+Compartir al estudiante la siguiente información:
+
+"Para gestionar la reprogramación, deberá enviar un correo a centrouniversitariovirtual@ues21.edu.ar o comunicarse por WhatsApp al 3512600473 (asistencia técnica y consultas), indicando:
+
+- Nombre de la materia.
+
+- Fecha y hora del examen.
+
+- Fecha y hora en la que tiene disponibilidad para rendir.
+
+- Captura de pantalla del error o evidencia del inconveniente presentado."
+
+Validaciones previas:
+
+- Validar que se trate de un examen parcial.
+
+- Solicitar al estudiante la evidencia del inconveniente, si corresponde.
+
+- Informar los canales de contacto de CAU Virtual.
+
+- Registrar la gestión según el procedimiento interno.
+
+No se debe derivar a Sistema Q ninguna solicitud vinculada a la reprogramación de parciales de EDH Virtual. La gestión es realizada exclusivamente por CAU Virtual, mediante los canales indicados anteriormente.
+
+Finales
+
+Los exámenes finales de EDH Virtual no se reprograman.
+
+Ante inconvenientes durante la instancia de examen, corresponde solicitar la anulación de la mesa para que el estudiante pueda volver a inscribirse.
+
+Proceso de derivación:
+
+- Validar que se trate de un examen final.
+
+- Solicitar al estudiante una captura de pantalla del error o evidencia del inconveniente.
+
+- Generar un caso en Sistema Q utilizando la tipificación correspondiente.
+
+- Adjuntar la evidencia recibida.
+
+- Una vez realizada la anulación, informar al estudiante que deberá inscribirse nuevamente a la mesa desde su Campus Virtual.
+
+No indicar reprogramación para exámenes finales, ya que la única gestión disponible es la anulación de la mesa.
+
+Alumnos en el Extranjero
+
+Speech para alumnos extranjeros:
+
+“La universidad NO garantiza que puedas rendir fuera del territorio Argentino, ya que una condición para rendir los exámenes, como indica el Reglamento, es que se debe estar físicamente dentro de la República Argentina al momento de rendir el examen”
+
+Países con restricciones conocidas:
+
+Existen determinados países en los que, por cuestiones de seguridad informática y compatibilidad de la plataforma, se presentan restricciones que impiden rendir exámenes. Esta información no debe brindarse de manera proactiva, salvo que el estudiante consulte específicamente por alguno de estos destinos.
+
+Países: Bangladesh, Bulgaria, Camboya, Cameroon, Checa, China, Corea, Corea del Norte, Egipto, Estonia, Greece, Hong Kong, Indonesia, Iraq, Israel, Jordan, Kenya, Kyrgystan, Letonia, Lithuania, Malaysia, Moldova, Mozambique, Philippines, Rep Dominicana, Romania, Rusia, Seychelles, Slovakia, Slovenia, South Africa, Sweden, Tailandia, Taiwan, Turkey, Ukraine, Vietnam, Yemen.
+
+Para rendir desde el exterior.
+
+Gestionar un Consulta Alumnos y presentar alguna de las siguientes constancias:
+
+-
+Certificado laboral que acredite su residencia en el país donde trabaja.
+
+-
+Certificado de residencia o domicilio emitido por la autoridad competente del país donde reside.
+
+-
+Documentación emitida por vía consular que acredite su residencia en el exterior.
+
+Importante: esta excepción aplica únicamente para exámenes parciales y finales. Las Defensas Orales se rinden exclusivamente de manera presencial.
+
+EFIP I y EFIP II desde el extranjero
+
+Los estudiantes podrán rendir EFIP I y EFIP II desde el exterior.
+
+La evaluación se realizará mediante Zoom, en una fecha establecida por la Universidad. La convocatoria será comunicada con una antelación mínima de 7 días hábiles y el examen se desarrollará de acuerdo con el horario oficial de Argentina.
+
+Requisitos
+
+Para acceder a esta modalidad, el estudiante deberá:
+
+- Presentar un certificado que acredite su residencia en otro país (puede ser emitido por el consulado o tratarse de una carta oferta del empleador que respalde su residencia en el exterior por motivos laborales).
+
+- Pertenecer a CAU Virtual.
+
+- Encontrarse académicamente habilitado para rendir EFIP.
+
+Importante: El horario de rendida será siempre el correspondiente a Argentina, independientemente del país en el que se encuentre el estudiante
+
+Cambio de Cau físico a CAU Virtual o Viceversa
+
+Los alumnos que pueden solicitar cambio de Cau físico hacia CAU Virtual son los siguientes:
+
+- Cierre definitivo de Cau de Origen. Si está en proceso de baja deberá aguardar a que cierre el mismo para solicitar el cambio.
+
+- Alumno NI que se los inscribió por error en Cau Físico, pero habían solicitado inicialmente que querían CAU Virtual.
+
+- Alumno que se encuentre en Cau Físico y se encuentra insatisfecho con el mismo (maltrato, poca atención hacia el alumno, entre otras) y/o solicite “Baja de legajo” por motivos similares referentes al Cau Físico, podremos utilizar a modo de persistencia (NO OFRECER PROACTIVAMENTE) el cambio hacia CAU Virtual
+
+- Alumno que se encuentre fuera del país y deba permanecer al menos 2 meses (o de manera indefinida), podrá solicitar cambio hacia CAU Virtual
+
+Importante: NO e realizan cambios de Cau físico hacia CAU Virtual en otra circunstancia que sea las mencionadas anteriormente. Ante cualquier excepcionalidad PREVIAMENTE ANALIZADA Y CON CRITERIO NO se deriva a trámites, va a mesa de atención CAU para su análisis.
+
+Antes de realizar el cambio de Cau verificar:
+
+Si el cambio de CAU es a CAU virtual por cierre de CAU de origen, primero debemos validar el tipo de modalidad:
+
+- Si el alumno es ED, primero debemos solicitar el cambio de modalidad a EDH y luego solicitar el pase a CAU virtual. En caso de que se encuentre cursando materias deberá aguardar a que finalice las mismas, caso contrario quedarán Libre por Pase, que implica recursar la materia.
+
+- Si es alumno es EDH, se hace el pase directo teniendo en cuenta el Calendario de Trámites.
+
+En caso de que el alumno se encuentre en CAU Virtual y quiera solicitar pase a un Cau Físico, simplemente se solicita a “trámites”, teniendo en cuenta los requisitos generales.
+
+¿Qué sucede con los precios si cambia de CAU y eso conlleva un cambio de segmento?
+
+- En caso de poseer tickets pendientes de pago se actualizarán a precio nuevo. Si el alumno abonó el semestre completo, no se realiza ninguna acción.
+
+Actualmente, existen las siguientes zonas para CAU VIRTUAL, las mismas son A, B, C, D, E , F Y G podrán verlo cuando seleccionan el legajo de alumno en la parte “CAU”
+
+Solo a modo de información, detallo que Zona correspondería si se realiza cambio de CAU físico hacia CAU Virtual:
+
+Zona A CAV00A
+|
+Zona B CAV00B
+|
+Zona C CAV00C
+|
+
+Chubut
+|
+Entre Ríos
+|
+Salta
+|
+
+Tierra del Fuego
+|
+Río Negro
+|
+Sgo. del Estero
+|
+
+Neuquén
+|
+Jujuy
+|
+Corrientes
+|
+
+C.A.B.A.
+|
+Prov. Bs. As.
+|
+Misiones
+|
+
+Córdoba
+|
+San Luis
+|
+Catamarca
+|
+
+Santa Cruz
+|
+Santa Fe
+|
+Formosa
+|
+
+La Pampa
+|
+Mendoza
+|
+Chaco
+|
+
+|
+San Juan
+|
+La Rioja
+|
+
+|
+Tucumán
+|    |
+
+Práctica Profesional/Solidaria, EFIP y Defensa Oral
+
+Las realizan exactamente igual como cualquier otro alumno de modalidad EDH, se tienen que realizar de forma presencial tanto las Prácticas como el EFIP y Defensa.
+
+Legajos genéricos para consultar precios en Wix
+
+Los legajos genéricos para consultar en la Wix el precio dependiendo la Zona/Cau en la que se encuentren, en caso de que no lo puedan ver desde el legajo del alumno (por ejemplo, que consulte sobre precios o no se haya realizado aún el cambio y quiere aprovechar una promoción para tomar Pago a Cuenta):
+
+Aplica Para |  Segmento |  Código |
+
+CAU Virtual |  A |  VIR-SEG-A |
+
+B |  VIR-SEG-B |
+
+C |  VIR-SEG-C |
+
+Pasos a seguir para consultar los precios:
+
+- Ingresar el código en la WIX
+
+- Seleccionar el nivel (grado o pregrado) y carrera
+
+- Por último, seleccionar la Cantidad de Materias
+
+IVU (Introducción a la Vida Universitaria)
+
+Se realiza por ZOOM todos los jueves a las 14:00 hs y los jueves cada 15 días a las 20:30 hs. El primer jueves será el 1/02/2024.
+
+🔗 Link:  https://ues21-edu-ar.zoom.us/j/8766987880 pwd=RXFtNFA2alV4MnAwbysxZm5uRzlIdz09
+
+ID: 876 698 7880
+
+Contraseña: Siglo21$pea0$, 'global', 'borrador', $pea0$https://kb-cau.21.edu.ar/servicios-cau/servicios/gestión-cau-virtual$pea0$)
+on conflict (categoria_id, slug) do nothing;
+
+insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
+values ((select id from public.categorias where slug = $pea0$institucional$pea0$), null, 52, $pea0$kb-52-gabinete-de-bienestar$pea0$,
+        $pea0$Gabinete de Bienestar$pea0$, $pea0$El Gabinete de Bienestar acompaña a los estudiantes de Siglo 21 con apoyo emocional, herramientas pedagógicas y espacios de orientación para potenciar su bienestar y desempeño académico.$pea0$, $pea0$> **A validar:** contenido relevado de https://kb-cau.21.edu.ar/servicios-cau/servicios/gabinete-de-bienestar el 2026-11-19. Revisalo antes de publicar.
+
+El Gabinete de Bienestar acompaña a los estudiantes de Siglo 21 con apoyo emocional, herramientas pedagógicas y espacios de orientación para potenciar su bienestar y desempeño académico.
+
+¿QUÉ ES EL GABINETE DE BIENESTAR?
+
+El Gabinete de Bienestar es un espacio integral de acompañamiento para estudiantes de la Universidad Siglo 21 que se dedica a proporcionar herramientas y apoyo emocional-pedagógico durante toda la trayectoria académica.
+
+PROPÓSITO PRINCIPAL
+
+Acompañar a los estudiantes en su vida académica, brindando herramientas para un desempeño eficiente, escuchando y asesorando con el fin de impulsar la realización del proyecto académico y profesional en estado de bienestar y felicidad.
+
+MISIÓN
+
+Que cada estudiante de Siglo 21 cuente con un espacio donde sea escuchado y pueda encontrar un pilar sobre cómo gestionar su vida universitaria, para que el sueño de recibirse y convertirse en profesional esté cada día más cerca.
+
+EQUIPO PROFESIONAL
+
+El Gabinete está integrado por psicólogos y psicólogas de excelente calidez humana, que se egresaron de Siglo 21. Estos profesionales trabajan de manera conjunta para brindar asesoramiento ante los distintos desafíos que representa cada hito de la carrera académica.
+
+💡 ¿QUÉ ENCONTRÁS EN EL GABINETE DE BIENESTAR?
+
+📚 1. HERRAMIENTAS PEDAGÓGICAS
+
+-
+Orientación para organizar el estudio.
+
+-
+Técnicas de estudio personalizadas.
+
+-
+Estrategias de aprendizaje adaptadas a diferentes estilos.
+
+-
+Herramientas de comprensión lectora.
+
+-
+Métodos de construcción del aprendizaje.
+
+🧠 2. HERRAMIENTAS EMOCIONALES
+
+-
+Gestión de emociones ante exámenes.
+
+-
+Manejo del estrés académico.
+
+-
+Abordaje de pensamientos disfuncionales.
+
+-
+Trabajo con emociones negativas.
+
+🤝 3. ACOMPAÑAMIENTO PERSONALIZADO
+
+-
+Encuentros individuales y personalizados.
+
+-
+Acompañamiento en diferentes momentos de la trayectoria académica.
+
+-
+Seguimiento según las necesidades del estudiante.
+
+🎓 4. TALLERES Y ESPACIOS GRUPALES
+
+-
+Talleres temáticos para estudiantes ingresantes.
+
+-
+Preparación para primeros parciales.
+
+-
+Talleres de recuperación después de evaluaciones.
+
+-
+Talleres EFIP para estudiantes en instancias finales.
+
+-
+Preparación para defensa oral de trabajos finales.
+
+💻 5. RECURSOS DIGITALES Y CONTENIDOS
+
+-
+Videos educativos sobre técnicas de estudio.
+
+-
+Grabaciones de talleres anteriores.
+
+-
+Estrategias y herramientas en formato digital.
+
+-
+Contenidos sobre gestión de emociones.
+
+SERVICIOS Y ATENCIONES DISPONIBLES
+
+Los estudiantes pueden solicitar un encuentro individual y personalizado con el Gabinete de Bienestar a través de la Nube.
+
+🔗 CONTACTO DIRECTO
+
+📧 Email: gabinete.bienestar@ues21.edu.ar
+
+✅ También pueden escribir consultas directas por este medio.
+
+🎓 Acceso: Disponible para todos los estudiantes de Siglo 21.
+
+🌐 Modalidad: Virtual (principalmente) y presencial según modalidad del estudiante.
+
+🕒 Horarios: Flexibles, coordinables según disponibilidad.
+
+CARACTERÍSTICA DIFERENCIAL
+
+El Gabinete de Bienestar acompaña a los estudiantes a lo largo de toda su trayectoria académica, no solo de forma reactiva ante problemas, sino de manera proactiva, brindando espacios de orientación, escucha y fortalecimiento de habilidades personales y académicas.
+
+El servicio funciona en modalidades híbridas para adaptarse a estudiantes en diferentes modalidades de la Universidad (Presencial, Presencial Home, Educación Distribuida, etc.).
+
+VALORES Y ENFOQUE
+
+El Gabinete de Bienestar se caracteriza por:
+
+-
+Escucha activa: Cada estudiante es escuchado en sus necesidades particulares.
+
+-
+Asesoramiento integral: Combina herramientas pedagógicas y emocionales.
+
+-
+Calidez humana: Profesionales con sensibilidad y capacidad emocional.
+
+-
+Acompañamiento continuo: Seguimiento durante toda la trayectoria académica.
+
+-
+Promoción del bienestar: Enfoque en el bienestar integral, no solo en calificaciones.
+
+-
+Empoderamiento estudiantil: Herramientas para que el estudiante sea protagonista de su aprendizaje.$pea0$, 'global', 'borrador', $pea0$https://kb-cau.21.edu.ar/servicios-cau/servicios/gabinete-de-bienestar$pea0$)
+on conflict (categoria_id, slug) do nothing;
+
+insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
+values ((select id from public.categorias where slug = $pea0$aranceles-y-pagos$pea0$), null, 53, $pea0$kb-53-administracion$pea0$,
+        $pea0$Administración$pea0$, $pea0$Procesos de gestión administrativa para alumnos y empresas, incluyendo solicitudes de libre deuda, facturación a terceros, facturación y refacturación a nombre de empresas, acreditación de pagos, e…$pea0$, $pea0$> **A validar:** contenido relevado de https://kb-cau.21.edu.ar/servicios-cau/servicios/gestión-administración el 2026-11-19. Revisalo antes de publicar.
+
+Procesos de gestión administrativa para alumnos y empresas, incluyendo solicitudes de libre deuda, facturación a terceros, facturación y refacturación a nombre de empresas, acreditación de pagos, emisión de facturas en PDF, firma de formularios y consultas de deuda, detallando derivaciones, requisitos y plazos de atención.
+
+INDICE:
+
+- Libre Deuda Administrativo
+
+- Facturación a Terceros
+
+- Agente de Recaudación del Impuesto por AGIP
+
+- Facturación y Refacturación a nombre de la Empresa
+
+- Pedido de emisión de PDF factura generada
+
+- Acreditación Pago Empresa
+
+- Firma Formulario Alta Proveedor
+
+- Consulta Saldo Deuda Empresa
+
+Libre Deuda Administrativo
+
+⚠️Se deriva a TESORERÍA, solo en los casos de que el proceso automático no siga su curso, el área de Operaciones Títulos deberá continuar el proceso en BPM y luego solicitaremos a Tesorería el Libre deuda Administrativo.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Tesorería
+
+Tipificación: Libre Deuda Administrativo
+
+Nota interna - completar ticket con los siguientes datos:
+
+- DNI:
+
+- Nombre:
+
+- Legajo:
+
+- Print del error de BMP:
+
+Plazos: 72 hs hábiles.
+
+Aclaraciones
+
+- En caso de que el alumno tenga deuda, le dará un mensaje de error.
+
+- En el caso de que el botón de libre deuda, informe que el alumno tiene deuda, y se verifica que no es así, (página de pago electrónico, saldo pendiente, y tickets pendientes de pago), deben hacer print de pantalla y derivar el caso.
+
+- Si hay deuda, esos casos deben ser tratados por SOPER:
+
+Información para la derivación (HubSpot)
+
+Área de derivación: SOPER
+
+Tipificación: Analisís motivo de deuda
+
+Nota interna - completar ticket con los siguientes datos:
+
+Plazos: 72 hs hábiles.
+
+Facturación a Terceros
+
+⚠️ En el caso de que el alumno no haya recibido el correo, se debe derivar el caso a Administración para adjuntar en el ticket la factura generada.⚠️
+
+👉 Los alumnos podrán emitir su facturación desde Pago Electrónico a nombre de un tercero registrado en AFIP, sin necesidad de derivar el pedido a Administración.
+
+⚠️ Las facturas que se hagan por esta opción serán remitidas al correo que el alumno se registre en Campus y al correo que indique en el formulario.
+
+📌Instructivo:
+
+- Ingresar a pago, seleccionar los aranceles, abonar, luego en la pantalla de selección de medios de pago.
+
+- En datos de facturación, por defecto siempre va a figurar como consumidor final.
+
+- Si el alumno está vinculado y la empresa creada en CALIPSO, va a figurar la misma para seleccionar.
+
+- En el caso de que el alumno no esté vinculado, van a ir a datos de Facturación EDITAR; se abre la siguiente imagen con el BOTÓN ASOCIAR UN NUEVO CONTACTO.
+
+Se ingresa el CUIT en BUSCA UNA EMPRESA PARA ASOCIAR (Se busca en la base de datos de AFIP); una vez que se realizó la búsqueda, va a figurar abajo el CUIT; se selecciona como se ve en la foto (queda pintado en Verde), ingresamos asociar.
+
+Se va a desplegar el siguiente formulario con todos los datos de la empresa que debe completar el alumno. En el caso de que algún dato se ingrese de forma incorrecta, se va a generar el aviso de que los datos no son correctos y, hasta que no se modifiquen, no podrá crear la empresa.
+
+- Una vez que esté creado el contacto, va a quedar generada la empresa y se puede borrar la empresa anterior para que no genere confusión.
+
+- Se cierra la ventana y volvemos a la selección de las formas de pago, en datos de facturación va a poder seleccionar la empresa para realizar el pago.
+
+- Se genere la vinculación de forma automática en Calipso y el envío de la factura generada por correo electrónico.
+
+Agente de Recaudación del Impuesto por AGIP
+
+Nuestra Universidad fue determinada como Agente de Recaudación del Impuesto “Ingresos Brutos” por AGIP (Administración Gubernamental de Ingresos Públicos de CABA) para percibir a aquellos contri2buyentes que estén nominados por esta.
+
+Los consumidores finales quedan excluidos.
+
+¿Qué implica?
+
+- Que en el pago de aranceles, Siglo debe actuar como agente de recaudación de AGIP, percibiendo un porcentaje sobre lo facturado. El mismo será tomado como pago a cuenta del impuesto Ingresos Brutos del CUIT de la Empresa que está ingresando.
+
+- Al momento en que el/la estudiante desee solicitar factura a nombre de un CUIT nomenclado, en el sistema le aparecerá una Pop Up, indicándole los pasos a seguir para esta solicitud.
+
+- Es por ello que este/a estudiante se contactará con los canales de atención de la Universidad solicitando la facturación.
+
+El asesor que tome el contacto debe:
+
+- Solicitarle al estudiante el CUIT nomenclado
+
+- Consultarle si se trata de una emisión de factura o refacturación
+
+👉 Emisión de Factura: emitir directamente la factura al CUIT nomenclado.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Administración
+
+Tipificación: Pedido de Facturación a una Empresa
+
+Nota interna - completar ticket con los siguientes datos:
+
+- DNI
+
+- Legajo
+
+- Medio de pago.
+
+Plazo: 72 hs hábiles.
+
+👉 Refacturación: el alumno ya pagó los aranceles, y necesita que su factura sea emitida a nombre de un tercero. Debe abonar previamente la percepción, a través pago electrónico, para poder indicarle qué monto debe pagar.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Administración
+
+Tipificación: Pedido de Facturación a una Empresa
+
+Nota interna - completar ticket con los siguientes datos:
+
+- DNI
+
+- Legajo
+
+Plazo: 72 hs hábiles.
+
+Solo si el alumno lo solicita se puede compartir la normativa ► ver aquí
+
+Resolución ► ver aquí
+
+Facturación y Refacturación a nombre de la Empresa
+
+Realizamos esta gestión cuando un alumno se comunica para solicitarnos que en la factura figure el nombre de una empresa o tercero.
+
+En el caso que el alumno no se encuentra vinculado a la empresa, deberá presentar el formulario completo debe estar firmado de puño y letra, y sellado + la constancia de ARCA.
+
+🔗Formulario ➔ CLICK ACÁ.
+
+⚠️ El formulario debe ser presentado todos los semestres, es requisito obligatorio, ya debe contener la información detallada debajo.
+
+Deberá contener todos los datos solicitados y firmado por un responsable de la empresa.
+
+- Firma de la empresa.
+
+- Importe a abonar.
+
+- Dirección - Provincia.
+
+- Medio de pago.
+
+- Fecha de pago.
+
+- Teléfono de contacto.
+
+Una vez vinculado hay dos escenarios:
+
+- Empresa solícita el envío de la factura para poder realizar el pago, para lo cual el alumno debe enviar el formulario solicitado.
+
+- Empresa ya realizo el pago/transferencia y el alumno envía el formulario donde figura que conceptos debemos facturar.
+
+Importante:
+
+Las empresas que poseen deuda, NO se emite facturación.
+
+Si el alumno tiene pagos de semestres anteriores, las facturas quedarán a nombre de él. Cambiarán las facturas próximas después de la vinculación.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Adminsitración
+
+Tipificación: Refacturación a nombre de una Empresa
+
+Nota interna - completar ticket con los siguientes datos:
+DNI
+Legajo
+
+Fatura generada
+
+Plazos:
+
+Pedido de emisión de PDF factura generada
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Adminsitración
+
+Tipificación: Pedido de emisión de PDF de una factura generada (Empresa)
+
+Nota interna - completar ticket con los siguientes datos:
+DNI
+Legajo
+
+Plazos:
+
+Acreditación Pago Empresa
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Adminsitración
+
+Tipificación: Imputación saldo a favor a nombre de la empresa
+
+Nota interna - completar ticket con los siguientes datos:
+
+- DNI
+
+- Legajo
+
+-
+Adjuntar formulario de facturación COMPLETO y FIRMADO por el responsable de la empresa.
+
+-
+Constancia de CUIT.
+
+-
+Adjuntar comprobante de pago.
+
+Plazos: 4 días hábiles
+
+Firma Formulario Alta Proveedor
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Adminsitración
+
+Tipificación: Firma de formulario Alta de Proveedor
+
+Nota interna - completar ticket con los siguientes datos:
+
+- DNI
+
+- Legajo
+
+Empresa Nueva
+
+- Adjuntar formulario de facturación COMPLETO y FIRMADO por el responsable de la empresa.
+
+- Constancia de CUIT.
+
+Empresa vinculada
+
+- Adjuntar formulario de facturación COMPLETO y FIRMADO por el responsable de la empresa.
+
+- Constancia de CUIT.
+
+Plazos: 4 días hábiles
+
+Consulta Saldo Deuda Empresa
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Adminsitración
+
+Tipificación: Consulta saldo deuda de Empresa
+
+Nota interna - completar ticket con los siguientes datos:
+DNI
+Legajo
+
+Plazos: 3 días hábiles$pea0$, 'global', 'borrador', $pea0$https://kb-cau.21.edu.ar/servicios-cau/servicios/gestión-administración$pea0$)
+on conflict (categoria_id, slug) do nothing;
+
+insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
+values ((select id from public.categorias where slug = $pea0$institucional$pea0$), null, 54, $pea0$kb-54-accesibilidad$pea0$,
+        $pea0$ACCESIBILIDAD$pea0$, $pea0$ESTUDIANTES CON DISCAPACIDAD$pea0$, $pea0$> **A validar:** contenido relevado de https://kb-cau.21.edu.ar/servicios-cau/servicios/-accesibilidad-estudiantes-con-discapacidad-1.-documentación-requerida el 2026-11-19. Revisalo antes de publicar.
+
+ESTUDIANTES CON DISCAPACIDAD
+
+1. DOCUMENTACIÓN REQUERIDA
+
+Los estudiantes que deseen declarar una discapacidad deben presentar uno de los siguientes documentos:
+
+-
+Certificado Único de Discapacidad (CUD), o
+
+-
+Certificado emitido por un profesional idóneo
+
+Procedimiento de carga:
+
+-
+El documento debe cargarse ÚNICAMENTE a través de Digital Admin
+
+-
+Buscar la etiqueta específica para carga de CUD/Certificado
+
+-
+Adjuntar el documento completo en formato PDF
+
+-
+Incluir todas las hojas en un solo archivo.
+
+2. CUÁNDO DERIVAR UN CASO A ACCESIBILIDAD
+
+Debe derivar el caso cuando:
+
+-
+El estudiante ha cargado el CUD o certificado en Digital Admin
+
+-
+El check de discapacidad está marcado en Hubspot.
+
+PROCEDIMIENTO DE DERIVACIÓN - PRIMERA VEZ QUE LO SOLICITA SOLICITUD:
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Accesibilidad
+
+Tipificación: Ajustes acordados por discapacidad
+
+Nota interna - completar ticket con los siguientes datos:
+
+-
+DNI del estudiante
+
+-
+Legajo
+
+-
+Solicitud detallada del estudiante
+
+-
+Email del estudiante (verificar que esté actualizado, ya que el especialista de accesibilidad se contactará por correo).
+
+Plazos: 72 hs hábiles
+
+SI EL ESTUDIANTE YA CARGO EL CUD - YA TIENE EL CHECK:
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Sistema Q
+
+Tipificación: Extensión de tiempo del examen – Discapacidad
+
+Nota interna - información obligatoria:
+
+- Dni
+
+- Legajo
+
+- Fecha y tipo de examen.
+
+- Materia.
+
+Plazo de gestión: 72 hs hábiles
+
+ESTUDIANTES SIN CHECK DE DISCAPACIDAD:
+
+Si el estudiante NO tiene marcado el check de discapacidad y no hay tickets anteriores, solicitar al estudiante que nos envíe: CUD, certificado, o informe con diagnóstico.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Accesibilidad
+
+Tipificación: Ajustes acordados por discapacidad
+
+Nota interna - información obligatoria:
+
+-
+Dni
+
+-
+Legajo
+
+-
+Tipo de discapacidad
+
+-
+Consulta, solicitud y/o reclamo detallado
+
+-
+Indicar dónde se encuentra cargado el CUD (o especificar si el estudiante prefiere no presentarlo)
+
+Plazo de gestión: 72 hs hábiles
+
+3. ALCANCES DEL CENTRO DE ACCESIBILIDAD
+
+-
+Acompañar y asesorar en accesibilidad académica a estudiantes con discapacidad
+
+-
+Brindar capacitaciones y asesoramiento a asesores y docentes
+
+4. DEFINICIÓN: AJUSTES RAZONABLES
+
+Los ajustes razonables son modificaciones y adaptaciones necesarias y adecuadas que:
+
+-
+No imponen una carga desproporcionada o indebida
+
+-
+Se requieren en un caso particular
+
+-
+Garantizan a las personas con discapacidad el goce y ejercicio en igualdad de condiciones de todos los derechos humanos y libertades fundamentales
+
+5. POLÍTICA DE ACCESIBILIDAD INSTITUCIONAL
+
+En la Universidad Siglo 21 creemos que todas las personas tienen derecho a aprender y desarrollarse, cada una desde su propia forma de ser y de vivir.
+
+Trabajamos para que nuestras modalidades de estudio, materiales, espacios y acompañamientos se adapten a las necesidades de cada estudiante, incluyendo a quienes tienen alguna discapacidad.
+
+Implementamos ajustes y apoyos personalizados que permiten que todos puedan participar en igualdad de condiciones. Entendemos que la inclusión no es solo permitir el acceso, sino también asegurar que cada persona se sienta parte y alcance sus metas.
+
+6. LISTA COMPLETA DE AJUSTES APROBADOS
+
+-
+Extensión de tiempo de examen (hasta 100% del tiempo reglamentario)
+
+-
+Cambios en la modalidad de examen (EFIP - Otros)
+
+-
+Apoyo en la interpretación de consignas
+
+-
+Incorporación de lupas en exámenes
+
+-
+Incorporación de lectores de pantalla en exámenes
+
+-
+Incorporación de Intérprete de Lengua de Señas Argentina (ILSA)
+
+-
+Incorporación de subtitulados
+
+-
+Reasignación de fechas de exámenes
+
+-
+Incorporación de mobiliario específico y adaptado
+
+-
+Digitalización de contenidos
+
+7. LO QUE NO SE PUEDE HACER (NO DERIVAR)
+
+❌ Realizar ajustes o recortes en los contenidos de los programas de formación
+
+❌ Brindar apoyo terapéutico individual
+
+8. INSTRUCTIVOS Y RECURSOS
+
+🔗 Instructivo Uso de Lupa: https://drive.google.com/file/d/1V5KFOl575_9pDjGvnFqjLtKH9i9esV86/view?usp=sharing
+
+🔗 Instructivo Habilitación de Lector de Pantalla: https://drive.google.com/file/d/1mWwL1m-TtFqZQrpStpKgydo-SQMuq0f-/view?usp=sharing
+
+🔗Instructivo Uso de Plataformas para Discapacidad Visual: https://drive.google.com/file/d/1WRTNZ2INT1LoQsxEqX0GpywTMVtMirV4/view?usp=sharing
+
+🔗 Instructivo Sistema de Evaluación: https://drive.google.com/file/d/1UHIwV622p76UlzFzAgalkYX3Kx6lXlrE/view?usp=sharing
+
+🔗 Instructivo Klarway para Discapacidad Visual: https://contenidos.21.edu.ar/descargas/manual-del-usuario-sistema-de-evaluacion-online.pdf
+
+🔗 Protocolo de Prácticas Educativas Inclusivas (RCS 933/21): https://contenidos.21.edu.ar/descargas/rcs-933-21-protocolo-practicas-educativas-inclusivas-resolucion-2-1.pdf
+
+9. INFORMACIÓN ADICIONAL SOBRE CUD
+
+El Certificado Único de Discapacidad (CUD) es el documento oficial que acredita una discapacidad en Argentina.
+
+Es el documento principal requerido por la Universidad para acceder a los ajustes razonables y apoyos académicos.$pea0$, 'global', 'borrador', $pea0$https://kb-cau.21.edu.ar/servicios-cau/servicios/-accesibilidad-estudiantes-con-discapacidad-1.-documentación-requerida$pea0$)
+on conflict (categoria_id, slug) do nothing;
+
+insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
+values ((select id from public.categorias where slug = $pea0$aranceles-y-pagos$pea0$), null, 55, $pea0$kb-55-becas-y-beneficios$pea0$,
+        $pea0$Becas y Beneficios$pea0$, $pea0$Información sobre becas, beneficios y ayudas económicas de Universidad Siglo 21.$pea0$, $pea0$> **A validar:** contenido relevado de https://kb-cau.21.edu.ar/servicios-cau/servicios/becas-y-beneficios el 2026-11-19. Revisalo antes de publicar.
+
+Información sobre becas, beneficios y ayudas económicas de Universidad Siglo 21.
+
+BECAS
+|  BENEFICIOS |
+
+Consideraciones Generales
+
+Proceso de postulación
+
+Proceso de postulación en el CRM
+
+Becas de Ayuda Económica
+Beca para talentos en situación vulnerable (mediante postulación)
+
+Becas Académicas
+Becas para el mejor promedio de cada Colegio Secundario
+Beca por Alto Rendimiento Académico
+Convenios con colegios amigos
+
+Becas Sociales
+Beca La Universidad Es Posible
+Beca Ex Combatientes o Veteranos de Malvinas e Hijos
+Beca Abra Pampa
+Beca Cau Maldonado / Asunción
+
+Becas por renovación
+Beca Discapacidad
+Beca Alumno Regular
+
+Beca UAR
+
+Beca ENARD
+
+Beca Empresa de Negocio
+
+Beca Santander
+|
+Consideraciones Generales
+
+Beneficio de Ingreso
+
+Boleto Educativo Gratuito
+
+Beneficio Incentivo por rendimiento académico
+
+Beneficio Amigo Referido
+
+Beneficio por familiar directo
+
+Beneficio por Segunda carrera
+
+Beneficio por Doble Titulación
+
+Beneficio por Convenios con empresas o instituciones amigas
+
+Beneficio Consejo de la Magistratura el Poder Judicial de la Nación
+
+Beneficio por Persistencia a la Graduación
+
+Beneficio a la Comunidad Educativa Siglo 21
+
+Beneficio para alumnos deportistas federados
+
+Beneficio para proveedores estables
+
+Beneficio para egresados ​​de Institutos CA U
+
+Seguro de continuidad
+
+Garantía de adaptación
+
+Beneficio Egresado Teclab
+
+Becas Embajadores Siglo 21
+
+Convenio Celi
+|
+
+🚨 Recordá
+
+La aplicación y renovación de Becas y Beneficios está sujeta a que el estudiante de Ciclo de Complementación tenga su legajo completo y la documentación presentada correctamente.
+
+Podés consultar los requisitos de documentación en el Reglamento Institucional:
+
+🔗 https://contenidos.21.edu.ar/microsites/reglamento/index.php?put=2-2-documentacion-obligatoria-y-complementaria
+
+BECAS
+
+Solo se le dará curso a las solicitudes de Beca/Beneficios que presenten la documentación de su legado de forma completa.
+
+En caso de no contar con la misma presentación, recordarle al alumno que deberá cargarla por Digital Admin
+
+Consideraciones Generales:
+
+Se denomina "Beca" al apoyo económico que se otorga con la finalidad de facilitar el acceso y/o continuidad de estudio universitario a aquellos alumnos que demuestren buen nivel académico, regularidad en sus estudios y que carecen de recursos económicos suficientes.
+
+- NO tienen carácter retroactivo.
+
+- En caso de calificar para más de una categoría de ayuda, se aplicará aquella que sea más provechosa para el estudiante.
+
+- Pueden ser parciales o totales.
+
+- Válidas por un semestre.
+
+- Se tendrá en cuenta el rendimiento y la regularidad académica. Se determinará teniendo en cuenta su promedio contemplando aplazos y la regularidad académica.
+
+- Su renovación, para un nuevo semestre, será a requerimiento del interesado ya la documentación a presentar.
+
+- Estará sujeta a la aprobación del área correspondiente.
+
+- Son personales e intransferibles.
+
+- Las diferentes ayudas económicas (becas y beneficios) no son acumulables entre sí.
+
+- Las promociones sí pueden acumularse con una beca. Se aplica siempre, primero el descuento correspondiente a la beca y luego, la promoción.
+
+La condición socioeconómica se determinará teniendo en cuenta:
+
+- Los ingresos del grupo familiar
+
+- Los egresos del grupo familiar
+
+- La cantidad de integrantes del grupo familiar menores de edad y los miembros discapacitados.
+
+- La condición de actividad del principal perceptor de ingresos del grupo familiar, priorizando aquellos que se encuentren desocupados o subocupados.
+
+- La situación jurídica del inmueble que habita el postulante, priorizándose los supuestos en que el inmueble no sea propio o se encuentre hipotecado.
+
+- El nivel de instrucción alcanzado por los padres.
+
+- La cobertura de salud del estudiante.
+
+- El lugar de procedencia del alumno
+
+Como visualizar la beca cargada en SGU:
+
+⚠️Antes de derivar, verificar que la Beca o Beneficio no se encuentre ya aplicada.
+
+Desde el botón de SGU Listado de  Beca pueden corroborar si una Beca o Beneficio ya fue aplicada y está activa.
+
+Toda Beca o Beneficio que se visualiza aquí con vigencia 01-JAN-27 a 28-FEB-28 es porque está aplicada e impactada para el Periodo 1/7.
+
+De esta manera podrán resolver consultas y solicitudes de Becas y Beneficios en el momento o en línea sin necesidad de derivar el beneficio si es que el solicitado se encuentra habilitado.
+
+Proceso de Postulación:
+
+📋Formulario de postulación - La Nube |
+
+Los plazos de postulación y evaluación son:
+
+Primer semestre:
+
+-
+
+-
+Apertura de postulaciones: 1 de Octubre del año anterior.
+
+-
+Cierre de postulaciones: 1 de enero del año de cursado. *
+
+-
+Fecha máxima de confirmación: 1 de febrero del año de cursado.
+
+Segundo semestre:
+
+-
+
+-
+Apertura de postulaciones: 1 de Abril del año de cursado.
+
+-
+Cierre de postulaciones: sin fecha límite " hasta nuevo aviso". *
+
+-
+Fecha máxima de confirmación: 20 de Julio del año de cursado.
+
+*Si el formulario aún se encuentra activo pasada la fecha de cierre, el alumno lo puede completar y su postulación será analizada por el área de Becas, ya que el plazo límite puede ser extendido.
+
+¿Qué le decimos entonces al alumno?
+
+"Te cuento las fechas importantes para la postulación a becas. Para el primer semestre, la fecha límite de postulación es el ..... del año de cursado. Si después de esa fecha encontrás el formulario todavía habilitado, te recomendamos que completes la postulación de todos modos, ya que el área de Becas puede extender el plazo y evaluar tu solicitud. Una vez enviada, cualquier novedad o resultado te será informado por correo electrónico.
+
+Es importante que tengas en cuenta que solo se considerarán las postulaciones que estén completas y con toda la documentación requerida. La beca, en caso de ser otorgada, aplicará desde el momento en que se verifique que la documentación está completa y la solicitud sea aprobada.
+
+Por último, una vez finalizado el período de admisión de postulaciones, la Universidad comunicará el resultado de tu solicitud dentro de los 20 días corridos posteriores, a través de tu correo electrónico institucional."
+
+Cupos de postulación:
+
+El Vicerrectorado de Gestión Institucional establecerá, para cada semestre, los cupos disponibles para el otorgamiento de cada categoría de Becas, las cuales serán asignadas por orden de presentación de la solicitud cumpliendo todos los requisitos de cada tipo de beca conforme a lo establecido en este Reglamento.
+
+Asimismo, serán valoradas las solicitudes de acuerdo al orden de mérito en función del rendimiento académico y la condición socioeconómica de la persona solicitante, según la tipología de la que se trata.
+
+Perfecto. Si es para un procedimiento interno del asesor, conviene redactarlo en tercera persona y como acción operativa, manteniendo el formato de la imagen:
+
+Proceso de Postulaciones:
+
+1. Ingreso de la solicitud
+
+-
+El aspirante/alumno completa el Formulario de Postulación, adjuntando la documentación requerida.
+
+-
+El formulario genera automáticamente un ticket de Hubspot que ingresa a la cola de atención correspondiente.
+
+2. Validación inicial del asesor
+
+-
+El asesor verifica que la documentación presentada sea correcta y se encuentre completa.
+
+-
+Asimismo, valida que el alumno cumpla con las condiciones académicas requeridas para acceder al beneficio solicitado.
+
+3. Revisión de documentación
+
+-
+Si la documentación se encuentra completa, el ticket se deriva a la bandeja SOA para su tratamiento.
+
+-
+Si la documentación está incompleta o presenta inconsistencias, el ticket se devuelve al alumno, indicando el motivo y solicitando una nueva postulación con la documentación corregida.
+
+4. Análisis de la solicitud
+
+-
+Una vez recibido el ticket, SOA analiza la solicitud y valida el cumplimiento de las condiciones correspondientes al tipo de beca solicitado.
+
+-
+Se informa al alumno que la solicitud se encuentra en análisis y que recibirá una respuesta dentro de los plazos establecidos.
+
+5. Registro y elevación al Comité
+
+-
+SOA registra las solicitudes que cumplen con todos los requisitos, formaliza el ranking según los criterios vigentes y los cupos disponibles, y eleva los casos al Comité de Becas y Beneficios para su validación.
+
+6. Resolución y comunicación
+
+-
+El Comité de Becas y Beneficios evalúa las solicitudes y emite una resolución.
+
+-
+SOA procede a la asignación de los porcentajes de beca aprobados.
+
+-
+Finalmente, se comunica al alumno el otorgamiento o rechazo de la beca a través del área de Fidelización.
+
+Proceso de derivación en el CRM
+
+Cuando una persona cargue el formulario de postulación, se creará de manera automática un ticket en HubSpot y se alojará en la vista ► "Postulaciones de Becas Servicios".
+
+Ante esto pueden suceder dos situaciones:
+
+- Que el postulante sea alumno: Se asociará directamente el ticket con el asunto "Solicitud de beca" al contacto ya existente del alumno.
+
+- Que el postulante sea NI : Se creará un contacto con un único ticket con el asunto "Solicitud de beca".
+
+Luego de realizar el análisis correspondiente, podremos encontrar 3 escenarios posibles:
+
+👉 Documentación incompleta:
+
+Deberás cerrar el ticket enviando como comentario público la siguiente respuesta:
+
+Hola [Nombre del Estudiante]
+Revisando tu solicitud de Beca identificamos que la documentación enviada no ha sido la correcta. Te informamos que debes volver a cargar la solicitud con los adjuntos correctos:
+[Detalle (lista) de lo que debe adjuntar correctamente en la solicitud]
+Esperamos tu solicitud nuevamente, podés enviarla desde la web: https://inscribite.21.edu.ar/solicitud-de-becas-0
+Te invitamos a revisar los requisitos y condiciones de las Becas desde https://www.reglamento.21.edu.ar/becas-y-beneficios"
+(Firma institucional)
+
+👉 Requisitos Académicos sin cumplir:
+
+Deberás cerrar el ticket enviando como comentario público la siguiente respuesta:
+
+Hola [Nombre del Estudiante]
+Revisando tu solicitud de Beca identificamos que no cumple con los requisitos académicos establecidos. Te informamos que debes volver a cargar la solicitud con los adjuntos correctos:
+[Detalle (lista) de lo que debe adjuntar correctamente en la solicitud]
+Esperamos tu solicitud nuevamente, podés enviarla desde la web: https://inscribite.21.edu.ar/solicitud-de-becas-0
+Te invitamos a revisar los requisitos y condiciones de las Becas desde https://www.reglamento.21.edu.ar/becas-y-beneficios
+
+👉 Requisitos y documentación completa:
+
+- Ticket de derivación a BECAS ► TODOS los datos que el formulario requieran se completarán de manera automática. NO ES NECESARIO llenar NINGÚN campo más. Solo deberás enviarlo completando la nota interna con el pedido.
+
+- El ticket se cargará bajo un nuevo tipo de formulario denominado BECA ► ​​NO DEBES MODIFICARLO
+
+- El área de becas realiza validación de requisitos y de documentación. Si está bien, respondemos al alumno directamente y cerramos el ticket.
+
+- Una vez cerrado el plazo de postulaciones, se brinda el listado de alumnos postulados al Comité de Becas y Beneficios para validación final del ranking.
+
+Teniendo 3 escenarios posibles (BECAS DARA RESPUESTA):
+
+👉 Si la beca fue Aprobada , se enviaráará este mail al alumno:
+
+"Hola [Nombre del Estudiante]
+¡Felicidades! ¡Tu solicitud de Beca ha sido aprobada!
+Durante el XXXX semestre contarás con una Beca del XX%.
+Generá tu ticket y efectúa tu pago desde LINK A PORTAL ESTUDIANTES > GENERACIÓN DE TICKET > PLATAFORMA DE PAGO.
+Recordá que, durante este semestre, deberás retribuir la ayuda recibida mediante la realización de tareas en la Universidad. Un referente del área de la Universidad a la que serás asignado se comunicará con vos Te invitamos a revisar los requisitos y condiciones de las Becas desde https://www.reglamento.21.edu.ar/becas-y-beneficios
+Universidad
+Siglo 21."
+
+👉 Si la Beca fue Rechazada por CUPO , se enviará este mail al alumno:
+
+"Hola [Nombre del Estudiante]
+Tras finalizar el análisis de tu Solicitud de Beca te informamos que se ha completado el cupo definido para el otorgamiento de la misma. El semestre que viene podés volver a postularte.
+Te invitamos a conocer los beneficios que podés solicitar si cumples con las condiciones correspondientes desde https://www.reglamento.21.edu.ar/becas-y-beneficios
+Saludos.
+Universidad Siglo 21."
+
+👉 Si la Beca fue Rechazada por INCUMPLIMIENTO DE REQUISITOS , se envía este mail al alumno:
+
+"Hola [Nombre del Estudiante]
+Tras finalizar el análisis de tu Solicitud de Beca te informamos que en tu situación no se cumplen las condiciones para el otorgamiento de la misma. El semestre que viene podés volver a postularte.
+Te invitamos a conocer los beneficios que podés solicitar si cumples con las condiciones correspondientes desde https://www.reglamento.21.edu.ar/becas-y-beneficios
+Saludos.
+Universidad Siglo 21."
+
+BECAS DE AYUDA ECONÓMICA
+
+Beca para talentos en situación Vulnerable - por postulación
+
+Bonificación del 50% o 70% sobre matrícula y aranceles a quienes cuenten con un promedio de 8 (ocho) o superior y una situación de vulnerabilidad económica verificada.
+
+🎯Requisitos Aspirantes:
+
+- Grado o Pregrado – Todas las Modalidades
+
+- Ser estudiante del último curso de nivel medio o polimodal de cualquier institución o haber egresado con el título correspondiente en el año.
+
+- Promedio General (con aplazos) de 8 (ocho) o más correspondiente al último año de cursado.
+
+- Haber tenido una trayectoria académica sobresaliente, requisito que deberá ser acreditado mediante la recomendación de la persona a cargo de la dirección del colegio o equivalente, de la institución.
+
+- Pertenecer a un grupo vulnerable social o económicamente, situación que deberá ser comprobable.
+
+- Ingresa por Proceso de Postulación.
+
+🎯 Requisitos Reinscriptos
+
+- Grado o Pregrado – Todas las Modalidades
+
+- Promedio General de 8 (ocho) o superior.
+
+- Haber aprobado al menos 2 (dos) materias en el período anterior a la fecha de aplicación.
+
+- Situación de vulnerabilidad, comprobable.
+
+- No poseer sanciones disciplinarias tipificadas como graves, muy graves o gravísimas, conforme al Régimen Disciplinario vigente.
+
+- Ingresa por Proceso de Postulación.
+
+Documentación a Presentar:
+
+-
+Los ingresos del grupo familiar.
+
+-
+Los egresos del grupo familiar.
+
+-
+La cantidad de integrantes del grupo familiar menores de edad y las personas con discapacidad.
+
+-
+La condición de actividad del principal perceptor de ingresos del grupo familiar, priorizando aquellos que se encuentren desocupados o subocupados.
+
+-
+La situación jurídica del inmueble que habilita la persona postulante, priorizándose los supuestos en que el inmueble no sea propio o se encuentre hipotecado.
+
+-
+El nivel de instrucción alcanzado por los padres.
+
+-
+La cobertura de salud de la persona solicitante.
+
+-
+El lugar de procedencia de la persona solicitante.
+
+-
+Hoja de vida del postulante (CV).
+
+-
+Carta manuscrita del postulante explicando los motivos por los cuales considera merecer la beca.
+
+-
+Carta de recomendación de un referente externo (no familiar) que brinde referencias sobre su desempeño en ámbitos profesionales, laborales o académicos.
+
+Los alumnos beneficiarios de las becas deberán cumplir con horas semanales de apoyo a las actividades de la Universidad.
+
+-
+Becas del 70% con 10 horas semanales.
+
+-
+Becas del 50% con 8 horas semanales.
+
+Tales actividades no implicarán relación laboral alguna.
+
+BECAS ACADÉMICAS
+
+Becas para el mejor promedio de cada Colegio Secundario (mediante postulación)
+
+Bonificación del 50% de descuento sobre aranceles.
+
+🎯 Requisitos:
+
+- Grado o Pregrado – Todas las Modalidades
+
+- Ser estudiante del último curso de nivel medio o polimodal de cualquier institución o haber egresado con el título correspondiente en el año inmediatamente anterior para el cual aplique a la beca.
+
+- Promedio General de 8 (ocho) o más correspondiente al último año de cursado.
+
+- Haber tenido una trayectoria académica sobresaliente, requisito que deberá ser acreditado mediante la recomendación de la persona a cargo de la dirección del colegio o equivalente de la institución.
+
+- Ingresa por Proceso de Postulación.
+
+Documentación y Renovación:
+
+- DNI Frente y Dorso
+
+- Analítico de Estudios Secundarios. Certificado de estudios secundarios en trámite, en el cual se especifique el promedio obtenido en el último año.
+
+- Carta manuscrita explicando el motivo por el que se considera merecedor de la Beca.
+
+- La mantención de la beca estará sujeta a la mantención de las condiciones de cada tipología de Beca.
+
+- Promedio general de 8 (ocho) o superior.
+
+- Haber aprobado al menos 2 (dos) materias en el período anterior a la fecha de aplicación.
+
+- No poseer sanciones disciplinarias tipificadas como graves, muy graves o gravísimas, conforme al Régimen Disciplinario vigente.
+
+Los alumnos beneficiarios de las becas deberán cumplir con horas semanales de apoyo a las actividades de la Universidad.
+
+-
+Becas del 50% con 8 horas semanales
+
+Tales actividades no implicarán relación laboral alguna.
+
+Beca por Alto Rendimiento Académico (mediante postulación)
+
+Bonificación del 30% de descuento sobre aranceles.
+
+🎯Requisitos Aspirantes:
+
+-
+Grado o Pregrado – Todas las modalidades
+
+-
+Promedio general de 8 (ocho) o más correspondiente al último año de cursado de estudios secundarios.
+
+-
+Haber finalizado sus estudios secundarios dentro de los últimos 5 (cinco) años anteriores a su postulación.
+
+-
+Ingresa por Proceso de Postulación.
+
+🎯Requisitos Reinscriptos:
+
+-
+Grado o Pregrado – Todas las modalidades
+
+-
+Promedio igual o mayor a 8 (ocho), incluyendo aplazos, durante el último semestre de cursado.
+
+-
+Se establece como regularidad académica mínima para aplicar a la beca el haber aprobado al menos 2 (dos) materias en el período anterior a la fecha de aplicación.
+
+-
+Ingresa por Proceso de Postulación.
+
+Documentación y Renovación:
+
+-
+DNI Frente y Dorso
+
+-
+Analítico de Estudios Secundarios. Certificado de estudios secundarios en trámite, en el cual se especifique el promedio obtenido en el último año.
+
+-
+Carta manuscrita explicando el motivo por el que se considera merecedor de la Beca.
+
+La mantención de la beca estará sujeta a las condiciones de cada tipología de Beca.
+
+-
+Promedio general de 8 (ocho) o superior.
+
+-
+Haber aprobado al menos 2 (dos) materias en el período anterior a la fecha de aplicación.
+
+-
+No poseer sanciones disciplinarias tipificadas como graves, muy graves o gravísimas, conforme al Régimen Disciplinario vigente.
+
+Los alumnos beneficiarios de las becas, deberán cumplir con horas semanales de apoyo a las actividades de la Universidad.
+
+-
+Becas del 30% con 4 horas semanales
+
+Tales actividades no implicarán relación laboral alguna.
+
+Proceso de retribución de horas y situaciones de incumplimiento
+
+Etapa |  ¿Quién interviene? |  ¿Qué se realiza? |  Resultado / Registro |
+
+1. Identificación de estudiantes becados
+|
+SOA
+|  Se consolida el listado de estudiantes beneficiarios de becas académicas o económicas correspondientes al semestre en curso. |  Se registra la información del estudiante, tipo de beca y cantidad de horas de retribución requeridas. |
+
+2. Creación y disponibilización del Drive |  SOA |  Se genera un Drive compartido con el listado de estudiantes becados disponibles para realizar actividades de retribución. |  Las áreas pueden visualizar y seleccionar estudiantes. |
+
+3. Convocatoria interárea |  SOA |  Se realiza una convocatoria vía mail a las diferentes áreas de la Universidad, informando la posibilidad de asignar tareas o actividades a estudiantes becados. |  Las áreas interesadas acceden al Drive para consultar la disponibilidad de estudiantes. |
+
+4. Selección del estudiante |  Área solicitante |  El área ingresa al Drive y selecciona al/a los estudiantes que considera adecuados para colaborar en las actividades disponibles. |  Queda identificado el estudiante seleccionado por cada área. |
+
+5. Contacto y coordinación |  Área solicitante |  El área contacta al estudiante y coordina las tareas, actividades, modalidad, horarios y demás aspectos necesarios para el cumplimiento de la retribución. |  Se inicia la asignación y ejecución de las actividades. |
+
+6. Seguimiento de actividades |  Área solicitante |  El área realiza el seguimiento del cumplimiento de las tareas o actividades asignadas durante el período correspondiente. |  Se verifica el cumplimiento de las horas y actividades acordadas. |
+
+7. Registro del resultado |  Área solicitante |  Una vez finalizada la actividad, el área responsable completa en el Drive el resultado correspondiente. |  Se registra si el estudiante cumplimentó o no cumplimentó la retribución asignada. |
+
+8. Situaciones de imposibilidad de cumplimiento |  Área solicitante / SOA |  Si el estudiante no puede realizar la actividad asignada, se le informa que dicha situación no afecta el otorgamiento ni la renovación de la beca vigente. |  Se deja constancia de la situación y se comunica que, ante futuras convocatorias o asignaciones, deberá procurar cumplimentar la instancia de retribución. |
+
+Convenios de colegios amigos
+
+📝 Listado de colegios amigos  |
+
+Te compartimos referencias que te servirán a la hora de dar tus informes:
+
+Para colegios de CÓRDOBA:
+
+Si el colegio es AAA (revisalo en la última columna) el alumno tiene el siguiente descuento:
+
+-
+Beca de mejor compañero del 50%. El colegio contacta con HS y notifica al asesor.
+
+-
+50% alumno mejor promedio (8 o +) aplica solo para carreras presenciales y solo las exclusivas de PH.
+
+-
+10% para carreras a los egresados ​​del colegio.
+
+-
+20% para profesores del cole que quieran hacer la Licenciatura en Educación.
+
+Si el colegio es AA (revisalo en la última columna) el alumno tiene el siguiente descuento:
+
+-
+50% alumno mejor promedio (8 o +) aplica solo para carreras presenciales y solo las exclusivas de PH.
+
+-
+10% para carreras a los egresados ​​del colegio.
+
+20% para profesores del cole que quieran hacer la licenciatura en educación.
+
+Para la Ciudad de Río IV No dividimos a los coles por tipo, los colegios que tienen convenio, en el listado mencionado, aplican las mismas becas.
+
+- Beca de mejor compañero del 50%. El colegio contacta con HS y notifica al asesor.
+
+- 50% alumno mejor promedio (8 o +) para toda la oferta pH R4 + Psicología R4.
+
+- 10% para carreras a los egresados ​​del colegio.
+
+- 20% para profesores del cole que quieran hacer la Licenciatura en Educación.
+
+Para Vicente López
+
+-
+50% alumno mejor promedio (8 o +) aplica para toda la oferta MD.
+
+-
+10% para carreras a los egresados ​​del colegio.
+
+-
+20% para profesores del cole que quieran hacer la Licenciatura en educación, Licenciatura en Educación y Nuevas Tecnologías, Maestría en Innovación Educativa y Diplomaturas Blend de Educación.
+
+Resto del país ( ver pestañas correspondientes).
+
+-
+50% alumno mejor promedio (8 o +) aplica solo para carreras presenciales y solo las exclusivas de PH
+
+-
+10% para carreras a los egresados ​​del cole
+
+-
+20% para profesores del cole que quieran hacer la Licenciatura en educación.
+
+BECAS SOCIALES
+
+Beca La Universidad Es Posible
+
+Consiste en una disminución del 100% sobre aranceles y matrícula. Encontrándose limitado al cupo que anualmente la Universidad establece.
+
+Esta beca aplica para carreras de grado y pregrado de todas las modalidades que cuenten con el aval de una ONG que será responsable del acompañamiento de la persona solicitante a lo largo de su vida académica.
+
+Requisitos:
+
+- Solicitud de la beca realizada de manera directa por la ONG que apoya a la persona beneficiaria mediante una carta dirigida a la Universidad.
+
+⚠️ Documentación que permite conocer los motivos de su recomendación :
+
+- Desempeño académico anterior del solicitante.
+
+- Antecedentes laborales, si los tuviera.
+
+- Situación económica actual del postulante y su grupo familiar.
+
+Renovación:
+
+Estará sujeta a un grado de avance que consiste en la aprobación anual de al menos el 50% de las materias de su plan de estudios.
+
+El comité que realiza el acompañamiento, liderado por el Centro de Sustentabilidad, podrá decidir la renovación del beneficio aunque no se cumpla la condición de renovación en caso de que existan antecedentes que así lo justifiquen.
+
+Beca Ex Combatientes o Veteranos de Malvinas e Hijos
+
+Consiste en una disminución del 20% sobre aranceles, quedando excluido del descuento de cualquier otro rubro o concepto .
+
+La renovación estará sujeta a los cupos que establezca el Vicerrectorado de Gestión Institucional.
+
+Artículo 50: Se entiende por excombatiente o veterano de Guerra de Malvinas a todos los ex soldados conscriptos, personal de Oficiales, Suboficiales y Soldados de las Fuerzas Armadas y Fuerzas de Seguridad, que fueron destinados y/o entrado efectivamente en combate en las acciones bélicas, llevados a cabo en las jurisdicciones del Teatro de Operaciones Malvinas (TOM: desde el 2 hasta el 7 de abril de 1982) y del Teatro de Operaciones del Atlántico Sur (TOAS: desde el 7 de abril hasta el 14 de junio de 1982 ), y civiles que se encontraban cumpliendo funciones de servicio y/o apoyo, en los lugares en que se desarrollaron estas acciones.
+
+Podrán ser adjudicatarios de la beca por excombatiente o veterano de guerra de Malvinas aquellas personas y sus familiares directos, que aspiren a cursar o se encuentren cursando carreras de Grado o Pregrado, en cualquiera de sus modalidades, que se encuentren contempladas en el Artículo 50 y acrediten:
+
+🎯Requisitos Aspirantes:
+
+- Acreditar su inscripción en la Nómina de Veteranos de Guerra de Malvinas, dependiente del Ministerio de Defensa de la República Argentina.
+
+- En caso de solicitar el beneficio un familiar directo, deberá acreditar el vínculo directo con el excombatiente o veterano de guerra de Malvinas, mediante partida de nacimiento o libreta de familia.
+
+🎯 Requisitos Reinscripto:
+
+-
+Acreditar su inscripción en la Nómina de Veteranos de Guerra de Malvinas, dependiente del Ministerio de Defensa de la República Argentina.
+
+-
+En caso de solicitar el beneficio un familiar directo, deberá acreditar el vínculo directo con el excombatiente o veterano de guerra de Malvinas, mediante partida de nacimiento o libreta de familia.
+
+-
+Haber obtenido un promedio con aplazos no inferior a 8 (ocho) puntos en las materias rendidas hasta ese momento.
+
+-
+No contar con más de 2 (dos) aplazos.
+
+-
+No haber merecido sanciones.
+
+Beca Abra Pampa
+
+Proceso de inscripción para aspirantes becados de Abra Pampa:
+
+Solo aplica para el CAU WARMI
+
+Solo aplica para las siguientes carreras: Abogacía, Contador Público, Administración de Empresas, Administración Agraria, Tecnicatura en Seguridad e Higiene Laboral y Martillero, Corredor Público y Corredor Inmobiliario.
+
+En los casos en los que recibamos alumnos aspirantes de la localidad de Abra Pampa, deberemos cumplir con el siguiente procedimiento:
+
+- Debemos informarle que se acerque al CAU, quien dará curso a su solicitud. (En este caso, el asesor de admisiones no puede tomar la preinscripción. Se debe hacer todo en el CAU).
+
+- El CAU gestiona la solicitud de beca al inicio de cada semestre y envía los datos del alumno a la asistente de la vicerrectora.
+
+-
+El asistente deriva la planilla actualizada al área de SOA y ellos se encargan de levantar el caso y darle la beca. (El asesor no debe derivar nunca casos para el pedido de esta beca).
+
+Aquellos alumnos que hayan cursado su carrera con alguna BECA DE CAU SOCIAL al 100% (CAU Maldonado, CAU Asunción y CAU Abra Pampa) se encuentran eximidos del pago de la tasa de graduación.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Operación Títulos
+
+Tipificación: Visado Analítico
+
+Nota interna - completar ticket con los siguientes datos:
+
+-
+DNI
+
+-
+Legajo
+
+-
+Aclarar que tiene beca activa.
+
+Beca Cau Maldonado / Asunción
+
+Beneficio del 100% de descuento en matrícula y aranceles durante la duración de la carrera. Sujeto al cupo que anualmente la Universidad establece.
+
+La beca debe gestionarse con el CAU Maldonado para los NI. No se toman PREINSCRIPCIONES desde CASA con esa beca.
+
+Las personas solicitantes deberán acreditar:
+
+- Domicilio en zona de influencia, mediante certificado de domicilio y un impuesto/servicio a nombre de la persona solicitante o familiar directo.
+
+👉 CAU Maldonado:
+
+Podrán acceder a esta beca estudiantes que residen de forma permanente en los barrios: Campo de la Ribera, Barrio Maldonado, Müller, Renacimiento, Colonia Lola y su zona de influencia de la ciudad de Córdoba y aspiran a cursar carreras de Grado o Pregrado en Modalidad Distancia.
+
+👉 CAU Asunción:
+
+Podrán acceder estudiantes que residen de forma permanente en la Comuna de Asunción (Mendoza) y aspiran a cursar carreras de Grado o Pregrado en Modalidad Distancia.
+
+Renovación:
+
+La renovación de la beca para cada semestre de cursado estará sujeta a un grado de avance que consistirá en la aprobación anual de al menos el 30% de las materias de su plan de estudios.
+
+El comité que realiza el acompañamiento, liderado por el Centro de Sustentabilidad, podrá decidir la renovación del beneficio, aunque no se cumplirá la condición de renovación en caso de que existan antecedentes que así lo justifiquen.
+
+Aquellos alumnos que hayan cursado su carrera con alguna BECA DE CAU SOCIAL al 100% (CAU Maldonado, CAU Asunción y CAU Abra Pampa) se encuentran eximidos del pago de la tasa de graduación.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Operación Títulos
+
+Tipificación: Visado Analítico
+
+Nota interna - completar ticket con los siguientes datos:
+
+-
+DNI
+
+-
+Legajo
+
+-
+Aclarar que tiene beca activa.
+
+BECAS POR RENOVACIÓN
+
+Beca Discapacidad / Beca Alumno Regular
+
+Bonificación del 25% sobre aranceles.
+
+Solo se renueva a estudiantes Reinscriptos que ya lo hayan tenido aplicado.
+
+No es para Nuevos Ingresantes.
+
+OTRAS BECAS
+
+Beca UAR
+
+Los descuentos son del 100% sobre matrícula y aranceles del semestre. No se contemplan para materias extras ni materias de verano, las mismas deben abonarlas el alumno.
+
+Para la renovación de beca para los alumnos, la UAR envía el listado de alumnos becados y con ese listado se procede a renovar la beca.
+
+Proceso de inscripción:
+
+-
+Luego de que el alumno se preinscribio, debemos informarle que se comunique con Milagros Benoit o Florencia Collado (responsable de Recursos Humanos de la UAR), quien dará curso a su solicitud.
+
+-
+En caso de aprobarse el pedido, Milagros o Eugenia envían la planilla con los becados a Paula Sanz (Supervisor de ventas de Siglo 21).
+
+-
+Silvana gestionará la inscripción e informará al alumno su alta y se le brindará la inducción, a cargo del CAU asignado.
+
+Beca ENARD
+
+Los descuentos se aplican sólo a matrícula y aranceles del semestre , no se contemplan para materias extras, ni materias de verano, las mismas deben abonarlas al alumno.
+
+Proceso de inscripción:
+
+-
+En el caso de que el aspirante quiera dar inicio con el cursado, debemos informarle que envíe la solicitud de beca a la casilla fortalecimiento @enard.org.ar , quien dará curso a su solicitud.
+
+-
+En caso de aprobarse el pedido, envíen la planilla con los becados al equipo de Sabrina Pilo (equipo de Gestión Comercial).
+
+-
+El equipo realizará la inscripción e informará al alumno su alta y se le brindará la inducción, a cargo del CAU asignado.
+
+-
+Para la renovación de beca para los alumnos, la ENARD envía el listado de alumnos becados y con ese listado se procede a renovar la beca.
+
+DOCUMENTO BECAS ENARD
+
+Bases y condiciones de la Beca:
+
+Cuando se contacta con un alumno que recibe la beca de ENARD es importante tener en cuenta lo siguiente:
+
+- Si por alguna razón la beca no venta aplicada en el sistema, podés verificar también en este documento el listado de becados activos. En caso de estar en el listado y no en el sistema poder solicitar el ticket de aplicar la beca ya que a veces de semestre a semestre puede suceder que no se haya aplicado por algún error.
+
+Les compartimos las condiciones que tienen estas personas para que puedan tenerlo en cuenta:
+
+A partir del nuevo convenio de diciembre del 2021, se consideran las siguientes condiciones:
+
+- La beca no incluye matrícula, materias de verano ni adelanto de materia (se aplica a partir de los nuevos becados 2.2022)
+
+- El becado deberá tener promedio con aplazo de 7 y cursado anual de al menos 2 materias (se comienza a medir a todos los becados a partir del 1.2022).
+
+Beca Empresa de Negocio
+
+⛔NO se deben realizar derivaciones al área de becas, ya que NO es una beca como tal .
+
+¿Con quién podés canalizar las consultas en caso de tenerlas?
+
+A las consultas, canalízalas por supervisor al correo agustina.bertone@ues21.edu.ar
+
+¿Qué es la beca empresa de negocio?
+
+Es un convenio que tienen determinadas empresas con sus empleados. Donde la misma le abona un porcentaje determinado del monto total del cursado del alumno.
+
+¿A quiénes aplica?
+
+Semestre a semestre, las empresas seleccionan el listado de alumnos que serán beneficiarios de dicho convenio. Esa selección se realiza en base a determinados requisitos que la empresa determina. Pueden variar un semestre.
+
+¿Cuál es el porcentaje?
+
+El porcentaje varía según el convenio que tenga la empresa y puede modificarse semestre a semestre.
+
+Si el alumno paga y no tiene la beca. ¿Qué sucede?
+
+Si el alumno abona el monto total y la beca no estaba impactada, se
+
+¿Cómo se ve reflejado?
+
+Desde el botón listado de becas en el SGU verás reflejado el apartado “BECA EMPRESA DE NEGOCIO”
+
+Beca Santander
+
+⛔ No es una beca de Siglo 21. No corresponde derivar al área de becas.
+
+🔗 Postulación ► PÁGINA OFICIAL DE SANTANDER
+
+La Beca Santander | Alumnos de Grado Argentina 2026 es un programa destinado a acompañar la permanencia y finalización de los estudios de grado de los estudiantes, brindando un apoyo económico para evitar que factores financieros afecten su continuidad académica.
+
+El beneficio corresponde a un ajuste para estudiantes RI que podrá utilizarlo en su próximo período de inscripción o en el próximo concepto que tenga para abonar.
+
+La notificación llega al correo informado en Open Academy.
+
+🔰 ¿Quiénes pueden postularse?
+
+Estudiantes de grado de Universidad Siglo 21 que cumplan con los requisitos establecidos en la plataforma de Santander Open Academy.
+
+Los requisitos específicos y condiciones del programa se consultan directamente en la web oficial del programa.
+
+🔰 Lineamientos para asesorar al estudiante:
+
+- Controlar que el correo registrado esté actualizado, ya que la notificación llega por ese medio.
+
+- Registrar que la aplicación del beneficio dependerá del resultado de la selección realizada por el programa Santander.
+
+- No es una beca de Siglo 21, por lo que no debe derivarse al área de becas.
+
+- Se denomina beca del Banco Santander, sin embargo, es un “estímulo” que se les brinda a los estudiantes.
+
+- Se otorga por única vez, no es mensual.
+
+🔰Acreditación del beneficio en la cuenta de pago del estudiante
+
+La aplicación del beneficio no es inmediata. Una vez asignados los cupos por parte de la Universidad, Santander debe recibir la aceptación de la beca por parte de todos los estudiantes beneficiados. Hasta que eso ocurra, la entidad bancaria no libera los fondos hacia la institución.
+
+🔰¿Cómo impacta la beca en el sistema?
+
+La beca impacta sobre los aranceles 1/27.
+
+Actualmente, el/la estudiante no verá reflejado el beneficio como saldo disponible en Pago Electrónico. El monto de la beca se asignará directamente en la pasarela de pagos y, cuando genere los tickets correspondientes a los aranceles 1/27, el sistema aplicará automáticamente el descuento de $400.000.
+
+De esta manera, no es necesario que el/la estudiante realice ninguna gestión adicional para que se aplique el beneficio.
+
+El proceso de becas santander ya finalizó los estudiantes seleccionados son los siguientes:
+
+📎 Base de estudiantes seleccionados/as, para que puedan validar la información ante posibles consultas: Ganadores becas Santander 2026 Centros.xlsx
+
+📎 Speech de atención, con la información y respuestas sugeridas para orientar a los/as estudiantes según cada situación: https://docs.google.com/document/d/1EevkyPGWStVBr0iMCE2CysFWc4OPUtKbAVJMDPfFmQc/edit?usp=sharing
+
+Ante determinadas consultas que no puedan ser resueltas con toda la información mencionada se podrá derivar de la siguiente manera:
+
+Información para la derivación (HubSpot)
+
+Tipificación: Vinculación SEVI
+
+Nota interna - completar ticket con los siguientes datos:
+
+Datos obligatorios:
+
+- Nombre y apellido
+
+- DNI
+
+- Legajo
+
+- Mail cargado en la plataforma de Santander
+
+- Detalle de la consulta/solicitud/reclamo
+
+BENEFICIOS
+
+Consideraciones Generales:
+
+Se denomina Beneficio a una mejora económica que se brinda a los estudiantes sobre el costo de sus estudios, en razón de encontrarse en determinada situación o poseer determinada cualidad a la cual el beneficio se encuentra condicionado.
+
+Condiciones:
+
+- Se otorgan teniendo en cuenta circunstancias diversas mientras se cumplen las condiciones requeridas de cada tipología, sin consideración de las condiciones académicas.
+
+- válidas por un semestre.
+
+- No tienen carácter retroactivo.
+
+- Su renovación para un nuevo semestre será un requerimiento del interesado, siempre que se mantengan las condiciones que lo habilitan para acceder a las mismas.
+
+- Estará sujeta a la aprobación.
+
+- Son personales e intransferibles.
+
+- Las diferentes Ayudas Económicas (becas y beneficios) no son acumulables entre sí.
+
+- Las promociones sí pueden acumularse con un beneficio. Se aplicará siempre, primero el descuento correspondiente al beneficio y luego, la promoción.
+
+- En caso de calificar para más de una categoría de ayuda, se aplicará aquella que sea más provechosa para el estudiante.
+
+Beneficios inactivos:
+
+Cede tu Beca y Comunidad UES para familiares de CAUs:
+
+-
+No se otorgan para nuevos alumnos (NI).
+
+-
+Para los alumnos que ya lo tuvieron (RI) se les seguirá otorgando siempre y cuando cumplan las condiciones establecidas.
+
+Beneficio de Ingreso
+
+Beneficio del 10% de descuento en aranceles.
+
+Aplica para carreras de grado o pregrado en cualquiera de sus modalidades.
+
+🎯Requisitos:
+
+- Ser estudiante del último curso de estudios de nivel medio o polimodal de cualquier institución del país o haber egresado con el título correspondiente de alguna de dichas instituciones.
+
+- Haber tenido en esos estudios un excelente rendimiento académico con promedio no inferior a siete (7) puntos, incluidos aplazos.
+
+Boleto Educativo Gratuito
+
+Al beneficio sólo acceden los estudiantes con beca de al menos 50% o más.
+
+El Boleto Educativo Gratuito podrá utilizarse a partir del inicio del ciclo lectivo de cada establecimiento.
+
+Los alumnos que figuran en este listado son los que se encuentran habilitados para solicitar el beneficio en el 2/26 https://docs.google.com/spreadsheets/d/1Do3lNbFtL6A3viSut0jCaeX4WCP_k2CG/edit?usp=sharing&ouid=104202626536604623421&rtpof=true&sd=true
+
+¿Cómo tramitarlo?
+
+-
+Para tramitarlo se requiere contar con Ciudadano Digital nivel 2. A través de este enlace de la página de Ciudadano Digital, se podrá consultar más detalle: https://cidi.cba.gov.ar/portal-publico/tramite/2D96CF60-F271-EB11-BCE3-005056A190FF
+
+- La gestión se realiza 100% online a través del Formulario Único de Postulantes de CiDi.
+
+Posibles reclamos de rechazo del trámite:
+
+En ocasiones, el estudiante puede haber completado incorrectamente el formulario para el trámite y por esto sale el mensaje de rechazo, "No tiene matrícula paga" o "No tiene matrícula activa". Si bien no es ese el motivo de rechazo, suele ser un error genérico.
+Sugerencia para resolverlo: Dentro del formulario, en el campo de Nivel de Educación , puede que hayan colocado Nivel "Superior" y deben colocar "Universitario" ; comprobar que la Universidad esté como " Universidad Siglo XXI ".
+
+Para modificar esto, solicitarle al estudiante que dentro del CIDI, debe dirigirse a la sección de " Mis Postulaciones" , buscar el formulario y debe editarlo.
+
+Beneficio Incentivo por rendimiento académico
+
+Beneficio del 10% sobre los aranceles.
+
+Condiciones por clase de estudios:
+
+Carreras de Grado:
+
+-
+El alumno debe tener un promedio de 7 o más entre las materias rendidas/aprobadas dentro del bloque establecido ( ver Inicio de otorgamiento/fin de otorgamiento ).
+
+-
+5 materias aprobadas como mínimo.​
+
+-
+Se contabilizan aplazos que se hayan tenido dentro de los bloques definidos.
+
+Carreras de Pregrado:
+
+-
+El alumno debe tener un promedio de 7 o más entre las materias rendidas/aprobadas dentro del bloque establecido (inicio de otorgamiento/fin de otorgamiento).
+
+-
+4 materiales aprobados como mínimo.
+
+- Se contabilizan aplazos que se hayan tenido dentro de los bloques definidos.
+
+Este beneficio es de carga automática.
+Cuando el sistema detecte que se han cumplido las condiciones antes mencionadas, proceda a su aplicación. Por tal motivo, NO es necesario realizar un pedido solicitando su aplicación.
+
+Período de otorgamiento: Es el período de observación del rendimiento académico del alumno y en el cual se analiza si el alumno cumple o no las condiciones definidas.
+
+Período de inicio y fin del beneficio: Es el período en el cual, si el alumno genera sus boletos y cumple las condiciones, se impacta/aplica el beneficio.
+
+Las fechas programadas para que se apliquen en el Período 2/26 son:
+
+Modalidad Distancia (ED y EDH) |  Modalidad PH |  Modalidad Presencial - Presencial Distribuida |
+
+Inicio de otorgamiento: 01/02/2026 |
+Inicio de Beneficio:
+
+04/06/2026
+|  Inicio de otorgamiento: 01/02/2026 |  Inicio de Beneficio: 04/06/2026 |  Inicio de otorgamiento: 01/02/2026 |  Inicio de Beneficio: 04/06/2026 |
+
+Fin de otorgamiento: 24/08/2026 |
+Fin de Beneficio: 01/09/2026
+|  Fin de otorgamiento: 24/08/2026 |  Fin de Beneficio: 01/09/2026 |  Fin de otorgamiento: 24/08/2026 |  Fin de Beneficio: 01/09/2026 |
+
+Beneficio Amigo Referido
+
+⛔ El área de BECAS NO es la responsable si el mismo no se encuentra activo.
+
+Podrán acceder al beneficio los aspirantes que mencionen en su inscripción a un alumno de Siglo 21. Este descuento NO aplica para el alumno al que se refiere, solo aplica para el alumno ingresante.
+
+El beneficio consistirá en una disminución para el aspirante:
+
+- 10% 🡺 descuento sobre aranceles del primer semestre de cursado
+
+- 5% 🡺 sobre aranceles del segundo semestre de su cursado.
+
+La posibilidad de ser mencionado como estudiante referente por una persona aspirante se limita al máximo de 3 oportunidades. Tenga en cuenta que el alumno al que se refiere no obtendrá ningún beneficio, pero su legado podrá ser utilizado un máximo de tres veces por nuevos aspirantes.
+
+Este beneficio se encuentra sujeto al cupo que asigna semestralmente el Vicerrectorado de Gestión Institucional, pudiendo el mismo deshabilitar el beneficio por agotamiento del mismo.
+
+Beneficio por familiar directo:
+
+Se puede acceder a este beneficio, en los siguientes casos:
+
+Cuando se encuentren inscriptos como alumnos regulares en un mismo período más de un integrante del grupo familiar, sean esposos, padres, hijos o hermanos. Gozarán del beneficio todos los integrantes del grupo familiar, con excepción de aquel que tenga el número de DNI más bajo (mayor el grupo familiar).
+
+Aquellos estudiantes cuyo esposo/a, padre, madre, hijo o hermano haya egresado con un título de Grado de esta Universidad.
+
+Para acceder al beneficio, el interesado deberá acreditar el vínculo mediante el certificado correspondiente. (Partida de nacimiento, libreta de familia, libreta de matrimonio, etc.)
+
+El beneficio consiste en una disminución gradual y proporcional a la cantidad de miembros que se encuentren inscriptos:
+
+- 20% al segundo miembro del grupo familiar
+
+- 30% al miembro tercer del grupo familiar
+
+- 40% al cuarto miembro del grupo familiar
+
+- 50% al quinto miembro del grupo familiar, siendo este último el tope de otorgamiento.
+
+El beneficio de familiar directo consistirá en una disminución del 20% del arancel semestral a quienes se encuentren en alguna de las situaciones previstas en el artículo anterior. Si el alumno cursa 2 o más carreras, el beneficio se aplica a todos los legajos, pudiendo alcanzar a carreras de Grado, Pregrado, Ciclos de complementación curricular y Posgrados (Maestría y/o Especializaciones).
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Becas
+
+Tipificación: Beca familiar directo
+
+Nota interna - completar ticket con los siguientes datos:
+
+- DNI (frente y dorso) del estudiante
+
+- Documentación que acredite parentesco: Partida de nacimiento, libreta de familia, libreta de matrimonio, etc.
+
+- Legajo del estudiante
+
+- DNI del familiar directo
+
+Plazos: 3 días hábiles
+
+Beneficio por Segunda carrera
+
+Pueden acceder a este beneficio egresados ​​o quienes se encuentren cursando dos o más carreras simultáneamente.
+
+El beneficio consiste en unadisminución sobre los aranceles semestrales de la segunda carrera.
+
+El beneficio siempre aplica solo para legados de Siglo 21, no para egresados ​​de otras instituciones.
+
+20% de beneficio aplica para:
+
+- Carreras en simultáneo (no importa clase de estudio) (no certificaciones ni cursos)
+
+- Carreras de pregrado a pregrado / grado a pregrado (no certificaciones ni cursos)
+
+30% de beneficio aplica para:
+
+- Egresados ​​de carreras de Grado o posgrado que quieran hacer una segunda carrera de Grado y/o Posgrado (Maestrías y/o Especializaciones).
+
+40% de descuento aplica para:
+
+- Egresados ​​de carreras de Grado, que quieran hacer una segunda carrera de Grado y/o Posgrados (Maestrías y/o Especializaciones). Deben haber desarrollado y cumplida tareas de adscripción en docencia y/o investigación por el plazo mínimo de (1 año).
+
+🎯 Requisito:
+
+- Manteniendo un promedio de notas de 8 o más, incluyendo aplazos.
+
+- No tener sanciones.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Becas
+
+Tipificación: Beneficio segunda carrera
+
+Nota interna - completar ticket con los siguientes datos:
+
+-
+DNI
+
+- Legajo al que deba aplicar el descuento.
+
+Plazos: 3 días hábiles.
+
+Beneficio por Doble Titulación
+
+Pueden acceder a este beneficio quienes se encuentren cursando simultáneamente dos carreras de Grado que articulan por Doble Titulación.
+
+Consiste en la inscripción de la matrícula para la carrera con la cual se articula, es decir que el alumno abona sólo una matrícula (en la carrera de origen) para el semestre de cursado correspondiente.
+
+Aplica únicamente para aquellos alumnos que se encuentran cursando simultáneamente ambas carreras, y se bonifica la matrícula de la segunda carrera comenzada.
+
+Cuando el alumno ya se haya egresado de la primera carrera de la doble titulación, se le aplicará el beneficio de segunda carrera hasta que finalice la doble titulación.
+
+Pedido de Beca:
+
+- Verifique que se haya iniciado el trámite de equivalencias de DT correspondiente. No es necesario que tenga las materias impactadas en el nuevo legado aún, pero sin que se haya iniciado la gestión en Sistema de Equivalencias; Algarrobo.
+
+- Verifique que, luego de la inscripción, no haya impactado el descuento correspondiente.
+
+- Verificar en el CRM que el alumno tenga la gestión de equivalencias por doble titulación, ya realizada. De este modo le corresponderá la emisión de la matrícula.
+
+- Verifique que se haya iniciado el trámite de equivalencias de DT correspondiente. No es necesario que tenga las materias impactadas en el nuevo legado aún, pero sin que se haya iniciado la gestión en BPM.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Becas
+
+Tipificación: Beneficio de doble titulación
+
+Nota interna - completar ticket con los siguientes datos:
+
+- Legajo origen
+
+- Legajo destino
+
+- DNI
+
+Plazos: 3 días hábiles.
+
+Beneficio por Convenios con empresas o instituciones amigas
+
+📝Listado de empresas amigas  |
+
+Podrán gozar de este beneficio aquellas personas que se encuentren alcanzadas por algún convenio mantenido entre la Universidad y Empresas, Colegios u otras instituciones, siempre que cumplan con las condiciones que se establezcan a tal fin.
+
+Para el caso de Empresas amigas podrán ser beneficiarios quienes trabajen o sean familiares directos de personal estable de alguna de las entidades con las que la Universidad mantiene convenio, situación que deberá acreditarse mediante la presentación de recibo de haberes y constancia mediante la cual se acredita el vínculo para el caso de familiares.
+
+El beneficio consistirá en una disminución del porcentaje acordado con cada empresa o institución amiga, sobre los aranceles semestrales de la carrera que cursa el alumno beneficiario.
+
+Aplica para carreras de Grado, Pregrado, Ciclos de Complementación Curricular y Posgrados (Maestrías y Especializaciones).
+
+Esta beca es para aquellos alumnos que trabajan en empresas que poseen convenio con la Universidad o en todo caso poseen directores familiares (padre, madre, hermano/a, tutor, concubino).
+
+Beneficios de BONDA o CIRCA, deben indicar en qué empresa amiga trabajan, ya que es una plataforma digital y muchas de las empresas ue tiene este beneficio, no son empresas en el listado.
+
+Documentación:
+
+La misma debe adjuntarse por medio de un Ticket en el CRM.
+
+Si el alumno la envió, validar que este correcto, caso contrario informar que la presente nuevamente.
+
+📢Para EMPLEADOS - Trabajar en la empresa:
+
+- Recibo de sueldo (ultimo) o certificado de trabajo emitido por la empresa que especifique antigüedad y forma de contratación o credencial que acredite ser parte (Colegios, etc.)
+
+- Foto del DNI del beneficiario.
+
+📢FAMILIARES DIRECTOS (Padres, hijos, hermanos y cónyuges) - Tener un familiar directo que trabaje en la empresa.
+
+- Foto DNI empleado.
+
+- Recibo de sueldo (ultimo) o certificado de trabajo emitido por la empresa que especifique antigüedad y forma de contratación o credencial que acredite ser parte (Colegios, etc.)
+
+- Documentación que certifique el parentesco legalizada.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Becas
+
+Tipificación: Beca empresa amiga
+
+Nota interna - completar ticket con los siguientes datos:
+
+- DNI
+
+- Legajo
+
+-
+Documentación
+
+Plazos: 3 días hábiles.
+
+Beneficio Consejo de la Magistratura el Poder Judicial de la Nación
+
+El Beneficio consiste en:
+
+- 20% de descuento sobre aranceles a todo el personal del Poder Judicial de la Nación, y que estudien las modalidades Distribuida, Distribuida Hogar o Presencial Hogar.
+
+- 20% de descuento sobre aranceles a familiares directos del personal del Poder Judicial de la Nación y que estudien las modalidades Distribuida o Distribuida Hogar. (Se consideran familiares directos a los padres, hijos, hermanos y cónyuge del personal del Poder Judicial de la Nación).
+
+- 20% de descuento sobre aranceles a hijos del personal del Poder Judicial de la Nación que estudien modalidad Presencial y que hayan ingresado como alumnos a UES21 a partir del año 2020.
+
+Se entenderá por personal al empleado en relación de dependencia quien percibió sus haberes bajo el CUIT; 34-54667147-1 (CUIT del Consejo de la Magistratura de la Nación).
+
+Importante:
+
+Por cada veinte (20) personas inscriptas en UES21 en carreras de Grado/P que se inscriban para cursar bajo una misma modalidad de estudio, el CONSEJO dispondrá de una beca del 100% sobre aranceles semestrales (excluida la matricula), para otorgar entre su personal.
+
+Aplica para Grado Pregrado y Posgrado, quedan excluidos el Diplomado en Competencias Directivas, los Workshops de Negociación dictados en Harvard y aquellos que son dictados con otras instituciones en forma no exclusiva por UES21.
+
+Las becas se otorgan por modalidad, por lo tanto, no son acumulativas las inscripciones entre las diferentes modalidades.
+
+El Beneficiario de la beca será definido por el Departamento de Capacitación dependiente de la Dirección General de Recursos Humanos del Consejo de la Magistratura de la Nación y, una vez otorgada no podrá ser ésta delegada, transferida ni reemplazada.
+
+La Beca otorgada se renovará semestralmente.
+
+Los becarios, deberán registrarse por el Reglamento de Becas, plasmado en el Reglamento Institucional de UES21, en el caso de no llegar a las condiciones de otorgamiento perderán la condición de becarios.
+
+La beca al 100% es únicamente para nuevos alumnos de UES21, y se aplica sobre los aranceles, excluyendo matrícula. Es para cursar una carrera de grado o pregrado, determinada por la Dirección de Recursos Humanos del Consejo de la Magistratura. Esta beca podrá ser utilizada exclusivamente en las Modalidades Presencial Home, Distribuida y Distribuida Home.
+
+✅ Documentación:
+
+El personal del Poder Judicial de la Nación y/o sus familiares directos y/o hijos accederán al beneficio/beca siempre y cuando acrediten, semestralmente, ante UES2:
+
+- Último recibo de sueldo (o el del mes anterior, si es que no tiene el último), o certificado de trabajo expedido por la Dirección General de Recursos Humanos del Consejo de la Magistratura de la Nación, donde conste su relación con el empleado.
+
+- Los familiares directos y los hijos del personal del Poder Judicial de la Nación, deberán acreditar adicionalmente el vínculo familiar que los une (imagen de libreta de familia y frente/dorso de DNI de ambos). La presentación de esta documentación deberá ser realizada con anterioridad al pago del arancel semestral.
+
+- El descuento se renovará semestre a semestre.
+
+- Los beneficios otorgados por el presente acuerdo no son acumulables con otros beneficios que brinda UES21 a sus alumnos.
+
+Aclaración importante ; Actualmente el Consejo de la Magistratura, está fraccionando las Becas del 100% en dos Becas del 50%.
+
+Procedimiento interno de otorgamiento de Becas:
+
+El área cuenta con un Drive compartido a través del cual el Consejo de la Magistratura agregara la información de los aspirantes (Nombre y Apellido, DNI, Teléfono y dirección de correo electrónico). Una vez agregado el dato, les da aviso al área, y admisión toma las preinscripciones. Una vez preinscrito, SOA otorga la Beca que corresponde (100% o 50% según lo que indique el Consejo de la Magistratura).
+
+Beneficio por Persistencia a la Graduación
+
+👉 Beneficio por Persistencia a la Graduación sobre Aranceles
+
+Los alumnos podrán solicitar de manera autogestiva el Beneficio de Persistencia a la Graduación en Aranceles a través de su Portal Estudiantes
+
+Este trámite solo puede realizarlo el alumno; el asesor no podrá gestionarlo desde el botón de imitar.
+
+Tiene como objetivo acompañar a los estudiantes en la etapa final de su recorrido académico y facilitar la continuidad de sus estudios hasta la obtención del título universitario, mediante un descuento del 30% en los aranceles de las últimas materias.
+
+Condiciones para acceder al beneficio:
+
+-
+Promedio mínimo: el estudiante deberá contar con un promedio general igual o superior a 8, incluyendo aplazos , al momento de realizar la solicitud.
+
+-
+Materias pendientes por cursar: estudiantes a quienes les reste 1 (una) o 2 (dos) asignaturas por cursar. La regla que establece un límite máximo de dos (2) materias pendientes de cursado se aplica con independencia del tipo de materia. De esta forma, en los casos en que el estudiante adeude Seminario Final y Práctica Solidaria, se mantiene el criterio de dos (2) materias. Del mismo modo, si además de una materia electiva, la regla continúa siendo aplicable.
+
+-
+Se consideran como materias no cursadas aquellas en estado No Cursada o Libre . En el caso de materias en estado Regular o Libre por Nota , se considerarán vigentes mientras no haya vencido el plazo correspondiente ni se hayan agotado las instancias de examen establecidas:
+
+-
+Hasta 18 meses y 3 oportunidades de examen para materias en estado Regular.
+
+-
+Hasta 3 meses y 1 oportunidad de examen para materias en estado Libre por Nota.
+
+- Aplicación única en la trayectoria: el beneficio se podrá aplicar solo una vez durante toda la trayectoria académica del estudiante. No es renovable.
+
+- Porcentaje de descuento: una disminución del 30% sobre el valor del arancel, aplicable para todas las modalidades (ED, EDH,PD,P, y PH) y para todas las carreras de Grado y Pregrado. El porcentaje del beneficio será del 30 %, con independencia de que el estudiante adeude una (1) o dos (2) materias.
+
+- Si a un alumno le restan por cursar sus últimas dos materias y las mismas tienen apertura en el periodo B, tendrá la posibilidad de aplicar el 30% de descuento sobre el ticket B, correspondiente al periodo que va a cursar.
+
+-
+En las modalidades PH, ED y EDH :
+
+En carreras de Pregrado , en caso de que le resten por cursar materias en el periodo 1A o 2A, deberá generar y abonar los tickets A y B.
+
+En carreras de Grado , en caso de que le resten por cursar materias en el periodo 1A o 2A, solo deberá generar y abonar el ticket A.
+
+Tanto en Grado como Pregrado, en caso de que le resten por cursar materias en el periodo 1B o 2B, se generará y deberá abonar únicamente el ticket B.
+
+-
+En las modalidades P y PD, se deberán generar boletos individuales por materia, aplicándose el beneficio en cada boleto que se genere.
+
+-  Carácter del Beneficio
+
+- No renovable: el beneficio se otorga por única vez.
+
+- No acumulable: no podrá combinarse con otras Becas o Beneficios otorgados por la Universidad, aunque sí será compatible con promociones comerciales vigentes.
+
+- Personal e intransferible: el beneficio es exclusivo del estudiante que lo solicita y no puede ser cedido, transferido o aplicado a otra persona.
+
+-
+Procedimiento de Otorgamiento
+
+- El beneficio podrá solicitarse de forma autogestiva a través del Portal Estudiantes.
+
+- El sistema verificará automáticamente el cumplimiento de los requisitos académicos establecidos.
+
+- En caso de cumplirlos, se procederá a la asignación automática del beneficio en los términos indicados.
+
+-
+Facultades de la Universidad
+
+- Revisar la información académica declarada por cada estudiante para garantizar que se cumplan las condiciones del beneficio.
+
+- Anular el beneficio si se detecta algún incumplimiento de los requisitos o errores en los datos informados.
+
+- Actualizar, modificar o pausar este programa de beneficios cuando sea necesario, comunicando cualquier cambio por los canales institucionales oficiales.
+
+- En caso de que el estudiante acceda al beneficio sin cumplir con los requisitos establecidos por la normativa vigente, y la Universidad no advirtiera dicho incumplimiento al momento de su otorgamiento, ello no eximirá al estudiante de su responsabilidad ni le conferirá derecho a reclamar la reaplicación del beneficio con posterioridad.
+
+Posibilidades de rechazo
+
+“Rechazado por promedio”: No es posible otorgar el beneficio, ya que no cumple con el requisito de tener un promedio general igual o superior a 8 (ocho), con y sin aplazos.
+
+“Rechazado por adeudar más de dos materias”: No es posible otorgar el beneficio, ya que no cumple con el requisito de tener como máximo dos materias pendientes de cursar en el semestre.
+
+“Rechazado porque ya fue aplicado”: No es posible otorgar el beneficio. Se registra una aplicación previa.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Becas
+
+Tipificación: Beneficio Persistencia a la Graduación
+
+Nota interna - completar ticket con los siguientes datos:
+
+- DNI
+
+- Legajo
+
+-
+Captura del error del botón de Portal (nos lo debe compartir el estudiante a través de Correo).
+
+Validaciones: sólo en caso de que el estudiante cumpla las condiciones y no pueda aplicarlo desde su Portal.
+
+👉 Beneficio por Persistencia a la Graduación sobre Matrícula
+
+¿De cuánto es el descuento? Bonificación del 50% de matrícula
+
+¿Quienes acceden?
+
+- MP y PH: alumnos que solo adeudan Defensa Oral
+
+- ED – EDH: alumnos que adeudan EFIP II y Defensa Oral
+
+¿Cómo aplica? beneficio que aplica de forma automática.
+
+Proceso Provisorio:
+
+La carga de validación académica y la aplicación del Beneficio de Persistencia sobre matrícula al 50% no están funcionando de manera automática.
+
+Al finalizar el período 2B, todos los alumnos que cumplan con los requisitos establecidos para cargar el cheque de validación académica, verán replicado (en el lapso de 5 días hábiles) el beneficio de persistencia en matrícula. Este procedimiento se llevará a cabo de manera masiva y automática.
+
+Es fundamental que tengan en cuenta lo siguiente:
+
+- No es necesario generar tickets en las bandejas de Becas y Operación Títulos por este motivo.
+
+- Si un alumno realiza un reclamo después de finalizado el proceso automático y aún no cuenta con el cheque o el beneficio aplicado, debe seguir los siguientes lineamientos:
+
+- Si el alumno no tiene el cheque de validación académica en SGU: Derivar el reclamo a Operación Títulos con la tipificación "Carga de validación académica".
+
+Si el alumno tiene el cheque de validación académica en SGU pero no observa el beneficio de beca en su legajo: Derivar el reclamo a Becas con la tipificación "Beneficio de persistencia a la graduación".
+
+Se otorga de manera automática una vez que el alumno cuenta con el cheque de Validación Académica habilitada en SGU, tal como se observa en el print debajo. En caso de no contar con el cheque, verifique que cumpla los requisitos y derive a Título de Operaciones.
+
+Pasos a seguir para su revisión:
+
+-
+Con el LEGAJO del alumno, verificar en REPORTE DE ALUMNOS de SGU que figura una tilde verde en la columna VALIDACIÓN ACADÉMICA.
+
+-
+Si figura la tilde verde, como se muestra en la imagen anterior, proceda a GENERAR LA MATRÍCULA del alumno.
+
+-
+Una vez confirmada la generación de la misma, informele al alumno que espere 24 hs para luego proceder a abonarla con el beneficio ya aplicado. Se sugiere verificar y mencionarle cuanto debería abonar para que pueda corroborar que esté aplicando correctamente al momento de gestionar el pago.
+
+⚠️ Importante:
+
+Si NO tiene la tilde en Validación Académica, siga los pasos del proceso VISADO ANALÍTICO.
+
+​En caso de solicitarlo, verifique que el alumno se encuentre en condición de REGULAR en el SEMINARIO FINAL. Caso contrario no se otorgará.
+
+El beneficio se otorga hasta 2 veces.
+
+La Lic. en Educación podrá acceder al beneficio sobre matrícula.
+
+El alumno, al momento de abonar la matrícula, puede hacer uso de la promoción vigente para dicho concepto.
+
+Beneficio a la Comunidad Educativa Siglo 21
+
+Podrán acceder al beneficio de comunidad educativa quienes se encuentren en las siguientes condiciones:
+
+- A- Ser docente, directivo o co-docente de la universidad.
+
+- B- Ser familiar director (hijo/padre/esposo/hermano) de docente, directivo o co-docente de la Universidad.
+
+- C- Ser Coordinador, Tutor de Aprendizaje Universitario (TAP) o Personal de Informes de un Centro de Aprendizaje Universitario.
+
+- D - Pertenecer al grupo R'Evolution Education Group (CEREM - TecLab - IPP -Capabilia - Bitlogic - Benchlab - Klarway -Ed Machina) solo aplica al empleado.
+
+- No tener sanciones.
+
+- A los efectos de determinar si se otorga el beneficio de comunidad educativa, se tendrá en cuenta que se tratan de empleados estables, es decir no eventuales, independientemente de la antigüedad que posean en la Universidad o en los Centros de Aprendizaje.
+
+- El beneficio de comunidad educativa se aplicará, según el promedio general con aplazos obtenidos por el beneficiario.
+
+R'Evolution Education Group ingresa como Comunidad Educativa UES para NI o RI, (seria lo mismo que es para doc/codoc del siglo no incluye familiares)
+Es como la comunidad, al ser NI van a ser otorgadas desde admisión, luego ingresarán en la réplica.
+Si son RI deberán enviar documentación que avale ser empleados, (DNI y recibo de sueldo.. Los mismos deberán estar digitalizados.
+En ambos casos aplica tal como lo establece la resolución aplica para personal estable de las instituciones.
+Beneficio 75 % promedio mayor a 7 ó 50% con promedio menor a 7.
+
+Familiar director de docentes
+
+Debe generar un ticket desde Portal Estudiantes > Contactanos , con la tipificación Beca Comunidad Siglo / Comunidad CAU .
+
+En la descripción del ticket debe indicar: "Soy familiar directo del/de la docente [Nombre completo del docente]. Solicito el Comunidad S21 – Familiar directo."
+
+La solicitud será derivada al área de Becas, quien validará internamente el cumplimiento de los requisitos (entre ellos, que el docente se registre 3 períodos consecutivos de dictado de clases). Si corresponde, el beneficio será otorgado y comunicado al estudiante.
+
+Para carreras de Grado-Pregrado
+A - Alumnos que sean personal estable de la Institución obtienen:
+75% 🡺 promedio general con aplazos de 7 (siete) o más.
+50% 🡺 promedio general con aplazos menores a 7 (siete).
+
+B - Alumnos que sean familiares directos del personal estable de la Institución obtienen:
+50% 🡺 promedio general con aplazo de 7 o más.
+No aplica si baja el promedio general con aplazo de 7 o más.
+
+C - Alumnos empleados personal estable de la Institución obtienen:
+50% 🡺 promedio general con aplazo de 7 o más.
+No aplica si baja el promedio general con aplazo de 7 o más. Para posgrado y extragrado
+
+- De acuerdo a lo establecido en la RCS 613/2018.
+
+- Sólo los docentes, directivos y codocentes podrán solicitar el beneficio para Carreras de Posgrado o Extragrado, siendo en este caso aplicable un porcentaje de descuento del 20% sobre el arancel. En caso de dictarse el Posgrado o Extragrado en Modalidad Distancia se aplicará un porcentaje de descuento del 50% sobre aranceles. Sin perjuicio de ello, la Universidad podrá hacer convocatorias anuales, con cupos determinados, otorgando un porcentaje superior con el cumplimiento de los requisitos que se establezcan en cada caso.
+
+- En esta línea, exclusivamente para docentes, existen las convocatorias de la Dirección de Formación y Desarrollo docente que se comunican oportunamente vía mail desde el área.
+
+Beneficio para alumnos deportistas federados
+
+Podrán gozar de este beneficio únicamente aquellos alumnos ingresantes o reinscriptos de carreras de Grado o Pregrado en cualquier modalidad, que se encuentren federados en alguna asociación o federación deportiva nacional , situación que deberán acreditar presentando la documentación que certifique tal condición.
+
+✔️ ​En este beneficio corresponde un 10% de descuento sobre aranceles y se aplicará siempre que el alumno continúe a federado.
+
+​✔️​ El alumno deberá permitir la difusión de imágenes en redes sociales de la Universidad como promoción y difusión de las diferentes actividades deportivas realizadas por los alumnos.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Beca
+
+Tipificación: Beca comunidad siglo/comunidad CAU
+
+Nota interna - completar ticket con los siguientes datos:
+
+- DNI
+
+- Legajo
+
+- Copia DNI
+
+- Foto carnet, certificado de afiliación o algún otro documento que avale la afiliación
+
+Plazos: 3 días hábiles
+
+Beneficio para proveedores estables
+
+Podrán acceder a este beneficio aquellas personas que trabajan o sean familiares directos de personal permanente de alguna de las entidades que son proveedores estables de la Universidad, es decir, aquellos que tengan una vinculación duradera, quedando excluidos los proveedores que prestan servicios de manera eventual. A los efectos de determinar si el interesado aplica al beneficio, se considera personal permanente a los empleados que no sean eventuales, independientemente de la antigüedad que posean.
+
+Los interesados ​​en acceder a este beneficio deberán acreditar su condición de empleados mediante la presentación de recibo de haberes. Además se deberá presentar constancia que acredite el vínculo para el caso de familiares directos.
+
+El beneficio consistirá en una disminución del 20% sobre los aranceles semestrales de la carrera que curse el alumno. Aplica para Grado, Pregrado, Ciclos de complementación curricular y Posgrado (Maestrías y Especializaciones).
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Becas
+
+Tipificación: Beneficio para proveedores estables
+
+Nota interna - completar ticket con los siguientes datos:
+
+- DNI
+
+- Legajo
+
+-
+Último recibo de sueldo + DNI
+
+Beneficio para egresados de Institutos CAU
+
+Podrán acceder a este beneficio quienes acrediten ser estudiantes del último curso de estudios de nivel medio o polimodal de cualquier institución secundaria del país que funcione activamente como Centro de Aprendizaje Universitario.
+
+El beneficio consistirá en una disminución del 10% sobre los aranceles semestrales de carreras de Grado para todas las modalidades.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Becas
+
+Tipificación: Beneficio para egresados ​​de institutos CAU
+
+Nota interna - completar ticket con los siguientes datos:
+
+- DNI
+
+- Legajo
+
+-
+Certificado analítico del egresado o certificado de título en trámite
+
+Seguro de continuidad
+
+Consiste en una propuesta de la Universidad para aquellos alumnos (de modalidades PH, ED y EDH), que no pueden reinscribirse al semestre, o No pueden continuar al ya haber iniciado el cursado, por motivos de desvinculación laboral (propia o del cónyuge).
+
+Requisitos de Aplicación:
+
+- Aplica únicamente a aquellos alumnos que hayan perdido su trabajo , cuya contratación fue formal (en blanco). No aplica a aquellos alumnos que trabajaron informalmente, así como tampoco a aquellos que renunciaron al mismo. Únicamente se aplica a los alumnos que fueron desvinculados por la empresa. Se contempla desvinculación en etapa de prueba, NO así cuando el estudiante tiene Contrato a Plazo Fijo.
+
+- El alumno puede solicitar el seguro de continuidad si es su esposo o esposa quien perdió su trabajo y se configura como la fuente económica del grupo familiar. Debe presentar una declaración jurada justificando el concubinato y el mismo sea de un plazo mayor a 10 años.
+
+- Este seguro permite al alumno reinscribirse a cursar o continuar el cursado. Se reconocerán los conceptos abonados por el alumno en el periodo inmediato anterior .
+
+- Aplicación para modalidad ED- EDH y PH
+
+- Si abonó Matricula + Tk A + Tk B se bonifica el 2º semestre completo.
+
+- Si abonó Matrícula + Tk A se bonifica el período B del semestre , siempre que se encuentre inscripto a las materias del período B. Si no está inscripto a materias del período B no corresponde seguro, no hay continuidad.
+
+- Si abonó Matrícula únicamente NO acceder al beneficio.
+
+- Alumnos con deuda NO acceden al beneficio.
+
+- Alumnos que adeudan Tk B del Semestre, acceden al beneficio solo si la fecha del telegrama de despido está dentro del semestre.
+
+- No aplica si el alumno cambia de Modalidad (ED-EDH a MP), si aplica con cambio de submodalidad ED a EDH y viceversa.
+
+Información para la derivación (HubSpot)
+
+Área de derivación:
+
+Tipificación:
+
+Nota interna - completar ticket con los siguientes datos:
+
+- DNI
+
+- Legajo
+
+- Telegrama de despido y acta de matrimonio en caso de cónyuge
+
+Plazos: 5 días hábiles
+
+⚠️Importante:
+
+El alumno debe si o si continuar la carrera, no aplica este beneficio al alumno que decide no cursar un período o saltearlo.
+
+Garantía de adaptación
+
+Generalidades:
+
+- Es un beneficio aplicable únicamente a las carreras de GRADO y PREGRADO , de TODAS las modalidades.
+
+- Aplicable a aquellos alumnos que hayan abonado una única Matrícula y al menos 1 Ticket de Arancel .
+
+- Se aplica por ÚNICA VEZ POR LEGAJO en el término de 2 años posteriores a la fecha de su ingreso (Es decir, si el alumno tiene dos legajos, en ambos abonó sus conceptos, y cumple con los requisitos en ambos, podrá acceder a la Garantía de Adaptación. Por ello las Garantías de Adaptación es una herramienta aplicable al legajo y NO al alumno).
+
+- El alumno NO debe tener materias aprobadas.
+
+- Si el alumno solicita Garantía de Adaptación y tiene las materias de UNIVERSITARIO 21 en estado REGULAR o inclusive APROBADO, estas materias mantienen su condición y puede solicitar su Garantía de Adaptación.
+
+- Puede tener materias en condición de Regular o Libre por nota pero al momento de solicitar la garantía debe saber que pierde dicha condición. INFORMAR SI O SI ESTO.
+
+- En caso que el alumno solicite Garantía de Adaptación con cambio de carrera, lo que implica la creación de un nuevo legado, y sobre este tampoco realiza actividades académicas, no se podrá otorgar nuevamente el beneficio, sin excepción alguna.
+
+⚠️ Validaciones:
+
+- Que no posea deuda (Ni saldo a favor) : No interfieren los tickets pendientes de pago, solo verificar que no tenga saldo adeudado o favor mayor a $10.00 (en la opción “Pago a Cuenta” de Pago Electrónico).
+
+- Que el CAU que tiene asignado se encuentre activo :  Verificar en Bases de CAU´s   Si no se encuentra activo, consulte a qué CAU prefiere trasladarse el alumno.
+
+- Que no tenga tickets generados del período en curso : Si es así, anularlos desde SGU para poder aplicar Garantía de Adaptación por botón.
+
+En el SGU en listado de Becas que no existe una aplicación previa del beneficio otorgado por botón de SGU.
+
+Beneficio Egresado Teclab
+
+Los alumnos que hayan egresado de una tecnicatura en Teclab y aspiren a cursar una licenciatura o estén cursando la misma en Siglo 21, podrán acceder a un descuento del 20% en aranceles.
+
+El NI que aspire al beneficio deberá presentar una copia digital del título o un certificado de título en trámite para acceder al descuento.
+
+El beneficio aplica a todas las modalidades; para acceder al mismo, se deberá enviar una copia digital del título o una constancia de título en trámite para ser cargado en la siguiente carpeta:
+
+🔗 Documentación - Beneficio Egresados ​​Teclab
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Becas
+
+Tipificación: Beca empresa amiga
+
+Nota interna - completar ticket con los siguientes datos:
+
+- DNI
+
+- Legajo
+
+- Egresados Telab
+
+Becas Embajadores Siglo 21
+
+Convenio con Embajadores de Marca – Influencers
+
+En el marco de nuestras acciones de posicionamiento, se ha generado un convenio específico para Embajadores de Marca , que consiste en una alianza con influencers reconocidos.
+
+Estos embajadores reciben una beca del 50% sobre el arancel a cambio de generar contenido en sus redes sociales, mencionando a la Universidad Siglo 21 y compartiendo su experiencia como estudiantes.
+
+📌 Importante:
+
+- La beca no incluye matrícula ni materias de verano .
+
+- El convenio está sujeto a la validación del perfil del influencer por parte del equipo correspondiente.
+
+📌 Embajadores de Marca:
+
+- Alfonso Cattaneo
+
+- Mateo Magdaleno
+
+- Pilar Casas
+
+Convenio Celi
+
+CONVENIO MARCO ENTRE COMODORO INSTITUTO DEL LENGUA INGLÉS (CELI) Y UNIVERSIDAD EMPRESARIAL SIGLO 21 (VIGENTE HASTA 31/12/2026)
+
+Benificios vigentes:
+
+- 15% adicional sobre aranceles semestrales para aquellos alumnos de CELL, con matrícula activa, que quieran iniciar una carrera de grado o pregrado en UES21. Este beneficio podrá transferirse a un familiar directo del alumno (madre, padre o hermano/a).
+
+- 15% adicional sobre aranceles semestrales para ex alumnos de CELI que hayan finalizado sus estudios exitosamente y que quieran iniciar una carrera de grado o pregrado en UES21.
+
+- 15% adicional sobre matrícula y aranceles semestrales para alumnos que hayan rendido y aprobado un examen internacional Pearson English International Certificate , que quieran iniciar una carrera de grado o pregrado en UES21. Beneficio personal y no transferible. (Incluye a ex alumnos que hayan finalizado sus estudios y rendido exitosamente dicho examen desde el año 2004 en adelante)
+
+-  15% adicional sobre aranceles semestrales para alumnos y graduados del ISFD N.º 1806 - Profesorado de Inglés CELI que deseen iniciar en UES21 la Licenciatura en Educación o carreras afines a su formación. Beneficio no transferible. (Incluye a graduados desde el año 1995 en adelante)
+
+-  15% adicional sobre matrícula y aranceles para alumnos y familiares directos de los Centros Alineados Pedagógicamente con el ISFD N.º 1806, ubicados en las provincias de Chubut y Santa Cruz, que opten por iniciar una carrera de grado o pregrado en UES21.
+
+IMPORTANTE:
+
+- Los beneficiarios deberán registrarse por el Reglamento de Becas, plasmado en el Reglamento Institucional de UES21. En el caso de no cumplir con las condiciones de otorgamiento (promedio general de 8 (ocho) incluyendo aplazos, y no poseer sanciones firmes en su legajo) , perderán los beneficios aquí mencionados.
+
+- Para acceder a los beneficios mencionados anteriormente, los interesados ​​deberán presentar Certificado emitido por CELI (ya sea de matrícula activa o bien, de finalización exitosa de sus estudios).$pea0$, 'global', 'borrador', $pea0$https://kb-cau.21.edu.ar/servicios-cau/servicios/becas-y-beneficios$pea0$)
+on conflict (categoria_id, slug) do nothing;
+
+insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
+values ((select id from public.categorias where slug = $pea0$atencion-y-derivaciones$pea0$), null, 57, $pea0$kb-57-matriz-general$pea0$,
+        $pea0$Matriz General$pea0$, $pea0$Brindar información actualizada sobre los calendarios académicos, horarios de venta, apertura de materias, Open Class y listados de CAU.$pea0$, $pea0$> **A validar:** contenido relevado de https://kb-cau.21.edu.ar/servicios-cau/servicios/accesos-rápidos-y-recursos-institucionales el 2026-11-19. Revisalo antes de publicar.
+
+Brindar información actualizada sobre los calendarios académicos, horarios de venta, apertura de materias, Open Class y listados de CAU.
+
+ÍNDICE | RECURSOS ACADÉMICOS
+
+- OFERTA ACTIVA 2027
+
+-
+CALENDARIOS ACADÉMICOS
+
+-
+APERTURA DE MATERIA
+
+-
+HORARIO DE VENTA - TODAS LAS MODALIDADES
+
+-
+OPEN CLASS
+
+-
+LISTADO DE CAU
+
+- IVU
+
+OFERTA ACTIVA 2027
+
+Grado y pregrado |  Ver más |
+
+CALENDARIOS ACADÉMICOS
+
+|
+2026
+|
+2027
+|
+
+ED-EDH
+|
+Ver más
+|
+Ver más
+|
+
+PH
+|
+Ver más
+|
+Ver más
+|
+
+P y PD
+|
+Ver más
+|
+Ver más
+|
+
+Martillero Presencial
+|
+
+|
+Ver más
+|
+
+Proceso
+|
+Ver más
+|
+Ver más
+|
+
+Cervantes
+|
+Ver más
+|
+Ver más
+|
+
+Trámites
+|
+Ver más
+|
+Ver más
+|
+
+Verano 2027
+|    |
+Ver más
+|
+
+Anual 2027
+|    |
+Ver más
+|
+
+APERTURA DE MATERIAS 2027 - SERVICIO CAU
+
+ED/EDH Servicio - Apertura por cuatrimestre - 2027
+|
+Ver más
+|
+
+PH/ P/PD Servicio - Apertura por cuatrimestre - 2027
+|
+Ver más
+|
+
+Matriz Posgrado Distancia 2027
+
+|
+Ver más
+|
+
+Matriz Posgrado Presencial 2027
+
+|
+Ver más
+|
+
+VERANO 2027 Todas las modalidades
+|
+Ver mas
+|
+
+Inscripción Ingresantes 2027 ( INSCRIPCIÓN AUTOMÁTICA todas las modalidades)
+
+|
+Ver mas
+|
+
+HORARIO DE VENTA 2027
+
+(Presenta los turnos, horarios y sedes de cursado correspondientes a cada carrera, modalidad y cohorte, junto con su estado de oferta. Esta información permite identificar las condiciones de cursado previstas para el próximo año)
+
+Todas las modalidades
+|
+Ver más
+|
+
+HORARIO DE VENTA - MODALIDAD PD
+
+Carrera |  Franja |  Horario |
+
+Licenciatura en Fonoaudiología (FON) |  Mañana |  08:30 a 13:00 |
+
+Licenciatura en Nutrición (LEN) |  Mañana |  08:30 a 13:00 |
+
+Ingeniería en Innovación y Desarrollo (IYD) |  Mañana |  08:30 a 13:00 |
+
+Licenciatura en Psicología (PSI) |  Tarde |  12:30 a 18:30 |
+
+Licenciatura en Diseño Gráfico (DGR) |  Tarde |  13:00 a 18:30 |
+
+Tecnicatura Universitaria en Enfermería (TUE) |  Tarde |  13:00 a 18:30 |
+
+OPEN CLASS
+
+Las carreras dispondrán de turnos de cursado (mañana, tarde, noche), el aspirante podrá seleccionar el que desee al momento de la inscripción.
+
+La OPEN CLASS es un encuentro cada 15 días que tendrá el alumno por materia. Se encuentra compuesta de la siguiente manera y tendrá una duración de 2:30 hs.
+
+Turno |  Módulo |  Inicio |  Fin |
+
+MAÑANA |  M1 |  08:30 |  10:40 |
+
+|  M2 |  10:10 |  12:20 |
+
+TARDE |  M1 |  13:00 |  15:10 |
+
+|  M2 |  14:40 |  16:50 |
+
+NOCHE |  M1 |  18:00 |  20:10 |
+
+|  M2 |  19:40 |  21:50 |
+
+SUB-NOCHE |  M1 |  17:00 |  19:10 |
+
+|  M2 |  18:40 |  20:50 |
+
+LISTADO DE CAU
+
+Listado de CAU´s
+|
+Ver más
+|
+
+Listado de CAU´s Bs As por zona
+|
+Ver más
+|
+
+IVU - Introducción a la Vida Universitaria
+
+CAUs - Centro de Aprendizaje Universitario
+
+El CAU envia por mail las fechas y horarios que se dicta el IVU, en caso que no llegara el mail debe contactarse con su CAU para solicitar información sobre el encuentro.
+
+Sede Nueva Córdoba
+
+Sede Nueva Córdoba
+
+Modalidad |  Día |  Hora |  Aula |  Referente |
+
+Presencial Home |  1-oct |  17:00 |  605 |  Ana Ortin |
+
+Presencial Home |  2-oct |  17:00 |  Virtual |  Ana Ortin |
+
+Presencial Home |  8-oct |  17:00 |  605 |  Ana Ortin |
+
+Presencial Home |  15-oct |  17:00 |  605 |  Ana Ortin |
+
+Presencial Home |  22-oct |  17:00 |  605 |  Ana Ortin |
+
+Educación Distribuida |  1-oct |  17:00 |  608 |  Sol Sosa |
+
+Presencial Home |  2-oct |  17:00 |  Virtual |  Sol Sosa |
+
+Educación Distribuida |  5-oct |  17:00 |  608 |  Sol Sosa |
+
+Educación Distribuida home |  8-oct |  17:00 |  608 |  Sol Sosa |
+
+Educación Distribuida |  15-oct |  17:00 |  608 |  Sol Sosa |
+
+Educación Distribuida home |  22-oct |  17:00 |  608 |  Sol Sosa |
+
+Sede Campus
+
+Finalizado el ciclo de IVU 2/26 - Aun no estan definidos los IVU de febrero 2027.$pea0$, 'global', 'borrador', $pea0$https://kb-cau.21.edu.ar/servicios-cau/servicios/accesos-rápidos-y-recursos-institucionales$pea0$)
+on conflict (categoria_id, slug) do nothing;
+
+insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
+values ((select id from public.categorias where slug = $pea0$aranceles-y-pagos$pea0$), null, 58, $pea0$kb-58-normas-arancelarias-generales$pea0$,
+        $pea0$Normas arancelarias generales$pea0$, $pea0$Contiene la información sobre la generación de aranceles para estudiantes de grado, pregrado y ciclos de complementación, incluyendo matrícula, paquetes de materias, materias extras, cursado de ver…$pea0$, $pea0$> **A validar:** contenido relevado de https://kb-cau.21.edu.ar/servicios-cau/servicios/normas-arancelarias el 2026-11-19. Revisalo antes de publicar.
+
+Contiene la información sobre la generación de aranceles para estudiantes de grado, pregrado y ciclos de complementación, incluyendo matrícula, paquetes de materias, materias extras, cursado de verano y condiciones generales de pago.
+
+Índice
+
+- Generación de aranceles
+1.1 Descripción
+1.2 Matrícula
+1.3 Aranceles de cursado
+1.4 Aranceles Trámites
+
+- Clase de estudio: Grado
+
+2.1 Modalidades Educación Distribuida (ED), Educación Distribuida Home (EDH) y Presencial Home (PH)
+2.1.1 Características generales
+2.1.2 Paquetes disponibles
+2.1.3 Inscripción únicamente en el Subperíodo B
+
+2.2 Modalidades Presencial (P) y 2.2 Presencial Distribuida (PD)
+2.2.1 Características generales
+2.2.2 Paquetes disponibles
+2.2.3 Importante
+2.2.4 Consideraciones importantes
+
+- Clase de estudio: Pregrado
+3.1 Modalidades Educación Distribuida (ED), Educación Distribuida Home (EDH) y Presencial Home (PH)
+3.1.1 Características generales
+3.1.2 Paquete disponible
+
+- Clase de estudio: Ciclos de Complementación Curricular (CCC)
+4.1 Características generales
+4.2 Modalidades Educación Distribuida (ED) y Educación Distribuida Home (EDH)
+4.2.1 Paquete disponible
+4.3 Carreras comprendidas
+4.4 Carrera Procurador
+4.4.1 Características particulares
+4.4.2 Ingreso en Subperíodo A
+4.4.3 Ingreso en Subperíodo B
+
+- Materias extras
+5.1 Consideraciones generales
+
+- Cursado de verano
+6.1 Consideraciones generales
+6.2 Condiciones para generar el arancel
+6.3 Beneficios y becas
+6.4 Consideraciones importantes
+
+- Medios y plazos de pago
+7.1 Generación de tickets
+7.2 Plazo de acreditación
+7.3 Responsabilidad del estudiante
+
+- Alumnos con deuda
+8.1 Condiciones para la generación de nuevos aranceles
+8.2 Imputación de pagos
+8.3 Rechazo de pagos
+
+- Solicitud de baja
+9.1 Gestión de baja
+9.2 Condiciones para otorgar la baja
+9.3 Renuncia a la regularidad
+9.4 Reintegros y cancelación de deuda
+
+1. Generación de aranceles
+
+1.1 Descripción
+
+Las normas arancelarias establecen el sistema mediante el cual se gestiona el pago del cursado en la Universidad. Comprenden la matrícula semestral y los aranceles de cursado (tickets por paquete de materias).
+
+La generación de aranceles depende de la clase de estudio, la modalidad de cursado y la cantidad de materias habilitadas para cursar.
+
+1.2 Matrícula
+
+La matrícula es obligatoria, tiene vigencia semestral y debe encontrarse paga y activa para que el estudiante pueda:
+
+- Rendir exámenes parciales.
+
+- Rendir exámenes finales.
+
+- Rendir la Defensa Oral del Seminario Final.
+
+1.3 Aranceles de cursado
+
+Para inscribirse a materias, el estudiante debe:
+
+- Tener abonados los aranceles correspondientes al período de cursado.
+
+- No registrar deuda administrativa.
+
+Los aranceles se abonan mediante tickets por paquete de materias, cuya generación varía según la clase de estudio y la modalidad de cursado.
+
+Importante
+
+Antes de informar al estudiante qué arancel corresponde generar, verificar en el legajo:
+
+- Clase de estudio.
+
+- Modalidad de cursado.
+
+- Cantidad de materias habilitadas.
+
+- Subperíodo de inscripción (cuando corresponda).
+
+1.3 Aranceles de Trámites
+
+En vigencia a partir del 16 de octubre 2026.
+
+Arancel intercambio:
+
+Paquete
+|
+ARS$
+|
+
+1 materia
+|
+243.600
+|
+
+2 materias
+|
+389.550
+|
+
+3 materias
+|
+549.150
+|
+
+4 materias
+|
+707.700
+|
+
+5 materias
+|
+855.750
+|
+
+6 materias
+|
+992.250
+|
+
+Trámites y otros conceptos:
+
+Trámites / Otros conceptos
+|
+ARS$
+|
+
+Certificado Analítico Parcial
+|
+43.100
+|
+
+Certificado Analítico Parcial + Programas
+|
+99.800
+|
+
+Certificado Analítico Parcial legalizado por Ministerio de Educación
+|
+119.700
+|
+
+Legalización fotocopia de título
+|
+23.100
+|
+
+Articulaciones precio general
+|
+1.323.000
+|
+
+Punto MTD
+|
+9.450
+|
+
+Titulación intermedia
+|
+111.300
+|
+
+Titulación grado/pregrado
+|
+234.200
+|
+
+Articulación Cervantes
+|
+
+|
+
+Derecho de examen (BLE)
+|
+32.600
+|
+
+Arancel
+|
+681.500
+|
+
+Título Martillero con Articulación Cervantes
+|
+111.300
+|
+
+2. Clase de estudio: Grado
+
+2.1 Modalidades Educación Distribuida (ED), Educación Distribuida Home (EDH) y Presencial Home (PH)
+
+2.1.1 Características generales
+
+- El cursado se organiza en dos semestres, subdivididos en Subperíodo A y Subperíodo B.
+
+- El estudiante abona una matrícula semestral y luego el paquete de materias correspondiente.
+
+2.1.2 Paquetes disponibles
+
+Paquete de hasta 3 materias
+
+Corresponde cuando el estudiante se inscribe a 1, 2 o 3 materias.
+
+Aranceles:
+
+- Matrícula.
+
+- Ticket correspondiente al paquete de hasta 3 materias.
+
+Paquete de hasta 6 materias
+
+Corresponde cuando el estudiante se inscribe a 4, 5 o 6 materias.
+
+Aranceles:
+
+- Matrícula.
+
+- Ticket A + Ticket B (arancel semestral completo).
+
+2.1.3 Inscripción únicamente en el Subperíodo B
+
+Si el estudiante comienza a cursar únicamente en el Subperíodo B, abonará solamente el Ticket B correspondiente al período y podrá inscribirse hasta 3 materias.
+
+2.2 Modalidades Presencial (P) y Presencial Distribuida (PD)
+
+2.2.1 Características generales
+
+- El cursado se organiza en dos semestres.
+
+- El estudiante abona una matrícula semestral y luego el paquete de materias correspondiente.
+
+- Los paquetes disponibles dependen de la cantidad de materias habilitadas para cursar, según el plan de estudios y la situación académica del estudiante.
+
+2.2.2 Paquetes disponibles
+
+El Portal de Estudiantes habilitará únicamente los paquetes que correspondan según las materias que el estudiante tenga disponibles para cursar.
+
+Los paquetes disponibles son:
+
+- 1 materia.
+
+- 3 materias.
+
+- 4 materias.
+
+- 6 materias.
+
+Adicionalmente, el estudiante podrá incorporar materias extras según la normativa vigente, siempre que se encuentre habilitado, pudiendo alcanzar hasta un máximo de 8 materias por semestre incluyendo las materias extras.
+
+2.2.3 Importante
+
+Esta normativa arancelaria también aplica a la Tecnicatura Universitaria en Enfermería.
+
+2.2.4 Consideraciones importantes
+
+Si el estudiante abona un paquete para una determinada cantidad de materias y finalmente cursa una cantidad menor, no corresponde la emisión de una Nota de Crédito, ya que el arancel corresponde al paquete adquirido y no a las materias efectivamente cursadas.
+
+3. Clase de estudio: Pregrado
+
+3.1 Modalidades Educación Distribuida (ED), Educación Distribuida Home (EDH) y Presencial Home (PH)
+
+3.1.1 Características generales
+
+- El cursado se organiza en dos semestres, subdivididos en Subperíodo A y Subperíodo B.
+
+- El estudiante abona una matrícula semestral y luego el paquete de materias correspondiente.
+
+3.1.2 Paquete disponible
+
+Las carreras de pregrado cuentan con un único paquete de hasta 4 materias.
+
+- Si el estudiante se inscribe en el Subperíodo A, abonará el semestre completo ( matrícula más ticket A y ticket B) independientemente de que curse entre 1 y 4 materias.
+
+- Si el estudiante se incorpora únicamente en el Subperíodo B, abonará únicamente el Ticket B, pudiendo inscribirse hasta 2 materias.
+
+4. Clase de estudio: Ciclos de Complementación Curricular (CCC)
+
+4.1 Características generales
+
+- Los estudiantes de Ciclos de Complementación Curricular (CCC) se rigen por la normativa arancelaria correspondiente a Pregrado.
+
+- El cursado se organiza en dos semestres, subdivididos en Subperíodo A y Subperíodo B.
+
+- El estudiante abona una matrícula semestral y luego el paquete de materias correspondiente.
+
+4.2 Modalidades Educación Distribuida (ED) y Educación Distribuida Home (EDH)
+
+4.2.1 Paquete disponible
+
+Los estudiantes cuentan con un paquete de hasta 4 materias.
+
+- Si el estudiante se inscribe en el Subperíodo A, debe abonar el arancel correspondiente al semestre completo (Ticket A + Ticket B).
+
+- Si el estudiante se incorpora únicamente en el Subperíodo B, abona únicamente el Ticket B correspondiente al período, pudiendo inscribirse hasta 2 materias.
+
+4.3 Carreras comprendidas
+
+Esta normativa aplica para los siguientes Ciclos de Complementación Curricular:
+
+- Escribanía.
+
+- Licenciatura en Educación.
+
+4.4 Carrera Procurador
+
+4.4.1 Características particulares
+
+La carrera de Procurador cuenta con condiciones arancelarias específicas.
+
+- Se puede cursar hasta 5 materias por semestre.
+
+- El estudiante puede incorporar hasta 2 materias extras, abonando el arancel correspondiente.
+
+4.4.2 Ingreso en Subperíodo A
+
+El estudiante debe abonar:
+
+- Matrícula.
+
+- Ticket A + Ticket B (arancel semestral completo).
+
+Puede cursar hasta 5 materias.
+
+4.4.3 Ingreso en Subperíodo B
+
+El estudiante cuenta con las siguientes opciones:
+
+Opción 1
+
+- Abonar Ticket A + Ticket B (arancel semestral completo).
+
+- Puede cursar hasta 5 materias.
+
+Opción 2
+
+- Abonar únicamente Ticket B.
+
+- Puede cursar hasta 3 materias.
+
+5. Materias extras
+
+5.1 Consideraciones generales
+
+- El estudiante puede cursar materias extras siempre que se encuentre habilitado según su situación académica y normativa vigente.
+
+- Puede cursar hasta 2 materias extras por semestre.
+
+- Sobre las materias extras no aplican becas ni beneficios vigentes.
+
+- Los estudiantes ingresantes podrán realizar materias extras una vez completado el cursado de su primer cuatrimestre.
+
+El máximo de materias permitidas por semestre, incluyendo materias del paquete y materias extras, es:
+
+- Grado: hasta 8 materias.
+
+- Pregrado: hasta 6 materias.
+
+6. Cursado de verano
+
+6.1 Consideraciones generales
+
+El período de cursado de verano corresponde a una instancia excepcional de cursado que se desarrolla durante los meses de febrero y marzo.
+
+Los estudiantes que se encuentren habilitados y deseen inscribirse a materias durante este período deberán abonar un arancel individual por cada materia. El máximo de materias de verano que se puede cursar son 4.
+
+6.2 Condiciones para generar el arancel
+
+Para poder inscribirse a materias de verano, el estudiante deberá:
+
+- Contar con la matrícula correspondiente paga y activa.
+
+- Generar y abonar el arancel correspondiente a cada materia que desee cursar.
+
+Importante
+
+Primero deberá abonar la matrícula correspondiente y luego generar el arancel de la materia de verano.
+
+El pago del arancel deberá realizarse:
+
+- Antes del comienzo del cursado.
+
+- Como plazo máximo, hasta la finalización del período de cursado de verano.
+
+6.3 Beneficios y becas
+
+En las materias correspondientes al período de cursado de verano no aplican becas ni beneficios que el estudiante pueda tener vigentes en su legajo.
+
+6.4 Consideraciones importantes
+
+- El arancel de verano se genera de manera individual por materia.
+
+- Las condiciones de cursado de verano aplican para todas las clases de estudio y modalidades, siempre que el estudiante se encuentre habilitado para cursar.
+
+7. Medios y plazos de pago
+
+7.1 Generación de tickets
+
+Los estudiantes que deseen cursar materias deberán generar sus tickets a través de las plataformas de autogestión habilitadas por la Universidad.
+
+El pago deberá realizarse utilizando los medios habilitados para tal fin.
+
+7.2 Plazo de acreditación
+
+El plazo estimado de acreditación del pago puede ser de hasta 72 horas hábiles desde la realización de la operación.
+
+Por este motivo, el estudiante debe realizar el pago con la anticipación necesaria para:
+
+- Inscribirse al cursado de materias.
+
+- Rendir exámenes cuando corresponda.
+
+7.3 Responsabilidad del estudiante
+
+Antes de realizar el pago, el estudiante debe:
+
+- Verificar las materias habilitadas para cursar.
+
+- Revisar los paquetes de materias disponibles.
+
+- Seleccionar correctamente el ticket correspondiente a su situación académica.
+
+- Resguardar el comprobante de pago para acreditar la transacción.
+
+8. Alumnos con deuda
+
+8.1 Condiciones para la generación de nuevos aranceles
+
+Los estudiantes que registren deuda de períodos anteriores deberán regularizar su situación antes de poder:
+
+- Abonar la matrícula del período actual.
+
+- Generar aranceles de cursado del período actual.
+
+- Abonar tasas correspondientes a trámites administrativos.
+
+8.2 Imputación de pagos
+
+Hasta que la situación administrativa se encuentre regularizada:
+
+- Los pagos realizados por cualquier concepto serán imputados primero a cancelar la deuda registrada.
+
+- La Universidad podrá aplicar recargos por mora sobre los montos adeudados.
+
+8.3 Rechazo de pagos
+
+En caso de producirse el rechazo de un pago por cualquier motivo:
+
+- La Universidad notificará al estudiante e intimará la regularización de la deuda dentro del plazo establecido.
+
+- Si la situación no se regulariza dentro del plazo indicado, podrá proceder la baja administrativa.
+
+9. Solicitud de baja
+
+9.1 Gestión de baja
+
+Para solicitar la cancelación de su matrícula, el estudiante podrá gestionar la baja mediante:
+
+- Mesa de Atención de Alumnos de su Sede der cursado o con su CAU.
+
+- Herramientas de autogestión disponibles en el Portal de Estudiantes.
+
+9.2 Condiciones para otorgar la baja
+
+Para poder gestionar la baja, el estudiante no deberá registrar:
+
+- Deuda contable.
+
+- Libros pendientes de devolución en biblioteca.
+
+- Estados derivados de situaciones administrativas pendientes, como:
+
+- Baja administrativa.
+
+- Inhabilitación académica.
+
+9.3 Renuncia a la regularidad
+
+El estudiante podrá solicitar la renuncia a la regularidad de las asignaturas aun cuando las mismas se encuentren dentro del período de vigencia de dicha condición.
+
+9.4 Reintegros y cancelación de deuda
+
+La solicitud de baja académica no implica:
+
+- Reintegro de dinero abonado en concepto de aranceles semestrales.
+
+- Cancelación de deuda generada por conceptos arancelarios.
+
+Excepcionalmente, podrán evaluarse situaciones institucionales debidamente justificadas y aprobadas por el Vicerrectorado de Gestión Institucional.$pea0$, 'global', 'borrador', $pea0$https://kb-cau.21.edu.ar/servicios-cau/servicios/normas-arancelarias$pea0$)
+on conflict (categoria_id, slug) do nothing;
+
+insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
+values ((select id from public.categorias where slug = $pea0$aranceles-y-pagos$pea0$), null, 60, $pea0$kb-60-grupo-recupero$pea0$,
+        $pea0$Grupo Recupero$pea0$, $pea0$La gestión de Alumno Recupero permite reincorporar estudiantes con dos o más matrículas impagas mediante una promoción especial con descuentos y beneficios económicos. Incluye condiciones específic…$pea0$, $pea0$> **A validar:** contenido relevado de https://kb-cau.21.edu.ar/servicios-cau/servicios/grupo-recupero- el 2026-11-19. Revisalo antes de publicar.
+
+La gestión de Alumno Recupero permite reincorporar estudiantes con dos o más matrículas impagas mediante una promoción especial con descuentos y beneficios económicos. Incluye condiciones específicas según modalidad, cambios académicos y criterios de elegibilidad.
+
+Alumno Recuperado
+
+🔗 WIX DE PRECIOS  |
+
+¿Qué es la gestión de Recupero?
+
+Destinado a alumnos que han dejado de cursar y cuentan con dos o más matrículas sin abonar. Para el semestre actual 2/26, la última matrícula abonada debe ser 25/1 o periodos anteriores.
+
+-
+Se le considera anulación de entradas pendientes de años anteriores y promociones más altas.
+
+-
+Es importante tener en cuenta que esta definición aplica para la modalidad ED/EDH/PH.
+
+El descuento por alumno recupero cuenta con dos partes:
+
+- El alumno contará con un descuento extraordinario en sus aranceles. Deberá abonar todo el semestre completo (Matrícula + ticket A y ticket B o Matrícula y ticket diferencial) al momento de realizar el pago.
+
+- Finalizado el semestre, se cargará un descuento por importación fija con la "devolución" de aquello que el alumno abonó. SOLO podrá usar este descuento en el semestre inmediatamente posterior al que fue recupero, aplicándose 50% en el Arancel A y 50% en el Arancel B.
+
+Ejemplo de aplicación de lo abonado por Promo Recupero en el período anterior:Alumno que abonó con Promo recupero $ 500.453 en el 1/26 se le cargará en 2/26 $ 250.226 de descuento fijo para Arancel A y $ 250.226 de descuento fijo Arancel B.
+
+Pases de modalidad que mantienen o no el descuento:
+La gestión recupero permite cambio de carrera, modalidad y CAU. NO es necesario que tenga MATRÍCULA ACTIVA, para solicitar cambios.
+
+✅ Aplica:
+
+-
+El descuento de recupero se aplica como modalidad de origen o destino en ED/EDH y PH.
+
+-
+El alumno P. que cambia a ED/EDH aplica recupero.
+
+-
+El alumno P. que cambia PH aplica recupero.
+
+-
+El alumno ED/EDH que quiera cambiar a modalidad PH aplicará recupero.
+
+-
+Los alumnos que solicitan pase de submodalidad ED/EDH o viceversa si cuentan con promoción recupero.
+
+❌ No aplica:
+
+-
+El descuento no aplica en P. y PD como modalidad de origen ni destino.
+
+-
+El alumno P. que continúa en esa modalidad no aplicó recupero.
+
+-
+Alumno ED/ED que quiera cambiar a modalidad P. no aplica recupero
+
+Algunas consideraciones:
+
+-
+Los alumnos que quieran retomar con su carrera y ésta no se encuentre activa, podrán continuar con la misma. (Validar en oferta académica vigente si la carrera cuenta con apertura) OFERTA VIGENTE ► ver aquí
+
+-
+Los alumnos que cuentan con plan de estudio desactualizado, deberán actualizar el plan y luego generar el proceso de recuperación, aplicándose también la promoción.
+
+-
+Se debe validar la migración a usuario institucional y pedir la activación del usuario de Aula virtual (Canvas)
+
+-
+Los alumnos que gestión un cambio de carrera, tendrán la promoción recupero aplicada en la nueva carrera. Primero se realiza el cambio de carrera y luego se completa la aplicación de promoción sobre el nuevo legado.
+
+-
+Se anula la deuda administrativa, salvo excepciones o particularidades presentadas en el legado de cada alumno.
+
+Gestión Recuperado
+
+❌ En caso de que el alumno se comunique con temáticas referidas a baja de carrera, no debemos derivar el caso a recupero sino a RIESGO DE BAJA con su respectiva tipificación.
+
+¿Qué debe hacer el asesor institucional que atiende a un alumno recupero?
+
+👉 Alumnos que aceptan la reinscripción
+
+Si el estudiante aplica para esta promoción, debemos ofrecer el beneficio de forma proactiva en la primera línea indicando promociones actuales.
+
+En caso de que acepte, tomamos el pago en línea y cerramos el ticket en 1° línea:
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Grupo Recupero
+
+Tipificación: Alumno recupero
+
+👉 Alumnos interesados ​​pero sin posibilidad de pago:
+
+En casos donde el alumno se encuentre interesado, pero no puede pagar en el momento, informamos al alumno que se realizará un seguimiento de su caso y derivaremos el ticket:
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Grupo Recupero
+
+Tipificación: Alumno recupero
+
+Nota:
+
+-
+Legajo:
+
+-
+Horario de Contacto:
+
+-
+Detalle/motivo:
+
+👉 Alumnos que rechazan la reinscripción:
+
+En casos donde el alumno rechace la inscripción, sin informarle al alumno, derivamos el ticket:
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Grupo Recupero
+
+Tipificación: Alumno recupero
+
+Nota:
+
+-
+Legajo:
+
+-
+Motivo de Descarte
+
+Promoción Recupero NO aplicada
+
+⚠️La promoción recupero SOLO APLICA si el alumno abona los conceptos completos. Es decir, si primero abona matrícula y luego aranceles no tendrá los descuentos correspondientes. La promoción del 60% solo aplica sobre los aranceles.
+
+En los siguientes casos se debe derivar a Cobranzas:
+
+-
+Alumno que cumpla con las condiciones de recupero y no cuente con la promoción aplicada luego de haber generado los tickets.
+
+-
+Alumno con ticket diferenciado generado, que no impacta la promoción de manera automática por cuestiones de configuración del ticket.
+
+-
+Alumno con pase de carrera y/o modalidad, (no submodalidad).
+
+-
+En el caso de que tenga tickets pendientes de pago de períodos anteriores, ya que el sistema no le permitirá anular y se trata de una excepción promocional solo para estos alumnos, se debe solicitar la anulación de los mismos.
+
+-
+Los tickets deben estar generados para el periodo en curso y en caso de error en la generación de los tks verificar si el cau, plan de estudio, modalidad etc están correctos.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: Cobranza
+
+Tipificación: NC Recupero
+
+Nota interna - completar ticket con los siguientes datos:
+
+- DNI
+
+- Legajo
+
+- Legajo al que se debe aplicar el descuento
+
+- Informar si se realizó algún cambio (modalidad/carrera)
+
+Plazos: 3 días hábiles.
+
+En los siguientes casos se debe derivar a SOPER:
+
+➔ Alumnos que tengan deudas de periodos anteriores se deriva con formato de NC.
+
+Información para la derivación (HubSpot)
+
+Área de derivación: SOPER
+
+Tipificación: NC Promoción no aplicada
+
+Nota interna - completar ticket con los siguientes datos:
+
+- DNI
+
+- Legajo al que se debe aplicar el descuento
+
+Plazos: 3 días hábiles.
+
+¿Cómo se generan los ticket desde Portal Estudiante?
+
+🚨 IMPORTANTE: Ahora si desde PORTAL DE ESTUDIANTE NO SE PUEDEN GENERAR, derivar el ticket a Cobranzas junto con el print de pantalla del error.
+
+1 - Desde la opción materias:
+
+2 - Selecciona el Periodo y Subperíodo académico:
+
+Verifica que el Estado de la matricula sea “PENDIENTE”, ya que esto va a permitir generar los tickets de Matricula y arancel que deberás abonar para que se habilite la inscripción a materias.
+
+Selecciona el botón + GENERAR TICKETS$pea0$, 'global', 'borrador', $pea0$https://kb-cau.21.edu.ar/servicios-cau/servicios/grupo-recupero-$pea0$)
+on conflict (categoria_id, slug) do nothing;
+
+insert into public.articulos (categoria_id, padre_id, orden, slug, titulo, resumen, cuerpo_md, alcance, estado, fuente_url)
+values ((select id from public.categorias where slug = $pea0$plataformas$pea0$), null, 62, $pea0$kb-62-learnwise-ai-tutor-24x7$pea0$,
+        $pea0$LearnWise AI – Tutor 24x7$pea0$, $pea0$Conocé LearnWise AI – Tutor 24x7, el asistente de inteligencia artificial integrado en Canvas, sus funcionalidades, cátedras habilitadas y canales de consulta durante el período 2B/2026.$pea0$, $pea0$> **A validar:** contenido relevado de https://kb-cau.21.edu.ar/servicios-cau/servicios/plataformas-y-herramientas-integradas-en-canvas el 2026-11-19. Revisalo antes de publicar.
+
+Conocé LearnWise AI – Tutor 24x7, el asistente de inteligencia artificial integrado en Canvas, sus funcionalidades, cátedras habilitadas y canales de consulta durante el período 2B/2026.
+
+LearnWise AI – Tutor 24x7
+
+1. Información general
+
+LearnWise AI – Tutor 24x7 es un asistente de inteligencia artificial integrado en la plataforma Canvas, diseñado para acompañar a los estudiantes durante el cursado de sus materias.
+
+La herramienta permite realizar consultas sobre los contenidos académicos y brinda apoyo durante el proceso de aprendizaje.
+
+¿Qué pueden hacer los estudiantes con el asistente?
+
+- Solicitar resúmenes de los módulos de estudio.
+
+- Consultar conceptos o contenidos de la materia que necesiten comprender mejor.
+
+- Practicar y prepararse para los exámenes parciales.
+
+- Recibir orientación para la elaboración de trabajos prácticos.
+
+- Consultar dónde encontrar el material de estudio.
+
+El asistente está disponible las 24 horas, los 7 días de la semana, y puede utilizar preguntas orientadoras para acompañar el razonamiento y favorecer el aprendizaje autónomo.
+
+2. Implementación piloto – Período 2B/2026
+
+Durante el período académico 2B/2026, LearnWise AI se encuentra habilitado exclusivamente en 9 cátedras piloto, correspondientes a 8 materias de las siguientes carreras:
+
+Carrera |  Materia |  Código |  Cátedra habilitada |
+
+Abogacía |  Principios de Economía |  ECO244 |  EDH-H |
+
+Abogacía |  Teoría de la Argumentación Jurídica |  DER352 |  EDH-D |
+
+Abogacía |  Derecho Sucesorio |  DER366 |  EDH-B |
+
+Martillero |  Corretaje Público Inmobiliario e Intermediación de Bienes |  MCP004 |  EDH-A |
+
+Martillero |  Sistemas Jurídicos Administrativos Registrales |  MCP001 |  EDH-G |
+
+Escribanía |  Derecho Notarial I |  DER307 |  EDH-A y EDH-B |
+
+Lic. en Criminología y Seguridad |  Ciberdelitos |  DER296 |  EDH-C |
+
+Tec. en Investigación de la Escena del Crimen |  Documentología |  TIE004 |  EDH-A |
+
+Importante: La herramienta se encuentra disponible únicamente para los estudiantes inscriptos en las cátedras mencionadas. No está habilitada para la totalidad de las materias de la Universidad.
+
+3. Acceso a la herramienta
+
+Los estudiantes incluidos en el piloto pueden acceder a LearnWise AI directamente desde la materia correspondiente en Canvas, a través del ícono de chat identificado como Tutor 24x7.
+
+4. Orientación para los equipos de atención
+
+Esta información se comparte para conocimiento de los equipos de primera línea, a fin de que puedan identificar la herramienta y conocer su alcance.
+
+Ante cualquier consulta sobre el uso o funcionamiento de LearnWise AI, se deberá orientar al estudiante a comunicarse con el docente de la materia a través de la mensajería de Canvas.$pea0$, 'global', 'borrador', $pea0$https://kb-cau.21.edu.ar/servicios-cau/servicios/plataformas-y-herramientas-integradas-en-canvas$pea0$)
+on conflict (categoria_id, slug) do nothing;

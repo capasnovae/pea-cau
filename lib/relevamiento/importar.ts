@@ -2,7 +2,7 @@
 // Sin imports con alias: lo usa también el script de línea de comandos.
 
 export type ArchivoRelevado = {
-  sitio: "reglamento" | "lanube";
+  sitio: "reglamento" | "lanube" | "kbcau";
   slug: string;
   titulo: string;
   fuente: string;
@@ -22,13 +22,16 @@ export function leerArchivo(ruta: string, texto: string): ArchivoRelevado {
     if (i > 0) meta[linea.slice(0, i).trim()] = JSON.parse(linea.slice(i + 1).trim());
   }
   const partes = ruta.split("/");
-  const sitio = partes[partes.length - 2] === "reglamento" ? "reglamento" : "lanube";
+  const carpeta = partes[partes.length - 2];
+  const sitio = carpeta === "reglamento" ? "reglamento" : carpeta === "kbcau" ? "kbcau" : "lanube";
   const base = partes[partes.length - 1]!.replace(/\.md$/, "");
   const capitulo = typeof meta.capitulo === "number" ? meta.capitulo : null;
-  const seccion = sitio === "reglamento" ? Number(base.split("-")[1]) || 0 : 0;
+  // Reglamento: el número de sección; Base de conocimiento: el número de la página en el índice
+  const seccion =
+    sitio === "reglamento" ? Number(base.split("-")[1]) || 0 : sitio === "kbcau" ? Number(base.split("-")[0]) || 0 : 0;
   return {
     sitio,
-    slug: `${sitio === "reglamento" ? "rg" : "ln"}-${base}`,
+    slug: `${{ reglamento: "rg", lanube: "ln", kbcau: "kb" }[sitio]}-${base}`,
     titulo: String(meta.titulo ?? base),
     fuente: String(meta.fuente ?? ""),
     extraido: String(meta.extraido ?? ""),

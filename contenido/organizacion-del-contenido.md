@@ -82,7 +82,7 @@ Todo lo que junté hasta ahora, ordenado como está hoy. Decime en qué curso y 
 
 ## 4. Base de conocimiento del CAU (51 páginas relevantes)
 
-Dónde propongo que entre cada página de la base (el número es el de la página; están en `contenido/kb-cau/`). Movelas a gusto igual que las lecciones. Quedaron afuera: Posgrado, APLV, Centro de Profesores Virtuales, Reserva de quincho/SUM, las portadas de sección y el índice de derivaciones (se exportó vacío).
+Dónde propongo que entre cada página de la base (el número es el de la página; están en `relevamiento/kbcau/`). Movelas a gusto igual que las lecciones. Quedaron afuera: Posgrado, APLV, Centro de Profesores Virtuales, Reserva de quincho/SUM, las portadas de sección y el índice de derivaciones (se exportó vacío).
 
 ### Cursado y modalidades › Ingreso
 - 21 Documentación de legajo

@@ -29,6 +29,13 @@ describe("leerArchivo", () => {
     expect(a.slug).toBe("ln-equivalencias");
     expect(a.capitulo).toBeNull();
   });
+  it("las páginas de la Base de conocimiento del CAU llevan el prefijo kb y su número de orden", () => {
+    const a = leerArchivo("kbcau/38-gestion-de-examenes-sai.md", md.replace("capitulo: 5\n", ""));
+    expect(a.sitio).toBe("kbcau");
+    expect(a.slug).toBe("kb-38-gestion-de-examenes-sai");
+    expect(a.orden).toBe(38);
+    expect(a.capitulo).toBeNull();
+  });
 });
 
 describe("resumenDe", () => {

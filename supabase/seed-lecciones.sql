@@ -3093,3 +3093,461 @@ select x.id, '68948be4-b0e4-4c41-840a-fec5c797d77f'::uuid, x.texto, x.correcta, 
 ) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
 where exists (select 1 from public.preguntas where id = '68948be4-b0e4-4c41-840a-fec5c797d77f'::uuid)
 on conflict do nothing;
+
+insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
+select '4055f513-d6b8-4df2-8155-d1b46ab349e2'::uuid, '831fe14c-2f13-4c3f-872b-08ecde33344e'::uuid, 41, $pea0$Mesas y reprogramaciones de exámenes$pea0$, 'leccion', a.id,
+       $pea0${"version":2,"tarjetas":[{"tipo":"caso","persona":"Tomás","canal":"whatsapp","consulta":"Hola! Me asignaron el parcial de Estadística el martes a las 9 y a esa hora trabajo. ¿Me lo pueden pasar a otro día?"},{"tipo":"preguntar","opciones":[{"texto":"¿En qué modalidad cursa: ED, EDH o PD?","clave":true,"porque":"En ED y EDH lo gestiona el CAU; en PD va por formulario y lo carga el supervisor."},{"texto":"¿Ya empezó el examen o todavía no?","clave":true,"porque":"Si lo empezó, ya no se reprograma."},{"texto":"¿El examen sigue dentro del período habilitado?","clave":true,"porque":"Fuera del período no corresponde reprogramar."},{"texto":"¿Qué nota sacó en el parcial anterior?","clave":false,"porque":"No cambia si corresponde la reprogramación."}]},{"tipo":"idea","titulo":"En ED y EDH, la reprograma el CAU","texto":"Si el estudiante no puede rendir en la fecha que le asignó la Universidad, el CAU puede pedir hasta 4 reprogramaciones por examen, siempre que esté dentro del período y no lo haya iniciado. Motivos: no estar de acuerdo con la inscripción automática, o una caída de Internet o un corte de luz en el CAU. Se pide por HubSpot a Sistema Q, tipificación \"Reprogramación de exámenes\".","clave":"ED y EDH: hasta 4 reprogramaciones por examen, si no lo empezó y está en período.","ejemplo":"Tomás no puede el martes a las 9: le pedís la reprogramación con una fecha aproximada que le sirva."},{"tipo":"probalo","n":1},{"tipo":"idea","titulo":"Qué lleva el ticket","texto":"En la nota interna van: DNI, legajo, materia, instancia del examen, motivo, una captura del inconveniente con fecha y hora, y la nueva fecha y hora aproximada que pide. Sistema Q tiene 72 horas hábiles para resolver.","clave":"Datos completos y una fecha aproximada: Sistema Q responde en 72 h hábiles."},{"tipo":"idea","titulo":"En PD, por formulario y sin finales","texto":"En PD los finales no se reprograman. Los parciales, recuperatorios e integradores se reprograman solo por motivos previstos (deportista federado, error de Klarway, o falta de Internet o luz en la sede) y por un formulario que carga el supervisor, no por HubSpot. El asesor puede consultar el estado en la planilla de seguimiento.","clave":"PD: finales no; el resto, por formulario que carga el supervisor."},{"tipo":"probalo","n":2},{"tipo":"ojo","texto":"Si el estudiante no ve mesas para inscribirse, no se piden cupos por preferencia de día u horario: primero revisá otros días, otras mesas del CAU y que la inscripción siga abierta. Solo si es un problema de publicación, va a Sistema Q como \"Disponibilidad de mesas de examen\".\nSi inició el examen y Klarway lo cortó, no es reprogramación: es una anulación por excepción."},{"tipo":"cierre","resolucion":"A Tomás le pedís la reprogramación por HubSpot a Sistema Q, con sus datos, la materia, la instancia, el motivo y un día y horario aproximado en el que sí pueda. Le avisás que la respuesta puede tardar hasta 72 horas hábiles.","recordar":"ED y EDH: el CAU reprograma hasta 4 veces; en PD, formulario y finales no."}]}$pea0$::jsonb, 'marcar_hecho'
+from public.articulos a where a.slug = $pea0$kb-38-gestion-de-examenes-sai$pea0$ and a.alcance = 'global'
+on conflict (id) do update set orden = excluded.orden, titulo = excluded.titulo, leccion = excluded.leccion,
+  articulo_id = excluded.articulo_id
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '831fe14c-2f13-4c3f-872b-08ecde33344e'::uuid and c.estado = 'borrador');
+
+delete from public.preguntas
+where item_id = '4055f513-d6b8-4df2-8155-d1b46ab349e2'::uuid and id not in ('db4034ca-d7ba-4941-8ba3-3042968a890d'::uuid, 'f169a431-51c1-4f1f-8e73-bb8fa57a7c7d'::uuid, '42d38842-4cb7-4bfc-8fe8-24bd1aa3bcd0'::uuid)
+  and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '831fe14c-2f13-4c3f-872b-08ecde33344e'::uuid and c.estado = 'borrador');
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select 'db4034ca-d7ba-4941-8ba3-3042968a890d'::uuid, 'opcion_multiple', $pea0$Micaela cursa ED. La inscripción automática le puso el parcial en un horario en que trabaja y todavía no lo empezó. ¿Qué hacés?$pea0$, $pea0$En ED y EDH, si no puede en la fecha asignada, el CAU pide la reprogramación a Sistema Q, hasta 4 veces por examen.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', '4055f513-d6b8-4df2-8155-d1b46ab349e2'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 1
+where exists (select 1 from public.items where id = '4055f513-d6b8-4df2-8155-d1b46ab349e2'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '831fe14c-2f13-4c3f-872b-08ecde33344e'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = 'db4034ca-d7ba-4941-8ba3-3042968a890d'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '831fe14c-2f13-4c3f-872b-08ecde33344e'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, 'db4034ca-d7ba-4941-8ba3-3042968a890d'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('2e8361f5-d849-4f22-8222-c68666f0f2a5'::uuid, $pea0$Le decís que no se puede: el horario asignado es obligatorio.$pea0$, false, 1, $pea0$En ED y EDH el CAU puede reprogramar si no está de acuerdo con la inscripción automática.$pea0$, null::int, null),
+  ('0007b9d7-f6de-4782-8201-d23fcad9aca1'::uuid, $pea0$Pedís la reprogramación por HubSpot a Sistema Q, con sus datos y una fecha aproximada que le sirva.$pea0$, true, 2, $pea0$Es el circuito: hasta 4 reprogramaciones por examen, si no lo inició y está en período.$pea0$, null::int, null),
+  ('bc9b2dd6-310d-4a3d-8a52-604b0e87f739'::uuid, $pea0$Le pedís que rinda igual y después solicite la anulación.$pea0$, false, 3, $pea0$La anulación es solo para errores durante el examen, no para cambiar el horario.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = 'db4034ca-d7ba-4941-8ba3-3042968a890d'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select 'f169a431-51c1-4f1f-8e73-bb8fa57a7c7d'::uuid, 'opcion_multiple', $pea0$Franco cursa PD y pide reprogramar un examen final porque viaja. ¿Qué le respondés?$pea0$, $pea0$En PD los finales no se reprograman; el resto, solo por motivos previstos y con el formulario del supervisor.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', '4055f513-d6b8-4df2-8155-d1b46ab349e2'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 2
+where exists (select 1 from public.items where id = '4055f513-d6b8-4df2-8155-d1b46ab349e2'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '831fe14c-2f13-4c3f-872b-08ecde33344e'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = 'f169a431-51c1-4f1f-8e73-bb8fa57a7c7d'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '831fe14c-2f13-4c3f-872b-08ecde33344e'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, 'f169a431-51c1-4f1f-8e73-bb8fa57a7c7d'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('1f321f7c-b332-4237-89c4-fe0ce4aadbdb'::uuid, $pea0$Que cargás la reprogramación por HubSpot.$pea0$, false, 1, $pea0$En PD las reprogramaciones no van por HubSpot.$pea0$, null::int, null),
+  ('4f14e77c-05a2-4a58-8c2a-c87aaaabf5fa'::uuid, $pea0$Que el supervisor lo carga en el formulario.$pea0$, false, 2, $pea0$El formulario es para parciales, recuperatorios e integradores, y por motivos previstos.$pea0$, null::int, null),
+  ('45bd73c6-ad3a-436e-8954-8e6bfc1f2596'::uuid, $pea0$Que en PD los finales no se reprograman.$pea0$, true, 3, $pea0$Solo se reprograman parciales, recuperatorios e integradores, por los motivos previstos.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = 'f169a431-51c1-4f1f-8e73-bb8fa57a7c7d'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select '42d38842-4cb7-4bfc-8fe8-24bd1aa3bcd0'::uuid, 'verdadero_falso', $pea0$Si un estudiante no ve mesas en el horario que prefiere, corresponde pedir que amplíen los cupos.$pea0$, $pea0$No se piden cupos por preferencia: tiene que elegir entre las mesas disponibles. Solo se deriva si hay un problema de publicación.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', '4055f513-d6b8-4df2-8155-d1b46ab349e2'::uuid, null, now() + interval '1 millisecond' * 3
+where exists (select 1 from public.items where id = '4055f513-d6b8-4df2-8155-d1b46ab349e2'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '831fe14c-2f13-4c3f-872b-08ecde33344e'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = '42d38842-4cb7-4bfc-8fe8-24bd1aa3bcd0'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '831fe14c-2f13-4c3f-872b-08ecde33344e'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, '42d38842-4cb7-4bfc-8fe8-24bd1aa3bcd0'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('b53e00a5-7ec7-41d0-8bd6-d76274390538'::uuid, $pea0$Verdadero$pea0$, false, 1, null, null::int, null),
+  ('490ee630-2de6-4fa3-8a92-49dce0929c44'::uuid, $pea0$Falso$pea0$, true, 2, null, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = '42d38842-4cb7-4bfc-8fe8-24bd1aa3bcd0'::uuid)
+on conflict do nothing;
+
+insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
+select 'a1942a48-bc89-44b9-868d-3dc11f80e615'::uuid, '831fe14c-2f13-4c3f-872b-08ecde33344e'::uuid, 42, $pea0$Problemas en el examen: anulación, revisión y notas$pea0$, 'leccion', a.id,
+       $pea0${"version":2,"tarjetas":[{"tipo":"caso","persona":"Brenda","canal":"mostrador","consulta":"Estaba rindiendo el final en Klarway, se cerró solo a la mitad y me quedó un 2. ¡No llegué a responder ni la mitad!"},{"tipo":"preguntar","opciones":[{"texto":"¿Pudo iniciar el examen?","clave":true,"porque":"Si no pudo entrar, no es anulación: es reprogramación."},{"texto":"¿Se cortó durante el examen por un error de la plataforma?","clave":true,"porque":"La anulación por excepción es solo para errores de Klarway o de la Universidad durante la evaluación."},{"texto":"¿Quedó una nota registrada en el sistema?","clave":true,"porque":"Es una de las condiciones para pedir la anulación."},{"texto":"¿Estudió con la bibliografía básica?","clave":false,"porque":"No cambia la gestión."}]},{"tipo":"idea","titulo":"La anulación, solo por un error durante el examen","texto":"Se pide la anulación por excepción cuando el estudiante inició el examen, la plataforma o la Universidad lo cortó antes de tiempo y quedó una nota registrada. No corresponde por motivos personales (enfermedad, viaje, mudanza) ni si no pudo ingresar: eso es reprogramación. Va por HubSpot a Sistema Q, con capturas si las hay; 72 horas hábiles.","clave":"Anulación: inició, Klarway lo cortó y quedó nota. Si no pudo entrar, se reprograma.","ejemplo":"Brenda inició el final y se cerró solo: pedís la anulación con fecha, hora y su descripción."},{"tipo":"probalo","n":1},{"tipo":"idea","titulo":"La revisión empieza en Klarway","texto":"La revisión se pide en Klarway al terminar: 10 minutos en parciales y 15 en finales, completando todos los datos. Es la única instancia para revisar preguntas. Solo se deriva a Sistema Q si la pidió en plazo, ya le respondieron y sigue en desacuerdo.","clave":"Revisión en Klarway (10 o 15 min); se deriva solo si ya le respondieron y sigue en desacuerdo."},{"tipo":"probalo","n":2},{"tipo":"idea","titulo":"La nota que no aparece","texto":"Primero mirá el historial académico. En ED y EDH la nota del sistema es la definitiva: si no está, se pide a Sistema Q la carga. En PD, la definitiva es la del oral y la carga el docente: en finales, esperá 24 horas desde el examen antes de derivar.","clave":"Revisá el historial; en PD, esperá 24 h en finales antes de pedir la carga."},{"tipo":"probalo","n":3},{"tipo":"ojo","texto":"Empadronamiento en Klarway en estado \"Revisión\": no se deriva, puede tardar hasta 72 horas hábiles. Solo se deriva si hay un error que impide registrarse.\nLa extensión de tiempo por discapacidad requiere la marca de discapacidad en HubSpot y se pide con 72 horas hábiles de anticipación; en finales, con la mesa ya aceptada."},{"tipo":"cierre","resolucion":"A Brenda le pedís la anulación del final por excepción: va por HubSpot a Sistema Q con su DNI, legajo, carrera, materia, fecha y hora, modalidad, la descripción de lo que pasó y capturas si tiene. Le avisás que tarda hasta 72 horas hábiles.","recordar":"Anulación si Klarway cortó el examen; revisión, primero en Klarway; la nota, primero en el historial."}]}$pea0$::jsonb, 'marcar_hecho'
+from public.articulos a where a.slug = $pea0$kb-38-gestion-de-examenes-sai$pea0$ and a.alcance = 'global'
+on conflict (id) do update set orden = excluded.orden, titulo = excluded.titulo, leccion = excluded.leccion,
+  articulo_id = excluded.articulo_id
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '831fe14c-2f13-4c3f-872b-08ecde33344e'::uuid and c.estado = 'borrador');
+
+delete from public.preguntas
+where item_id = 'a1942a48-bc89-44b9-868d-3dc11f80e615'::uuid and id not in ('f702717d-857d-48a1-8494-e6b4909e91ca'::uuid, 'f38cc434-a337-43b3-830c-547ccd7beee0'::uuid, 'ac0804d4-768a-4ff1-8f0a-4c28c1b058f8'::uuid)
+  and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '831fe14c-2f13-4c3f-872b-08ecde33344e'::uuid and c.estado = 'borrador');
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select 'f702717d-857d-48a1-8494-e6b4909e91ca'::uuid, 'opcion_multiple', $pea0$Joaquín no pudo entrar al parcial porque Klarway no le cargaba. Pide que se lo anulen. ¿Qué hacés?$pea0$, $pea0$Si no pudo ingresar al examen, se reprograma. La anulación es solo si lo inició y la plataforma lo cortó.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', 'a1942a48-bc89-44b9-868d-3dc11f80e615'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 1
+where exists (select 1 from public.items where id = 'a1942a48-bc89-44b9-868d-3dc11f80e615'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '831fe14c-2f13-4c3f-872b-08ecde33344e'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = 'f702717d-857d-48a1-8494-e6b4909e91ca'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '831fe14c-2f13-4c3f-872b-08ecde33344e'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, 'f702717d-857d-48a1-8494-e6b4909e91ca'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('28b1bcf9-96a4-47e8-8928-6c9d5da4a7af'::uuid, $pea0$Pedís la anulación por excepción a Sistema Q.$pea0$, false, 1, $pea0$La anulación es para exámenes iniciados que se cortaron; si no pudo entrar, no corresponde.$pea0$, null::int, null),
+  ('c8b87154-9088-46af-8901-2ba749131a04'::uuid, $pea0$Gestionás una reprogramación del examen.$pea0$, true, 2, $pea0$Si no pudo ingresar, el camino es la reprogramación.$pea0$, null::int, null),
+  ('ec1550aa-a113-47ec-8bf7-938fd35d5946'::uuid, $pea0$Le decís que queda Ausente y no hay nada para hacer.$pea0$, false, 3, $pea0$Hay una gestión: la reprogramación.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = 'f702717d-857d-48a1-8494-e6b4909e91ca'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select 'f38cc434-a337-43b3-830c-547ccd7beee0'::uuid, 'opcion_multiple', $pea0$Paula rindió un final hace dos días, no pidió revisión en Klarway y ahora quiere reclamar una pregunta. ¿Qué le decís?$pea0$, $pea0$La revisión se pide en Klarway al terminar: 10 minutos en parciales, 15 en finales. Es la única instancia.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', 'a1942a48-bc89-44b9-868d-3dc11f80e615'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 2
+where exists (select 1 from public.items where id = 'a1942a48-bc89-44b9-868d-3dc11f80e615'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '831fe14c-2f13-4c3f-872b-08ecde33344e'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = 'f38cc434-a337-43b3-830c-547ccd7beee0'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '831fe14c-2f13-4c3f-872b-08ecde33344e'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, 'f38cc434-a337-43b3-830c-547ccd7beee0'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('cc5ea670-e4f8-4376-8c62-f70a43ea22e5'::uuid, $pea0$Que generás la revisión por HubSpot a Sistema Q.$pea0$, false, 1, $pea0$Solo se deriva si la pidió en Klarway en plazo y ya le respondieron.$pea0$, null::int, null),
+  ('64d6a131-b2d3-4eb2-8f03-1127a1b82cf2'::uuid, $pea0$Que la revisión se pedía en Klarway en los 15 minutos siguientes al final, y era la única instancia.$pea0$, true, 2, $pea0$Pasado ese plazo, no hay otra vía.$pea0$, null::int, null),
+  ('b4777d14-5bfa-41ec-8e11-cdfc4cfdad5d'::uuid, $pea0$Que tiene 15 días hábiles para pedirla.$pea0$, false, 3, $pea0$El plazo es de 15 minutos, en Klarway.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = 'f38cc434-a337-43b3-830c-547ccd7beee0'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select 'ac0804d4-768a-4ff1-8f0a-4c28c1b058f8'::uuid, 'opcion_multiple', $pea0$Lautaro cursa PD, rindió el oral del final hace 3 horas y no ve la nota. ¿Qué hacés?$pea0$, $pea0$En PD la nota definitiva es la del oral y la carga el docente: se deriva recién después de 24 horas.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', 'a1942a48-bc89-44b9-868d-3dc11f80e615'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 3
+where exists (select 1 from public.items where id = 'a1942a48-bc89-44b9-868d-3dc11f80e615'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '831fe14c-2f13-4c3f-872b-08ecde33344e'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = 'ac0804d4-768a-4ff1-8f0a-4c28c1b058f8'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '831fe14c-2f13-4c3f-872b-08ecde33344e'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, 'ac0804d4-768a-4ff1-8f0a-4c28c1b058f8'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('92af8a3f-3eb1-4c27-8ff1-53e46689d128'::uuid, $pea0$Pedís ya la carga de nota a Sistema Q.$pea0$, false, 1, $pea0$En PD la carga el docente: hay que esperar 24 horas.$pea0$, null::int, null),
+  ('6216cc8c-e981-4144-8cb7-cf2435be6c0d'::uuid, $pea0$Le explicás que en PD la carga el docente y que, si a las 24 horas no está, se pide la carga a Sistema Q.$pea0$, true, 2, $pea0$Es la consideración para finales en PD.$pea0$, null::int, null),
+  ('b5fdaac4-9e3d-4a10-81bc-d5605d622c07'::uuid, $pea0$Le decís que la nota de la instancia virtual es la definitiva.$pea0$, false, 3, $pea0$En PD la definitiva es la del oral.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = 'ac0804d4-768a-4ff1-8f0a-4c28c1b058f8'::uuid)
+on conflict do nothing;
+
+insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
+select 'd2ba13be-bdd4-45b4-8a03-d7a5de3f21dc'::uuid, '0ba24b95-30a6-4f75-88ec-f101f5bc73ed'::uuid, 43, $pea0$Gestiones de EFIP: inscripción, anulación y nota$pea0$, 'leccion', a.id,
+       $pea0${"version":2,"tarjetas":[{"tipo":"caso","persona":"Ezequiel","canal":"telefono","consulta":"Quiero rendir el EFIP I en el CAU, pero cuando entro al portal no me deja inscribirme. ¿Me podés anotar vos?"},{"tipo":"preguntar","opciones":[{"texto":"¿Tiene la matrícula activa?","clave":true,"porque":"Es requisito para inscribirse y para pedir una anulación."},{"texto":"¿Tiene el módulo de EFIP I cursando o regular, o el Seminario de práctica o planificación regular?","clave":true,"porque":"Sin esa condición no puede inscribirse."},{"texto":"¿Faltan al menos 6 días para la mesa?","clave":true,"porque":"La inscripción tiene que respetar esa anticipación."},{"texto":"¿En qué turno cursa?","clave":false,"porque":"No cambia la gestión."}]},{"tipo":"idea","titulo":"Se inscribe el estudiante","texto":"La inscripción a EFIP I y II la hace el estudiante en Portal de Estudiantes > Exámenes > + Nueva inscripción, eligiendo sede o CAU según cupos y con 6 días de anticipación. El asesor también puede inscribirlo con el botón \"Inscribir a examen\". Solo se deriva a SAI si hay plan desactualizado, un error o no se puede de ninguna de las dos formas.","clave":"Inscribe el estudiante (o el asesor con el botón); a SAI solo si da error.","ejemplo":"Si Ezequiel cumple los requisitos, probás el botón \"Inscribir a examen\"; si falla, derivás a SAI."},{"tipo":"probalo","n":1},{"tipo":"idea","titulo":"Los requisitos de cada uno","texto":"EFIP I: matrícula activa; el módulo de EFIP I cursando o regular, o el Seminario de práctica o planificación regular (según carrera); y las correlativas aprobadas. EFIP II: matrícula activa, Seminario Final regular y los créditos de electivas de su carrera. Al EFIP II puede inscribirse las veces que quiera.","clave":"EFIP I: módulo o Seminario regular y correlativas; EFIP II: Seminario Final regular y electivas."},{"tipo":"idea","titulo":"Anular y reclamar la nota","texto":"La anulación por excepción se pide con al menos 7 días corridos antes de la mesa y con matrícula activa; fuera de plazo no se hace. Si la nota no aparece o es incorrecta, se deriva a SAI. Todo va por HubSpot a SAI y tarda 3 días hábiles.","clave":"Anulación: 7 días corridos antes; nota que falta o está mal: a SAI."},{"tipo":"probalo","n":2},{"tipo":"ojo","texto":"Si la nota del EFIP II ya figura en el Historial Académico (SGU), está bien registrada aunque no se vea en el Portal: es un examen final, no una materia. No hace falta derivar.\nRecordale que, si no va a poder ir, anule la inscripción a tiempo: libera el cupo para otra persona."},{"tipo":"cierre","resolucion":"A Ezequiel le revisás la matrícula, la condición del módulo o seminario, las correlativas y que falten 6 días. Si cumple, lo inscribís con el botón; si da error, lo derivás a SAI por HubSpot con su carrera, la fecha y la sede que quiere, y el motivo. Tarda 3 días hábiles.","recordar":"Inscribe el estudiante o el asesor; SAI, solo si hay error; anular, 7 días antes."}]}$pea0$::jsonb, 'marcar_hecho'
+from public.articulos a where a.slug = $pea0$kb-24-gestiones-efip$pea0$ and a.alcance = 'global'
+on conflict (id) do update set orden = excluded.orden, titulo = excluded.titulo, leccion = excluded.leccion,
+  articulo_id = excluded.articulo_id
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '0ba24b95-30a6-4f75-88ec-f101f5bc73ed'::uuid and c.estado = 'borrador');
+
+delete from public.preguntas
+where item_id = 'd2ba13be-bdd4-45b4-8a03-d7a5de3f21dc'::uuid and id not in ('e71d6e4f-5d95-43f5-85f3-6f83143f3ad0'::uuid, 'fa41396a-3388-4c8a-8be8-a5d4821fd453'::uuid, 'ef05d3ba-e80d-420c-856a-9e7d0dbcf408'::uuid)
+  and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '0ba24b95-30a6-4f75-88ec-f101f5bc73ed'::uuid and c.estado = 'borrador');
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select 'e71d6e4f-5d95-43f5-85f3-6f83143f3ad0'::uuid, 'opcion_multiple', $pea0$Carla quiere anular su inscripción al EFIP II y faltan 4 días para la mesa. ¿Qué le decís?$pea0$, $pea0$La anulación de EFIP se pide con al menos 7 días corridos antes de la mesa y con matrícula activa.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', 'd2ba13be-bdd4-45b4-8a03-d7a5de3f21dc'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 1
+where exists (select 1 from public.items where id = 'd2ba13be-bdd4-45b4-8a03-d7a5de3f21dc'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '0ba24b95-30a6-4f75-88ec-f101f5bc73ed'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = 'e71d6e4f-5d95-43f5-85f3-6f83143f3ad0'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '0ba24b95-30a6-4f75-88ec-f101f5bc73ed'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, 'e71d6e4f-5d95-43f5-85f3-6f83143f3ad0'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('edc78699-3373-4a6c-811d-0de1f606c9c8'::uuid, $pea0$Que pedís la anulación por excepción a SAI.$pea0$, false, 1, $pea0$Tiene que pedirse con al menos 7 días corridos de anticipación.$pea0$, null::int, null),
+  ('7073f638-c4f6-44bd-8154-1d7e1951187a'::uuid, $pea0$Que ya no se puede anular: el plazo es de 7 días corridos antes de la mesa.$pea0$, true, 2, $pea0$Fuera de ese plazo no procede la anulación.$pea0$, null::int, null),
+  ('b1937b33-9aad-464a-8acd-f08112c7193d'::uuid, $pea0$Que la anule ella desde el Portal el mismo día.$pea0$, false, 3, $pea0$No hay anulación fuera del plazo.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = 'e71d6e4f-5d95-43f5-85f3-6f83143f3ad0'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select 'fa41396a-3388-4c8a-8be8-a5d4821fd453'::uuid, 'opcion_multiple', $pea0$Martín ve su nota del EFIP II en el Historial Académico, pero no en el Portal de Estudiantes. ¿Qué hacés?$pea0$, $pea0$Si la nota de EFIP II figura en el Historial Académico (SGU), está correcta aunque no aparezca en el Portal.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', 'd2ba13be-bdd4-45b4-8a03-d7a5de3f21dc'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 2
+where exists (select 1 from public.items where id = 'd2ba13be-bdd4-45b4-8a03-d7a5de3f21dc'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '0ba24b95-30a6-4f75-88ec-f101f5bc73ed'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = 'fa41396a-3388-4c8a-8be8-a5d4821fd453'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '0ba24b95-30a6-4f75-88ec-f101f5bc73ed'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, 'fa41396a-3388-4c8a-8be8-a5d4821fd453'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('63edbbaa-5e8a-495e-8f28-52fb41c56c3c'::uuid, $pea0$Derivás a SAI la carga de nota.$pea0$, false, 1, $pea0$Si está en el Historial Académico, ya está registrada.$pea0$, null::int, null),
+  ('e72d72d4-a94e-4d51-8985-b7e2de5355b9'::uuid, $pea0$Le explicás que la nota está bien registrada: no se ve en el Portal porque es un examen final, no una materia.$pea0$, true, 2, $pea0$Es la consideración para EFIP II.$pea0$, null::int, null),
+  ('3696d094-be20-46b6-8bd7-2b7eff5b4fe2'::uuid, $pea0$Le pedís que vuelva a rendir.$pea0$, false, 3, $pea0$La nota ya está registrada.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = 'fa41396a-3388-4c8a-8be8-a5d4821fd453'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select 'ef05d3ba-e80d-420c-856a-9e7d0dbcf408'::uuid, 'verdadero_falso', $pea0$Al EFIP II el estudiante puede inscribirse una cantidad ilimitada de veces.$pea0$, $pea0$El estudiante tiene posibilidades ilimitadas de inscripción a EFIP II.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', 'd2ba13be-bdd4-45b4-8a03-d7a5de3f21dc'::uuid, null, now() + interval '1 millisecond' * 3
+where exists (select 1 from public.items where id = 'd2ba13be-bdd4-45b4-8a03-d7a5de3f21dc'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '0ba24b95-30a6-4f75-88ec-f101f5bc73ed'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = 'ef05d3ba-e80d-420c-856a-9e7d0dbcf408'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '0ba24b95-30a6-4f75-88ec-f101f5bc73ed'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, 'ef05d3ba-e80d-420c-856a-9e7d0dbcf408'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('1db06ee6-0b60-44c5-829d-1f23c6717e9f'::uuid, $pea0$Verdadero$pea0$, true, 1, null, null::int, null),
+  ('29f9f99d-4e42-407f-87b1-3a1dc00feb6e'::uuid, $pea0$Falso$pea0$, false, 2, null, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = 'ef05d3ba-e80d-420c-856a-9e7d0dbcf408'::uuid)
+on conflict do nothing;
+
+insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
+select 'fad4a27a-dc6d-47e0-81fe-3ef132d514a1'::uuid, '76245ecd-e9fa-4ed3-80a7-b09b0791dd31'::uuid, 44, $pea0$Medios de pago y pagos rechazados$pea0$, 'leccion', a.id,
+       $pea0${"version":2,"tarjetas":[{"tipo":"caso","persona":"Noelia","canal":"whatsapp","consulta":"Quiero pagar el semestre con la tarjeta y me lo rechaza. ¿Qué pasa con la página? ¿Hay otra forma de pagar?"},{"tipo":"preguntar","opciones":[{"texto":"¿Qué mensaje le aparece al pagar?","clave":true,"porque":"Ayuda a ver si es un error de carga o un rechazo de la tarjeta."},{"texto":"¿Copió y pegó el número de la tarjeta?","clave":true,"porque":"Hay que tipearlo: pegarlo muchas veces no deja avanzar."},{"texto":"¿Tiene tarjeta de crédito o solo débito?","clave":true,"porque":"Hay opciones para cada caso."},{"texto":"¿En qué año de la carrera está?","clave":false,"porque":"No cambia los medios de pago."}]},{"tipo":"idea","titulo":"El rechazo lo ve el estudiante con su tarjeta","texto":"Cuando un pago se rechaza, no es un error de la Universidad: puede ser el límite, que pida autorización o una regla de la tarjeta. Lo resuelve el estudiante con su banco. Sirve probar con un monto menor, por ejemplo matrícula y Ticket A. Antes, revisá que haya tipeado el número (no pegado) y la fecha de vencimiento en el formato que pide.","clave":"Pago rechazado: lo resuelve con su tarjeta; probar un monto menor y tipear los datos.","ejemplo":"Noelia puede probar pagando primero matrícula y Ticket A, tipeando el número."},{"tipo":"probalo","n":1},{"tipo":"idea","titulo":"Las formas de pagar","texto":"Todo se paga desde Pago Electrónico: en efectivo, con el cupón para Rapipago o Pago Fácil, o con tarjeta. Hay más opciones: Mobbex en una cuota con descuento, Go Cuotas con tarjeta de débito, pagar con dos tarjetas, y Rebanking para quien no tiene tarjeta de crédito (seis cuotas sin interés). Recargos, cuotas y bancos están en el documento oficial: verificalo siempre antes de asesorar.","clave":"Pago Electrónico: efectivo o tarjeta; sin tarjeta de crédito, Rebanking."},{"tipo":"probalo","n":2},{"tipo":"ojo","texto":"Con dos tarjetas, si la segunda operación no se aprueba (o se cierra la página), el pago entero se anula: no queda pagado a medias.\nLa Tarjeta Naranja permite hasta 3 cuotas sin interés en Plan Z solo si es Naranja común (empieza con 589562), no Visa ni Mastercard."},{"tipo":"cierre","resolucion":"A Noelia le explicás que el rechazo lo tiene que ver con su tarjeta (límite o autorización), que tipee el número y revise el vencimiento, y que pruebe con un monto menor. Si no, puede pagar en efectivo con el cupón o, si no tiene tarjeta de crédito, con Rebanking.","recordar":"El rechazo lo resuelve con su tarjeta; opciones y cuotas, siempre en el documento oficial."}]}$pea0$::jsonb, 'marcar_hecho'
+from public.articulos a where a.slug = $pea0$kb-39-formas-de-pago-y-financiacion$pea0$ and a.alcance = 'global'
+on conflict (id) do update set orden = excluded.orden, titulo = excluded.titulo, leccion = excluded.leccion,
+  articulo_id = excluded.articulo_id
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '76245ecd-e9fa-4ed3-80a7-b09b0791dd31'::uuid and c.estado = 'borrador');
+
+delete from public.preguntas
+where item_id = 'fad4a27a-dc6d-47e0-81fe-3ef132d514a1'::uuid and id not in ('0a4bf0e9-7133-49c4-8769-7e8209f591ac'::uuid, 'ddf7f1c3-ab21-4df0-807a-3c9663efaf55'::uuid, '0a251c68-3d14-4e6b-892f-e78282f77611'::uuid)
+  and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '76245ecd-e9fa-4ed3-80a7-b09b0791dd31'::uuid and c.estado = 'borrador');
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select '0a4bf0e9-7133-49c4-8769-7e8209f591ac'::uuid, 'opcion_multiple', $pea0$Un estudiante dice que no tiene tarjeta de crédito y quiere pagar el semestre en cuotas. ¿Qué le ofrecés?$pea0$, $pea0$Para quien no tiene tarjeta de crédito existe Rebanking: seis cuotas sin interés.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', 'fad4a27a-dc6d-47e0-81fe-3ef132d514a1'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 1
+where exists (select 1 from public.items where id = 'fad4a27a-dc6d-47e0-81fe-3ef132d514a1'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '76245ecd-e9fa-4ed3-80a7-b09b0791dd31'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = '0a4bf0e9-7133-49c4-8769-7e8209f591ac'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '76245ecd-e9fa-4ed3-80a7-b09b0791dd31'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, '0a4bf0e9-7133-49c4-8769-7e8209f591ac'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('3c5394ac-4a31-4d77-88a3-a749f810b1e1'::uuid, $pea0$Le decís que sin tarjeta de crédito solo puede pagar en efectivo.$pea0$, false, 1, $pea0$Hay una opción en cuotas sin tarjeta de crédito.$pea0$, null::int, null),
+  ('4e95de8f-bcb3-422d-8dd9-9b009b402a10'::uuid, $pea0$Le contás de Rebanking, que le da una tarjeta para pagar en seis cuotas sin interés.$pea0$, true, 2, $pea0$Es la alternativa para quien no tiene tarjeta de crédito.$pea0$, null::int, null),
+  ('b024c689-53ba-445e-8681-c88e1671cb84'::uuid, $pea0$Le pedís que pague con la tarjeta de un familiar.$pea0$, false, 3, $pea0$No es una opción que corresponda ofrecer.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = '0a4bf0e9-7133-49c4-8769-7e8209f591ac'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select 'ddf7f1c3-ab21-4df0-807a-3c9663efaf55'::uuid, 'opcion_multiple', $pea0$Una estudiante pagó con dos tarjetas: la primera se aprobó y la segunda no. ¿Qué pasa con el pago?$pea0$, $pea0$En el pago con dos tarjetas, las dos operaciones tienen que aprobarse; si no, el pago se anula.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', 'fad4a27a-dc6d-47e0-81fe-3ef132d514a1'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 2
+where exists (select 1 from public.items where id = 'fad4a27a-dc6d-47e0-81fe-3ef132d514a1'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '76245ecd-e9fa-4ed3-80a7-b09b0791dd31'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = 'ddf7f1c3-ab21-4df0-807a-3c9663efaf55'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '76245ecd-e9fa-4ed3-80a7-b09b0791dd31'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, 'ddf7f1c3-ab21-4df0-807a-3c9663efaf55'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('61998f64-095f-4df6-8515-54b2788655ff'::uuid, $pea0$Queda pagado lo de la primera tarjeta y debe la diferencia.$pea0$, false, 1, $pea0$Si no se aprueban las dos operaciones, se anula todo.$pea0$, null::int, null),
+  ('01418667-456a-47f3-8e0b-60a56cd12a99'::uuid, $pea0$Se anula todo: tiene que volver a hacer el pago completo.$pea0$, true, 2, $pea0$Los pagos con dos tarjetas que no completan las dos operaciones quedan como no realizados.$pea0$, null::int, null),
+  ('9b8cc4d1-313e-49bf-8f6e-b8201f489491'::uuid, $pea0$Se aprueba igual en 72 horas.$pea0$, false, 3, $pea0$No se aprueba: se anula.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = 'ddf7f1c3-ab21-4df0-807a-3c9663efaf55'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select '0a251c68-3d14-4e6b-892f-e78282f77611'::uuid, 'verdadero_falso', $pea0$Si el pago con tarjeta es rechazado, el asesor tiene que derivar el caso como un error de la Universidad.$pea0$, $pea0$El rechazo lo resuelve el estudiante con su tarjeta (límite, autorización o reglas del banco).$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', 'fad4a27a-dc6d-47e0-81fe-3ef132d514a1'::uuid, null, now() + interval '1 millisecond' * 3
+where exists (select 1 from public.items where id = 'fad4a27a-dc6d-47e0-81fe-3ef132d514a1'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '76245ecd-e9fa-4ed3-80a7-b09b0791dd31'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = '0a251c68-3d14-4e6b-892f-e78282f77611'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '76245ecd-e9fa-4ed3-80a7-b09b0791dd31'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, '0a251c68-3d14-4e6b-892f-e78282f77611'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('50a0bb83-2275-4020-8c09-64d261ea4256'::uuid, $pea0$Verdadero$pea0$, false, 1, null, null::int, null),
+  ('05b0f59c-287b-4d8a-8275-893fbc5542b0'::uuid, $pea0$Falso$pea0$, true, 2, null, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = '0a251c68-3d14-4e6b-892f-e78282f77611'::uuid)
+on conflict do nothing;
+
+insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
+select 'b4579c7e-033f-403d-8eb6-5f43e532d8d8'::uuid, '76245ecd-e9fa-4ed3-80a7-b09b0791dd31'::uuid, 45, $pea0$Deuda, saldo a favor y notas de crédito$pea0$, 'leccion', a.id,
+       $pea0${"version":2,"tarjetas":[{"tipo":"caso","persona":"Ramiro","canal":"mostrador","consulta":"Pagué el semestre completo pero al final no cursé ninguna materia. ¿Me devuelven la plata? ¿También la matrícula?"},{"tipo":"preguntar","opciones":[{"texto":"¿Qué aranceles de cursado pagó: Ticket A, Ticket B o los dos?","clave":true,"porque":"El reconocimiento se calcula sobre esos tickets."},{"texto":"¿A cuántas materias se inscribió y cuántas cursó, incluido Inglés?","clave":true,"porque":"Inglés se paga y cuenta como materia cursada."},{"texto":"¿Ya terminó el semestre o la inscripción al segundo bimestre?","clave":true,"porque":"Recién ahí se puede pedir la nota de crédito."},{"texto":"¿Con qué tarjeta pagó?","clave":false,"porque":"No cambia el análisis."}]},{"tipo":"idea","titulo":"La nota de crédito por período no cursado","texto":"En ED y EDH se reconocen los aranceles de cursado (Ticket A y B) que pagó sin cursar, nunca la matrícula. Se pide cuando terminó el semestre o la inscripción al segundo bimestre, desde el botón de nota de crédito por período no cursado en SGU o Campus. Solo se deriva si una falla impide hacerla desde el botón.","clave":"Nota de crédito: solo Ticket A y B, nunca la matrícula; se hace desde el botón.","ejemplo":"Ramiro pagó A y B y no cursó nada: se puede reconocer hasta el 100 % del cursado, sin la matrícula."},{"tipo":"probalo","n":1},{"tipo":"idea","titulo":"Cuánto se reconoce en grado","texto":"Si pagó solo el Ticket B y no cursó, hasta el 50 %. Si pagó A y B y no cursó ninguna, hasta el 100 % del cursado. Si pagó A y B y cursó de 1 a 3 materias, hasta el 40 % del Ticket B. Antes, validá que no haya una nota de crédito previa por lo mismo. Inglés, desde el período 2/25, no se puede anular y cuenta como cursada.","clave":"Sin cursar: B hasta 50 %, A y B hasta 100 %; con 1 a 3 cursadas, hasta 40 %."},{"tipo":"probalo","n":2},{"tipo":"idea","titulo":"Deuda que no se entiende y saldo a favor","texto":"Si tiene una deuda que no podés explicar, revisá la cuenta corriente, facturas, recibos y notas de crédito o débito, y si cambió de submodalidad o pagó duplicado. Si igual no se entiende, va por HubSpot como \"Análisis motivo de deuda\". El saldo a favor se puede usar para un trámite si cubre todo el importe.","clave":"Deuda sin explicación: revisá todo y derivá; saldo a favor, si cubre el importe."},{"tipo":"probalo","n":3},{"tipo":"ojo","texto":"Estas derivaciones van por HubSpot con la nota \"#GESTIONES SOPER – DERIVACIÓN\", con nombre, DNI, legajo, período y motivo. Tardan 3 días hábiles.\nEn pregrado los porcentajes son otros: revisalos en la fuente antes de responder."},{"tipo":"cierre","resolucion":"A Ramiro le explicás que la matrícula no se devuelve, porque cubre su alta en la Universidad, y que por los aranceles de cursado puede pedir una nota de crédito desde el botón, cuando termine el semestre o la inscripción al segundo bimestre. Si pagó A y B y no cursó nada, ni siquiera Inglés, se reconoce hasta el 100 % del cursado.","recordar":"La nota de crédito reconoce el cursado pagado y no cursado, nunca la matrícula."}]}$pea0$::jsonb, 'marcar_hecho'
+from public.articulos a where a.slug = $pea0$kb-36-gestiones-administrativas-soper$pea0$ and a.alcance = 'global'
+on conflict (id) do update set orden = excluded.orden, titulo = excluded.titulo, leccion = excluded.leccion,
+  articulo_id = excluded.articulo_id
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '76245ecd-e9fa-4ed3-80a7-b09b0791dd31'::uuid and c.estado = 'borrador');
+
+delete from public.preguntas
+where item_id = 'b4579c7e-033f-403d-8eb6-5f43e532d8d8'::uuid and id not in ('a182985c-eb22-4fe6-825e-0a6d61f343fa'::uuid, '9175d6e8-1337-4055-89cc-754e3e7d8fc3'::uuid, '0bb7b2b0-e7bf-40d2-8c5a-761eb1cbc1a9'::uuid)
+  and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '76245ecd-e9fa-4ed3-80a7-b09b0791dd31'::uuid and c.estado = 'borrador');
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select 'a182985c-eb22-4fe6-825e-0a6d61f343fa'::uuid, 'opcion_multiple', $pea0$Sofía pagó la matrícula y los tickets A y B, y no cursó ninguna materia. Pide que le reconozcan todo lo que pagó. ¿Qué le decís?$pea0$, $pea0$La nota de crédito reconoce los aranceles de cursado no usados (A y B); la matrícula queda afuera.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', 'b4579c7e-033f-403d-8eb6-5f43e532d8d8'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 1
+where exists (select 1 from public.items where id = 'b4579c7e-033f-403d-8eb6-5f43e532d8d8'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '76245ecd-e9fa-4ed3-80a7-b09b0791dd31'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = 'a182985c-eb22-4fe6-825e-0a6d61f343fa'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '76245ecd-e9fa-4ed3-80a7-b09b0791dd31'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, 'a182985c-eb22-4fe6-825e-0a6d61f343fa'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('e38d7c3d-5734-4ae0-8451-0cb21f8c7859'::uuid, $pea0$Que se le reconoce el 100 % de todo, matrícula incluida.$pea0$, false, 1, $pea0$La matrícula nunca se reconoce.$pea0$, null::int, null),
+  ('50d220b5-8cc4-4961-8594-cbba9bc3b6cc'::uuid, $pea0$Que puede pedir una nota de crédito de hasta el 100 % del cursado (A y B), pero no de la matrícula.$pea0$, true, 2, $pea0$Es el criterio para grado sin materias cursadas.$pea0$, null::int, null),
+  ('4728f980-3f30-4e67-870c-6befe29bb470'::uuid, $pea0$Que no corresponde nada porque ya pagó.$pea0$, false, 3, $pea0$Si no cursó, puede pedir el reconocimiento del cursado.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = 'a182985c-eb22-4fe6-825e-0a6d61f343fa'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select '9175d6e8-1337-4055-89cc-754e3e7d8fc3'::uuid, 'opcion_multiple', $pea0$Diego pagó A y B, cursó solo Inglés y pide la nota de crédito como si no hubiera cursado nada. ¿Qué tenés en cuenta?$pea0$, $pea0$Desde el período 2/25, Inglés no se puede anular y cuenta como materia cursada para la nota de crédito.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', 'b4579c7e-033f-403d-8eb6-5f43e532d8d8'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 2
+where exists (select 1 from public.items where id = 'b4579c7e-033f-403d-8eb6-5f43e532d8d8'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '76245ecd-e9fa-4ed3-80a7-b09b0791dd31'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = '9175d6e8-1337-4055-89cc-754e3e7d8fc3'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '76245ecd-e9fa-4ed3-80a7-b09b0791dd31'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, '9175d6e8-1337-4055-89cc-754e3e7d8fc3'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('ebb52798-224a-48e1-826b-11b2b8fe6363'::uuid, $pea0$Que Inglés no cuenta, así que corresponde el 100 %.$pea0$, false, 1, $pea0$Desde 2/25 Inglés se considera materia cursada.$pea0$, null::int, null),
+  ('9c36d3fa-77bb-4e1c-8d8a-2177776e597e'::uuid, $pea0$Que Inglés cuenta como materia cursada, así que no corresponde el reconocimiento de "sin cursar".$pea0$, true, 2, $pea0$Inglés se paga, no se puede anular y cuenta como cursada.$pea0$, null::int, null),
+  ('2e4df923-4fdc-444f-8b52-1df5d832761e'::uuid, $pea0$Que primero hay que anularle Inglés.$pea0$, false, 3, $pea0$Inglés no se puede anular.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = '9175d6e8-1337-4055-89cc-754e3e7d8fc3'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select '0bb7b2b0-e7bf-40d2-8c5a-761eb1cbc1a9'::uuid, 'opcion_multiple', $pea0$Un estudiante tiene una deuda y no encontrás de dónde sale después de revisar su cuenta corriente y sus comprobantes. ¿Qué hacés?$pea0$, $pea0$Si el origen de la deuda no se puede determinar con la información disponible, se deriva como "Análisis motivo de deuda".$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', 'b4579c7e-033f-403d-8eb6-5f43e532d8d8'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 3
+where exists (select 1 from public.items where id = 'b4579c7e-033f-403d-8eb6-5f43e532d8d8'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '76245ecd-e9fa-4ed3-80a7-b09b0791dd31'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = '0bb7b2b0-e7bf-40d2-8c5a-761eb1cbc1a9'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '76245ecd-e9fa-4ed3-80a7-b09b0791dd31'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, '0bb7b2b0-e7bf-40d2-8c5a-761eb1cbc1a9'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('b56bbc3a-a71b-45bf-8a58-102f934d3488'::uuid, $pea0$Le decís que pague igual.$pea0$, false, 1, $pea0$Primero hay que entender el origen.$pea0$, null::int, null),
+  ('865cda7a-3322-41bc-8d41-c6c02a15cd21'::uuid, $pea0$Derivás por HubSpot "Análisis motivo de deuda", con la nota #GESTIONES SOPER y sus datos.$pea0$, true, 2, $pea0$Es la gestión cuando el origen no se puede determinar.$pea0$, null::int, null),
+  ('173c88a4-010a-4245-8e0e-a311679d29fc'::uuid, $pea0$Le hacés una nota de crédito por el monto.$pea0$, false, 3, $pea0$La nota de crédito es para otra situación.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = '0bb7b2b0-e7bf-40d2-8c5a-761eb1cbc1a9'::uuid)
+on conflict do nothing;
+
+insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
+select '6c5874ca-1e73-4029-885d-3f24ce8bd70b'::uuid, '76245ecd-e9fa-4ed3-80a7-b09b0791dd31'::uuid, 46, $pea0$Cuando un estudiante quiere darse de baja$pea0$, 'leccion', a.id,
+       $pea0${"version":2,"tarjetas":[{"tipo":"caso","persona":"Julieta","canal":"telefono","consulta":"Hola, quiero darme de baja. Con el trabajo no puedo seguir y además no me alcanza la plata. ¿Me devuelven lo que pagué?"},{"tipo":"preguntar","opciones":[{"texto":"¿Cuál es el motivo: económico, académico o personal?","clave":true,"porque":"Hay que entenderlo bien para registrarlo y buscar alternativas."},{"texto":"¿Tiene deuda o aranceles pendientes?","clave":true,"porque":"Con deuda no se deriva a Grupo de Riesgo hasta regularizar."},{"texto":"¿Qué beneficios tiene vigentes y cómo viene su actividad académica?","clave":true,"porque":"Sirve para ver qué herramientas de persistencia le corresponden."},{"texto":"¿En qué CAU se inscribió el primer año?","clave":false,"porque":"No cambia la gestión."}]},{"tipo":"idea","titulo":"Primero escuchar","texto":"Ante un pedido de baja, preguntá con empatía el motivo y desde cuándo le pasa, y si hay algo que la ayudaría a seguir. Revisá deuda, actividad, fechas de pago y beneficios. Según el caso, contale las herramientas de persistencia: Garantía de Adaptación, nota de crédito, Seguro de Continuidad o becas. Si mantiene su decisión, no insistas.","clave":"Escuchá el motivo, revisá su situación y ofrecé alternativas sin insistir.","ejemplo":"A Julieta, por lo económico, le contás de las becas y, si quien paga perdió el trabajo, del Seguro de Continuidad."},{"tipo":"probalo","n":1},{"tipo":"idea","titulo":"Lo que no se ofrece","texto":"El asesor no ofrece reintegros, anulaciones de pagos, traspasos de fondos entre alumnos ni excepciones arancelarias: eso lo analiza Grupo de Riesgo. Si tiene deuda, primero tiene que regularizarla. Para un traspaso de aranceles, el legajo tiene que estar dado de baja.","clave":"No prometas reintegros ni excepciones: lo analiza Grupo de Riesgo."},{"tipo":"probalo","n":2},{"tipo":"idea","titulo":"La derivación a Grupo de Riesgo","texto":"Va por HubSpot a Grupo de Riesgo, tipificación \"Riesgo de baja\", con nombre, DNI, legajo, un teléfono actualizado, el motivo y las alternativas que le ofreciste. Avisale que la contactan en 72 horas hábiles y que la gestión puede tardar hasta 7 días hábiles.","clave":"HubSpot a Grupo de Riesgo con teléfono y alternativas ofrecidas: contacto en 72 h."},{"tipo":"ojo","texto":"Este circuito también aplica si pide documentación para cambiarse de universidad (analítico parcial, programas, constancia de baja o de no sanción), o si quiere la baja por enojo con una gestión anterior.\nLa Garantía de Adaptación es solo para ingresantes con más de un ticket pagado, sin materias aprobadas, dentro de los 2 años de su ingreso y que no la hayan usado antes."},{"tipo":"cierre","resolucion":"A Julieta le preguntás bien el motivo, revisás si tiene deuda y le contás las alternativas que le corresponden. Si igual quiere la baja, la derivás a Grupo de Riesgo con su teléfono, sin prometerle un reintegro. La contactan en 72 horas hábiles.","recordar":"Escuchar, ofrecer alternativas y derivar a Grupo de Riesgo, sin prometer reintegros."}]}$pea0$::jsonb, 'marcar_hecho'
+from public.articulos a where a.slug = $pea0$kb-42-reintegros$pea0$ and a.alcance = 'global'
+on conflict (id) do update set orden = excluded.orden, titulo = excluded.titulo, leccion = excluded.leccion,
+  articulo_id = excluded.articulo_id
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '76245ecd-e9fa-4ed3-80a7-b09b0791dd31'::uuid and c.estado = 'borrador');
+
+delete from public.preguntas
+where item_id = '6c5874ca-1e73-4029-885d-3f24ce8bd70b'::uuid and id not in ('ea5bbfc8-af1b-4f68-8aff-6156f1bdd97b'::uuid, '8b214e8b-8b84-4e47-80a9-4c179169ddc8'::uuid, '493c87ce-608b-4231-8cc2-cba0fce569cb'::uuid)
+  and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '76245ecd-e9fa-4ed3-80a7-b09b0791dd31'::uuid and c.estado = 'borrador');
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select 'ea5bbfc8-af1b-4f68-8aff-6156f1bdd97b'::uuid, 'opcion_multiple', $pea0$Un estudiante pide la baja y que le devuelvan lo que pagó. ¿Qué le respondés sobre el reintegro?$pea0$, $pea0$El asesor no ofrece reintegros ni anulaciones: releva, ofrece alternativas y deriva a Grupo de Riesgo.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', '6c5874ca-1e73-4029-885d-3f24ce8bd70b'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 1
+where exists (select 1 from public.items where id = '6c5874ca-1e73-4029-885d-3f24ce8bd70b'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '76245ecd-e9fa-4ed3-80a7-b09b0791dd31'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = 'ea5bbfc8-af1b-4f68-8aff-6156f1bdd97b'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '76245ecd-e9fa-4ed3-80a7-b09b0791dd31'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, 'ea5bbfc8-af1b-4f68-8aff-6156f1bdd97b'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('c5a1bff9-5e80-413f-8350-8b03904ed2a1'::uuid, $pea0$Que se lo devuelven en 7 días hábiles.$pea0$, false, 1, $pea0$El asesor no promete reintegros.$pea0$, null::int, null),
+  ('b11f4a3c-d7f9-4756-8259-bc731094748a'::uuid, $pea0$Que el reintegro no lo define el CAU: registrás el caso y Grupo de Riesgo lo analiza y lo contacta.$pea0$, true, 2, $pea0$El asesor no ofrece reintegros ni excepciones; lo evalúa el área especializada.$pea0$, null::int, null),
+  ('88bf9a1d-8e72-4919-8107-811da2f292c7'::uuid, $pea0$Que no corresponde ningún reintegro.$pea0$, false, 3, $pea0$Tampoco lo podés negar vos: lo analiza Grupo de Riesgo.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = 'ea5bbfc8-af1b-4f68-8aff-6156f1bdd97b'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select '8b214e8b-8b84-4e47-80a9-4c179169ddc8'::uuid, 'opcion_multiple', $pea0$Una estudiante quiere darse de baja y tiene dos cuotas impagas. ¿Qué hacés?$pea0$, $pea0$Si tiene deuda o aranceles pendientes, no se deriva a Grupo de Riesgo hasta que regularice.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', '6c5874ca-1e73-4029-885d-3f24ce8bd70b'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 2
+where exists (select 1 from public.items where id = '6c5874ca-1e73-4029-885d-3f24ce8bd70b'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '76245ecd-e9fa-4ed3-80a7-b09b0791dd31'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = '8b214e8b-8b84-4e47-80a9-4c179169ddc8'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '76245ecd-e9fa-4ed3-80a7-b09b0791dd31'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, '8b214e8b-8b84-4e47-80a9-4c179169ddc8'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('08555e75-f476-49ef-83ab-9ca779ef0dd3'::uuid, $pea0$La derivás igual a Grupo de Riesgo.$pea0$, false, 1, $pea0$Con deuda no corresponde derivar hasta regularizar.$pea0$, null::int, null),
+  ('4238d3ce-bed7-4b35-88c1-42089b20d19b'::uuid, $pea0$Le explicás que primero tiene que regularizar la deuda y después se deriva el caso.$pea0$, true, 2, $pea0$Es la condición previa a la derivación.$pea0$, null::int, null),
+  ('1afc26dc-4d0a-49b5-8fb6-fb552bd6bc16'::uuid, $pea0$Le anulás la deuda para que pueda darse de baja.$pea0$, false, 3, $pea0$El asesor no anula deudas.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = '8b214e8b-8b84-4e47-80a9-4c179169ddc8'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select '493c87ce-608b-4231-8cc2-cba0fce569cb'::uuid, 'verdadero_falso', $pea0$Si el estudiante mantiene firme su decisión de darse de baja, el asesor debe seguir insistiendo con alternativas.$pea0$, $pea0$Se ofrecen alternativas, pero no se insiste si mantiene su decisión: se registra y se deriva.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', '6c5874ca-1e73-4029-885d-3f24ce8bd70b'::uuid, null, now() + interval '1 millisecond' * 3
+where exists (select 1 from public.items where id = '6c5874ca-1e73-4029-885d-3f24ce8bd70b'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '76245ecd-e9fa-4ed3-80a7-b09b0791dd31'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = '493c87ce-608b-4231-8cc2-cba0fce569cb'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '76245ecd-e9fa-4ed3-80a7-b09b0791dd31'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, '493c87ce-608b-4231-8cc2-cba0fce569cb'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('1b7ed15b-3fd9-4d50-814a-e55178335224'::uuid, $pea0$Verdadero$pea0$, false, 1, null, null::int, null),
+  ('e4cf547c-971f-479b-8cda-fb1de63a9cc5'::uuid, $pea0$Falso$pea0$, true, 2, null, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = '493c87ce-608b-4231-8cc2-cba0fce569cb'::uuid)
+on conflict do nothing;

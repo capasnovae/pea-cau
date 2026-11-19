@@ -101,9 +101,9 @@ describe("lecciones de contenido/lecciones", () => {
   const dir = "contenido/lecciones";
   const archivos = readdirSync(dir).filter((f) => f.endsWith(".md"));
   const slugs = new Set(
-    ["reglamento", "lanube"].flatMap((s) =>
+    (["reglamento", "lanube", "kbcau"] as const).flatMap((s) =>
       readdirSync(join("relevamiento", s)).map(
-        (f) => `${s === "reglamento" ? "rg" : "ln"}-${f.replace(/\.md$/, "")}`,
+        (f) => `${{ reglamento: "rg", lanube: "ln", kbcau: "kb" }[s]}-${f.replace(/\.md$/, "")}`,
       ),
     ),
   );

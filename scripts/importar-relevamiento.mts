@@ -7,7 +7,7 @@ import { armarSql, leerArchivo, type ArchivoRelevado } from "../lib/relevamiento
 const raiz = join(import.meta.dirname, "..", "relevamiento");
 const archivos: ArchivoRelevado[] = [];
 const salteados: string[] = [];
-for (const sitio of ["reglamento", "lanube"]) {
+for (const sitio of ["reglamento", "lanube", "kbcau"]) {
   for (const nombre of readdirSync(join(raiz, sitio))
     .filter((n) => n.endsWith(".md"))
     .sort()) {
