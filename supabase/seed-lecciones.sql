@@ -5682,3 +5682,383 @@ select x.id, 'fce1c03a-551a-4606-84f2-b9d53698261b'::uuid, x.texto, x.correcta, 
 ) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
 where exists (select 1 from public.preguntas where id = 'fce1c03a-551a-4606-84f2-b9d53698261b'::uuid)
 on conflict do nothing;
+
+insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
+select '46c0d146-be30-4f8b-8f19-7c5c4b5387cd'::uuid, '0ba24b95-30a6-4f75-88ec-f101f5bc73ed'::uuid, 75, $pea0$Práctica Profesional: cómo se cursa y se aprueba$pea0$, 'leccion', a.id,
+       $pea0${"version":2,"tarjetas":[{"tipo":"caso","persona":"Lucas","canal":"whatsapp","consulta":"Me toca Práctica Profesional este semestre. ¿Qué tengo que hacer para aprobarla? ¿Es solo ir a una empresa?"},{"tipo":"preguntar","opciones":[{"texto":"¿Ya está inscripto en la materia?","clave":true,"porque":"Sin inscripción no accede a los formularios de Soy Siglo."},{"texto":"¿En qué modalidad cursa?","clave":true,"porque":"En Presencial y Presencial Home se suma el 75 % de asistencia."},{"texto":"¿Tiene las correlativas aprobadas?","clave":true,"porque":"Sin ellas, la materia queda regular por 18 meses."},{"texto":"¿En qué empresa le gustaría hacerla?","clave":false,"porque":"Primero importa entender las dos instancias de la materia."}]},{"tipo":"idea","titulo":"Dos instancias obligatorias","texto":"Práctica Profesional es obligatoria y cuatrimestral en todas las carreras de grado. Tiene una instancia académica, con trabajos prácticos en Canvas y un docente a cargo, y una instancia organizacional: 250 horas en una organización o con un profesional independiente, supervisado por un tutor, con 20 a 25 horas semanales como máximo. La inscripción cierra el viernes anterior al inicio de clases, sin excepción.","clave":"Instancia académica en Canvas + 250 horas en una organización con tutor.","ejemplo":"Lucas entrega los TP en Canvas y además cumple sus horas en una organización."},{"tipo":"probalo","n":1},{"tipo":"idea","titulo":"Requisitos de aprobación","texto":"Necesita 3 TP aprobados con 5 o más, y el TP4 es obligatorio. La nota final es el promedio de los 4 TP. En Presencial y Presencial Home suma el 75 % de asistencia. Con el TP4 entrega por Canvas la evaluación de desempeño firmada por la organización, con 7 o más, y la planilla de asistencia que valida las horas. Si al terminar no tiene las correlativas, queda regular 18 meses; si no las aprueba en ese plazo, queda libre y recursa.","clave":"3 TP con 5 (TP4 obligatorio) + evaluación de desempeño con 7 y planilla, con el TP4."},{"tipo":"probalo","n":2},{"tipo":"idea","titulo":"Talleres y Soy Siglo","texto":"La instancia organizacional se gestiona en Soy Siglo: el estudiante inscripto entra con su correo institucional, sin registrarse. Antes de completar cualquier formulario tiene que asistir al taller preparatorio, que es obligatorio. Los talleres se dictan por Teams, con los accesos publicados en La Nube; no hace falta inscribirse.","clave":"Taller obligatorio antes de los formularios; Soy Siglo con el correo institucional."},{"tipo":"ojo","texto":"Las carreras de Ciencias de la Salud (Nutrición, Psicología, Terapia Ocupacional y Kinesiología) no usan Soy Siglo ni van a los talleres: todo lo gestiona su coordinador de práctica. Las consultas sobre TP van al docente; las demoras de corrección o de notas, a SGEA."},{"tipo":"cierre","resolucion":"A Lucas le explicás que no alcanza con ir a la empresa: tiene que aprobar 3 TP en Canvas, con el TP4 obligatorio, y cumplir 250 horas con un tutor. Con el TP4 entrega la evaluación de desempeño, con 7 o más, y la planilla de asistencia. Antes de cargar formularios en Soy Siglo, tiene que hacer el taller.","recordar":"TP en Canvas, 250 horas, evaluación de desempeño con 7 y taller previo."}]}$pea0$::jsonb, 'marcar_hecho'
+from public.articulos a where a.slug = $pea0$kb-35-practica-profesional$pea0$ and a.alcance = 'global'
+on conflict (id) do update set orden = excluded.orden, titulo = excluded.titulo, leccion = excluded.leccion,
+  articulo_id = excluded.articulo_id
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '0ba24b95-30a6-4f75-88ec-f101f5bc73ed'::uuid and c.estado = 'borrador');
+
+delete from public.preguntas
+where item_id = '46c0d146-be30-4f8b-8f19-7c5c4b5387cd'::uuid and id not in ('4c8fdcb9-0a70-43c5-8b42-e4986e96e6fe'::uuid, '22298870-7c68-4adf-8c0d-d23072fc2c77'::uuid, '8d6d863e-f4e5-47aa-85f6-03608c956f41'::uuid)
+  and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '0ba24b95-30a6-4f75-88ec-f101f5bc73ed'::uuid and c.estado = 'borrador');
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select '4c8fdcb9-0a70-43c5-8b42-e4986e96e6fe'::uuid, 'opcion_multiple', $pea0$¿Qué nota mínima necesita la evaluación de desempeño de Práctica Profesional?$pea0$, $pea0$La evaluación de desempeño se aprueba con 7 o más y se entrega con el TP4 por Canvas.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', '46c0d146-be30-4f8b-8f19-7c5c4b5387cd'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 1
+where exists (select 1 from public.items where id = '46c0d146-be30-4f8b-8f19-7c5c4b5387cd'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '0ba24b95-30a6-4f75-88ec-f101f5bc73ed'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = '4c8fdcb9-0a70-43c5-8b42-e4986e96e6fe'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '0ba24b95-30a6-4f75-88ec-f101f5bc73ed'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, '4c8fdcb9-0a70-43c5-8b42-e4986e96e6fe'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('29e00b64-689c-4f94-8495-24216a32d3ce'::uuid, $pea0$4$pea0$, false, 1, $pea0$Esa es la nota de aprobación de un examen final.$pea0$, null::int, null),
+  ('9cba1bad-7a06-49f1-81f0-779ec2f8608f'::uuid, $pea0$5$pea0$, false, 2, $pea0$Esa es la nota mínima de cada TP.$pea0$, null::int, null),
+  ('746b1c64-dd0f-4fc6-8196-00ce0e111f4d'::uuid, $pea0$7$pea0$, true, 3, $pea0$Se entrega firmada por la organización junto con el TP4.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = '4c8fdcb9-0a70-43c5-8b42-e4986e96e6fe'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select '22298870-7c68-4adf-8c0d-d23072fc2c77'::uuid, 'opcion_multiple', $pea0$Un estudiante terminó Práctica Profesional pero le falta una correlativa. ¿En qué estado queda la materia?$pea0$, $pea0$Sin las correlativas, queda regular por 18 meses; después, libre.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', '46c0d146-be30-4f8b-8f19-7c5c4b5387cd'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 2
+where exists (select 1 from public.items where id = '46c0d146-be30-4f8b-8f19-7c5c4b5387cd'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '0ba24b95-30a6-4f75-88ec-f101f5bc73ed'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = '22298870-7c68-4adf-8c0d-d23072fc2c77'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '0ba24b95-30a6-4f75-88ec-f101f5bc73ed'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, '22298870-7c68-4adf-8c0d-d23072fc2c77'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('0533cba3-1b72-4861-8343-1ca687f63215'::uuid, $pea0$Aprobada igual.$pea0$, false, 1, $pea0$Necesita las correlativas aprobadas.$pea0$, null::int, null),
+  ('c1f2b4e0-559a-446e-89fc-2a80c1828db3'::uuid, $pea0$Regular por hasta 18 meses.$pea0$, true, 2, $pea0$Si no aprueba la correlativa en ese plazo, queda libre.$pea0$, null::int, null),
+  ('698558bb-3786-46bb-8a99-ff40c9f563b6'::uuid, $pea0$Libre de inmediato.$pea0$, false, 3, $pea0$Primero tiene 18 meses para aprobar la correlativa.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = '22298870-7c68-4adf-8c0d-d23072fc2c77'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select '8d6d863e-f4e5-47aa-85f6-03608c956f41'::uuid, 'verdadero_falso', $pea0$Un estudiante de Psicología tiene que asistir al taller preparatorio y cargar formularios en Soy Siglo.$pea0$, $pea0$Las carreras de Ciencias de la Salud gestionan todo con su coordinador de práctica.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', '46c0d146-be30-4f8b-8f19-7c5c4b5387cd'::uuid, null, now() + interval '1 millisecond' * 3
+where exists (select 1 from public.items where id = '46c0d146-be30-4f8b-8f19-7c5c4b5387cd'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '0ba24b95-30a6-4f75-88ec-f101f5bc73ed'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = '8d6d863e-f4e5-47aa-85f6-03608c956f41'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '0ba24b95-30a6-4f75-88ec-f101f5bc73ed'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, '8d6d863e-f4e5-47aa-85f6-03608c956f41'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('fe27a42b-bd85-4de2-8c15-27df0db96c3b'::uuid, $pea0$Verdadero$pea0$, false, 1, null, null::int, null),
+  ('bb4ee5ee-d506-41b4-8608-52c04f75e161'::uuid, $pea0$Falso$pea0$, true, 2, null, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = '8d6d863e-f4e5-47aa-85f6-03608c956f41'::uuid)
+on conflict do nothing;
+
+insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
+select '3acdf87a-1dbc-4969-8bdd-35bdcf70a619'::uuid, '0ba24b95-30a6-4f75-88ec-f101f5bc73ed'::uuid, 76, $pea0$Práctica Profesional: asignar o proponer organización$pea0$, 'leccion', a.id,
+       $pea0${"version":2,"tarjetas":[{"tipo":"caso","persona":"Carla","canal":"telefono","consulta":"Pedí que la Universidad me asigne una organización y en Soy Siglo me figura \"Aprobado\", pero no sé dónde tengo que ir. ¿Ya está?"},{"tipo":"preguntar","opciones":[{"texto":"¿Cuándo cargó el formulario?","clave":true,"porque":"Se deriva solo si pasaron más de 10 días hábiles sin asignación."},{"texto":"¿Entró a \"Revisar\" en el formulario?","clave":true,"porque":"Si ve los datos de la organización y del tutor, la asignación está hecha."},{"texto":"¿Quiere solicitar o proponer una organización?","clave":true,"porque":"Son dos formularios distintos con requisitos distintos."},{"texto":"¿Qué empresa prefiere?","clave":false,"porque":"La asignación respeta la localidad del CAU, no una preferencia."}]},{"tipo":"idea","titulo":"Pedir una organización a la Universidad","texto":"Inscripto en la materia, tiene 72 horas para completar el formulario; si no, la Universidad puede preasignarle una organización, que acepta o rechaza. Si rechaza, tiene que proponer una propia aprobada antes del inicio, sin nuevas asignaciones. El pedido se hace con \"Solicito que la Universidad me asigne una organización\" y se asigna según la localidad del CAU. El estado \"Aprobado\" no significa asignación: lo confirma ver la organización y el tutor en \"Revisar\".","clave":"\"Aprobado\" no es asignación: hay que ver organización y tutor en \"Revisar\".","ejemplo":"Carla entra a \"Revisar\" y todavía no ve organización ni tutor."},{"tipo":"probalo","n":1},{"tipo":"idea","titulo":"Proponer una organización","texto":"La organización o el profesional independiente tiene que estar registrado en ARCA, dar espacio y recursos, y ofrecer tareas vinculadas con la carrera. Puede proponer donde trabaja, en un área distinta de la suya, o una organización propia o familiar, si el tutor no es familiar directo ni su superior. En Abogacía, Contador e Informática, el tutor tiene título de grado de la carrera y lo adjunta; en Informática también vale Ingeniero en Sistemas.","clave":"Registrada en ARCA, tareas de la carrera y tutor sin vínculo familiar ni jerárquico."},{"tipo":"probalo","n":2},{"tipo":"idea","titulo":"Incompatibilidad de concurrencia","texto":"Solo aplica a empleados públicos con prohibición de trabajar fuera de su ámbito (certificado laboral y normativa) y a personas privadas de la libertad (resolución judicial). Se carga en \"Aplico incompatibilidad de concurrencia\" y la Universidad la evalúa. Si la aprueba, no va a una organización: el docente le da en Canvas actividades simuladas equivalentes a 250 horas. El horario laboral u otros motivos personales no cuentan.","clave":"Solo empleo público con prohibición o privación de la libertad; se evalúa."},{"tipo":"ojo","texto":"Desde el extranjero también tiene que hacer la práctica: puede proponer una organización de su país o pedir una virtual. Abogacía y Contador la hacen presencial, sin excepción. A estudiantes con discapacidad: ticket a Práctica Profesional y aviso por correo a supervisión, para que Empleabilidad intervenga con prioridad."},{"tipo":"cierre","resolucion":"A Carla le explicás que \"Aprobado\" no confirma la asignación: tiene que ver los datos de la organización y del tutor en \"Revisar\". Si pasaron más de 10 días hábiles desde que cargó el formulario y no tiene asignación, derivás el caso. Cuando le asignen, ella hace el primer contacto con el tutor.","recordar":"Ver organización y tutor en \"Revisar\"; derivar después de 10 días hábiles."}]}$pea0$::jsonb, 'marcar_hecho'
+from public.articulos a where a.slug = $pea0$kb-35-practica-profesional$pea0$ and a.alcance = 'global'
+on conflict (id) do update set orden = excluded.orden, titulo = excluded.titulo, leccion = excluded.leccion,
+  articulo_id = excluded.articulo_id
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '0ba24b95-30a6-4f75-88ec-f101f5bc73ed'::uuid and c.estado = 'borrador');
+
+delete from public.preguntas
+where item_id = '3acdf87a-1dbc-4969-8bdd-35bdcf70a619'::uuid and id not in ('30cda9b7-7901-4ee0-83d5-5d0b753c85d8'::uuid, '3e485445-2a63-48b4-8a54-49b184ac3b74'::uuid, 'e61fbe75-258c-471d-8bf8-3b4d269c5b2b'::uuid)
+  and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '0ba24b95-30a6-4f75-88ec-f101f5bc73ed'::uuid and c.estado = 'borrador');
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select '30cda9b7-7901-4ee0-83d5-5d0b753c85d8'::uuid, 'opcion_multiple', $pea0$Una estudiante cargó el pedido de organización hace 4 días hábiles y todavía no tiene asignación. ¿Qué hacés?$pea0$, $pea0$Solo se deriva si pasaron más de 10 días hábiles sin organización asignada.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', '3acdf87a-1dbc-4969-8bdd-35bdcf70a619'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 1
+where exists (select 1 from public.items where id = '3acdf87a-1dbc-4969-8bdd-35bdcf70a619'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '0ba24b95-30a6-4f75-88ec-f101f5bc73ed'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = '30cda9b7-7901-4ee0-83d5-5d0b753c85d8'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '0ba24b95-30a6-4f75-88ec-f101f5bc73ed'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, '30cda9b7-7901-4ee0-83d5-5d0b753c85d8'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('e5ff6e57-18b7-49cf-8c02-3b23b44fc497'::uuid, $pea0$Derivás el caso a Práctica Profesional.$pea0$, false, 1, $pea0$Se deriva recién pasados 10 días hábiles.$pea0$, null::int, null),
+  ('40a0eaf4-e0c4-44ed-847f-16f51de0e7d5'::uuid, $pea0$Le pedís que espere y revise Soy Siglo por su cuenta.$pea0$, true, 2, $pea0$La asignación no es inmediata y la consulta ella.$pea0$, null::int, null),
+  ('2889f0e4-8dba-4b44-895a-22badbd812b6'::uuid, $pea0$Le decís que proponga otra organización.$pea0$, false, 3, $pea0$Todavía está dentro del plazo.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = '30cda9b7-7901-4ee0-83d5-5d0b753c85d8'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select '3e485445-2a63-48b4-8a54-49b184ac3b74'::uuid, 'opcion_multiple', $pea0$Un estudiante de Contador quiere hacer la práctica en el estudio de su padre, que sería su tutor. ¿Se aprueba?$pea0$, $pea0$El tutor no puede ser familiar directo ni tener relación de subordinación con el estudiante.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', '3acdf87a-1dbc-4969-8bdd-35bdcf70a619'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 2
+where exists (select 1 from public.items where id = '3acdf87a-1dbc-4969-8bdd-35bdcf70a619'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '0ba24b95-30a6-4f75-88ec-f101f5bc73ed'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = '3e485445-2a63-48b4-8a54-49b184ac3b74'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '0ba24b95-30a6-4f75-88ec-f101f5bc73ed'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, '3e485445-2a63-48b4-8a54-49b184ac3b74'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('632f7ca4-35f8-4227-81a7-97c42c36a3ff'::uuid, $pea0$Sí, porque es un estudio contable.$pea0$, false, 1, $pea0$El tutor no puede ser familiar directo.$pea0$, null::int, null),
+  ('32fa96af-3f05-4685-8872-1cc2e34017b2'::uuid, $pea0$No, porque el tutor es familiar directo.$pea0$, true, 2, $pea0$Podría ser ese estudio con otro tutor que cumpla los requisitos.$pea0$, null::int, null),
+  ('d1b83caa-cf04-46c3-86ad-df26c52b703e'::uuid, $pea0$Sí, si adjunta el título del padre.$pea0$, false, 3, $pea0$El vínculo familiar es causa de rechazo igual.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = '3e485445-2a63-48b4-8a54-49b184ac3b74'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select 'e61fbe75-258c-471d-8bf8-3b4d269c5b2b'::uuid, 'verdadero_falso', $pea0$Trabajar en el mismo horario de la práctica alcanza para declarar incompatibilidad de concurrencia.$pea0$, $pea0$La superposición con el horario laboral no se considera incompatibilidad.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', '3acdf87a-1dbc-4969-8bdd-35bdcf70a619'::uuid, null, now() + interval '1 millisecond' * 3
+where exists (select 1 from public.items where id = '3acdf87a-1dbc-4969-8bdd-35bdcf70a619'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '0ba24b95-30a6-4f75-88ec-f101f5bc73ed'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = 'e61fbe75-258c-471d-8bf8-3b4d269c5b2b'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '0ba24b95-30a6-4f75-88ec-f101f5bc73ed'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, 'e61fbe75-258c-471d-8bf8-3b4d269c5b2b'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('fd2dd13f-5d87-44d5-8113-93d69036a50a'::uuid, $pea0$Verdadero$pea0$, false, 1, null, null::int, null),
+  ('3db30637-e96a-45bd-86e0-f34ab4ec9f22'::uuid, $pea0$Falso$pea0$, true, 2, null, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = 'e61fbe75-258c-471d-8bf8-3b4d269c5b2b'::uuid)
+on conflict do nothing;
+
+insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
+select 'b2ca833f-005a-451e-819a-65df14068f0a'::uuid, '0ba24b95-30a6-4f75-88ec-f101f5bc73ed'::uuid, 77, $pea0$Práctica Profesional: convenios, seguro y derivaciones$pea0$, 'leccion', a.id,
+       $pea0${"version":2,"tarjetas":[{"tipo":"caso","persona":"Martín","canal":"whatsapp","consulta":"La empresa me pide que firme el convenio y les mande la póliza del seguro. Además, mi tutor no me contesta hace dos semanas. ¿Qué hago?"},{"tipo":"preguntar","opciones":[{"texto":"¿Ya empezó el cursado?","clave":true,"porque":"El seguro rige desde el primer día de clases."},{"texto":"¿Tiene evidencia de los intentos de contacto con el tutor?","clave":true,"porque":"El ticket necesita evidencia."},{"texto":"¿Pidió la póliza a la aseguradora?","clave":true,"porque":"Se pide por el formulario de La Nube y llega en hasta 5 días hábiles."},{"texto":"¿Firmó algún convenio en papel?","clave":false,"porque":"El estudiante no firma convenios."}]},{"tipo":"idea","titulo":"Convenios: el estudiante no hace nada","texto":"Antes de empezar, la Universidad y la organización firman de forma digital en Soy Siglo el convenio marco (lo firma el tutor al registrarse) y el convenio anexo, que incluye al estudiante. El estudiante no firma ni presenta convenios: puede ver el anexo en \"Revisar\", y la organización los descarga si los necesita. Desde 1-2026 no se aceptan PDF con firma manuscrita. Si cambian datos de la organización o del tutor, los modifica la organización en su perfil.","clave":"Convenios digitales en Soy Siglo; el estudiante no firma ni presenta nada.","ejemplo":"Martín le dice a la empresa que el convenio se firma en Soy Siglo."},{"tipo":"probalo","n":1},{"tipo":"idea","titulo":"Seguro de vida y accidentes","texto":"La Universidad asegura a los inscriptos desde el primer día de clases hasta el último del período, sin que tengan que hacer nada; por eso no tiene que ir a la organización antes del inicio. La póliza la pide el estudiante a la aseguradora con el formulario de La Nube y llega a su correo en hasta 5 días hábiles. Si tiene un accidente, va al centro médico más cercano y dentro de las 72 horas completa el formulario de reporte, con los comprobantes de gastos.","clave":"Cubre desde el primer día de clases; póliza en hasta 5 días; accidente: reporte en 72 h."},{"tipo":"probalo","n":2},{"tipo":"idea","titulo":"Las dos tipificaciones","texto":"\"Inconveniente con organización Práctica Profesional\": la organización no responde, trato inadecuado, tareas ajenas a la carrera, localidad distinta, cambios de cláusulas o póliza demorada más de 5 días hábiles. Ticket con datos del estudiante, organización, detalle y evidencia; plazo de 3 días hábiles. \"Problema con carga de formulario\": errores en Soy Siglo, con el formulario afectado y captura. No se usa para pedir evaluaciones de desempeño ni planillas.","clave":"Organización → evidencia, 3 días hábiles. Formulario → captura del error."},{"tipo":"ojo","texto":"El correo de Empleabilidad se comparte solo con organizaciones: no responde a estudiantes. Las consultas sobre corrección de TP van al docente, y las demoras en notas, a SGEA."},{"tipo":"cierre","resolucion":"A Martín le explicás que no tiene que firmar el convenio: se firma de forma digital en Soy Siglo entre la Universidad y la organización. La póliza la pide él a la aseguradora por el formulario de La Nube. Por el tutor que no responde, cargás un ticket de \"Inconveniente con organización\" con la evidencia de sus intentos de contacto.","recordar":"Convenio digital, póliza por La Nube y ticket con evidencia."}]}$pea0$::jsonb, 'marcar_hecho'
+from public.articulos a where a.slug = $pea0$kb-35-practica-profesional$pea0$ and a.alcance = 'global'
+on conflict (id) do update set orden = excluded.orden, titulo = excluded.titulo, leccion = excluded.leccion,
+  articulo_id = excluded.articulo_id
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '0ba24b95-30a6-4f75-88ec-f101f5bc73ed'::uuid and c.estado = 'borrador');
+
+delete from public.preguntas
+where item_id = 'b2ca833f-005a-451e-819a-65df14068f0a'::uuid and id not in ('c0a40456-3fb5-4198-8145-7b41dbc36d6e'::uuid, 'e80308b4-4279-4632-85c4-bad1001aa395'::uuid, '7478bacb-2750-495a-8782-230edf008dc4'::uuid)
+  and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '0ba24b95-30a6-4f75-88ec-f101f5bc73ed'::uuid and c.estado = 'borrador');
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select 'c0a40456-3fb5-4198-8145-7b41dbc36d6e'::uuid, 'opcion_multiple', $pea0$La organización le pide al estudiante que firme el convenio anexo en papel. ¿Qué le decís?$pea0$, $pea0$Los convenios se firman de forma digital en Soy Siglo entre la Universidad y la organización.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', 'b2ca833f-005a-451e-819a-65df14068f0a'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 1
+where exists (select 1 from public.items where id = 'b2ca833f-005a-451e-819a-65df14068f0a'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '0ba24b95-30a6-4f75-88ec-f101f5bc73ed'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = 'c0a40456-3fb5-4198-8145-7b41dbc36d6e'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '0ba24b95-30a6-4f75-88ec-f101f5bc73ed'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, 'c0a40456-3fb5-4198-8145-7b41dbc36d6e'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('ea8659db-54a0-4c63-826d-342b55e2846c'::uuid, $pea0$Que lo firme y lo suba a Canvas.$pea0$, false, 1, $pea0$El estudiante no firma ni presenta convenios.$pea0$, null::int, null),
+  ('020c4f73-1fce-4942-8a11-cd1308558861'::uuid, $pea0$Que el convenio se firma de forma digital en Soy Siglo, sin su intervención.$pea0$, true, 2, $pea0$Desde 1-2026 no se aceptan firmas manuscritas.$pea0$, null::int, null),
+  ('d9af2760-6258-4133-8fb2-f5b9c0f07c40'::uuid, $pea0$Que lo mande por mail a Empleabilidad.$pea0$, false, 3, $pea0$Ese correo no responde a estudiantes.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = 'c0a40456-3fb5-4198-8145-7b41dbc36d6e'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select 'e80308b4-4279-4632-85c4-bad1001aa395'::uuid, 'opcion_multiple', $pea0$Un estudiante tuvo un accidente en la organización. ¿Qué plazo tiene para reportarlo?$pea0$, $pea0$Va al centro médico más cercano y reporta el accidente dentro de las 72 horas.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', 'b2ca833f-005a-451e-819a-65df14068f0a'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 2
+where exists (select 1 from public.items where id = 'b2ca833f-005a-451e-819a-65df14068f0a'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '0ba24b95-30a6-4f75-88ec-f101f5bc73ed'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = 'e80308b4-4279-4632-85c4-bad1001aa395'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '0ba24b95-30a6-4f75-88ec-f101f5bc73ed'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, 'e80308b4-4279-4632-85c4-bad1001aa395'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('85188788-22af-4c9a-8f26-d1c2f6bca124'::uuid, $pea0$5 días hábiles.$pea0$, false, 1, $pea0$Ese es el plazo de envío de la póliza.$pea0$, null::int, null),
+  ('bddafdcd-fc39-4e6c-88a0-65d11b279c77'::uuid, $pea0$72 horas.$pea0$, true, 2, $pea0$Con el formulario de reporte y los comprobantes de gastos.$pea0$, null::int, null),
+  ('6fb01902-3501-4f38-8a45-80df6d14801f'::uuid, $pea0$10 días hábiles.$pea0$, false, 3, $pea0$Ese es el plazo para derivar una asignación demorada.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = 'e80308b4-4279-4632-85c4-bad1001aa395'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select '7478bacb-2750-495a-8782-230edf008dc4'::uuid, 'verdadero_falso', $pea0$El estudiante puede empezar a ir a la organización antes del inicio de clases para adelantar horas.$pea0$, $pea0$El seguro rige desde el primer día de clases: antes no está cubierto.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', 'b2ca833f-005a-451e-819a-65df14068f0a'::uuid, null, now() + interval '1 millisecond' * 3
+where exists (select 1 from public.items where id = 'b2ca833f-005a-451e-819a-65df14068f0a'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '0ba24b95-30a6-4f75-88ec-f101f5bc73ed'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = '7478bacb-2750-495a-8782-230edf008dc4'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '0ba24b95-30a6-4f75-88ec-f101f5bc73ed'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, '7478bacb-2750-495a-8782-230edf008dc4'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('2028245b-122b-43d2-8af6-7a5f1203aef1'::uuid, $pea0$Verdadero$pea0$, false, 1, null, null::int, null),
+  ('1b5770fa-faf7-4360-8a4f-9fd66efa5716'::uuid, $pea0$Falso$pea0$, true, 2, null, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = '7478bacb-2750-495a-8782-230edf008dc4'::uuid)
+on conflict do nothing;
+
+insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
+select 'b251dd2f-f97f-4bbe-832f-8101ff8457bf'::uuid, '0ba24b95-30a6-4f75-88ec-f101f5bc73ed'::uuid, 78, $pea0$Práctica Solidaria: cómo se cursa y qué organización sirve$pea0$, 'leccion', a.id,
+       $pea0${"version":2,"tarjetas":[{"tipo":"caso","persona":"Valentina","canal":"whatsapp","consulta":"Quiero hacer la Práctica Solidaria en un refugio de animales donde ya colaboro. ¿Me la aprueban? ¿Tengo que ir a clases?"},{"tipo":"preguntar","opciones":[{"texto":"¿En qué cuatrimestre está?","clave":true,"porque":"Se puede cursar desde el tercer cuatrimestre."},{"texto":"¿La organización trabaja directamente con personas?","clave":true,"porque":"Tiene que tener un proyecto de acción directa en derechos humanos."},{"texto":"¿En qué modalidad cursa?","clave":true,"porque":"Define si los 4 encuentros son presenciales o virtuales."},{"texto":"¿Cuántas horas puede dedicarle?","clave":false,"porque":"Primero importa si la organización cumple los requisitos."}]},{"tipo":"idea","titulo":"Dos instancias, sin costo","texto":"Práctica Solidaria es obligatoria y cuatrimestral en todas las carreras de grado, se cursa desde el tercer cuatrimestre y no tiene costo. Tiene una instancia académica y una organizacional, en una organización social. Hay 4 encuentros por semestre, en las semanas 3, 6, 10 y 13: presenciales en P y PH, y virtuales sincrónicos por Teams en PD, ED y EDH. El docente manda fechas y accesos por la mensajería de Canvas. La inscripción cierra el viernes anterior al inicio de clases.","clave":"Desde el tercer cuatrimestre, sin costo; 4 encuentros en las semanas 3, 6, 10 y 13.","ejemplo":"Valentina cursa a distancia: sus 4 encuentros son por Teams."},{"tipo":"probalo","n":1},{"tipo":"idea","titulo":"Qué organización se aprueba","texto":"Tiene que ser una organización de la sociedad civil en actividad, con acción directa en derechos humanos (apoyo escolar, comedores, discapacidad, personas mayores), estructura mínima, 3 años de trayectoria y un tutor. Si no tiene personería jurídica, también se evalúa e informa el CUIL del referente. Se rechazan las protectoras de animales, las que buscan influir en ideas políticas o religiosas y las privadas que no cumplan los criterios de la localidad.","clave":"Sociedad civil, acción directa en derechos humanos, 3 años de trayectoria y tutor."},{"tipo":"probalo","n":2},{"tipo":"ojo","texto":"Donde ya trabaja solo sirve si la empresa tiene un área o proyecto de responsabilidad social o con grupos vulnerados. Las consultas de cursado van al docente por Canvas; las demoras de corrección y notas, a SGEA. El docente tiene hasta 10 días para corregir cada TP."},{"tipo":"cierre","resolucion":"A Valentina le explicás que un refugio de animales no se aprueba, porque la organización tiene que trabajar en forma directa con personas, en derechos humanos. Puede proponer otra organización que cumpla los requisitos o pedir una asignación a la Universidad. Además, tiene 4 encuentros en el semestre, según su modalidad.","recordar":"Acción directa en derechos humanos; protectoras de animales, no."}]}$pea0$::jsonb, 'marcar_hecho'
+from public.articulos a where a.slug = $pea0$kb-43-practica-solidaria$pea0$ and a.alcance = 'global'
+on conflict (id) do update set orden = excluded.orden, titulo = excluded.titulo, leccion = excluded.leccion,
+  articulo_id = excluded.articulo_id
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '0ba24b95-30a6-4f75-88ec-f101f5bc73ed'::uuid and c.estado = 'borrador');
+
+delete from public.preguntas
+where item_id = 'b251dd2f-f97f-4bbe-832f-8101ff8457bf'::uuid and id not in ('46bcc47d-a76e-4b7a-832c-51435043bd5c'::uuid, '411612f1-3a3e-493f-8fb7-89229603e1e2'::uuid, '8d2977dc-1023-4ff4-8eb3-a1fba51dfde4'::uuid)
+  and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '0ba24b95-30a6-4f75-88ec-f101f5bc73ed'::uuid and c.estado = 'borrador');
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select '46bcc47d-a76e-4b7a-832c-51435043bd5c'::uuid, 'opcion_multiple', $pea0$¿Cuál de estas organizaciones puede aprobarse para la Práctica Solidaria?$pea0$, $pea0$Tiene que desarrollar acción directa en derechos humanos, con al menos 3 años de trayectoria.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', 'b251dd2f-f97f-4bbe-832f-8101ff8457bf'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 1
+where exists (select 1 from public.items where id = 'b251dd2f-f97f-4bbe-832f-8101ff8457bf'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '0ba24b95-30a6-4f75-88ec-f101f5bc73ed'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = '46bcc47d-a76e-4b7a-832c-51435043bd5c'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '0ba24b95-30a6-4f75-88ec-f101f5bc73ed'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, '46bcc47d-a76e-4b7a-832c-51435043bd5c'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('db9152f2-6499-484d-83fe-e192f41de384'::uuid, $pea0$Una protectora de animales con 10 años de trayectoria.$pea0$, false, 1, $pea0$No trabaja en forma directa en derechos humanos.$pea0$, null::int, null),
+  ('1f5a46c0-90dd-4071-8ab8-d8e7caad5e91'::uuid, $pea0$Un comedor infantil con 4 años de actividad y un tutor.$pea0$, true, 2, $pea0$Cumple acción directa, trayectoria y tutor.$pea0$, null::int, null),
+  ('1cba8002-61a7-44be-8147-044d91eefa26'::uuid, $pea0$Una agrupación política barrial.$pea0$, false, 3, $pea0$Se rechazan las que buscan influir en ideas políticas.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = '46bcc47d-a76e-4b7a-832c-51435043bd5c'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select '411612f1-3a3e-493f-8fb7-89229603e1e2'::uuid, 'opcion_multiple', $pea0$¿Desde cuándo puede cursar un estudiante la Práctica Solidaria?$pea0$, $pea0$Se puede cursar a partir del tercer cuatrimestre y no tiene costo.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', 'b251dd2f-f97f-4bbe-832f-8101ff8457bf'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 2
+where exists (select 1 from public.items where id = 'b251dd2f-f97f-4bbe-832f-8101ff8457bf'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '0ba24b95-30a6-4f75-88ec-f101f5bc73ed'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = '411612f1-3a3e-493f-8fb7-89229603e1e2'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '0ba24b95-30a6-4f75-88ec-f101f5bc73ed'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, '411612f1-3a3e-493f-8fb7-89229603e1e2'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('85789368-80ae-4472-80ac-269dddbcce2c'::uuid, $pea0$Desde el primer cuatrimestre.$pea0$, false, 1, $pea0$Recién desde el tercero.$pea0$, null::int, null),
+  ('7a7f26c9-d872-4986-8789-2d2861b7cbee'::uuid, $pea0$Desde el tercer cuatrimestre.$pea0$, true, 2, $pea0$Es obligatoria y no tiene costo.$pea0$, null::int, null),
+  ('a7da2ec3-0079-4eda-8a49-86e07c7589cf'::uuid, $pea0$Solo en el último año.$pea0$, false, 3, $pea0$Puede cursarla antes.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = '411612f1-3a3e-493f-8fb7-89229603e1e2'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select '8d2977dc-1023-4ff4-8eb3-a1fba51dfde4'::uuid, 'verdadero_falso', $pea0$La Práctica Solidaria tiene un costo como cualquier materia.$pea0$, $pea0$No tiene costo para el estudiante.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', 'b251dd2f-f97f-4bbe-832f-8101ff8457bf'::uuid, null, now() + interval '1 millisecond' * 3
+where exists (select 1 from public.items where id = 'b251dd2f-f97f-4bbe-832f-8101ff8457bf'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '0ba24b95-30a6-4f75-88ec-f101f5bc73ed'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = '8d2977dc-1023-4ff4-8eb3-a1fba51dfde4'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '0ba24b95-30a6-4f75-88ec-f101f5bc73ed'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, '8d2977dc-1023-4ff4-8eb3-a1fba51dfde4'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('e4e744c4-d733-4bde-85a5-6a6849c29fb9'::uuid, $pea0$Verdadero$pea0$, false, 1, null, null::int, null),
+  ('44b6d9fa-ada3-4539-8a3f-38da0099bb41'::uuid, $pea0$Falso$pea0$, true, 2, null, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = '8d2977dc-1023-4ff4-8eb3-a1fba51dfde4'::uuid)
+on conflict do nothing;
+
+insert into public.items (id, modulo_id, orden, titulo, tipo, articulo_id, leccion, requisito)
+select '71f40cfc-b8bc-48ef-8b44-9f13e0b64ace'::uuid, '0ba24b95-30a6-4f75-88ec-f101f5bc73ed'::uuid, 79, $pea0$Práctica Solidaria: asignación, incompatibilidad y derivaciones$pea0$, 'leccion', a.id,
+       $pea0${"version":2,"tarjetas":[{"tipo":"caso","persona":"Diego","canal":"telefono","consulta":"Me asignaron una organización que queda lejos y no me gusta. Quiero que me den otra. Además, tengo certificado de discapacidad y me cuesta ir."},{"tipo":"preguntar","opciones":[{"texto":"¿Tiene Certificado Único de Discapacidad?","clave":true,"porque":"Con CUD puede gestionar incompatibilidad de concurrencia."},{"texto":"¿Ya contactó a su tutor?","clave":true,"porque":"El primer contacto lo hace el estudiante."},{"texto":"¿Tiene otra organización para proponer?","clave":true,"porque":"No puede rechazar la asignada, pero sí proponer otra."},{"texto":"¿Por qué no le gusta la organización?","clave":false,"porque":"No cambia la respuesta: no se pide una nueva asignación."}]},{"tipo":"idea","titulo":"Pedir o proponer organización","texto":"El pedido se hace en Soy Siglo con \"Solicito que la Universidad me asigne una organización\" y se guarda. No es inmediato y respeta la localidad del legajo. Llega un aviso por correo, pero tiene que revisar Soy Siglo por su cuenta. Solo se carga ticket si pasaron más de 10 días hábiles sin asignación. No puede rechazar la organización asignada ni pedir otra, pero sí proponer una con \"Quiero proponer una Organización\". Si le rechazan una propuesta, corrige los datos o presenta otra.","clave":"No se rechaza la asignada: se propone otra. Ticket recién a los 10 días hábiles.","ejemplo":"Diego puede proponer una organización cercana que cumpla los requisitos."},{"tipo":"probalo","n":1},{"tipo":"idea","titulo":"Incompatibilidad y extranjero","texto":"Solo aplica a personas privadas de la libertad (resolución judicial) o con CUD que no puedan asistir presencialmente (CUD). Se carga en Soy Siglo y el Centro de Sustentabilidad Social la analiza; se comunica a través del docente. No aprueba la materia automáticamente. Desde el extranjero no está eximido: propone una organización de su país o pide una asignación. Si es del exterior, la organización acepta que no hay seguro y firma el convenio sin cambios.","clave":"Privación de la libertad o CUD; la analiza Sustentabilidad; no aprueba sola."},{"tipo":"probalo","n":2},{"tipo":"idea","titulo":"Documentación, seguro y tickets","texto":"Los convenios marco y anexo se firman de forma digital en Soy Siglo: el estudiante no firma ni presenta nada. La evaluación de desempeño va con el TP4 por Canvas; no hay planilla de asistencia. El seguro rige del primer al último día de clases; la póliza se pide a la aseguradora por La Nube. Tickets: \"Inconveniente con organización\", con evidencia de los intentos de contacto, o \"carga de formulario\", después de probar otro navegador o una ventana de incógnito.","clave":"Desempeño con el TP4, sin planilla; tickets con evidencia o tras probar otro navegador."},{"tipo":"ojo","texto":"El correo del Centro de Sustentabilidad se comparte solo con organizaciones: no responde a estudiantes."},{"tipo":"cierre","resolucion":"A Diego le explicás que no puede rechazar la organización asignada, pero sí proponer otra que cumpla los requisitos. Como tiene CUD y le cuesta asistir, puede cargar la incompatibilidad de concurrencia en Soy Siglo, adjuntando el certificado. El Centro de Sustentabilidad analiza su caso y le indica cómo seguir a través del docente.","recordar":"Proponer otra en lugar de rechazar; con CUD, incompatibilidad."}]}$pea0$::jsonb, 'marcar_hecho'
+from public.articulos a where a.slug = $pea0$kb-43-practica-solidaria$pea0$ and a.alcance = 'global'
+on conflict (id) do update set orden = excluded.orden, titulo = excluded.titulo, leccion = excluded.leccion,
+  articulo_id = excluded.articulo_id
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '0ba24b95-30a6-4f75-88ec-f101f5bc73ed'::uuid and c.estado = 'borrador');
+
+delete from public.preguntas
+where item_id = '71f40cfc-b8bc-48ef-8b44-9f13e0b64ace'::uuid and id not in ('63e50e46-62ee-43fb-88fe-eb74ad3046c0'::uuid, '6ffc1676-bf09-44a8-8388-0edb702237d2'::uuid, '1d63fa64-c101-4c69-8f0b-f095beaf4ff4'::uuid)
+  and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '0ba24b95-30a6-4f75-88ec-f101f5bc73ed'::uuid and c.estado = 'borrador');
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select '63e50e46-62ee-43fb-88fe-eb74ad3046c0'::uuid, 'opcion_multiple', $pea0$Un estudiante no quiere la organización que le asignaron. ¿Qué puede hacer?$pea0$, $pea0$No puede rechazar la asignada, pero puede proponer una organización.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', '71f40cfc-b8bc-48ef-8b44-9f13e0b64ace'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 1
+where exists (select 1 from public.items where id = '71f40cfc-b8bc-48ef-8b44-9f13e0b64ace'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '0ba24b95-30a6-4f75-88ec-f101f5bc73ed'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = '63e50e46-62ee-43fb-88fe-eb74ad3046c0'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '0ba24b95-30a6-4f75-88ec-f101f5bc73ed'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, '63e50e46-62ee-43fb-88fe-eb74ad3046c0'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('369bad22-047f-457f-8833-24faa46060d1'::uuid, $pea0$Pedir una nueva asignación.$pea0$, false, 1, $pea0$No se puede pedir otra asignación.$pea0$, null::int, null),
+  ('7f42979d-616e-4935-827c-f9b2058a1129'::uuid, $pea0$Proponer una organización con el formulario correspondiente.$pea0$, true, 2, $pea0$La propuesta tiene que cumplir los requisitos.$pea0$, null::int, null),
+  ('6ce61874-3433-4047-8b72-94bcd07e671f'::uuid, $pea0$Dejar la materia en pausa hasta que le asignen otra.$pea0$, false, 3, $pea0$No existe esa opción.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = '63e50e46-62ee-43fb-88fe-eb74ad3046c0'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select '6ffc1676-bf09-44a8-8388-0edb702237d2'::uuid, 'opcion_multiple', $pea0$¿Qué documento acredita la incompatibilidad de una estudiante con discapacidad?$pea0$, $pea0$Con CUD y dificultad para asistir, la incompatibilidad se acredita con el certificado.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', '71f40cfc-b8bc-48ef-8b44-9f13e0b64ace'::uuid, $pea0${"una":true}$pea0$::jsonb, now() + interval '1 millisecond' * 2
+where exists (select 1 from public.items where id = '71f40cfc-b8bc-48ef-8b44-9f13e0b64ace'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '0ba24b95-30a6-4f75-88ec-f101f5bc73ed'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = '6ffc1676-bf09-44a8-8388-0edb702237d2'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '0ba24b95-30a6-4f75-88ec-f101f5bc73ed'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, '6ffc1676-bf09-44a8-8388-0edb702237d2'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('a2b26011-cc1e-422c-83f4-a624e8b17f4a'::uuid, $pea0$Un certificado laboral.$pea0$, false, 1, $pea0$Ese se pide en Práctica Profesional para empleados públicos.$pea0$, null::int, null),
+  ('fb277908-427f-44be-8b37-1b8e21c0b222'::uuid, $pea0$El Certificado Único de Discapacidad (CUD).$pea0$, true, 2, $pea0$Se adjunta en el formulario de Soy Siglo.$pea0$, null::int, null),
+  ('f7d79252-b213-4890-862e-797db8374356'::uuid, $pea0$Una nota del docente.$pea0$, false, 3, $pea0$El docente comunica la respuesta, no acredita la situación.$pea0$, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = '6ffc1676-bf09-44a8-8388-0edb702237d2'::uuid)
+on conflict do nothing;
+
+insert into public.preguntas (id, tipo, enunciado_md, explicacion_md, categoria_id, estado, alcance, uso, item_id, config, created_at)
+select '1d63fa64-c101-4c69-8f0b-f095beaf4ff4'::uuid, 'verdadero_falso', $pea0$En Práctica Solidaria hay que entregar una planilla de asistencia con el TP4.$pea0$, $pea0$Solo se entrega la evaluación de desempeño; no hay planilla de asistencia.$pea0$, (select id from public.categorias where slug = 'reglamento'),
+       'publicado', 'global', 'practica', '71f40cfc-b8bc-48ef-8b44-9f13e0b64ace'::uuid, null, now() + interval '1 millisecond' * 3
+where exists (select 1 from public.items where id = '71f40cfc-b8bc-48ef-8b44-9f13e0b64ace'::uuid)
+on conflict (id) do update set tipo = excluded.tipo, enunciado_md = excluded.enunciado_md,
+  explicacion_md = excluded.explicacion_md, config = excluded.config, created_at = excluded.created_at
+where exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '0ba24b95-30a6-4f75-88ec-f101f5bc73ed'::uuid and c.estado = 'borrador');
+
+delete from public.opciones where pregunta_id = '1d63fa64-c101-4c69-8f0b-f095beaf4ff4'::uuid and exists (select 1 from public.modulos m join public.cursos c on c.id = m.curso_id
+               where m.id = '0ba24b95-30a6-4f75-88ec-f101f5bc73ed'::uuid and c.estado = 'borrador');
+
+insert into public.opciones (id, pregunta_id, texto, es_correcta, orden, explicacion, posicion_correcta, grupo)
+select x.id, '1d63fa64-c101-4c69-8f0b-f095beaf4ff4'::uuid, x.texto, x.correcta, x.orden, x.explicacion, x.posicion, x.grupo from (values
+  ('fa0a7cd9-c4c1-48b3-8d53-4cc2f6880756'::uuid, $pea0$Verdadero$pea0$, false, 1, null, null::int, null),
+  ('884d71a4-a68e-4fa2-821b-156d7dc57c24'::uuid, $pea0$Falso$pea0$, true, 2, null, null::int, null)
+) as x(id, texto, correcta, orden, explicacion, posicion, grupo)
+where exists (select 1 from public.preguntas where id = '1d63fa64-c101-4c69-8f0b-f095beaf4ff4'::uuid)
+on conflict do nothing;
