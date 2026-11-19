@@ -8,28 +8,28 @@ Voces: Narradora (Kore), Asesor (Puck), Estudiantes (Leda).
 
 ## 1. Apertura
 
-*Placa: «02 · MODALIDADES». Cinco etiquetas caen sobre el papel: ED, EDH, P, PH, PD.*
+*Placa: «02 · MODALIDADES». Tres etiquetas caen sobre el papel: ED, EDH y PD.*
 
 **NARRADORA:** Cada modalidad tiene sus reglas de asistencia, de exámenes y de egreso. Si no sabés en qué modalidad está el estudiante, cualquier respuesta puede estar mal. Arranquemos por ahí.
 
-## 2. Distancia y presencial
+## 2. Las tres modalidades
 
-*Dos columnas: «A distancia» y «Presenciales».*
+*Tres columnas: «ED», «EDH» y «PD».*
 
 **NARRADORA:** A distancia están ED y EDH. En ED se cursa en la plataforma y se va a Open Class en el CAU cada dos semanas por materia; en grado, puede sumar una materia ciento por ciento virtual. En EDH, todo es en la plataforma, sin ir al CAU.
-Las presenciales son P, PH y PD. PD es presencial y cuatrimestral, con telepresencia.
+PD, en cambio, es presencial y cuatrimestral, con telepresencia.
 
 *Un sello: «75 %».*
 
-**NARRADORA:** Todas piden setenta y cinco por ciento de asistencia, menos EDH.
+**NARRADORA:** ED y PD piden setenta y cinco por ciento de asistencia. EDH no tiene asistencia.
 
 ## 3. Exámenes y egreso según la modalidad
 
 *Tabla que se arma fila por fila.*
 
-**NARRADORA:** En ED y EDH, a los parciales hay que inscribirse; en las presenciales, son automáticos.
-El final es escrito en todas, pero en P, PH y PD suma una instancia oral.
-Y al final de la carrera: en ED y EDH se rinde el EFIP; en las presenciales, después del Seminario Final, va la Defensa Oral.
+**NARRADORA:** En ED y EDH, a los parciales hay que inscribirse; en PD, son automáticos.
+El final es escrito en todas, pero en PD suma una instancia oral.
+Y al final de la carrera: en ED y EDH se rinde el EFIP; en PD no hay EFIP: después del Seminario Final va la Defensa Oral.
 
 ## 4. Cambio de CAU
 
@@ -58,9 +58,9 @@ Si tiene baja administrativa, se reactiva al pagar la deuda. Pero si hubo una an
 
 *Mostrador. Etiqueta: `// julieta pregunta`.*
 
-**ESTUDIANTE (audio):** Estoy en Presencial Home y una amiga en EDH me dijo que tengo que inscribirme a los parciales y que después rindo el EFIP. ¿Es así para mí también?
+**ESTUDIANTE (audio):** Estoy en PD y una amiga en EDH me dijo que tengo que inscribirme a los parciales y que después rindo el EFIP. ¿Es así para mí también?
 
-**ASESOR:** No, Julieta. En Presencial Home los parciales son automáticos, y no rendís EFIP: después del Seminario Final vas a la Defensa Oral. Sí te tenés que inscribir a los recuperatorios, a los integradores y a los finales, que además tienen una parte oral.
+**ASESOR:** No, Julieta. En PD los parciales son automáticos, y no rendís EFIP: después del Seminario Final vas a la Defensa Oral. Sí te tenés que inscribir a los recuperatorios, a los integradores y a los finales, que además tienen una parte oral.
 
 **NARRADORA:** La amiga tenía razón para su modalidad, no para la de Julieta.
 
@@ -79,5 +79,5 @@ Si tiene baja administrativa, se reactiva al pagar la deuda. Pero si hubo una an
 *«PARA RECORDAR». Tres tarjetas.*
 
 **NARRADORA:** Uno: primero preguntá la modalidad.
-Dos: a distancia, parciales con inscripción y EFIP; presencial, parciales automáticos, final con oral y Defensa Oral.
+Dos: en ED y EDH, parciales con inscripción y EFIP; en PD, parciales automáticos, final con oral y Defensa Oral.
 Tres: cambio de CAU o de carrera, siempre sin deuda y sin finales anotados.
