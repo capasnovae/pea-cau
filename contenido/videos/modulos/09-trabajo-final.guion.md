@@ -49,11 +49,11 @@ Se rinde en forma presencial en el Campus; la modalidad virtual es solo para qui
 
 ## 6. Caso: «quiero cambiar de tema»
 
-*Chat. Etiqueta: `// pablo escribe`.*
+*Chat. Etiqueta: `// paula escribe`.*
 
 **ESTUDIANTE (escribe):** «Me desaprobaron la entrega 2 y quiero cambiar de tema.»
 
-**ASESOR (escribe):** «Pablo, la temática no se puede cambiar. Todavía podés regularizar si aprobás la entrega 1 o la 3, y la 4, con cincuenta por ciento o más.»
+**ASESOR (escribe):** «Paula, la temática no se puede cambiar. Todavía podés regularizar si aprobás la entrega 1 o la 3, y la 4, con cincuenta por ciento o más.»
 
 ## 7. Caso: «¿la defensa por Zoom?»
 

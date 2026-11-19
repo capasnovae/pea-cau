@@ -58,7 +58,7 @@ Un duplicado o una rectificación van a Operación Títulos, con el motivo, el d
 
 ## 8. Caso: «me piden el certificado impreso»
 
-*Etiqueta: `// hernán · mensaje de voz`.*
+*Etiqueta: `// helena · mensaje de voz`.*
 
 **ESTUDIANTE (audio):** En el trabajo me piden el certificado impreso y firmado, y además nunca me llegó.
 

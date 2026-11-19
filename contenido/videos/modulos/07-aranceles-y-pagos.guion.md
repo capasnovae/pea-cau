@@ -75,7 +75,7 @@ Si además quiere cambiar de carrera o de modalidad, va por ticket a N2: primero
 
 ## 9. Caso: «¿qué tengo que pagar?»
 
-*Chat. Etiqueta: `// gonzalo escribe`.*
+*Chat. Etiqueta: `// gabriela escribe`.*
 
 **ESTUDIANTE (escribe):** «Soy de EDH, grado. Quiero cursar cinco materias este semestre. ¿Qué pago?»
 

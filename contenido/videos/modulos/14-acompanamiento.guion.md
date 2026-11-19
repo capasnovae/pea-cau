@@ -37,11 +37,11 @@ Si ya tiene el check de discapacidad, cada examen con más tiempo se pide por Si
 
 **ASESOR (escribe):** «Camila, primero cargá tu CUD o certificado en Digital Admin, en un solo PDF. Como es la primera vez, lo derivo a Accesibilidad y te contactan en setenta y dos horas hábiles. Después, cada examen con más tiempo lo pedimos por Sistema Q.»
 
-## 5. Caso: «estoy muy angustiado con los finales»
+## 5. Caso: «estoy muy angustiada con los finales»
 
 *Etiqueta: `// estudiante · mensaje de voz`.*
 
-**ESTUDIANTE (audio):** Estoy muy angustiado con los finales, no me puedo concentrar.
+**ESTUDIANTE (audio):** Estoy muy angustiada con los finales, no me puedo concentrar.
 
 **ASESOR (escribe):** «Gracias por contarlo. Podés pedir un encuentro individual con el Gabinete de Bienestar desde La Nube: hay psicólogos que acompañan justo en estos momentos.»
 

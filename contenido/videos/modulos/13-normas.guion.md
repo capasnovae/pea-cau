@@ -40,11 +40,11 @@ Si no está de acuerdo con la respuesta, puede presentar la reconsideración y, 
 
 ## 5. Caso: «tengo un cero y no sé por qué»
 
-*Llamada. Etiqueta: `// matías · llamada`.*
+*Llamada. Etiqueta: `// micaela · llamada`.*
 
 **ESTUDIANTE (audio):** Tengo un cero en el parcial que rendí hace tres días y no me llegó nada. Quiero reclamar ya.
 
-**ASESOR:** Matías, la Universidad tiene diez días hábiles para auditar el examen y siete más para notificarte al correo registrado. Rendiste hace tres días, así que todavía corre el plazo. Si te notifican, vas a tener cinco días hábiles para presentar tu descargo.
+**ASESOR:** Micaela, la Universidad tiene diez días hábiles para auditar el examen y siete más para notificarte al correo registrado. Rendiste hace tres días, así que todavía corre el plazo. Si te notifican, vas a tener cinco días hábiles para presentar tu descargo.
 
 **NARRADORA:** Se deriva solo si pasó el plazo y no hay ninguna notificación.
 
